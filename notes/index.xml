@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Notes on Nasser Alk</title>
+    <link>/notes/</link>
+    <description>Nasser Alk (Notes)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 03 Dec 2020 00:00:00 +0000</lastBuildDate>
+    
+    <atom:link href="/notes/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>First Article</title>
+      <link>/notes/firstarticle/</link>
+      <pubDate>Thu, 03 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/notes/firstarticle/</guid>
+      <description>
+&lt;div id=&#34;outline-container-headline-1&#34; class=&#34;outline-2&#34;&gt;
+&lt;h2 id=&#34;headline-1&#34;&gt;
+Introduction
+&lt;/h2&gt;
+&lt;div id=&#34;outline-text-headline-1&#34; class=&#34;outline-text-2&#34;&gt;
+&lt;p&gt;Meta post about how I do it.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-2&#34; class=&#34;outline-2&#34;&gt;
+&lt;h2 id=&#34;headline-2&#34;&gt;
+Images from URL
+&lt;/h2&gt;
+&lt;div id=&#34;outline-text-headline-2&#34; class=&#34;outline-text-2&#34;&gt;
+&lt;p&gt;
+You can just insert the link &lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/51283k0NwXL._SL200_.jpg&#34; alt=&#34;https://images-na.ssl-images-amazon.com/images/I/51283k0NwXL._SL200_.jpg&#34; title=&#34;https://images-na.ssl-images-amazon.com/images/I/51283k0NwXL._SL200_.jpg&#34; /&gt; for inline images.&lt;/p&gt;
+&lt;p&gt;
+This does not seem to work in a standaline paragraph.&lt;/p&gt;
+&lt;p&gt;
+https://images-na.ssl-images-amazon.com/images/I/51283k0NwXL._SL200_.jpg&lt;/p&gt;
+&lt;p&gt;
+In order to override the theme css for images display I manually inserted the html with a different &lt;em&gt;style=&amp;#34;display: revert;&amp;#34;.&lt;/em&gt;&lt;/p&gt;
+&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/51283k0NwXL._SL200_.jpg&#34; style=&#34;display: revert;&#34;&gt;
+&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/514Oi-7cLQL._SL200_.jpg&#34; style=&#34;display: revert;&#34;&gt;
+&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/51xiWB0PfWL._SL200_.jpg&#34; style=&#34;display: revert;&#34;&gt;
+&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/51p7Riv4tjL._SL200_.jpg&#34; style=&#34;display: revert;&#34;&gt;
+&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/513Y4Zp0QuL._SL200_.jpg&#34; style=&#34;display: revert;&#34;&gt;
+&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/51lHQvZOZiL._SL200_.jpg&#34; style=&#34;display: revert;&#34;&gt;
+&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/51dUdCh2ZdL._SL200_.jpg&#34; style=&#34;display: revert;&#34;&gt;
+&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/51wGICTPShL._SL200_.jpg&#34; style=&#34;display: revert;&#34;&gt;
+&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/316IBDS3nhL._SL200_.jpg&#34; style=&#34;display: revert;&#34;&gt;
+&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/31sf4AgyQAL._SL200_.jpg&#34; style=&#34;display: revert;&#34;&gt;
+&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/51u3KCvc1iL._SL200_.jpg&#34; style=&#34;display: revert;&#34;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-3&#34; class=&#34;outline-2&#34;&gt;
+&lt;h2 id=&#34;headline-3&#34;&gt;
+Graphs from interactive code blocks
+&lt;/h2&gt;
+&lt;div id=&#34;outline-text-headline-3&#34; class=&#34;outline-text-2&#34;&gt;
+&lt;p&gt;
+Using &lt;code class=&#34;verbatim&#34;&gt;emacs-jupyter&lt;/code&gt; together with &lt;code class=&#34;verbatim&#34;&gt;org-mode&lt;/code&gt; babel.
+In order to use the generated graph from the code in the blog published with Hugu I did the following:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;save the figure with source block header argument &lt;code class=&#34;verbatim&#34;&gt;:file ../../static/images/graph1.png.&lt;/code&gt; &lt;sup class=&#34;footnote-reference&#34;&gt;&lt;a id=&#34;footnote-reference-1&#34; href=&#34;#footnote-1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;added also &lt;code class=&#34;verbatim&#34;&gt;:exports code&lt;/code&gt; to avoid having a broken link in the html, which is automatically generated with ob-jupyter.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;inserted a link to the graph considering the folder structure after published with Hubo  &lt;code class=&#34;verbatim&#34;&gt;[[file:images/graph.png]]&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;src src-jupyter-python&#34;&gt;
+&lt;pre&gt;&lt;code class=&#34;language-jupyter-python&#34; data-lang=&#34;jupyter-python&#34;&gt;import matplotlib.pyplot as plt
+import numpy as np
+
+x=np.linspace(-15,15, 100)
+fig = plt.figure(dpi=300)
+plt.plot(np.sin(x)**2/x**2)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;img src=&#34;/images/graph1.png&#34; alt=&#34;/images/graph1.png&#34; title=&#34;/images/graph1.png&#34; width=&#34;400px&#34;/&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-4&#34; class=&#34;outline-2&#34;&gt;
+&lt;h2 id=&#34;headline-4&#34;&gt;
+Dataframes from interactive code blocks
+&lt;/h2&gt;
+&lt;div id=&#34;outline-text-headline-4&#34; class=&#34;outline-text-2&#34;&gt;
+&lt;div class=&#34;src src-jupyter-python&#34;&gt;
+&lt;pre&gt;&lt;code class=&#34;language-jupyter-python&#34; data-lang=&#34;jupyter-python&#34;&gt;import pandas as pd
+data = [[1, 2], [3, 4]]
+DF = pd.DataFrame(data, columns=[&amp;#34;Foo&amp;#34;, &amp;#34;Bar&amp;#34;])
+print(DF)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;pre class=&#34;example&#34;&gt;
+   Foo  Bar
+0    1    2
+1    3    4
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-5&#34; class=&#34;outline-2&#34;&gt;
+&lt;h2 id=&#34;headline-5&#34;&gt;
+Footnotes
+&lt;/h2&gt;
+&lt;/div&gt;
+&lt;div class=&#34;footnotes&#34;&gt;
+&lt;hr class=&#34;footnotes-separatator&#34;&gt;
+&lt;div class=&#34;footnote-definitions&#34;&gt;
+&lt;div class=&#34;footnote-definition&#34;&gt;
+&lt;sup id=&#34;footnote-1&#34;&gt;&lt;a href=&#34;#footnote-reference-1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;
+&lt;div class=&#34;footnote-body&#34;&gt;
+&lt;p&gt;I manually created the &lt;code class=&#34;verbatim&#34;&gt;images&lt;/code&gt; folder.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
