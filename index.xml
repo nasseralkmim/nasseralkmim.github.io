@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Nasser Alk</title>
-    <link>/</link>
+    <link>https://nasseralkmim.github.io/</link>
     <description>Nasser Alk</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 03 Dec 2020 00:00:00 +0000</lastBuildDate>
     
-    <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://nasseralkmim.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>First Article</title>
-      <link>/notes/firstarticle/</link>
+      <link>https://nasseralkmim.github.io/notes/firstarticle/</link>
       <pubDate>Thu, 03 Dec 2020 00:00:00 +0000</pubDate>
       
-      <guid>/notes/firstarticle/</guid>
+      <guid>https://nasseralkmim.github.io/notes/firstarticle/</guid>
       <description>
 &lt;div id=&#34;outline-container-headline-1&#34; class=&#34;outline-2&#34;&gt;
 &lt;h2 id=&#34;headline-1&#34;&gt;
@@ -79,7 +79,7 @@ x=np.linspace(-15,15, 100)
 fig = plt.figure(dpi=300)
 plt.plot(np.sin(x)**2/x**2)&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;img src=&#34;/images/graph1.png&#34; alt=&#34;/images/graph1.png&#34; title=&#34;/images/graph1.png&#34; width=&#34;400px&#34;/&gt;
+&lt;img src=&#34;https://nasseralkmim.github.io/images/graph1.png&#34; alt=&#34;/images/graph1.png&#34; title=&#34;/images/graph1.png&#34; width=&#34;400px&#34;/&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;outline-container-headline-4&#34; class=&#34;outline-2&#34;&gt;
@@ -121,10 +121,10 @@ Footnotes
     
     <item>
       <title>Quem sou eu?</title>
-      <link>/about/</link>
+      <link>https://nasseralkmim.github.io/about/</link>
       <pubDate>Thu, 03 Dec 2020 00:00:00 +0000</pubDate>
       
-      <guid>/about/</guid>
+      <guid>https://nasseralkmim.github.io/about/</guid>
       <description></description>
     </item>
     
