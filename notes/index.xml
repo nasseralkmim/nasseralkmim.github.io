@@ -1,15 +1,23 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Notes on Nasser Alk</title>
+    <title>Notes on nasser</title>
     <link>https://nasseralkmim.github.io/notes/</link>
-    <description>Nasser Alk (Notes)</description>
+    <description>Recent content in Notes on nasser</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 03 Dec 2020 00:00:00 +0000</lastBuildDate>
-    
-    <atom:link href="https://nasseralkmim.github.io/notes/index.xml" rel="self" type="application/rss+xml" />
-    
+    <copyright>© {year}</copyright>
+    <lastBuildDate>Fri, 04 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Sentiment analysis on IMDB dataset</title>
+      <link>https://nasseralkmim.github.io/notes/sentiment-analysis/</link>
+      <pubDate>Fri, 04 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://nasseralkmim.github.io/notes/sentiment-analysis/</guid>
+      <description>Introduction   This is as exemple from the excelent book by François Chollet on deep learning.
+  Preprocessing   Load imdb data from keras datasets.
+from keras.datasets import imdb from keras import preprocessing max_features = 10000 # number of words maxlen = 20 (x_train, y_train), (x_test, y_test) = imdb.load_data(num_words=max_features) print(x_train, len(x_train), len(x_train[1]))  [list([1, 14, 22, 16, 43, 530, 973, 1622, 1385, 65, 458, 4468, 66, 3941, 4, 173, 36, 256, 5, 25, 100, 43, 838, 112, 50, 670, 2, 9, 35, 480, 284, 5, 150, 4, 172, 112, 167, 2, 336, 385, 39, 4, 172, 4536, 1111, 17, 546, 38, 13, 447, 4, 192, 50, 16, 6, 147, 2025, 19, 14, 22, 4, 1920, 4613, 469, 4, 22, 71, 87, 12, 16, 43, 530, 38, 76, 15, 13, 1247, 4, 22, 17, 515, 17, 12, 16, 626, 18, 2, 5, 62, 386, 12, 8, 316, 8, 106, 5, 4, 2223, 5244, 16, 480, 66, 3785, 33, 4, 130, 12, 16, 38, 619, 5, 25, 124, 51, 36, 135, 48, 25, 1415, 33, 6, 22, 12, 215, 28, 77, 52, 5, 14, 407, 16, 82, 2, 8, 4, 107, 117, 5952, 15, 256, 4, 2, 7, 3766, 5, 723, 36, 71, 43, 530, 476, 26, 400, 317, 46, 7, 4, 2, 1029, 13, 104, 88, 4, 381, 15, 297, 98, 32, 2071, 56, 26, 141, 6, 194, 7486, 18, 4, 226, 22, 21, 134, 476, 26, 480, 5, 144, 30, 5535, 18, 51, 36, 28, 224, 92, 25, 104, 4, 226, 65, 16, 38, 1334, 88, 12, 16, 283, 5, 16, 4472, 113, 103, 32, 15, 16, 5345, 19, 178, 32]) list([1, 194, 1153, 194, 8255, 78, 228, 5, 6, 1463, 4369, 5012, 134, 26, 4, 715, 8, 118, 1634, 14, 394, 20, 13, 119, 954, 189, 102, 5, 207, 110, 3103, 21, 14, 69, 188, 8, 30, 23, 7, 4, 249, 126, 93, 4, 114, 9, 2300, 1523, 5, 647, 4, 116, 9, 35, 8163, 4, 229, 9, 340, 1322, 4, 118, 9, 4, 130, 4901, 19, 4, 1002, 5, 89, 29, 952, 46, 37, 4, 455, 9, 45, 43, 38, 1543, 1905, 398, 4, 1649, 26, 6853, 5, 163, 11, 3215, 2, 4, 1153, 9, 194, 775, 7, 8255, 2, 349, 2637, 148, 605, 2, 8003, 15, 123, 125, 68, 2, 6853, 15, 349, 165, 4362, 98, 5, 4, 228, 9, 43, 2, 1157, 15, 299, 120, 5, 120, 174, 11, 220, 175, 136, 50, 9, 4373, 228, 8255, 5, 2, 656, 245, 2350, 5, 4, 9837, 131, 152, 491, 18, 2, 32, 7464, 1212, 14, 9, 6, 371, 78, 22, 625, 64, 1382, 9, 8, 168, 145, 23, 4, 1690, 15, 16, 4, 1355, 5, 28, 6, 52, 154, 462, 33, 89, 78, 285, 16, 145, 95]) list([1, 14, 47, 8, 30, 31, 7, 4, 249, 108, 7, 4, 5974, 54, 61, 369, 13, 71, 149, 14, 22, 112, 4, 2401, 311, 12, 16, 3711, 33, 75, 43, 1829, 296, 4, 86, 320, 35, 534, 19, 263, 4821, 1301, 4, 1873, 33, 89, 78, 12, 66, 16, 4, 360, 7, 4, 58, 316, 334, 11, 4, 1716, 43, 645, 662, 8, 257, 85, 1200, 42, 1228, 2578, 83, 68, 3912, 15, 36, 165, 1539, 278, 36, 69, 2, 780, 8, 106, 14, 6905, 1338, 18, 6, 22, 12, 215, 28, 610, 40, 6, 87, 326, 23, 2300, 21, 23, 22, 12, 272, 40, 57, 31, 11, 4, 22, 47, 6, 2307, 51, 9, 170, 23, 595, 116, 595, 1352, 13, 191, 79, 638, 89, 2, 14, 9, 8, 106, 607, 624, 35, 534, 6, 227, 7, 129, 113]) .</description>
+    </item>
     
     <item>
       <title>First Article</title>
@@ -17,106 +25,12 @@
       <pubDate>Thu, 03 Dec 2020 00:00:00 +0000</pubDate>
       
       <guid>https://nasseralkmim.github.io/notes/firstarticle/</guid>
-      <description>
-&lt;div id=&#34;outline-container-headline-1&#34; class=&#34;outline-2&#34;&gt;
-&lt;h2 id=&#34;headline-1&#34;&gt;
-Introduction
-&lt;/h2&gt;
-&lt;div id=&#34;outline-text-headline-1&#34; class=&#34;outline-text-2&#34;&gt;
-&lt;p&gt;Meta post about how I do it.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;outline-container-headline-2&#34; class=&#34;outline-2&#34;&gt;
-&lt;h2 id=&#34;headline-2&#34;&gt;
-Images from URL
-&lt;/h2&gt;
-&lt;div id=&#34;outline-text-headline-2&#34; class=&#34;outline-text-2&#34;&gt;
-&lt;p&gt;
-You can just insert the link &lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/51283k0NwXL._SL200_.jpg&#34; alt=&#34;https://images-na.ssl-images-amazon.com/images/I/51283k0NwXL._SL200_.jpg&#34; title=&#34;https://images-na.ssl-images-amazon.com/images/I/51283k0NwXL._SL200_.jpg&#34; /&gt; for inline images.&lt;/p&gt;
-&lt;p&gt;
-This does not seem to work in a standaline paragraph.&lt;/p&gt;
-&lt;p&gt;
-https://images-na.ssl-images-amazon.com/images/I/51283k0NwXL._SL200_.jpg&lt;/p&gt;
-&lt;p&gt;
-In order to override the theme css for images display I manually inserted the html with a different &lt;em&gt;style=&amp;#34;display: revert;&amp;#34;.&lt;/em&gt;&lt;/p&gt;
-&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/51283k0NwXL._SL200_.jpg&#34; style=&#34;display: revert;&#34;&gt;
-&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/514Oi-7cLQL._SL200_.jpg&#34; style=&#34;display: revert;&#34;&gt;
-&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/51xiWB0PfWL._SL200_.jpg&#34; style=&#34;display: revert;&#34;&gt;
-&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/51p7Riv4tjL._SL200_.jpg&#34; style=&#34;display: revert;&#34;&gt;
-&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/513Y4Zp0QuL._SL200_.jpg&#34; style=&#34;display: revert;&#34;&gt;
-&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/51lHQvZOZiL._SL200_.jpg&#34; style=&#34;display: revert;&#34;&gt;
-&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/51dUdCh2ZdL._SL200_.jpg&#34; style=&#34;display: revert;&#34;&gt;
-&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/51wGICTPShL._SL200_.jpg&#34; style=&#34;display: revert;&#34;&gt;
-&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/316IBDS3nhL._SL200_.jpg&#34; style=&#34;display: revert;&#34;&gt;
-&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/31sf4AgyQAL._SL200_.jpg&#34; style=&#34;display: revert;&#34;&gt;
-&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/51u3KCvc1iL._SL200_.jpg&#34; style=&#34;display: revert;&#34;&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;outline-container-headline-3&#34; class=&#34;outline-2&#34;&gt;
-&lt;h2 id=&#34;headline-3&#34;&gt;
-Graphs from interactive code blocks
-&lt;/h2&gt;
-&lt;div id=&#34;outline-text-headline-3&#34; class=&#34;outline-text-2&#34;&gt;
-&lt;p&gt;
-Using &lt;code class=&#34;verbatim&#34;&gt;emacs-jupyter&lt;/code&gt; together with &lt;code class=&#34;verbatim&#34;&gt;org-mode&lt;/code&gt; babel.
-In order to use the generated graph from the code in the blog published with Hugu I did the following:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;save the figure with source block header argument &lt;code class=&#34;verbatim&#34;&gt;:file ../../static/images/graph1.png.&lt;/code&gt; &lt;sup class=&#34;footnote-reference&#34;&gt;&lt;a id=&#34;footnote-reference-1&#34; href=&#34;#footnote-1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;added also &lt;code class=&#34;verbatim&#34;&gt;:exports code&lt;/code&gt; to avoid having a broken link in the html, which is automatically generated with ob-jupyter.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;inserted a link to the graph considering the folder structure after published with Hubo  &lt;code class=&#34;verbatim&#34;&gt;[[file:images/graph.png]]&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class=&#34;src src-jupyter-python&#34;&gt;
-&lt;pre&gt;&lt;code class=&#34;language-jupyter-python&#34; data-lang=&#34;jupyter-python&#34;&gt;import matplotlib.pyplot as plt
-import numpy as np
-
-x=np.linspace(-15,15, 100)
-fig = plt.figure(dpi=300)
-plt.plot(np.sin(x)**2/x**2)&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;img src=&#34;https://nasseralkmim.github.io/images/graph1.png&#34; alt=&#34;/images/graph1.png&#34; title=&#34;/images/graph1.png&#34; width=&#34;400px&#34;/&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;outline-container-headline-4&#34; class=&#34;outline-2&#34;&gt;
-&lt;h2 id=&#34;headline-4&#34;&gt;
-Dataframes from interactive code blocks
-&lt;/h2&gt;
-&lt;div id=&#34;outline-text-headline-4&#34; class=&#34;outline-text-2&#34;&gt;
-&lt;div class=&#34;src src-jupyter-python&#34;&gt;
-&lt;pre&gt;&lt;code class=&#34;language-jupyter-python&#34; data-lang=&#34;jupyter-python&#34;&gt;import pandas as pd
-data = [[1, 2], [3, 4]]
-DF = pd.DataFrame(data, columns=[&amp;#34;Foo&amp;#34;, &amp;#34;Bar&amp;#34;])
-print(DF)&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;pre class=&#34;example&#34;&gt;
-   Foo  Bar
-0    1    2
-1    3    4
-&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;outline-container-headline-5&#34; class=&#34;outline-2&#34;&gt;
-&lt;h2 id=&#34;headline-5&#34;&gt;
-Footnotes
-&lt;/h2&gt;
-&lt;/div&gt;
-&lt;div class=&#34;footnotes&#34;&gt;
-&lt;hr class=&#34;footnotes-separatator&#34;&gt;
-&lt;div class=&#34;footnote-definitions&#34;&gt;
-&lt;div class=&#34;footnote-definition&#34;&gt;
-&lt;sup id=&#34;footnote-1&#34;&gt;&lt;a href=&#34;#footnote-reference-1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;
-&lt;div class=&#34;footnote-body&#34;&gt;
-&lt;p&gt;I manually created the &lt;code class=&#34;verbatim&#34;&gt;images&lt;/code&gt; folder.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-</description>
+      <description>Introduction  Meta post about how I do it.
+  Images from URL   You can just insert the link for inline images.
+ This does not seem to work in a standaline paragraph.
+ https://images-na.ssl-images-amazon.com/images/I/51283k0NwXL._SL200_.jpg
+ In order to override the theme css for images display I manually inserted the html with a different style=&amp;#34;display: revert;&amp;#34;.
+  Graphs from interactive code blocks   Using emacs-jupyter together with org-mode babel.</description>
     </item>
     
   </channel>

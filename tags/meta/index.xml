@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>meta on nasser</title>
+    <link>https://nasseralkmim.github.io/tags/meta/</link>
+    <description>Recent content in meta on nasser</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© {year}</copyright>
+    <lastBuildDate>Thu, 03 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/tags/meta/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>First Article</title>
+      <link>https://nasseralkmim.github.io/notes/firstarticle/</link>
+      <pubDate>Thu, 03 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://nasseralkmim.github.io/notes/firstarticle/</guid>
+      <description>Introduction  Meta post about how I do it.
+  Images from URL   You can just insert the link for inline images.
+ This does not seem to work in a standaline paragraph.
+ https://images-na.ssl-images-amazon.com/images/I/51283k0NwXL._SL200_.jpg
+ In order to override the theme css for images display I manually inserted the html with a different style=&amp;#34;display: revert;&amp;#34;.
+  Graphs from interactive code blocks   Using emacs-jupyter together with org-mode babel.</description>
+    </item>
+    
+  </channel>
+</rss>
