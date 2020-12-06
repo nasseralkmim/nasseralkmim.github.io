@@ -2,7 +2,7 @@
 <html lang="en-us">
 
 <head>
-  <title>Sentiment analysis on IMDB dataset | nasser</title>
+  <title>Sentiment analysis on IMDB dataset | Nasser&#39;s personal website</title>
 
   <meta charset="UTF-8">
   <meta name="language" content="en">
@@ -107,42 +107,72 @@ Introduction
 </h2>
 <div id="outline-text-headline-1" class="outline-text-2">
 <p>
-This is as exemple from the excelent book by François Chollet on deep learning.</p>
+This is as exemple from the excellent book by François Chollet on deep learning.
+My idea here is to further detail the explanation with the code output, which the book does not contain.
+And since tensorflow 2.0 was released, I will be using <code class="verbatim">tf.keras</code> instead.</p>
+<p>
+The goal of this example is</p>
+<p>
+The steps are</p>
 </div>
 </div>
 <div id="outline-container-headline-2" class="outline-2">
 <h2 id="headline-2">
-Preprocessing
+Load data
 </h2>
 <div id="outline-text-headline-2" class="outline-text-2">
 <p>
-Load imdb data from keras datasets.</p>
+Load imdb data from keras datasets.
+This dataset represents 25000 movie reviews and they are lebaled by sentiment.
+Each review is a list where all the words are already encoded as integers.
+Integers represent the frequency of the word, so we are considering the top 1000 most frequent ones.
+We can see the sentiment values is 0 or 1.</p>
 <div class="src src-jupyter-python">
-<pre><code class="language-jupyter-python" data-lang="jupyter-python">from keras.datasets import imdb
-from keras import preprocessing
+<pre><code class="language-jupyter-python" data-lang="jupyter-python">from tensorflow.keras import datasets, preprocessing
 
-max_features = 10000            # number of words
-maxlen = 20
+max_features = 10000           # number of words
 
-(x_train, y_train), (x_test, y_test) = imdb.load_data(num_words=max_features)
+(train_data, train_targ), (test_data, test_targ) = datasets.imdb.load_data(
+    num_words=max_features) # limits to the most common ones 
 
-print(x_train, len(x_train), len(x_train[1]))</code></pre>
+print(len(train_data), train_data[0])
+print(set(train_targ))</code></pre>
 </div>
 <pre class="example">
-[list([1, 14, 22, 16, 43, 530, 973, 1622, 1385, 65, 458, 4468, 66, 3941, 4, 173, 36, 256, 5, 25, 100, 43, 838, 112, 50, 670, 2, 9, 35, 480, 284, 5, 150, 4, 172, 112, 167, 2, 336, 385, 39, 4, 172, 4536, 1111, 17, 546, 38, 13, 447, 4, 192, 50, 16, 6, 147, 2025, 19, 14, 22, 4, 1920, 4613, 469, 4, 22, 71, 87, 12, 16, 43, 530, 38, 76, 15, 13, 1247, 4, 22, 17, 515, 17, 12, 16, 626, 18, 2, 5, 62, 386, 12, 8, 316, 8, 106, 5, 4, 2223, 5244, 16, 480, 66, 3785, 33, 4, 130, 12, 16, 38, 619, 5, 25, 124, 51, 36, 135, 48, 25, 1415, 33, 6, 22, 12, 215, 28, 77, 52, 5, 14, 407, 16, 82, 2, 8, 4, 107, 117, 5952, 15, 256, 4, 2, 7, 3766, 5, 723, 36, 71, 43, 530, 476, 26, 400, 317, 46, 7, 4, 2, 1029, 13, 104, 88, 4, 381, 15, 297, 98, 32, 2071, 56, 26, 141, 6, 194, 7486, 18, 4, 226, 22, 21, 134, 476, 26, 480, 5, 144, 30, 5535, 18, 51, 36, 28, 224, 92, 25, 104, 4, 226, 65, 16, 38, 1334, 88, 12, 16, 283, 5, 16, 4472, 113, 103, 32, 15, 16, 5345, 19, 178, 32])
- list([1, 194, 1153, 194, 8255, 78, 228, 5, 6, 1463, 4369, 5012, 134, 26, 4, 715, 8, 118, 1634, 14, 394, 20, 13, 119, 954, 189, 102, 5, 207, 110, 3103, 21, 14, 69, 188, 8, 30, 23, 7, 4, 249, 126, 93, 4, 114, 9, 2300, 1523, 5, 647, 4, 116, 9, 35, 8163, 4, 229, 9, 340, 1322, 4, 118, 9, 4, 130, 4901, 19, 4, 1002, 5, 89, 29, 952, 46, 37, 4, 455, 9, 45, 43, 38, 1543, 1905, 398, 4, 1649, 26, 6853, 5, 163, 11, 3215, 2, 4, 1153, 9, 194, 775, 7, 8255, 2, 349, 2637, 148, 605, 2, 8003, 15, 123, 125, 68, 2, 6853, 15, 349, 165, 4362, 98, 5, 4, 228, 9, 43, 2, 1157, 15, 299, 120, 5, 120, 174, 11, 220, 175, 136, 50, 9, 4373, 228, 8255, 5, 2, 656, 245, 2350, 5, 4, 9837, 131, 152, 491, 18, 2, 32, 7464, 1212, 14, 9, 6, 371, 78, 22, 625, 64, 1382, 9, 8, 168, 145, 23, 4, 1690, 15, 16, 4, 1355, 5, 28, 6, 52, 154, 462, 33, 89, 78, 285, 16, 145, 95])
- list([1, 14, 47, 8, 30, 31, 7, 4, 249, 108, 7, 4, 5974, 54, 61, 369, 13, 71, 149, 14, 22, 112, 4, 2401, 311, 12, 16, 3711, 33, 75, 43, 1829, 296, 4, 86, 320, 35, 534, 19, 263, 4821, 1301, 4, 1873, 33, 89, 78, 12, 66, 16, 4, 360, 7, 4, 58, 316, 334, 11, 4, 1716, 43, 645, 662, 8, 257, 85, 1200, 42, 1228, 2578, 83, 68, 3912, 15, 36, 165, 1539, 278, 36, 69, 2, 780, 8, 106, 14, 6905, 1338, 18, 6, 22, 12, 215, 28, 610, 40, 6, 87, 326, 23, 2300, 21, 23, 22, 12, 272, 40, 57, 31, 11, 4, 22, 47, 6, 2307, 51, 9, 170, 23, 595, 116, 595, 1352, 13, 191, 79, 638, 89, 2, 14, 9, 8, 106, 607, 624, 35, 534, 6, 227, 7, 129, 113])
- ...
- list([1, 11, 6, 230, 245, 6401, 9, 6, 1225, 446, 2, 45, 2174, 84, 8322, 4007, 21, 4, 912, 84, 2, 325, 725, 134, 2, 1715, 84, 5, 36, 28, 57, 1099, 21, 8, 140, 8, 703, 5, 2, 84, 56, 18, 1644, 14, 9, 31, 7, 4, 9406, 1209, 2295, 2, 1008, 18, 6, 20, 207, 110, 563, 12, 8, 2901, 2, 8, 97, 6, 20, 53, 4767, 74, 4, 460, 364, 1273, 29, 270, 11, 960, 108, 45, 40, 29, 2961, 395, 11, 6, 4065, 500, 7, 2, 89, 364, 70, 29, 140, 4, 64, 4780, 11, 4, 2678, 26, 178, 4, 529, 443, 2, 5, 27, 710, 117, 2, 8123, 165, 47, 84, 37, 131, 818, 14, 595, 10, 10, 61, 1242, 1209, 10, 10, 288, 2260, 1702, 34, 2901, 2, 4, 65, 496, 4, 231, 7, 790, 5, 6, 320, 234, 2766, 234, 1119, 1574, 7, 496, 4, 139, 929, 2901, 2, 7750, 5, 4241, 18, 4, 8497, 2, 250, 11, 1818, 7561, 4, 4217, 5408, 747, 1115, 372, 1890, 1006, 541, 9303, 7, 4, 59, 2, 4, 3586, 2])
- list([1, 1446, 7079, 69, 72, 3305, 13, 610, 930, 8, 12, 582, 23, 5, 16, 484, 685, 54, 349, 11, 4120, 2959, 45, 58, 1466, 13, 197, 12, 16, 43, 23, 2, 5, 62, 30, 145, 402, 11, 4131, 51, 575, 32, 61, 369, 71, 66, 770, 12, 1054, 75, 100, 2198, 8, 4, 105, 37, 69, 147, 712, 75, 3543, 44, 257, 390, 5, 69, 263, 514, 105, 50, 286, 1814, 23, 4, 123, 13, 161, 40, 5, 421, 4, 116, 16, 897, 13, 2, 40, 319, 5872, 112, 6700, 11, 4803, 121, 25, 70, 3468, 4, 719, 3798, 13, 18, 31, 62, 40, 8, 7200, 4, 2, 7, 14, 123, 5, 942, 25, 8, 721, 12, 145, 5, 202, 12, 160, 580, 202, 12, 6, 52, 58, 2, 92, 401, 728, 12, 39, 14, 251, 8, 15, 251, 5, 2, 12, 38, 84, 80, 124, 12, 9, 23])
- list([1, 17, 6, 194, 337, 7, 4, 204, 22, 45, 254, 8, 106, 14, 123, 4, 2, 270, 2, 5, 2, 2, 732, 2098, 101, 405, 39, 14, 1034, 4, 1310, 9, 115, 50, 305, 12, 47, 4, 168, 5, 235, 7, 38, 111, 699, 102, 7, 4, 4039, 9245, 9, 24, 6, 78, 1099, 17, 2345, 2, 21, 27, 9685, 6139, 5, 2, 1603, 92, 1183, 4, 1310, 7, 4, 204, 42, 97, 90, 35, 221, 109, 29, 127, 27, 118, 8, 97, 12, 157, 21, 6789, 2, 9, 6, 66, 78, 1099, 4, 631, 1191, 5, 2642, 272, 191, 1070, 6, 7585, 8, 2197, 2, 2, 544, 5, 383, 1271, 848, 1468, 2, 497, 2, 8, 1597, 8778, 2, 21, 60, 27, 239, 9, 43, 8368, 209, 405, 10, 10, 12, 764, 40, 4, 248, 20, 12, 16, 5, 174, 1791, 72, 7, 51, 6, 1739, 22, 4, 204, 131, 9])] 25000 189
+25000 [1, 14, 22, 16, 43, 530, 973, 1622, 1385, 65, 458, 4468, 66, 3941, 4, 173, 36, 256, 5, 25, 100, 43, 838, 112, 50, 670, 2, 9, 35, 480, 284, 5, 150, 4, 172, 112, 167, 2, 336, 385, 39, 4, 172, 4536, 1111, 17, 546, 38, 13, 447, 4, 192, 50, 16, 6, 147, 2025, 19, 14, 22, 4, 1920, 4613, 469, 4, 22, 71, 87, 12, 16, 43, 530, 38, 76, 15, 13, 1247, 4, 22, 17, 515, 17, 12, 16, 626, 18, 2, 5, 62, 386, 12, 8, 316, 8, 106, 5, 4, 2223, 5244, 16, 480, 66, 3785, 33, 4, 130, 12, 16, 38, 619, 5, 25, 124, 51, 36, 135, 48, 25, 1415, 33, 6, 22, 12, 215, 28, 77, 52, 5, 14, 407, 16, 82, 2, 8, 4, 107, 117, 5952, 15, 256, 4, 2, 7, 3766, 5, 723, 36, 71, 43, 530, 476, 26, 400, 317, 46, 7, 4, 2, 1029, 13, 104, 88, 4, 381, 15, 297, 98, 32, 2071, 56, 26, 141, 6, 194, 7486, 18, 4, 226, 22, 21, 134, 476, 26, 480, 5, 144, 30, 5535, 18, 51, 36, 28, 224, 92, 25, 104, 4, 226, 65, 16, 38, 1334, 88, 12, 16, 283, 5, 16, 4472, 113, 103, 32, 15, 16, 5345, 19, 178, 32]
+{0, 1}
 </pre>
 <p>
-Transform the list into 2D tensors with <code class="verbatim">length=maxlen</code>.</p>
+With this bunch of numbers is hard to grasp the real meaning of this data.
+Fortunately we can convert it back to text using the index of words also provided by the dataset.</p>
 <div class="src src-jupyter-python">
-<pre><code class="language-jupyter-python" data-lang="jupyter-python">x_train = preprocessing.sequence.pad_sequences(x_train, maxlen=maxlen)
-x_test = preprocessing.sequence.pad_sequences(x_test, maxlen=maxlen)
-print(x_train)</code></pre>
+<pre><code class="language-jupyter-python" data-lang="jupyter-python">index = datasets.imdb.get_word_index()
+print(list(index.items())[:5])</code></pre>
+</div>
+<pre class="example">
+[(&#39;fawn&#39;, 34701), (&#39;tsukino&#39;, 52006), (&#39;nunnery&#39;, 52007), (&#39;sonja&#39;, 16816), (&#39;vani&#39;, 63951)]
+</pre>
+<p>
+We can see that the word index is a dictionary where the key is the word and the value is the integer representation.
+Because we have the values and want the keys, it is useful to invert this dictionary so we can entry and integer and get out a word.</p>
+<div class="src src-jupyter-python">
+<pre><code class="language-jupyter-python" data-lang="jupyter-python">index_word = {value: key for (key, value) in index.items()}
+print(index_word[11], index_word[19])
+comment = &#39; &#39;.join([index_word.get(i - 3, &#39;#&#39;) for i in train_data[0]]) # -3 because in the 10.000 words it is missing 2 and the first number is the sentiment
+print(comment)</code></pre>
+</div>
+<pre class="example">
+this film
+# this film was just brilliant casting location scenery story direction everyone&#39;s really suited the part they played and you could just imagine being there robert # is an amazing actor and now the same being director # father came from the same scottish island as myself so i loved the fact there was a real connection with this film the witty remarks throughout the film were great it was just brilliant so much that i bought the film as soon as it was released for # and would recommend it to everyone to watch and the fly fishing was amazing really cried at the end it was so sad and you know what they say if you cry at a film it must have been good and this definitely was also # to the two little boy&#39;s that played the # of norman and paul they were just brilliant children are often left out of the # list i think because the stars that play them all grown up are such a big profile for the whole film but these children are amazing and should be praised for what they have done don&#39;t you think the whole story was so lovely because it was true and was someone&#39;s life after all that was shared with us all
+</pre>
+<p>
+Transform the list into 2D tensors with <code class="verbatim">length=maxlen</code>.
+So we are limiting the comments to just the first 20 words.</p>
+<div class="src src-jupyter-python">
+<pre><code class="language-jupyter-python" data-lang="jupyter-python">maxlen = 20
+train_data = preprocessing.sequence.pad_sequences(train_data, maxlen=maxlen)
+test_data = preprocessing.sequence.pad_sequences(test_data, maxlen=maxlen)
+print(train_data)</code></pre>
 </div>
 <pre class="example">
 [[  65   16   38 ...   19  178   32]
@@ -157,32 +187,47 @@ print(x_train)</code></pre>
 </div>
 <div id="outline-container-headline-3" class="outline-2">
 <h2 id="headline-3">
-Embedding layer
+Build the model
 </h2>
 <div id="outline-text-headline-3" class="outline-text-2">
 <p>
-Embedding is used to transform the text into a dense vector representation.
 The goal of this step is to process the text into something that can be passed into a neural network.</p>
+<p>
+A <code class="verbatim">Sequential</code> model is used for a stack of layers in the neural networks.
+Each layer has 1 input tensor and 1 output tensor.</p>
+<p>
+Here we are adding multiple layers to our model.
+One of them is the <strong>embedding</strong> layer which turns positive integers into <strong>dense</strong> vectors of fixed sizes.<sup class="footnote-reference"><a id="footnote-reference-1" href="#footnote-1">1</a></sup>
+Then the <strong>flatten</strong> layer which simply flattens the input, turning it into one dimension.
+Finally we add the <strong>dense</strong> layer.</p>
+<p>
+The dense layer is the one that we are going to train and use for classification.
+It implements a math operation where there is a multiplication between the <strong>input</strong> and <strong>kernel</strong>, then there is a transformation with an activation function.
+The kernel is the weight matrix created by the layer.
+The activation function used here is the <em>sigmoid</em>, which is a nonlinear function that enables clear prediction.<sup class="footnote-reference"><a id="footnote-reference-2" href="#footnote-2">2</a></sup></p>
 <div class="src src-jupyter-python">
-<pre><code class="language-jupyter-python" data-lang="jupyter-python">from keras.models import Sequential
-from keras.layers import Flatten, Dense, Embedding
+<pre><code class="language-jupyter-python" data-lang="jupyter-python">from tensorflow import keras
+from tensorflow.keras import layers
 
-model = Sequential()            # appropriate for stack of layers 
-model.add(Embedding(10000, 8, input_length=maxlen))
-model.add(Flatten())            # flattens 3D tensor into 2D
+model = keras.Sequential()            # model
+model.add(layers.Embedding(10000, 8, input_length=maxlen))
+model.add(layers.Flatten())            # flattens 3D tensor into 2D
+model.add(layers.Dense(1, activation=&#39;sigmoid&#39;)) # output with 1 dimension only
 model.summary()</code></pre>
 </div>
 <pre class="example">
-Model: &#34;sequential_2&#34;
+Model: &#34;sequential_4&#34;
 _________________________________________________________________
 Layer (type)                 Output Shape              Param #   
 =================================================================
-embedding_1 (Embedding)      (None, 20, 8)             80000     
+embedding_4 (Embedding)      (None, 20, 8)             80000     
 _________________________________________________________________
-flatten (Flatten)            (None, 160)               0         
+flatten_4 (Flatten)          (None, 160)               0         
+_________________________________________________________________
+dense_1 (Dense)              (None, 1)                 161       
 =================================================================
-Total params: 80,000
-Trainable params: 80,000
+Total params: 80,161
+Trainable params: 80,161
 Non-trainable params: 0
 _________________________________________________________________
 </pre>
@@ -190,33 +235,139 @@ _________________________________________________________________
 </div>
 <div id="outline-container-headline-4" class="outline-2">
 <h2 id="headline-4">
-Classifier
+Configure the model for training
 </h2>
 <div id="outline-text-headline-4" class="outline-text-2">
 <p>
-Adds the dense classifier layer into the model.</p>
+The <code class="verbatim">compile</code> method configures the model for training.
+The <code class="verbatim">optimizer</code> argument specify the algorithm used for this task.
+In this example we use the <em>RMSprop</em> algorithm,which means root mean square prop.<sup class="footnote-reference"><a id="footnote-reference-3" href="#footnote-3">3</a></sup>
+Optimization in this sense means minimizing a function, in this case we want to minimize the loss function.</p>
 <p>
-$output = activation(dot(input, kernel) + bias)$</p>
+The <code class="verbatim">loss</code> argument is the objective function, or cost function, which indicates how well the model is at predicting for given parameters.
+The one chosen was binary-crossentropy, which is a cross entropy loss function with 2 (binary) classes (positive, negative reviews).
+The cross-entropy, or log loss, measures performance when the output is a value between 0 or 1 and puts a heavy penalty on lower values which are clearly wrong.</p>
+<p>
+The <code class="verbatim">metrics</code> argument is a list of things that are going to be tested during training and testing.
+Here we used the accuracy.
+The accuracy metric is used for classification models and is simply the number of corrected predictions divided by the number of predictions (success rate).</p>
 <div class="src src-jupyter-python">
-<pre><code class="language-jupyter-python" data-lang="jupyter-python">model.add(Dense(1, activation=&#39;sigmoid&#39;))
+<pre><code class="language-jupyter-python" data-lang="jupyter-python">model.compile(optimizer=&#39;rmsprop&#39;, loss=&#39;binary_crossentropy&#39;, metrics=[&#39;acc&#39;])
 model.summary()</code></pre>
 </div>
 <pre class="example">
-Model: &#34;sequential_2&#34;
+Model: &#34;sequential_4&#34;
 _________________________________________________________________
 Layer (type)                 Output Shape              Param #   
 =================================================================
-embedding_1 (Embedding)      (None, 20, 8)             80000     
+embedding_4 (Embedding)      (None, 20, 8)             80000     
 _________________________________________________________________
-flatten (Flatten)            (None, 160)               0         
+flatten_4 (Flatten)          (None, 160)               0         
 _________________________________________________________________
-dense (Dense)                (None, 1)                 161       
+dense_1 (Dense)              (None, 1)                 161       
 =================================================================
 Total params: 80,161
 Trainable params: 80,161
 Non-trainable params: 0
 _________________________________________________________________
 </pre>
+<p>
+From the summary we see the layers.
+First we flatten the embedding, then we train a <strong>single dense layer</strong></p>
+</div>
+</div>
+<div id="outline-container-headline-5" class="outline-2">
+<h2 id="headline-5">
+Training the model
+</h2>
+<div id="outline-text-headline-5" class="outline-text-2">
+<p>
+The next step is training the model.
+The function performs the number iterations given by <code class="verbatim">epoch</code> and the output is a hystory of training loss values and metrics at the epochs.
+It also shows the validation loss values and validation metrics values.</p>
+<div class="src src-jupyter-python">
+<pre><code class="language-jupyter-python" data-lang="jupyter-python">history = model.fit(train_data, train_targ, # input data and target data 
+                    epochs=10,         # number of iterations per the data
+                    batch_size=32,    # samples per gradient update
+                    validation_split=0.2) # fraction of data used for training</code></pre>
+</div>
+<pre class="example">
+Epoch 1/10
+625/625 [==============================] - 2s 3ms/step - loss: 0.6738 - acc: 0.6104 - val_loss: 0.6297 - val_acc: 0.6874
+Epoch 2/10
+625/625 [==============================] - 1s 2ms/step - loss: 0.5541 - acc: 0.7462 - val_loss: 0.5315 - val_acc: 0.7288
+Epoch 3/10
+625/625 [==============================] - 1s 2ms/step - loss: 0.4671 - acc: 0.7844 - val_loss: 0.5031 - val_acc: 0.7440
+Epoch 4/10
+625/625 [==============================] - 2s 2ms/step - loss: 0.4246 - acc: 0.8069 - val_loss: 0.4959 - val_acc: 0.7486
+Epoch 5/10
+625/625 [==============================] - 1s 2ms/step - loss: 0.3966 - acc: 0.8224 - val_loss: 0.4951 - val_acc: 0.7490
+Epoch 6/10
+625/625 [==============================] - 1s 2ms/step - loss: 0.3733 - acc: 0.8356 - val_loss: 0.4979 - val_acc: 0.7536
+Epoch 7/10
+625/625 [==============================] - 1s 2ms/step - loss: 0.3524 - acc: 0.8496 - val_loss: 0.5045 - val_acc: 0.7564
+Epoch 8/10
+625/625 [==============================] - 2s 2ms/step - loss: 0.3324 - acc: 0.8604 - val_loss: 0.5112 - val_acc: 0.7554
+Epoch 9/10
+625/625 [==============================] - 1s 2ms/step - loss: 0.3135 - acc: 0.8716 - val_loss: 0.5176 - val_acc: 0.7546
+Epoch 10/10
+625/625 [==============================] - 1s 2ms/step - loss: 0.2957 - acc: 0.8809 - val_loss: 0.5264 - val_acc: 0.7516
+</pre>
+</div>
+</div>
+<div id="outline-container-headline-6" class="outline-2">
+<h2 id="headline-6">
+Analysis
+</h2>
+<div id="outline-text-headline-6" class="outline-text-2">
+<p>
+The training output is a dictionary with the results as a list.</p>
+<div class="src src-jupyter-python">
+<pre><code class="language-jupyter-python" data-lang="jupyter-python">print(history.history)</code></pre>
+</div>
+<pre class="example">
+{&#39;loss&#39;: [0.6738093495368958, 0.5541190505027771, 0.4671066403388977, 0.4246475100517273, 0.3965531885623932, 0.37326815724372864, 0.3524011969566345, 0.3323952257633209, 0.3134663701057434, 0.29573047161102295], &#39;acc&#39;: [0.6103500127792358, 0.746150016784668, 0.7843999862670898, 0.8069499731063843, 0.822350025177002, 0.8355500102043152, 0.8496000170707703, 0.8603500127792358, 0.8715999722480774, 0.8808500170707703], &#39;val_loss&#39;: [0.6296502351760864, 0.5315172076225281, 0.5030556917190552, 0.49588504433631897, 0.4951230585575104, 0.49791309237480164, 0.504469096660614, 0.5111817121505737, 0.5175582766532898, 0.526441216468811], &#39;val_acc&#39;: [0.6873999834060669, 0.7287999987602234, 0.7440000176429749, 0.7486000061035156, 0.7490000128746033, 0.753600001335144, 0.7563999891281128, 0.7554000020027161, 0.7545999884605408, 0.7516000270843506]}
+</pre>
+<p>
+From the training data we can start do some analysis with graphs.
+The evolution on the metrics of the validation data (training data) suggests that the prediction power of the neural network model is increasing very fast at the beginning and maintaining a level of the accuracy metric around 76%.</p>
+<div class="src src-jupyter-python">
+<pre><code class="language-jupyter-python" data-lang="jupyter-python">import matplotlib.pyplot as plt
+import numpy as np
+plt.plot(np.arange(1, len(history.history[&#39;val_acc&#39;])+1),
+	 history.history[&#39;val_acc&#39;])
+plt.xlabel(&#39;Epochs&#39;)
+plt.ylabel(&#39;Validation Accuracy&#39;)</code></pre>
+</div>
+<img src="/images/acc.png" alt="/images/acc.png" title="/images/acc.png" width="350px"/>
+</div>
+</div>
+<div id="outline-container-headline-7" class="outline-2">
+<h2 id="headline-7">
+Footnotes
+</h2>
+</div>
+<div class="footnotes">
+<hr class="footnotes-separatator">
+<div class="footnote-definitions">
+<div class="footnote-definition">
+<sup id="footnote-1"><a href="#footnote-reference-1">1</a></sup>
+<div class="footnote-body">
+<p>The dense vector is a better alternative do sparse vectores obtained with one-hot algorithms. </p>
+</div>
+</div>
+<div class="footnote-definition">
+<sup id="footnote-2"><a href="#footnote-reference-2">2</a></sup>
+<div class="footnote-body">
+<p>Because it goes to 0 or 1 very fast. The activation function just maps the internal product between the input and weights into a fixed interval [0, 1].</p>
+</div>
+</div>
+<div class="footnote-definition">
+<sup id="footnote-3"><a href="#footnote-reference-3">3</a></sup>
+<div class="footnote-body">
+<p><a href="https://ml-cheatsheet.readthedocs.io/en/latest/optimizers.html#rmsprop">Here</a> is a good reference for this algorithm </p>
+</div>
+</div>
 </div>
 </div>
 
@@ -273,10 +424,22 @@ _________________________________________________________________
   
      
     
+  
+     
+    
       <a class="social-icons__link" rel="me" title="GitHub"
-         href="https://github.com/nasseralkmim%3e"
+         href="https://github.com/nasseralkmim"
          target="_blank" rel="noopener">
         <div class="social-icons__icon" style="background-image: url('https://nasseralkmim.github.io/svg/github.svg')"></div>
+      </a>
+    
+  
+     
+    
+      <a class="social-icons__link" rel="me" title="Instagram"
+         href="https://instagram.com/naszr"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('https://nasseralkmim.github.io/svg/instagram.svg')"></div>
       </a>
     
      
