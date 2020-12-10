@@ -1,13 +1,44 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Notes on Nasser&#39;s personal website</title>
+    <title>Nasser&#39;s personal website</title>
     <link>https://nasseralkmim.github.io/notes/</link>
-    <description>Recent content in Notes on Nasser&#39;s personal website</description>
+    <description>Recent content on Nasser&#39;s personal website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© {year}</copyright>
-    <lastBuildDate>Fri, 04 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/notes/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 09 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>NLP with Python</title>
+      <link>https://nasseralkmim.github.io/notes/nlp-with-python/</link>
+      <pubDate>Wed, 09 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://nasseralkmim.github.io/notes/nlp-with-python/</guid>
+      <description>Introduction  This is an attempt to compile different sources of informations about Natural Language processing with python.
+  Process used in NLP  Tokenization  Converts text into segments (n-grams) that could represent a word, two words or more. During this step, usually it is performed some kind of vocabulary reduction such as normalization, stemming and lemmatization.
+Tools    NLTK: string processing library, built by academics.</description>
+    </item>
+    
+    <item>
+      <title>Text processing with spaCy</title>
+      <link>https://nasseralkmim.github.io/notes/text-processing-with-spacy/</link>
+      <pubDate>Wed, 09 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://nasseralkmim.github.io/notes/text-processing-with-spacy/</guid>
+      <description>Introduction   spaCy is a library for Natural Language Processing (NLP) in python. It offers multiple solutions for text processing such as tokenization, named entity recognition, word vectors, part of speech tagging. The alternative is the library NLTK which seems to be used mostly in academia whereas spaCy is recommended for production use.
+  Load the language model  We need to download the models for the language with python -m spacy download model-name.</description>
+    </item>
+    
+    <item>
+      <title>Question classifier preprocessing</title>
+      <link>https://nasseralkmim.github.io/notes/question-classifier/</link>
+      <pubDate>Mon, 07 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://nasseralkmim.github.io/notes/question-classifier/</guid>
+      <description>Introduction   An example from the book by Aman Kedia. About label encoding.
+  Loading data  import pandas as pd data = open(&amp;#34;train_1000-label.txt&amp;#34;, &amp;#39;r&amp;#39;) train_raw = pd.DataFrame(data.readlines(), columns=[&amp;#39;data&amp;#39;]) print(train_raw.head())  data 0 DESC:manner How did serfdom develop in and the... 1 ENTY:cremat What films featured the character ... 2 DESC:manner How can I find a list of celebriti... 3 ENTY:animal What fowl grabs the spotlight afte... 4 ABBR:exp What is the full form of .</description>
+    </item>
+    
     <item>
       <title>Sentiment analysis on IMDB dataset</title>
       <link>https://nasseralkmim.github.io/notes/sentiment-analysis/</link>
@@ -21,17 +52,14 @@
     </item>
     
     <item>
-      <title>First Article</title>
-      <link>https://nasseralkmim.github.io/notes/firstarticle/</link>
+      <title>First post in HUGO</title>
+      <link>https://nasseralkmim.github.io/notes/first-hugo-post/</link>
       <pubDate>Thu, 03 Dec 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://nasseralkmim.github.io/notes/firstarticle/</guid>
-      <description>Introduction  Meta post about how I do it.
-  Images from URL   You can just insert the link for inline images.
- This does not seem to work in a standaline paragraph.
- https://images-na.ssl-images-amazon.com/images/I/51283k0NwXL._SL200_.jpg
- In order to override the theme css for images display I manually inserted the html with a different style=&amp;#34;display: revert;&amp;#34;.
-  Graphs from interactive code blocks   Using emacs-jupyter together with org-mode babel.</description>
+      <guid>https://nasseralkmim.github.io/notes/first-hugo-post/</guid>
+      <description>Introduction  Meta post about how I do it. I&amp;#39;m using org-mode inside emacs and Hugo.
+  Images from URL  Use the html export block from org mode. In order to override the theme css for images display I manually inserted the html with a different style=&amp;#34;display: revert; max-width: fit-content;&amp;#34;. (this depends on the theme you choose)
+  Graphs from interactive code blocks saved on /static/images   Using emacs-jupyter together with org-mode babel.</description>
     </item>
     
   </channel>

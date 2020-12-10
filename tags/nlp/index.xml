@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Nasser&#39;s personal website</title>
-    <link>https://nasseralkmim.github.io/</link>
-    <description>Recent content on Nasser&#39;s personal website</description>
+    <title>NLP on Nasser&#39;s personal website</title>
+    <link>https://nasseralkmim.github.io/tags/nlp/</link>
+    <description>Recent content in NLP on Nasser&#39;s personal website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© {year}</copyright>
-    <lastBuildDate>Wed, 09 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 09 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/tags/nlp/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>NLP with Python</title>
       <link>https://nasseralkmim.github.io/notes/nlp-with-python/</link>
@@ -49,17 +49,6 @@ Tools    NLTK: string processing library, built by academics.</description>
  The goal of this example is
  The steps are
   Load data   Load imdb data from keras datasets.</description>
-    </item>
-    
-    <item>
-      <title>First post in HUGO</title>
-      <link>https://nasseralkmim.github.io/notes/first-hugo-post/</link>
-      <pubDate>Thu, 03 Dec 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/notes/first-hugo-post/</guid>
-      <description>Introduction  Meta post about how I do it. I&amp;#39;m using org-mode inside emacs and Hugo.
-  Images from URL  Use the html export block from org mode. In order to override the theme css for images display I manually inserted the html with a different style=&amp;#34;display: revert; max-width: fit-content;&amp;#34;. (this depends on the theme you choose)
-  Graphs from interactive code blocks saved on /static/images   Using emacs-jupyter together with org-mode babel.</description>
     </item>
     
   </channel>

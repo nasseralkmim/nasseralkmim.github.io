@@ -7,7 +7,43 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© {year}</copyright>
-    <lastBuildDate>Thu, 03 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 09 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ML</title>
+      <link>https://nasseralkmim.github.io/tags/ml/</link>
+      <pubDate>Wed, 09 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://nasseralkmim.github.io/tags/ml/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>NLP</title>
+      <link>https://nasseralkmim.github.io/tags/nlp/</link>
+      <pubDate>Wed, 09 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://nasseralkmim.github.io/tags/nlp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>POS</title>
+      <link>https://nasseralkmim.github.io/tags/pos/</link>
+      <pubDate>Wed, 09 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://nasseralkmim.github.io/tags/pos/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>spaCy</title>
+      <link>https://nasseralkmim.github.io/tags/spacy/</link>
+      <pubDate>Wed, 09 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://nasseralkmim.github.io/tags/spacy/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>meta</title>
       <link>https://nasseralkmim.github.io/tags/meta/</link>

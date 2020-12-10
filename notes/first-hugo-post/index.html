@@ -2,7 +2,7 @@
 <html lang="en-us">
 
 <head>
-  <title>First Article | Nasser&#39;s personal website</title>
+  <title>First post in HUGO | Nasser&#39;s personal website</title>
 
   <meta charset="UTF-8">
   <meta name="language" content="en">
@@ -44,8 +44,8 @@
     { 
       "@context": "http://schema.org", 
       "@type": "WebSite", 
-      "url": "https:\/\/nasseralkmim.github.io\/notes\/firstarticle\/",
-      "name": "First Article",
+      "url": "https:\/\/nasseralkmim.github.io\/notes\/first-hugo-post\/",
+      "name": "First post in HUGO",
       "author": {
         "@type": "Person",
         "name": ""
@@ -71,10 +71,6 @@
     
     
       <li>
-        <a  href="/about">about</a>
-      </li>
-    
-      <li>
         <a  href="/">home</a>
       </li>
     
@@ -95,7 +91,7 @@
       <div class="post__container">
         <div class="post">
           <header class="post__header">
-            <h1 id="post__title">First Article</h1>
+            <h1 id="post__title">First post in HUGO</h1>
             <time datetime="2020-12-03 00:00:00 &#43;0000 UTC" class="post__date">Dec 3 2020</time> 
           </header>
           <article class="post__content">
@@ -106,7 +102,8 @@
 Introduction
 </h2>
 <div id="outline-text-headline-1" class="outline-text-2">
-<p>Meta post about how I do it.</p>
+<p>Meta post about how I do it.
+I&#39;m using org-mode inside emacs and Hugo.</p>
 </div>
 </div>
 <div id="outline-container-headline-2" class="outline-2">
@@ -114,13 +111,7 @@ Introduction
 Images from URL
 </h2>
 <div id="outline-text-headline-2" class="outline-text-2">
-<p>
-You can just insert the link <img src="https://images-na.ssl-images-amazon.com/images/I/51283k0NwXL._SL200_.jpg" alt="https://images-na.ssl-images-amazon.com/images/I/51283k0NwXL._SL200_.jpg" title="https://images-na.ssl-images-amazon.com/images/I/51283k0NwXL._SL200_.jpg" /> for inline images.</p>
-<p>
-This does not seem to work in a standard paragraph. <em>Update</em>: it works with ox-hugo exporting org-mode to markdown.</p>
-<p>
-https://images-na.ssl-images-amazon.com/images/I/51283k0NwXL._SL200_.jpg</p>
-<p>
+<p>Use the html export block from org mode.
 In order to override the theme css for images display I manually inserted the html with a different <em>style=&#34;display: revert; max-width: fit-content;&#34;.</em> (this depends on the theme you choose)</p>
 <img src="https://images-na.ssl-images-amazon.com/images/I/51283k0NwXL._SL200_.jpg" style="display: revert; max-width: fit-content;">
 <img src="https://images-na.ssl-images-amazon.com/images/I/514Oi-7cLQL._SL200_.jpg" style="display: revert; max-width: fit-content;">
@@ -137,7 +128,7 @@ In order to override the theme css for images display I manually inserted the ht
 </div>
 <div id="outline-container-headline-3" class="outline-2">
 <h2 id="headline-3">
-Graphs from interactive code blocks
+Graphs from interactive code blocks saved on <code class="verbatim">/static/images</code>
 </h2>
 <div id="outline-text-headline-3" class="outline-text-2">
 <p>
@@ -167,9 +158,29 @@ plt.plot(np.sin(x)**2/x**2)</code></pre>
 </div>
 <div id="outline-container-headline-4" class="outline-2">
 <h2 id="headline-4">
-Dataframes from interactive code blocks
+Graphs saved in the same folder as the post
 </h2>
 <div id="outline-text-headline-4" class="outline-text-2">
+<p>This is the most convenient organization scheme.
+I create a new folder for each post that will have pictures.
+Inside this folder the post goes on a <code class="verbatim">index.org</code> file.
+And the figures are generated automatically with <code class="verbatim">emacs-jupyter</code>, I just changed the default directory variable to <code class="verbatim">(setq jupyter-org-resource-directory &#34;.&#34;).</code></p>
+<div class="src src-jupyter-python">
+<pre><code class="language-jupyter-python" data-lang="jupyter-python">import matplotlib.pyplot as plt
+import numpy as np
+
+x=np.linspace(-15,15, 100)
+fig = plt.figure(dpi=300)
+plt.plot(np.sin(x)**2/x)</code></pre>
+</div>
+<p><img src="./4c8d0270a0b0daeca7d499707cc05b4b939bfb55.png" alt="./4c8d0270a0b0daeca7d499707cc05b4b939bfb55.png" title="./4c8d0270a0b0daeca7d499707cc05b4b939bfb55.png" /></p>
+</div>
+</div>
+<div id="outline-container-headline-5" class="outline-2">
+<h2 id="headline-5">
+Dataframes from interactive code blocks
+</h2>
+<div id="outline-text-headline-5" class="outline-text-2">
 <div class="src src-jupyter-python">
 <pre><code class="language-jupyter-python" data-lang="jupyter-python">import pandas as pd
 data = [[1, 2], [3, 4]]
@@ -183,16 +194,16 @@ print(DF)</code></pre>
 </pre>
 </div>
 </div>
-<div id="outline-container-headline-5" class="outline-2">
-<h2 id="headline-5">
+<div id="outline-container-headline-6" class="outline-2">
+<h2 id="headline-6">
 Updates
 </h2>
-<div id="outline-text-headline-5" class="outline-text-2">
-<div id="outline-container-headline-6" class="outline-4">
-<h4 id="headline-6">
+<div id="outline-text-headline-6" class="outline-text-2">
+<div id="outline-container-headline-7" class="outline-4">
+<h4 id="headline-7">
 07/12/2020
 </h4>
-<div id="outline-text-headline-6" class="outline-text-4">
+<div id="outline-text-headline-7" class="outline-text-4">
 <p>Problems with standard hugo org-mode support:</p>
 <ol>
 <li>
@@ -207,19 +218,25 @@ Updates
 <li>
 <p>toc works</p>
 </li>
-</ol>
-<p>Inconveniences with ox-hugo:</p>
-<ol>
 <li>
-<p>I have to add a </p>
+<p>I have to wait it generate the markdown every time</p>
 </li>
 </ol>
 </div>
 </div>
+<div id="outline-container-headline-8" class="outline-4">
+<h4 id="headline-8">
+09/12/2020
+</h4>
+<div id="outline-text-headline-8" class="outline-text-4">
+<p>Not using ox-hugo anymore, too complicated for my workflow.
+Toc works natively with org-mode using <code class="verbatim">#+toc: t</code>, I have not seen that documented anywhere else.</p>
 </div>
 </div>
-<div id="outline-container-headline-7" class="outline-2">
-<h2 id="headline-7">
+</div>
+</div>
+<div id="outline-container-headline-9" class="outline-2">
+<h2 id="headline-9">
 Footnotes
 </h2>
 </div>
@@ -320,6 +337,34 @@ Footnotes
           </div>
       </div>
       
+      <div class="toc-container">
+           <div class="toc-post-title">First post in HUGO</div> 
+        <nav id="TableOfContents">
+<ul>
+<li><a href="#headline-1">Introduction</a>
+</li>
+<li><a href="#headline-2">Images from URL</a>
+</li>
+<li><a href="#headline-3">Graphs from interactive code blocks saved on <code class="verbatim">/static/images</code></a>
+</li>
+<li><a href="#headline-4">Graphs saved in the same folder as the post</a>
+</li>
+<li><a href="#headline-5">Dataframes from interactive code blocks</a>
+</li>
+<li><a href="#headline-6">Updates</a>
+<ul>
+<li><a href="#headline-7">07/12/2020</a>
+</li>
+<li><a href="#headline-8">09/12/2020</a>
+</li>
+</ul>
+</li>
+<li><a href="#headline-9">Footnotes</a>
+</li>
+</ul>
+</nav>
+      </div>
+      
     </div>
     
 
@@ -337,6 +382,8 @@ Footnotes
   <script src="https://unpkg.com/prismjs@1.20.0/plugins/autoloader/prism-autoloader.min.js"
     data-autoloader-path="https://unpkg.com/prismjs@1.20.0/components/"></script>
 
+  
+    <script src="/js/table-of-contents.js"></script>
   
 
 
