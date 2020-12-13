@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© {year}</copyright>
-    <lastBuildDate>Wed, 09 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 11 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Topic modeling</title>
+      <link>https://nasseralkmim.github.io/notes/topic_modelig/</link>
+      <pubDate>Fri, 11 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://nasseralkmim.github.io/notes/topic_modelig/</guid>
+      <description>Introduction  Topic modeling is a form of semantic analysis, a step forwarding finding meaning from word counts. This analysis allows discovery of document topic without trainig data. It involves counting words and grouping similar word patterns to describe the data.
+  Latent Dirichlet Allocation   Latent Dirichlet Allocation (LDA) is one topic modeling technique. It can infer the probability distribution of words for each topic, characterizing it.</description>
+    </item>
+    
     <item>
       <title>NLP with Python</title>
       <link>https://nasseralkmim.github.io/notes/nlp-with-python/</link>
@@ -15,7 +25,7 @@
       
       <guid>https://nasseralkmim.github.io/notes/nlp-with-python/</guid>
       <description>Introduction  This is an attempt to compile different sources of informations about Natural Language processing with python.
-  Process used in NLP  Tokenization  Converts text into segments (n-grams) that could represent a word, two words or more. During this step, usually it is performed some kind of vocabulary reduction such as normalization, stemming and lemmatization.
+  Techiniques used in NLP  Tokenization  Converts text into segments (n-grams) that could represent a word, two words or more. During this step, usually it is performed some kind of vocabulary reduction such as normalization, stemming, lemmatization and removing stop words.
 Tools    NLTK: string processing library, built by academics.</description>
     </item>
     
