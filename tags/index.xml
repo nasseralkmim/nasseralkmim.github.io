@@ -7,49 +7,40 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© {year}</copyright>
-    <lastBuildDate>Fri, 11 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 17 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>LDA</title>
-      <link>https://nasseralkmim.github.io/tags/lda/</link>
+      <title>books</title>
+      <link>https://nasseralkmim.github.io/tags/books/</link>
+      <pubDate>Thu, 17 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://nasseralkmim.github.io/tags/books/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>natural-language-processing</title>
+      <link>https://nasseralkmim.github.io/tags/natural-language-processing/</link>
       <pubDate>Fri, 11 Dec 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://nasseralkmim.github.io/tags/lda/</guid>
+      <guid>https://nasseralkmim.github.io/tags/natural-language-processing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>machine-learning</title>
+      <link>https://nasseralkmim.github.io/tags/machine-learning/</link>
+      <pubDate>Wed, 09 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://nasseralkmim.github.io/tags/machine-learning/</guid>
       <description></description>
     </item>
     
     <item>
       <title>NLP</title>
       <link>https://nasseralkmim.github.io/tags/nlp/</link>
-      <pubDate>Fri, 11 Dec 2020 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 07 Dec 2020 00:00:00 +0000</pubDate>
       
       <guid>https://nasseralkmim.github.io/tags/nlp/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>ML</title>
-      <link>https://nasseralkmim.github.io/tags/ml/</link>
-      <pubDate>Wed, 09 Dec 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/tags/ml/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>POS</title>
-      <link>https://nasseralkmim.github.io/tags/pos/</link>
-      <pubDate>Wed, 09 Dec 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/tags/pos/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>spaCy</title>
-      <link>https://nasseralkmim.github.io/tags/spacy/</link>
-      <pubDate>Wed, 09 Dec 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/tags/spacy/</guid>
       <description></description>
     </item>
     
@@ -59,15 +50,6 @@
       <pubDate>Thu, 03 Dec 2020 00:00:00 +0000</pubDate>
       
       <guid>https://nasseralkmim.github.io/tags/meta/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>books</title>
-      <link>https://nasseralkmim.github.io/tags/books/</link>
-      <pubDate>Sat, 05 Jan 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/tags/books/</guid>
       <description></description>
     </item>
     
