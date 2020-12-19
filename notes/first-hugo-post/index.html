@@ -146,7 +146,7 @@ In order to use the generated graph from the code in the blog published with Hug
 </li>
 </ol>
 <div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">import matplotlib.pyplot as plt
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">import matplotlib.pyplot as plt
 import numpy as np
 
 x=np.linspace(-15,15, 100)
@@ -166,7 +166,7 @@ I create a new folder for each post that will have pictures.
 Inside this folder the post goes on a <code class="verbatim">index.org</code> file.
 And the figures are generated automatically with <code class="verbatim">emacs-jupyter</code>, I just changed the default directory variable to <code class="verbatim">(setq jupyter-org-resource-directory &#34;./jupter/&#34;).</code></p>
 <div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">import matplotlib.pyplot as plt
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">import matplotlib.pyplot as plt
 import numpy as np
 
 x=np.linspace(-15,15, 100)
@@ -182,7 +182,7 @@ Dataframes from interactive code blocks
 </h2>
 <div id="outline-text-headline-5" class="outline-text-2">
 <div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">import pandas as pd
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">import pandas as pd
 data = [[1, 2], [3, 4]]
 DF = pd.DataFrame(data, columns=[&#34;Foo&#34;, &#34;Bar&#34;])
 print(DF)</code></pre></div>
@@ -196,9 +196,21 @@ print(DF)</code></pre></div>
 </div>
 <div id="outline-container-headline-6" class="outline-2">
 <h2 id="headline-6">
-Figures from clipboard
+python code block
 </h2>
 <div id="outline-text-headline-6" class="outline-text-2">
+<div class="src src-python">
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">numpy</span> <span style="color:#a2f;font-weight:bold">as</span> <span style="color:#00f;font-weight:bold">np</span>
+
+a <span style="color:#666">=</span> np<span style="color:#666">.</span>linspace(<span style="color:#666">3</span>, <span style="color:#666">2</span>)</code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-7" class="outline-2">
+<h2 id="headline-7">
+Figures from clipboard
+</h2>
+<div id="outline-text-headline-7" class="outline-text-2">
 <p>
 Using <code class="verbatim">org-download</code> with imagemagick <code class="verbatim">convert</code> command.
 The workflow is to just use the snipping tool from windows and use the <code class="verbatim">org-download-clipboard</code> function inside emacs org-mode.
@@ -206,11 +218,11 @@ Right now I still need an easy way to control the image width, it seems that hug
 <img src="Figures_from_clipboard/2020-12-19_10-33-05_screenshot.png" alt="Figures_from_clipboard/2020-12-19_10-33-05_screenshot.png" title="Figures_from_clipboard/2020-12-19_10-33-05_screenshot.png" width="300px"/>
 </div>
 </div>
-<div id="outline-container-headline-7" class="outline-2">
-<h2 id="headline-7">
+<div id="outline-container-headline-8" class="outline-2">
+<h2 id="headline-8">
 Equations
 </h2>
-<div id="outline-text-headline-7" class="outline-text-2">
+<div id="outline-text-headline-8" class="outline-text-2">
 <p>
 I had to just enable <code class="verbatim">math=True</code> in my hugo <code class="verbatim">.toml</code> config file under site params.</p>
 <ol>
@@ -223,13 +235,30 @@ I had to just enable <code class="verbatim">math=True</code> in my hugo <code cl
 </ol>
 </div>
 </div>
-<div id="outline-container-headline-8" class="outline-2">
-<h2 id="headline-8">
-Syntax highlight
-</h2>
-</div>
 <div id="outline-container-headline-9" class="outline-2">
 <h2 id="headline-9">
+Stylized balance sheets from ditaa
+</h2>
+<div id="outline-text-headline-9" class="outline-text-2">
+<p>
+Well, this works. However it is too time consuming.</p>
+<div class="src src-ditaa">
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">/------------------\
+|Federal Reserve   |
++--------+---------+
+|assets	 |liabilit |
++--------+---------+	
+|c1AB	 | cPNK    |	
+|JPY     | USD	   |
+|reserves| reserves|
+|at BoJ	 |to BoJ   |
++--------+---------+</code></pre></div>
+</div>
+<p><img src="test.png" alt="test.png" title="test.png" /></p>
+</div>
+</div>
+<div id="outline-container-headline-10" class="outline-2">
+<h2 id="headline-10">
 Footnotes
 </h2>
 </div>
@@ -373,13 +402,15 @@ Footnotes
 </li>
 <li><a href="#headline-5">Dataframes from interactive code blocks</a>
 </li>
-<li><a href="#headline-6">Figures from clipboard</a>
+<li><a href="#headline-6">python code block</a>
 </li>
-<li><a href="#headline-7">Equations</a>
+<li><a href="#headline-7">Figures from clipboard</a>
 </li>
-<li><a href="#headline-8">Syntax highlight</a>
+<li><a href="#headline-8">Equations</a>
 </li>
-<li><a href="#headline-9">Footnotes</a>
+<li><a href="#headline-9">Stylized balance sheets from ditaa</a>
+</li>
+<li><a href="#headline-10">Footnotes</a>
 </li>
 </ul>
 </nav>

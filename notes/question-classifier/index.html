@@ -113,7 +113,7 @@ Loading data
 </h2>
 <div id="outline-text-headline-2" class="outline-text-2">
 <div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">import pandas as pd
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">import pandas as pd
 data = open(&#34;train_1000-label.txt&#34;, &#39;r&#39;)
 train_raw = pd.DataFrame(data.readlines(), columns=[&#39;data&#39;])
 print(train_raw.head())</code></pre></div>
@@ -140,7 +140,7 @@ Split string
 <div id="outline-text-headline-4" class="outline-text-4">
 <p>We need to split the class, finner class and the question itself.</p>
 <div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">train = train_raw.data.str.split(&#39;:&#39;, n=1, expand=True)
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">train = train_raw.data.str.split(&#39;:&#39;, n=1, expand=True)
 print(train.head())
 train[1] = train[1].str.split(n=1).str[1] # remove te finner classification
 train.columns = [&#39;QType&#39;, &#39;Question&#39;]
@@ -170,7 +170,7 @@ Identify the possible classifications
 <p>
 We have 6 different questions types.</p>
 <div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">classes = train.QType.drop_duplicates()
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">classes = train.QType.drop_duplicates()
 print(classes)</code></pre></div>
 </div>
 <pre class="example">
@@ -195,7 +195,7 @@ This process is called <strong>Label Encoding</strong>.</p>
 <p>
 We can use Scikit-Learn preprocessing Label Encoder class.</p>
 <div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">from sklearn.preprocessing import LabelEncoder
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">from sklearn.preprocessing import LabelEncoder
 le = LabelEncoder()
 le.fit(classes)
 encoded_classes = le.transform(classes) 
@@ -231,7 +231,7 @@ We do that with pandas string functions.
 The we use the one hot method for preprocessing text in keras, which <strong>is not a one-hot encoding</strong> but simply a label encoding.
 The we perform the </p>
 <div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">from tensorflow.keras import utils, preprocessing
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">from tensorflow.keras import utils, preprocessing
 print(classes.str.cat(sep=&#39; &#39;), classes.size)
 enc_classes = preprocessing.text.one_hot(classes.str.cat(sep=&#39; &#39;),
                                          n=classes.size,

@@ -160,7 +160,7 @@ Load the data
 I will use the data from portuguese blog posts from <a href="https://www.inf.pucrs.br/linatural/wordpress/recursos-e-ferramentas/blogset-br/">BLOGSET-BR</a>.
 I&#39;m limiting the analysis to just 1000 blog posts in order to keep the code running fast in this notebook.</p>
 <div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">import pandas as pd
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">import pandas as pd
 
 posts_data = pd.read_csv(&#39;C:/Users/nasse/Desktop/blogset-br.csv/blogset-br.csv&#39;, header=None, nrows=1000)
 print(posts_data.shape)
@@ -199,7 +199,7 @@ print(posts_data.head())</code></pre></div>
 <p>
 We are only interested in the blog content, so we drop all columns except the one with content which is the 4th column.</p>
 <div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">posts = posts_data[4].to_frame()
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">posts = posts_data[4].to_frame()
 posts.columns = [&#39;content&#39;]
 print(posts.head())
 print(posts.columns)</code></pre></div>
@@ -227,7 +227,7 @@ Lower case
 <div id="outline-text-headline-8" class="outline-text-6">
 <p>First step is to make every thing lower case using the vectorize string function in pandas.</p>
 <div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">posts[&#39;lower&#39;] = posts[&#39;content&#39;].str.lower()
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">posts[&#39;lower&#39;] = posts[&#39;content&#39;].str.lower()
 print(posts[&#39;lower&#39;].head())</code></pre></div>
 </div>
 <pre class="example">
@@ -248,7 +248,7 @@ Tokenize each post
 <p>
 We then tokenize each post using spaCy by loading the model (português one), which can be downloaded with <code class="verbatim">python -m spacy download pt_core_news_sm</code>.</p>
 <div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">import spacy
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">import spacy
 
 nlp = spacy.load(&#39;pt_core_news_sm&#39;)
 posts[&#39;tokens&#39;] = posts[&#39;lower&#39;].apply(nlp)
@@ -267,7 +267,7 @@ Let&#39;s check the number of tokens in each post.
 We can see the average tokens for each post.
 A great part of those tokens are stopwords which does not contain much information, so we are removing them.</p>
 <div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">posts[&#39;num_tokens&#39;] = posts[&#39;tokens&#39;].apply(len)
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">posts[&#39;num_tokens&#39;] = posts[&#39;tokens&#39;].apply(len)
 print(posts[&#39;num_tokens&#39;].mean() )</code></pre></div>
 </div>
 <pre class="example">
@@ -282,7 +282,7 @@ Removing punctuation
 <div id="outline-text-headline-10" class="outline-text-6">
 <p>Reduces the average tokens.</p>
 <div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">posts[&#39;tokens_nopunc&#39;] = posts[&#39;tokens&#39;].apply(lambda x: [tkn for tkn in x if not tkn.is_punct])
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">posts[&#39;tokens_nopunc&#39;] = posts[&#39;tokens&#39;].apply(lambda x: [tkn for tkn in x if not tkn.is_punct])
 print(posts[&#39;tokens_nopunc&#39;].head())
 
 posts[&#39;num_tokens_nopunc&#39;] = posts[&#39;tokens_nopunc&#39;].apply(len)
@@ -305,7 +305,7 @@ Removing stopwords
 </h6>
 <div id="outline-text-headline-11" class="outline-text-6">
 <div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">print(list(nlp.Defaults.stop_words)[:20])</code></pre></div>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">print(list(nlp.Defaults.stop_words)[:20])</code></pre></div>
 </div>
 <pre class="example">
 [&#39;momento&#39;, &#39;foram&#39;, &#39;geral&#39;, &#39;onde&#39;, &#39;tiveram&#39;, &#39;seus&#39;, &#39;oito&#39;, &#39;além&#39;, &#39;aqui&#39;, &#39;podem&#39;, &#39;aquelas&#39;, &#39;por&#39;, &#39;sétima&#39;, &#39;acerca&#39;, &#39;primeiro&#39;, &#39;nuns&#39;, &#39;estás&#39;, &#39;nossas&#39;, &#39;está&#39;, &#39;temos&#39;]
@@ -313,7 +313,7 @@ Removing stopwords
 <p>
 Then we remove the stop words using the spaCy collection of stopwords, we can see that we reduced the average tokens to 63 per post.</p>
 <div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">def remove_stopwords(tokens):
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">def remove_stopwords(tokens):
     tokens_nosw = []
     for tkn in tokens:
         if tkn.text.isspace():
@@ -347,7 +347,7 @@ Removing tokens with less the 4 letters
 <p>
 Usually smaller words don&#39;t carry much information, so we remove then.</p>
 <div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">posts[&#39;tokens_clean&#39;] = posts.tokens_nosw.apply(lambda x: [tkn for tkn in x if len(tkn) &gt;4])
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">posts[&#39;tokens_clean&#39;] = posts.tokens_nosw.apply(lambda x: [tkn for tkn in x if len(tkn) &gt;4])
 print(posts.tokens_clean)
 
 
@@ -381,7 +381,7 @@ Now creating a new Series pandas object.
 We filter the Series considering only entities with length greater than 0, then we call the attribute to convert each token into text.
 At the end we have a list of list of strings.</p>
 <div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">posts_clean = posts.tokens_clean[posts.tokens_clean.str.len() &gt; 0].apply(lambda x: [tkn.text for tkn in x])
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">posts_clean = posts.tokens_clean[posts.tokens_clean.str.len() &gt; 0].apply(lambda x: [tkn.text for tkn in x])
 print(posts_clean)
 
 print(type(posts_clean.tolist()[0]))
@@ -413,7 +413,7 @@ Summary preprocessing DataFrame
 <p>
 The full preprocess in the posts DataFrame, so we can visualiza each process.</p>
 <div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">pd.set_option(&#39;max_columns&#39;, None)
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">pd.set_option(&#39;max_columns&#39;, None)
 print(posts.head())</code></pre></div>
 </div>
 <pre class="example">
@@ -482,7 +482,7 @@ This corpus is created from a list of documents with a list of tokens.</p>
 The <code class="verbatim">Dictionary</code> class associates each word with a unique integer ID.
 This is dictionary defines a vocabulary.</p>
 <div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">from gensim.corpora import Dictionary
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">from gensim.corpora import Dictionary
 docs = posts_clean.tolist()
 dictionary = Dictionary(docs)
 print(dictionary)</code></pre></div>
@@ -502,7 +502,7 @@ In this step we convert a document into a numeric form so the algorithm can mani
 This step is also known as bag-of-words representation of documents.
 This function <code class="verbatim">doc2bow()</code> creates a tuple for each word with <code class="verbatim">(word_id, word_frquency)</code>.</p>
 <div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">corpus = [dictionary.doc2bow(doc) for doc in docs]
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">corpus = [dictionary.doc2bow(doc) for doc in docs]
 print(corpus[0], docs[0])
 print(&#39;Number of unique tokens:&#39;, len(dictionary))
 print(&#39;Number of posts:&#39;, len(corpus))</code></pre></div>
@@ -526,7 +526,7 @@ Chunk size controls how many documents are processed at a time.
 Passes defined how often the model is trained on the corpus, same as &#39;epochs&#39;.
 Iterations controls how often we repeat a particular loop over each document.</p>
 <div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">from gensim.models import LdaModel
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">from gensim.models import LdaModel
 
 
 num_topics = 10
@@ -560,7 +560,7 @@ Training output
 <div id="outline-text-headline-19" class="outline-text-6">
 <p>We can print the top topics from a particular document.</p>
 <div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">from pprint import pprint
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">from pprint import pprint
 topics = model.top_topics(corpus)
 pprint(topics[4])
 print(docs[4])</code></pre></div>
@@ -603,7 +603,7 @@ This tools allows us to visualize the topics discovered, their importance, simil
 The relevance is computed with a weighted average of the <strong>probability of the word given the topic</strong> and this probability normalized by the probability of the term.
 If we adjust the slider on the top to 0, we are considering words that appeared mostly on a specific topic.</p>
 <div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">import pyLDAvis.gensim
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">import pyLDAvis.gensim
 lda = LdaModel.load(&#39;model_927.gensim&#39;)
 lda_display = pyLDAvis.gensim.prepare(lda, corpus, dictionary, sort_topics=False) 
 pyLDAvis.save_html(lda_display, &#39;ldavis.html&#39;)</code></pre></div>

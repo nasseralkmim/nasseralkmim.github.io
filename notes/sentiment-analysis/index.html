@@ -124,7 +124,7 @@ The format is a list of of length 25000 and each entry is another list that repr
 Integers represent the frequency of the word, so we are considering the top 1000 most frequent ones.
 We can see the sentiment values is 0 or 1.</p>
 <div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">from tensorflow.keras import datasets, preprocessing
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">from tensorflow.keras import datasets, preprocessing
 
 max_features = 10000           # number of words
 
@@ -144,7 +144,7 @@ print(train_targ)</code></pre></div>
 With this bunch of numbers is hard to grasp the real meaning of this data.
 Fortunately we can convert it back to text using the index of words also provided by the dataset.</p>
 <div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">index = datasets.imdb.get_word_index()
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">index = datasets.imdb.get_word_index()
 print(list(index.items())[:5])</code></pre></div>
 </div>
 <pre class="example">
@@ -154,7 +154,7 @@ print(list(index.items())[:5])</code></pre></div>
 We can see that the word index is a dictionary where the key is the word and the value is the integer representation.
 Because we have the values and want the keys, it is useful to invert this dictionary so we can entry and integer and get out a word.</p>
 <div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">index_word = {value: key for (key, value) in index.items()}
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">index_word = {value: key for (key, value) in index.items()}
 print(index_word[11], index_word[19])
 comment = &#39; &#39;.join([index_word.get(i - 3, &#39;#&#39;) for i in train_data[0]]) # -3 because in the 10.000 words it is missing 2 and the first number is the sentiment
 print(comment)</code></pre></div>
@@ -175,7 +175,7 @@ So we are limiting the comments to just the first 20 words.
 This will affect the accuracy of the final trained neural network model.
 We expect a higher accuracy when more words are considered during training.</p>
 <div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">maxlen = 20
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">maxlen = 20
 train_data = preprocessing.sequence.pad_sequences(train_data, maxlen=maxlen)
 test_data = preprocessing.sequence.pad_sequences(test_data, maxlen=maxlen)
 print(train_data)</code></pre></div>
@@ -217,7 +217,7 @@ It implements a math operation where there is a multiplication between the <stro
 The kernel is the weight matrix created by the layer.
 The activation function used here is the <em>sigmoid</em>, which is a nonlinear function that enables clear prediction.<sup class="footnote-reference"><a id="footnote-reference-2" href="#footnote-2">2</a></sup></p>
 <div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">from tensorflow import keras
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">from tensorflow import keras
 from tensorflow.keras import layers
 
 model = keras.Sequential()            # model
@@ -263,7 +263,7 @@ The <code class="verbatim">metrics</code> argument is a list of things that are 
 Here we used the accuracy.
 The accuracy metric is used for classification models and is simply the number of corrected predictions divided by the number of predictions (success rate).</p>
 <div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">model.compile(optimizer=&#39;rmsprop&#39;, loss=&#39;binary_crossentropy&#39;, metrics=[&#39;acc&#39;])
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">model.compile(optimizer=&#39;rmsprop&#39;, loss=&#39;binary_crossentropy&#39;, metrics=[&#39;acc&#39;])
 model.summary()</code></pre></div>
 </div>
 <pre class="example">
@@ -297,7 +297,7 @@ The next step is training the model.
 The function performs the number iterations given by <code class="verbatim">epoch</code> and the output is a history of training loss values and metrics at the epochs.
 It also shows the validation loss values and validation metrics values.</p>
 <div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">history = model.fit(train_data, train_targ, # input data and target data 
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">history = model.fit(train_data, train_targ, # input data and target data 
                     epochs=10,         # number of iterations per the data
                     batch_size=32,    # samples per gradient update
                     validation_split=0.2) # fraction of data used for training</code></pre></div>
@@ -334,7 +334,7 @@ Analysis
 <p>
 The training output is a dictionary with the results as a list.</p>
 <div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">print(history.history)</code></pre></div>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">print(history.history)</code></pre></div>
 </div>
 <pre class="example">
 {&#39;loss&#39;: [0.6738093495368958, 0.5541190505027771, 0.4671066403388977, 0.4246475100517273, 0.3965531885623932, 0.37326815724372864, 0.3524011969566345, 0.3323952257633209, 0.3134663701057434, 0.29573047161102295], &#39;acc&#39;: [0.6103500127792358, 0.746150016784668, 0.7843999862670898, 0.8069499731063843, 0.822350025177002, 0.8355500102043152, 0.8496000170707703, 0.8603500127792358, 0.8715999722480774, 0.8808500170707703], &#39;val_loss&#39;: [0.6296502351760864, 0.5315172076225281, 0.5030556917190552, 0.49588504433631897, 0.4951230585575104, 0.49791309237480164, 0.504469096660614, 0.5111817121505737, 0.5175582766532898, 0.526441216468811], &#39;val_acc&#39;: [0.6873999834060669, 0.7287999987602234, 0.7440000176429749, 0.7486000061035156, 0.7490000128746033, 0.753600001335144, 0.7563999891281128, 0.7554000020027161, 0.7545999884605408, 0.7516000270843506]}
@@ -344,7 +344,7 @@ From the training data we can start do some analysis with graphs.
 The evolution on the metrics of the validation data (training data) suggests that the prediction power of the neural network model is increasing very fast at the beginning and maintaining a level of the accuracy metric around 76%.
 We only used </p>
 <div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">import matplotlib.pyplot as plt
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">import matplotlib.pyplot as plt
 import numpy as np
 plt.plot(np.arange(1, len(history.history[&#39;val_acc&#39;])+1),
 	 history.history[&#39;val_acc&#39;])
