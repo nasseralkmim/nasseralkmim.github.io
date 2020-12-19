@@ -29,7 +29,7 @@
   
   
     
-    <link type="text/css" rel="stylesheet" href="/css/post.min.b60e0932fe1c50c3d7c5b4f83ee9e4592363654d0f2abf05bbd0678d5b8a214c.css" integrity="sha256-tg4JMv4cUMPXxbT4PunkWSNjZU0PKr8Fu9BnjVuKIUw="/>
+    <link type="text/css" rel="stylesheet" href="/css/post.min.f1da2ef8a3c321942ead6a53657a7afd5aefa610302bf420660ffb62dc49b6fe.css" integrity="sha256-8dou&#43;KPDIZQurWpTZXp6/VrvphAwK/QgZg/7YtxJtv4="/>
   
     
     <link type="text/css" rel="stylesheet" href="/css/custom.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" integrity="sha256-47DEQpj8HBSa&#43;/TImW&#43;5JCeuQeRkm5NMpJWZG3hSuFU="/>
@@ -146,12 +146,12 @@ In order to use the generated graph from the code in the blog published with Hug
 </li>
 </ol>
 <div class="src src-jupyter-python">
-<pre><code class="language-jupyter-python" data-lang="jupyter-python">import matplotlib.pyplot as plt
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">import matplotlib.pyplot as plt
 import numpy as np
 
 x=np.linspace(-15,15, 100)
 fig = plt.figure(dpi=300)
-plt.plot(np.sin(x)**2/x**2)</code></pre>
+plt.plot(np.sin(x)**2/x**2)</code></pre></div>
 </div>
 <img src="/images/graph1.png" alt="/images/graph1.png" title="/images/graph1.png" width="400px"/>
 </div>
@@ -166,12 +166,12 @@ I create a new folder for each post that will have pictures.
 Inside this folder the post goes on a <code class="verbatim">index.org</code> file.
 And the figures are generated automatically with <code class="verbatim">emacs-jupyter</code>, I just changed the default directory variable to <code class="verbatim">(setq jupyter-org-resource-directory &#34;./jupter/&#34;).</code></p>
 <div class="src src-jupyter-python">
-<pre><code class="language-jupyter-python" data-lang="jupyter-python">import matplotlib.pyplot as plt
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">import matplotlib.pyplot as plt
 import numpy as np
 
 x=np.linspace(-15,15, 100)
 fig = plt.figure(dpi=300)
-plt.plot(np.sin(x)**2/x)</code></pre>
+plt.plot(np.sin(x)**2/x)</code></pre></div>
 </div>
 <p><img src="./jupyter/4c8d0270a0b0daeca7d499707cc05b4b939bfb55.png" alt="./jupyter/4c8d0270a0b0daeca7d499707cc05b4b939bfb55.png" title="./jupyter/4c8d0270a0b0daeca7d499707cc05b4b939bfb55.png" /></p>
 </div>
@@ -182,10 +182,10 @@ Dataframes from interactive code blocks
 </h2>
 <div id="outline-text-headline-5" class="outline-text-2">
 <div class="src src-jupyter-python">
-<pre><code class="language-jupyter-python" data-lang="jupyter-python">import pandas as pd
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">import pandas as pd
 data = [[1, 2], [3, 4]]
 DF = pd.DataFrame(data, columns=[&#34;Foo&#34;, &#34;Bar&#34;])
-print(DF)</code></pre>
+print(DF)</code></pre></div>
 </div>
 <pre class="example">
    Foo  Bar
@@ -225,6 +225,11 @@ I had to just enable <code class="verbatim">math=True</code> in my hugo <code cl
 </div>
 <div id="outline-container-headline-8" class="outline-2">
 <h2 id="headline-8">
+Syntax highlight
+</h2>
+</div>
+<div id="outline-container-headline-9" class="outline-2">
+<h2 id="headline-9">
 Footnotes
 </h2>
 </div>
@@ -372,7 +377,9 @@ Footnotes
 </li>
 <li><a href="#headline-7">Equations</a>
 </li>
-<li><a href="#headline-8">Footnotes</a>
+<li><a href="#headline-8">Syntax highlight</a>
+</li>
+<li><a href="#headline-9">Footnotes</a>
 </li>
 </ul>
 </nav>
@@ -389,11 +396,11 @@ Footnotes
   <script src="/js/index.min.49e4d8a384357d9b445b87371863419937ede9fa77737522ffb633073aebfa44.js" integrity="sha256-SeTYo4Q1fZtEW4c3GGNBmTft6fp3c3Ui/7YzBzrr&#43;kQ=" crossorigin="anonymous"></script>
   
     
-    <script src="https://unpkg.com/prismjs@1.20.0/components/prism-core.min.js"></script>
+    
 
     
-    <script src="https://unpkg.com/prismjs@1.20.0/plugins/autoloader/prism-autoloader.min.js" -->
-    <!--   data-autoloader-path="https://unpkg.com/prismjs@1.20.0/components/"></script>
+    
+    
 
 
 <script src="/js/table-of-contents.js"></script>
