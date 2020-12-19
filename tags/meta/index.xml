@@ -16,7 +16,7 @@
       <guid>https://nasseralkmim.github.io/notes/first-hugo-post/</guid>
       <description>Introduction  Meta post about how I do it. I&amp;#39;m using org-mode inside emacs and Hugo.
   Images from URL  Use the html export block from org mode. In order to override the theme css for images display I manually inserted the html with a different style=&amp;#34;display: revert; max-width: fit-content;&amp;#34;. (this depends on the theme you choose)
-  Graphs from interactive code blocks saved on /static/images   Using emacs-jupyter together with org-mode babel.</description>
+  Graphs from interactive code blocks saved on /static/images1   Using emacs-jupyter together with org-mode babel.</description>
     </item>
     
   </channel>

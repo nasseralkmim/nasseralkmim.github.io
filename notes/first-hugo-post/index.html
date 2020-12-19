@@ -128,7 +128,7 @@ In order to override the theme css for images display I manually inserted the ht
 </div>
 <div id="outline-container-headline-3" class="outline-2">
 <h2 id="headline-3">
-Graphs from interactive code blocks saved on <code class="verbatim">/static/images</code>
+Graphs from interactive code blocks saved on <code class="verbatim">/static/images</code><sup class="footnote-reference"><a id="footnote-reference-1" href="#footnote-1">1</a></sup>
 </h2>
 <div id="outline-text-headline-3" class="outline-text-2">
 <p>
@@ -136,7 +136,7 @@ Using <code class="verbatim">emacs-jupyter</code> together with <code class="ver
 In order to use the generated graph from the code in the blog published with Hugu I did the following:</p>
 <ol>
 <li>
-<p>save the figure with source block header argument <code class="verbatim">:file ../../static/images/graph1.png.</code> <sup class="footnote-reference"><a id="footnote-reference-1" href="#footnote-1">1</a></sup></p>
+<p>save the figure with source block header argument <code class="verbatim">:file ../../static/images/graph1.png.</code> <sup class="footnote-reference"><a id="footnote-reference-2" href="#footnote-2">2</a></sup></p>
 </li>
 <li>
 <p>added also <code class="verbatim">:exports code</code> to avoid having a broken link in the html, which is automatically generated with ob-jupyter.</p>
@@ -164,7 +164,7 @@ Graphs saved in the same folder as the post
 <p>This is the most convenient organization scheme.
 I create a new folder for each post that will have pictures.
 Inside this folder the post goes on a <code class="verbatim">index.org</code> file.
-And the figures are generated automatically with <code class="verbatim">emacs-jupyter</code>, I just changed the default directory variable to <code class="verbatim">(setq jupyter-org-resource-directory &#34;.&#34;).</code></p>
+And the figures are generated automatically with <code class="verbatim">emacs-jupyter</code>, I just changed the default directory variable to <code class="verbatim">(setq jupyter-org-resource-directory &#34;./jupter/&#34;).</code></p>
 <div class="src src-jupyter-python">
 <pre><code class="language-jupyter-python" data-lang="jupyter-python">import matplotlib.pyplot as plt
 import numpy as np
@@ -173,7 +173,7 @@ x=np.linspace(-15,15, 100)
 fig = plt.figure(dpi=300)
 plt.plot(np.sin(x)**2/x)</code></pre>
 </div>
-<p><img src="./4c8d0270a0b0daeca7d499707cc05b4b939bfb55.png" alt="./4c8d0270a0b0daeca7d499707cc05b4b939bfb55.png" title="./4c8d0270a0b0daeca7d499707cc05b4b939bfb55.png" /></p>
+<p><img src="./jupyter/4c8d0270a0b0daeca7d499707cc05b4b939bfb55.png" alt="./jupyter/4c8d0270a0b0daeca7d499707cc05b4b939bfb55.png" title="./jupyter/4c8d0270a0b0daeca7d499707cc05b4b939bfb55.png" /></p>
 </div>
 </div>
 <div id="outline-container-headline-5" class="outline-2">
@@ -196,47 +196,35 @@ print(DF)</code></pre>
 </div>
 <div id="outline-container-headline-6" class="outline-2">
 <h2 id="headline-6">
-Updates
+Figures from clipboard
 </h2>
 <div id="outline-text-headline-6" class="outline-text-2">
-<div id="outline-container-headline-7" class="outline-4">
-<h4 id="headline-7">
-07/12/2020
-</h4>
-<div id="outline-text-headline-7" class="outline-text-4">
-<p>Problems with standard hugo org-mode support:</p>
+<p>
+Using <code class="verbatim">org-download</code> with imagemagick <code class="verbatim">convert</code> command.
+The workflow is to just use the snipping tool from windows and use the <code class="verbatim">org-download-clipboard</code> function inside emacs org-mode.
+Right now I still need an easy way to control the image width, it seems that hugo can not understand <code class="verbatim">#+attr_html</code> parameters.</p>
+<img src="Figures_from_clipboard/2020-12-19_10-33-05_screenshot.png" alt="Figures_from_clipboard/2020-12-19_10-33-05_screenshot.png" title="Figures_from_clipboard/2020-12-19_10-33-05_screenshot.png" width="300px"/>
+</div>
+</div>
+<div id="outline-container-headline-7" class="outline-2">
+<h2 id="headline-7">
+Equations
+</h2>
+<div id="outline-text-headline-7" class="outline-text-2">
+<p>
+I had to just enable <code class="verbatim">math=True</code> in my hugo <code class="verbatim">.toml</code> config file under site params.</p>
 <ol>
 <li>
-<p>There is no support for toc.</p>
+<p>using double <code class="verbatim">$$</code> centering equations $$ f(x) = \int_0^1 x^2 d x $$</p>
 </li>
 <li>
-<p>Images generated with ob-jupyter need to be manually saved to static and the link manually included</p>
-</li>
-</ol>
-<p>Trying ox-hugo</p>
-<ol>
-<li>
-<p>toc works</p>
-</li>
-<li>
-<p>I have to wait it generate the markdown every time</p>
+<p>single <code class="verbatim">$</code> for inline $ x^2 $</p>
 </li>
 </ol>
 </div>
 </div>
-<div id="outline-container-headline-8" class="outline-4">
-<h4 id="headline-8">
-09/12/2020
-</h4>
-<div id="outline-text-headline-8" class="outline-text-4">
-<p>Not using ox-hugo anymore, too complicated for my workflow.
-Toc works natively with org-mode using <code class="verbatim">#+toc: t</code>, I have not seen that documented anywhere else.</p>
-</div>
-</div>
-</div>
-</div>
-<div id="outline-container-headline-9" class="outline-2">
-<h2 id="headline-9">
+<div id="outline-container-headline-8" class="outline-2">
+<h2 id="headline-8">
 Footnotes
 </h2>
 </div>
@@ -246,6 +234,12 @@ Footnotes
 <div class="footnote-definition">
 <sup id="footnote-1"><a href="#footnote-reference-1">1</a></sup>
 <div class="footnote-body">
+<p>Not using this anymore, it is objective better to place images together with the post. </p>
+</div>
+</div>
+<div class="footnote-definition">
+<sup id="footnote-2"><a href="#footnote-reference-2">2</a></sup>
+<div class="footnote-body">
 <p>I manually created the <code class="verbatim">images</code> folder.</p>
 </div>
 </div>
@@ -253,6 +247,18 @@ Footnotes
 </div>
 
 
+              
+                  
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
               
           </article>
           
@@ -356,21 +362,17 @@ Footnotes
 </li>
 <li><a href="#headline-2">Images from URL</a>
 </li>
-<li><a href="#headline-3">Graphs from interactive code blocks saved on <code class="verbatim">/static/images</code></a>
+<li><a href="#headline-3">Graphs from interactive code blocks saved on <code class="verbatim">/static/images</code><sup class="footnote-reference">1</sup></a>
 </li>
 <li><a href="#headline-4">Graphs saved in the same folder as the post</a>
 </li>
 <li><a href="#headline-5">Dataframes from interactive code blocks</a>
 </li>
-<li><a href="#headline-6">Updates</a>
-<ul>
-<li><a href="#headline-7">07/12/2020</a>
+<li><a href="#headline-6">Figures from clipboard</a>
 </li>
-<li><a href="#headline-8">09/12/2020</a>
+<li><a href="#headline-7">Equations</a>
 </li>
-</ul>
-</li>
-<li><a href="#headline-9">Footnotes</a>
+<li><a href="#headline-8">Footnotes</a>
 </li>
 </ul>
 </nav>
