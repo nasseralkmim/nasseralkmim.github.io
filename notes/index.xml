@@ -7,7 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© {year}</copyright>
-    <lastBuildDate>Thu, 17 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/notes/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 20 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Difference between risk and uncertainty</title>
+      <link>https://nasseralkmim.github.io/notes/risk-and-uncertainty/</link>
+      <pubDate>Sun, 20 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://nasseralkmim.github.io/notes/risk-and-uncertainty/</guid>
+      <description>I was watching this lecture from professor Andrew Loo and he presented a compelling analogy to understand the difference between risk and uncertainty.
+ The analogy goes as follows:
+  urn A with 50 red balls and 50 black balls, pick a collor and draw, if you draw your color you win $10,000.
+  urn B with unknown quantities, pick a color and draw, same prize.
+  The question is how much you are willing to bet?</description>
+    </item>
+    
     <item>
       <title>2020 Books review</title>
       <link>https://nasseralkmim.github.io/notes/books-2020/</link>
