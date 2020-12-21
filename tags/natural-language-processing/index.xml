@@ -40,6 +40,16 @@ Tools    NLTK: string processing library, built by academics.</description>
     </item>
     
     <item>
+      <title>Question classifier preprocessing</title>
+      <link>https://nasseralkmim.github.io/notes/question-classifier/</link>
+      <pubDate>Mon, 07 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://nasseralkmim.github.io/notes/question-classifier/</guid>
+      <description>Introduction   An example from the book by Aman Kedia. About label encoding.
+  Loading data  import pandas as pd data = open(&amp;#34;train_1000-label.txt&amp;#34;, &amp;#39;r&amp;#39;) train_raw = pd.DataFrame(data.readlines(), columns=[&amp;#39;data&amp;#39;]) print(train_raw.head())  data 0 DESC:manner How did serfdom develop in and the... 1 ENTY:cremat What films featured the character ... 2 DESC:manner How can I find a list of celebriti... 3 ENTY:animal What fowl grabs the spotlight afte... 4 ABBR:exp What is the full form of .</description>
+    </item>
+    
+    <item>
       <title>Sentiment analysis on IMDB dataset</title>
       <link>https://nasseralkmim.github.io/notes/sentiment-analysis/</link>
       <pubDate>Fri, 04 Dec 2020 00:00:00 +0000</pubDate>
