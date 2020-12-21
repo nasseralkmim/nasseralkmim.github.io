@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>note-taking on Nasser&#39;s personal website</title>
+    <link>https://nasseralkmim.github.io/tags/note-taking/</link>
+    <description>Recent content in note-taking on Nasser&#39;s personal website</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© {year}</copyright>
+    <lastBuildDate>Mon, 21 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/tags/note-taking/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Principles for note taking</title>
+      <link>https://nasseralkmim.github.io/notes/principles-for-note-taking/</link>
+      <pubDate>Mon, 21 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://nasseralkmim.github.io/notes/principles-for-note-taking/</guid>
+      <description>Principles    be consistent
+  be concise
+  drawing &amp;gt; text
+    Be consistent   Use the same letter size, grids help. Avoid random curvy arrows, use straight ones.
+  Be concise   I use what I call: layers of knowledge. You start on the left margin with a topic. Then, your dissect the topic from big ideas to small ideais.</description>
+    </item>
+    
+  </channel>
+</rss>
