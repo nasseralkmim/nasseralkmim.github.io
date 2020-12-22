@@ -170,5 +170,14 @@ BIS Bulletins   As of now, 2020, this are my favorite asthetic. The shaded backg
   Toro 2016  I think this one was made with TiKz library.</description>
     </item>
     
+    <item>
+      <title>How I manage academic sources in emacs: ivy-bibtex&#43;zotero</title>
+      <link>https://nasseralkmim.github.io/notes/bibliography-management/</link>
+      <pubDate>Thu, 23 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://nasseralkmim.github.io/notes/bibliography-management/</guid>
+      <description>Introduction   In this post I will go over my workflow for managing academic resources and seamless add citation into a $\LaTeX$ file. Usually this process is boring since you have to add a source into your .bib file, then insert the citation with the bibtex key into your latex to generate the references section. This process is independent of your .pdf source, so you can add citation for source that you have physically.</description>
+    </item>
+    
   </channel>
 </rss>
