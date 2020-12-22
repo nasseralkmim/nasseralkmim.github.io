@@ -146,7 +146,7 @@ In order to use the generated graph from the code in the blog published with Hug
 </li>
 </ol>
 <div class="src src-jupyter-python">
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">import matplotlib.pyplot as plt
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">import matplotlib.pyplot as plt
 import numpy as np
 
 x=np.linspace(-15,15, 100)
@@ -166,7 +166,7 @@ I create a new folder for each post that will have pictures.
 Inside this folder the post goes on a <code class="verbatim">index.org</code> file.
 And the figures are generated automatically with <code class="verbatim">emacs-jupyter</code>, I just changed the default directory variable to <code class="verbatim">(setq jupyter-org-resource-directory &#34;./jupter/&#34;).</code></p>
 <div class="src src-jupyter-python">
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">import matplotlib.pyplot as plt
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">import matplotlib.pyplot as plt
 import numpy as np
 
 x=np.linspace(-15,15, 100)
@@ -178,11 +178,11 @@ plt.plot(np.sin(x)**2/x)</code></pre></div>
 </div>
 <div id="outline-container-headline-5" class="outline-2">
 <h2 id="headline-5">
-Dataframes from interactive code blocks
+Dataframes from interactive jupyter-python code blocks
 </h2>
 <div id="outline-text-headline-5" class="outline-text-2">
 <div class="src src-jupyter-python">
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">import pandas as pd
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">import pandas as pd
 data = [[1, 2], [3, 4]]
 DF = pd.DataFrame(data, columns=[&#34;Foo&#34;, &#34;Bar&#34;])
 print(DF)</code></pre></div>
@@ -196,13 +196,14 @@ print(DF)</code></pre></div>
 </div>
 <div id="outline-container-headline-6" class="outline-2">
 <h2 id="headline-6">
-python code block
+Python code block
 </h2>
 <div id="outline-text-headline-6" class="outline-text-2">
+<p>If I want python syntax highlight but using jupyter-python src blocks I need to change the language of the source block when I finish the post.</p>
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">numpy</span> <span style="color:#a2f;font-weight:bold">as</span> <span style="color:#00f;font-weight:bold">np</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
 
-a <span style="color:#666">=</span> np<span style="color:#666">.</span>linspace(<span style="color:#666">3</span>, <span style="color:#666">2</span>)</code></pre></div>
+a <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">2</span>)</code></pre></div>
 </div>
 </div>
 </div>
@@ -243,7 +244,7 @@ Stylized balance sheets from ditaa
 <p>
 Well, this works. However it is too time consuming.</p>
 <div class="src src-ditaa">
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">/------------------\
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">/------------------\
 |Federal Reserve   |
 +--------+---------+
 |assets	 |liabilit |
@@ -417,9 +418,9 @@ Footnotes
 </li>
 <li><a href="#headline-4">Graphs saved in the same folder as the post</a>
 </li>
-<li><a href="#headline-5">Dataframes from interactive code blocks</a>
+<li><a href="#headline-5">Dataframes from interactive jupyter-python code blocks</a>
 </li>
-<li><a href="#headline-6">python code block</a>
+<li><a href="#headline-6">Python code block</a>
 </li>
 <li><a href="#headline-7">Figures from clipboard</a>
 </li>

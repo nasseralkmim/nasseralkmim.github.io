@@ -135,5 +135,16 @@ Tools    NLTK: string processing library, built by academics.</description>
       <description>Books list    Antifragile  Livro essencial para todos. A maneira como o Taleb escreve é muito interessante e me agrada muito. O livro te explica como certas circunstâncias podem ser favorecidas quando um agente stressor ocorre. Essa ideia é aplicada em finanças e também nos mais diversos expectros da vida. Meu capitulo favorito foi sobre &amp;#34;ensinando pássaros a voar&amp;#34; que trata a ciência, pelo menos a ciência do séc XIX, como uma atividade assimétrica, ou seja, através do &amp;#34;thinkering&amp;#34;, ou experimentos que custam pouco (pequeno downside) mas que tem grande potencial (upside), a ciência era feita de forma eficiênte de baixo para cima (bottom up).</description>
     </item>
     
+    <item>
+      <title>My favorite plots and graphs</title>
+      <link>https://nasseralkmim.github.io/notes/favorite-plots/</link>
+      <pubDate>Sat, 20 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://nasseralkmim.github.io/notes/favorite-plots/</guid>
+      <description>Here I&amp;#39;m going to compile a list of my favorite graphs and plots.
+BIS Bulletins   As of now, 2020, this are my favorite asthetic. The shaded background, no border, consistent line thickness and colors.   Old preferences  Eckardt 2011  This is one seems to be standard matplotlib plot. It is from a paper (Unger ad Eckardt 2011)
+  Toro 2016  I think this one was made with TiKz library.</description>
+    </item>
+    
   </channel>
 </rss>
