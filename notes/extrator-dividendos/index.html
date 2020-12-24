@@ -225,30 +225,51 @@ Name: total, dtype: float64
 Por período
 </h6>
 <div id="outline-text-headline-9" class="outline-text-6">
+<div id="outline-container-headline-10" class="outline-8">
+<h8 id="headline-10">
+A cada mês
+</h8>
+<div id="outline-text-headline-10" class="outline-text-8">
 <div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">print(dividends.groupby([(dividends.date_com.dt.year), (dividends.date_com.dt.month)])[&#39;total&#39;].sum())
-(dividends
- .groupby([dividends.date_com.dt.year, dividends.date_com.dt.month])[&#39;total&#39;]
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">(dividends
+ .groupby(dividends.date_com.dt.to_period(&#39;M&#39;))[&#39;total&#39;]
  .sum()
  .plot(kind=&#39;bar&#39;,
        xlabel=&#39;Dates&#39;,
        ylabel=&#39;Dividends R$&#39;)
  )</code></pre></div>
 </div>
-<pre class="example">
-date_com  date_com
-2019      12          1.789458
-2020      2           9.268000
-          5           0.900000
-          7           8.474937
-          8           1.200000
-          11          0.600000
-Name: total, dtype: float64
-</pre>
-<p><img src="./jupyter/2536b7ed4d93a748a2ca4bf686396d4592ba4d8b.png" alt="./jupyter/2536b7ed4d93a748a2ca4bf686396d4592ba4d8b.png" title="./jupyter/2536b7ed4d93a748a2ca4bf686396d4592ba4d8b.png" /></p>
+<p><img src="./jupyter/fd69254f813664635d65d12aa5d0211cb98da3c3.png" alt="./jupyter/fd69254f813664635d65d12aa5d0211cb98da3c3.png" title="./jupyter/fd69254f813664635d65d12aa5d0211cb98da3c3.png" /></p>
+</div>
+</div>
+<div id="outline-container-headline-11" class="outline-8">
+<h8 id="headline-11">
+A cada mês incluindo meses sem recebimento
+</h8>
+<div id="outline-text-headline-11" class="outline-text-8">
+<div class="src src-jupyter-python">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">df1 = (
+dividends
+.groupby(dividends.date_com.dt.to_period(&#39;M&#39;))[&#39;total&#39;]
+.sum()                          # group by month period and sum
+.resample(&#39;M&#39;)                  # adds periods without data
+.sum()
+.plot(kind=&#39;bar&#39;,
+      xlabel=&#39;Dates&#39;,
+      ylabel=&#39;Dividends R$&#39;)
+)</code></pre></div>
+</div>
+<p><img src="./jupyter/c62efaac82957dba8f3db82b4af14f9892c087c6.png" alt="./jupyter/c62efaac82957dba8f3db82b4af14f9892c087c6.png" title="./jupyter/c62efaac82957dba8f3db82b4af14f9892c087c6.png" /></p>
+</div>
+</div>
+<div id="outline-container-headline-12" class="outline-8">
+<h8 id="headline-12">
+A cada ano
+</h8>
+<div id="outline-text-headline-12" class="outline-text-8">
 <div class="src src-jupyter-python">
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">(dividends
- .groupby(dividends.date_com.dt.year)[&#39;total&#39;]
+ .groupby(dividends.date_com.dt.to_period(&#39;Y&#39;))[&#39;total&#39;]
  .sum()
  .plot(kind=&#39;bar&#39;,
        xlabel=&#39;Dates&#39;,
@@ -262,16 +283,18 @@ Name: total, dtype: float64
 </div>
 </div>
 </div>
-<div id="outline-container-headline-10" class="outline-2">
-<h2 id="headline-10">
+</div>
+</div>
+<div id="outline-container-headline-13" class="outline-2">
+<h2 id="headline-13">
 Estratégia global
 </h2>
-<div id="outline-text-headline-10" class="outline-text-2">
-<div id="outline-container-headline-11" class="outline-4">
-<h4 id="headline-11">
+<div id="outline-text-headline-13" class="outline-text-2">
+<div id="outline-container-headline-14" class="outline-4">
+<h4 id="headline-14">
 Portfolio consolidado
 </h4>
-<div id="outline-text-headline-11" class="outline-text-4">
+<div id="outline-text-headline-14" class="outline-text-4">
 <p>Para conseguir o portfolio consolidado:</p>
 <ol>
 <li>
@@ -283,11 +306,11 @@ Portfolio consolidado
 </ol>
 </div>
 </div>
-<div id="outline-container-headline-12" class="outline-4">
-<h4 id="headline-12">
+<div id="outline-container-headline-15" class="outline-4">
+<h4 id="headline-15">
 Eventos sociais
 </h4>
-<div id="outline-text-headline-12" class="outline-text-4">
+<div id="outline-text-headline-15" class="outline-text-4">
 <p>Para obter os dividendos e juros sobre capital próprio:</p>
 <ol>
 <li>
@@ -301,18 +324,18 @@ Eventos sociais
 </div>
 </div>
 </div>
-<div id="outline-container-headline-13" class="outline-2">
-<h2 id="headline-13">
+<div id="outline-container-headline-16" class="outline-2">
+<h2 id="headline-16">
 Dados sobre as negociações
 </h2>
-<div id="outline-text-headline-13" class="outline-text-2">
+<div id="outline-text-headline-16" class="outline-text-2">
 <p>
 Vamos iniciar com um portfolio imaginado compra e venda em datas diferentes.</p>
-<div id="outline-container-headline-14" class="outline-4">
-<h4 id="headline-14">
+<div id="outline-container-headline-17" class="outline-4">
+<h4 id="headline-17">
 Input
 </h4>
-<div id="outline-text-headline-14" class="outline-text-4">
+<div id="outline-text-headline-17" class="outline-text-4">
 <div class="src src-jupyter-python">
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">trade_data = pd.read_csv(&#39;trade_data.csv&#39;, sep=&#39;;&#39;, header=None)
 print(trade_data)</code></pre></div>
@@ -363,11 +386,11 @@ dtype: object
 </pre>
 </div>
 </div>
-<div id="outline-container-headline-15" class="outline-4">
-<h4 id="headline-15">
+<div id="outline-container-headline-18" class="outline-4">
+<h4 id="headline-18">
 Detalhes sobre as negociações
 </h4>
-<div id="outline-text-headline-15" class="outline-text-4">
+<div id="outline-text-headline-18" class="outline-text-4">
 <p>
 Criar um dataframe com detalhes das negociações</p>
 <div class="src src-jupyter-python">
@@ -393,11 +416,11 @@ print(trades)</code></pre></div>
 </pre>
 </div>
 </div>
-<div id="outline-container-headline-16" class="outline-4">
-<h4 id="headline-16">
+<div id="outline-container-headline-19" class="outline-4">
+<h4 id="headline-19">
 Implementar função que processa as negociações
 </h4>
-<div id="outline-text-headline-16" class="outline-text-4">
+<div id="outline-text-headline-19" class="outline-text-4">
 <div class="src src-jupyter-python">
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">def process_trades(trade_data_file):
     trades = pd.read_csv(trade_data_file, sep=&#39;;&#39;,
@@ -430,19 +453,19 @@ print(process_trades(&#39;trade_data.csv&#39;))</code></pre></div>
 </div>
 </div>
 </div>
-<div id="outline-container-headline-17" class="outline-2">
-<h2 id="headline-17">
+<div id="outline-container-headline-20" class="outline-2">
+<h2 id="headline-20">
 Consolidação do portfolio
 </h2>
-<div id="outline-text-headline-17" class="outline-text-2">
+<div id="outline-text-headline-20" class="outline-text-2">
 <p>Na consolidação o objetivo é obter os ativos com volume líquido atuais</p>
 <p>
 Custo médio que você pagou é útil para comparar com preço atual e saber se está ganhando ou perdendo considerando todos os trades.</p>
-<div id="outline-container-headline-18" class="outline-4">
-<h4 id="headline-18">
+<div id="outline-container-headline-21" class="outline-4">
+<h4 id="headline-21">
 Desenvolvimento analítico
 </h4>
-<div id="outline-text-headline-18" class="outline-text-4">
+<div id="outline-text-headline-21" class="outline-text-4">
 <ol>
 <li>
 <p>se compra (ou split): volume x preço = total  compra</p>
@@ -460,11 +483,11 @@ Desenvolvimento analítico
 <img src="Consolidação_do_portfolio/2020-12-23_17-24-16_screenshot.png" alt="Consolidação_do_portfolio/2020-12-23_17-24-16_screenshot.png" title="Consolidação_do_portfolio/2020-12-23_17-24-16_screenshot.png" width="350px"/>
 </div>
 </div>
-<div id="outline-container-headline-19" class="outline-4">
-<h4 id="headline-19">
+<div id="outline-container-headline-22" class="outline-4">
+<h4 id="headline-22">
 Protótipo
 </h4>
-<div id="outline-text-headline-19" class="outline-text-4">
+<div id="outline-text-headline-22" class="outline-text-4">
 <ol>
 <li>
 <p><code class="verbatim">groupby</code> para agrupar e consolidar o portfolio</p>
@@ -498,11 +521,11 @@ MGLU3        90  31.166667
 </pre>
 </div>
 </div>
-<div id="outline-container-headline-20" class="outline-4">
-<h4 id="headline-20">
+<div id="outline-container-headline-23" class="outline-4">
+<h4 id="headline-23">
 Implementar uma função de consolidação
 </h4>
-<div id="outline-text-headline-20" class="outline-text-4">
+<div id="outline-text-headline-23" class="outline-text-4">
 <div class="src src-jupyter-python">
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">def consolidate_portfolio(trades):
     portfolio = pd.DataFrame()
@@ -527,11 +550,11 @@ MGLU3        90  31.166667
 </div>
 </div>
 </div>
-<div id="outline-container-headline-21" class="outline-2">
-<h2 id="headline-21">
+<div id="outline-container-headline-24" class="outline-2">
+<h2 id="headline-24">
 Código CVM das empresas
 </h2>
-<div id="outline-text-headline-21" class="outline-text-2">
+<div id="outline-text-headline-24" class="outline-text-2">
 <p>
 Esses dados são baixados da própria CVM.
 A <code class="verbatim">engine=c</code> não capta alguns formatos, usando <code class="verbatim">engine = &#39;python&#39;</code> capta.</p>
@@ -637,11 +660,11 @@ dtype: object
 </pre>
 </div>
 </div>
-<div id="outline-container-headline-22" class="outline-2">
-<h2 id="headline-22">
+<div id="outline-container-headline-25" class="outline-2">
+<h2 id="headline-25">
 CNPJ das empresa
 </h2>
-<div id="outline-text-headline-22" class="outline-text-2">
+<div id="outline-text-headline-25" class="outline-text-2">
 <p>
 Para obter o cnpj associado a cada ticker usarei os dados desse site: <a href="https://www.infomoney.com.br/minhas-financas/confira-o-cnpj-das-acoes-negociadas-em-bolsa-e-saiba-como-declarar-no-imposto-de-renda/">https://www.infomoney.com.br/minhas-financas/confira-o-cnpj-das-acoes-negociadas-em-bolsa-e-saiba-como-declarar-no-imposto-de-renda/</a></p>
 <div class="src src-jupyter-python">
@@ -674,16 +697,16 @@ dtype: object
 </pre>
 </div>
 </div>
-<div id="outline-container-headline-23" class="outline-2">
-<h2 id="headline-23">
+<div id="outline-container-headline-26" class="outline-2">
+<h2 id="headline-26">
 Portfolio com detalhes das companhias
 </h2>
-<div id="outline-text-headline-23" class="outline-text-2">
-<div id="outline-container-headline-24" class="outline-4">
-<h4 id="headline-24">
+<div id="outline-text-headline-26" class="outline-text-2">
+<div id="outline-container-headline-27" class="outline-4">
+<h4 id="headline-27">
 Estratégia
 </h4>
-<div id="outline-text-headline-24" class="outline-text-4">
+<div id="outline-text-headline-27" class="outline-text-4">
 <ol>
 <li>
 <p>usar o ticker das cias no portfolio consolidado para extrair o CNPJ</p>
@@ -694,11 +717,11 @@ Estratégia
 </ol>
 </div>
 </div>
-<div id="outline-container-headline-25" class="outline-4">
-<h4 id="headline-25">
+<div id="outline-container-headline-28" class="outline-4">
+<h4 id="headline-28">
 Protótipo
 </h4>
-<div id="outline-text-headline-25" class="outline-text-4">
+<div id="outline-text-headline-28" class="outline-text-4">
 <p>
 Obter o CNPJ das cias no portfolio, usando método <code class="verbatim">isin()</code>.
 Esse método testa se elementos na série está contido na lista passada como parâmetro.</p>
@@ -806,11 +829,11 @@ MGLU3        90  31.166667  47.960.950/0001-21   22470
 </pre>
 </div>
 </div>
-<div id="outline-container-headline-26" class="outline-4">
-<h4 id="headline-26">
+<div id="outline-container-headline-29" class="outline-4">
+<h4 id="headline-29">
 Implementar função que obtém detalhes das companhias
 </h4>
-<div id="outline-text-headline-26" class="outline-text-4">
+<div id="outline-text-headline-29" class="outline-text-4">
 <div class="src src-jupyter-python">
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">def get_cia_details(portfolio, cad_cia_file, cia_cnpj_file):
     cia_data_cvm = pd.read_csv(cad_cia_file,
@@ -845,16 +868,16 @@ Um rápido teste no <a href="http://bvmf.bmfbovespa.com.br/cias-listadas/empresa
 </div>
 </div>
 </div>
-<div id="outline-container-headline-27" class="outline-2">
-<h2 id="headline-27">
+<div id="outline-container-headline-30" class="outline-2">
+<h2 id="headline-30">
 Proventos de cada companhia
 </h2>
-<div id="outline-text-headline-27" class="outline-text-2">
-<div id="outline-container-headline-28" class="outline-4">
-<h4 id="headline-28">
+<div id="outline-text-headline-30" class="outline-text-2">
+<div id="outline-container-headline-31" class="outline-4">
+<h4 id="headline-31">
 Estratégia
 </h4>
-<div id="outline-text-headline-28" class="outline-text-4">
+<div id="outline-text-headline-31" class="outline-text-4">
 <p>Aqui estou com dúvida se uso 1 dataframe para o provento de todas as companhias ou separo eles, 1 dataframe para cada empresa.
 Acredito que separado fica mais organizado.</p>
 <ol>
@@ -867,11 +890,11 @@ Acredito que separado fica mais organizado.</p>
 </ol>
 </div>
 </div>
-<div id="outline-container-headline-29" class="outline-4">
-<h4 id="headline-29">
+<div id="outline-container-headline-32" class="outline-4">
+<h4 id="headline-32">
 Colocar os dados do site num dataframe
 </h4>
-<div id="outline-text-headline-29" class="outline-text-4">
+<div id="outline-text-headline-32" class="outline-text-4">
 <p>
 Considerar primeiro apenas para MGLU3.
 Quando for fazer para cada companhia do portfólio consolidado será necessário um loop.</p>
@@ -925,11 +948,11 @@ dtype: object
 </pre>
 </div>
 </div>
-<div id="outline-container-headline-30" class="outline-4">
-<h4 id="headline-30">
+<div id="outline-container-headline-33" class="outline-4">
+<h4 id="headline-33">
 Converter a data para o formato reconhecível
 </h4>
-<div id="outline-text-headline-30" class="outline-text-4">
+<div id="outline-text-headline-33" class="outline-text-4">
 <div class="src src-jupyter-python">
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">proventos = {}
 proventos[&#39;MGLU3&#39;] = pd.DataFrame()
@@ -960,11 +983,11 @@ dtype: object
 </pre>
 </div>
 </div>
-<div id="outline-container-headline-31" class="outline-4">
-<h4 id="headline-31">
+<div id="outline-container-headline-34" class="outline-4">
+<h4 id="headline-34">
 Descartar dados desnecessários
 </h4>
-<div id="outline-text-headline-31" class="outline-text-4">
+<div id="outline-text-headline-34" class="outline-text-4">
 <p>
 Os proventos serão provisionados apenas quem possuía os papéis na data da aprovação.
 Portanto, proventos antes da primeira compra não precisam ser armazenados.</p>
@@ -1002,11 +1025,11 @@ print(proventos)</code></pre></div>
 </pre>
 </div>
 </div>
-<div id="outline-container-headline-32" class="outline-4">
-<h4 id="headline-32">
+<div id="outline-container-headline-35" class="outline-4">
+<h4 id="headline-35">
 Considerações sobre ON e PN
 </h4>
-<div id="outline-text-headline-32" class="outline-text-4">
+<div id="outline-text-headline-35" class="outline-text-4">
 <p>
 Se o ticker contiver 3 é ON e se contiver 4 é PN.</p>
 <div class="src src-jupyter-python">
@@ -1075,11 +1098,11 @@ Se o ticker contiver 3 é ON e se contiver 4 é PN.</p>
 </pre>
 </div>
 </div>
-<div id="outline-container-headline-33" class="outline-4">
-<h4 id="headline-33">
+<div id="outline-container-headline-36" class="outline-4">
+<h4 id="headline-36">
 Implementar função que obtém os dados dos proventos
 </h4>
-<div id="outline-text-headline-33" class="outline-text-4">
+<div id="outline-text-headline-36" class="outline-text-4">
 <p>
 Função faz</p>
 <ol>
@@ -1149,18 +1172,18 @@ dtype: object
 </div>
 </div>
 </div>
-<div id="outline-container-headline-34" class="outline-2">
-<h2 id="headline-34">
+<div id="outline-container-headline-37" class="outline-2">
+<h2 id="headline-37">
 Provento recebido
 </h2>
-<div id="outline-text-headline-34" class="outline-text-2">
+<div id="outline-text-headline-37" class="outline-text-2">
 <p>Para cada provento aprovado, precisamos saber quantas ações constam nessa data.</p>
 <img src="Proventos_recebidos/2020-12-23_17-22-54_screenshot.png" alt="Proventos_recebidos/2020-12-23_17-22-54_screenshot.png" title="Proventos_recebidos/2020-12-23_17-22-54_screenshot.png" width="350px"/>
-<div id="outline-container-headline-35" class="outline-4">
-<h4 id="headline-35">
+<div id="outline-container-headline-38" class="outline-4">
+<h4 id="headline-38">
 Protótipo
 </h4>
-<div id="outline-text-headline-35" class="outline-text-4">
+<div id="outline-text-headline-38" class="outline-text-4">
 <p>
 Obter volume líquido na data do provento.</p>
 <div class="src src-jupyter-python">
@@ -1185,11 +1208,11 @@ Name: date_com, dtype: datetime64[ns]
 </pre>
 </div>
 </div>
-<div id="outline-container-headline-36" class="outline-4">
-<h4 id="headline-36">
+<div id="outline-container-headline-39" class="outline-4">
+<h4 id="headline-39">
 Volume líquido para todas as datas de proventos
 </h4>
-<div id="outline-text-headline-36" class="outline-text-4">
+<div id="outline-text-headline-39" class="outline-text-4">
 <p>
 O parâmetro <code class="verbatim">axis = 1</code> na função <code class="verbatim">apply()</code> é para indicar que vai ser aplicado linha a linha.</p>
 <div class="src src-jupyter-python">
@@ -1209,11 +1232,11 @@ print(proventos[&#39;MGLU3&#39;])</code></pre></div>
 </pre>
 </div>
 </div>
-<div id="outline-container-headline-37" class="outline-4">
-<h4 id="headline-37">
+<div id="outline-container-headline-40" class="outline-4">
+<h4 id="headline-40">
 Provento total
 </h4>
-<div id="outline-text-headline-37" class="outline-text-4">
+<div id="outline-text-headline-40" class="outline-text-4">
 <div class="src src-jupyter-python">
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">proventos[&#39;MGLU3&#39;][&#39;total&#39;] = proventos[&#39;MGLU3&#39;][&#39;valor&#39;] * proventos[&#39;MGLU3&#39;][&#39;vol_liq&#39;]
 print(proventos[&#39;MGLU3&#39;])</code></pre></div>
@@ -1225,11 +1248,11 @@ print(proventos[&#39;MGLU3&#39;])</code></pre></div>
 </pre>
 </div>
 </div>
-<div id="outline-container-headline-38" class="outline-4">
-<h4 id="headline-38">
+<div id="outline-container-headline-41" class="outline-4">
+<h4 id="headline-41">
 Plotar proventos no tempo
 </h4>
-<div id="outline-text-headline-38" class="outline-text-4">
+<div id="outline-text-headline-41" class="outline-text-4">
 <div class="src src-jupyter-python">
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">import matplotlib
 import matplotlib.pyplot as plt
@@ -1243,11 +1266,11 @@ proventos[&#39;MGLU3&#39;].plot(x=&#39;date_com&#39;,
 <p><img src="./jupyter/5624e1b9c6a8dfcba835feac44d152d5887a4b5a.png" alt="./jupyter/5624e1b9c6a8dfcba835feac44d152d5887a4b5a.png" title="./jupyter/5624e1b9c6a8dfcba835feac44d152d5887a4b5a.png" /></p>
 </div>
 </div>
-<div id="outline-container-headline-39" class="outline-4">
-<h4 id="headline-39">
+<div id="outline-container-headline-42" class="outline-4">
+<h4 id="headline-42">
 Implementar função que processa os proventos
 </h4>
-<div id="outline-text-headline-39" class="outline-text-4">
+<div id="outline-text-headline-42" class="outline-text-4">
 <p>
 Função faz:</p>
 <ol>
@@ -1322,11 +1345,11 @@ print(process_dividends(&#39;MGLU3&#39;, trades))</code></pre></div>
 </pre>
 </div>
 </div>
-<div id="outline-container-headline-40" class="outline-4">
-<h4 id="headline-40">
+<div id="outline-container-headline-43" class="outline-4">
+<h4 id="headline-43">
 Teste para ITSA4
 </h4>
-<div id="outline-text-headline-40" class="outline-text-4">
+<div id="outline-text-headline-43" class="outline-text-4">
 <img src="Provento_recebido/2020-12-24_00-12-58_screenshot.png" alt="Provento_recebido/2020-12-24_00-12-58_screenshot.png" title="Provento_recebido/2020-12-24_00-12-58_screenshot.png" width="350px"/>
 <div class="src src-jupyter-python">
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">print(process_dividends(&#39;ITSA4&#39;, trades))</code></pre></div>
@@ -1344,11 +1367,11 @@ Teste para ITSA4
 </pre>
 </div>
 </div>
-<div id="outline-container-headline-41" class="outline-4">
-<h4 id="headline-41">
+<div id="outline-container-headline-44" class="outline-4">
+<h4 id="headline-44">
 Implementar função que consolida os dividendos recebidos
 </h4>
-<div id="outline-text-headline-41" class="outline-text-4">
+<div id="outline-text-headline-44" class="outline-text-4">
 <p>
 Função faz</p>
 <ol>
@@ -1517,84 +1540,92 @@ print(consolidade_dividends(portfolio, trades))</code></pre></div>
 <li><a href="#headline-8">Por ação</a>
 </li>
 <li><a href="#headline-9">Por período</a>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#headline-10">Estratégia global</a>
 <ul>
-<li><a href="#headline-11">Portfolio consolidado</a>
+<li><a href="#headline-10">A cada mês</a>
 </li>
-<li><a href="#headline-12">Eventos sociais</a>
+<li><a href="#headline-11">A cada mês incluindo meses sem recebimento</a>
 </li>
-</ul>
-</li>
-<li><a href="#headline-13">Dados sobre as negociações</a>
-<ul>
-<li><a href="#headline-14">Input</a>
-</li>
-<li><a href="#headline-15">Detalhes sobre as negociações</a>
-</li>
-<li><a href="#headline-16">Implementar função que processa as negociações</a>
+<li><a href="#headline-12">A cada ano</a>
 </li>
 </ul>
 </li>
-<li><a href="#headline-17">Consolidação do portfolio</a>
-<ul>
-<li><a href="#headline-18">Desenvolvimento analítico</a>
-</li>
-<li><a href="#headline-19">Protótipo</a>
-</li>
-<li><a href="#headline-20">Implementar uma função de consolidação</a>
+</ul>
 </li>
 </ul>
 </li>
-<li><a href="#headline-21">Código CVM das empresas</a>
-</li>
-<li><a href="#headline-22">CNPJ das empresa</a>
-</li>
-<li><a href="#headline-23">Portfolio com detalhes das companhias</a>
+<li><a href="#headline-13">Estratégia global</a>
 <ul>
-<li><a href="#headline-24">Estratégia</a>
+<li><a href="#headline-14">Portfolio consolidado</a>
 </li>
-<li><a href="#headline-25">Protótipo</a>
-</li>
-<li><a href="#headline-26">Implementar função que obtém detalhes das companhias</a>
+<li><a href="#headline-15">Eventos sociais</a>
 </li>
 </ul>
 </li>
-<li><a href="#headline-27">Proventos de cada companhia</a>
+<li><a href="#headline-16">Dados sobre as negociações</a>
 <ul>
-<li><a href="#headline-28">Estratégia</a>
+<li><a href="#headline-17">Input</a>
 </li>
-<li><a href="#headline-29">Colocar os dados do site num dataframe</a>
+<li><a href="#headline-18">Detalhes sobre as negociações</a>
 </li>
-<li><a href="#headline-30">Converter a data para o formato reconhecível</a>
-</li>
-<li><a href="#headline-31">Descartar dados desnecessários</a>
-</li>
-<li><a href="#headline-32">Considerações sobre ON e PN</a>
-</li>
-<li><a href="#headline-33">Implementar função que obtém os dados dos proventos</a>
+<li><a href="#headline-19">Implementar função que processa as negociações</a>
 </li>
 </ul>
 </li>
-<li><a href="#headline-34">Provento recebido</a>
+<li><a href="#headline-20">Consolidação do portfolio</a>
 <ul>
-<li><a href="#headline-35">Protótipo</a>
+<li><a href="#headline-21">Desenvolvimento analítico</a>
 </li>
-<li><a href="#headline-36">Volume líquido para todas as datas de proventos</a>
+<li><a href="#headline-22">Protótipo</a>
 </li>
-<li><a href="#headline-37">Provento total</a>
+<li><a href="#headline-23">Implementar uma função de consolidação</a>
 </li>
-<li><a href="#headline-38">Plotar proventos no tempo</a>
+</ul>
 </li>
-<li><a href="#headline-39">Implementar função que processa os proventos</a>
+<li><a href="#headline-24">Código CVM das empresas</a>
 </li>
-<li><a href="#headline-40">Teste para ITSA4</a>
+<li><a href="#headline-25">CNPJ das empresa</a>
 </li>
-<li><a href="#headline-41">Implementar função que consolida os dividendos recebidos</a>
+<li><a href="#headline-26">Portfolio com detalhes das companhias</a>
+<ul>
+<li><a href="#headline-27">Estratégia</a>
+</li>
+<li><a href="#headline-28">Protótipo</a>
+</li>
+<li><a href="#headline-29">Implementar função que obtém detalhes das companhias</a>
+</li>
+</ul>
+</li>
+<li><a href="#headline-30">Proventos de cada companhia</a>
+<ul>
+<li><a href="#headline-31">Estratégia</a>
+</li>
+<li><a href="#headline-32">Colocar os dados do site num dataframe</a>
+</li>
+<li><a href="#headline-33">Converter a data para o formato reconhecível</a>
+</li>
+<li><a href="#headline-34">Descartar dados desnecessários</a>
+</li>
+<li><a href="#headline-35">Considerações sobre ON e PN</a>
+</li>
+<li><a href="#headline-36">Implementar função que obtém os dados dos proventos</a>
+</li>
+</ul>
+</li>
+<li><a href="#headline-37">Provento recebido</a>
+<ul>
+<li><a href="#headline-38">Protótipo</a>
+</li>
+<li><a href="#headline-39">Volume líquido para todas as datas de proventos</a>
+</li>
+<li><a href="#headline-40">Provento total</a>
+</li>
+<li><a href="#headline-41">Plotar proventos no tempo</a>
+</li>
+<li><a href="#headline-42">Implementar função que processa os proventos</a>
+</li>
+<li><a href="#headline-43">Teste para ITSA4</a>
+</li>
+<li><a href="#headline-44">Implementar função que consolida os dividendos recebidos</a>
 </li>
 </ul>
 </li>
