@@ -44,6 +44,17 @@
     </item>
     
     <item>
+      <title>Extrator de dividendos</title>
+      <link>https://nasseralkmim.github.io/notes/extrator-dividendos/</link>
+      <pubDate>Thu, 17 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://nasseralkmim.github.io/notes/extrator-dividendos/</guid>
+      <description>Objetivo   Dado uma série de trades, saber quanto de dividendo foi recebido até então, separado por valores mensais.
+   Resultado  Antecipando o resultado do artigo. Se quiser acompanhar a lógica de solução o restante do texto mostra o processo.
+Input  trade_data = pd.read_csv(&amp;#39;trade_data.csv&amp;#39;, sep=&amp;#39;;&amp;#39;, header=None) print(trade_data)  0 1 2 3 4 0 20-07-2020 buy MGLU3 10 50,5 1 29-07-2020 buy MGLU3 30 60 2 30-07-2020 sell ITSA4 15 12 3 11-12-2019 buy MGLU3 50 10 4 19-02-2020 buy ITSA4 20 11 5 29-05-2020 buy ITSA4 25 10    Processar as negociações  trades = process_trades(trade_data_file=&amp;#39;trade_data.</description>
+    </item>
+    
+    <item>
       <title>How does monetary policy gets transmited to the economy?</title>
       <link>https://nasseralkmim.github.io/notes/fed-monetary-mechanism/</link>
       <pubDate>Sun, 13 Dec 2020 20:08:58 -0300</pubDate>
