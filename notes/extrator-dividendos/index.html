@@ -207,9 +207,13 @@ Por ação
 <div id="outline-text-headline-8" class="outline-text-6">
 <div class="src src-python">
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">print</span>(dividends<span style="color:#f92672">.</span>total<span style="color:#f92672">.</span>groupby(<span style="color:#e6db74">&#39;ticker&#39;</span>)<span style="color:#f92672">.</span>sum())
-dividends<span style="color:#f92672">.</span>groupby(<span style="color:#e6db74">&#39;ticker&#39;</span>)[<span style="color:#e6db74">&#39;total&#39;</span>]<span style="color:#f92672">.</span>sum()<span style="color:#f92672">.</span>plot(
-    kind<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;bar&#39;</span>,
-    ylabel<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Dividends R$&#39;</span>)</code></pre></div>
+(dividends
+ <span style="color:#f92672">.</span>groupby(<span style="color:#e6db74">&#39;ticker&#39;</span>)[<span style="color:#e6db74">&#39;total&#39;</span>]
+ <span style="color:#f92672">.</span>sum()
+ <span style="color:#f92672">.</span>plot(
+     kind<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;bar&#39;</span>,
+     ylabel<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Dividends R$&#39;</span>)
+ )</code></pre></div>
 </div>
 <pre class="example">
 ticker
