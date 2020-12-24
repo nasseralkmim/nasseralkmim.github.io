@@ -119,9 +119,9 @@ Se quiser acompanhar a lógica de solução o restante do texto mostra o process
 Input
 </h4>
 <div id="outline-text-headline-3" class="outline-text-4">
-<div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">trade_data = pd.read_csv(&#39;trade_data.csv&#39;, sep=&#39;;&#39;, header=None)
-print(trade_data)</code></pre></div>
+<div class="src src-python">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">trade_data <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#39;trade_data.csv&#39;</span>, sep<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;;&#39;</span>, header<span style="color:#f92672">=</span>None)
+<span style="color:#66d9ef">print</span>(trade_data)</code></pre></div>
 </div>
 <pre class="example">
             0     1      2   3     4
@@ -139,9 +139,9 @@ print(trade_data)</code></pre></div>
 Processar as negociações
 </h4>
 <div id="outline-text-headline-4" class="outline-text-4">
-<div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">trades = process_trades(trade_data_file=&#39;trade_data.csv&#39;)
-print(trades)</code></pre></div>
+<div class="src src-python">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">trades <span style="color:#f92672">=</span> process_trades(trade_data_file<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;trade_data.csv&#39;</span>)
+<span style="color:#66d9ef">print</span>(trades)</code></pre></div>
 </div>
 <pre class="example">
         date  type ticker  volume  price   total  vol_adj
@@ -159,9 +159,9 @@ print(trades)</code></pre></div>
 Consolidação do portfólio
 </h4>
 <div id="outline-text-headline-5" class="outline-text-4">
-<div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">portfolio = consolidate_portfolio(trades)
-print(portfolio)</code></pre></div>
+<div class="src src-python">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">portfolio <span style="color:#f92672">=</span> consolidate_portfolio(trades)
+<span style="color:#66d9ef">print</span>(portfolio)</code></pre></div>
 </div>
 <pre class="example">
         vol_liq  avg_price
@@ -181,9 +181,9 @@ Proventos recebidos
 Formato tabela
 </h6>
 <div id="outline-text-headline-7" class="outline-text-6">
-<div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">dividends = consolidade_dividends(portfolio, trades)
-print(dividends)</code></pre></div>
+<div class="src src-python">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">dividends <span style="color:#f92672">=</span> consolidade_dividends(portfolio, trades)
+<span style="color:#66d9ef">print</span>(dividends)</code></pre></div>
 </div>
 <pre class="example">
              date_com     value             type  vol_liq     total
@@ -205,11 +205,11 @@ print(dividends)</code></pre></div>
 Por ação
 </h6>
 <div id="outline-text-headline-8" class="outline-text-6">
-<div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">print(dividends.total.groupby(&#39;ticker&#39;).sum())
-dividends.groupby(&#39;ticker&#39;)[&#39;total&#39;].sum().plot(
-    kind=&#39;bar&#39;,
-    ylabel=&#39;Dividends R$&#39;)</code></pre></div>
+<div class="src src-python">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">print</span>(dividends<span style="color:#f92672">.</span>total<span style="color:#f92672">.</span>groupby(<span style="color:#e6db74">&#39;ticker&#39;</span>)<span style="color:#f92672">.</span>sum())
+dividends<span style="color:#f92672">.</span>groupby(<span style="color:#e6db74">&#39;ticker&#39;</span>)[<span style="color:#e6db74">&#39;total&#39;</span>]<span style="color:#f92672">.</span>sum()<span style="color:#f92672">.</span>plot(
+    kind<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;bar&#39;</span>,
+    ylabel<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Dividends R$&#39;</span>)</code></pre></div>
 </div>
 <pre class="example">
 ticker
@@ -230,13 +230,13 @@ Por período
 A cada mês
 </h8>
 <div id="outline-text-headline-10" class="outline-text-8">
-<div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">(dividends
- .groupby(dividends.date_com.dt.to_period(&#39;M&#39;))[&#39;total&#39;]
- .sum()
- .plot(kind=&#39;bar&#39;,
-       xlabel=&#39;Dates&#39;,
-       ylabel=&#39;Dividends R$&#39;)
+<div class="src src-python">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">(dividends
+ <span style="color:#f92672">.</span>groupby(dividends<span style="color:#f92672">.</span>date_com<span style="color:#f92672">.</span>dt<span style="color:#f92672">.</span>to_period(<span style="color:#e6db74">&#39;M&#39;</span>))[<span style="color:#e6db74">&#39;total&#39;</span>]
+ <span style="color:#f92672">.</span>sum()
+ <span style="color:#f92672">.</span>plot(kind<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;bar&#39;</span>,
+       xlabel<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Dates&#39;</span>,
+       ylabel<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Dividends R$&#39;</span>)
  )</code></pre></div>
 </div>
 <p><img src="./jupyter/fd69254f813664635d65d12aa5d0211cb98da3c3.png" alt="./jupyter/fd69254f813664635d65d12aa5d0211cb98da3c3.png" title="./jupyter/fd69254f813664635d65d12aa5d0211cb98da3c3.png" /></p>
@@ -247,16 +247,16 @@ A cada mês
 A cada mês incluindo meses sem recebimento
 </h8>
 <div id="outline-text-headline-11" class="outline-text-8">
-<div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">df1 = (
+<div class="src src-python">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">df1 <span style="color:#f92672">=</span> (
 dividends
-.groupby(dividends.date_com.dt.to_period(&#39;M&#39;))[&#39;total&#39;]
-.sum()                          # group by month period and sum
-.resample(&#39;M&#39;)                  # adds periods without data
-.sum()
-.plot(kind=&#39;bar&#39;,
-      xlabel=&#39;Dates&#39;,
-      ylabel=&#39;Dividends R$&#39;)
+<span style="color:#f92672">.</span>groupby(dividends<span style="color:#f92672">.</span>date_com<span style="color:#f92672">.</span>dt<span style="color:#f92672">.</span>to_period(<span style="color:#e6db74">&#39;M&#39;</span>))[<span style="color:#e6db74">&#39;total&#39;</span>]
+<span style="color:#f92672">.</span>sum()                          <span style="color:#75715e"># group by month period and sum</span>
+<span style="color:#f92672">.</span>resample(<span style="color:#e6db74">&#39;M&#39;</span>)                  <span style="color:#75715e"># adds periods without data</span>
+<span style="color:#f92672">.</span>sum()
+<span style="color:#f92672">.</span>plot(kind<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;bar&#39;</span>,
+      xlabel<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Dates&#39;</span>,
+      ylabel<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Dividends R$&#39;</span>)
 )</code></pre></div>
 </div>
 <p><img src="./jupyter/c62efaac82957dba8f3db82b4af14f9892c087c6.png" alt="./jupyter/c62efaac82957dba8f3db82b4af14f9892c087c6.png" title="./jupyter/c62efaac82957dba8f3db82b4af14f9892c087c6.png" /></p>
@@ -267,13 +267,13 @@ dividends
 A cada ano
 </h8>
 <div id="outline-text-headline-12" class="outline-text-8">
-<div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">(dividends
- .groupby(dividends.date_com.dt.to_period(&#39;Y&#39;))[&#39;total&#39;]
- .sum()
- .plot(kind=&#39;bar&#39;,
-       xlabel=&#39;Dates&#39;,
-       ylabel=&#39;Dividends R$&#39;)
+<div class="src src-python">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">(dividends
+ <span style="color:#f92672">.</span>groupby(dividends<span style="color:#f92672">.</span>date_com<span style="color:#f92672">.</span>dt<span style="color:#f92672">.</span>to_period(<span style="color:#e6db74">&#39;Y&#39;</span>))[<span style="color:#e6db74">&#39;total&#39;</span>]
+ <span style="color:#f92672">.</span>sum()
+ <span style="color:#f92672">.</span>plot(kind<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;bar&#39;</span>,
+       xlabel<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Dates&#39;</span>,
+       ylabel<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Dividends R$&#39;</span>)
  )</code></pre></div>
 </div>
 <p><img src="./jupyter/4eec3ce720257278f8269fe6b54d70af9d029268.png" alt="./jupyter/4eec3ce720257278f8269fe6b54d70af9d029268.png" title="./jupyter/4eec3ce720257278f8269fe6b54d70af9d029268.png" /></p>
@@ -336,9 +336,9 @@ Vamos iniciar com um portfolio imaginado compra e venda em datas diferentes.</p>
 Input
 </h4>
 <div id="outline-text-headline-17" class="outline-text-4">
-<div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">trade_data = pd.read_csv(&#39;trade_data.csv&#39;, sep=&#39;;&#39;, header=None)
-print(trade_data)</code></pre></div>
+<div class="src src-python">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">trade_data <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#39;trade_data.csv&#39;</span>, sep<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;;&#39;</span>, header<span style="color:#f92672">=</span>None)
+<span style="color:#66d9ef">print</span>(trade_data)</code></pre></div>
 </div>
 <pre class="example">
             0     1      2   3     4
@@ -359,15 +359,15 @@ Vamos fazer o seguinte:</p>
 <p>identificar a data conforme o registrado no banco de dados</p>
 </li>
 </ol>
-<div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">import pandas as pd
+<div class="src src-python">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> pandas <span style="color:#f92672">as</span> pd
 
-trade_data = pd.read_csv(&#39;trade_data.csv&#39;, sep=&#39;;&#39;,
-                         names=[&#39;date&#39;, &#39;type&#39;, &#39;ticker&#39;, &#39;volume&#39;, &#39;price&#39;],
-                         decimal=&#39;,&#39;)
-trade_data.date = pd.to_datetime(trade_data.date, format=&#34;%d-%m-%Y&#34;)
-print(trade_data)
-print(trade_data.dtypes)</code></pre></div>
+trade_data <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#39;trade_data.csv&#39;</span>, sep<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;;&#39;</span>,
+                         names<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;date&#39;</span>, <span style="color:#e6db74">&#39;type&#39;</span>, <span style="color:#e6db74">&#39;ticker&#39;</span>, <span style="color:#e6db74">&#39;volume&#39;</span>, <span style="color:#e6db74">&#39;price&#39;</span>],
+                         decimal<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;,&#39;</span>)
+trade_data<span style="color:#f92672">.</span>date <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>to_datetime(trade_data<span style="color:#f92672">.</span>date, format<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">%d</span><span style="color:#e6db74">-%m-%Y&#34;</span>)
+<span style="color:#66d9ef">print</span>(trade_data)
+<span style="color:#66d9ef">print</span>(trade_data<span style="color:#f92672">.</span>dtypes)</code></pre></div>
 </div>
 <pre class="example">
         date  type ticker  volume  price
@@ -393,17 +393,17 @@ Detalhes sobre as negociações
 <div id="outline-text-headline-18" class="outline-text-4">
 <p>
 Criar um dataframe com detalhes das negociações</p>
-<div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">trades = trade_data.copy()
+<div class="src src-python">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">trades <span style="color:#f92672">=</span> trade_data<span style="color:#f92672">.</span>copy()
 
-trades[&#39;total&#39;] = trade_data.apply(lambda x: x.price * x.volume
-                                           if x.type in [&#39;buy&#39;, &#39;split&#39;]
-                                           else - x.price * x.volume, axis=1)
-trades[&#39;vol_adj&#39;] = trade_data.apply(lambda x: x.volume
-                                         if x.type in [&#39;buy&#39;, &#39;split&#39;]
-                                         else
-                                         (-x.volume if x.type in [&#39;sell&#39;] else 0), axis=1)
-print(trades)</code></pre></div>
+trades[<span style="color:#e6db74">&#39;total&#39;</span>] <span style="color:#f92672">=</span> trade_data<span style="color:#f92672">.</span>apply(<span style="color:#66d9ef">lambda</span> x: x<span style="color:#f92672">.</span>price <span style="color:#f92672">*</span> x<span style="color:#f92672">.</span>volume
+                                           <span style="color:#66d9ef">if</span> x<span style="color:#f92672">.</span>type <span style="color:#f92672">in</span> [<span style="color:#e6db74">&#39;buy&#39;</span>, <span style="color:#e6db74">&#39;split&#39;</span>]
+                                           <span style="color:#66d9ef">else</span> <span style="color:#f92672">-</span> x<span style="color:#f92672">.</span>price <span style="color:#f92672">*</span> x<span style="color:#f92672">.</span>volume, axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+trades[<span style="color:#e6db74">&#39;vol_adj&#39;</span>] <span style="color:#f92672">=</span> trade_data<span style="color:#f92672">.</span>apply(<span style="color:#66d9ef">lambda</span> x: x<span style="color:#f92672">.</span>volume
+                                         <span style="color:#66d9ef">if</span> x<span style="color:#f92672">.</span>type <span style="color:#f92672">in</span> [<span style="color:#e6db74">&#39;buy&#39;</span>, <span style="color:#e6db74">&#39;split&#39;</span>]
+                                         <span style="color:#66d9ef">else</span>
+                                         (<span style="color:#f92672">-</span>x<span style="color:#f92672">.</span>volume <span style="color:#66d9ef">if</span> x<span style="color:#f92672">.</span>type <span style="color:#f92672">in</span> [<span style="color:#e6db74">&#39;sell&#39;</span>] <span style="color:#66d9ef">else</span> <span style="color:#ae81ff">0</span>), axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+<span style="color:#66d9ef">print</span>(trades)</code></pre></div>
 </div>
 <pre class="example">
         date  type ticker  volume  price   total  vol_adj
@@ -421,24 +421,24 @@ print(trades)</code></pre></div>
 Implementar função que processa as negociações
 </h4>
 <div id="outline-text-headline-19" class="outline-text-4">
-<div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">def process_trades(trade_data_file):
-    trades = pd.read_csv(trade_data_file, sep=&#39;;&#39;,
-                         names=[&#39;date&#39;, &#39;type&#39;,
-                                &#39;ticker&#39;, &#39;volume&#39;,
-                                &#39;price&#39;],
-                         decimal=&#39;,&#39;,
-                         parse_dates=[&#39;date&#39;])
-    # trades.date = pd.to_datetime(trade_data.date, format=&#34;%d-%m-%Y&#34;)
-    trades[&#39;total&#39;] = trades.apply(lambda x: x.price * x.volume
-					    if x.type in [&#39;buy&#39;, &#39;split&#39;]
-					    else - x.price * x.volume, axis=1)
-    trades[&#39;vol_adj&#39;] = trades.apply(lambda x: x.volume
-					    if x.type in [&#39;buy&#39;, &#39;split&#39;]
-					    else
-					    (-x.volume if x.type in [&#39;sell&#39;] else 0), axis=1)
-    return trades
-print(process_trades(&#39;trade_data.csv&#39;))</code></pre></div>
+<div class="src src-python">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">process_trades</span>(trade_data_file):
+    trades <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(trade_data_file, sep<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;;&#39;</span>,
+                         names<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;date&#39;</span>, <span style="color:#e6db74">&#39;type&#39;</span>,
+                                <span style="color:#e6db74">&#39;ticker&#39;</span>, <span style="color:#e6db74">&#39;volume&#39;</span>,
+                                <span style="color:#e6db74">&#39;price&#39;</span>],
+                         decimal<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;,&#39;</span>,
+                         parse_dates<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;date&#39;</span>])
+    <span style="color:#75715e"># trades.date = pd.to_datetime(trade_data.date, format=&#34;%d-%m-%Y&#34;)</span>
+    trades[<span style="color:#e6db74">&#39;total&#39;</span>] <span style="color:#f92672">=</span> trades<span style="color:#f92672">.</span>apply(<span style="color:#66d9ef">lambda</span> x: x<span style="color:#f92672">.</span>price <span style="color:#f92672">*</span> x<span style="color:#f92672">.</span>volume
+					    <span style="color:#66d9ef">if</span> x<span style="color:#f92672">.</span>type <span style="color:#f92672">in</span> [<span style="color:#e6db74">&#39;buy&#39;</span>, <span style="color:#e6db74">&#39;split&#39;</span>]
+					    <span style="color:#66d9ef">else</span> <span style="color:#f92672">-</span> x<span style="color:#f92672">.</span>price <span style="color:#f92672">*</span> x<span style="color:#f92672">.</span>volume, axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+    trades[<span style="color:#e6db74">&#39;vol_adj&#39;</span>] <span style="color:#f92672">=</span> trades<span style="color:#f92672">.</span>apply(<span style="color:#66d9ef">lambda</span> x: x<span style="color:#f92672">.</span>volume
+					    <span style="color:#66d9ef">if</span> x<span style="color:#f92672">.</span>type <span style="color:#f92672">in</span> [<span style="color:#e6db74">&#39;buy&#39;</span>, <span style="color:#e6db74">&#39;split&#39;</span>]
+					    <span style="color:#66d9ef">else</span>
+					    (<span style="color:#f92672">-</span>x<span style="color:#f92672">.</span>volume <span style="color:#66d9ef">if</span> x<span style="color:#f92672">.</span>type <span style="color:#f92672">in</span> [<span style="color:#e6db74">&#39;sell&#39;</span>] <span style="color:#66d9ef">else</span> <span style="color:#ae81ff">0</span>), axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+    <span style="color:#66d9ef">return</span> trades
+<span style="color:#66d9ef">print</span>(process_trades(<span style="color:#e6db74">&#39;trade_data.csv&#39;</span>))</code></pre></div>
 </div>
 <pre class="example">
         date  type ticker  volume  price   total  vol_adj
@@ -496,11 +496,11 @@ Protótipo
 <p>dividir total pelo volume líquido para cada ticker</p>
 </li>
 </ol>
-<div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">portfolio = pd.DataFrame()
-portfolio[&#39;vol_liq&#39;] = trades.groupby(&#39;ticker&#39;)[&#39;vol_adj&#39;].sum() 
-portfolio[&#39;avg_price&#39;] = trades.groupby(&#39;ticker&#39;)[&#39;total&#39;].sum() / portfolio.vol_liq
-print(portfolio)</code></pre></div>
+<div class="src src-python">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">portfolio <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame()
+portfolio[<span style="color:#e6db74">&#39;vol_liq&#39;</span>] <span style="color:#f92672">=</span> trades<span style="color:#f92672">.</span>groupby(<span style="color:#e6db74">&#39;ticker&#39;</span>)[<span style="color:#e6db74">&#39;vol_adj&#39;</span>]<span style="color:#f92672">.</span>sum() 
+portfolio[<span style="color:#e6db74">&#39;avg_price&#39;</span>] <span style="color:#f92672">=</span> trades<span style="color:#f92672">.</span>groupby(<span style="color:#e6db74">&#39;ticker&#39;</span>)[<span style="color:#e6db74">&#39;total&#39;</span>]<span style="color:#f92672">.</span>sum() <span style="color:#f92672">/</span> portfolio<span style="color:#f92672">.</span>vol_liq
+<span style="color:#66d9ef">print</span>(portfolio)</code></pre></div>
 </div>
 <pre class="example">
         vol_liq  avg_price
@@ -510,8 +510,8 @@ MGLU3        90  31.166667
 </pre>
 <p>
 E se o volume líquido for zero, precisamos descartar essa linha usando um filtro no data frame.</p>
-<div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">print(portfolio[portfolio.vol_liq != 0])</code></pre></div>
+<div class="src src-python">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">print</span>(portfolio[portfolio<span style="color:#f92672">.</span>vol_liq <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span>])</code></pre></div>
 </div>
 <pre class="example">
         vol_liq  avg_price
@@ -526,19 +526,19 @@ MGLU3        90  31.166667
 Implementar uma função de consolidação
 </h4>
 <div id="outline-text-headline-23" class="outline-text-4">
-<div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">def consolidate_portfolio(trades):
-    portfolio = pd.DataFrame()
-    portfolio[&#39;vol_liq&#39;] = (trades
-                            .groupby(&#39;ticker&#39;)[&#39;vol_adj&#39;]
-                            .sum()) 
-    portfolio[&#39;avg_price&#39;] = (trades
-                              .groupby(&#39;ticker&#39;)[&#39;total&#39;]
-                              .sum() / portfolio.vol_liq)
-    portfolio = portfolio[portfolio.vol_liq != 0]
-    portfolio.to_csv(&#39;portfolio.csv&#39;)
-    return portfolio
-print(consolidate_portfolio(trades))</code></pre></div>
+<div class="src src-python">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">consolidate_portfolio</span>(trades):
+    portfolio <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame()
+    portfolio[<span style="color:#e6db74">&#39;vol_liq&#39;</span>] <span style="color:#f92672">=</span> (trades
+                            <span style="color:#f92672">.</span>groupby(<span style="color:#e6db74">&#39;ticker&#39;</span>)[<span style="color:#e6db74">&#39;vol_adj&#39;</span>]
+                            <span style="color:#f92672">.</span>sum()) 
+    portfolio[<span style="color:#e6db74">&#39;avg_price&#39;</span>] <span style="color:#f92672">=</span> (trades
+                              <span style="color:#f92672">.</span>groupby(<span style="color:#e6db74">&#39;ticker&#39;</span>)[<span style="color:#e6db74">&#39;total&#39;</span>]
+                              <span style="color:#f92672">.</span>sum() <span style="color:#f92672">/</span> portfolio<span style="color:#f92672">.</span>vol_liq)
+    portfolio <span style="color:#f92672">=</span> portfolio[portfolio<span style="color:#f92672">.</span>vol_liq <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span>]
+    portfolio<span style="color:#f92672">.</span>to_csv(<span style="color:#e6db74">&#39;portfolio.csv&#39;</span>)
+    <span style="color:#66d9ef">return</span> portfolio
+<span style="color:#66d9ef">print</span>(consolidate_portfolio(trades))</code></pre></div>
 </div>
 <pre class="example">
         vol_liq  avg_price
@@ -558,10 +558,10 @@ Código CVM das empresas
 <p>
 Esses dados são baixados da própria CVM.
 A <code class="verbatim">engine=c</code> não capta alguns formatos, usando <code class="verbatim">engine = &#39;python&#39;</code> capta.</p>
-<div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">cia_data_cvm = pd.read_csv(&#39;cad_cia_aberta.csv&#39;, sep=&#39;;&#39;, engine=&#39;python&#39;)
-print(cia_data_cvm.tail())
-print(cia_data_cvm.columns)</code></pre></div>
+<div class="src src-python">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">cia_data_cvm <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#39;cad_cia_aberta.csv&#39;</span>, sep<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;;&#39;</span>, engine<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;python&#39;</span>)
+<span style="color:#66d9ef">print</span>(cia_data_cvm<span style="color:#f92672">.</span>tail())
+<span style="color:#66d9ef">print</span>(cia_data_cvm<span style="color:#f92672">.</span>columns)</code></pre></div>
 </div>
 <pre class="example">
                 CNPJ_CIA                              DENOM_SOCIAL  \
@@ -620,10 +620,10 @@ Index([&#39;CNPJ_CIA&#39;, &#39;DENOM_SOCIAL&#39;, &#39;DENOM_COMERC&#39;, &#39;
 </pre>
 <p>
 Limitar o escopo do dataframe só ao que interessa. No final acessamos o código CVM com o CNPJ da empresa.</p>
-<div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">cia_code_cvm = cia_data_cvm[[&#39;CNPJ_CIA&#39;, &#39;DENOM_SOCIAL&#39;, &#39;CD_CVM&#39;]]
-print(cia_code_cvm)
-print(cia_code_cvm.dtypes)</code></pre></div>
+<div class="src src-python">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">cia_code_cvm <span style="color:#f92672">=</span> cia_data_cvm[[<span style="color:#e6db74">&#39;CNPJ_CIA&#39;</span>, <span style="color:#e6db74">&#39;DENOM_SOCIAL&#39;</span>, <span style="color:#e6db74">&#39;CD_CVM&#39;</span>]]
+<span style="color:#66d9ef">print</span>(cia_code_cvm)
+<span style="color:#66d9ef">print</span>(cia_code_cvm<span style="color:#f92672">.</span>dtypes)</code></pre></div>
 </div>
 <pre class="example">
                 CNPJ_CIA                                       DENOM_SOCIAL  \
@@ -667,13 +667,13 @@ CNPJ das empresa
 <div id="outline-text-headline-25" class="outline-text-2">
 <p>
 Para obter o cnpj associado a cada ticker usarei os dados desse site: <a href="https://www.infomoney.com.br/minhas-financas/confira-o-cnpj-das-acoes-negociadas-em-bolsa-e-saiba-como-declarar-no-imposto-de-renda/">https://www.infomoney.com.br/minhas-financas/confira-o-cnpj-das-acoes-negociadas-em-bolsa-e-saiba-como-declarar-no-imposto-de-renda/</a></p>
-<div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">url = &#39;https://www.infomoney.com.br/minhas-financas/confira-o-cnpj-das-acoes-negociadas-em-bolsa-e-saiba-como-declarar-no-imposto-de-renda/&#39;
-cia_cnpj = pd.read_html(url)[0]
+<div class="src src-python">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">url <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;https://www.infomoney.com.br/minhas-financas/confira-o-cnpj-das-acoes-negociadas-em-bolsa-e-saiba-como-declarar-no-imposto-de-renda/&#39;</span>
+cia_cnpj <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_html(url)[<span style="color:#ae81ff">0</span>]
 
-print(cia_cnpj.head())
-print(cia_cnpj.dtypes)
-cia_cnpj.to_csv(&#39;cia_cnpj.csv&#39;) # save to csv to avoid external dependency</code></pre></div>
+<span style="color:#66d9ef">print</span>(cia_cnpj<span style="color:#f92672">.</span>head())
+<span style="color:#66d9ef">print</span>(cia_cnpj<span style="color:#f92672">.</span>dtypes)
+cia_cnpj<span style="color:#f92672">.</span>to_csv(<span style="color:#e6db74">&#39;cia_cnpj.csv&#39;</span>) <span style="color:#75715e"># save to csv to avoid external dependency</span></code></pre></div>
 </div>
 <pre class="example">
   Nome de Pregão                                      Razão Social  \
@@ -725,9 +725,9 @@ Protótipo
 <p>
 Obter o CNPJ das cias no portfolio, usando método <code class="verbatim">isin()</code>.
 Esse método testa se elementos na série está contido na lista passada como parâmetro.</p>
-<div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">print(portfolio.index.to_list())
-print(cia_cnpj[cia_cnpj[&#39;Código&#39;].isin([&#39;MGLU3&#39;, &#39;TIET3&#39;, &#39;AFLT3&#39;, &#39;ITSA3&#39;])])</code></pre></div>
+<div class="src src-python">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">print</span>(portfolio<span style="color:#f92672">.</span>index<span style="color:#f92672">.</span>to_list())
+<span style="color:#66d9ef">print</span>(cia_cnpj[cia_cnpj[<span style="color:#e6db74">&#39;Código&#39;</span>]<span style="color:#f92672">.</span>isin([<span style="color:#e6db74">&#39;MGLU3&#39;</span>, <span style="color:#e6db74">&#39;TIET3&#39;</span>, <span style="color:#e6db74">&#39;AFLT3&#39;</span>, <span style="color:#e6db74">&#39;ITSA3&#39;</span>])])</code></pre></div>
 </div>
 <pre class="example">
 [&#39;ITSA4&#39;, &#39;MGLU3&#39;]
@@ -741,9 +741,9 @@ print(cia_cnpj[cia_cnpj[&#39;Código&#39;].isin([&#39;MGLU3&#39;, &#39;TIET3&#39
 </pre>
 <p>
 Se a cia tem mais de um ticker, fica mais complicado a pesquisa. Nesse caso é o uma string apenas.</p>
-<div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">print(cia_cnpj[&#39;Código&#39;][0])
-print(type(cia_cnpj[&#39;Código&#39;][0]))</code></pre></div>
+<div class="src src-python">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">print</span>(cia_cnpj[<span style="color:#e6db74">&#39;Código&#39;</span>][<span style="color:#ae81ff">0</span>])
+<span style="color:#66d9ef">print</span>(type(cia_cnpj[<span style="color:#e6db74">&#39;Código&#39;</span>][<span style="color:#ae81ff">0</span>]))</code></pre></div>
 </div>
 <pre class="example">
 ADHM1, ADHM3
@@ -751,8 +751,8 @@ ADHM1, ADHM3
 </pre>
 <p>
 Podemos tentar usar o método <code class="verbatim">str.contains()</code>,</p>
-<div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">print(cia_cnpj[cia_cnpj[&#39;Código&#39;].str.contains(&#39;ADHM1&#39;)])</code></pre></div>
+<div class="src src-python">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">print</span>(cia_cnpj[cia_cnpj[<span style="color:#e6db74">&#39;Código&#39;</span>]<span style="color:#f92672">.</span>str<span style="color:#f92672">.</span>contains(<span style="color:#e6db74">&#39;ADHM1&#39;</span>)])</code></pre></div>
 </div>
 <pre class="example">
   Nome de Pregão                                      Razão Social  \
@@ -763,8 +763,8 @@ Podemos tentar usar o método <code class="verbatim">str.contains()</code>,</p>
 </pre>
 <p>
 Mais de uma busca usando <code class="verbatim">|</code>,</p>
-<div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">print(cia_cnpj[cia_cnpj[&#39;Código&#39;].str.contains(&#39;ADHM1|ITSA4|MGLU3&#39;)])</code></pre></div>
+<div class="src src-python">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">print</span>(cia_cnpj[cia_cnpj[<span style="color:#e6db74">&#39;Código&#39;</span>]<span style="color:#f92672">.</span>str<span style="color:#f92672">.</span>contains(<span style="color:#e6db74">&#39;ADHM1|ITSA4|MGLU3&#39;</span>)])</code></pre></div>
 </div>
 <pre class="example">
     Nome de Pregão                                      Razão Social  \
@@ -780,8 +780,8 @@ Mais de uma busca usando <code class="verbatim">|</code>,</p>
 <p>
 mas para passar uma lista de strings para essa função não funciona direto.
 precisamos usar o método <code class="verbatim">join().</code></p>
-<div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">print(cia_cnpj[cia_cnpj[&#39;Código&#39;].str.contains(&#39;|&#39;.join([&#39;ADHM1&#39;, &#39;ITSA4&#39;, &#39;MGLU3&#39;]))])</code></pre></div>
+<div class="src src-python">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">print</span>(cia_cnpj[cia_cnpj[<span style="color:#e6db74">&#39;Código&#39;</span>]<span style="color:#f92672">.</span>str<span style="color:#f92672">.</span>contains(<span style="color:#e6db74">&#39;|&#39;</span><span style="color:#f92672">.</span>join([<span style="color:#e6db74">&#39;ADHM1&#39;</span>, <span style="color:#e6db74">&#39;ITSA4&#39;</span>, <span style="color:#e6db74">&#39;MGLU3&#39;</span>]))])</code></pre></div>
 </div>
 <pre class="example">
     Nome de Pregão                                      Razão Social  \
@@ -796,11 +796,11 @@ precisamos usar o método <code class="verbatim">join().</code></p>
 </pre>
 <p>
 Isso funciona bem.</p>
-<div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">print(portfolio.index)
-print(cia_cnpj.CNPJ[cia_cnpj[&#39;Código&#39;].str.contains(&#39;|&#39;.join(portfolio.index))].values)
-portfolio[&#39;cnpj&#39;] = cia_cnpj.CNPJ[cia_cnpj[&#39;Código&#39;].str.contains(&#39;|&#39;.join(portfolio.index))].values 
-print(portfolio)</code></pre></div>
+<div class="src src-python">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">print</span>(portfolio<span style="color:#f92672">.</span>index)
+<span style="color:#66d9ef">print</span>(cia_cnpj<span style="color:#f92672">.</span>CNPJ[cia_cnpj[<span style="color:#e6db74">&#39;Código&#39;</span>]<span style="color:#f92672">.</span>str<span style="color:#f92672">.</span>contains(<span style="color:#e6db74">&#39;|&#39;</span><span style="color:#f92672">.</span>join(portfolio<span style="color:#f92672">.</span>index))]<span style="color:#f92672">.</span>values)
+portfolio[<span style="color:#e6db74">&#39;cnpj&#39;</span>] <span style="color:#f92672">=</span> cia_cnpj<span style="color:#f92672">.</span>CNPJ[cia_cnpj[<span style="color:#e6db74">&#39;Código&#39;</span>]<span style="color:#f92672">.</span>str<span style="color:#f92672">.</span>contains(<span style="color:#e6db74">&#39;|&#39;</span><span style="color:#f92672">.</span>join(portfolio<span style="color:#f92672">.</span>index))]<span style="color:#f92672">.</span>values 
+<span style="color:#66d9ef">print</span>(portfolio)</code></pre></div>
 </div>
 <pre class="example">
 Index([&#39;ITSA4&#39;, &#39;MGLU3&#39;], dtype=&#39;object&#39;, name=&#39;ticker&#39;)
@@ -813,10 +813,10 @@ MGLU3        90  31.166667  47.960.950/0001-21
 <p>
 Agora, pegar o código CVM com esse CNPJ.
 Usarei a mesma técnica.</p>
-<div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">print(cia_code_cvm[cia_code_cvm[&#39;CNPJ_CIA&#39;].str.contains(&#34;|&#34;.join(portfolio.cnpj))])
-portfolio[&#39;cd_cvm&#39;] = cia_code_cvm.CD_CVM[cia_code_cvm[&#39;CNPJ_CIA&#39;].str.contains(&#34;|&#34;.join(portfolio.cnpj))].values 
-print(portfolio)</code></pre></div>
+<div class="src src-python">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">print</span>(cia_code_cvm[cia_code_cvm[<span style="color:#e6db74">&#39;CNPJ_CIA&#39;</span>]<span style="color:#f92672">.</span>str<span style="color:#f92672">.</span>contains(<span style="color:#e6db74">&#34;|&#34;</span><span style="color:#f92672">.</span>join(portfolio<span style="color:#f92672">.</span>cnpj))])
+portfolio[<span style="color:#e6db74">&#39;cd_cvm&#39;</span>] <span style="color:#f92672">=</span> cia_code_cvm<span style="color:#f92672">.</span>CD_CVM[cia_code_cvm[<span style="color:#e6db74">&#39;CNPJ_CIA&#39;</span>]<span style="color:#f92672">.</span>str<span style="color:#f92672">.</span>contains(<span style="color:#e6db74">&#34;|&#34;</span><span style="color:#f92672">.</span>join(portfolio<span style="color:#f92672">.</span>cnpj))]<span style="color:#f92672">.</span>values 
+<span style="color:#66d9ef">print</span>(portfolio)</code></pre></div>
 </div>
 <pre class="example">
                 CNPJ_CIA       DENOM_SOCIAL  CD_CVM
@@ -834,27 +834,27 @@ MGLU3        90  31.166667  47.960.950/0001-21   22470
 Implementar função que obtém detalhes das companhias
 </h4>
 <div id="outline-text-headline-29" class="outline-text-4">
-<div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">def get_cia_details(portfolio, cad_cia_file, cia_cnpj_file):
-    cia_data_cvm = pd.read_csv(cad_cia_file,
-                               sep=&#39;;&#39;, engine=&#39;python&#39;)
-    cia_cnpj = pd.read_csv(cia_cnpj_file, sep=&#39;,&#39;)
-    pf_detail = portfolio.copy()
-    pf_detail[&#39;cnpj&#39;] = (cia_cnpj
-                         .CNPJ[
-                             cia_cnpj[&#39;Código&#39;]
-                             .str.contains(&#39;|&#39;.join(portfolio.index.to_list()))
-                         ].values) 
-    pf_detail[&#39;cd_cvm&#39;] = (cia_code_cvm
-                           .CD_CVM[
-                               cia_code_cvm[&#39;CNPJ_CIA&#39;]
-                               .str.contains(&#34;|&#34;.join(pf_detail.cnpj))
-                           ].values) 
-    return pf_detail
-pf_detail = get_cia_details(portfolio,
-                     cad_cia_file=&#39;cad_cia_aberta.csv&#39;,
-                     cia_cnpj_file=&#39;cia_cnpj.csv&#39;)
-print(pf_detail)</code></pre></div>
+<div class="src src-python">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_cia_details</span>(portfolio, cad_cia_file, cia_cnpj_file):
+    cia_data_cvm <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(cad_cia_file,
+                               sep<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;;&#39;</span>, engine<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;python&#39;</span>)
+    cia_cnpj <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(cia_cnpj_file, sep<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;,&#39;</span>)
+    pf_detail <span style="color:#f92672">=</span> portfolio<span style="color:#f92672">.</span>copy()
+    pf_detail[<span style="color:#e6db74">&#39;cnpj&#39;</span>] <span style="color:#f92672">=</span> (cia_cnpj
+                         <span style="color:#f92672">.</span>CNPJ[
+                             cia_cnpj[<span style="color:#e6db74">&#39;Código&#39;</span>]
+                             <span style="color:#f92672">.</span>str<span style="color:#f92672">.</span>contains(<span style="color:#e6db74">&#39;|&#39;</span><span style="color:#f92672">.</span>join(portfolio<span style="color:#f92672">.</span>index<span style="color:#f92672">.</span>to_list()))
+                         ]<span style="color:#f92672">.</span>values) 
+    pf_detail[<span style="color:#e6db74">&#39;cd_cvm&#39;</span>] <span style="color:#f92672">=</span> (cia_code_cvm
+                           <span style="color:#f92672">.</span>CD_CVM[
+                               cia_code_cvm[<span style="color:#e6db74">&#39;CNPJ_CIA&#39;</span>]
+                               <span style="color:#f92672">.</span>str<span style="color:#f92672">.</span>contains(<span style="color:#e6db74">&#34;|&#34;</span><span style="color:#f92672">.</span>join(pf_detail<span style="color:#f92672">.</span>cnpj))
+                           ]<span style="color:#f92672">.</span>values) 
+    <span style="color:#66d9ef">return</span> pf_detail
+pf_detail <span style="color:#f92672">=</span> get_cia_details(portfolio,
+                     cad_cia_file<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;cad_cia_aberta.csv&#39;</span>,
+                     cia_cnpj_file<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;cia_cnpj.csv&#39;</span>)
+<span style="color:#66d9ef">print</span>(pf_detail)</code></pre></div>
 </div>
 <pre class="example">
         vol_liq  avg_price                cnpj  cd_cvm
@@ -898,13 +898,13 @@ Colocar os dados do site num dataframe
 <p>
 Considerar primeiro apenas para MGLU3.
 Quando for fazer para cada companhia do portfólio consolidado será necessário um loop.</p>
-<div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">cd_cvm = portfolio_details.cd_cvm[&#39;MGLU3&#39;] 
-site = f&#39;http://bvmf.bmfbovespa.com.br/cias-listadas/empresas-listadas/ResumoProventosDinheiro.aspx?codigoCvm={cd_cvm}&amp;tab=3.1&amp;idioma=pt-br&#39;
+<div class="src src-python">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">cd_cvm <span style="color:#f92672">=</span> portfolio_details<span style="color:#f92672">.</span>cd_cvm[<span style="color:#e6db74">&#39;MGLU3&#39;</span>] 
+site <span style="color:#f92672">=</span> f<span style="color:#e6db74">&#39;http://bvmf.bmfbovespa.com.br/cias-listadas/empresas-listadas/ResumoProventosDinheiro.aspx?codigoCvm={cd_cvm}&amp;tab=3.1&amp;idioma=pt-br&#39;</span>
 
-proventos_data = pd.read_html(site, decimal=&#39;,&#39;, thousands=&#39;.&#39;)[0]
-print(proventos_data.head())
-print(proventos_data.dtypes)</code></pre></div>
+proventos_data <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_html(site, decimal<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;,&#39;</span>, thousands<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;.&#39;</span>)[<span style="color:#ae81ff">0</span>]
+<span style="color:#66d9ef">print</span>(proventos_data<span style="color:#f92672">.</span>head())
+<span style="color:#66d9ef">print</span>(proventos_data<span style="color:#f92672">.</span>dtypes)</code></pre></div>
 </div>
 <pre class="example">
   Tipo de Ativo Data da Aprovação (I)  Valor do Provento (R$)  \
@@ -953,14 +953,14 @@ dtype: object
 Converter a data para o formato reconhecível
 </h4>
 <div id="outline-text-headline-33" class="outline-text-4">
-<div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">proventos = {}
-proventos[&#39;MGLU3&#39;] = pd.DataFrame()
-proventos[&#39;MGLU3&#39;][&#39;valor&#39;] = proventos_data[&#39;Valor do Provento (R$)&#39;]
-proventos[&#39;MGLU3&#39;][&#39;date_com&#39;] = pd.to_datetime(proventos_data[&#34;Últ. Dia &#39;Com&#39;&#34;],
-                                       format=&#34;%d/%m/%Y&#34;)
-print(proventos[&#39;MGLU3&#39;])
-print(proventos[&#39;MGLU3&#39;].dtypes)</code></pre></div>
+<div class="src src-python">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">proventos <span style="color:#f92672">=</span> {}
+proventos[<span style="color:#e6db74">&#39;MGLU3&#39;</span>] <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame()
+proventos[<span style="color:#e6db74">&#39;MGLU3&#39;</span>][<span style="color:#e6db74">&#39;valor&#39;</span>] <span style="color:#f92672">=</span> proventos_data[<span style="color:#e6db74">&#39;Valor do Provento (R$)&#39;</span>]
+proventos[<span style="color:#e6db74">&#39;MGLU3&#39;</span>][<span style="color:#e6db74">&#39;date_com&#39;</span>] <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>to_datetime(proventos_data[<span style="color:#e6db74">&#34;Últ. Dia &#39;Com&#39;&#34;</span>],
+                                       format<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">%d</span><span style="color:#e6db74">/%m/%Y&#34;</span>)
+<span style="color:#66d9ef">print</span>(proventos[<span style="color:#e6db74">&#39;MGLU3&#39;</span>])
+<span style="color:#66d9ef">print</span>(proventos[<span style="color:#e6db74">&#39;MGLU3&#39;</span>]<span style="color:#f92672">.</span>dtypes)</code></pre></div>
 </div>
 <pre class="example">
        valor   date_com
@@ -991,14 +991,14 @@ Descartar dados desnecessários
 <p>
 Os proventos serão provisionados apenas quem possuía os papéis na data da aprovação.
 Portanto, proventos antes da primeira compra não precisam ser armazenados.</p>
-<div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">print(trades.date[trades.ticker == &#39;MGLU3&#39;].min())
-print(proventos[&#39;MGLU3&#39;])
-print(proventos[&#39;MGLU3&#39;][proventos[&#39;MGLU3&#39;].date_com &gt; trades.date[trades.ticker == &#39;MGLU3&#39;].min()])
-proventos[&#39;MGLU3&#39;] = proventos[&#39;MGLU3&#39;][
-    proventos[&#39;MGLU3&#39;].date_com &gt; trades.date[trades.ticker == &#39;MGLU3&#39;].min()
+<div class="src src-python">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">print</span>(trades<span style="color:#f92672">.</span>date[trades<span style="color:#f92672">.</span>ticker <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;MGLU3&#39;</span>]<span style="color:#f92672">.</span>min())
+<span style="color:#66d9ef">print</span>(proventos[<span style="color:#e6db74">&#39;MGLU3&#39;</span>])
+<span style="color:#66d9ef">print</span>(proventos[<span style="color:#e6db74">&#39;MGLU3&#39;</span>][proventos[<span style="color:#e6db74">&#39;MGLU3&#39;</span>]<span style="color:#f92672">.</span>date_com <span style="color:#f92672">&gt;</span> trades<span style="color:#f92672">.</span>date[trades<span style="color:#f92672">.</span>ticker <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;MGLU3&#39;</span>]<span style="color:#f92672">.</span>min()])
+proventos[<span style="color:#e6db74">&#39;MGLU3&#39;</span>] <span style="color:#f92672">=</span> proventos[<span style="color:#e6db74">&#39;MGLU3&#39;</span>][
+    proventos[<span style="color:#e6db74">&#39;MGLU3&#39;</span>]<span style="color:#f92672">.</span>date_com <span style="color:#f92672">&gt;</span> trades<span style="color:#f92672">.</span>date[trades<span style="color:#f92672">.</span>ticker <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;MGLU3&#39;</span>]<span style="color:#f92672">.</span>min()
 ]
-print(proventos)</code></pre></div>
+<span style="color:#66d9ef">print</span>(proventos)</code></pre></div>
 </div>
 <pre class="example">
 2019-12-11 00:00:00
@@ -1032,8 +1032,8 @@ Considerações sobre ON e PN
 <div id="outline-text-headline-35" class="outline-text-4">
 <p>
 Se o ticker contiver 3 é ON e se contiver 4 é PN.</p>
-<div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">print(proventos_data[(proventos_data[&#39;Tipo de Ativo&#39;] == &#39;ON&#39;) &amp; (&#39;3&#39; in &#39;MGLU3&#39;)])</code></pre></div>
+<div class="src src-python">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">print</span>(proventos_data[(proventos_data[<span style="color:#e6db74">&#39;Tipo de Ativo&#39;</span>] <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;ON&#39;</span>) <span style="color:#f92672">&amp;</span> (<span style="color:#e6db74">&#39;3&#39;</span> <span style="color:#f92672">in</span> <span style="color:#e6db74">&#39;MGLU3&#39;</span>)])</code></pre></div>
 </div>
 <pre class="example">
    Tipo de Ativo Data da Aprovação (I)  Valor do Provento (R$)  \
@@ -1113,20 +1113,20 @@ Função faz</p>
 <p>nomeia a coluna de data <code class="verbatim">&#39;date_com&#39;</code> e processa ela adequadamente</p>
 </li>
 </ol>
-<div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">def get_dividends_data(ticker):
-    cd_cvm = portfolio_details.cd_cvm[ticker] 
-    site = f&#39;http://bvmf.bmfbovespa.com.br/cias-listadas/empresas-listadas/ResumoProventosDinheiro.aspx?codigoCvm={cd_cvm}&amp;tab=3.1&amp;idioma=pt-br&#39;
+<div class="src src-python">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_dividends_data</span>(ticker):
+    cd_cvm <span style="color:#f92672">=</span> portfolio_details<span style="color:#f92672">.</span>cd_cvm[ticker] 
+    site <span style="color:#f92672">=</span> f<span style="color:#e6db74">&#39;http://bvmf.bmfbovespa.com.br/cias-listadas/empresas-listadas/ResumoProventosDinheiro.aspx?codigoCvm={cd_cvm}&amp;tab=3.1&amp;idioma=pt-br&#39;</span>
 
-    dividends_data = pd.read_html(site,
-                                  decimal=&#39;,&#39;,
-                                  thousands=&#39;.&#39;,
-                                  parse_dates={&#39;date_com&#39;:[&#34;Últ. Dia &#39;Com&#39;&#34;]}
-                                  )[0]
-    return dividends_data
+    dividends_data <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_html(site,
+                                  decimal<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;,&#39;</span>,
+                                  thousands<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;.&#39;</span>,
+                                  parse_dates<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;date_com&#39;</span>:[<span style="color:#e6db74">&#34;Últ. Dia &#39;Com&#39;&#34;</span>]}
+                                  )[<span style="color:#ae81ff">0</span>]
+    <span style="color:#66d9ef">return</span> dividends_data
 
-print(get_dividends_data(&#39;MGLU3&#39;).head())
-print(get_dividends_data(&#39;MGLU3&#39;).dtypes)</code></pre></div>
+<span style="color:#66d9ef">print</span>(get_dividends_data(<span style="color:#e6db74">&#39;MGLU3&#39;</span>)<span style="color:#f92672">.</span>head())
+<span style="color:#66d9ef">print</span>(get_dividends_data(<span style="color:#e6db74">&#39;MGLU3&#39;</span>)<span style="color:#f92672">.</span>dtypes)</code></pre></div>
 </div>
 <pre class="example">
     date_com Tipo de Ativo Data da Aprovação (I)  Valor do Provento (R$)  \
@@ -1186,11 +1186,11 @@ Protótipo
 <div id="outline-text-headline-38" class="outline-text-4">
 <p>
 Obter volume líquido na data do provento.</p>
-<div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">print(proventos[&#39;MGLU3&#39;].date_com.tail(1))
-print(trades)
-print(trades.vol_adj[(trades.date &lt;= proventos[&#39;MGLU3&#39;].date_com[12])
-                         &amp; (trades.ticker == &#39;MGLU3&#39;)].sum())</code></pre></div>
+<div class="src src-python">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">print</span>(proventos[<span style="color:#e6db74">&#39;MGLU3&#39;</span>]<span style="color:#f92672">.</span>date_com<span style="color:#f92672">.</span>tail(<span style="color:#ae81ff">1</span>))
+<span style="color:#66d9ef">print</span>(trades)
+<span style="color:#66d9ef">print</span>(trades<span style="color:#f92672">.</span>vol_adj[(trades<span style="color:#f92672">.</span>date <span style="color:#f92672">&lt;=</span> proventos[<span style="color:#e6db74">&#39;MGLU3&#39;</span>]<span style="color:#f92672">.</span>date_com[<span style="color:#ae81ff">12</span>])
+                         <span style="color:#f92672">&amp;</span> (trades<span style="color:#f92672">.</span>ticker <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;MGLU3&#39;</span>)]<span style="color:#f92672">.</span>sum())</code></pre></div>
 </div>
 <pre class="example">
 12   2020-07-30
@@ -1215,15 +1215,15 @@ Volume líquido para todas as datas de proventos
 <div id="outline-text-headline-39" class="outline-text-4">
 <p>
 O parâmetro <code class="verbatim">axis = 1</code> na função <code class="verbatim">apply()</code> é para indicar que vai ser aplicado linha a linha.</p>
-<div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">proventos[&#39;MGLU3&#39;][&#39;vol_liq&#39;] = proventos[&#39;MGLU3&#39;].apply(
-    lambda x: trades.vol_adj[
-	(trades.date &lt;= x.date_com)
-        &amp;
-        (trades.ticker == &#39;MGLU3&#39;)
-    ].sum(), 
-    axis=1)
-print(proventos[&#39;MGLU3&#39;])</code></pre></div>
+<div class="src src-python">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">proventos[<span style="color:#e6db74">&#39;MGLU3&#39;</span>][<span style="color:#e6db74">&#39;vol_liq&#39;</span>] <span style="color:#f92672">=</span> proventos[<span style="color:#e6db74">&#39;MGLU3&#39;</span>]<span style="color:#f92672">.</span>apply(
+    <span style="color:#66d9ef">lambda</span> x: trades<span style="color:#f92672">.</span>vol_adj[
+	(trades<span style="color:#f92672">.</span>date <span style="color:#f92672">&lt;=</span> x<span style="color:#f92672">.</span>date_com)
+        <span style="color:#f92672">&amp;</span>
+        (trades<span style="color:#f92672">.</span>ticker <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;MGLU3&#39;</span>)
+    ]<span style="color:#f92672">.</span>sum(), 
+    axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+<span style="color:#66d9ef">print</span>(proventos[<span style="color:#e6db74">&#39;MGLU3&#39;</span>])</code></pre></div>
 </div>
 <pre class="example">
        valor   date_com  vol_liq
@@ -1237,9 +1237,9 @@ print(proventos[&#39;MGLU3&#39;])</code></pre></div>
 Provento total
 </h4>
 <div id="outline-text-headline-40" class="outline-text-4">
-<div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">proventos[&#39;MGLU3&#39;][&#39;total&#39;] = proventos[&#39;MGLU3&#39;][&#39;valor&#39;] * proventos[&#39;MGLU3&#39;][&#39;vol_liq&#39;]
-print(proventos[&#39;MGLU3&#39;])</code></pre></div>
+<div class="src src-python">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">proventos[<span style="color:#e6db74">&#39;MGLU3&#39;</span>][<span style="color:#e6db74">&#39;total&#39;</span>] <span style="color:#f92672">=</span> proventos[<span style="color:#e6db74">&#39;MGLU3&#39;</span>][<span style="color:#e6db74">&#39;valor&#39;</span>] <span style="color:#f92672">*</span> proventos[<span style="color:#e6db74">&#39;MGLU3&#39;</span>][<span style="color:#e6db74">&#39;vol_liq&#39;</span>]
+<span style="color:#66d9ef">print</span>(proventos[<span style="color:#e6db74">&#39;MGLU3&#39;</span>])</code></pre></div>
 </div>
 <pre class="example">
        valor   date_com  vol_liq     total
@@ -1253,15 +1253,15 @@ print(proventos[&#39;MGLU3&#39;])</code></pre></div>
 Plotar proventos no tempo
 </h4>
 <div id="outline-text-headline-41" class="outline-text-4">
-<div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">import matplotlib
-import matplotlib.pyplot as plt
-matplotlib.style.use(&#39;seaborn&#39;)
-proventos[&#39;MGLU3&#39;].plot(x=&#39;date_com&#39;,
-                        y=&#39;total&#39;,
-                        kind=&#39;bar&#39;,
-                        xlabel=&#39;Data de aprovação&#39;,
-                        ylabel=&#39;Valor R$&#39;)</code></pre></div>
+<div class="src src-python">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> matplotlib
+<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
+matplotlib<span style="color:#f92672">.</span>style<span style="color:#f92672">.</span>use(<span style="color:#e6db74">&#39;seaborn&#39;</span>)
+proventos[<span style="color:#e6db74">&#39;MGLU3&#39;</span>]<span style="color:#f92672">.</span>plot(x<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;date_com&#39;</span>,
+                        y<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;total&#39;</span>,
+                        kind<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;bar&#39;</span>,
+                        xlabel<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Data de aprovação&#39;</span>,
+                        ylabel<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Valor R$&#39;</span>)</code></pre></div>
 </div>
 <p><img src="./jupyter/5624e1b9c6a8dfcba835feac44d152d5887a4b5a.png" alt="./jupyter/5624e1b9c6a8dfcba835feac44d152d5887a4b5a.png" title="./jupyter/5624e1b9c6a8dfcba835feac44d152d5887a4b5a.png" /></p>
 </div>
@@ -1296,46 +1296,46 @@ Função faz:</p>
 <p>calcula total dividendo por data do evento</p>
 </li>
 </ol>
-<div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">def process_dividends(ticker, trades):
-    dividends = get_dividends_data(ticker)
-    # remove old unecessary data
-    dividends = dividends[
-        dividends.date_com
-        &gt;=
-        trades.date[trades.ticker == ticker].min()
+<div class="src src-python">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">process_dividends</span>(ticker, trades):
+    dividends <span style="color:#f92672">=</span> get_dividends_data(ticker)
+    <span style="color:#75715e"># remove old unecessary data</span>
+    dividends <span style="color:#f92672">=</span> dividends[
+        dividends<span style="color:#f92672">.</span>date_com
+        <span style="color:#f92672">&gt;=</span>
+        trades<span style="color:#f92672">.</span>date[trades<span style="color:#f92672">.</span>ticker <span style="color:#f92672">==</span> ticker]<span style="color:#f92672">.</span>min()
     ]
 
-    # ON and PN
-    if &#39;3&#39; in ticker:
-        dividends = dividends[dividends[&#39;Tipo de Ativo&#39;] == &#39;ON&#39;]
-    elif &#39;4&#39; in ticker:
-        dividends = dividends[dividends[&#39;Tipo de Ativo&#39;] == &#39;PN&#39;]
+    <span style="color:#75715e"># ON and PN</span>
+    <span style="color:#66d9ef">if</span> <span style="color:#e6db74">&#39;3&#39;</span> <span style="color:#f92672">in</span> ticker:
+        dividends <span style="color:#f92672">=</span> dividends[dividends[<span style="color:#e6db74">&#39;Tipo de Ativo&#39;</span>] <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;ON&#39;</span>]
+    <span style="color:#66d9ef">elif</span> <span style="color:#e6db74">&#39;4&#39;</span> <span style="color:#f92672">in</span> ticker:
+        dividends <span style="color:#f92672">=</span> dividends[dividends[<span style="color:#e6db74">&#39;Tipo de Ativo&#39;</span>] <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;PN&#39;</span>]
 
-    # add ticker as index
-    dividends = dividends.set_index(
-	pd.Index([ticker] * dividends.shape[0]).set_names([&#39;ticker&#39;]),
-	append=True
+    <span style="color:#75715e"># add ticker as index</span>
+    dividends <span style="color:#f92672">=</span> dividends<span style="color:#f92672">.</span>set_index(
+	pd<span style="color:#f92672">.</span>Index([ticker] <span style="color:#f92672">*</span> dividends<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>])<span style="color:#f92672">.</span>set_names([<span style="color:#e6db74">&#39;ticker&#39;</span>]),
+	append<span style="color:#f92672">=</span>True
     )
 
-    # filter by date and ticker, then sum
-    dividends[&#39;vol_liq&#39;] = dividends.apply(
-	lambda x: trades.vol_adj[
-	    (trades.date &lt;= x.date_com) # in order to gain the dividends
-	    &amp;
-	    (trades.ticker == ticker)
-	].sum(), 
-	axis=1)
+    <span style="color:#75715e"># filter by date and ticker, then sum</span>
+    dividends[<span style="color:#e6db74">&#39;vol_liq&#39;</span>] <span style="color:#f92672">=</span> dividends<span style="color:#f92672">.</span>apply(
+	<span style="color:#66d9ef">lambda</span> x: trades<span style="color:#f92672">.</span>vol_adj[
+	    (trades<span style="color:#f92672">.</span>date <span style="color:#f92672">&lt;=</span> x<span style="color:#f92672">.</span>date_com) <span style="color:#75715e"># in order to gain the dividends</span>
+	    <span style="color:#f92672">&amp;</span>
+	    (trades<span style="color:#f92672">.</span>ticker <span style="color:#f92672">==</span> ticker)
+	]<span style="color:#f92672">.</span>sum(), 
+	axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
 
-    dividends = dividends.rename(
-        columns={&#39;Valor do Provento (R$)&#39;: &#39;value&#39;,
-                 &#39;Tipo do Provento (II)&#39;: &#39;type&#39;}
+    dividends <span style="color:#f92672">=</span> dividends<span style="color:#f92672">.</span>rename(
+        columns<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;Valor do Provento (R$)&#39;</span>: <span style="color:#e6db74">&#39;value&#39;</span>,
+                 <span style="color:#e6db74">&#39;Tipo do Provento (II)&#39;</span>: <span style="color:#e6db74">&#39;type&#39;</span>}
     )
-    dividends = dividends[[&#39;date_com&#39;, &#39;value&#39;, &#39;type&#39;, &#39;vol_liq&#39;]]
-    dividends[&#39;total&#39;] = dividends.value * dividends.vol_liq
+    dividends <span style="color:#f92672">=</span> dividends[[<span style="color:#e6db74">&#39;date_com&#39;</span>, <span style="color:#e6db74">&#39;value&#39;</span>, <span style="color:#e6db74">&#39;type&#39;</span>, <span style="color:#e6db74">&#39;vol_liq&#39;</span>]]
+    dividends[<span style="color:#e6db74">&#39;total&#39;</span>] <span style="color:#f92672">=</span> dividends<span style="color:#f92672">.</span>value <span style="color:#f92672">*</span> dividends<span style="color:#f92672">.</span>vol_liq
 
-    return dividends
-print(process_dividends(&#39;MGLU3&#39;, trades))</code></pre></div>
+    <span style="color:#66d9ef">return</span> dividends
+<span style="color:#66d9ef">print</span>(process_dividends(<span style="color:#e6db74">&#39;MGLU3&#39;</span>, trades))</code></pre></div>
 </div>
 <pre class="example">
             date_com     value             type  vol_liq     total
@@ -1351,8 +1351,8 @@ Teste para ITSA4
 </h4>
 <div id="outline-text-headline-43" class="outline-text-4">
 <img src="Provento_recebido/2020-12-24_00-12-58_screenshot.png" alt="Provento_recebido/2020-12-24_00-12-58_screenshot.png" title="Provento_recebido/2020-12-24_00-12-58_screenshot.png" width="350px"/>
-<div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">print(process_dividends(&#39;ITSA4&#39;, trades))</code></pre></div>
+<div class="src src-python">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">print</span>(process_dividends(<span style="color:#e6db74">&#39;ITSA4&#39;</span>, trades))</code></pre></div>
 </div>
 <pre class="example">
              date_com   value             type  vol_liq  total
@@ -1379,13 +1379,13 @@ Função faz</p>
 <p>obtém os dividendos distribuídos por cada empresa no portfolio</p>
 </li>
 </ol>
-<div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">def consolidade_dividends(portfolio, trades):
-    dividends = pd.DataFrame()
-    for tic in portfolio.index:
-        dividends = dividends.append(process_dividends(tic, trades))
-    return dividends
-print(consolidade_dividends(portfolio, trades))</code></pre></div>
+<div class="src src-python">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">consolidade_dividends</span>(portfolio, trades):
+    dividends <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame()
+    <span style="color:#66d9ef">for</span> tic <span style="color:#f92672">in</span> portfolio<span style="color:#f92672">.</span>index:
+        dividends <span style="color:#f92672">=</span> dividends<span style="color:#f92672">.</span>append(process_dividends(tic, trades))
+    <span style="color:#66d9ef">return</span> dividends
+<span style="color:#66d9ef">print</span>(consolidade_dividends(portfolio, trades))</code></pre></div>
 </div>
 <pre class="example">
              date_com     value             type  vol_liq     total
