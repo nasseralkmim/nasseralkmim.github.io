@@ -199,5 +199,16 @@ BIS Bulletins   As of now, 2020, this are my favorite asthetic. The shaded backg
       <description>Introduction   In this post I will go over my workflow for managing academic resources and seamless add citation into a $\LaTeX$ file. Usually this process is boring since you have to add a source into your .bib file, then insert the citation with the bibtex key into your latex to generate the references section. This process is independent of your .pdf source, so you can add citation for source that you have physically.</description>
     </item>
     
+    <item>
+      <title>OOP for an Extensible FEM code</title>
+      <link>https://nasseralkmim.github.io/notes/oop-fem/</link>
+      <pubDate>Thu, 18 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://nasseralkmim.github.io/notes/oop-fem/</guid>
+      <description>Introduction   After a solid 2 days of research, multiple articles and thesis, I figured that the whole OOP paradigm might be the best alternative to an extensible fem code.
+ The thing is: I need something simple enough so people can learn how the code works only with basic knowledge of the language and the theory.
+  The current framework  Top level description   User input as the Mesh file and the Problem parameters.</description>
+    </item>
+    
   </channel>
 </rss>
