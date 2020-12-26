@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© {year}</copyright>
-    <lastBuildDate>Mon, 21 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 25 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>aesthetics</title>
+      <link>https://nasseralkmim.github.io/tags/aesthetics/</link>
+      <pubDate>Fri, 25 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://nasseralkmim.github.io/tags/aesthetics/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>note-taking</title>
       <link>https://nasseralkmim.github.io/tags/note-taking/</link>
@@ -54,15 +63,6 @@
     </item>
     
     <item>
-      <title>python</title>
-      <link>https://nasseralkmim.github.io/tags/python/</link>
-      <pubDate>Thu, 17 Dec 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/tags/python/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>economy</title>
       <link>https://nasseralkmim.github.io/tags/economy/</link>
       <pubDate>Sun, 13 Dec 2020 20:08:58 -0300</pubDate>
@@ -104,15 +104,6 @@
       <pubDate>Thu, 03 Dec 2020 00:00:00 +0000</pubDate>
       
       <guid>https://nasseralkmim.github.io/tags/meta/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>aesthetic</title>
-      <link>https://nasseralkmim.github.io/tags/aesthetic/</link>
-      <pubDate>Sat, 20 Jan 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/tags/aesthetic/</guid>
       <description></description>
     </item>
     

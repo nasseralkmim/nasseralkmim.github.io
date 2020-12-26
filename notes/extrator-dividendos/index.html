@@ -252,8 +252,7 @@ A cada mês incluindo meses sem recebimento
 </h8>
 <div id="outline-text-headline-11" class="outline-text-8">
 <div class="src src-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">df1 <span style="color:#f92672">=</span> (
-dividends
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">(dividends
 <span style="color:#f92672">.</span>groupby(dividends<span style="color:#f92672">.</span>date_com<span style="color:#f92672">.</span>dt<span style="color:#f92672">.</span>to_period(<span style="color:#e6db74">&#39;M&#39;</span>))[<span style="color:#e6db74">&#39;total&#39;</span>]
 <span style="color:#f92672">.</span>sum()                          <span style="color:#75715e"># group by month period and sum</span>
 <span style="color:#f92672">.</span>resample(<span style="color:#e6db74">&#39;M&#39;</span>)                  <span style="color:#75715e"># adds periods without data</span>
@@ -811,7 +810,7 @@ Index([&#39;ITSA4&#39;, &#39;MGLU3&#39;], dtype=&#39;object&#39;, name=&#39;tick
 [&#39;61.532.644/0001-15&#39; &#39;47.960.950/0001-21&#39;]
         vol_liq  avg_price                cnpj
 ticker                                        
-ITSA4        80   9.500000  61.532.644/0001-15
+ITSA4        30   9.666667  61.532.644/0001-15
 MGLU3        90  31.166667  47.960.950/0001-21
 </pre>
 <p>
@@ -828,7 +827,7 @@ portfolio[<span style="color:#e6db74">&#39;cd_cvm&#39;</span>] <span style="colo
 1436  47.960.950/0001-21  MAGAZINE LUIZA SA   22470
         vol_liq  avg_price                cnpj  cd_cvm
 ticker                                                
-ITSA4        80   9.500000  61.532.644/0001-15    7617
+ITSA4        30   9.666667  61.532.644/0001-15    7617
 MGLU3        90  31.166667  47.960.950/0001-21   22470
 </pre>
 </div>
@@ -848,12 +847,13 @@ Implementar função que obtém detalhes das companhias
                          <span style="color:#f92672">.</span>CNPJ[
                              cia_cnpj[<span style="color:#e6db74">&#39;Código&#39;</span>]
                              <span style="color:#f92672">.</span>str<span style="color:#f92672">.</span>contains(<span style="color:#e6db74">&#39;|&#39;</span><span style="color:#f92672">.</span>join(portfolio<span style="color:#f92672">.</span>index<span style="color:#f92672">.</span>to_list()))
-                         ]<span style="color:#f92672">.</span>values) 
-    pf_detail[<span style="color:#e6db74">&#39;cd_cvm&#39;</span>] <span style="color:#f92672">=</span> (cia_code_cvm
+                         ]<span style="color:#f92672">.</span>values)
+    pf_detail[<span style="color:#e6db74">&#39;cd_cvm&#39;</span>] <span style="color:#f92672">=</span> (cia_data_cvm
                            <span style="color:#f92672">.</span>CD_CVM[
-                               cia_code_cvm[<span style="color:#e6db74">&#39;CNPJ_CIA&#39;</span>]
+                               cia_data_cvm[<span style="color:#e6db74">&#39;CNPJ_CIA&#39;</span>]
                                <span style="color:#f92672">.</span>str<span style="color:#f92672">.</span>contains(<span style="color:#e6db74">&#34;|&#34;</span><span style="color:#f92672">.</span>join(pf_detail<span style="color:#f92672">.</span>cnpj))
-                           ]<span style="color:#f92672">.</span>values) 
+                           ]<span style="color:#f92672">.</span>values)
+
     <span style="color:#66d9ef">return</span> pf_detail
 pf_detail <span style="color:#f92672">=</span> get_cia_details(portfolio,
                      cad_cia_file<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;cad_cia_aberta.csv&#39;</span>,
@@ -863,7 +863,7 @@ pf_detail <span style="color:#f92672">=</span> get_cia_details(portfolio,
 <pre class="example">
         vol_liq  avg_price                cnpj  cd_cvm
 ticker                                                
-ITSA4        80   9.500000  61.532.644/0001-15    7617
+ITSA4        30   9.666667  61.532.644/0001-15    7617
 MGLU3        90  31.166667  47.960.950/0001-21   22470
 </pre>
 <p>
@@ -903,7 +903,7 @@ Colocar os dados do site num dataframe
 Considerar primeiro apenas para MGLU3.
 Quando for fazer para cada companhia do portfólio consolidado será necessário um loop.</p>
 <div class="src src-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">cd_cvm <span style="color:#f92672">=</span> portfolio_details<span style="color:#f92672">.</span>cd_cvm[<span style="color:#e6db74">&#39;MGLU3&#39;</span>] 
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">cd_cvm <span style="color:#f92672">=</span> pf_detail<span style="color:#f92672">.</span>cd_cvm[<span style="color:#e6db74">&#39;MGLU3&#39;</span>] 
 site <span style="color:#f92672">=</span> f<span style="color:#e6db74">&#39;http://bvmf.bmfbovespa.com.br/cias-listadas/empresas-listadas/ResumoProventosDinheiro.aspx?codigoCvm={cd_cvm}&amp;tab=3.1&amp;idioma=pt-br&#39;</span>
 
 proventos_data <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_html(site, decimal<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;,&#39;</span>, thousands<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;.&#39;</span>)[<span style="color:#ae81ff">0</span>]
@@ -1036,70 +1036,6 @@ Considerações sobre ON e PN
 <div id="outline-text-headline-35" class="outline-text-4">
 <p>
 Se o ticker contiver 3 é ON e se contiver 4 é PN.</p>
-<div class="src src-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">print</span>(proventos_data[(proventos_data[<span style="color:#e6db74">&#39;Tipo de Ativo&#39;</span>] <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;ON&#39;</span>) <span style="color:#f92672">&amp;</span> (<span style="color:#e6db74">&#39;3&#39;</span> <span style="color:#f92672">in</span> <span style="color:#e6db74">&#39;MGLU3&#39;</span>)])</code></pre></div>
-</div>
-<pre class="example">
-   Tipo de Ativo Data da Aprovação (I)  Valor do Provento (R$)  \
-0             ON            30/04/2012                0.014857   
-1             ON            30/01/2014                0.065683   
-2             ON            17/04/2014                0.107359   
-3             ON            30/12/2014                0.078168   
-4             ON            27/04/2015                0.109472   
-5             ON            20/04/2017                1.017261   
-6             ON            13/12/2017                0.396103   
-7             ON            13/04/2018                0.264465   
-8             ON            21/12/2018                0.592705   
-9             ON            12/04/2019                0.370260   
-10            ON            30/09/2019                0.073607   
-11            ON            23/12/2019                0.035789   
-12            ON            27/07/2020                0.094166   
-
-    Proventos por unidade ou mil Tipo do Provento (II) Últ. Dia &#39;Com&#39;  \
-0                              1             DIVIDENDO     30/04/2012   
-1                              1       JRS CAP PROPRIO     20/02/2014   
-2                              1             DIVIDENDO     22/04/2014   
-3                              1       JRS CAP PROPRIO     14/01/2015   
-4                              1             DIVIDENDO     27/04/2015   
-5                              1             DIVIDENDO     25/04/2017   
-6                              1       JRS CAP PROPRIO     19/12/2017   
-7                              1             DIVIDENDO     16/04/2018   
-8                              1       JRS CAP PROPRIO     28/12/2018   
-9                              1             DIVIDENDO     15/04/2019   
-10                             1       JRS CAP PROPRIO     07/10/2019   
-11                             1       JRS CAP PROPRIO     30/12/2019   
-12                             1             DIVIDENDO     30/07/2020   
-
-   Data do Últ. Preço &#39;Com&#39; (III)  Últ. Preço &#39;Com&#39;  Preço por unidade ou mil  \
-0                      30/04/2012             11.38                         1   
-1                      20/02/2014              7.26                         1   
-2                      22/04/2014              7.15                         1   
-3                      14/01/2015              7.35                         1   
-4                      27/04/2015              5.22                         1   
-5                      25/04/2017            209.50                         1   
-6                      19/12/2017             66.92                         1   
-7                      16/04/2018             96.17                         1   
-8                      28/12/2018            181.07                         1   
-9                      15/04/2019            163.50                         1   
-10                     07/10/2019             38.40                         1   
-11                     30/12/2019             47.70                         1   
-12                     30/07/2020             83.29                         1   
-
-    Provento/Preço(%)  
-0            0.130554  
-1            0.904730  
-2            1.501520  
-3            1.063508  
-4            2.097156  
-5            0.485566  
-6            0.591905  
-7            0.274998  
-8            0.327335  
-9            0.226459  
-10           0.191684  
-11           0.075030  
-12           0.113058
-</pre>
 </div>
 </div>
 <div id="outline-container-headline-36" class="outline-4">
@@ -1118,8 +1054,7 @@ Função faz</p>
 </li>
 </ol>
 <div class="src src-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_dividends_data</span>(ticker):
-    cd_cvm <span style="color:#f92672">=</span> portfolio_details<span style="color:#f92672">.</span>cd_cvm[ticker] 
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_dividends_data</span>(ticker, cd_cvm):
     site <span style="color:#f92672">=</span> f<span style="color:#e6db74">&#39;http://bvmf.bmfbovespa.com.br/cias-listadas/empresas-listadas/ResumoProventosDinheiro.aspx?codigoCvm={cd_cvm}&amp;tab=3.1&amp;idioma=pt-br&#39;</span>
 
     dividends_data <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_html(site,
@@ -1129,8 +1064,8 @@ Função faz</p>
                                   )[<span style="color:#ae81ff">0</span>]
     <span style="color:#66d9ef">return</span> dividends_data
 
-<span style="color:#66d9ef">print</span>(get_dividends_data(<span style="color:#e6db74">&#39;MGLU3&#39;</span>)<span style="color:#f92672">.</span>head())
-<span style="color:#66d9ef">print</span>(get_dividends_data(<span style="color:#e6db74">&#39;MGLU3&#39;</span>)<span style="color:#f92672">.</span>dtypes)</code></pre></div>
+<span style="color:#66d9ef">print</span>(get_dividends_data(<span style="color:#e6db74">&#39;MGLU3&#39;</span>, <span style="color:#ae81ff">22470</span>)<span style="color:#f92672">.</span>head())
+<span style="color:#66d9ef">print</span>(get_dividends_data(<span style="color:#e6db74">&#39;MGLU3&#39;</span>, <span style="color:#ae81ff">22470</span>)<span style="color:#f92672">.</span>dtypes)</code></pre></div>
 </div>
 <pre class="example">
     date_com Tipo de Ativo Data da Aprovação (I)  Valor do Provento (R$)  \
@@ -1201,13 +1136,11 @@ Obter volume líquido na data do provento.</p>
 Name: date_com, dtype: datetime64[ns]
         date  type ticker  volume  price   total  vol_adj
 0 2020-07-20   buy  MGLU3      10   50.5   505.0       10
-1 2020-07-25   buy  ITSA4      20   10.0   200.0       20
-2 2020-07-27   buy  ITSA4      30    9.0   270.0       30
-3 2020-07-29   buy  MGLU3      30   60.0  1800.0       30
-4 2020-07-30  sell  ITSA4      15   12.0  -180.0      -15
-5 2019-12-11   buy  MGLU3      50   10.0   500.0       50
-6 2020-02-19   buy  ITSA4      20   11.0   220.0       20
-7 2020-05-31   buy  ITSA4      25   10.0   250.0       25
+1 2020-07-29   buy  MGLU3      30   60.0  1800.0       30
+2 2020-07-30  sell  ITSA4      15   12.0  -180.0      -15
+3 2019-12-11   buy  MGLU3      50   10.0   500.0       50
+4 2020-02-19   buy  ITSA4      20   11.0   220.0       20
+5 2020-05-29   buy  ITSA4      25   10.0   250.0       25
 90
 </pre>
 </div>
@@ -1301,8 +1234,8 @@ Função faz:</p>
 </li>
 </ol>
 <div class="src src-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">process_dividends</span>(ticker, trades):
-    dividends <span style="color:#f92672">=</span> get_dividends_data(ticker)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">process_dividends</span>(ticker, trades, cd_cvm):
+    dividends <span style="color:#f92672">=</span> get_dividends_data(ticker, cd_cvm)
     <span style="color:#75715e"># remove old unecessary data</span>
     dividends <span style="color:#f92672">=</span> dividends[
         dividends<span style="color:#f92672">.</span>date_com
@@ -1339,7 +1272,7 @@ Função faz:</p>
     dividends[<span style="color:#e6db74">&#39;total&#39;</span>] <span style="color:#f92672">=</span> dividends<span style="color:#f92672">.</span>value <span style="color:#f92672">*</span> dividends<span style="color:#f92672">.</span>vol_liq
 
     <span style="color:#66d9ef">return</span> dividends
-<span style="color:#66d9ef">print</span>(process_dividends(<span style="color:#e6db74">&#39;MGLU3&#39;</span>, trades))</code></pre></div>
+<span style="color:#66d9ef">print</span>(process_dividends(<span style="color:#e6db74">&#39;MGLU3&#39;</span>, trades, <span style="color:#ae81ff">22470</span>))</code></pre></div>
 </div>
 <pre class="example">
             date_com     value             type  vol_liq     total
@@ -1356,7 +1289,7 @@ Teste para ITSA4
 <div id="outline-text-headline-43" class="outline-text-4">
 <img src="Provento_recebido/2020-12-24_00-12-58_screenshot.png" alt="Provento_recebido/2020-12-24_00-12-58_screenshot.png" title="Provento_recebido/2020-12-24_00-12-58_screenshot.png" width="350px"/>
 <div class="src src-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">print</span>(process_dividends(<span style="color:#e6db74">&#39;ITSA4&#39;</span>, trades))</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">print</span>(process_dividends(<span style="color:#e6db74">&#39;ITSA4&#39;</span>, trades, <span style="color:#ae81ff">7617</span>))</code></pre></div>
 </div>
 <pre class="example">
              date_com   value             type  vol_liq  total
@@ -1385,9 +1318,11 @@ Função faz</p>
 </ol>
 <div class="src src-python">
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">consolidade_dividends</span>(portfolio, trades):
+    portfolio_details <span style="color:#f92672">=</span> get_cia_details(portfolio, <span style="color:#e6db74">&#39;cad_cia_aberta.csv&#39;</span>, <span style="color:#e6db74">&#39;cia_cnpj.csv&#39;</span>)
     dividends <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame()
-    <span style="color:#66d9ef">for</span> tic <span style="color:#f92672">in</span> portfolio<span style="color:#f92672">.</span>index:
-        dividends <span style="color:#f92672">=</span> dividends<span style="color:#f92672">.</span>append(process_dividends(tic, trades))
+
+    <span style="color:#66d9ef">for</span> [ticker, cd_cvm] <span style="color:#f92672">in</span> zip(portfolio_details<span style="color:#f92672">.</span>index, portfolio_details<span style="color:#f92672">.</span>cd_cvm):
+        dividends <span style="color:#f92672">=</span> dividends<span style="color:#f92672">.</span>append(process_dividends(ticker, trades, cd_cvm))
     <span style="color:#66d9ef">return</span> dividends
 <span style="color:#66d9ef">print</span>(consolidade_dividends(portfolio, trades))</code></pre></div>
 </div>
@@ -1430,9 +1365,6 @@ Função faz</p>
     
     <li class="tag__item">
         <a class="tag__link" href="https://nasseralkmim.github.io/tags/finance/">finance</a>
-    </li>
-    <li class="tag__item">
-        <a class="tag__link" href="https://nasseralkmim.github.io/tags/python/">python</a>
     </li>
     <li class="tag__item">
         <a class="tag__link" href="https://nasseralkmim.github.io/tags/data-analysis/">data-analysis</a>
