@@ -249,44 +249,44 @@ object <code class="verbatim">Model</code>
 </h4>
 <div id="outline-text-headline-7" class="outline-text-4">
 <p>First a class for the <code class="verbatim">Model</code>. This class will take a file as argument and extract data from it.</p>
-<div class="src src-ipython">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">import numpy as np
+<div class="src src-python">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
 
 
-class Model(object):
-    &#34;&#34;&#34;Builds a Model object&#34;&#34;&#34;
-    def __init__(self):
-        self.ne = 4             # number of elements
-        self.nn = 9             # number of nodes
-        self.ndof = 18         # number of degrees of freedom
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Model</span>(object):
+    <span style="color:#e6db74">&#34;&#34;&#34;Builds a Model object&#34;&#34;&#34;</span>
+    <span style="color:#66d9ef">def</span> __init__(self):
+        self<span style="color:#f92672">.</span>ne <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>             <span style="color:#75715e"># number of elements</span>
+        self<span style="color:#f92672">.</span>nn <span style="color:#f92672">=</span> <span style="color:#ae81ff">9</span>             <span style="color:#75715e"># number of nodes</span>
+        self<span style="color:#f92672">.</span>ndof <span style="color:#f92672">=</span> <span style="color:#ae81ff">18</span>         <span style="color:#75715e"># number of degrees of freedom</span>
 
-        self.XYZ = np.array([[0, 0],
-                             [1, 0],
-                             [1, 1],
-                             [0, 1],
-                             [.5, 0], 
-                             [1, .5],
-                             [.5, 1],
-                             [0, .5],
-                             [.5, .5]])
+        self<span style="color:#f92672">.</span>XYZ <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array([[<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>],
+                             [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>],
+                             [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>],
+                             [<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>],
+                             [<span style="color:#f92672">.</span><span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">0</span>], 
+                             [<span style="color:#ae81ff">1</span>, <span style="color:#f92672">.</span><span style="color:#ae81ff">5</span>],
+                             [<span style="color:#f92672">.</span><span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">1</span>],
+                             [<span style="color:#ae81ff">0</span>, <span style="color:#f92672">.</span><span style="color:#ae81ff">5</span>],
+                             [<span style="color:#f92672">.</span><span style="color:#ae81ff">5</span>, <span style="color:#f92672">.</span><span style="color:#ae81ff">5</span>]])
 
-        self.CONN = np.array([[0, 4, 8, 7], 
-                              [4, 1, 5, 8],
-                              [8, 5, 2, 6], 
-                              [7, 8, 6, 3]])
+        self<span style="color:#f92672">.</span>CONN <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array([[<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">7</span>], 
+                              [<span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">8</span>],
+                              [<span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">6</span>], 
+                              [<span style="color:#ae81ff">7</span>, <span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">3</span>]])
 
-        self.DOF = np.array([[0, 1, 8, 9, 16, 17, 14, 15],
-                             [8, 9, 2, 3, 10, 11, 16, 17],
-                             [16, 17, 10, 11, 4, 5, 12, 13],
-                             [14, 15, 16, 17, 12, 13, 6, 7]])
+        self<span style="color:#f92672">.</span>DOF <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array([[<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">9</span>, <span style="color:#ae81ff">16</span>, <span style="color:#ae81ff">17</span>, <span style="color:#ae81ff">14</span>, <span style="color:#ae81ff">15</span>],
+                             [<span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">9</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">11</span>, <span style="color:#ae81ff">16</span>, <span style="color:#ae81ff">17</span>],
+                             [<span style="color:#ae81ff">16</span>, <span style="color:#ae81ff">17</span>, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">11</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">12</span>, <span style="color:#ae81ff">13</span>],
+                             [<span style="color:#ae81ff">14</span>, <span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">16</span>, <span style="color:#ae81ff">17</span>, <span style="color:#ae81ff">12</span>, <span style="color:#ae81ff">13</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">7</span>]])
 
-        self.surf_of_ele = [0, 0, 0, 0]  # surface 0 for all elements
+        self<span style="color:#f92672">.</span>surf_of_ele <span style="color:#f92672">=</span> [<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>]  <span style="color:#75715e"># surface 0 for all elements</span>
 
-        self.physical_surf = [0]         # physical surfaces tag
+        self<span style="color:#f92672">.</span>physical_surf <span style="color:#f92672">=</span> [<span style="color:#ae81ff">0</span>]         <span style="color:#75715e"># physical surfaces tag</span>
 
-        self.TYPE = [3, 3, 3, 3]
+        self<span style="color:#f92672">.</span>TYPE <span style="color:#f92672">=</span> [<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">3</span>]
 
-model = Model()                 # Instanciate a Model object</code></pre></div>
+model <span style="color:#f92672">=</span> Model()                 <span style="color:#75715e"># Instanciate a Model object</span></code></pre></div>
 </div>
 <p>
 This object contains all parameters that describe the physical entity analyzed. </p>
@@ -302,19 +302,19 @@ This object contains material parameters.
  The class instance doesn&#39;t require any extra arguments to initialize.
  The materials are set in the most general way, the key is the material property and the value is a dictionary whose key is the surface and the value is the physical value of the property.
  The <code class="verbatim">__dict__</code> attribute contains the instance attributes as dictionary and the <code class="verbatim">update()</code> method, an dictionary method, adds a new entry to the dictionary.</p>
-<div class="src src-ipython">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">class Material(object):
-    &#34;&#34;&#34;Builds a Material object&#34;&#34;&#34;
-    def __init__(self, **kw):
-        self.__dict__.update(kw)
+<div class="src src-python">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Material</span>(object):
+    <span style="color:#e6db74">&#34;&#34;&#34;Builds a Material object&#34;&#34;&#34;</span>
+    <span style="color:#66d9ef">def</span> __init__(self, <span style="color:#f92672">**</span>kw):
+        self<span style="color:#f92672">.</span>__dict__<span style="color:#f92672">.</span>update(kw)
 
-material = Material(E={}, nu={0: 0.2})
+material <span style="color:#f92672">=</span> Material(E<span style="color:#f92672">=</span>{}, nu<span style="color:#f92672">=</span>{<span style="color:#ae81ff">0</span>: <span style="color:#ae81ff">0.2</span>})
 
-def E_time_dependent(t=1):
-    return 1e5*t
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">E_time_dependent</span>(t<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>):
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1e5</span><span style="color:#f92672">*</span>t
 
-material.E[model.physical_surf[0]] = E_time_dependent
-print(material.E, material.nu, material.__dict__)</code></pre></div>
+material<span style="color:#f92672">.</span>E[model<span style="color:#f92672">.</span>physical_surf[<span style="color:#ae81ff">0</span>]] <span style="color:#f92672">=</span> E_time_dependent
+<span style="color:#66d9ef">print</span>(material<span style="color:#f92672">.</span>E, material<span style="color:#f92672">.</span>nu, material<span style="color:#f92672">.</span>__dict__)</code></pre></div>
 </div>
 <pre class="example">
 {0: &lt;function E_time_dependent at 0x0000021DD38717B8&gt;} {0: 0.2} {&#39;nu&#39;: {0: 0.2}, &#39;E&#39;: {0: &lt;function E_time_dependent at 0x0000021DD38717B8&gt;}}
@@ -348,49 +348,49 @@ object <code class="verbatim">Element</code>
 <p>
 The element object contains the constructor of element matrices and vectors.
 It is created only when the solver is assembling the global matrices.</p>
-<div class="src src-ipython">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">class Element(object):
-    &#34;&#34;&#34;Build an Element object with a constructor for a specific element type&#34;&#34;&#34;
+<div class="src src-python">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Element</span>(object):
+    <span style="color:#e6db74">&#34;&#34;&#34;Build an Element object with a constructor for a specific element type&#34;&#34;&#34;</span>
 
-    def __init__(self, eid, model):
-        Element.type = model.TYPE[eid]
-        Element.conn = model.CONN[eid]
-        Element.xyz = model.XYZ[self.conn]
-        Element.dof = model.DOF[eid]  # dof must be know a priori
-        Element.surf = model.surf_of_ele[eid]
+    <span style="color:#66d9ef">def</span> __init__(self, eid, model):
+        Element<span style="color:#f92672">.</span>type <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>TYPE[eid]
+        Element<span style="color:#f92672">.</span>conn <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>CONN[eid]
+        Element<span style="color:#f92672">.</span>xyz <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>XYZ[self<span style="color:#f92672">.</span>conn]
+        Element<span style="color:#f92672">.</span>dof <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>DOF[eid]  <span style="color:#75715e"># dof must be know a priori</span>
+        Element<span style="color:#f92672">.</span>surf <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>surf_of_ele[eid]
 
-        if Element.type == 3:
-            self.constructor = Quad4()
-        elif Element.type == 4:
-            self.constructor = Quad9()
-        else:
-            raise Exception(&#39;Element not implemented yet!&#39;)
+        <span style="color:#66d9ef">if</span> Element<span style="color:#f92672">.</span>type <span style="color:#f92672">==</span> <span style="color:#ae81ff">3</span>:
+            self<span style="color:#f92672">.</span>constructor <span style="color:#f92672">=</span> Quad4()
+        <span style="color:#66d9ef">elif</span> Element<span style="color:#f92672">.</span>type <span style="color:#f92672">==</span> <span style="color:#ae81ff">4</span>:
+            self<span style="color:#f92672">.</span>constructor <span style="color:#f92672">=</span> Quad9()
+        <span style="color:#66d9ef">else</span>:
+            <span style="color:#66d9ef">raise</span> <span style="color:#a6e22e">Exception</span>(<span style="color:#e6db74">&#39;Element not implemented yet!&#39;</span>)
 
 
-class Quad4(object):
-    &#34;&#34;&#34;Constructor of a 4-node quadrangle (TYPE 3) element&#34;&#34;&#34;
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Quad4</span>(object):
+    <span style="color:#e6db74">&#34;&#34;&#34;Constructor of a 4-node quadrangle (TYPE 3) element&#34;&#34;&#34;</span>
 
-    @staticmethod
-    def stiffness(material):
-        try:
-            E = material.E[Element.surf]
-        except:
-            raise Exception(&#39;Material not assigned for surface!&#39;)
+    <span style="color:#a6e22e">@staticmethod</span>
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">stiffness</span>(material):
+        <span style="color:#66d9ef">try</span>:
+            E <span style="color:#f92672">=</span> material<span style="color:#f92672">.</span>E[Element<span style="color:#f92672">.</span>surf]
+        <span style="color:#66d9ef">except</span>:
+            <span style="color:#66d9ef">raise</span> <span style="color:#a6e22e">Exception</span>(<span style="color:#e6db74">&#39;Material not assigned for surface!&#39;</span>)
         
-        k = np.zeros((8, 8))
-        return k
+        k <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>zeros((<span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">8</span>))
+        <span style="color:#66d9ef">return</span> k
         
 
-class Quad9(object):
-    &#34;&#34;&#34;Constructur of a 9-node quadrangle (TYPE 10) element&#34;&#34;&#34;
-    @staticmethod
-    def stiffness(material):
-        pass
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Quad9</span>(object):
+    <span style="color:#e6db74">&#34;&#34;&#34;Constructur of a 9-node quadrangle (TYPE 10) element&#34;&#34;&#34;</span>
+    <span style="color:#a6e22e">@staticmethod</span>
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">stiffness</span>(material):
+        <span style="color:#66d9ef">pass</span>
 
 
-element_test_obj = Element(1, model)
-print(element_test_obj.type)
-print(element_test_obj.constructor.stiffness(material))</code></pre></div>
+element_test_obj <span style="color:#f92672">=</span> Element(<span style="color:#ae81ff">1</span>, model)
+<span style="color:#66d9ef">print</span>(element_test_obj<span style="color:#f92672">.</span>type)
+<span style="color:#66d9ef">print</span>(element_test_obj<span style="color:#f92672">.</span>constructor<span style="color:#f92672">.</span>stiffness(material))</code></pre></div>
 </div>
 <pre class="example">
 3
@@ -448,22 +448,22 @@ The solver module contain the procedure to solve the problem.
  There is no need to create an class for the solver.</p>
 <p>
 Inside the solver module there are the assembler functions (in different modules), for instance, the stiffness matrix assembler.</p>
-<div class="src src-ipython">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">def K_matrix(model, material):
-    &#34;&#34;&#34;Build the GLOBAL stiffness matrix&#34;&#34;&#34;
-    K = np.zeros((model.ndof, model.ndof))
+<div class="src src-python">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">K_matrix</span>(model, material):
+    <span style="color:#e6db74">&#34;&#34;&#34;Build the GLOBAL stiffness matrix&#34;&#34;&#34;</span>
+    K <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>zeros((model<span style="color:#f92672">.</span>ndof, model<span style="color:#f92672">.</span>ndof))
     
-    for eid in range(model.ne):
-        element = Element(eid, model)  # Build the element based on type
-        k = element.constructor.stiffness(material)  # constructor for each element type
-        id = np.ix_(element.dof, element.dof)
-        K[id] += k
-    return K</code></pre></div>
+    <span style="color:#66d9ef">for</span> eid <span style="color:#f92672">in</span> range(model<span style="color:#f92672">.</span>ne):
+        element <span style="color:#f92672">=</span> Element(eid, model)  <span style="color:#75715e"># Build the element based on type</span>
+        k <span style="color:#f92672">=</span> element<span style="color:#f92672">.</span>constructor<span style="color:#f92672">.</span>stiffness(material)  <span style="color:#75715e"># constructor for each element type</span>
+        id <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>ix_(element<span style="color:#f92672">.</span>dof, element<span style="color:#f92672">.</span>dof)
+        K[id] <span style="color:#f92672">+=</span> k
+    <span style="color:#66d9ef">return</span> K</code></pre></div>
 </div>
-<div class="src src-ipython">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">def solver(model, material):
-    &#34;&#34;&#34;Solves the problem&#34;&#34;&#34;
-    K = K_matrix(model, material)
+<div class="src src-python">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">solver</span>(model, material):
+    <span style="color:#e6db74">&#34;&#34;&#34;Solves the problem&#34;&#34;&#34;</span>
+    K <span style="color:#f92672">=</span> K_matrix(model, material)
 
 solver(model, material)</code></pre></div>
 </div>
