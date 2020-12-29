@@ -29,7 +29,7 @@
   
   
     
-    <link type="text/css" rel="stylesheet" href="/css/post.min.f1da2ef8a3c321942ead6a53657a7afd5aefa610302bf420660ffb62dc49b6fe.css" integrity="sha256-8dou&#43;KPDIZQurWpTZXp6/VrvphAwK/QgZg/7YtxJtv4="/>
+    <link type="text/css" rel="stylesheet" href="/css/post.min.43b1c07bc8ab94404153eb55d2df4a7c542e4b756c58b6cce88aba6fb68eb533.css" integrity="sha256-Q7HAe8irlEBBU&#43;tV0t9KfFQuS3VsWLbM6Iq6b7aOtTM="/>
   
     
     <link type="text/css" rel="stylesheet" href="/css/custom.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" integrity="sha256-47DEQpj8HBSa&#43;/TImW&#43;5JCeuQeRkm5NMpJWZG3hSuFU="/>
@@ -125,6 +125,16 @@ Vou discutir um pouco sobre eles.</p>
 Métodos para avaliar retorno de um portfolio
 </h2>
 <div id="outline-text-headline-2" class="outline-text-2">
+<p>
+Existem dois métodos utilizados para medir retorno de uma carteira.
+O primeiro é o <em>time weighted rate of return</em> (TWR) e o outro <em>money weighted rate of return</em> MWR.</p>
+<p>
+O TWR mede o retorno entre cada período delimitado pelos aportes.
+Esse retorno corrige para distorções causada pelo aporte e mede apenas a <strong>performance real</strong> dos ativos alocados.</p>
+<p>
+O MWR é a taxa interna de retorno TIR ou IRR <sup class="footnote-reference"><a id="footnote-reference-1" href="#footnote-1">1</a></sup> dos fluxos de caixa.
+A IRR é a taxa de desconto que leva todos os fluxos de caixa ao valor presente de forma que resultem no valor investido.
+Então ela mede um <strong>retorno igual para todos</strong> os aportes de forma a levar o investido ao valor final.</p>
 <img src="Métodos_para_avaliar_retorno_de_um_portfolio/2020-12-27_21-59-37_screenshot.png" alt="Métodos_para_avaliar_retorno_de_um_portfolio/2020-12-27_21-59-37_screenshot.png" title="Métodos_para_avaliar_retorno_de_um_portfolio/2020-12-27_21-59-37_screenshot.png" width="350px"/>
 </div>
 </div>
@@ -138,15 +148,249 @@ Exemplo
 </div>
 <div id="outline-container-headline-4" class="outline-2">
 <h2 id="headline-4">
-Referências
+Implementação
 </h2>
 <div id="outline-text-headline-4" class="outline-text-2">
+<div id="outline-container-headline-5" class="outline-4">
+<h4 id="headline-5">
+Preliminares
+</h4>
+<div id="outline-text-headline-5" class="outline-text-4">
+<div class="src src-jupyter-python">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">import numpy as np
+import pandas as pd
+pd.options.display.float_format = &#39;{:,.2f}&#39;.format
+import matplotlib
+import matplotlib.pyplot as plt
+matplotlib.style.use(&#39;ggplot&#39;)
+import yahooquery as yf</code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-6" class="outline-4">
+<h4 id="headline-6">
+Input
+</h4>
+<div id="outline-text-headline-6" class="outline-text-4">
+<div class="src src-jupyter-python">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">trade_data = pd.read_csv(&#39;trade_data.csv&#39;)
+print(trade_data)</code></pre></div>
+</div>
+<pre class="example">
+   17/09/2018    Buy  EGIE3  40  36,50
+0  12/12/2018  Split  EGIE3  10   0,00
+1  15/03/2019   Sell  EGIE3  25  39,00
+2  25/03/2020    Buy  EGIE3  15  38,00
+3  25/03/2020    Buy  EGIE3  10  37,50
+4  27/07/2020    Buy  EGIE3  32  44,70
+5  03/10/2018    Buy  ABEV3  28  18,26
+6  16/10/2018    Buy  ABEV3  30  17,29
+7  07/11/2018    Buy  ABEV3  25  16,80
+</pre>
+</div>
+</div>
+<div id="outline-container-headline-7" class="outline-4">
+<h4 id="headline-7">
+Processar trades
+</h4>
+<div id="outline-text-headline-7" class="outline-text-4">
+<div class="src src-jupyter-python">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">def process_trades(trade_data_file):
+    trades = pd.read_csv(trade_data_file, sep=&#39;,&#39;,
+                         names=[&#39;date&#39;, &#39;type&#39;,
+                                &#39;ticker&#39;, &#39;volume&#39;,
+                                &#39;price&#39;],
+                         decimal=&#39;,&#39;,
+                         parse_dates=[&#39;date&#39;], infer_datetime_format=True)
+    trades[&#39;total&#39;] = trades.apply(lambda x: x.price * x.volume
+					    if x.type in [&#39;Buy&#39;, &#39;Split&#39;]
+					    else - x.price * x.volume, axis=1)
+    trades[&#39;vol_adj&#39;] = trades.apply(lambda x: x.volume
+					    if x.type in [&#39;Buy&#39;, &#39;Split&#39;]
+					    else
+					    (-x.volume if x.type in [&#39;Sell&#39;] else 0), axis=1)
+    return trades
+trades = process_trades(&#39;trade_data.csv&#39;)
+print(trades)</code></pre></div>
+</div>
+<pre class="example">
+        date   type ticker  volume  price    total  vol_adj
+0 2018-09-17    Buy  EGIE3      40  36.50 1,460.00       40
+1 2018-12-12  Split  EGIE3      10   0.00     0.00       10
+2 2019-03-15   Sell  EGIE3      25  39.00  -975.00      -25
+3 2020-03-25    Buy  EGIE3      15  38.00   570.00       15
+4 2020-03-25    Buy  EGIE3      10  37.50   375.00       10
+5 2020-07-27    Buy  EGIE3      32  44.70 1,430.40       32
+6 2018-10-03    Buy  ABEV3      28  18.26   511.28       28
+7 2018-10-16    Buy  ABEV3      30  17.29   518.70       30
+8 2018-11-07    Buy  ABEV3      25  16.80   420.00       25
+</pre>
+</div>
+</div>
+<div id="outline-container-headline-8" class="outline-4">
+<h4 id="headline-8">
+Consolidar portfolio
+</h4>
+<div id="outline-text-headline-8" class="outline-text-4">
+<div class="src src-jupyter-python">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">def consolidate_portfolio(trades):
+    portfolio = pd.DataFrame()
+    portfolio[&#39;vol_liq&#39;] = (trades
+                            .groupby(&#39;ticker&#39;)[&#39;vol_adj&#39;]
+                            .sum()) 
+    portfolio[&#39;avg_price (R$)&#39;] = (trades
+                              .groupby(&#39;ticker&#39;)[&#39;total&#39;]
+                              .sum() / portfolio.vol_liq)
+    portfolio = portfolio[portfolio.vol_liq != 0]
+    portfolio[&#39;quote (R$)&#39;] = portfolio.apply(lambda x: yf.Ticker(x.name+&#39;.SA&#39;).quotes[x.name+&#39;.SA&#39;][&#39;bid&#39;], axis=1)
+    portfolio[&#39;p/l (%)&#39;] = (portfolio[&#39;quote (R$)&#39;] - portfolio[&#39;avg_price (R$)&#39;]) / portfolio[&#39;avg_price (R$)&#39;] * 100
+    portfolio[&#39;current_value&#39;] = portfolio[&#39;quote (R$)&#39;] * portfolio[&#39;vol_liq&#39;]
+    portfolio[&#39;sector&#39;] = portfolio.apply(lambda x: yf.Ticker(x.name+&#39;.SA&#39;).asset_profile[x.name+&#39;.SA&#39;][&#39;sector&#39;], axis=1)
+    return portfolio
+portfolio = consolidate_portfolio(trades)
+print(portfolio)</code></pre></div>
+</div>
+<pre class="example">
+        vol_liq  avg_price (R$)  quote (R$)  p/l (%)  current_value  \
+ticker                                                                
+ABEV3        83           17.47       15.79    -9.61       1,310.57   
+EGIE3        82           34.88       44.71    28.17       3,666.22   
+
+                    sector  
+ticker                      
+ABEV3   Consumer Defensive  
+EGIE3            Utilities  
+</pre>
+</div>
+</div>
+<div id="outline-container-headline-9" class="outline-4">
+<h4 id="headline-9">
+Retorno do portfolio
+</h4>
+<div id="outline-text-headline-9" class="outline-text-4">
+<p>Para saber o valor total do portfolio na data anterior ao fluxo de caixa, precisamos saber:</p>
+<ol>
+<li>
+<p>posição líquida antes do fluxo de caixa</p>
+</li>
+<li>
+<p>cotação de fechamento do dia anterior</p>
+</li>
+</ol>
+<div class="src src-jupyter-python">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">def consolidate_partial_portfolio(trades, date):
+    portfolio = pd.DataFrame()
+    portfolio[&#39;vol_liq&#39;] = (trades[trades.date &lt; date]
+                            .groupby(&#39;ticker&#39;)[&#39;vol_adj&#39;]
+                            .sum()) 
+    portfolio = portfolio[portfolio.vol_liq != 0]
+
+    def get_quote(row):
+        quote = yf.Ticker(row.name+&#39;.SA&#39;).history(
+            start=date + pd.DateOffset(-25), end=date)[&#39;close&#39;].values
+        return quote[-1]
+
+    portfolio[&#39;quote&#39;] = portfolio.apply(get_quote, axis=1)
+    portfolio[&#39;total&#39;] = portfolio.vol_liq * portfolio.quote
+    return portfolio
+
+def process_returns(trades):
+    r = []
+    for (row, cf) in trades.iterrows():
+        partial_portfolio = consolidate_partial_portfolio(trades, cf.date)
+        # initial investment
+        if partial_portfolio.total.sum() == 0:
+            r.append({&#39;date&#39;: cf.date,
+                    &#39;ending_value&#39;: cf.total,
+                    &#39;cf_value&#39;: 0})
+        else:
+            r.append({&#39;date&#39;: cf.date,
+                    &#39;ending_value&#39;: partial_portfolio.total.sum(),
+                    &#39;cf_value&#39;: cf.total})
+        print(cf.date, partial_portfolio.total.sum())
+
+    returns = pd.DataFrame(r)
+    returns = returns.sort_values(&#39;date&#39;)
+    returns = returns.groupby([&#39;date&#39;, &#39;ending_value&#39;], as_index=False)[&#39;cf_value&#39;].sum()
+    def hold_period_return(row):
+        index = returns.index.get_loc(row.name)
+        if index == 0:
+            return 0
+        prev_row = returns.iloc[index - 1]
+        return row.ending_value / (prev_row.ending_value + prev_row.cf_value)
+    returns[&#39;hpr&#39;] = returns.apply(hold_period_return, axis=1)
+    return returns</code></pre></div>
+</div>
+<div class="src src-jupyter-python">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">rr = pd.read_csv(&#39;returns.csv&#39;, parse_dates=[&#39;date&#39;])
+print(rr)
+print(rr[&#39;hpr&#39;].apply(lambda x: x + 1).prod())</code></pre></div>
+</div>
+<pre class="example">
+        date  ending_value  cf_value   hpr
+0 2018-09-17      1,460.00      0.00  0.00
+1 2018-10-03      1,152.64    511.28 -0.21
+2 2018-10-16      1,623.80    518.70 -0.02
+3 2018-11-07      2,277.12    420.00  0.06
+4 2018-12-12      2,722.89      0.00  0.01
+5 2019-03-15      3,528.78   -975.00  0.30
+6 2020-03-25      1,881.32    570.00 -0.26
+7 2020-03-25      1,881.32    375.00 -0.23
+8 2020-07-27      3,448.69  1,430.40  0.53
+0.9258180510082121
+</pre>
+<pre class="example">
+2018-09-17 00:00:00
+</pre>
+<pre class="example">
+   Unnamed: 0       date  ending_value  cf_value   hpr
+0           0 2018-09-17      1,460.00      0.00  0.00
+1           6 2018-10-03      1,152.64    511.28 -0.21
+2           7 2018-10-16      1,623.80    518.70 -0.02
+3           8 2018-11-07      2,277.12    420.00  0.06
+4           1 2018-12-12      2,722.89      0.00  0.01
+5           2 2019-03-15      3,528.78   -975.00  0.30
+6           3 2020-03-25      1,881.32    570.00 -0.26
+7           4 2020-03-25      1,881.32    375.00 -0.23
+8           5 2020-07-27      3,448.69  1,430.40  0.53
+0.9258180510082121
+</pre>
+</div>
+</div>
+<div id="outline-container-headline-10" class="outline-4">
+<h4 id="headline-10">
+Resultados
+</h4>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-11" class="outline-2">
+<h2 id="headline-11">
+Referências
+</h2>
+<div id="outline-text-headline-11" class="outline-text-2">
 <ol>
 <li>
 <p><a href="https://www.nbc.ca/content/dam/bnc/en/files/personal/investing/bncpdf/pbn-trp-pror-en.pdf">https://www.nbc.ca/content/dam/bnc/en/files/personal/investing/bncpdf/pbn-trp-pror-en.pdf</a></p>
 </li>
 </ol>
 <p>2.<a href="https://en.wikipedia.org/wiki/Time-weighted_return">Time-weighted return - Wikipedia</a> </p>
+</div>
+</div>
+<div id="outline-container-headline-12" class="outline-2">
+<h2 id="headline-12">
+Footnotes
+</h2>
+</div>
+<div class="footnotes">
+<hr class="footnotes-separatator">
+<div class="footnote-definitions">
+<div class="footnote-definition">
+<sup id="footnote-1"><a href="#footnote-reference-1">1</a></sup>
+<div class="footnote-body">
+<p>Internal rate of return </p>
+</div>
+</div>
 </div>
 </div>
 
@@ -171,6 +415,12 @@ Referências
     
     <li class="tag__item">
         <a class="tag__link" href="https://nasseralkmim.github.io/tags/finance/">finance</a>
+    </li>
+    <li class="tag__item">
+        <a class="tag__link" href="https://nasseralkmim.github.io/tags/python/">python</a>
+    </li>
+    <li class="tag__item">
+        <a class="tag__link" href="https://nasseralkmim.github.io/tags/data-analysis/">data-analysis</a>
     </li></ul>
 
  <div class="pagination">
@@ -263,7 +513,25 @@ Referências
 </li>
 <li><a href="#headline-3">Exemplo</a>
 </li>
-<li><a href="#headline-4">Referências</a>
+<li><a href="#headline-4">Implementação</a>
+<ul>
+<li><a href="#headline-5">Preliminares</a>
+</li>
+<li><a href="#headline-6">Input</a>
+</li>
+<li><a href="#headline-7">Processar trades</a>
+</li>
+<li><a href="#headline-8">Consolidar portfolio</a>
+</li>
+<li><a href="#headline-9">Retorno do portfolio</a>
+</li>
+<li><a href="#headline-10">Resultados</a>
+</li>
+</ul>
+</li>
+<li><a href="#headline-11">Referências</a>
+</li>
+<li><a href="#headline-12">Footnotes</a>
 </li>
 </ul>
 </nav>
@@ -279,16 +547,16 @@ Referências
   
   <script src="/js/index.min.49e4d8a384357d9b445b87371863419937ede9fa77737522ffb633073aebfa44.js" integrity="sha256-SeTYo4Q1fZtEW4c3GGNBmTft6fp3c3Ui/7YzBzrr&#43;kQ=" crossorigin="anonymous"></script>
   
-    
-    
+  
+  
 
-    
-    
-    
+  
+  
+  
 
-
-<script src="/js/table-of-contents.js"></script>
-
+  
+    <script src="/js/table-of-contents.js"></script>
+  
 
 
 </body>
