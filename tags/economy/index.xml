@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>economy on Nasser&#39;s personal website</title>
+    <title>economy, on Nasser&#39;s personal website</title>
     <link>https://nasseralkmim.github.io/tags/economy/</link>
-    <description>Recent content in economy on Nasser&#39;s personal website</description>
+    <description>Recent content in economy, on Nasser&#39;s personal website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© {year}</copyright>
@@ -18,18 +18,6 @@
  If the FED reduces reserves, buying T-Bills in the open market operations, it affects the FFR upwards.
   Money Market dealers  Money market (MM) dealers are directly affected because they borrow short (overnight) and lend in term (3 months).
  If the financing cost increases, the MM dealers also push the term price upwards.</description>
-    </item>
-    
-    <item>
-      <title>What is the deal about fat tails?</title>
-      <link>https://nasseralkmim.github.io/notes/fat-tail-events/</link>
-      <pubDate>Sat, 12 Dec 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/notes/fat-tail-events/</guid>
-      <description>Por que quando lidamos com problemas que envolvem fat tails as estatísticas da distribuição normal (média, variância) não fazem sentido?
-CAPM  Fischer Black  Fischer&amp;#39;s quote:
- stock prices are informative if they are between “one-half” and “twice” their fundamental values.
-  Here he is saying that when in normal times, in the range [0.5, 2], stock prices are in fact informative. However when an event that largely deviates from the standard deviation (Mandelbrot), we call this event a Black Swan (Taleb), stock prices does not contain information about value.</description>
     </item>
     
   </channel>
