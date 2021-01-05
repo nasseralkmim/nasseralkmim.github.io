@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© {year}</copyright>
-    <lastBuildDate>Sat, 26 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 30 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Gerenciamento de portfolio com portman</title>
+      <link>https://nasseralkmim.github.io/notes/portman/</link>
+      <pubDate>Wed, 30 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://nasseralkmim.github.io/notes/portman/</guid>
+      <description> Consolidação do portfolio  import pandas as pd import portman as pm pm.consolidate(&amp;#39;trade_data.csv&amp;#39;)    Análise  import matplotlib import matplotlib.pyplot as plt matplotlib.style.use(&amp;#39;ggplot&amp;#39;) import portman as pm pm.analysis.summary(&amp;#39;portfolio.csv&amp;#39;) pm.analysis.allocation(&amp;#39;portfolio.csv&amp;#39;) pm.analysis.returns(&amp;#39;returns.csv&amp;#39;) pm.analysis.dividends(&amp;#39;dividends.csv&amp;#39;) plt.tight_layout()    </description>
+    </item>
+    
     <item>
       <title>Performance de um portfolio</title>
       <link>https://nasseralkmim.github.io/notes/portfolio-performance/</link>
