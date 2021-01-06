@@ -7,16 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© {year}</copyright>
-    <lastBuildDate>Thu, 03 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/tags/meta/index.xml" rel="self" type="application/rss+xml" />
+    
+	<atom:link href="https://nasseralkmim.github.io/tags/meta/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>First post in HUGO</title>
       <link>https://nasseralkmim.github.io/notes/first-hugo-post/</link>
-      <pubDate>Thu, 03 Dec 2020 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://nasseralkmim.github.io/notes/first-hugo-post/</guid>
-      <description>Introduction  Meta post about how I do it. I&amp;#39;m using org-mode inside emacs and Hugo.
-  Images from URL  Use the html export block from org mode. In order to override the theme css for images display I manually inserted the html with a different style=&amp;#34;display: revert; max-width: fit-content;&amp;#34;. (this depends on the theme you choose)
-  Graphs from interactive code blocks saved on /static/images1   Using emacs-jupyter together with org-mode babel.</description>
+      <description>Introduction   Meta post about how I do it. I&amp;#39;m using org-mode inside emacs and Hugo. Images from URL   Use the html export block from org mode. In order to override the theme css for images display I manually inserted the html with a different style=&amp;#34;display: revert; max-width: fit-content;&amp;#34;. (this depends on the theme you choose) Graphs from interactive code blocks saved on /static/images1   Using emacs-jupyter together with org-mode babel.</description>
     </item>
     
   </channel>

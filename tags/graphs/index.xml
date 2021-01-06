@@ -7,16 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© {year}</copyright>
-    <lastBuildDate>Sat, 20 Jan 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/tags/graphs/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 20 Jan 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://nasseralkmim.github.io/tags/graphs/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>My favorite plots and graphs</title>
       <link>https://nasseralkmim.github.io/notes/favorite-plots/</link>
       <pubDate>Sat, 20 Jan 2018 00:00:00 +0000</pubDate>
       
       <guid>https://nasseralkmim.github.io/notes/favorite-plots/</guid>
-      <description>Here I&amp;#39;m going to compile a list of my favorite graphs and plots.
-BIS Bulletins   As of now, 2020, this are my favorite asthetic. The shaded background, no border, consistent line thickness and colors.   Old preferences  Eckardt 2011  This is one seems to be standard matplotlib plot. It is from a paper (Unger ad Eckardt 2011)
-  Toro 2016  I think this one was made with TiKz library.</description>
+      <description>Here I&amp;#39;m going to compile a list of my favorite graphs and plots. BIS Bulletins   As of now, 2020, this are my favorite asthetic. The shaded background, no border, consistent line thickness and colors. Old preferences  Eckardt 2011   This is one seems to be standard matplotlib plot. It is from a paper (Unger ad Eckardt 2011) Toro 2016   I think this one was made with TiKz library.</description>
     </item>
     
   </channel>

@@ -92,27 +92,25 @@
         <div class="post">
           <header class="post__header">
             <h1 id="post__title">First post in HUGO</h1>
-            <time datetime="2020-12-03 00:00:00 &#43;0000 UTC" class="post__date">Dec 3 2020</time> 
+            
           </header>
           <article class="post__content">
               
 
-<div id="outline-container-headline-1" class="outline-2">
 <h2 id="headline-1">
 Introduction
 </h2>
-<div id="outline-text-headline-1" class="outline-text-2">
-<p>Meta post about how I do it.
-I&#39;m using org-mode inside emacs and Hugo.</p>
-</div>
-</div>
-<div id="outline-container-headline-2" class="outline-2">
+<p>
+Meta post about how I do it.
+I&#39;m using org-mode inside emacs and Hugo.
+</p>
 <h2 id="headline-2">
 Images from URL
 </h2>
-<div id="outline-text-headline-2" class="outline-text-2">
-<p>Use the html export block from org mode.
-In order to override the theme css for images display I manually inserted the html with a different <em>style=&#34;display: revert; max-width: fit-content;&#34;.</em> (this depends on the theme you choose)</p>
+<p>
+Use the html export block from org mode.
+In order to override the theme css for images display I manually inserted the html with a different <em>style=&#34;display: revert; max-width: fit-content;&#34;.</em> (this depends on the theme you choose)
+</p>
 <img src="https://images-na.ssl-images-amazon.com/images/I/51283k0NwXL._SL200_.jpg" style="display: revert; max-width: fit-content;">
 <img src="https://images-na.ssl-images-amazon.com/images/I/514Oi-7cLQL._SL200_.jpg" style="display: revert; max-width: fit-content;">
 <img src="https://images-na.ssl-images-amazon.com/images/I/51xiWB0PfWL._SL200_.jpg" style="display: revert; max-width: fit-content;">
@@ -124,25 +122,28 @@ In order to override the theme css for images display I manually inserted the ht
 <img src="https://images-na.ssl-images-amazon.com/images/I/316IBDS3nhL._SL200_.jpg" style="display: revert; max-width: fit-content;">
 <img src="https://images-na.ssl-images-amazon.com/images/I/31sf4AgyQAL._SL200_.jpg" style="display: revert; max-width: fit-content;">
 <img src="https://images-na.ssl-images-amazon.com/images/I/51u3KCvc1iL._SL200_.jpg" style="display: revert; max-width: fit-content;">
-</div>
-</div>
-<div id="outline-container-headline-3" class="outline-2">
 <h2 id="headline-3">
 Graphs from interactive code blocks saved on <code class="verbatim">/static/images</code><sup class="footnote-reference"><a id="footnote-reference-1" href="#footnote-1">1</a></sup>
 </h2>
-<div id="outline-text-headline-3" class="outline-text-2">
 <p>
 Using <code class="verbatim">emacs-jupyter</code> together with <code class="verbatim">org-mode</code> babel.
-In order to use the generated graph from the code in the blog published with Hugu I did the following:</p>
+In order to use the generated graph from the code in the blog published with Hugu I did the following:
+</p>
 <ol>
 <li>
-<p>save the figure with source block header argument <code class="verbatim">:file ../../static/images/graph1.png.</code> <sup class="footnote-reference"><a id="footnote-reference-2" href="#footnote-2">2</a></sup></p>
+<p>
+save the figure with source block header argument <code class="verbatim">:file ../../static/images/graph1.png.</code> <sup class="footnote-reference"><a id="footnote-reference-2" href="#footnote-2">2</a></sup>
+</p>
 </li>
 <li>
-<p>added also <code class="verbatim">:exports code</code> to avoid having a broken link in the html, which is automatically generated with ob-jupyter.</p>
+<p>
+added also <code class="verbatim">:exports code</code> to avoid having a broken link in the html, which is automatically generated with ob-jupyter.
+</p>
 </li>
 <li>
-<p>inserted a link to the graph considering the folder structure after published with Hubo  <code class="verbatim">[[file:images/graph.png]]</code></p>
+<p>
+inserted a link to the graph considering the folder structure after published with Hubo  <code class="verbatim">[[file:images/graph.png]]</code>
+</p>
 </li>
 </ol>
 <div class="src src-jupyter-python">
@@ -153,18 +154,19 @@ x=np.linspace(-15,15, 100)
 fig = plt.figure(dpi=300)
 plt.plot(np.sin(x)**2/x**2)</code></pre></div>
 </div>
+<p>
+<img src="../../static/images/graph1.png" alt="../../static/images/graph1.png" title="../../static/images/graph1.png" />
+</p>
 <img src="/images/graph1.png" alt="/images/graph1.png" title="/images/graph1.png" width="400px"/>
-</div>
-</div>
-<div id="outline-container-headline-4" class="outline-2">
 <h2 id="headline-4">
 Graphs saved in the same folder as the post
 </h2>
-<div id="outline-text-headline-4" class="outline-text-2">
-<p>This is the most convenient organization scheme.
+<p>
+This is the most convenient organization scheme.
 I create a new folder for each post that will have pictures.
 Inside this folder the post goes on a <code class="verbatim">index.org</code> file.
-And the figures are generated automatically with <code class="verbatim">emacs-jupyter</code>, I just changed the default directory variable to <code class="verbatim">(setq jupyter-org-resource-directory &#34;./jupter/&#34;).</code></p>
+And the figures are generated automatically with <code class="verbatim">emacs-jupyter</code>, I just changed the default directory variable to <code class="verbatim">(setq jupyter-org-resource-directory &#34;./jupter/&#34;).</code>
+</p>
 <div class="src src-jupyter-python">
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">import matplotlib.pyplot as plt
 import numpy as np
@@ -173,14 +175,12 @@ x=np.linspace(-15,15, 100)
 fig = plt.figure(dpi=300)
 plt.plot(np.sin(x)**2/x)</code></pre></div>
 </div>
-<p><img src="./jupyter/4c8d0270a0b0daeca7d499707cc05b4b939bfb55.png" alt="./jupyter/4c8d0270a0b0daeca7d499707cc05b4b939bfb55.png" title="./jupyter/4c8d0270a0b0daeca7d499707cc05b4b939bfb55.png" /></p>
-</div>
-</div>
-<div id="outline-container-headline-5" class="outline-2">
+<p>
+<img src="./jupyter/4c8d0270a0b0daeca7d499707cc05b4b939bfb55.png" alt="./jupyter/4c8d0270a0b0daeca7d499707cc05b4b939bfb55.png" title="./jupyter/4c8d0270a0b0daeca7d499707cc05b4b939bfb55.png" />
+</p>
 <h2 id="headline-5">
 Dataframes from interactive jupyter-python code blocks
 </h2>
-<div id="outline-text-headline-5" class="outline-text-2">
 <div class="src src-jupyter-python">
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">import pandas as pd
 data = [[1, 2], [3, 4]]
@@ -192,57 +192,50 @@ print(DF)</code></pre></div>
 0    1    2
 1    3    4
 </pre>
-</div>
-</div>
-<div id="outline-container-headline-6" class="outline-2">
 <h2 id="headline-6">
 Python code block
 </h2>
-<div id="outline-text-headline-6" class="outline-text-2">
-<p>If I want python syntax highlight but using jupyter-python src blocks I need to change the language of the source block when I finish the post.</p>
+<p>
+If I want python syntax highlight but using jupyter-python src blocks I need to change the language of the source block when I finish the post.
+</p>
 <div class="src src-python">
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
 
 a <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">2</span>)</code></pre></div>
 </div>
-</div>
-</div>
-<div id="outline-container-headline-7" class="outline-2">
 <h2 id="headline-7">
 Figures from clipboard
 </h2>
-<div id="outline-text-headline-7" class="outline-text-2">
 <p>
 Using <code class="verbatim">org-download</code> with imagemagick <code class="verbatim">convert</code> command.
 The workflow is to just use the snipping tool from windows and use the <code class="verbatim">org-download-clipboard</code> function inside emacs org-mode.
-Right now I still need an easy way to control the image width, it seems that hugo can not understand <code class="verbatim">#+attr_html</code> parameters.</p>
+Right now I still need an easy way to control the image width, it seems that hugo can not understand <code class="verbatim">#+attr_html</code> parameters.
+</p>
 <img src="Figures_from_clipboard/2020-12-19_10-33-05_screenshot.png" alt="Figures_from_clipboard/2020-12-19_10-33-05_screenshot.png" title="Figures_from_clipboard/2020-12-19_10-33-05_screenshot.png" width="300px"/>
-</div>
-</div>
-<div id="outline-container-headline-8" class="outline-2">
 <h2 id="headline-8">
 Equations
 </h2>
-<div id="outline-text-headline-8" class="outline-text-2">
 <p>
-I had to just enable <code class="verbatim">math=True</code> in my hugo <code class="verbatim">.toml</code> config file under site params.</p>
+I had to just enable <code class="verbatim">math=True</code> in my hugo <code class="verbatim">.toml</code> config file under site params.
+</p>
 <ol>
 <li>
-<p>using double <code class="verbatim">$$</code> centering equations $$ f(x) = \int_0^1 x^2 d x $$</p>
+<p>
+using double <code class="verbatim">$$</code> centering equations $$ f(x) = \int_0^1 x^2 d x $$
+</p>
 </li>
 <li>
-<p>single <code class="verbatim">$</code> for inline $ x^2 $</p>
+<p>
+single <code class="verbatim">$</code> for inline $ x^2 $
+</p>
 </li>
 </ol>
-</div>
-</div>
-<div id="outline-container-headline-9" class="outline-2">
 <h2 id="headline-9">
 Stylized balance sheets from ditaa
 </h2>
-<div id="outline-text-headline-9" class="outline-text-2">
 <p>
-Well, this works. However it is too time consuming.</p>
+Well, this works. However it is too time consuming.
+</p>
 <div class="src src-ditaa">
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">/------------------\
 |Federal Reserve   |
@@ -255,44 +248,46 @@ Well, this works. However it is too time consuming.</p>
 |at BoJ	 |to BoJ   |
 +--------+---------+</code></pre></div>
 </div>
-<p><img src="test.png" alt="test.png" title="test.png" /></p>
-</div>
-</div>
-<div id="outline-container-headline-10" class="outline-2">
+<p>
+<img src="test.png" alt="test.png" title="test.png" />
+</p>
 <h2 id="headline-10">
 Youtube
 </h2>
-<div id="outline-text-headline-10" class="outline-text-2">
-<p>in org-mode just the link does not do anything.
-We can use the markdown syntax also.</p>
 <p>
-<a href="https://www.youtube.com/watch?v=a5PF2PcElV0">https://www.youtube.com/watch?v=a5PF2PcElV0</a></p>
+in org-mode just the link does not do anything.
+We can use the markdown syntax also.
+</p>
+<p>
+<a href="https://www.youtube.com/watch?v=a5PF2PcElV0">https://www.youtube.com/watch?v=a5PF2PcElV0</a>
+</p>
 <p>
 
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
   <iframe src="https://www.youtube.com/embed/a5PF2PcElV0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
 </div>
+
 </p>
-</div>
-</div>
-<div id="outline-container-headline-11" class="outline-2">
 <h2 id="headline-11">
 Footnotes
 </h2>
-</div>
 <div class="footnotes">
 <hr class="footnotes-separatator">
 <div class="footnote-definitions">
 <div class="footnote-definition">
 <sup id="footnote-1"><a href="#footnote-reference-1">1</a></sup>
 <div class="footnote-body">
-<p>Not using this anymore, it is objective better to place images together with the post. </p>
+<p>
+Not using this anymore, it is objective better to place images together with the post. 
+</p>
 </div>
 </div>
 <div class="footnote-definition">
 <sup id="footnote-2"><a href="#footnote-reference-2">2</a></sup>
 <div class="footnote-body">
-<p>I manually created the <code class="verbatim">images</code> folder.</p>
+<p>
+I manually created the <code class="verbatim">images</code> folder.
+</p>
 </div>
 </div>
 </div>
@@ -323,16 +318,16 @@ Footnotes
 
  <div class="pagination">
   
-    <a class="pagination__item" href="https://nasseralkmim.github.io/notes/books2019/">
+    <a class="pagination__item" href="https://nasseralkmim.github.io/notes/portman/">
         <span class="pagination__label">Previous Post</span>
-        <span class="pagination__title">2019 Books review</span>
+        <span class="pagination__title">Gerenciamento de portfolio com portman</span>
     </a>
   
 
   
-    <a class="pagination__item" href="https://nasseralkmim.github.io/notes/sentiment-analysis/">
+    <a class="pagination__item" href="https://nasseralkmim.github.io/notes/favorite-typeface/">
       <span class="pagination__label">Next Post</span>
-      <span class="pagination__title" >Sentiment analysis on IMDB dataset</span>
+      <span class="pagination__title" >Favorite typeface</span>
     </a>
   
 </div>

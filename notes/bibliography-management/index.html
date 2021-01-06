@@ -97,49 +97,54 @@
           <article class="post__content">
               
 
-<div id="outline-container-headline-1" class="outline-2">
 <h2 id="headline-1">
 Introduction
 </h2>
-<div id="outline-text-headline-1" class="outline-text-2">
 <p>
 In this post I will go over my workflow for managing academic resources and seamless add citation into a $\LaTeX$ file.
 Usually this process is boring since you have to add a source into your <code class="verbatim">.bib</code> file, then insert the citation with the bibtex key into your latex to generate the references section.
 This process is independent of your <code class="verbatim">.pdf</code> source, so you can add citation for source that you have physically.
-But nowadays almost every academic resource has a <code class="verbatim">.pdf</code> format, therefore is most convenient to have your references linked somehow with the source file.</p>
+But nowadays almost every academic resource has a <code class="verbatim">.pdf</code> format, therefore is most convenient to have your references linked somehow with the source file.
+</p>
 <p>
 A reference manager comes in handy for organizing sources.
 I have tried a couple of different managers: Mendeley, JabRef and Zotero.
 The one that stand out was Zotero for its versatility via plug-ins.
 My main requirements for a bibliography manager was that I would be able to easily create a <code class="verbatim">.bib</code> file and easily rename the pdf according to my desired criteria which is <code class="verbatim">AuthorYear</code>.
-Zotero does both, and it even move the renamed pdf to a specific folder.</p>
+Zotero does both, and it even move the renamed pdf to a specific folder.
+</p>
 <p>
 In emacs I use AucTex+RefTex combo to edit \LaTex files. 
 RefTex provides a nice way to include citation but I don&#39;t like the search process.
 Then I discovered a package called <a href="https://github.com/tmalsburg/helm-bibtex/blob/master/ivy-bibtex.el">ivy-bibtex</a>, which connects emacs to your <code class="verbatim">.bib</code> file.
 When you call ivy-bibtex, <code class="verbatim">C-c b b</code> in my case, you are prompt a minibuffer with all your references.
 The minibuffer shows the name of article, the author, the year and the type.
-With ivy you can narrow down the list based on this categories.</p>
-</div>
-</div>
-<div id="outline-container-headline-2" class="outline-2">
+With ivy you can narrow down the list based on this categories.
+</p>
 <h2 id="headline-2">
 The workflow
 </h2>
-<div id="outline-text-headline-2" class="outline-text-2">
-<p>The workflow consists of two basic steps.</p>
+<p>
+The workflow consists of two basic steps.
+</p>
 <ol>
 <li>
-<p>First I add the <code class="verbatim">.pdf</code> into zotero, use its engine to recover pdf metadata to generate a bibtex entry and use the plug-in ZotFile to rename the pdf accordingly with the bibtex key.</p>
+<p>
+First I add the <code class="verbatim">.pdf</code> into zotero, use its engine to recover pdf metadata to generate a bibtex entry and use the plug-in ZotFile to rename the pdf accordingly with the bibtex key.
+</p>
 </li>
 <li>
-<p>Then I just need to start <code class="verbatim">ivy-bibtex</code>, insert my citation as <code class="verbatim">Parencite</code> or <code class="verbatim">Textcite</code>.</p>
+<p>
+Then I just need to start <code class="verbatim">ivy-bibtex</code>, insert my citation as <code class="verbatim">Parencite</code> or <code class="verbatim">Textcite</code>.
+</p>
 </li>
 </ol>
-<p>If I need to open the pdf to check any information I can use <code class="verbatim">ivy-bibtex</code> and then press <code class="verbatim">M-o p</code>  to open the pdf.</p>
-<p><img src="img/references_2017-02-28_18-44-02.gif" alt="img/references_2017-02-28_18-44-02.gif" title="img/references_2017-02-28_18-44-02.gif" /></p>
-</div>
-</div>
+<p>
+If I need to open the pdf to check any information I can use <code class="verbatim">ivy-bibtex</code> and then press <code class="verbatim">M-o p</code>  to open the pdf.
+</p>
+<p>
+<img src="img/references_2017-02-28_18-44-02.gif" alt="img/references_2017-02-28_18-44-02.gif" title="img/references_2017-02-28_18-44-02.gif" />
+</p>
 
 
               
