@@ -7,10 +7,70 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© {year}</copyright>
-    <lastBuildDate>Sun, 13 Dec 2020 20:08:58 -0300</lastBuildDate>
+    <lastBuildDate>Sat, 26 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Performance de um portfolio</title>
+      <link>https://nasseralkmim.github.io/notes/portfolio-performance/</link>
+      <pubDate>Sat, 26 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://nasseralkmim.github.io/notes/portfolio-performance/</guid>
+      <description>Introdução  E ai? quanto rendeu seu portfólio? Fácil, $$R_p = V_{final}/V_{inicial} - 1$$ certo? sim, se você investiu em um único aporte. Normalmente, as pessoas fazem vários aportes ao longo do tempo. Então, se você fez um aporte de 1.000,00, e depois fez outro aporte de 1.000,00; o valor final do seu portfólio é 2.000,00. Se usarmos a fórmula acima iremos obter 100% de retorno, isso indica &amp;#34;performance&amp;#34;?</description>
+    </item>
     
-	<atom:link href="https://nasseralkmim.github.io/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Favorite typeface</title>
+      <link>https://nasseralkmim.github.io/notes/favorite-typeface/</link>
+      <pubDate>Fri, 25 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://nasseralkmim.github.io/notes/favorite-typeface/</guid>
+      <description>Iosevka is currently my favorite typeface, really above anything I have tried. Every time I try something new I think it is ugly or rough. I use the quasi-proportional variations: Sparkle for coding and Aile for general text.</description>
+    </item>
     
+    <item>
+      <title>Principles for note taking</title>
+      <link>https://nasseralkmim.github.io/notes/principles-for-note-taking/</link>
+      <pubDate>Mon, 21 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://nasseralkmim.github.io/notes/principles-for-note-taking/</guid>
+      <description>Principles    be consistent
+  be concise
+  drawing &amp;gt; text
+    Be consistent   Use the same letter size, grids help. Avoid random curvy arrows, use straight ones.
+  Be concise   I use what I call: layers of knowledge. You start on the left margin with a topic. Then, your dissect the topic from big ideas to small ideais.</description>
+    </item>
+    
+    <item>
+      <title>Difference between risk and uncertainty</title>
+      <link>https://nasseralkmim.github.io/notes/risk-and-uncertainty/</link>
+      <pubDate>Sun, 20 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://nasseralkmim.github.io/notes/risk-and-uncertainty/</guid>
+      <description>I was watching this lecture from professor Andrew Loo and he presented a compelling analogy to understand the difference between risk and uncertainty.
+ The analogy goes as follows:
+  urn A with 50 red balls and 50 black balls, pick a color and draw, if you draw your color you win $10,000.
+  urn B with unknown quantities, pick a color and draw, same prize.
+  The question is how much you are willing to bet?</description>
+    </item>
+    
+    <item>
+      <title>2020 Books review</title>
+      <link>https://nasseralkmim.github.io/notes/books-2020/</link>
+      <pubDate>Thu, 17 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://nasseralkmim.github.io/notes/books-2020/</guid>
+      <description>Books list    Kafka on the shore  Murakami escreve bem, não sou especialista em romances mas a forma como ele leva a narrativa realmente é cativante e te prende. Esse é o segundo livro que leio desse autor, e fica claro uma tendência na relação do autor com arte em geral. É muito interessante ver como a erudição do autor é projetada nós personagens quando eles discutem alguma peça musical ou literária.</description>
+    </item>
+    
+    <item>
+      <title>Extrator de dividendos</title>
+      <link>https://nasseralkmim.github.io/notes/extrator-dividendos/</link>
+      <pubDate>Thu, 17 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://nasseralkmim.github.io/notes/extrator-dividendos/</guid>
+      <description>Objetivo   Dado uma série de trades, saber quanto de dividendo foi recebido até então, separado por valores mensais.
+   Resultado  Antecipando o resultado do artigo. Se quiser acompanhar a lógica de solução o restante do texto mostra o processo.
+Input  trade_data = pd.read_csv(&amp;#39;trade_data.csv&amp;#39;, sep=&amp;#39;;&amp;#39;, header=None) print(trade_data)  0 1 2 3 4 0 20-07-2020 buy MGLU3 10 50,5 1 29-07-2020 buy MGLU3 30 60 2 30-07-2020 sell ITSA4 15 12 3 11-12-2019 buy MGLU3 50 10 4 19-02-2020 buy ITSA4 20 11 5 29-05-2020 buy ITSA4 25 10    Processar as negociações  trades = process_trades(trade_data_file=&amp;#39;trade_data.</description>
+    </item>
     
     <item>
       <title>How does monetary policy gets transmited to the economy?</title>
@@ -18,7 +78,74 @@
       <pubDate>Sun, 13 Dec 2020 20:08:58 -0300</pubDate>
       
       <guid>https://nasseralkmim.github.io/notes/fed-monetary-mechanism/</guid>
-      <description>Traditional MP  FED   FED uses its reserves (liabilities) to affect the Federal Funds Rate (FFR), short term interest rate.  If the FED reduces reserves, buying T-Bills in the open market operations, it affects the FFR upwards. Money Market dealers   Money market (MM) dealers are directly affected because they borrow short (overnight) and lend in term (3 months).  If the financing cost increases, the MM dealers also push the term price upwards.</description>
+      <description>Traditional MP  FED  FED uses its reserves (liabilities) to affect the Federal Funds Rate (FFR), short term interest rate.
+ If the FED reduces reserves, buying T-Bills in the open market operations, it affects the FFR upwards.
+  Money Market dealers  Money market (MM) dealers are directly affected because they borrow short (overnight) and lend in term (3 months).
+ If the financing cost increases, the MM dealers also push the term price upwards.</description>
+    </item>
+    
+    <item>
+      <title>Topic modeling</title>
+      <link>https://nasseralkmim.github.io/notes/topic_modelig/</link>
+      <pubDate>Fri, 11 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://nasseralkmim.github.io/notes/topic_modelig/</guid>
+      <description>Introduction  Topic modeling is a form of semantic analysis, a step forwarding finding meaning from word counts. This analysis allows discovery of document topic without trainig data. It involves counting words and grouping similar word patterns to describe the data.
+  Latent Dirichlet Allocation   Latent Dirichlet Allocation (LDA) is one topic modeling technique. It can infer the probability distribution of words for each topic, characterizing it.</description>
+    </item>
+    
+    <item>
+      <title>NLP with Python</title>
+      <link>https://nasseralkmim.github.io/notes/nlp-with-python/</link>
+      <pubDate>Wed, 09 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://nasseralkmim.github.io/notes/nlp-with-python/</guid>
+      <description>Introduction  This is an attempt to compile different sources of informations about Natural Language processing with python.
+  Techiniques used in NLP  Tokenization  Converts text into segments (n-grams) that could represent a word, two words or more. During this step, usually it is performed some kind of vocabulary reduction such as normalization, stemming, lemmatization and removing stop words.
+Tools    NLTK: string processing library, built by academics.</description>
+    </item>
+    
+    <item>
+      <title>Text processing with spaCy</title>
+      <link>https://nasseralkmim.github.io/notes/text-processing-with-spacy/</link>
+      <pubDate>Wed, 09 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://nasseralkmim.github.io/notes/text-processing-with-spacy/</guid>
+      <description>Introduction   spaCy is a library for Natural Language Processing (NLP) in python. It offers multiple solutions for text processing such as tokenization, named entity recognition, word vectors, part of speech tagging. The alternative is the library NLTK which seems to be used mostly in academia whereas spaCy is recommended for production use.
+  Load the language model  We need to download the models for the language with python -m spacy download model-name.</description>
+    </item>
+    
+    <item>
+      <title>Question classifier preprocessing</title>
+      <link>https://nasseralkmim.github.io/notes/question-classifier/</link>
+      <pubDate>Mon, 07 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://nasseralkmim.github.io/notes/question-classifier/</guid>
+      <description>Introduction   An example from the book by Aman Kedia. About label encoding.
+  Loading data  import pandas as pd data = open(&amp;#34;train_1000-label.txt&amp;#34;, &amp;#39;r&amp;#39;) train_raw = pd.DataFrame(data.readlines(), columns=[&amp;#39;data&amp;#39;]) print(train_raw.head())  data 0 DESC:manner How did serfdom develop in and the... 1 ENTY:cremat What films featured the character ... 2 DESC:manner How can I find a list of celebriti... 3 ENTY:animal What fowl grabs the spotlight afte... 4 ABBR:exp What is the full form of .</description>
+    </item>
+    
+    <item>
+      <title>Sentiment analysis on IMDB dataset</title>
+      <link>https://nasseralkmim.github.io/notes/sentiment-analysis/</link>
+      <pubDate>Fri, 04 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://nasseralkmim.github.io/notes/sentiment-analysis/</guid>
+      <description>Introduction   This is as exemple from the excellent book by François Chollet on deep learning. My idea here is to further detail the explanation with the code output, which the book does not contain. And since tensorflow 2.0 was released, I will be using tf.keras instead.
+ The goal of this example is
+ The steps are
+  Load data   Load imdb data from keras datasets.</description>
+    </item>
+    
+    <item>
+      <title>First post in HUGO</title>
+      <link>https://nasseralkmim.github.io/notes/first-hugo-post/</link>
+      <pubDate>Thu, 03 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://nasseralkmim.github.io/notes/first-hugo-post/</guid>
+      <description>Introduction  Meta post about how I do it. I&amp;#39;m using org-mode inside emacs and Hugo.
+  Images from URL  Use the html export block from org mode. In order to override the theme css for images display I manually inserted the html with a different style=&amp;#34;display: revert; max-width: fit-content;&amp;#34;. (this depends on the theme you choose)
+  Graphs from interactive code blocks saved on /static/images1   Using emacs-jupyter together with org-mode babel.</description>
     </item>
     
     <item>
@@ -27,7 +154,7 @@
       <pubDate>Sat, 05 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>https://nasseralkmim.github.io/notes/books2019/</guid>
-      <description>Books list  Never let me go   Ficção sobre uma realidade distópica onde nós criamos clones para suprir nossas necessidades de órgãos. Mas quem são esses clones? A narrativa é contada por um deles. Cheio de mistérios e revelações, o livro te prende até o fim. Nas entrelinhas é um livro sobre questões existênciais e como aceitar o invevitavel. &amp;#34;Ishiguro wanted us to &amp;#39;know without knowing&amp;#39;&amp;#34; The sailor who fell from grace with the sea   O livro é um romance do intrigante Yukio Mishima.</description>
+      <description>Books list    Never let me go  Ficção sobre uma realidade distópica onde nós criamos clones para suprir nossas necessidades de órgãos. Mas quem são esses clones? A narrativa é contada por um deles. Cheio de mistérios e revelações, o livro te prende até o fim. Nas entrelinhas é um livro sobre questões existênciais e como aceitar o invevitavel. &amp;#34;Ishiguro wanted us to &amp;#39;know without knowing&amp;#39;&amp;#34;</description>
     </item>
     
     <item>
@@ -36,7 +163,8 @@
       <pubDate>Thu, 31 May 2018 00:00:00 +0000</pubDate>
       
       <guid>https://nasseralkmim.github.io/notes/books2018/</guid>
-      <description>Books list  The Dao of capital   Esse livro mostra a estratégia de investimento do Mark Spitznagel. Ele utiliza de operações assimétricas para ter um grande upside em face à eventos inesperados (ou eventos esperados e previsíveis mas que não se sabe quando ocorrerão). No decorrer do livro ele explica a estratégia adotada com exemplos das coníferas The 4-hour workweek   Excelente livro para remoldar a forma de pensar o tradicional caminho corporativista.</description>
+      <description>Books list    The Dao of capital  Esse livro mostra a estratégia de investimento do Mark Spitznagel. Ele utiliza de operações assimétricas para ter um grande upside em face à eventos inesperados (ou eventos esperados e previsíveis mas que não se sabe quando ocorrerão). No decorrer do livro ele explica a estratégia adotada com exemplos das coníferas
+  The 4-hour workweek  Excelente livro para remoldar a forma de pensar o tradicional caminho corporativista.</description>
     </item>
     
     <item>
@@ -45,7 +173,7 @@
       <pubDate>Mon, 02 Apr 2018 00:00:00 +0000</pubDate>
       
       <guid>https://nasseralkmim.github.io/notes/books2017/</guid>
-      <description>Books list  Antifragile   Livro essencial para todos. A maneira como o Taleb escreve é muito interessante e me agrada muito. O livro te explica como certas circunstâncias podem ser favorecidas quando um agente stressor ocorre. Essa ideia é aplicada em finanças e também nos mais diversos expectros da vida. Meu capitulo favorito foi sobre &amp;#34;ensinando pássaros a voar&amp;#34; que trata a ciência, pelo menos a ciência do séc XIX, como uma atividade assimétrica, ou seja, através do &amp;#34;thinkering&amp;#34;, ou experimentos que custam pouco (pequeno downside) mas que tem grande potencial (upside), a ciência era feita de forma eficiênte de baixo para cima (bottom up).</description>
+      <description>Books list    Antifragile  Livro essencial para todos. A maneira como o Taleb escreve é muito interessante e me agrada muito. O livro te explica como certas circunstâncias podem ser favorecidas quando um agente stressor ocorre. Essa ideia é aplicada em finanças e também nos mais diversos expectros da vida. Meu capitulo favorito foi sobre &amp;#34;ensinando pássaros a voar&amp;#34; que trata a ciência, pelo menos a ciência do séc XIX, como uma atividade assimétrica, ou seja, através do &amp;#34;thinkering&amp;#34;, ou experimentos que custam pouco (pequeno downside) mas que tem grande potencial (upside), a ciência era feita de forma eficiênte de baixo para cima (bottom up).</description>
     </item>
     
     <item>
@@ -54,7 +182,9 @@
       <pubDate>Sat, 20 Jan 2018 00:00:00 +0000</pubDate>
       
       <guid>https://nasseralkmim.github.io/notes/favorite-plots/</guid>
-      <description>Here I&amp;#39;m going to compile a list of my favorite graphs and plots. BIS Bulletins   As of now, 2020, this are my favorite asthetic. The shaded background, no border, consistent line thickness and colors. Old preferences  Eckardt 2011   This is one seems to be standard matplotlib plot. It is from a paper (Unger ad Eckardt 2011) Toro 2016   I think this one was made with TiKz library.</description>
+      <description>Here I&amp;#39;m going to compile a list of my favorite graphs and plots.
+BIS Bulletins   As of now, 2020, this are my favorite asthetic. The shaded background, no border, consistent line thickness and colors.   Old preferences  Eckardt 2011  This is one seems to be standard matplotlib plot. It is from a paper (Unger ad Eckardt 2011)
+  Toro 2016  I think this one was made with TiKz library.</description>
     </item>
     
     <item>
@@ -72,124 +202,9 @@
       <pubDate>Thu, 18 Aug 2016 00:00:00 +0000</pubDate>
       
       <guid>https://nasseralkmim.github.io/notes/oop-fem/</guid>
-      <description>Introduction   After a solid 2 days of research, multiple articles and thesis, I figured that the whole OOP paradigm might be the best alternative to an extensible fem code.  The thing is: I need something simple enough so people can learn how the code works only with basic knowledge of the language and the theory. The current framework  Top level description   User input as the Mesh file and the Problem parameters.</description>
-    </item>
-    
-    <item>
-      <title>2020 Books review</title>
-      <link>https://nasseralkmim.github.io/notes/books-2020/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/notes/books-2020/</guid>
-      <description>Books list  Kafka on the shore   Murakami escreve bem, não sou especialista em romances mas a forma como ele leva a narrativa realmente é cativante e te prende. Esse é o segundo livro que leio desse autor, e fica claro uma tendência na relação do autor com arte em geral. É muito interessante ver como a erudição do autor é projetada nós personagens quando eles discutem alguma peça musical ou literária.</description>
-    </item>
-    
-    <item>
-      <title>Difference between risk and uncertainty</title>
-      <link>https://nasseralkmim.github.io/notes/risk-and-uncertainty/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/notes/risk-and-uncertainty/</guid>
-      <description>I was watching this lecture from professor Andrew Loo and he presented a compelling analogy to understand the difference between risk and uncertainty.  The analogy goes as follows:    urn A with 50 red balls and 50 black balls, pick a color and draw, if you draw your color you win $10,000.    urn B with unknown quantities, pick a color and draw, same prize.</description>
-    </item>
-    
-    <item>
-      <title>Extrator de dividendos</title>
-      <link>https://nasseralkmim.github.io/notes/extrator-dividendos/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/notes/extrator-dividendos/</guid>
-      <description>Objetivo    Dado uma série de trades, saber quanto de dividendo foi recebido até então, separado por valores mensais.  Resultado   Antecipando o resultado do artigo. Se quiser acompanhar a lógica de solução o restante do texto mostra o processo. Input  trade_data = pd.read_csv(&amp;#39;trade_data.csv&amp;#39;, sep=&amp;#39;;&amp;#39;, header=None) print(trade_data)  0 1 2 3 4 0 20-07-2020 buy MGLU3 10 50,5 1 29-07-2020 buy MGLU3 30 60 2 30-07-2020 sell ITSA4 15 12 3 11-12-2019 buy MGLU3 50 10 4 19-02-2020 buy ITSA4 20 11 5 29-05-2020 buy ITSA4 25 10  Processar as negociações  trades = process_trades(trade_data_file=&amp;#39;trade_data.</description>
-    </item>
-    
-    <item>
-      <title>Favorite typeface</title>
-      <link>https://nasseralkmim.github.io/notes/favorite-typeface/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/notes/favorite-typeface/</guid>
-      <description> Iosevka is currently my favorite typeface, really above anything I have tried. Every time I try something new I think it is ugly or rough. I use the quasi-proportional variations: Sparkle for coding and Aile for general text. </description>
-    </item>
-    
-    <item>
-      <title>First post in HUGO</title>
-      <link>https://nasseralkmim.github.io/notes/first-hugo-post/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/notes/first-hugo-post/</guid>
-      <description>Introduction   Meta post about how I do it. I&amp;#39;m using org-mode inside emacs and Hugo. Images from URL   Use the html export block from org mode. In order to override the theme css for images display I manually inserted the html with a different style=&amp;#34;display: revert; max-width: fit-content;&amp;#34;. (this depends on the theme you choose) Graphs from interactive code blocks saved on /static/images1   Using emacs-jupyter together with org-mode babel.</description>
-    </item>
-    
-    <item>
-      <title>Gerenciamento de portfolio com portman</title>
-      <link>https://nasseralkmim.github.io/notes/portman/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/notes/portman/</guid>
-      <description> Consolidação do portfolio  import pandas as pd import portman as pm pm.consolidate(&amp;#39;trade_data.csv&amp;#39;)  Análise  import matplotlib import matplotlib.pyplot as plt matplotlib.style.use(&amp;#39;ggplot&amp;#39;) import portman as pm pm.analysis.summary(&amp;#39;portfolio.csv&amp;#39;) pm.analysis.allocation(&amp;#39;portfolio.csv&amp;#39;) pm.analysis.returns(&amp;#39;returns.csv&amp;#39;) pm.analysis.dividends(&amp;#39;dividends.csv&amp;#39;) plt.tight_layout()   </description>
-    </item>
-    
-    <item>
-      <title>NLP with Python</title>
-      <link>https://nasseralkmim.github.io/notes/nlp-with-python/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/notes/nlp-with-python/</guid>
-      <description>Introduction   This is an attempt to compile different sources of informations about Natural Language processing with python. Techiniques used in NLP  Tokenization   Converts text into segments (n-grams) that could represent a word, two words or more. During this step, usually it is performed some kind of vocabulary reduction such as normalization, stemming, lemmatization and removing stop words. Tools     NLTK: string processing library, built by academics.</description>
-    </item>
-    
-    <item>
-      <title>Performance de um portfolio</title>
-      <link>https://nasseralkmim.github.io/notes/portfolio-performance/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/notes/portfolio-performance/</guid>
-      <description>Introdução   E ai? quanto rendeu seu portfólio? Fácil, $$R_p = V_{final}/V_{inicial} - 1$$ certo? sim, se você investiu em um único aporte. Normalmente, as pessoas fazem vários aportes ao longo do tempo. Então, se você fez um aporte de 1.000,00, e depois fez outro aporte de 1.000,00; o valor final do seu portfólio é 2.000,00. Se usarmos a fórmula acima iremos obter 100% de retorno, isso indica &amp;#34;performance&amp;#34;?</description>
-    </item>
-    
-    <item>
-      <title>Principles for note taking</title>
-      <link>https://nasseralkmim.github.io/notes/principles-for-note-taking/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/notes/principles-for-note-taking/</guid>
-      <description>Principles     be consistent    be concise    drawing &amp;gt; text   Be consistent   Use the same letter size, grids help. Avoid random curvy arrows, use straight ones. Be concise   I use what I call: layers of knowledge. You start on the left margin with a topic. Then, your dissect the topic from big ideas to small ideais.</description>
-    </item>
-    
-    <item>
-      <title>Question classifier preprocessing</title>
-      <link>https://nasseralkmim.github.io/notes/question-classifier/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/notes/question-classifier/</guid>
-      <description>Introduction   An example from the book by Aman Kedia. About label encoding. Loading data  import pandas as pd data = open(&amp;#34;train_1000-label.txt&amp;#34;, &amp;#39;r&amp;#39;) train_raw = pd.DataFrame(data.readlines(), columns=[&amp;#39;data&amp;#39;]) print(train_raw.head())  data 0 DESC:manner How did serfdom develop in and the... 1 ENTY:cremat What films featured the character ... 2 DESC:manner How can I find a list of celebriti... 3 ENTY:animal What fowl grabs the spotlight afte... 4 ABBR:exp What is the full form of .</description>
-    </item>
-    
-    <item>
-      <title>Sentiment analysis on IMDB dataset</title>
-      <link>https://nasseralkmim.github.io/notes/sentiment-analysis/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/notes/sentiment-analysis/</guid>
-      <description>Introduction   This is as exemple from the excellent book by François Chollet on deep learning. My idea here is to further detail the explanation with the code output, which the book does not contain. And since tensorflow 2.0 was released, I will be using tf.keras instead.  The goal of this example is  The steps are Load data   Load imdb data from keras datasets. This dataset represents 25000 movie reviews and they are labeled by sentiment.</description>
-    </item>
-    
-    <item>
-      <title>Text processing with spaCy</title>
-      <link>https://nasseralkmim.github.io/notes/text-processing-with-spacy/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/notes/text-processing-with-spacy/</guid>
-      <description>Introduction   spaCy is a library for Natural Language Processing (NLP) in python. It offers multiple solutions for text processing such as tokenization, named entity recognition, word vectors, part of speech tagging. The alternative is the library NLTK which seems to be used mostly in academia whereas spaCy is recommended for production use. Load the language model   We need to download the models for the language with python -m spacy download model-name.</description>
-    </item>
-    
-    <item>
-      <title>Topic modeling</title>
-      <link>https://nasseralkmim.github.io/notes/topic_modelig/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/notes/topic_modelig/</guid>
-      <description>Introduction   Topic modeling is a form of semantic analysis, a step forwarding finding meaning from word counts. This analysis allows discovery of document topic without trainig data. It involves counting words and grouping similar word patterns to describe the data. Latent Dirichlet Allocation   Latent Dirichlet Allocation (LDA) is one topic modeling technique. It can infer the probability distribution of words for each topic, characterizing it. It also defines a distribution of topics through the documents.</description>
+      <description>Introduction   After a solid 2 days of research, multiple articles and thesis, I figured that the whole OOP paradigm might be the best alternative to an extensible fem code.
+ The thing is: I need something simple enough so people can learn how the code works only with basic knowledge of the language and the theory.
+  The current framework  Top level description   User input as the Mesh file and the Problem parameters.</description>
     </item>
     
   </channel>

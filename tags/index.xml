@@ -7,10 +7,78 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© {year}</copyright>
-    <lastBuildDate>Sun, 13 Dec 2020 20:08:58 -0300</lastBuildDate>
+    <lastBuildDate>Sat, 26 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>data-analysis</title>
+      <link>https://nasseralkmim.github.io/tags/data-analysis/</link>
+      <pubDate>Sat, 26 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://nasseralkmim.github.io/tags/data-analysis/</guid>
+      <description></description>
+    </item>
     
-	<atom:link href="https://nasseralkmim.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>finance</title>
+      <link>https://nasseralkmim.github.io/tags/finance/</link>
+      <pubDate>Sat, 26 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://nasseralkmim.github.io/tags/finance/</guid>
+      <description></description>
+    </item>
     
+    <item>
+      <title>portugues</title>
+      <link>https://nasseralkmim.github.io/tags/portugues/</link>
+      <pubDate>Sat, 26 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://nasseralkmim.github.io/tags/portugues/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>python</title>
+      <link>https://nasseralkmim.github.io/tags/python/</link>
+      <pubDate>Sat, 26 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://nasseralkmim.github.io/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>aesthetics</title>
+      <link>https://nasseralkmim.github.io/tags/aesthetics/</link>
+      <pubDate>Fri, 25 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://nasseralkmim.github.io/tags/aesthetics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>note-taking</title>
+      <link>https://nasseralkmim.github.io/tags/note-taking/</link>
+      <pubDate>Mon, 21 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://nasseralkmim.github.io/tags/note-taking/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>risk</title>
+      <link>https://nasseralkmim.github.io/tags/risk/</link>
+      <pubDate>Sun, 20 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://nasseralkmim.github.io/tags/risk/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>books</title>
+      <link>https://nasseralkmim.github.io/tags/books/</link>
+      <pubDate>Thu, 17 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://nasseralkmim.github.io/tags/books/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>economy,</title>
@@ -31,20 +99,29 @@
     </item>
     
     <item>
-      <title>books</title>
-      <link>https://nasseralkmim.github.io/tags/books/</link>
-      <pubDate>Sat, 05 Jan 2019 00:00:00 +0000</pubDate>
+      <title>natural-language-processing</title>
+      <link>https://nasseralkmim.github.io/tags/natural-language-processing/</link>
+      <pubDate>Fri, 11 Dec 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://nasseralkmim.github.io/tags/books/</guid>
+      <guid>https://nasseralkmim.github.io/tags/natural-language-processing/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>aesthetics</title>
-      <link>https://nasseralkmim.github.io/tags/aesthetics/</link>
-      <pubDate>Sat, 20 Jan 2018 00:00:00 +0000</pubDate>
+      <title>machine-learning</title>
+      <link>https://nasseralkmim.github.io/tags/machine-learning/</link>
+      <pubDate>Wed, 09 Dec 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://nasseralkmim.github.io/tags/aesthetics/</guid>
+      <guid>https://nasseralkmim.github.io/tags/machine-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>meta</title>
+      <link>https://nasseralkmim.github.io/tags/meta/</link>
+      <pubDate>Thu, 03 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://nasseralkmim.github.io/tags/meta/</guid>
       <description></description>
     </item>
     
@@ -72,87 +149,6 @@
       <pubDate>Thu, 18 Aug 2016 00:00:00 +0000</pubDate>
       
       <guid>https://nasseralkmim.github.io/tags/fem/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>python</title>
-      <link>https://nasseralkmim.github.io/tags/python/</link>
-      <pubDate>Thu, 18 Aug 2016 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/tags/python/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>data-analysis</title>
-      <link>https://nasseralkmim.github.io/tags/data-analysis/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/tags/data-analysis/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>finance</title>
-      <link>https://nasseralkmim.github.io/tags/finance/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/tags/finance/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>machine-learning</title>
-      <link>https://nasseralkmim.github.io/tags/machine-learning/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/tags/machine-learning/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>meta</title>
-      <link>https://nasseralkmim.github.io/tags/meta/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/tags/meta/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>natural-language-processing</title>
-      <link>https://nasseralkmim.github.io/tags/natural-language-processing/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/tags/natural-language-processing/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>note-taking</title>
-      <link>https://nasseralkmim.github.io/tags/note-taking/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/tags/note-taking/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>portugues</title>
-      <link>https://nasseralkmim.github.io/tags/portugues/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/tags/portugues/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>risk</title>
-      <link>https://nasseralkmim.github.io/tags/risk/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/tags/risk/</guid>
       <description></description>
     </item>
     

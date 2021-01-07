@@ -92,61 +92,70 @@
         <div class="post">
           <header class="post__header">
             <h1 id="post__title">Performance de um portfolio</h1>
-            
+            <time datetime="2020-12-26 00:00:00 &#43;0000 UTC" class="post__date">Dec 26 2020</time> 
           </header>
           <article class="post__content">
               
 
+<div id="outline-container-headline-1" class="outline-2">
 <h2 id="headline-1">
 Introdução
 </h2>
-<p>
-E ai? quanto rendeu seu portfólio?
+<div id="outline-text-headline-1" class="outline-text-2">
+<p>E ai? quanto rendeu seu portfólio?
 Fácil,
 $$R_p = V_{final}/V_{inicial} - 1$$
 certo? sim, se você investiu em um único aporte.
 Normalmente, as pessoas fazem vários aportes ao longo do tempo.
 Então, se você fez um aporte de 1.000,00, e depois fez outro aporte de 1.000,00; o valor final do seu portfólio é 2.000,00.
-Se usarmos a fórmula acima iremos obter 100% de retorno, isso indica &#34;performance&#34;?
-</p>
+Se usarmos a fórmula acima iremos obter 100% de retorno, isso indica &#34;performance&#34;?</p>
 <p>
 Se em seu aporte, escolhesse outros tipos de ativos, teria o mesmo resultado?
 Com o retorno acima, não sabemos avaliar a escolha dos ativos.
 Esse retorno apenas mostra a evolução percentual da carteira em dois períodos.
 Não tem muita utilidade além de saber a taxa que seu patrimônio aumentou ou diminuiu.
-<strong>Não nos permite avaliar e tomar decisões financeiras</strong>, por exemplo, os ativos que escolheu foram adequados ou você precisa alterá-los?
-</p>
+<strong>Não nos permite avaliar e tomar decisões financeiras</strong>, por exemplo, os ativos que escolheu foram adequados ou você precisa alterá-los?</p>
 <p>
 Por sorte, existem outros métodos de avaliar retorno da carteira.
-Vou discutir um pouco sobre eles.
-</p>
+Vou discutir um pouco sobre eles.</p>
+</div>
+</div>
+<div id="outline-container-headline-2" class="outline-2">
 <h2 id="headline-2">
 Métodos para avaliar retorno de um portfolio
 </h2>
+<div id="outline-text-headline-2" class="outline-text-2">
 <p>
 Existem dois métodos utilizados para medir retorno de uma carteira.
-O primeiro é o <em>time weighted rate of return</em> (TWR) e o outro <em>money weighted rate of return</em> MWR.
-</p>
+O primeiro é o <em>time weighted rate of return</em> (TWR) e o outro <em>money weighted rate of return</em> MWR.</p>
 <p>
 O TWR mede o retorno entre cada período delimitado pelos aportes.
-Esse retorno corrige para distorções causada pelo aporte e mede apenas a <strong>performance real</strong> dos ativos alocados.
-</p>
+Esse retorno corrige para distorções causada pelo aporte e mede apenas a <strong>performance real</strong> dos ativos alocados.</p>
 <p>
 O MWR é a taxa interna de retorno TIR ou IRR <sup class="footnote-reference"><a id="footnote-reference-1" href="#footnote-1">1</a></sup> dos fluxos de caixa.
 A IRR é a taxa de desconto que leva todos os fluxos de caixa ao valor presente de forma que resultem no valor investido.
-Então ela mede um <strong>retorno igual para todos</strong> os aportes de forma a levar o investido ao valor final.
-</p>
+Então ela mede um <strong>retorno igual para todos</strong> os aportes de forma a levar o investido ao valor final.</p>
 <img src="Métodos_para_avaliar_retorno_de_um_portfolio/2020-12-27_21-59-37_screenshot.png" alt="Métodos_para_avaliar_retorno_de_um_portfolio/2020-12-27_21-59-37_screenshot.png" title="Métodos_para_avaliar_retorno_de_um_portfolio/2020-12-27_21-59-37_screenshot.png" width="500px"/>
+</div>
+</div>
+<div id="outline-container-headline-3" class="outline-2">
 <h2 id="headline-3">
 Exemplo
 </h2>
+<div id="outline-text-headline-3" class="outline-text-2">
 <img src="Exemplo/2020-12-27_21-39-32_screenshot.png" alt="Exemplo/2020-12-27_21-39-32_screenshot.png" title="Exemplo/2020-12-27_21-39-32_screenshot.png" width="500px"/>
+</div>
+</div>
+<div id="outline-container-headline-4" class="outline-2">
 <h2 id="headline-4">
 Implementação
 </h2>
+<div id="outline-text-headline-4" class="outline-text-2">
+<div id="outline-container-headline-5" class="outline-4">
 <h4 id="headline-5">
 Preliminares
 </h4>
+<div id="outline-text-headline-5" class="outline-text-4">
 <div class="src src-jupyter-python">
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">import numpy as np
 import pandas as pd
@@ -156,9 +165,13 @@ import matplotlib.pyplot as plt
 matplotlib.style.use(&#39;ggplot&#39;)
 import yahooquery as yf</code></pre></div>
 </div>
+</div>
+</div>
+<div id="outline-container-headline-6" class="outline-4">
 <h4 id="headline-6">
 Input
 </h4>
+<div id="outline-text-headline-6" class="outline-text-4">
 <div class="src src-jupyter-python">
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">trade_data = pd.read_csv(&#39;trade_data.csv&#39;)
 print(trade_data)</code></pre></div>
@@ -174,9 +187,13 @@ print(trade_data)</code></pre></div>
 6  16/10/2018    Buy  ABEV3  30  17,29
 7  07/11/2018    Buy  ABEV3  25  16,80
 </pre>
+</div>
+</div>
+<div id="outline-container-headline-7" class="outline-4">
 <h4 id="headline-7">
 Processar trades
 </h4>
+<div id="outline-text-headline-7" class="outline-text-4">
 <div class="src src-jupyter-python">
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">def process_trades(trade_data_file):
     trades = pd.read_csv(trade_data_file, sep=&#39;,&#39;,
@@ -208,9 +225,13 @@ print(trades)</code></pre></div>
 7 2018-10-16    Buy  ABEV3      30  17.29   518.70       30
 8 2018-11-07    Buy  ABEV3      25  16.80   420.00       25
 </pre>
+</div>
+</div>
+<div id="outline-container-headline-8" class="outline-4">
 <h4 id="headline-8">
 Consolidar portfolio
 </h4>
+<div id="outline-text-headline-8" class="outline-text-4">
 <div class="src src-jupyter-python">
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">def consolidate_portfolio(trades):
     portfolio = pd.DataFrame()
@@ -240,22 +261,20 @@ ticker
 ABEV3   Consumer Defensive  
 EGIE3            Utilities  
 </pre>
+</div>
+</div>
+<div id="outline-container-headline-9" class="outline-4">
 <h4 id="headline-9">
 Retorno do portfolio
 </h4>
-<p>
-Para saber o valor total do portfolio na data anterior ao fluxo de caixa, precisamos saber:
-</p>
+<div id="outline-text-headline-9" class="outline-text-4">
+<p>Para saber o valor total do portfolio na data anterior ao fluxo de caixa, precisamos saber:</p>
 <ol>
 <li>
-<p>
-posição líquida antes do fluxo de caixa
-</p>
+<p>posição líquida antes do fluxo de caixa</p>
 </li>
 <li>
-<p>
-cotação de fechamento do dia anterior
-</p>
+<p>cotação de fechamento do dia anterior</p>
 </li>
 </ol>
 <div class="src src-jupyter-python">
@@ -336,34 +355,40 @@ print(rr[&#39;hpr&#39;].apply(lambda x: x + 1).prod())</code></pre></div>
 8           5 2020-07-27      3,448.69  1,430.40  0.53
 0.9258180510082121
 </pre>
+</div>
+</div>
+<div id="outline-container-headline-10" class="outline-4">
 <h4 id="headline-10">
 Resultados
 </h4>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-11" class="outline-2">
 <h2 id="headline-11">
 Referências
 </h2>
+<div id="outline-text-headline-11" class="outline-text-2">
 <ol>
 <li>
-<p>
-<a href="https://www.nbc.ca/content/dam/bnc/en/files/personal/investing/bncpdf/pbn-trp-pror-en.pdf">https://www.nbc.ca/content/dam/bnc/en/files/personal/investing/bncpdf/pbn-trp-pror-en.pdf</a>
-</p>
+<p><a href="https://www.nbc.ca/content/dam/bnc/en/files/personal/investing/bncpdf/pbn-trp-pror-en.pdf">https://www.nbc.ca/content/dam/bnc/en/files/personal/investing/bncpdf/pbn-trp-pror-en.pdf</a></p>
 </li>
 </ol>
-<p>
-2.<a href="https://en.wikipedia.org/wiki/Time-weighted_return">Time-weighted return - Wikipedia</a> 
-</p>
+<p>2.<a href="https://en.wikipedia.org/wiki/Time-weighted_return">Time-weighted return - Wikipedia</a> </p>
+</div>
+</div>
+<div id="outline-container-headline-12" class="outline-2">
 <h2 id="headline-12">
 Footnotes
 </h2>
+</div>
 <div class="footnotes">
 <hr class="footnotes-separatator">
 <div class="footnote-definitions">
 <div class="footnote-definition">
 <sup id="footnote-1"><a href="#footnote-reference-1">1</a></sup>
 <div class="footnote-body">
-<p>
-Internal rate of return 
-</p>
+<p>Internal rate of return </p>
 </div>
 </div>
 </div>
@@ -403,17 +428,12 @@ Internal rate of return
 
  <div class="pagination">
   
-    <a class="pagination__item" href="https://nasseralkmim.github.io/notes/principles-for-note-taking/">
+    <a class="pagination__item" href="https://nasseralkmim.github.io/notes/favorite-typeface/">
         <span class="pagination__label">Previous Post</span>
-        <span class="pagination__title">Principles for note taking</span>
+        <span class="pagination__title">Favorite typeface</span>
     </a>
   
 
-  
-    <a class="pagination__item" href="https://nasseralkmim.github.io/notes/nlp-with-python/">
-      <span class="pagination__label">Next Post</span>
-      <span class="pagination__title" >NLP with Python</span>
-    </a>
   
 </div>
 

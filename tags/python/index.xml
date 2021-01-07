@@ -7,10 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© {year}</copyright>
-    <lastBuildDate>Thu, 18 Aug 2016 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://nasseralkmim.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Sat, 26 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Performance de um portfolio</title>
+      <link>https://nasseralkmim.github.io/notes/portfolio-performance/</link>
+      <pubDate>Sat, 26 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://nasseralkmim.github.io/notes/portfolio-performance/</guid>
+      <description>Introdução  E ai? quanto rendeu seu portfólio? Fácil, $$R_p = V_{final}/V_{inicial} - 1$$ certo? sim, se você investiu em um único aporte. Normalmente, as pessoas fazem vários aportes ao longo do tempo. Então, se você fez um aporte de 1.000,00, e depois fez outro aporte de 1.000,00; o valor final do seu portfólio é 2.000,00. Se usarmos a fórmula acima iremos obter 100% de retorno, isso indica &amp;#34;performance&amp;#34;?</description>
+    </item>
     
     <item>
       <title>OOP for an Extensible FEM code</title>
@@ -18,25 +23,9 @@
       <pubDate>Thu, 18 Aug 2016 00:00:00 +0000</pubDate>
       
       <guid>https://nasseralkmim.github.io/notes/oop-fem/</guid>
-      <description>Introduction   After a solid 2 days of research, multiple articles and thesis, I figured that the whole OOP paradigm might be the best alternative to an extensible fem code.  The thing is: I need something simple enough so people can learn how the code works only with basic knowledge of the language and the theory. The current framework  Top level description   User input as the Mesh file and the Problem parameters.</description>
-    </item>
-    
-    <item>
-      <title>Gerenciamento de portfolio com portman</title>
-      <link>https://nasseralkmim.github.io/notes/portman/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/notes/portman/</guid>
-      <description> Consolidação do portfolio  import pandas as pd import portman as pm pm.consolidate(&amp;#39;trade_data.csv&amp;#39;)  Análise  import matplotlib import matplotlib.pyplot as plt matplotlib.style.use(&amp;#39;ggplot&amp;#39;) import portman as pm pm.analysis.summary(&amp;#39;portfolio.csv&amp;#39;) pm.analysis.allocation(&amp;#39;portfolio.csv&amp;#39;) pm.analysis.returns(&amp;#39;returns.csv&amp;#39;) pm.analysis.dividends(&amp;#39;dividends.csv&amp;#39;) plt.tight_layout()   </description>
-    </item>
-    
-    <item>
-      <title>Performance de um portfolio</title>
-      <link>https://nasseralkmim.github.io/notes/portfolio-performance/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/notes/portfolio-performance/</guid>
-      <description>Introdução   E ai? quanto rendeu seu portfólio? Fácil, $$R_p = V_{final}/V_{inicial} - 1$$ certo? sim, se você investiu em um único aporte. Normalmente, as pessoas fazem vários aportes ao longo do tempo. Então, se você fez um aporte de 1.000,00, e depois fez outro aporte de 1.000,00; o valor final do seu portfólio é 2.000,00. Se usarmos a fórmula acima iremos obter 100% de retorno, isso indica &amp;#34;performance&amp;#34;?</description>
+      <description>Introduction   After a solid 2 days of research, multiple articles and thesis, I figured that the whole OOP paradigm might be the best alternative to an extensible fem code.
+ The thing is: I need something simple enough so people can learn how the code works only with basic knowledge of the language and the theory.
+  The current framework  Top level description   User input as the Mesh file and the Problem parameters.</description>
     </item>
     
   </channel>

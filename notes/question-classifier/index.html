@@ -92,21 +92,26 @@
         <div class="post">
           <header class="post__header">
             <h1 id="post__title">Question classifier preprocessing</h1>
-            
+            <time datetime="2020-12-07 00:00:00 &#43;0000 UTC" class="post__date">Dec 7 2020</time> 
           </header>
           <article class="post__content">
               
 
+<div id="outline-container-headline-1" class="outline-2">
 <h2 id="headline-1">
 Introduction
 </h2>
+<div id="outline-text-headline-1" class="outline-text-2">
 <p>
 An example from the book by Aman Kedia.
-About label encoding.
-</p>
+About label encoding.</p>
+</div>
+</div>
+<div id="outline-container-headline-2" class="outline-2">
 <h2 id="headline-2">
 Loading data
 </h2>
+<div id="outline-text-headline-2" class="outline-text-2">
 <div class="src src-python">
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> pandas <span style="color:#f92672">as</span> pd
 data <span style="color:#f92672">=</span> open(<span style="color:#e6db74">&#34;train_1000-label.txt&#34;</span>, <span style="color:#e6db74">&#39;r&#39;</span>)
@@ -121,15 +126,19 @@ train_raw <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</
 3  ENTY:animal What fowl grabs the spotlight afte...
 4         ABBR:exp What is the full form of .com ?\n
 </pre>
+</div>
+</div>
+<div id="outline-container-headline-3" class="outline-2">
 <h2 id="headline-3">
 Preprocessing
 </h2>
+<div id="outline-text-headline-3" class="outline-text-2">
+<div id="outline-container-headline-4" class="outline-4">
 <h4 id="headline-4">
 Split string
 </h4>
-<p>
-We need to split the class, finner class and the question itself.
-</p>
+<div id="outline-text-headline-4" class="outline-text-4">
+<p>We need to split the class, finner class and the question itself.</p>
 <div class="src src-python">
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">train <span style="color:#f92672">=</span> train_raw<span style="color:#f92672">.</span>data<span style="color:#f92672">.</span>str<span style="color:#f92672">.</span>split(<span style="color:#e6db74">&#39;:&#39;</span>, n<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, expand<span style="color:#f92672">=</span>True)
 <span style="color:#66d9ef">print</span>(train<span style="color:#f92672">.</span>head())
@@ -141,22 +150,25 @@ train<span style="color:#f92672">.</span>columns <span style="color:#f92672">=</
       0                                                  1
 0  DESC  manner How did serfdom develop in and then lea...
 1  ENTY  cremat What films featured the character Popey...
-2  DESC  manner How can I find a list of celebrities ' ...
+2  DESC  manner How can I find a list of celebrities &#39; ...
 3  ENTY  animal What fowl grabs the spotlight after the...
 4  ABBR              exp What is the full form of .com ?\n
   QType                                           Question
 0  DESC  How did serfdom develop in and then leave Russ...
 1  ENTY  What films featured the character Popeye Doyle...
-2  DESC  How can I find a list of celebrities ' real na...
+2  DESC  How can I find a list of celebrities &#39; real na...
 3  ENTY  What fowl grabs the spotlight after the Chines...
 4  ABBR                  What is the full form of .com ?\n
 </pre>
+</div>
+</div>
+<div id="outline-container-headline-5" class="outline-4">
 <h4 id="headline-5">
 Identify the possible classifications
 </h4>
+<div id="outline-text-headline-5" class="outline-text-4">
 <p>
-We have 6 different questions types.
-</p>
+We have 6 different questions types.</p>
 <div class="src src-python">
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">classes <span style="color:#f92672">=</span> train<span style="color:#f92672">.</span>QType<span style="color:#f92672">.</span>drop_duplicates()
 <span style="color:#66d9ef">print</span>(classes)</code></pre></div>
@@ -170,16 +182,18 @@ We have 6 different questions types.
 15     LOC
 Name: QType, dtype: object
 </pre>
+</div>
+</div>
+<div id="outline-container-headline-6" class="outline-4">
 <h4 id="headline-6">
 Label encoding
 </h4>
+<div id="outline-text-headline-6" class="outline-text-4">
 <p>
 In Machine Learning the algorithms are performed only on numerical data, therefore we need to convert our text data into numerical.
-This process is called <strong>Label Encoding</strong>.
-</p>
+This process is called <strong>Label Encoding</strong>.</p>
 <p>
-We can use Scikit-Learn preprocessing Label Encoder class.
-</p>
+We can use Scikit-Learn preprocessing Label Encoder class.</p>
 <div class="src src-python">
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> sklearn.preprocessing <span style="color:#f92672">import</span> LabelEncoder
 le <span style="color:#f92672">=</span> LabelEncoder()
@@ -192,28 +206,30 @@ encoded_classes <span style="color:#f92672">=</span> le<span style="color:#f9267
 [1 2 0 3 5 4]
 [&#39;DESC&#39; &#39;ENTY&#39; &#39;ABBR&#39; &#39;HUM&#39; &#39;NUM&#39; &#39;LOC&#39;]
 </pre>
+</div>
+</div>
+<div id="outline-container-headline-7" class="outline-4">
 <h4 id="headline-7">
 One hot encoding
 </h4>
+<div id="outline-text-headline-7" class="outline-text-4">
 <p>
 As an alternative to label encoding we can use one-hot encoding.
 Why? because the naive label encoding might add a unwanted pattern to the data, the progressions.
 <strong>One-hot encoding</strong> creates a column for each category.
-And it indicates the category with 0 or 1.
-</p>
+And it indicates the category with 0 or 1.</p>
 <p>
-We can do that with Scikit-Learn or TensorFlow (with Keras).
-</p>
+We can do that with Scikit-Learn or TensorFlow (with Keras).</p>
+<div id="outline-container-headline-8" class="outline-6">
 <h6 id="headline-8">
 <span class="todo">TODO</span>
 Tensor flow
 </h6>
-<p>
-In order to use Keras preprocessing API the text input should be a single input.
+<div id="outline-text-headline-8" class="outline-text-6">
+<p>In order to use Keras preprocessing API the text input should be a single input.
 We do that with pandas string functions.
 The we use the one hot method for preprocessing text in keras, which <strong>is not a one-hot encoding</strong> but simply a label encoding.
-The we perform the 
-</p>
+The we perform the </p>
 <div class="src src-python">
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> tensorflow.keras <span style="color:#f92672">import</span> utils, preprocessing
 <span style="color:#66d9ef">print</span>(classes<span style="color:#f92672">.</span>str<span style="color:#f92672">.</span>cat(sep<span style="color:#f92672">=</span><span style="color:#e6db74">&#39; &#39;</span>), classes<span style="color:#f92672">.</span>size)
@@ -237,12 +253,19 @@ DESC ENTY ABBR HUM NUM LOC 6
 </pre>
 <p>
 It seems its giving the same integer to multiple categories.
-<em>Not sure what happened here.</em>
-</p>
+<em>Not sure what happened here.</em></p>
+</div>
+</div>
+<div id="outline-container-headline-9" class="outline-6">
 <h6 id="headline-9">
 <span class="todo">TODO</span>
 Scikit learn
 </h6>
+</div>
+</div>
+</div>
+</div>
+</div>
 
 
               
@@ -276,9 +299,9 @@ Scikit learn
   
 
   
-    <a class="pagination__item" href="https://nasseralkmim.github.io/notes/principles-for-note-taking/">
+    <a class="pagination__item" href="https://nasseralkmim.github.io/notes/text-processing-with-spacy/">
       <span class="pagination__label">Next Post</span>
-      <span class="pagination__title" >Principles for note taking</span>
+      <span class="pagination__title" >Text processing with spaCy</span>
     </a>
   
 </div>

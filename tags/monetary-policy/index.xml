@@ -7,18 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© {year}</copyright>
-    <lastBuildDate>Sun, 13 Dec 2020 20:08:58 -0300</lastBuildDate>
-    
-	<atom:link href="https://nasseralkmim.github.io/tags/monetary-policy/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 13 Dec 2020 20:08:58 -0300</lastBuildDate><atom:link href="https://nasseralkmim.github.io/tags/monetary-policy/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How does monetary policy gets transmited to the economy?</title>
       <link>https://nasseralkmim.github.io/notes/fed-monetary-mechanism/</link>
       <pubDate>Sun, 13 Dec 2020 20:08:58 -0300</pubDate>
       
       <guid>https://nasseralkmim.github.io/notes/fed-monetary-mechanism/</guid>
-      <description>Traditional MP  FED   FED uses its reserves (liabilities) to affect the Federal Funds Rate (FFR), short term interest rate.  If the FED reduces reserves, buying T-Bills in the open market operations, it affects the FFR upwards. Money Market dealers   Money market (MM) dealers are directly affected because they borrow short (overnight) and lend in term (3 months).  If the financing cost increases, the MM dealers also push the term price upwards.</description>
+      <description>Traditional MP  FED  FED uses its reserves (liabilities) to affect the Federal Funds Rate (FFR), short term interest rate.
+ If the FED reduces reserves, buying T-Bills in the open market operations, it affects the FFR upwards.
+  Money Market dealers  Money market (MM) dealers are directly affected because they borrow short (overnight) and lend in term (3 months).
+ If the financing cost increases, the MM dealers also push the term price upwards.</description>
     </item>
     
   </channel>

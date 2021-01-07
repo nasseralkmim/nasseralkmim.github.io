@@ -92,136 +92,156 @@
         <div class="post">
           <header class="post__header">
             <h1 id="post__title">NLP with Python</h1>
-            
+            <time datetime="2020-12-09 00:00:00 &#43;0000 UTC" class="post__date">Dec 9 2020</time> 
           </header>
           <article class="post__content">
               
 
+<div id="outline-container-headline-1" class="outline-2">
 <h2 id="headline-1">
 Introduction
 </h2>
-<p>
-This is an attempt to compile different sources of informations about Natural Language processing with python.
-</p>
+<div id="outline-text-headline-1" class="outline-text-2">
+<p>This is an attempt to compile different sources of informations about Natural Language processing with python.</p>
+</div>
+</div>
+<div id="outline-container-headline-2" class="outline-2">
 <h2 id="headline-2">
 Techiniques used in NLP
 </h2>
+<div id="outline-text-headline-2" class="outline-text-2">
+<div id="outline-container-headline-3" class="outline-4">
 <h4 id="headline-3">
 Tokenization
 </h4>
-<p>
-Converts text into segments (n-grams) that could represent a word, two words or more.
-During this step, usually it is performed some kind of <strong>vocabulary reduction</strong> such as normalization, stemming, lemmatization and removing stop words.
-</p>
+<div id="outline-text-headline-3" class="outline-text-4">
+<p>Converts text into segments (n-grams) that could represent a word, two words or more.
+During this step, usually it is performed some kind of <strong>vocabulary reduction</strong> such as normalization, stemming, lemmatization and removing stop words.</p>
+<div id="outline-container-headline-4" class="outline-6">
 <h6 id="headline-4">
 Tools
 </h6>
+<div id="outline-text-headline-4" class="outline-text-6">
 <ol>
 <li>
-<p>
-NLTK: string processing library, built by academics.
-</p>
+<p>NLTK: string processing library, built by academics.</p>
 </li>
 <li>
-<p>
-spaCy: better choice for app developers.
-</p>
+<p>spaCy: better choice for app developers.</p>
 </li>
 </ol>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-5" class="outline-4">
 <h4 id="headline-5">
 One-hot encoding
 </h4>
-<p>
-One-hot encoding is a rudimentary way to convert a word into a integer number representation.
-</p>
+<div id="outline-text-headline-5" class="outline-text-4">
+<p>One-hot encoding is a rudimentary way to convert a word into a integer number representation.</p>
+</div>
+</div>
+<div id="outline-container-headline-6" class="outline-4">
 <h4 id="headline-6">
 TF-IDF
 </h4>
-<p>
-TF-IDF stands for <em>term frequency times inverse document frequency</em>.
+<div id="outline-text-headline-6" class="outline-text-4">
+<p>TF-IDF stands for <em>term frequency times inverse document frequency</em>.
 This is a method for representing a word using information about the importance of that word.
-The inverse document frequency is a form of normalizing the frequency of a word across multiple documents.
-</p>
+The inverse document frequency is a form of normalizing the frequency of a word across multiple documents.</p>
+</div>
+</div>
+<div id="outline-container-headline-7" class="outline-4">
 <h4 id="headline-7">
 Word vectors
 </h4>
-<p>
-Numerical representation of word semantics using real numbers.
+<div id="outline-text-headline-7" class="outline-text-4">
+<p>Numerical representation of word semantics using real numbers.
 Also known as <em>word embeddings</em>.
-It can capture the <strong>abstraction behind the word</strong>, what it means, such as its category (is it a person, a place, an animal, etc).
-</p>
+It can capture the <strong>abstraction behind the word</strong>, what it means, such as its category (is it a person, a place, an animal, etc).</p>
+<div id="outline-container-headline-8" class="outline-6">
 <h6 id="headline-8">
 Tools
 </h6>
+<div id="outline-text-headline-8" class="outline-text-6">
 <ol>
 <li>
-<p>
-Word2vec is capable of learning a word meaning by processing a corpus of <strong>unlabeled</strong> data.
-</p>
+<p>Word2vec is capable of learning a word meaning by processing a corpus of <strong>unlabeled</strong> data.</p>
 </li>
 <li>
-<p>
-TensorFlow has a word2vec family of methods to generate word embeddings.
-</p>
+<p>TensorFlow has a word2vec family of methods to generate word embeddings.</p>
 </li>
 </ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-9" class="outline-2">
 <h2 id="headline-9">
 Applications of NLP
 </h2>
+<div id="outline-text-headline-9" class="outline-text-2">
+<div id="outline-container-headline-10" class="outline-4">
 <h4 id="headline-10">
 Information extraction
 </h4>
-<p>
-Convert unstructured text in structure knowledge base.
-It can be used to extract a variety of information such as:
-</p>
+<div id="outline-text-headline-10" class="outline-text-4">
+<p>Convert unstructured text in structure knowledge base.
+It can be used to extract a variety of information such as:</p>
 <ol>
 <li>
-<p>
-named entities such as places, dates, prices, and so on.
-</p>
+<p>named entities such as places, dates, prices, and so on.</p>
 </li>
 <li>
-<p>
-relations (part of speech)
-</p>
+<p>relations (part of speech)</p>
 </li>
 <li>
-<p>
-keywords
-</p>
+<p>keywords</p>
+</li>
+</ol>
+<div id="outline-container-headline-11" class="outline-6">
 <h6 id="headline-11">
 Tools
 </h6>
+<div id="outline-text-headline-11" class="outline-text-6">
+<ol>
+<li>
+<p>Google date parser: <code class="verbatim">dateutil.parser.parse</code></p>
 </li>
 <li>
-<p>
-Google date parser: <code class="verbatim">dateutil.parser.parse</code>
-</p>
-</li>
-<li>
-<p>
-POS tagging: NLTK or spaCy (faster and more accurate)
-</p>
+<p>POS tagging: NLTK or spaCy (faster and more accurate)</p>
 </li>
 </ol>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-12" class="outline-4">
 <h4 id="headline-12">
 Text classification
 </h4>
-<p>
-Classify a text according to some category.
-This is done generally by training a neural network with labeled data.
-</p>
+<div id="outline-text-headline-12" class="outline-text-4">
+<p>Classify a text according to some category.
+This is done generally by training a neural network with labeled data.</p>
+<div id="outline-container-headline-13" class="outline-6">
 <h6 id="headline-13">
 Tools
 </h6>
+<div id="outline-text-headline-13" class="outline-text-6">
 <ol>
 <li>
-<p>
-Keras for building the neural network
-</p>
+<p>Keras for building the neural network</p>
 </li>
 </ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 
 
               
@@ -251,16 +271,16 @@ Keras for building the neural network
 
  <div class="pagination">
   
-    <a class="pagination__item" href="https://nasseralkmim.github.io/notes/portfolio-performance/">
+    <a class="pagination__item" href="https://nasseralkmim.github.io/notes/text-processing-with-spacy/">
         <span class="pagination__label">Previous Post</span>
-        <span class="pagination__title">Performance de um portfolio</span>
+        <span class="pagination__title">Text processing with spaCy</span>
     </a>
   
 
   
-    <a class="pagination__item" href="https://nasseralkmim.github.io/notes/portman/">
+    <a class="pagination__item" href="https://nasseralkmim.github.io/notes/topic_modelig/">
       <span class="pagination__label">Next Post</span>
-      <span class="pagination__title" >Gerenciamento de portfolio com portman</span>
+      <span class="pagination__title" >Topic modeling</span>
     </a>
   
 </div>

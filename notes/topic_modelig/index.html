@@ -92,65 +92,73 @@
         <div class="post">
           <header class="post__header">
             <h1 id="post__title">Topic modeling</h1>
-            
+            <time datetime="2020-12-11 00:00:00 &#43;0000 UTC" class="post__date">Dec 11 2020</time> 
           </header>
           <article class="post__content">
               
 
+<div id="outline-container-headline-1" class="outline-2">
 <h2 id="headline-1">
 Introduction
 </h2>
-<p>
-Topic modeling is a form of semantic analysis, a step forwarding finding meaning from word counts.
+<div id="outline-text-headline-1" class="outline-text-2">
+<p>Topic modeling is a form of semantic analysis, a step forwarding finding meaning from word counts.
 This analysis allows discovery of document topic without trainig data.
-It involves counting words and grouping similar word patterns to describe the data.
-</p>
+It involves counting words and grouping similar word patterns to describe the data.</p>
+</div>
+</div>
+<div id="outline-container-headline-2" class="outline-2">
 <h2 id="headline-2">
 Latent Dirichlet Allocation
 </h2>
+<div id="outline-text-headline-2" class="outline-text-2">
 <p>
 Latent Dirichlet Allocation (LDA) is one topic modeling technique.
 It can infer the probability distribution of words for each topic, characterizing it.
-It also defines a distribution of topics through the documents.
-</p>
+It also defines a distribution of topics through the documents.</p>
 <p>
-More information about the LDA model:
-</p>
+More information about the LDA model:</p>
 <ol>
 <li>
-<p>
-<a href="https://papers.nips.cc/paper/2010/file/71f6278d140af599e06ad9bf1ba03cb0-Paper.pdf">https://papers.nips.cc/paper/2010/file/71f6278d140af599e06ad9bf1ba03cb0-Paper.pdf</a>
-</p>
+<p><a href="https://papers.nips.cc/paper/2010/file/71f6278d140af599e06ad9bf1ba03cb0-Paper.pdf">https://papers.nips.cc/paper/2010/file/71f6278d140af599e06ad9bf1ba03cb0-Paper.pdf</a></p>
 </li>
 <li>
-<p>
-<a href="https://bookdown.org/Maxine/tidy-text-mining/latent-dirichlet-allocation.html">https://bookdown.org/Maxine/tidy-text-mining/latent-dirichlet-allocation.html</a>
-</p>
+<p><a href="https://bookdown.org/Maxine/tidy-text-mining/latent-dirichlet-allocation.html">https://bookdown.org/Maxine/tidy-text-mining/latent-dirichlet-allocation.html</a></p>
+</li>
+</ol>
+<div id="outline-container-headline-3" class="outline-4">
 <h4 id="headline-3">
 Gensim
 </h4>
-</li>
-</ol>
+<div id="outline-text-headline-3" class="outline-text-4">
 <p>
-Gesim is library for topic modeling that has LDA algorithm implemented.
-</p>
+Gesim is library for topic modeling that has LDA algorithm implemented.</p>
+</div>
+</div>
+<div id="outline-container-headline-4" class="outline-4">
 <h4 id="headline-4">
 pyLDAvis
 </h4>
-<p>
-pyLDAvis is library that helps visualize LDA outputs.
-It can generate an interactive 
-</p>
+<div id="outline-text-headline-4" class="outline-text-4">
+<p>pyLDAvis is library that helps visualize LDA outputs.
+It can generate an interactive </p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-5" class="outline-2">
 <h2 id="headline-5">
 LDA procedure example
 </h2>
+<div id="outline-text-headline-5" class="outline-text-2">
+<div id="outline-container-headline-6" class="outline-4">
 <h4 id="headline-6">
 Load the data
 </h4>
+<div id="outline-text-headline-6" class="outline-text-4">
 <p>
 I will use the data from portuguese blog posts from <a href="https://www.inf.pucrs.br/linatural/wordpress/recursos-e-ferramentas/blogset-br/">BLOGSET-BR</a>.
-I&#39;m limiting the analysis to just 1000 blog posts in order to keep the code running fast in this notebook.
-</p>
+I&#39;m limiting the analysis to just 1000 blog posts in order to keep the code running fast in this notebook.</p>
 <div class="src src-python">
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> pandas <span style="color:#f92672">as</span> pd
 
@@ -189,8 +197,7 @@ posts_data <span style="color:#f92672">=</span> pd<span style="color:#f92672">.<
 4  Daniela  0  NaN
 </pre>
 <p>
-We are only interested in the blog content, so we drop all columns except the one with content which is the 4th column.
-</p>
+We are only interested in the blog content, so we drop all columns except the one with content which is the 4th column.</p>
 <div class="src src-python">
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">posts <span style="color:#f92672">=</span> posts_data[<span style="color:#ae81ff">4</span>]<span style="color:#f92672">.</span>to_frame()
 posts<span style="color:#f92672">.</span>columns <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;content&#39;</span>]
@@ -206,15 +213,19 @@ posts<span style="color:#f92672">.</span>columns <span style="color:#f92672">=</
 4  A MOHDA nesse inverno enta trazendo para nos v...
 Index([&#39;content&#39;], dtype=&#39;object&#39;)
 </pre>
+</div>
+</div>
+<div id="outline-container-headline-7" class="outline-4">
 <h4 id="headline-7">
 Preprocessing
 </h4>
+<div id="outline-text-headline-7" class="outline-text-4">
+<div id="outline-container-headline-8" class="outline-6">
 <h6 id="headline-8">
 Lower case
 </h6>
-<p>
-First step is to make every thing lower case using the vectorize string function in pandas.
-</p>
+<div id="outline-text-headline-8" class="outline-text-6">
+<p>First step is to make every thing lower case using the vectorize string function in pandas.</p>
 <div class="src src-python">
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">posts[<span style="color:#e6db74">&#39;lower&#39;</span>] <span style="color:#f92672">=</span> posts[<span style="color:#e6db74">&#39;content&#39;</span>]<span style="color:#f92672">.</span>str<span style="color:#f92672">.</span>lower() <span style="color:#75715e"># </span>
 <span style="color:#66d9ef">print</span>(posts[<span style="color:#e6db74">&#39;lower&#39;</span>]<span style="color:#f92672">.</span>head())</code></pre></div>
@@ -227,12 +238,15 @@ First step is to make every thing lower case using the vectorize string function
 4    a mohda nesse inverno enta trazendo para nos v...
 Name: lower, dtype: object
 </pre>
+</div>
+</div>
+<div id="outline-container-headline-9" class="outline-6">
 <h6 id="headline-9">
 Tokenize each post
 </h6>
+<div id="outline-text-headline-9" class="outline-text-6">
 <p>
-We then tokenize each post using spaCy by loading the model (português one), which can be downloaded with <code class="verbatim">python -m spacy download pt_core_news_sm</code>.
-</p>
+We then tokenize each post using spaCy by loading the model (português one), which can be downloaded with <code class="verbatim">python -m spacy download pt_core_news_sm</code>.</p>
 <div class="src src-python">
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> spacy
 
@@ -251,8 +265,7 @@ Name: tokens, dtype: object
 <p>
 Let&#39;s check the number of tokens in each post.
 We can see the average tokens for each post.
-A great part of those tokens are stopwords which does not contain much information, so we are removing them.
-</p>
+A great part of those tokens are stopwords which does not contain much information, so we are removing them.</p>
 <div class="src src-python">
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">posts[<span style="color:#e6db74">&#39;num_tokens&#39;</span>] <span style="color:#f92672">=</span> posts[<span style="color:#e6db74">&#39;tokens&#39;</span>]<span style="color:#f92672">.</span>apply(len)
 <span style="color:#66d9ef">print</span>(posts[<span style="color:#e6db74">&#39;num_tokens&#39;</span>]<span style="color:#f92672">.</span>mean() )</code></pre></div>
@@ -260,12 +273,14 @@ A great part of those tokens are stopwords which does not contain much informati
 <pre class="example">
 287.099
 </pre>
+</div>
+</div>
+<div id="outline-container-headline-10" class="outline-6">
 <h6 id="headline-10">
 Removing punctuation
 </h6>
-<p>
-Reduces the average tokens.
-</p>
+<div id="outline-text-headline-10" class="outline-text-6">
+<p>Reduces the average tokens.</p>
 <div class="src src-python">
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">posts[<span style="color:#e6db74">&#39;tokens_nopunc&#39;</span>] <span style="color:#f92672">=</span> posts[<span style="color:#e6db74">&#39;tokens&#39;</span>]<span style="color:#f92672">.</span>apply(<span style="color:#66d9ef">lambda</span> x: [tkn <span style="color:#66d9ef">for</span> tkn <span style="color:#f92672">in</span> x <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> tkn<span style="color:#f92672">.</span>is_punct])
 <span style="color:#66d9ef">print</span>(posts[<span style="color:#e6db74">&#39;tokens_nopunc&#39;</span>]<span style="color:#f92672">.</span>head())
@@ -282,9 +297,13 @@ posts[<span style="color:#e6db74">&#39;num_tokens_nopunc&#39;</span>] <span styl
 Name: tokens_nopunc, dtype: object
 241.036
 </pre>
+</div>
+</div>
+<div id="outline-container-headline-11" class="outline-6">
 <h6 id="headline-11">
 Removing stopwords
 </h6>
+<div id="outline-text-headline-11" class="outline-text-6">
 <div class="src src-python">
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">print</span>(list(nlp<span style="color:#f92672">.</span>Defaults<span style="color:#f92672">.</span>stop_words)[:<span style="color:#ae81ff">20</span>])</code></pre></div>
 </div>
@@ -292,8 +311,7 @@ Removing stopwords
 [&#39;momento&#39;, &#39;foram&#39;, &#39;geral&#39;, &#39;onde&#39;, &#39;tiveram&#39;, &#39;seus&#39;, &#39;oito&#39;, &#39;além&#39;, &#39;aqui&#39;, &#39;podem&#39;, &#39;aquelas&#39;, &#39;por&#39;, &#39;sétima&#39;, &#39;acerca&#39;, &#39;primeiro&#39;, &#39;nuns&#39;, &#39;estás&#39;, &#39;nossas&#39;, &#39;está&#39;, &#39;temos&#39;]
 </pre>
 <p>
-Then we remove the stop words using the spaCy collection of stopwords, we can see that we reduced the average tokens to 63 per post.
-</p>
+Then we remove the stop words using the spaCy collection of stopwords, we can see that we reduced the average tokens to 63 per post.</p>
 <div class="src src-python">
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">remove_stopwords</span>(tokens):
     tokens_nosw <span style="color:#f92672">=</span> []
@@ -319,12 +337,15 @@ posts[<span style="color:#e6db74">&#39;num_tokens_nosw&#39;</span>] <span style=
 Name: tokens_nosw, dtype: object
 139.142
 </pre>
+</div>
+</div>
+<div id="outline-container-headline-12" class="outline-6">
 <h6 id="headline-12">
 Removing tokens with less the 4 letters
 </h6>
+<div id="outline-text-headline-12" class="outline-text-6">
 <p>
-Usually smaller words don&#39;t carry much information, so we remove then.
-</p>
+Usually smaller words don&#39;t carry much information, so we remove then.</p>
 <div class="src src-python">
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">posts[<span style="color:#e6db74">&#39;tokens_clean&#39;</span>] <span style="color:#f92672">=</span> posts<span style="color:#f92672">.</span>tokens_nosw<span style="color:#f92672">.</span>apply(<span style="color:#66d9ef">lambda</span> x: [tkn <span style="color:#66d9ef">for</span> tkn <span style="color:#f92672">in</span> x <span style="color:#66d9ef">if</span> len(tkn) <span style="color:#f92672">&gt;</span><span style="color:#ae81ff">4</span>])
 <span style="color:#66d9ef">print</span>(posts<span style="color:#f92672">.</span>tokens_clean)
@@ -343,19 +364,22 @@ posts[<span style="color:#e6db74">&#39;num_tokens_clean&#39;</span>] <span style
 995    [apaixonada, esportes, adolescência, curtia, v...
 996    [enfim, dormir, acordar, trocar, noite, preocu...
 997         [http://www.youtube.com/watch?v=-_wr1hy-bka]
-998    [bullying, alguém, agride, humilha, xinga,&nbs...
+998    [bullying, alguém, agride, humilha, xinga,&amp;nbs...
 999    [mohandas, karamchand, gandhi, outubro, janeir...
 Name: tokens_clean, Length: 1000, dtype: object
 96.65
 </pre>
+</div>
+</div>
+<div id="outline-container-headline-13" class="outline-6">
 <h6 id="headline-13">
 Removing empty posts
 </h6>
+<div id="outline-text-headline-13" class="outline-text-6">
 <p>
 Now creating a new Series pandas object.
 We filter the Series considering only entities with length greater than 0, then we call the attribute to convert each token into text.
-At the end we have a list of list of strings.
-</p>
+At the end we have a list of list of strings.</p>
 <div class="src src-python">
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">posts_clean <span style="color:#f92672">=</span> posts<span style="color:#f92672">.</span>tokens_clean[posts<span style="color:#f92672">.</span>tokens_clean<span style="color:#f92672">.</span>str<span style="color:#f92672">.</span>len() <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>apply(<span style="color:#66d9ef">lambda</span> x: [tkn<span style="color:#f92672">.</span>text <span style="color:#66d9ef">for</span> tkn <span style="color:#f92672">in</span> x])
 <span style="color:#66d9ef">print</span>(posts_clean)
@@ -373,18 +397,21 @@ At the end we have a list of list of strings.
 995    [apaixonada, esportes, adolescência, curtia, v...
 996    [enfim, dormir, acordar, trocar, noite, preocu...
 997         [http://www.youtube.com/watch?v=-_wr1hy-bka]
-998    [bullying, alguém, agride, humilha, xinga,&nbs...
+998    [bullying, alguém, agride, humilha, xinga,&amp;nbs...
 999    [mohandas, karamchand, gandhi, outubro, janeir...
 Name: tokens_clean, Length: 927, dtype: object
-<class 'list'>
-<class 'str'>
+&lt;class &#39;list&#39;&gt;
+&lt;class &#39;str&#39;&gt;
 </pre>
+</div>
+</div>
+<div id="outline-container-headline-14" class="outline-6">
 <h6 id="headline-14">
 Summary preprocessing DataFrame
 </h6>
+<div id="outline-text-headline-14" class="outline-text-6">
 <p>
-The full preprocess in the posts DataFrame, so we can visualiza each process.
-</p>
+The full preprocess in the posts DataFrame, so we can visualiza each process.</p>
 <div class="src src-python">
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">pd<span style="color:#f92672">.</span>set_option(<span style="color:#e6db74">&#39;max_columns&#39;</span>, None)
 <span style="color:#66d9ef">print</span>(posts<span style="color:#f92672">.</span>head())</code></pre></div>
@@ -432,22 +459,28 @@ The full preprocess in the posts DataFrame, so we can visualiza each process.
 3                                         [esmaltes]                 1  
 4  [mohda, inverno, trazendo, viadas, esmaltes, c...                17
 </pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-15" class="outline-4">
 <h4 id="headline-15">
 LDA with Gensim
 </h4>
+<div id="outline-text-headline-15" class="outline-text-4">
+<div id="outline-container-headline-16" class="outline-6">
 <h6 id="headline-16">
 Prepare the corpus
 </h6>
+<div id="outline-text-headline-16" class="outline-text-6">
 <p>
 The <code class="verbatim">LdaModel</code> object from Gensim takes in a corpus as parameter.
 A corpus is a collection of <code class="verbatim">Documents</code> objects.
 A <code class="verbatim">Document</code> object is simply a string of text.
-This corpus is created from a list of documents with a list of tokens.
-</p>
+This corpus is created from a list of documents with a list of tokens.</p>
 <p>
 The <code class="verbatim">Dictionary</code> class associates each word with a unique integer ID.
-This is dictionary defines a vocabulary.
-</p>
+This is dictionary defines a vocabulary.</p>
 <div class="src src-python">
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> gensim.corpora <span style="color:#f92672">import</span> Dictionary
 docs <span style="color:#f92672">=</span> posts_clean<span style="color:#f92672">.</span>tolist()
@@ -457,14 +490,17 @@ dictionary <span style="color:#f92672">=</span> Dictionary(docs)
 <pre class="example">
 Dictionary(34661 unique tokens: [&#39;ameei&#39;, &#39;lindos&#39;, &#39;miragem&#39;, &#39;muitoo&#39;, &#39;sãaaao&#39;]...)
 </pre>
+</div>
+</div>
+<div id="outline-container-headline-17" class="outline-6">
 <h6 id="headline-17">
 Transform documents to vectorized form
 </h6>
+<div id="outline-text-headline-17" class="outline-text-6">
 <p>
 In this step we convert a document into a numeric form so the algorithm can manipulate it.
 This step is also known as bag-of-words representation of documents.
-This function <code class="verbatim">doc2bow()</code> creates a tuple for each word with <code class="verbatim">(word_id, word_frquency)</code>.
-</p>
+This function <code class="verbatim">doc2bow()</code> creates a tuple for each word with <code class="verbatim">(word_id, word_frquency)</code>.</p>
 <div class="src src-python">
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">corpus <span style="color:#f92672">=</span> [dictionary<span style="color:#f92672">.</span>doc2bow(doc) <span style="color:#66d9ef">for</span> doc <span style="color:#f92672">in</span> docs]
 <span style="color:#66d9ef">print</span>(corpus[<span style="color:#ae81ff">0</span>], docs[<span style="color:#ae81ff">0</span>])
@@ -476,16 +512,19 @@ This function <code class="verbatim">doc2bow()</code> creates a tuple for each w
 Number of unique tokens: 34661
 Number of posts: 927
 </pre>
+</div>
+</div>
+<div id="outline-container-headline-18" class="outline-6">
 <h6 id="headline-18">
 Training
 </h6>
+<div id="outline-text-headline-18" class="outline-text-6">
 <p>
 In this step we need a couple of parameters to be set.
 First the number of topics must be pre defined, I choose 10.
 Chunk size controls how many documents are processed at a time.
 Passes defined how often the model is trained on the corpus, same as &#39;epochs&#39;.
-Iterations controls how often we repeat a particular loop over each document.
-</p>
+Iterations controls how often we repeat a particular loop over each document.</p>
 <div class="src src-python">
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> gensim.models <span style="color:#f92672">import</span> LdaModel
 
@@ -512,12 +551,14 @@ model <span style="color:#f92672">=</span> LdaModel(
 )
 model<span style="color:#f92672">.</span>save(f<span style="color:#e6db74">&#39;model_{len(corpus)}.gensim&#39;</span>)</code></pre></div>
 </div>
+</div>
+</div>
+<div id="outline-container-headline-19" class="outline-6">
 <h6 id="headline-19">
 Training output
 </h6>
-<p>
-We can print the top topics from a particular document.
-</p>
+<div id="outline-text-headline-19" class="outline-text-6">
+<p>We can print the top topics from a particular document.</p>
 <div class="src src-python">
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> pprint <span style="color:#f92672">import</span> pprint
 topics <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>top_topics(corpus)
@@ -525,37 +566,42 @@ pprint(topics[<span style="color:#ae81ff">4</span>])
 <span style="color:#66d9ef">print</span>(docs[<span style="color:#ae81ff">4</span>])</code></pre></div>
 </div>
 <pre class="example">
-([(0.0030817974, 'pessoas'),
-  (0.0029705719, 'trabalho'),
-  (0.0019567062, 'empresa'),
-  (0.0019483563, 'social'),
-  (0.0018672714, 'ficar'),
-  (0.0018014798, 'melhor'),
-  (0.0017869751, 'paciente'),
-  (0.0017729151, 'download'),
-  (0.0015917295, 'estamos'),
-  (0.0014970169, 'mesma'),
-  (0.0014943925, 'muitas'),
-  (0.0014523969, 'coisas'),
-  (0.0014118261, 'alguém'),
-  (0.0013802068, 'sendo'),
-  (0.001359764, 'mundo'),
-  (0.0013132734, 'brasil'),
-  (0.0013105941, 'contas'),
-  (0.0013103066, 'médicos'),
-  (0.0012967874, 'carminha'),
-  (0.0012708729, 'marido')],
+([(0.0030817974, &#39;pessoas&#39;),
+  (0.0029705719, &#39;trabalho&#39;),
+  (0.0019567062, &#39;empresa&#39;),
+  (0.0019483563, &#39;social&#39;),
+  (0.0018672714, &#39;ficar&#39;),
+  (0.0018014798, &#39;melhor&#39;),
+  (0.0017869751, &#39;paciente&#39;),
+  (0.0017729151, &#39;download&#39;),
+  (0.0015917295, &#39;estamos&#39;),
+  (0.0014970169, &#39;mesma&#39;),
+  (0.0014943925, &#39;muitas&#39;),
+  (0.0014523969, &#39;coisas&#39;),
+  (0.0014118261, &#39;alguém&#39;),
+  (0.0013802068, &#39;sendo&#39;),
+  (0.001359764, &#39;mundo&#39;),
+  (0.0013132734, &#39;brasil&#39;),
+  (0.0013105941, &#39;contas&#39;),
+  (0.0013103066, &#39;médicos&#39;),
+  (0.0012967874, &#39;carminha&#39;),
+  (0.0012708729, &#39;marido&#39;)],
  -5.887733908971602)
-['susseso', 'filme', 'riqué', 'cores', 'vibrante', 'fizerma', 'nbsp;as', 'cores', 'caxinha', 'linda', 'hortencia', 'obsessão', 'fluor', 'laranja', 'amarelo', 'cores', 'vivas', 'otimas', 'serem', 'usada', 'primaver/', 'verão', 'cores', 'coleções', 'coleções', 'passadas&nbsp', 'usaram', 'otima', 'opção', 'colocarem', 'merdaco', 'chamar', 'atenção', 'consumidoras', 'esmaltes.&nbsp']
+[&#39;susseso&#39;, &#39;filme&#39;, &#39;riqué&#39;, &#39;cores&#39;, &#39;vibrante&#39;, &#39;fizerma&#39;, &#39;nbsp;as&#39;, &#39;cores&#39;, &#39;caxinha&#39;, &#39;linda&#39;, &#39;hortencia&#39;, &#39;obsessão&#39;, &#39;fluor&#39;, &#39;laranja&#39;, &#39;amarelo&#39;, &#39;cores&#39;, &#39;vivas&#39;, &#39;otimas&#39;, &#39;serem&#39;, &#39;usada&#39;, &#39;primaver/&#39;, &#39;verão&#39;, &#39;cores&#39;, &#39;coleções&#39;, &#39;coleções&#39;, &#39;passadas&amp;nbsp&#39;, &#39;usaram&#39;, &#39;otima&#39;, &#39;opção&#39;, &#39;colocarem&#39;, &#39;merdaco&#39;, &#39;chamar&#39;, &#39;atenção&#39;, &#39;consumidoras&#39;, &#39;esmaltes.&amp;nbsp&#39;]
 </pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-20" class="outline-4">
 <h4 id="headline-20">
 Visualizing pyLDAvis
 </h4>
+<div id="outline-text-headline-20" class="outline-text-4">
 <p>
 This tools allows us to visualize the topics discovered, their importance, similarity between topics, and the relevant words of each topics.
 The relevance is computed with a weighted average of the <strong>probability of the word given the topic</strong> and this probability normalized by the probability of the term.
-If we adjust the slider on the top to 0, we are considering words that appeared mostly on a specific topic.
-</p>
+If we adjust the slider on the top to 0, we are considering words that appeared mostly on a specific topic.</p>
 <div class="src src-python">
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> pyLDAvis.gensim
 lda <span style="color:#f92672">=</span> LdaModel<span style="color:#f92672">.</span>load(<span style="color:#e6db74">&#39;model_927.gensim&#39;</span>)
@@ -563,8 +609,7 @@ lda_display <span style="color:#f92672">=</span> pyLDAvis<span style="color:#f92
 pyLDAvis<span style="color:#f92672">.</span>save_html(lda_display, <span style="color:#e6db74">&#39;ldavis.html&#39;</span>)</code></pre></div>
 </div>
 <p>
-From the figure bellow we can see the 10 different topics, most of them clustered in top left corner.
-</p>
+From the figure bellow we can see the 10 different topics, most of them clustered in top left corner.</p>
 
 <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/bmabey/pyLDAvis/files/ldavis.v1.0.0.css">
 
@@ -606,49 +651,48 @@ if(typeof(LDAvis) !== "undefined"){
          });
 }
 </script>
+<div id="outline-container-headline-21" class="outline-6">
 <h6 id="headline-21">
 Analysis
 </h6>
+<div id="outline-text-headline-21" class="outline-text-6">
 <p>
-From the model results we can make some observations:
-</p>
+From the model results we can make some observations:</p>
 <ol>
 <li>
-<p>
-The 4th topic is the most important across the 1000 posts analyzed. It mostly likely refers to <strong>literature</strong> or <strong>culture</strong> because of the relevant terms: Machado de Assis, Shakespeare, José Alencar, poemas.
-</p>
+<p>The 4th topic is the most important across the 1000 posts analyzed. It mostly likely refers to <strong>literature</strong> or <strong>culture</strong> because of the relevant terms: Machado de Assis, Shakespeare, José Alencar, poemas.</p>
 </li>
 <li>
-<p>
-Topic 1 most likely refers to religion.
-</p>
+<p>Topic 1 most likely refers to religion.</p>
 </li>
 <li>
-<p>
-Topics 3, 5, 6, 7, 8 and 9 are clustered in a region which indicates that they have a similar topic. My guess is posts about the current news.
-</p>
+<p>Topics 3, 5, 6, 7, 8 and 9 are clustered in a region which indicates that they have a similar topic. My guess is posts about the current news.</p>
 </li>
 </ol>
+</div>
+</div>
+<div id="outline-container-headline-22" class="outline-6">
 <h6 id="headline-22">
 Points of improvements
 </h6>
+<div id="outline-text-headline-22" class="outline-text-6">
 <ol>
 <li>
-<p>
-From the 4th topic we can see proper names separated, I could have used a POS tagging tool to join them in a single token.
-</p>
+<p>From the 4th topic we can see proper names separated, I could have used a POS tagging tool to join them in a single token.</p>
 </li>
 <li>
-<p>
-From the 2nd and 10th topics, we can see a couple of words that do not helps in the topic analysis and could be filtered out.
-</p>
+<p>From the 2nd and 10th topics, we can see a couple of words that do not helps in the topic analysis and could be filtered out.</p>
 </li>
 <li>
-<p>
-Increase the data used for analysis.
-</p>
+<p>Increase the data used for analysis.</p>
 </li>
 </ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 
 
               
@@ -678,11 +722,16 @@ Increase the data used for analysis.
 
  <div class="pagination">
   
+    <a class="pagination__item" href="https://nasseralkmim.github.io/notes/nlp-with-python/">
+        <span class="pagination__label">Previous Post</span>
+        <span class="pagination__title">NLP with Python</span>
+    </a>
+  
 
   
-    <a class="pagination__item" href="https://nasseralkmim.github.io/notes/text-processing-with-spacy/">
+    <a class="pagination__item" href="https://nasseralkmim.github.io/notes/fed-monetary-mechanism/">
       <span class="pagination__label">Next Post</span>
-      <span class="pagination__title" >Text processing with spaCy</span>
+      <span class="pagination__title" >How does monetary policy gets transmited to the economy?</span>
     </a>
   
 </div>
