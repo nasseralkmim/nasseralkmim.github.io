@@ -7,7 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© {year}</copyright>
-    <lastBuildDate>Sat, 26 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 04 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Emacs on windows with WSL2</title>
+      <link>https://nasseralkmim.github.io/notes/emacs-windows/</link>
+      <pubDate>Mon, 04 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://nasseralkmim.github.io/notes/emacs-windows/</guid>
+      <description>Reference for installation   GitHub - hubisan/emacs-wsl: Install and run emacs with the Windows Subsystem …
+  Shortcut  I had to use two files:
+ first one is a .vsb with
+If WScript.Arguments.Count &amp;lt;= 0 Then WScript.Quit End If bat = Left(WScript.ScriptFullName, InStrRev(WScript.ScriptFullName, &amp;#34;\&amp;#34;)) &amp;amp; WScript.Arguments(0) &amp;amp; &amp;#34;.bat&amp;#34; arg = &amp;#34;&amp;#34; If WScript.Arguments.Count &amp;gt; 1 Then arg = WScript.Arguments(1) End If CreateObject(&amp;#34;WScript.Shell&amp;#34;).Run &amp;#34;&amp;#34;&amp;#34;&amp;#34; &amp;amp; bat &amp;amp; &amp;#34;&amp;#34;&amp;#34; &amp;#34;&amp;#34;&amp;#34; &amp;amp; arg &amp;amp; &amp;#34;&amp;#34;&amp;#34;&amp;#34;, 0, False   and the second a .</description>
+    </item>
+    
     <item>
       <title>Performance de um portfolio</title>
       <link>https://nasseralkmim.github.io/notes/portfolio-performance/</link>
@@ -188,6 +200,16 @@ BIS Bulletins   As of now, 2020, this are my favorite asthetic. The shaded backg
     </item>
     
     <item>
+      <title>Linear algebra change of basis explained using Python</title>
+      <link>https://nasseralkmim.github.io/notes/change-of-basis/</link>
+      <pubDate>Mon, 20 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://nasseralkmim.github.io/notes/change-of-basis/</guid>
+      <description>Motivation   I&amp;#39;m always forgetting about the intuition behind the change of basis in linear algebra. There is a very nice video explaining it on Youtube, but I want the explanation in text format so I can easily refer too when in doubt.
+  Change of basis   Let&amp;#39;s say we have two sets of basis vector $\color{blue}{\boldsymbol{b_{i}}}$ and $\color{red}{\boldsymbol{\beta_{i}}}$. The set $\color{blue}{\boldsymbol{b_{i}}}$ defines the original system, the one we start with, and the set $\color{red}{\boldsymbol{\beta_{i}}}$ the transformed system.</description>
+    </item>
+    
+    <item>
       <title>How I manage academic sources in emacs</title>
       <link>https://nasseralkmim.github.io/notes/bibliography-management/</link>
       <pubDate>Thu, 23 Feb 2017 00:00:00 +0000</pubDate>
@@ -205,6 +227,28 @@ BIS Bulletins   As of now, 2020, this are my favorite asthetic. The shaded backg
       <description>Introduction   After a solid 2 days of research, multiple articles and thesis, I figured that the whole OOP paradigm might be the best alternative to an extensible fem code.
  The thing is: I need something simple enough so people can learn how the code works only with basic knowledge of the language and the theory.
   The current framework  Top level description   User input as the Mesh file and the Problem parameters.</description>
+    </item>
+    
+    <item>
+      <title>Lagrangian duality example using ob-python</title>
+      <link>https://nasseralkmim.github.io/notes/lagrange-duality/</link>
+      <pubDate>Thu, 10 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://nasseralkmim.github.io/notes/lagrange-duality/</guid>
+      <description>Introduction   This is an example extracted from &amp;#34;An Introduction to Structural Optimization&amp;#34;, I also added a few extra images to clarify some points.
+  What is Lagrangian duality?
+  Why is it called Lagrangian duality?
+    Problem statement   We want to optimize the following convex and separable problem,
+ \begin{equation} \mathbb{(P)} \; \begin{cases} \min \limits_{x_1, x_2} (x_1 -3)^2 + (x_2 + 1)^2 \\ s.</description>
+    </item>
+    
+    <item>
+      <title>Lagrange multipliers example</title>
+      <link>https://nasseralkmim.github.io/notes/lagrange-multiplier/</link>
+      <pubDate>Thu, 03 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://nasseralkmim.github.io/notes/lagrange-multiplier/</guid>
+      <description>Introduction   This is an experiment with org-mode and ob-python that simulates a notebok environment which mix code, text and math (latex). I am going through example presented in John Kitchin work, which is extremely useful for someone planning on start coding in python for science.  I take no credit from the material presented here, it is a copy with a new format. I am particularly interested in this subject due an ongoing project in structural optimization therefore I will put an effort on detailing some of the method derivation.</description>
     </item>
     
     <item>

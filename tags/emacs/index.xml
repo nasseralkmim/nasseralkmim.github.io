@@ -7,7 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© {year}</copyright>
-    <lastBuildDate>Thu, 23 Feb 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/tags/emacs/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 04 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/tags/emacs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Emacs on windows with WSL2</title>
+      <link>https://nasseralkmim.github.io/notes/emacs-windows/</link>
+      <pubDate>Mon, 04 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://nasseralkmim.github.io/notes/emacs-windows/</guid>
+      <description>Reference for installation   GitHub - hubisan/emacs-wsl: Install and run emacs with the Windows Subsystem …
+  Shortcut  I had to use two files:
+ first one is a .vsb with
+If WScript.Arguments.Count &amp;lt;= 0 Then WScript.Quit End If bat = Left(WScript.ScriptFullName, InStrRev(WScript.ScriptFullName, &amp;#34;\&amp;#34;)) &amp;amp; WScript.Arguments(0) &amp;amp; &amp;#34;.bat&amp;#34; arg = &amp;#34;&amp;#34; If WScript.Arguments.Count &amp;gt; 1 Then arg = WScript.Arguments(1) End If CreateObject(&amp;#34;WScript.Shell&amp;#34;).Run &amp;#34;&amp;#34;&amp;#34;&amp;#34; &amp;amp; bat &amp;amp; &amp;#34;&amp;#34;&amp;#34; &amp;#34;&amp;#34;&amp;#34; &amp;amp; arg &amp;amp; &amp;#34;&amp;#34;&amp;#34;&amp;#34;, 0, False   and the second a .</description>
+    </item>
+    
     <item>
       <title>How I manage academic sources in emacs</title>
       <link>https://nasseralkmim.github.io/notes/bibliography-management/</link>

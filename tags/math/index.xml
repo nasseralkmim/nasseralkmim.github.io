@@ -1,22 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>python on Nasser&#39;s personal website</title>
-    <link>https://nasseralkmim.github.io/tags/python/</link>
-    <description>Recent content in python on Nasser&#39;s personal website</description>
+    <title>math on Nasser&#39;s personal website</title>
+    <link>https://nasseralkmim.github.io/tags/math/</link>
+    <description>Recent content in math on Nasser&#39;s personal website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© {year}</copyright>
-    <lastBuildDate>Sat, 26 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Performance de um portfolio</title>
-      <link>https://nasseralkmim.github.io/notes/portfolio-performance/</link>
-      <pubDate>Sat, 26 Dec 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/notes/portfolio-performance/</guid>
-      <description>Introdução  E ai? quanto rendeu seu portfólio? Fácil, $$R_p = V_{final}/V_{inicial} - 1$$ certo? sim, se você investiu em um único aporte. Normalmente, as pessoas fazem vários aportes ao longo do tempo. Então, se você fez um aporte de 1.000,00, e depois fez outro aporte de 1.000,00; o valor final do seu portfólio é 2.000,00. Se usarmos a fórmula acima iremos obter 100% de retorno, isso indica &amp;#34;performance&amp;#34;?</description>
-    </item>
-    
+    <lastBuildDate>Mon, 20 Mar 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/tags/math/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Linear algebra change of basis explained using Python</title>
       <link>https://nasseralkmim.github.io/notes/change-of-basis/</link>
@@ -25,17 +16,6 @@
       <guid>https://nasseralkmim.github.io/notes/change-of-basis/</guid>
       <description>Motivation   I&amp;#39;m always forgetting about the intuition behind the change of basis in linear algebra. There is a very nice video explaining it on Youtube, but I want the explanation in text format so I can easily refer too when in doubt.
   Change of basis   Let&amp;#39;s say we have two sets of basis vector $\color{blue}{\boldsymbol{b_{i}}}$ and $\color{red}{\boldsymbol{\beta_{i}}}$. The set $\color{blue}{\boldsymbol{b_{i}}}$ defines the original system, the one we start with, and the set $\color{red}{\boldsymbol{\beta_{i}}}$ the transformed system.</description>
-    </item>
-    
-    <item>
-      <title>OOP for an Extensible FEM code</title>
-      <link>https://nasseralkmim.github.io/notes/oop-fem/</link>
-      <pubDate>Thu, 18 Aug 2016 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/notes/oop-fem/</guid>
-      <description>Introduction   After a solid 2 days of research, multiple articles and thesis, I figured that the whole OOP paradigm might be the best alternative to an extensible fem code.
- The thing is: I need something simple enough so people can learn how the code works only with basic knowledge of the language and the theory.
-  The current framework  Top level description   User input as the Mesh file and the Problem parameters.</description>
     </item>
     
     <item>

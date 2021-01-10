@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>optimization on Nasser&#39;s personal website</title>
+    <link>https://nasseralkmim.github.io/tags/optimization/</link>
+    <description>Recent content in optimization on Nasser&#39;s personal website</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© {year}</copyright>
+    <lastBuildDate>Thu, 10 Mar 2016 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/tags/optimization/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Lagrangian duality example using ob-python</title>
+      <link>https://nasseralkmim.github.io/notes/lagrange-duality/</link>
+      <pubDate>Thu, 10 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://nasseralkmim.github.io/notes/lagrange-duality/</guid>
+      <description>Introduction   This is an example extracted from &amp;#34;An Introduction to Structural Optimization&amp;#34;, I also added a few extra images to clarify some points.
+  What is Lagrangian duality?
+  Why is it called Lagrangian duality?
+    Problem statement   We want to optimize the following convex and separable problem,
+ \begin{equation} \mathbb{(P)} \; \begin{cases} \min \limits_{x_1, x_2} (x_1 -3)^2 + (x_2 + 1)^2 \\ s.</description>
+    </item>
+    
+  </channel>
+</rss>
