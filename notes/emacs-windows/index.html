@@ -29,7 +29,7 @@
   
   
     
-    <link type="text/css" rel="stylesheet" href="/css/post.min.a74e392619e10b534ed018113147a605e2dfdc329ba2e2de512308b7b193758c.css" integrity="sha256-p045JhnhC1NO0BgRMUemBeLf3DKbouLeUSMIt7GTdYw="/>
+    <link type="text/css" rel="stylesheet" href="/css/post.min.f9d479f28e26706669e30ae14023b57f97f5ca8d98062c18d3a153668e7da8c0.css" integrity="sha256-&#43;dR58o4mcGZp4wrhQCO1f5f1yo2YBiwY06FTZo59qMA="/>
   
     
     <link type="text/css" rel="stylesheet" href="/css/custom.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" integrity="sha256-47DEQpj8HBSa&#43;/TImW&#43;5JCeuQeRkm5NMpJWZG3hSuFU="/>
@@ -162,6 +162,8 @@ I had to manually download hugo <a href="https://gohugo.io/getting-started/insta
 Also, another problem, it seems that when <code class="verbatim">hugo server</code> it does not detect changes to update the html rendering.
 <a href="https://github.com/microsoft/WSL/issues/4739">microsoft/WSL#4739 {WSL2} File changes made by Windows apps on Windows filesy…</a>
 I don&#39;t have a solution for this yet.</p>
+<p>
+Trying the solution in here <a href="https://medium.com/@heberleh/wsl-2-installation-and-changes-c01e3cbe205a">WSL 2 installation and changes. Problems and solutions before and after… | by…</a></p>
 </div>
 </div>
 <div id="outline-container-headline-4" class="outline-2">
@@ -173,7 +175,7 @@ Emacs jupyter
 Emacs-jupyter was not finding python, even though I could call <code class="verbatim">python</code> in the wsl terminal.
 It seems that  emacs-jupyter was looking for python at limited places, namely <code class="verbatim">jupyter --path</code>. </p>
 <p>
-I had to create a symlink for python3 to onde of <code class="verbatim">jupyter --path</code> so emacs-jupyter can find python.</p>
+I had to create a symlink for python3 to one of <code class="verbatim">jupyter --path</code> so emacs-jupyter can find python.</p>
 </div>
 </div>
 <div id="outline-container-headline-5" class="outline-2">
@@ -201,6 +203,28 @@ It seem xclip can not get clipboard.</p>
 <p><a href="https://github.com/microsoft/WSL/issues/4440">microsoft/WSL#4440 WSL2 clipboard not shared between Linux and Windows</a></p>
 </li>
 </ol>
+</div>
+</div>
+<div id="outline-container-headline-7" class="outline-2">
+<h2 id="headline-7">
+Uninstalling zsh
+</h2>
+<div id="outline-text-headline-7" class="outline-text-2">
+<p>
+When I uninstalled zhs from wsl, it wouldn&#39;t start up again. </p>
+<p>
+This blog post helped.
+<a href="https://blog.hildenco.com/2019/07/diagnozing-and-fixing-wsl.html">Diagnosing and Fixing WSL initialization issues | HildenCo Software</a></p>
+<p>
+I had to go to go to System32 folder, log in wsl as a root wit</p>
+<div class="src src-bash">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">C:<span style="color:#ae81ff">\W</span>indows<span style="color:#ae81ff">\S</span>ystem32&gt;wsl -u root</code></pre></div>
+</div>
+<p>
+then change the default shell to bash again.</p>
+<div class="src src-bash">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">chsh -s /bin/bash name</code></pre></div>
+</div>
 </div>
 </div>
 
@@ -235,6 +259,11 @@ It seem xclip can not get clipboard.</p>
     </a>
   
 
+  
+    <a class="pagination__item" href="https://nasseralkmim.github.io/notes/inn-1-first-impressions/">
+      <span class="pagination__label">Next Post</span>
+      <span class="pagination__title" >First impressions of Innsbruck</span>
+    </a>
   
 </div>
 
@@ -323,6 +352,8 @@ It seem xclip can not get clipboard.</p>
 </li>
 <li><a href="#headline-6">Org-download not getting clipboard from windows</a>
 </li>
+<li><a href="#headline-7">Uninstalling zsh</a>
+</li>
 </ul>
 </nav>
       </div>
@@ -335,7 +366,7 @@ It seem xclip can not get clipboard.</p>
    
 
   
-  <script src="/js/index.min.49e4d8a384357d9b445b87371863419937ede9fa77737522ffb633073aebfa44.js" integrity="sha256-SeTYo4Q1fZtEW4c3GGNBmTft6fp3c3Ui/7YzBzrr&#43;kQ=" crossorigin="anonymous"></script>
+  <script src="/js/index.min.575dda8d49ee02639942c63564273e6da972ab531dda26a08800bdcb477cbd7f.js" integrity="sha256-V13ajUnuAmOZQsY1ZCc&#43;balyq1Md2iagiAC9y0d8vX8=" crossorigin="anonymous"></script>
   
   
   

@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© {year}</copyright>
-    <lastBuildDate>Mon, 04 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/notes/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 12 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>First impressions of Innsbruck</title>
+      <link>https://nasseralkmim.github.io/notes/inn-1-first-impressions/</link>
+      <pubDate>Fri, 12 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://nasseralkmim.github.io/notes/inn-1-first-impressions/</guid>
+      <description>I recently started my PhD at the University of Innsbruck, and will start share some of my day to day life and work here.
+ Innsbruck is the capital of a region called Tirol. It is not a big city, the first thing I noticed when arrived here through the train station is how quick you can get to places with the rail train system.
+ The city is very organized, and I was really impressed with the tiny gap between the rail train and the concrete sidewalk.</description>
+    </item>
+    
     <item>
       <title>Emacs on windows with WSL2</title>
       <link>https://nasseralkmim.github.io/notes/emacs-windows/</link>
@@ -36,6 +47,16 @@ If WScript.Arguments.Count &amp;lt;= 0 Then WScript.Quit End If bat = Left(WScri
       
       <guid>https://nasseralkmim.github.io/notes/favorite-typeface/</guid>
       <description>Iosevka is currently my favorite typeface, really above anything I have tried. Every time I try something new I think it is ugly or rough. I use the quasi-proportional variations: Sparkle for coding and Aile for general text.</description>
+    </item>
+    
+    <item>
+      <title>Finance data in python</title>
+      <link>https://nasseralkmim.github.io/notes/finace-python/</link>
+      <pubDate>Fri, 25 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://nasseralkmim.github.io/notes/finace-python/</guid>
+      <description>Introdução   Usar biblioteca yahooquery pois parece ser mais completa e melhor que yfinance.
+import yahooquery as yf import pandas as pd pd.options.display.float_format = &amp;#39;{:,.2f}&amp;#39;.format import matplotlib import matplotlib.pyplot as plt matplotlib.style.use(&amp;#39;seaborn&amp;#39;)    Preço em tempo real  ticker = yf.Ticker(&amp;#39;EGIE3.SA&amp;#39;) print(ticker.quotes[&amp;#39;EGIE3.SA&amp;#39;][&amp;#39;bid&amp;#39;])  44.13    Histórico da cotação  ticker.history(period=&amp;#39;max&amp;#39;).close.plot(ylabel=&amp;#39;price R$&amp;#39;, xlabel=&amp;#39;date&amp;#39;) ticker.history(start=&amp;#39;2018-09-15&amp;#39;, end=&amp;#39;2018-09-18&amp;#39;).close.plot(ylabel=&amp;#39;price R$&amp;#39;, xlabel=&amp;#39;date&amp;#39;)    Informação sobre empresa  print(ticker.asset_profile)  {&amp;#39;EGIE3.</description>
     </item>
     
     <item>
@@ -85,7 +106,7 @@ Input  trade_data = pd.read_csv(&amp;#39;trade_data.csv&amp;#39;, sep=&amp;#39;;
     </item>
     
     <item>
-      <title>How does monetary policy gets transmited to the economy?</title>
+      <title>Monetary policy and lender of last resort</title>
       <link>https://nasseralkmim.github.io/notes/fed-monetary-mechanism/</link>
       <pubDate>Sun, 13 Dec 2020 20:08:58 -0300</pubDate>
       
