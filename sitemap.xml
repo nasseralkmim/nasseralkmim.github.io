@@ -1,345 +1,640 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
   <url>
     <loc>https://nasseralkmim.github.io/</loc>
-    <lastmod>2021-03-13T00:00:00+00:00</lastmod>
-  </url><url>
+    <lastmod>2021-03-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/notes/</loc>
-    <lastmod>2021-03-13T00:00:00+00:00</lastmod>
+    <lastmod>2021-03-14T00:00:00+00:00</lastmod>
     <priority>0</priority>
-  </url><url>
+  </url>
+  
+  <url>
+    <loc>https://nasseralkmim.github.io/notes/inn-2-ikea-favorites/</loc>
+    <lastmod>2021-03-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://nasseralkmim.github.io/tags/innsbruck/</loc>
+    <lastmod>2021-03-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://nasseralkmim.github.io/tags/</loc>
+    <lastmod>2021-03-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/notes/minimalist-recipes/</loc>
     <lastmod>2021-03-13T00:00:00+00:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/tags/recipes/</loc>
     <lastmod>2021-03-13T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://nasseralkmim.github.io/tags/</loc>
-    <lastmod>2021-03-13T00:00:00+00:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/notes/inn-1-first-impressions/</loc>
     <lastmod>2021-03-12T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://nasseralkmim.github.io/tags/innsbruck/</loc>
-    <lastmod>2021-03-12T00:00:00+00:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/tags/emacs/</loc>
     <lastmod>2021-01-04T00:00:00+00:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/notes/emacs-windows/</loc>
     <lastmod>2021-01-04T00:00:00+00:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/tags/data-analysis/</loc>
     <lastmod>2020-12-26T00:00:00+00:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/tags/finance/</loc>
     <lastmod>2020-12-26T00:00:00+00:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/notes/portfolio-performance/</loc>
     <lastmod>2020-12-26T00:00:00+00:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/tags/portugues/</loc>
     <lastmod>2020-12-26T00:00:00+00:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/tags/python/</loc>
     <lastmod>2020-12-26T00:00:00+00:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/tags/aesthetics/</loc>
     <lastmod>2020-12-25T00:00:00+00:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/notes/favorite-typeface/</loc>
     <lastmod>2020-12-25T00:00:00+00:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/notes/finace-python/</loc>
     <lastmod>2020-12-25T00:00:00+00:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/tags/note-taking/</loc>
     <lastmod>2020-12-21T00:00:00+00:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/notes/principles-for-note-taking/</loc>
     <lastmod>2020-12-21T00:00:00+00:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/notes/risk-and-uncertainty/</loc>
     <lastmod>2020-12-20T00:00:00+00:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/tags/risk/</loc>
     <lastmod>2020-12-20T00:00:00+00:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/notes/books-2020/</loc>
     <lastmod>2020-12-17T00:00:00+00:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/tags/books/</loc>
     <lastmod>2020-12-17T00:00:00+00:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/notes/extrator-dividendos/</loc>
     <lastmod>2020-12-17T00:00:00+00:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/tags/economy/</loc>
     <lastmod>2020-12-13T20:08:58-03:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/notes/fed-monetary-mechanism/</loc>
     <lastmod>2020-12-13T20:08:58-03:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/tags/monetary-policy/</loc>
     <lastmod>2020-12-13T20:08:58-03:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/tags/natural-language-processing/</loc>
     <lastmod>2020-12-11T00:00:00+00:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/notes/topic_modelig/</loc>
     <lastmod>2020-12-11T00:00:00+00:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/tags/machine-learning/</loc>
     <lastmod>2020-12-09T00:00:00+00:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/notes/nlp-with-python/</loc>
     <lastmod>2020-12-09T00:00:00+00:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/notes/text-processing-with-spacy/</loc>
     <lastmod>2020-12-09T00:00:00+00:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/notes/question-classifier/</loc>
     <lastmod>2020-12-07T00:00:00+00:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/notes/sentiment-analysis/</loc>
     <lastmod>2020-12-04T00:00:00+00:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/notes/first-hugo-post/</loc>
     <lastmod>2020-12-03T00:00:00+00:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/tags/meta/</loc>
     <lastmod>2020-12-03T00:00:00+00:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/notes/books2019/</loc>
     <lastmod>2019-01-05T00:00:00+00:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/notes/books2018/</loc>
     <lastmod>2018-05-31T00:00:00+00:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/notes/books2017/</loc>
     <lastmod>2018-04-02T00:00:00+00:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/tags/graphs/</loc>
     <lastmod>2018-01-20T00:00:00+00:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/notes/favorite-plots/</loc>
     <lastmod>2018-01-20T00:00:00+00:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/notes/change-of-basis/</loc>
     <lastmod>2017-03-20T00:00:00+00:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/tags/math/</loc>
     <lastmod>2017-03-20T00:00:00+00:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/notes/bibliography-management/</loc>
     <lastmod>2017-02-23T00:00:00+00:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/tags/fem/</loc>
     <lastmod>2016-08-18T00:00:00+00:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/notes/oop-fem/</loc>
     <lastmod>2016-08-18T00:00:00+00:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/notes/lagrange-duality/</loc>
     <lastmod>2016-03-10T00:00:00+00:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/tags/optimization/</loc>
     <lastmod>2016-03-10T00:00:00+00:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/notes/lagrange-multiplier/</loc>
     <lastmod>2016-03-03T00:00:00+00:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200520141558-a_jornada_e_mais_importante_que_a_destinacao/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200522183612-abordagem_top_down/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200524114238-action_without_action/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200613165738-analogy_as_the_core_of_cognition/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200512140743-antifragil/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200525132312-aprendizado_por_meio_de_conexao_entre_fatos/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200612160642-aproveitar_a_plasticidade_do_cerebro_jovem/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200610203431-armas_nao_sao_para_ameaca_e_sim_para_acao/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200514122429-bottom_up_approach/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/categories/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200607175311-como_identificar_o_seu_sonho/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200614074511-conceito_de_calor_e_vida/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200514123413-conexoes_entre_ideias/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200524102449-dar_as_caras/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200529213033-educacao_gera_desenvolvimento_economico/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200524113550-esquecer_para_memorizar/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200611100247-estetica_esta_na_coerencia/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200719195312-fat_tails/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200611143859-fed_esta_inflando_o_preco_dos_ativos/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200514204202-filosofia/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200524102318-filosofia_bodybuilding_e_disciplina/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200611100328-filosofia_pessoal/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200512135843-grade_a_under_a/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200520141513-guimaraes_rosa/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200515115534-guitar/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200604135608-habilidade_de_gerenciar_tempo/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200516091039-heuristicas_de_reflexao_sobre_ideias/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200514121904-how_to_learn/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200516091847-how_to_take_smart_note/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200524120109-ikigai/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200514122913-iluminismo/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200512133127-inercia_consumista/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20210107111012-jordan_peterson/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200514122846-kant/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200511171936-knowledge_management/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200515112531-lifestyle/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200606120215-maximizar_opcionalidade/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20210107111037-meaning_of_life/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20210107110936-meaning_of_life_and_weightlifting/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200515112421-meditacao/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200512221840-mindset/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200519124234-miyamoto_musashi_philosophy_and_becoming_tough/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200517164246-monetizacao_da_divida/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200512221848-motivacao/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200515161237-motivacao_para_estudar/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200510230828-note_workflow/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200530113137-o_que_e_tao/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200520141450-o_real_nao_esta_na_saida_nem_na_chegada/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200529212915-odisseu_e_compromissos_emocionais/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200522182738-opcionalidade_e_desenvolvimento_tecnologico/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200514123207-org_roam/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200606093446-passion_is_for_fools/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200603142142-poema_sobre_se_manifestar_em_polemicas_envolvendo_injusticas/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200517164213-por_que_bacen_nao_compra_titulos_direto_do_tesouro/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200516135600-por_que_ler_os_classicos/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200517165803-por_que_nao_usar_categoria_para_agrupar_anotacoes/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200531095537-por_que_schubert_e_underrated/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200607174912-por_que_seguir_seus_sonhos_e_um_conselho_ruim/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200514204129-principles/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200516090853-principles_for_note_taking/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200604135336-principios_de_conduta_em_trabalho_coletivo/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200722124915-principios_de_iluminacao/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200603140635-processo_de_normalizacao_dos_valores/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200510223529-receita_pao_de_queijo/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200617200115-refuse_to_learn_and_the_need_to_achieve_performance_immediately/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200719195504-relacao_entre_mediocristao_e_extremistrao_e_fat_tails/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200611142821-risk_and_reward_ratio/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200531095805-schubert_nos_coloca_em_um_sonho/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200511172026-second_brain/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200515161212-sentido_do_estado_de_felicidade/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200524115527-ser_agua/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200511164609-simbolismo_de_calos/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200512140431-skin_in_the_game/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200519123053-society_needs_more_tough_guys/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200515161339-sorte_e_opcionalidade/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200524113651-spaced_repetition/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200512140021-sucesso/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200606120744-suspense_como_identificador_de_dificuldade/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200512140407-taleb/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200515195206-think_inside_the_box/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200514211228-tres_camadas_da_evidencia/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200522181658-tecnicas_de_estudar/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200515161308-um_sistema_antifragil_de_anotacoes/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200606112617-unwealth_measure/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200524102548-upside_of_quitting/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200515115512-variacoes_na_progressao_ii_v_i/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200520153127-via_negativa/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200514204142-virtues/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200527182358-virtusidade_origina_em_nao_querer_ser_virtuoso/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200524102625-vies_da_disponibilidade/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200603140407-vies_da_disponibilidade_e_a_informacao_no_mundo_moderno/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200606113649-what_you_will_wish_you_would_known/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200527182145-wu_wei/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200512133058-you_must_create/</loc>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/roam/20200510231017-zettelkasten/</loc>
   </url>
+  
 </urlset>
