@@ -4,13 +4,33 @@
   
   <url>
     <loc>https://nasseralkmim.github.io/</loc>
-    <lastmod>2021-03-14T00:00:00+00:00</lastmod>
+    <lastmod>2021-03-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://nasseralkmim.github.io/notes/</loc>
-    <lastmod>2021-03-14T00:00:00+00:00</lastmod>
+    <lastmod>2021-03-15T00:00:00+00:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://nasseralkmim.github.io/notes/favorite-garments/</loc>
+    <lastmod>2021-03-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://nasseralkmim.github.io/tags/favorites/</loc>
+    <lastmod>2021-03-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://nasseralkmim.github.io/tags/garments/</loc>
+    <lastmod>2021-03-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://nasseralkmim.github.io/tags/</loc>
+    <lastmod>2021-03-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -19,12 +39,7 @@
   </url>
   
   <url>
-    <loc>https://nasseralkmim.github.io/tags/innsbruck/</loc>
-    <lastmod>2021-03-14T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://nasseralkmim.github.io/tags/</loc>
+    <loc>https://nasseralkmim.github.io/tags/ikea/</loc>
     <lastmod>2021-03-14T00:00:00+00:00</lastmod>
   </url>
   
@@ -40,6 +55,11 @@
   
   <url>
     <loc>https://nasseralkmim.github.io/notes/inn-1-first-impressions/</loc>
+    <lastmod>2021-03-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://nasseralkmim.github.io/tags/innsbruck/</loc>
     <lastmod>2021-03-12T00:00:00+00:00</lastmod>
   </url>
   
