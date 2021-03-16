@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>tools on Nasser&#39;s personal website</title>
+    <link>https://nasseralkmim.github.io/tags/tools/</link>
+    <description>Recent content in tools on Nasser&#39;s personal website</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© {year}</copyright>
+    <lastBuildDate>Tue, 16 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/tags/tools/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>PhD setup</title>
+      <link>https://nasseralkmim.github.io/notes/phd-setup/</link>
+      <pubDate>Tue, 16 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://nasseralkmim.github.io/notes/phd-setup/</guid>
+      <description>Emacs  Emacs, of course.
+ Tried briefly overleaf, it was good first. Nice to have instant previews and so on.
+ But then, it got little complicated with the bibliography export from Zotero. If I add a reference to zotero I have to manually update the bibliography, and it also takes some time to update. Really downside.
+ Another minor problem that I anticipated is when I create figures with scripts, I would have to manually upload then (?</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -7,7 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© {year}</copyright>
-    <lastBuildDate>Mon, 15 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 16 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>PhD setup</title>
+      <link>https://nasseralkmim.github.io/notes/phd-setup/</link>
+      <pubDate>Tue, 16 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://nasseralkmim.github.io/notes/phd-setup/</guid>
+      <description>Emacs  Emacs, of course.
+ Tried briefly overleaf, it was good first. Nice to have instant previews and so on.
+ But then, it got little complicated with the bibliography export from Zotero. If I add a reference to zotero I have to manually update the bibliography, and it also takes some time to update. Really downside.
+ Another minor problem that I anticipated is when I create figures with scripts, I would have to manually upload then (?</description>
+    </item>
+    
     <item>
       <title>Favorite garments</title>
       <link>https://nasseralkmim.github.io/notes/favorite-garments/</link>
@@ -15,7 +27,7 @@
       
       <guid>https://nasseralkmim.github.io/notes/favorite-garments/</guid>
       <description>Base layer  All good option, get the one on sale.
-Karrimor quarter zip €15,00   Cheapest one, still waiting to check quality.   Craft CORE gain €35,00    Nike pacer 1/2 zip €40,00      Mid layer  Should be black.
+Karrimor quarter zip €15,00   Cheapest one, still waiting to check quality.   Craft CORE gain €35,00    Nike pacer 1/2 zip €40,00      Insulation layer  Should be black.
 Arc&amp;#39;teryx Proton LT €300,00  Best combination of style, quality, warmth and breathability.
   Patagonia Nano air €250,00  Second option.</description>
     </item>
@@ -44,12 +56,9 @@ Arc&amp;#39;teryx Proton LT €300,00  Best combination of style, quality, warmt
   champignon mushroom
   frozen vegetables (red bell pepper, corn, beans, carrots)
   siracha on top
-    Carbonara    eggs
-  bacon
-  pasta
-  parmesan cheese
-    Egg sandwich    bread
-  eggs</description>
+    Curry with rice    same as stir fry
+  curry sauce (ready)
+    Tomato soup with rice    same as the stir fry</description>
     </item>
     
     <item>
