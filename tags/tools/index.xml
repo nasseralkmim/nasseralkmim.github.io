@@ -16,7 +16,7 @@
       <guid>https://nasseralkmim.github.io/notes/phd-setup/</guid>
       <description>Emacs  Emacs, of course.
  Tried briefly overleaf, it was good first. Nice to have instant previews and so on.
- But then, it got little complicated with the bibliography export from Zotero. If I add a reference to zotero I have to manually update the bibliography, and it also takes some time to update. Really downside.
+ But then, it got little complicated with the bibliography export from Zotero. If I add a reference to zotero I have to manually update the bibliography, and it also takes some time to update. Real downside.
  Another minor problem that I anticipated is when I create figures with scripts, I would have to manually upload then (?</description>
     </item>
     
