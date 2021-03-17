@@ -9,6 +9,24 @@
     <copyright>© {year}</copyright>
     <lastBuildDate>Tue, 16 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>emacs</title>
+      <link>https://nasseralkmim.github.io/tags/emacs/</link>
+      <pubDate>Tue, 16 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://nasseralkmim.github.io/tags/emacs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>phd</title>
+      <link>https://nasseralkmim.github.io/tags/phd/</link>
+      <pubDate>Tue, 16 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://nasseralkmim.github.io/tags/phd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>tools</title>
       <link>https://nasseralkmim.github.io/tags/tools/</link>
       <pubDate>Tue, 16 Mar 2021 00:00:00 +0000</pubDate>
@@ -59,15 +77,6 @@
       <pubDate>Fri, 12 Mar 2021 00:00:00 +0000</pubDate>
       
       <guid>https://nasseralkmim.github.io/tags/innsbruck/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>emacs</title>
-      <link>https://nasseralkmim.github.io/tags/emacs/</link>
-      <pubDate>Mon, 04 Jan 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/tags/emacs/</guid>
       <description></description>
     </item>
     
