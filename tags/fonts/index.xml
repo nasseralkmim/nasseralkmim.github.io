@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>fonts on Nasser&#39;s personal website</title>
+    <link>https://nasseralkmim.github.io/tags/fonts/</link>
+    <description>Recent content in fonts on Nasser&#39;s personal website</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© {year}</copyright>
+    <lastBuildDate>Fri, 25 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/tags/fonts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Favorite typeface</title>
+      <link>https://nasseralkmim.github.io/notes/favorite-typeface/</link>
+      <pubDate>Fri, 25 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://nasseralkmim.github.io/notes/favorite-typeface/</guid>
+      <description>Iosevka is currently my favorite typeface, really above anything I have tried. Every time I try something new I think it is ugly or rough. I use the quasi-proportional variations: Sparkle for coding and Aile for general text.</description>
+    </item>
+    
+  </channel>
+</rss>
