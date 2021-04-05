@@ -4,18 +4,43 @@
   
   <url>
     <loc>https://nasseralkmim.github.io/</loc>
-    <lastmod>2021-03-16T00:00:00+00:00</lastmod>
+    <lastmod>2021-04-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://nasseralkmim.github.io/notes/</loc>
-    <lastmod>2021-03-16T00:00:00+00:00</lastmod>
+    <lastmod>2021-04-02T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
+    <loc>https://nasseralkmim.github.io/tags/c&#43;&#43;/</loc>
+    <lastmod>2021-04-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://nasseralkmim.github.io/notes/cpp-notes/</loc>
+    <lastmod>2021-04-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://nasseralkmim.github.io/tags/</loc>
+    <lastmod>2021-04-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://nasseralkmim.github.io/notes/cpp-environment-setup/</loc>
+    <lastmod>2021-04-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://nasseralkmim.github.io/tags/emacs/</loc>
-    <lastmod>2021-03-16T00:00:00+00:00</lastmod>
+    <lastmod>2021-04-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://nasseralkmim.github.io/tags/tools/</loc>
+    <lastmod>2021-04-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -25,16 +50,6 @@
   
   <url>
     <loc>https://nasseralkmim.github.io/notes/phd-setup/</loc>
-    <lastmod>2021-03-16T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://nasseralkmim.github.io/tags/</loc>
-    <lastmod>2021-03-16T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://nasseralkmim.github.io/tags/tools/</loc>
     <lastmod>2021-03-16T00:00:00+00:00</lastmod>
   </url>
   

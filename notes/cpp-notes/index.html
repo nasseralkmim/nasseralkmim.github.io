@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <title>C&#43;&#43; Notes | Nasser&#39;s personal website</title>
+
+  <meta charset="UTF-8">
+  <meta name="language" content="en">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  
+  
+
+  <link rel="shortcut icon" type="image/png" href="/favicon.ico" />
+
+
+  
+  
+    
+ 
+  
+  
+  
+  
+  
+  
+    
+    <link type="text/css" rel="stylesheet" href="/css/post.min.a74e392619e10b534ed018113147a605e2dfdc329ba2e2de512308b7b193758c.css" integrity="sha256-p045JhnhC1NO0BgRMUemBeLf3DKbouLeUSMIt7GTdYw="/>
+  
+    
+    <link type="text/css" rel="stylesheet" href="/css/custom.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" integrity="sha256-47DEQpj8HBSa&#43;/TImW&#43;5JCeuQeRkm5NMpJWZG3hSuFU="/>
+  
+  
+   
+   
+    
+
+<script type="application/ld+json">
+  
+    { 
+      "@context": "http://schema.org", 
+      "@type": "WebSite", 
+      "url": "https:\/\/nasseralkmim.github.io\/notes\/cpp-notes\/",
+      "name": "C\u002b\u002b Notes",
+      "author": {
+        "@type": "Person",
+        "name": ""
+      },
+      "description": ""
+    }
+  
+  </script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-74704246-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+</head>
+
+<body>
+  <div class="burger__container">
+  <div class="burger" aria-controls="navigation" aria-label="Menu">
+    <div class="burger__meat burger__meat--1"></div>
+    <div class="burger__meat burger__meat--2"></div>
+    <div class="burger__meat burger__meat--3"></div>
+  </div>
+</div>
+ 
+
+  <nav class="nav" id="navigation">
+  <ul class="nav__list">
+    
+    
+      <li>
+        <a  href="/">home</a>
+      </li>
+    
+      <li>
+        <a  class="active"
+         href="/notes">notes</a>
+      </li>
+    
+  </ul>
+</nav>
+
+
+  <main>
+    
+    
+
+    <div class="flex-wrapper">
+      <div class="post__container">
+        <div class="post">
+          <header class="post__header">
+            <h1 id="post__title">C&#43;&#43; Notes</h1>
+            <time datetime="2021-04-02 00:00:00 &#43;0000 UTC" class="post__date">Apr 2 2021</time> 
+          </header>
+          <article class="post__content">
+              
+
+<div id="outline-container-headline-1" class="outline-2">
+<h2 id="headline-1">
+Introduction
+</h2>
+<div id="outline-text-headline-1" class="outline-text-2">
+<p>
+These are my notes about C++.
+Mostly experiments and running examples with <code class="verbatim">org-babel</code>.</p>
+<p>
+I will follow mostly:</p>
+<ol>
+<li>
+<p>A tour of C++</p>
+</li>
+<li>
+<p>Programming principles and practices using C++</p>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-headline-2" class="outline-2">
+<h2 id="headline-2">
+Basics
+</h2>
+<div id="outline-text-headline-2" class="outline-text-2">
+<div id="outline-container-headline-3" class="outline-4">
+<h4 id="headline-3">
+Minimal program
+</h4>
+<div id="outline-text-headline-3" class="outline-text-4">
+<p>Defines a function with no arguments, empty (), and does nothing, empty {}.</p>
+<p>
+Every program needs a <code class="verbatim">main</code> function.
+The <code class="verbatim">int</code> is the value returned by the function.</p>
+<div class="src src-c++">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span> () {}
+</code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-4" class="outline-4">
+<h4 id="headline-4">
+Hello world
+</h4>
+<div id="outline-text-headline-4" class="outline-text-4">
+<p>
+Include the declarations of the standard stream I/O facilities.
+Operator <code class="verbatim">&lt;&lt;</code> writes the second argument (string) to the first (standard output stream <code class="verbatim">std:cout</code>).
+The <code class="verbatim">std::</code> indicates that it is in the standard library namespace.
+If does not want to write every time, add <code class="verbatim">using namespace std;</code> in the beginning of file.</p>
+<div class="src src-c++">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+  std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;Hello&#34;</span>;
+}
+</code></pre></div>
+</div>
+<pre class="example">
+Hello
+</pre>
+</div>
+</div>
+<div id="outline-container-headline-5" class="outline-4">
+<h4 id="headline-5">
+Functions
+</h4>
+<div id="outline-text-headline-5" class="outline-text-4">
+<p>
+A function is declared with its name, type of the returned value, number and types of arguments.</p>
+<div class="src src-c++">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+
+<span style="color:#66d9ef">double</span> <span style="color:#a6e22e">square</span> (<span style="color:#66d9ef">double</span> value) {
+  <span style="color:#66d9ef">return</span> value <span style="color:#f92672">*</span> value;
+}
+
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span> () {
+  cout <span style="color:#f92672">&lt;&lt;</span> square(<span style="color:#ae81ff">10</span>);
+}
+</code></pre></div>
+</div>
+<pre class="example">
+100
+</pre>
+</div>
+</div>
+<div id="outline-container-headline-6" class="outline-4">
+<h4 id="headline-6">
+Scope
+</h4>
+<div id="outline-text-headline-6" class="outline-text-4">
+<p>
+Local scope: declarations in a function.</p>
+<p>
+Namespace scope: a name is <em>namespace member name</em> if it is declared outside any function.
+Its scope extends from the point of declaration to the end of its namespace.</p>
+<p>
+There are objects without a name, temporary objects created with <code class="verbatim">new</code></p>
+<div class="src src-c++">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;vector&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+
+vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> vec; 		<span style="color:#75715e">// GLOBAL vector of integers
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">fct</span> (<span style="color:#66d9ef">int</span> arg)
+{
+  string motto {<span style="color:#e6db74">&#34;Something&#34;</span>}; 	<span style="color:#75715e">// LOCAL variable
+</span><span style="color:#75715e"></span>}
+
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span> () {
+  vec.push_back(<span style="color:#ae81ff">10</span>);		<span style="color:#75715e">// add 10 to the vector
+</span><span style="color:#75715e"></span>  cout <span style="color:#f92672">&lt;&lt;</span> vec[<span style="color:#ae81ff">0</span>];		<span style="color:#75715e">// vec first entry
+</span><span style="color:#75715e"></span>}
+</code></pre></div>
+</div>
+<pre class="example">
+10
+</pre>
+</div>
+</div>
+<div id="outline-container-headline-7" class="outline-4">
+<h4 id="headline-7">
+Constants
+</h4>
+<div id="outline-text-headline-7" class="outline-text-4">
+<p>
+As the name suggests, it does not change.</p>
+<p>
+On the other hand, <code class="verbatim">constexpr</code> are evaluated at compile time.
+Allows placement of data for read only, improving performance.</p>
+<div class="src src-c++">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+
+<span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> dmv <span style="color:#f92672">=</span> <span style="color:#ae81ff">17</span>;
+<span style="color:#66d9ef">constexpr</span> <span style="color:#66d9ef">double</span> max1 <span style="color:#f92672">=</span> <span style="color:#ae81ff">1.2</span> <span style="color:#f92672">*</span> dmv;
+
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span> () {
+    cout <span style="color:#f92672">&lt;&lt;</span> max1;
+}
+</code></pre></div>
+</div>
+<pre class="example">
+20.4
+</pre>
+</div>
+</div>
+<div id="outline-container-headline-8" class="outline-4">
+<h4 id="headline-8">
+Pointers
+</h4>
+<div id="outline-text-headline-8" class="outline-text-4">
+<p>
+The <code class="verbatim">*</code> means &#34;pointer to&#34;, also understood as &#34;contents of&#34;
+A pointer variable holds the address of an object.</p>
+<p>
+The symbol <code class="verbatim">&amp;</code> means &#34;address of&#34;.</p>
+<div class="src src-c++">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span> () {
+  <span style="color:#66d9ef">int</span> v[<span style="color:#ae81ff">6</span>];			<span style="color:#75715e">// array of 6 int from 0 to 5
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">int</span><span style="color:#f92672">*</span> p <span style="color:#f92672">=</span> <span style="color:#f92672">&amp;</span>v[<span style="color:#ae81ff">3</span>];			<span style="color:#75715e">// p points to v 4th element  (which is empty)
+</span><span style="color:#75715e"></span>  cout <span style="color:#f92672">&lt;&lt;</span> p <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74"> &#34;</span>;
+  <span style="color:#66d9ef">int</span> x <span style="color:#f92672">=</span> <span style="color:#f92672">*</span>p;			<span style="color:#75715e">// *p is the object that p points to... meaning the 4th array element
+</span><span style="color:#75715e"></span>  cout <span style="color:#f92672">&lt;&lt;</span> x;
+}
+</code></pre></div>
+</div>
+<table>
+<tbody>
+<tr>
+<td class="align-right">0x7fff322474ec</td>
+</tr>
+<tr>
+<td class="align-right">21952</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-headline-9" class="outline-4">
+<h4 id="headline-9">
+References
+</h4>
+<div id="outline-text-headline-9" class="outline-text-4">
+<p>
+Symbol <code class="verbatim">&amp;</code>.
+By using a reference when passing a variable to a function we ensure that it is the variable itself been passed, not a copy.</p>
+</div>
+</div>
+<div id="outline-container-headline-10" class="outline-4">
+<h4 id="headline-10">
+Declarator operators
+</h4>
+<div id="outline-text-headline-10" class="outline-text-4">
+<ol>
+<li>
+<p><code class="verbatim">T a[n];</code> array named &#34;a&#34; of n Ts (type)</p>
+</li>
+<li>
+<p><code class="verbatim">T* p;</code> pointer to T</p>
+</li>
+<li>
+<p><code class="verbatim">T&amp; r;</code> reference to T</p>
+</li>
+<li>
+<p><code class="verbatim">T f(A);</code> function taking argument of type A and returning a result of type T</p>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-headline-11" class="outline-4">
+<h4 id="headline-11">
+Range-for-statement
+</h4>
+<div id="outline-text-headline-11" class="outline-text-4">
+<p>
+For loops that go over a sequence.
+Does not need a counting variable.</p>
+<div class="src src-c++">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">print</span> () {
+  <span style="color:#66d9ef">int</span> v[] <span style="color:#f92672">=</span> {<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">3</span>};		<span style="color:#75715e">// create array
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">auto</span> x : v)
+    cout <span style="color:#f92672">&lt;&lt;</span> x <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>;
+}
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span> () {
+  print();			<span style="color:#75715e">// call function
+</span><span style="color:#75715e"></span>}
+</code></pre></div>
+</div>
+<table>
+<tbody>
+<tr>
+<td class="align-right">0</td>
+</tr>
+<tr>
+<td class="align-right">1</td>
+</tr>
+<tr>
+<td class="align-right">3</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-headline-12" class="outline-4">
+<h4 id="headline-12">
+Tests
+</h4>
+<div id="outline-text-headline-12" class="outline-text-4">
+<p>
+If statements.</p>
+<div class="src src-c++">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span> (){
+  <span style="color:#66d9ef">int</span> answer <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>;
+  <span style="color:#66d9ef">if</span> (answer <span style="color:#f92672">==</span> <span style="color:#ae81ff">2</span>)
+    cout <span style="color:#f92672">&lt;&lt;</span> answer;
+}
+</code></pre></div>
+</div>
+<pre class="example">
+2
+</pre>
+</div>
+</div>
+<div id="outline-container-headline-13" class="outline-4">
+<h4 id="headline-13">
+Advices
+</h4>
+<div id="outline-text-headline-13" class="outline-text-4">
+<ol>
+<li>
+<p>avoid ALL_CAPS</p>
+</li>
+<li>
+<p>common and local names short and nonlocal longer</p>
+</li>
+<li>
+<p>state <strong>intent</strong> in comments, don&#39;t say what can be stated in code</p>
+</li>
+<li>
+<p>don&#39;t declare variable until you have a value to initialize it with (?)</p>
+</li>
+<li>
+<p>avoid uninitialized variables (?)</p>
+</li>
+<li>
+<p>avoid narrowing conversions (?)</p>
+</li>
+<li>
+<p>function should be short and perform one task</p>
+</li>
+<li>
+<p>one name per declaration</p>
+</li>
+<li>
+<p>avoid magic constants, use symbolic constants (?)</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+
+
+              
+                  
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+              
+          </article>
+          
+
+<ul class="tags__list">
+    
+    <li class="tag__item">
+        <a class="tag__link" href="https://nasseralkmim.github.io/tags/c&#43;&#43;/">c&#43;&#43;</a>
+    </li></ul>
+
+ <div class="pagination">
+  
+    <a class="pagination__item" href="https://nasseralkmim.github.io/notes/cpp-environment-setup/">
+        <span class="pagination__label">Previous Post</span>
+        <span class="pagination__title">C&#43;&#43; Development environment in Emacs</span>
+    </a>
+  
+
+  
+</div>
+
+          <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "nasseralkmim" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+          <footer class="post__footer">
+            
+
+
+<div class="social-icons">
+  
+     
+    
+      <a class="social-icons__link" rel="me" title="Email"
+         href="mailto:nasser.alkmim@gmail.com"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('https://nasseralkmim.github.io/svg/email.svg')"></div>
+      </a>
+    
+  
+     
+    
+      <a class="social-icons__link" rel="me" title="LinkedIn"
+         href="https://www.linkedin.com/in/nasser-alkmim-300882a6/"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('https://nasseralkmim.github.io/svg/linkedin.svg')"></div>
+      </a>
+    
+  
+     
+    
+      <a class="social-icons__link" rel="me" title="GitHub"
+         href="https://github.com/nasseralkmim"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('https://nasseralkmim.github.io/svg/github.svg')"></div>
+      </a>
+    
+  
+     
+    
+      <a class="social-icons__link" rel="me" title="Instagram"
+         href="https://instagram.com/naszr"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('https://nasseralkmim.github.io/svg/instagram.svg')"></div>
+      </a>
+    
+     
+</div>
+
+            <p>© 2021</p>
+          </footer>
+          </div>
+      </div>
+      
+      <div class="toc-container">
+           <div class="toc-post-title">C&#43;&#43; Notes</div> 
+        <nav id="TableOfContents">
+<ul>
+<li><a href="#headline-1">Introduction</a>
+</li>
+<li><a href="#headline-2">Basics</a>
+<ul>
+<li><a href="#headline-3">Minimal program</a>
+</li>
+<li><a href="#headline-4">Hello world</a>
+</li>
+<li><a href="#headline-5">Functions</a>
+</li>
+<li><a href="#headline-6">Scope</a>
+</li>
+<li><a href="#headline-7">Constants</a>
+</li>
+<li><a href="#headline-8">Pointers</a>
+</li>
+<li><a href="#headline-9">References</a>
+</li>
+<li><a href="#headline-10">Declarator operators</a>
+</li>
+<li><a href="#headline-11">Range-for-statement</a>
+</li>
+<li><a href="#headline-12">Tests</a>
+</li>
+<li><a href="#headline-13">Advices</a>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+      </div>
+      
+    </div>
+    
+
+  </main>
+
+   
+
+  
+  <script src="/js/index.min.49e4d8a384357d9b445b87371863419937ede9fa77737522ffb633073aebfa44.js" integrity="sha256-SeTYo4Q1fZtEW4c3GGNBmTft6fp3c3Ui/7YzBzrr&#43;kQ=" crossorigin="anonymous"></script>
+  
+  
+  
+
+  
+  
+  
+
+  
+    <script src="/js/table-of-contents.js"></script>
+  
+
+
+</body>
+
+</html>

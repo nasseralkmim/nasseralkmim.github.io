@@ -2,7 +2,7 @@
 <html lang="en-us">
 
 <head>
-  <title>PhD setup | Nasser&#39;s personal website</title>
+  <title>C&#43;&#43; Development environment in Emacs | Nasser&#39;s personal website</title>
 
   <meta charset="UTF-8">
   <meta name="language" content="en">
@@ -44,8 +44,8 @@
     { 
       "@context": "http://schema.org", 
       "@type": "WebSite", 
-      "url": "https:\/\/nasseralkmim.github.io\/notes\/phd-setup\/",
-      "name": "PhD setup",
+      "url": "https:\/\/nasseralkmim.github.io\/notes\/cpp-environment-setup\/",
+      "name": "C\u002b\u002b Development environment in Emacs",
       "author": {
         "@type": "Person",
         "name": ""
@@ -102,70 +102,96 @@ if (!doNotTrack) {
       <div class="post__container">
         <div class="post">
           <header class="post__header">
-            <h1 id="post__title">PhD setup</h1>
-            <time datetime="2021-03-16 00:00:00 &#43;0000 UTC" class="post__date">Mar 16 2021</time> 
+            <h1 id="post__title">C&#43;&#43; Development environment in Emacs</h1>
+            <time datetime="2021-04-01 00:00:00 &#43;0000 UTC" class="post__date">Apr 1 2021</time> 
           </header>
           <article class="post__content">
               
 
 <div id="outline-container-headline-1" class="outline-2">
 <h2 id="headline-1">
-Emacs
+Introduction
 </h2>
 <div id="outline-text-headline-1" class="outline-text-2">
-<p>Emacs, of course.</p>
 <p>
-Tried briefly overleaf, it was good first.
-Nice to have instant previews and so on.</p>
+This set up already starts with wsl (version 2) already installed and emacs as well.
+<a href="https://nasseralkmim.github.io/notes/emacs-windows/">Emacs on windows with WSL2 | Nasser&#39;s personal website</a></p>
 <p>
-But then, it got little complicated with the bibliography export from Zotero.
-If I add a reference to zotero I have to manually update the bibliography, and it also takes some time to update.
-Real downside.</p>
-<p>
-Another minor problem that I anticipated is when I create figures with scripts, I would have to manually upload then (? I think so).
-With emacs, they are already on drive and all changes automatically update on the document.</p>
+This guide also is helpful to set up emacs for c++ development: <a href="https://emacs-lsp.github.io/lsp-mode/tutorials/CPP-guide/">Configuring Emacs as a C/C++ IDE - LSP Mode - LSP support for Emacs</a>.</p>
 </div>
 </div>
 <div id="outline-container-headline-2" class="outline-2">
 <h2 id="headline-2">
-Bibliography
+Emacs
 </h2>
 <div id="outline-text-headline-2" class="outline-text-2">
-<p>Zotero for managing the references and creating the <code class="verbatim">.bib</code> file.</p>
+<div id="outline-container-headline-3" class="outline-4">
+<h4 id="headline-3">
+Lsp-mode clangd server
+</h4>
+<div id="outline-text-headline-3" class="outline-text-4">
 <p>
-My workflow typically is:</p>
-<ol>
-<li>
-<p>insert the doi of the reference I want to read/cite</p>
-</li>
-<li>
-<p>automatically import it into my <code class="verbatim">.bib</code> with Better Bibtex</p>
-</li>
-<li>
-<p>try to find the pdf, also automatically</p>
-</li>
-</ol>
+Language server that provides intelligent features to emacs via lsp-mode.</p>
 <p>
-Problems with zotero:</p>
-<ol>
-<li>
-<p>I don&#39;t like the random naming of the storage folders. It creates an unwelcoming dependence on the software. I would rather have the author/year convention. But it is fine since I don&#39;t like to keep tons of unused pdf&#39;s around. From time to time I delete them but keep the zotero for the <code class="verbatim">.bib</code> file.</p>
-</li>
-</ol>
-<p>I just tried an emacs package called <code class="verbatim">ebib</code> and it seems to be good for inserting citations in latex.</p>
+<a href="https://emacs-lsp.github.io/lsp-mode/page/lsp-clangd/">C++ (clangd) - LSP Mode - LSP support for Emacs</a></p>
 <p>
-Better yet, <code class="verbatim">bibtex-actions</code>.
-Only problem is that I can not open the pdf, not sure if the problem is with windows path or something else.
-But this is better because of <code class="verbatim">embark</code> flexibility.</p>
+<code class="verbatim">sudo apt-get install clangd-9</code></p>
+<p>
+and</p>
+<p>
+<code class="verbatim">sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-9 100</code></p>
 </div>
 </div>
-<div id="outline-container-headline-3" class="outline-2">
-<h2 id="headline-3">
-Typeface for $LaTeX$
+</div>
+</div>
+<div id="outline-container-headline-4" class="outline-2">
+<h2 id="headline-4">
+C++ compiler
 </h2>
-<div id="outline-text-headline-3" class="outline-text-2">
+<div id="outline-text-headline-4" class="outline-text-2">
 <p>
-From this catalogue <a href="https://tug.org/FontCatalogue/seriffonts.html">The LaTeX Font Catalogue – Serif Fonts</a>, I&#39;m experimenting with Erewhon and linux libertine.</p>
+<code class="verbatim">sudo apt install clang</code></p>
+</div>
+</div>
+<div id="outline-container-headline-5" class="outline-2">
+<h2 id="headline-5">
+Org-mode babel
+</h2>
+<div id="outline-text-headline-5" class="outline-text-2">
+<div id="outline-container-headline-6" class="outline-4">
+<h4 id="headline-6">
+Requirements
+</h4>
+<div id="outline-text-headline-6" class="outline-text-4">
+<ol>
+<li>
+<p>compiler available</p>
+</li>
+<li>
+<p>add <code class="verbatim">C</code> to <code class="verbatim">org-babel-load-languages</code> with</p>
+</li>
+</ol>
+<div class="src src-elisp">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-elisp" data-lang="elisp">(org-babel-do-load-languages
+ <span style="color:#e6db74">&#39;org-babel-load-languages</span> <span style="color:#f92672">&#39;</span>((C <span style="color:#f92672">.</span> <span style="color:#66d9ef">t</span>)))</code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-7" class="outline-4">
+<h4 id="headline-7">
+Example
+</h4>
+<div id="outline-text-headline-7" class="outline-text-4">
+<div class="src src-c">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">int</span> a<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>;
+<span style="color:#66d9ef">int</span> b<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>;
+printf(<span style="color:#e6db74">&#34;%d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, a<span style="color:#f92672">+</span>b);</code></pre></div>
+</div>
+<pre class="example">
+2
+</pre>
+</div>
+</div>
 </div>
 </div>
 
@@ -189,27 +215,27 @@ From this catalogue <a href="https://tug.org/FontCatalogue/seriffonts.html">The 
 <ul class="tags__list">
     
     <li class="tag__item">
+        <a class="tag__link" href="https://nasseralkmim.github.io/tags/emacs/">emacs</a>
+    </li>
+    <li class="tag__item">
         <a class="tag__link" href="https://nasseralkmim.github.io/tags/tools/">tools</a>
     </li>
     <li class="tag__item">
-        <a class="tag__link" href="https://nasseralkmim.github.io/tags/phd/">phd</a>
-    </li>
-    <li class="tag__item">
-        <a class="tag__link" href="https://nasseralkmim.github.io/tags/emacs/">emacs</a>
+        <a class="tag__link" href="https://nasseralkmim.github.io/tags/c&#43;&#43;/">c&#43;&#43;</a>
     </li></ul>
 
  <div class="pagination">
   
-    <a class="pagination__item" href="https://nasseralkmim.github.io/notes/favorite-garments/">
+    <a class="pagination__item" href="https://nasseralkmim.github.io/notes/phd-setup/">
         <span class="pagination__label">Previous Post</span>
-        <span class="pagination__title">Favorite garments 2021</span>
+        <span class="pagination__title">PhD setup</span>
     </a>
   
 
   
-    <a class="pagination__item" href="https://nasseralkmim.github.io/notes/cpp-environment-setup/">
+    <a class="pagination__item" href="https://nasseralkmim.github.io/notes/cpp-notes/">
       <span class="pagination__label">Next Post</span>
-      <span class="pagination__title" >C&#43;&#43; Development environment in Emacs</span>
+      <span class="pagination__title" >C&#43;&#43; Notes</span>
     </a>
   
 </div>
@@ -284,14 +310,26 @@ From this catalogue <a href="https://tug.org/FontCatalogue/seriffonts.html">The 
       </div>
       
       <div class="toc-container">
-           <div class="toc-post-title">PhD setup</div> 
+           <div class="toc-post-title">C&#43;&#43; Development environment in Emacs</div> 
         <nav id="TableOfContents">
 <ul>
-<li><a href="#headline-1">Emacs</a>
+<li><a href="#headline-1">Introduction</a>
 </li>
-<li><a href="#headline-2">Bibliography</a>
+<li><a href="#headline-2">Emacs</a>
+<ul>
+<li><a href="#headline-3">Lsp-mode clangd server</a>
 </li>
-<li><a href="#headline-3">Typeface for $LaTeX$</a>
+</ul>
+</li>
+<li><a href="#headline-4">C++ compiler</a>
+</li>
+<li><a href="#headline-5">Org-mode babel</a>
+<ul>
+<li><a href="#headline-6">Requirements</a>
+</li>
+<li><a href="#headline-7">Example</a>
+</li>
+</ul>
 </li>
 </ul>
 </nav>
