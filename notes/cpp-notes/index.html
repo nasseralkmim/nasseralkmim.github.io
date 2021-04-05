@@ -423,6 +423,89 @@ Advices
 </div>
 </div>
 </div>
+<div id="outline-container-headline-14" class="outline-2">
+<h2 id="headline-14">
+Classes
+</h2>
+<div id="outline-text-headline-14" class="outline-text-2">
+<p>
+Built-in types are types that can be built from fundamental types and declarator operators.</p>
+<p>
+User defined types can be used to implement high level facilities.
+These types are built out of the built-in types and C++ abstraction mechanisms.
+User defined types are referred as classes and enumerations.</p>
+<div id="outline-container-headline-15" class="outline-4">
+<h4 id="headline-15">
+Structures
+</h4>
+<div id="outline-text-headline-15" class="outline-text-4">
+<p>
+Organize elements that a new type needs into a data structure.</p>
+<div class="src src-c++">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+
+<span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">Vector</span> {			<span style="color:#75715e">// defines a type: Vector
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">int</span> sz;			<span style="color:#75715e">// type element sz
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">double</span><span style="color:#f92672">*</span> elem;			<span style="color:#75715e">// elem is a pointer
+</span><span style="color:#75715e"></span>};
+
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">vector_init</span>(Vector<span style="color:#f92672">&amp;</span>v, <span style="color:#66d9ef">int</span> s){ <span style="color:#75715e">// &amp; v is passed by non-const reference
+</span><span style="color:#75715e"></span>  v.elem <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">double</span>[s];	<span style="color:#75715e">// new creates objects independent on the scope
+</span><span style="color:#75715e"></span>  v.sz <span style="color:#f92672">=</span> s;			<span style="color:#75715e">// v&#39;s sz MEMBER gets the int value s
+</span><span style="color:#75715e"></span>}
+
+<span style="color:#66d9ef">double</span> <span style="color:#a6e22e">sum_squared</span>(<span style="color:#66d9ef">int</span> s)
+<span style="color:#75715e">// sum the square of s first integers
+</span><span style="color:#75715e"></span>{
+  Vector v;			<span style="color:#75715e">// creates a Vector variable
+</span><span style="color:#75715e"></span>  vector_init(v, s);		<span style="color:#75715e">// allocate s elements for f
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; i<span style="color:#f92672">!=</span>s; <span style="color:#f92672">++</span>i)
+    v.elem[i] <span style="color:#f92672">=</span> i<span style="color:#f92672">*</span>i;
+
+  <span style="color:#66d9ef">double</span> sum <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+  <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; i<span style="color:#f92672">!=</span>s; <span style="color:#f92672">++</span>i)
+{
+    sum <span style="color:#f92672">+=</span> v.elem[i];
+    cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;i &#34;</span> <span style="color:#f92672">&lt;&lt;</span> i <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; &#34;</span> <span style="color:#f92672">&lt;&lt;</span> sum <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>;
+}
+    <span style="color:#66d9ef">return</span> sum;
+}
+
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span> ()
+{
+  cout <span style="color:#f92672">&lt;&lt;</span>  sum_squared(<span style="color:#ae81ff">3</span>);
+}
+</code></pre></div>
+</div>
+<table>
+<tbody>
+<tr>
+<td>i</td>
+<td class="align-right">0</td>
+<td class="align-right">0</td>
+</tr>
+<tr>
+<td>i</td>
+<td class="align-right">1</td>
+<td class="align-right">1</td>
+</tr>
+<tr>
+<td>i</td>
+<td class="align-right">2</td>
+<td class="align-right">5</td>
+</tr>
+<tr>
+<td>5</td>
+<td class="align-right"></td>
+<td class="align-right"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
 
 
               
@@ -556,6 +639,12 @@ Advices
 <li><a href="#headline-12">Tests</a>
 </li>
 <li><a href="#headline-13">Advices</a>
+</li>
+</ul>
+</li>
+<li><a href="#headline-14">Classes</a>
+<ul>
+<li><a href="#headline-15">Structures</a>
 </li>
 </ul>
 </li>
