@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <title>Jacobi method | Nasser&#39;s personal website</title>
+
+  <meta charset="UTF-8">
+  <meta name="language" content="en">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  
+  
+
+  <link rel="shortcut icon" type="image/png" href="/favicon.ico" />
+
+
+  
+  
+    
+ 
+  
+  
+  
+  
+  
+  
+    
+    <link type="text/css" rel="stylesheet" href="/css/post.min.a74e392619e10b534ed018113147a605e2dfdc329ba2e2de512308b7b193758c.css" integrity="sha256-p045JhnhC1NO0BgRMUemBeLf3DKbouLeUSMIt7GTdYw="/>
+  
+    
+    <link type="text/css" rel="stylesheet" href="/css/custom.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" integrity="sha256-47DEQpj8HBSa&#43;/TImW&#43;5JCeuQeRkm5NMpJWZG3hSuFU="/>
+  
+  
+   
+   
+    
+
+<script type="application/ld+json">
+  
+    { 
+      "@context": "http://schema.org", 
+      "@type": "WebSite", 
+      "url": "https:\/\/nasseralkmim.github.io\/notes\/jacobi-method\/",
+      "name": "Jacobi method",
+      "author": {
+        "@type": "Person",
+        "name": ""
+      },
+      "description": ""
+    }
+  
+  </script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-74704246-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+</head>
+
+<body>
+  <div class="burger__container">
+  <div class="burger" aria-controls="navigation" aria-label="Menu">
+    <div class="burger__meat burger__meat--1"></div>
+    <div class="burger__meat burger__meat--2"></div>
+    <div class="burger__meat burger__meat--3"></div>
+  </div>
+</div>
+ 
+
+  <nav class="nav" id="navigation">
+  <ul class="nav__list">
+    
+    
+      <li>
+        <a  href="/">home</a>
+      </li>
+    
+      <li>
+        <a  class="active"
+         href="/notes">notes</a>
+      </li>
+    
+  </ul>
+</nav>
+
+
+  <main>
+    
+    
+
+    <div class="flex-wrapper">
+      <div class="post__container">
+        <div class="post">
+          <header class="post__header">
+            <h1 id="post__title">Jacobi method</h1>
+            <time datetime="2021-04-06 00:00:00 &#43;0000 UTC" class="post__date">Apr 6 2021</time> 
+          </header>
+          <article class="post__content">
+              
+
+<div id="outline-container-headline-1" class="outline-2">
+<h2 id="headline-1">
+Introduction
+</h2>
+<div id="outline-text-headline-1" class="outline-text-2">
+<p>Jacobi method is a standard iterative scheme for solving the linear system Ax=b.</p>
+<p>
+Basically writes the diagonal product as a function of the non diagonal products.</p>
+<img src="Introduction/2021-04-07_08-27-28_screenshot.png" alt="Introduction/2021-04-07_08-27-28_screenshot.png" title="Introduction/2021-04-07_08-27-28_screenshot.png" style="width: 350px"/>
+</div>
+</div>
+<div id="outline-container-headline-2" class="outline-2">
+<h2 id="headline-2">
+Example
+</h2>
+<div id="outline-text-headline-2" class="outline-text-2">
+<div id="outline-container-headline-3" class="outline-4">
+<h4 id="headline-3">
+Ax=b
+</h4>
+<div id="outline-text-headline-3" class="outline-text-4">
+<p>From Peter Olver lecture notes.</p>
+<div class="src src-python">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
+A <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array([[<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">1</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>], [<span style="color:#ae81ff">1</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">2</span>], [<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">5</span>]])
+b <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array([<span style="color:#ae81ff">3</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>])
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;A:&#34;</span>, A)
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;b:&#34;</span>, b)
+<span style="color:#66d9ef">print</span>(np<span style="color:#f92672">.</span>linalg<span style="color:#f92672">.</span>inv(A) <span style="color:#960050;background-color:#1e0010">@</span> b)     <span style="color:#75715e"># solving with numpy inverse function</span></code></pre></div>
+</div>
+<pre class="example">
+A: [[ 3  1 -1]
+ [ 1 -4  2]
+ [-2 -1  5]]
+b: [ 3 -1  2]
+[1. 1. 1.]
+</pre>
+</div>
+</div>
+<div id="outline-container-headline-4" class="outline-4">
+<h4 id="headline-4">
+Iterative scheme
+</h4>
+<div id="outline-text-headline-4" class="outline-text-4">
+<div class="src src-python">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">D <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>diag(np<span style="color:#f92672">.</span>diag(A))
+E <span style="color:#f92672">=</span> A <span style="color:#f92672">-</span> D
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;D: &#34;</span>, D)
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;E: &#34;</span>, E)</code></pre></div>
+</div>
+<pre class="example">
+D:  [[ 3  0  0]
+ [ 0 -4  0]
+ [ 0  0  5]]
+E:  [[ 0  1 -1]
+ [ 1  0  2]
+ [-2 -1  0]]
+</pre>
+<img src="Example/2021-04-07_08-32-59_screenshot.png" alt="Example/2021-04-07_08-32-59_screenshot.png" title="Example/2021-04-07_08-32-59_screenshot.png" style="width: 350px"/>
+</div>
+</div>
+<div id="outline-container-headline-5" class="outline-4">
+<h4 id="headline-5">
+Iterations
+</h4>
+<div id="outline-text-headline-5" class="outline-text-4">
+<div class="src src-python">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array([<span style="color:#ae81ff">0.2</span>, <span style="color:#ae81ff">0.3</span>, <span style="color:#ae81ff">0.4</span>])         <span style="color:#75715e"># initial guess</span>
+rows, columns <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>shape(A)
+num_iter <span style="color:#f92672">=</span> <span style="color:#ae81ff">15</span>
+<span style="color:#66d9ef">for</span> m <span style="color:#f92672">in</span> range(num_iter):
+    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(rows):             <span style="color:#75715e"># loop over rows</span>
+        sumprod <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+        <span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> range(columns):
+            <span style="color:#66d9ef">if</span> i <span style="color:#f92672">is</span> <span style="color:#f92672">not</span> j:
+                sumprod <span style="color:#f92672">+=</span> A[i, j] <span style="color:#f92672">*</span> x[j] <span style="color:#75715e"># non diagonal</span>
+        x[i] <span style="color:#f92672">=</span> (b[i] <span style="color:#f92672">-</span> sumprod) <span style="color:#f92672">/</span> A[i, i]
+    <span style="color:#66d9ef">print</span>(f<span style="color:#e6db74">&#34;iteration {m}: {x}&#34;</span>)</code></pre></div>
+</div>
+<pre class="example">
+iteration 0: [1.03333333 0.70833333 0.955     ]
+iteration 1: [1.08222222 0.99805556 1.0325    ]
+iteration 2: [1.01148148 1.01912037 1.00841667]
+iteration 3: [0.9964321  1.00331636 0.99923611]
+iteration 4: [0.99863992 0.99927803 0.99931157]
+iteration 5: [1.00001118 0.99965858 0.99993619]
+iteration 6: [1.00009254 0.99999123 1.00003526]
+iteration 7: [1.00001468 1.0000213  1.00001013]
+iteration 8: [0.99999628 1.00000413 0.99999934]
+iteration 9: [0.9999984  0.99999927 0.99999921]
+iteration 10: [0.99999998 0.9999996  0.99999991]
+iteration 11: [1.0000001  0.99999998 1.00000004]
+iteration 12: [1.00000002 1.00000002 1.00000001]
+iteration 13: [1.         1.00000001 1.        ]
+iteration 14: [1. 1. 1.]
+</pre>
+<p>
+Convergence after 11 iterations.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+              
+                  
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+              
+          </article>
+          
+
+<ul class="tags__list">
+    
+    <li class="tag__item">
+        <a class="tag__link" href="https://nasseralkmim.github.io/tags/linear-algebra/">linear-algebra</a>
+    </li>
+    <li class="tag__item">
+        <a class="tag__link" href="https://nasseralkmim.github.io/tags/python/">python</a>
+    </li></ul>
+
+ <div class="pagination">
+  
+    <a class="pagination__item" href="https://nasseralkmim.github.io/notes/cpp-notes/">
+        <span class="pagination__label">Previous Post</span>
+        <span class="pagination__title">C&#43;&#43; Notes</span>
+    </a>
+  
+
+  
+</div>
+
+          <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "nasseralkmim" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+          <footer class="post__footer">
+            
+
+
+<div class="social-icons">
+  
+     
+    
+      <a class="social-icons__link" rel="me" title="Email"
+         href="mailto:nasser.alkmim@gmail.com"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('https://nasseralkmim.github.io/svg/email.svg')"></div>
+      </a>
+    
+  
+     
+    
+      <a class="social-icons__link" rel="me" title="LinkedIn"
+         href="https://www.linkedin.com/in/nasser-alkmim-300882a6/"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('https://nasseralkmim.github.io/svg/linkedin.svg')"></div>
+      </a>
+    
+  
+     
+    
+      <a class="social-icons__link" rel="me" title="GitHub"
+         href="https://github.com/nasseralkmim"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('https://nasseralkmim.github.io/svg/github.svg')"></div>
+      </a>
+    
+  
+     
+    
+      <a class="social-icons__link" rel="me" title="Instagram"
+         href="https://instagram.com/naszr"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('https://nasseralkmim.github.io/svg/instagram.svg')"></div>
+      </a>
+    
+     
+</div>
+
+            <p>© 2021</p>
+          </footer>
+          </div>
+      </div>
+      
+      <div class="toc-container">
+           <div class="toc-post-title">Jacobi method</div> 
+        <nav id="TableOfContents">
+<ul>
+<li><a href="#headline-1">Introduction</a>
+</li>
+<li><a href="#headline-2">Example</a>
+<ul>
+<li><a href="#headline-3">Ax=b</a>
+</li>
+<li><a href="#headline-4">Iterative scheme</a>
+</li>
+<li><a href="#headline-5">Iterations</a>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+      </div>
+      
+    </div>
+    
+
+  </main>
+
+   
+
+  
+  <script src="/js/index.min.49e4d8a384357d9b445b87371863419937ede9fa77737522ffb633073aebfa44.js" integrity="sha256-SeTYo4Q1fZtEW4c3GGNBmTft6fp3c3Ui/7YzBzrr&#43;kQ=" crossorigin="anonymous"></script>
+  
+  
+  
+
+  
+  
+  
+
+  
+    <script src="/js/table-of-contents.js"></script>
+  
+
+
+</body>
+
+</html>

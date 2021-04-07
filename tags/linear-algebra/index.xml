@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>linear-algebra on Nasser&#39;s personal website</title>
+    <link>https://nasseralkmim.github.io/tags/linear-algebra/</link>
+    <description>Recent content in linear-algebra on Nasser&#39;s personal website</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© {year}</copyright>
+    <lastBuildDate>Tue, 06 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/tags/linear-algebra/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Jacobi method</title>
+      <link>https://nasseralkmim.github.io/notes/jacobi-method/</link>
+      <pubDate>Tue, 06 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://nasseralkmim.github.io/notes/jacobi-method/</guid>
+      <description>Introduction  Jacobi method is a standard iterative scheme for solving the linear system Ax=b.
+ Basically writes the diagonal product as a function of the non diagonal products.
+  Example  Ax=b  From Peter Olver lecture notes.
+import numpy as np A = np.array([[3, 1, -1], [1, -4, 2], [-2, -1, 5]]) b = np.array([3, -1, 2]) print(&amp;#34;A:&amp;#34;, A) print(&amp;#34;b:&amp;#34;, b) print(np.linalg.inv(A) @ b) # solving with numpy inverse function  A: [[ 3 1 -1] [ 1 -4 2] [-2 -1 5]] b: [ 3 -1 2] [1.</description>
+    </item>
+    
+  </channel>
+</rss>
