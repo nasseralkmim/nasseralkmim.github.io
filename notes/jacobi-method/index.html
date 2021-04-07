@@ -121,22 +121,17 @@ Basically writes the diagonal product as a function of the non diagonal products
 </div>
 <div id="outline-container-headline-2" class="outline-2">
 <h2 id="headline-2">
-Example
+Ax=b
 </h2>
 <div id="outline-text-headline-2" class="outline-text-2">
-<div id="outline-container-headline-3" class="outline-4">
-<h4 id="headline-3">
-Ax=b
-</h4>
-<div id="outline-text-headline-3" class="outline-text-4">
 <p>From Peter Olver lecture notes.</p>
-<div class="src src-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
-A <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array([[<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">1</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>], [<span style="color:#ae81ff">1</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">2</span>], [<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">5</span>]])
-b <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array([<span style="color:#ae81ff">3</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>])
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;A:&#34;</span>, A)
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;b:&#34;</span>, b)
-<span style="color:#66d9ef">print</span>(np<span style="color:#f92672">.</span>linalg<span style="color:#f92672">.</span>inv(A) <span style="color:#960050;background-color:#1e0010">@</span> b)     <span style="color:#75715e"># solving with numpy inverse function</span></code></pre></div>
+<div class="src src-jupyter-python">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">import numpy as np
+A = np.array([[3, 1, -1], [1, -4, 2], [-2, -1, 5]])
+b = np.array([3, -1, 2])
+print(&#34;A:&#34;, A)
+print(&#34;b:&#34;, b)
+print(np.linalg.inv(A) @ b)     # solving with numpy inverse function</code></pre></div>
 </div>
 <pre class="example">
 A: [[ 3  1 -1]
@@ -147,16 +142,16 @@ b: [ 3 -1  2]
 </pre>
 </div>
 </div>
-<div id="outline-container-headline-4" class="outline-4">
-<h4 id="headline-4">
+<div id="outline-container-headline-3" class="outline-2">
+<h2 id="headline-3">
 Iterative scheme
-</h4>
-<div id="outline-text-headline-4" class="outline-text-4">
-<div class="src src-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">D <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>diag(np<span style="color:#f92672">.</span>diag(A))
-E <span style="color:#f92672">=</span> A <span style="color:#f92672">-</span> D
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;D: &#34;</span>, D)
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;E: &#34;</span>, E)</code></pre></div>
+</h2>
+<div id="outline-text-headline-3" class="outline-text-2">
+<div class="src src-jupyter-python">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">D = np.diag(np.diag(A))
+E = A - D
+print(&#34;D: &#34;, D)
+print(&#34;E: &#34;, E)</code></pre></div>
 </div>
 <pre class="example">
 D:  [[ 3  0  0]
@@ -169,45 +164,87 @@ E:  [[ 0  1 -1]
 <img src="Example/2021-04-07_08-32-59_screenshot.png" alt="Example/2021-04-07_08-32-59_screenshot.png" title="Example/2021-04-07_08-32-59_screenshot.png" style="width: 350px"/>
 </div>
 </div>
-<div id="outline-container-headline-5" class="outline-4">
-<h4 id="headline-5">
-Iterations
-</h4>
-<div id="outline-text-headline-5" class="outline-text-4">
-<div class="src src-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array([<span style="color:#ae81ff">0.2</span>, <span style="color:#ae81ff">0.3</span>, <span style="color:#ae81ff">0.4</span>])         <span style="color:#75715e"># initial guess</span>
-rows, columns <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>shape(A)
-num_iter <span style="color:#f92672">=</span> <span style="color:#ae81ff">15</span>
-<span style="color:#66d9ef">for</span> m <span style="color:#f92672">in</span> range(num_iter):
-    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(rows):             <span style="color:#75715e"># loop over rows</span>
-        sumprod <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-        <span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> range(columns):
-            <span style="color:#66d9ef">if</span> i <span style="color:#f92672">is</span> <span style="color:#f92672">not</span> j:
-                sumprod <span style="color:#f92672">+=</span> A[i, j] <span style="color:#f92672">*</span> x[j] <span style="color:#75715e"># non diagonal</span>
-        x[i] <span style="color:#f92672">=</span> (b[i] <span style="color:#f92672">-</span> sumprod) <span style="color:#f92672">/</span> A[i, i]
-    <span style="color:#66d9ef">print</span>(f<span style="color:#e6db74">&#34;iteration {m}: {x}&#34;</span>)</code></pre></div>
+<div id="outline-container-headline-4" class="outline-2">
+<h2 id="headline-4">
+Iterations Jacobi
+</h2>
+<div id="outline-text-headline-4" class="outline-text-2">
+<div class="src src-jupyter-python">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">x = np.array([0.2, 0.3, 0.4])         # initial guess
+x_new = np.zeros(np.shape(x))
+rows, columns = np.shape(A)
+num_iter = 15
+for m in range(num_iter):
+    for i in range(rows):             # loop over rows
+        sumprod = 0
+        for j in range(columns):
+            if i is not j:
+                sumprod += A[i, j] * x[j] # non diagonal
+        x_new[i] = (b[i] - sumprod) / A[i, i]
+    x = x_new
+    print(f&#34;iteration {m + 1}: {x}&#34;)</code></pre></div>
 </div>
 <pre class="example">
-iteration 0: [1.03333333 0.70833333 0.955     ]
-iteration 1: [1.08222222 0.99805556 1.0325    ]
-iteration 2: [1.01148148 1.01912037 1.00841667]
-iteration 3: [0.9964321  1.00331636 0.99923611]
-iteration 4: [0.99863992 0.99927803 0.99931157]
-iteration 5: [1.00001118 0.99965858 0.99993619]
-iteration 6: [1.00009254 0.99999123 1.00003526]
-iteration 7: [1.00001468 1.0000213  1.00001013]
-iteration 8: [0.99999628 1.00000413 0.99999934]
-iteration 9: [0.9999984  0.99999927 0.99999921]
-iteration 10: [0.99999998 0.9999996  0.99999991]
-iteration 11: [1.0000001  0.99999998 1.00000004]
-iteration 12: [1.00000002 1.00000002 1.00000001]
-iteration 13: [1.         1.00000001 1.        ]
-iteration 14: [1. 1. 1.]
+iteration 1: [1.03333333 0.5        0.54      ]
+iteration 2: [1.01333333 0.77333333 0.96      ]
+iteration 3: [1.06222222 0.99555556 1.024     ]
+iteration 4: [1.00948148 1.01437037 1.00666667]
+iteration 5: [0.9974321  1.00269136 0.99951111]
+iteration 6: [0.99893992 0.99949053 0.99947407]
+iteration 7: [0.99999451 0.99973567 0.99994494]
+iteration 8: [1.00006976 0.99998991 1.00002588]
+iteration 9: [1.00001199 1.00001594 1.00000798]
+iteration 10: [0.99999735 1.00000333 0.99999961]
+iteration 11: [0.99999876 0.99999949 0.9999994 ]
+iteration 12: [0.99999997 0.99999969 0.99999993]
+iteration 13: [1.00000008 0.99999998 1.00000003]
+iteration 14: [1.00000001 1.00000002 1.00000001]
+iteration 15: [1. 1. 1.]
 </pre>
 <p>
-Convergence after 11 iterations.</p>
+Exact solution at 15th iteration.</p>
 </div>
 </div>
+<div id="outline-container-headline-5" class="outline-2">
+<h2 id="headline-5">
+Iterations Gauss Seidel
+</h2>
+<div id="outline-text-headline-5" class="outline-text-2">
+<p>
+What if we use the updated solution on the other rows instead of waiting the whole system to be solved (<em>i-loop</em>).</p>
+<div class="src src-jupyter-python">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">x = np.array([0.2, 0.3, 0.4])         # initial guess
+rows, columns = np.shape(A)
+num_iter = 15
+for m in range(num_iter):
+    for i in range(rows):             # loop over rows
+        sumprod = 0
+        for j in range(columns):
+            if i is not j:
+                sumprod += A[i, j] * x[j] # non diagonal
+        x[i] = (b[i] - sumprod) / A[i, i]
+    print(f&#34;iteration {m + 1}: {x}&#34;)</code></pre></div>
+</div>
+<pre class="example">
+iteration 1: [1.03333333 0.70833333 0.955     ]
+iteration 2: [1.08222222 0.99805556 1.0325    ]
+iteration 3: [1.01148148 1.01912037 1.00841667]
+iteration 4: [0.9964321  1.00331636 0.99923611]
+iteration 5: [0.99863992 0.99927803 0.99931157]
+iteration 6: [1.00001118 0.99965858 0.99993619]
+iteration 7: [1.00009254 0.99999123 1.00003526]
+iteration 8: [1.00001468 1.0000213  1.00001013]
+iteration 9: [0.99999628 1.00000413 0.99999934]
+iteration 10: [0.9999984  0.99999927 0.99999921]
+iteration 11: [0.99999998 0.9999996  0.99999991]
+iteration 12: [1.0000001  0.99999998 1.00000004]
+iteration 13: [1.00000002 1.00000002 1.00000001]
+iteration 14: [1.         1.00000001 1.        ]
+iteration 15: [1. 1. 1.]
+</pre>
+<p>
+Slight difference, exact solution at 14th iteration.
+From computational point of view, it does not requires to store simultaneously the previous iteration and the new one.</p>
 </div>
 </div>
 
@@ -245,6 +282,11 @@ Convergence after 11 iterations.</p>
     </a>
   
 
+  
+    <a class="pagination__item" href="https://nasseralkmim.github.io/notes/inn-2-efficiency-and-burocracy/">
+      <span class="pagination__label">Next Post</span>
+      <span class="pagination__title" >Efficiency and bureaucracy</span>
+    </a>
   
 </div>
 
@@ -323,15 +365,13 @@ Convergence after 11 iterations.</p>
 <ul>
 <li><a href="#headline-1">Introduction</a>
 </li>
-<li><a href="#headline-2">Example</a>
-<ul>
-<li><a href="#headline-3">Ax=b</a>
+<li><a href="#headline-2">Ax=b</a>
 </li>
-<li><a href="#headline-4">Iterative scheme</a>
+<li><a href="#headline-3">Iterative scheme</a>
 </li>
-<li><a href="#headline-5">Iterations</a>
+<li><a href="#headline-4">Iterations Jacobi</a>
 </li>
-</ul>
+<li><a href="#headline-5">Iterations Gauss Seidel</a>
 </li>
 </ul>
 </nav>
