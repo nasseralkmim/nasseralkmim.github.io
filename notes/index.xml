@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© {year}</copyright>
-    <lastBuildDate>Wed, 07 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/notes/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 13 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>QR Decomposition in one image</title>
+      <link>https://nasseralkmim.github.io/notes/qr-decomposition/</link>
+      <pubDate>Tue, 13 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://nasseralkmim.github.io/notes/qr-decomposition/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Innsbruck - Efficiency and bureaucracy</title>
       <link>https://nasseralkmim.github.io/notes/inn-2-efficiency-and-burocracy/</link>
