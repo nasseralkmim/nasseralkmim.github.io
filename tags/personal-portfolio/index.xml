@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>personal-portfolio on Nasser&#39;s personal website</title>
+    <link>https://nasseralkmim.github.io/tags/personal-portfolio/</link>
+    <description>Recent content in personal-portfolio on Nasser&#39;s personal website</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© {year}</copyright>
+    <lastBuildDate>Wed, 30 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/tags/personal-portfolio/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Portfolio pessoal</title>
+      <link>https://nasseralkmim.github.io/notes/personal-portolio/</link>
+      <pubDate>Wed, 30 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://nasseralkmim.github.io/notes/personal-portolio/</guid>
+      <description>Consolidação do portfolio  import pandas as pd import portman as pm pm.consolidate(&amp;#39;trade_data.csv&amp;#39;)    Análise  import matplotlib import matplotlib.pyplot as plt matplotlib.style.use(&amp;#39;ggplot&amp;#39;) import portman as pm pm.analysis.summary(&amp;#39;portfolio.csv&amp;#39;) pm.analysis.allocation(&amp;#39;portfolio.csv&amp;#39;) pm.analysis.returns(&amp;#39;returns.csv&amp;#39;) pm.analysis.dividends(&amp;#39;dividends.csv&amp;#39;) plt.tight_layout()    Outros  div = pd.read_csv(&amp;#39;dividends.csv&amp;#39;, parse_dates=[&amp;#39;date_com&amp;#39;]) print(div.groupby([div.date_com.dt.to_period(&amp;#39;M&amp;#39;), &amp;#39;ticker&amp;#39;, &amp;#39;type&amp;#39;, &amp;#39;date_com&amp;#39;]).sum().tail(10))  Unnamed: 0 value vol_liq total date_com ticker type date_com 2020-12 B3SA3 DIVIDENDO 2020-12-30 67 0.41 36 14.78 JRS CAP PROPRIO 2020-12-30 68 0.</description>
+    </item>
+    
+  </channel>
+</rss>

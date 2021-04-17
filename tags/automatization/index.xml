@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>automatization on Nasser&#39;s personal website</title>
+    <link>https://nasseralkmim.github.io/tags/automatization/</link>
+    <description>Recent content in automatization on Nasser&#39;s personal website</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© {year}</copyright>
+    <lastBuildDate>Thu, 18 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/tags/automatization/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Automatizar IR - Rendimentos</title>
+      <link>https://nasseralkmim.github.io/notes/automatizar-ir/</link>
+      <pubDate>Thu, 18 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://nasseralkmim.github.io/notes/automatizar-ir/</guid>
+      <description>Objetivo   Rendimentos recebidos são fornecidos pelo banco escriturador para cada ativo registrado no seu CPF.
+ Na declaração é necessário preencher na ficha &amp;#34;Rendimentos sujeitos à tributação exclusiva/definitiva&amp;#34; o juros sobre capital próprio JSCP recebido (item 10). Nesse caso será preciso do CNPJ da fonte pagadora para a receita fazer o cruzamento.
+ Na ficha &amp;#34;rendimentos isentos e não-tributáveis&amp;#34; devem ser declarados os dividendos recebido (09).
+  Estratégia   Automatizar a leitura dos pdfs de informe de rendimentos e preencher uma tabela (spreadsheet) com os dados necessários para a declaração.</description>
+    </item>
+    
+  </channel>
+</rss>

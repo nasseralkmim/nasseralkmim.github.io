@@ -7,7 +7,91 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© {year}</copyright>
-    <lastBuildDate>Sat, 26 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/tags/finance/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 18 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/tags/finance/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Automatizar IR - Rendimentos</title>
+      <link>https://nasseralkmim.github.io/notes/automatizar-ir/</link>
+      <pubDate>Thu, 18 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://nasseralkmim.github.io/notes/automatizar-ir/</guid>
+      <description>Objetivo   Rendimentos recebidos são fornecidos pelo banco escriturador para cada ativo registrado no seu CPF.
+ Na declaração é necessário preencher na ficha &amp;#34;Rendimentos sujeitos à tributação exclusiva/definitiva&amp;#34; o juros sobre capital próprio JSCP recebido (item 10). Nesse caso será preciso do CNPJ da fonte pagadora para a receita fazer o cruzamento.
+ Na ficha &amp;#34;rendimentos isentos e não-tributáveis&amp;#34; devem ser declarados os dividendos recebido (09).
+  Estratégia   Automatizar a leitura dos pdfs de informe de rendimentos e preencher uma tabela (spreadsheet) com os dados necessários para a declaração.</description>
+    </item>
+    
+    <item>
+      <title>Crypto</title>
+      <link>https://nasseralkmim.github.io/notes/crypto/</link>
+      <pubDate>Wed, 10 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://nasseralkmim.github.io/notes/crypto/</guid>
+      <description>Crypto as an asset    no income (like stocks or bonds)
+  no utility (currency as means of payment)
+    Crypto as an alternative to credit  What is credit?   One of the key features of crypto is its manufactured scarcity. Whereas current fiat money can be created by the central bank expansion of its balance sheet (increasing both assets and liabilities).</description>
+    </item>
+    
+    <item>
+      <title>Decentralized finance</title>
+      <link>https://nasseralkmim.github.io/notes/descentrilized-finance/</link>
+      <pubDate>Wed, 10 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://nasseralkmim.github.io/notes/descentrilized-finance/</guid>
+      <description> Collateralized debt markets   Clearing and settlement   Financial Society is inherently hierarchical, as promises to pay (i.e. credit) at one level in the system serve as means of payment (i.e. money) lower down. — Perry Mehrling
+   References    Decentralized Finance: On Blockchain- and Smart Contract-Based Financial Mark…   Financialization and its discontents | Mehrling | Finance and Society
+    </description>
+    </item>
+    
+    <item>
+      <title>2008 Crises compilation</title>
+      <link>https://nasseralkmim.github.io/notes/2008-crisis/</link>
+      <pubDate>Sun, 31 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://nasseralkmim.github.io/notes/2008-crisis/</guid>
+      <description>Introduction  This is a compilation about my understanding of the 2008 GFC.
+  Causes of the crisis    Shadow banking expanding market-based credit with riskier assets (hedged with derivatives to become quasi-treasuries)
+  price of this assets declined, dealers could not access the usual funding liquidity to roll their loans;
+  with no access to cash from market-based credit, they were forced to sell their securities;</description>
+    </item>
+    
+    <item>
+      <title>GME big short</title>
+      <link>https://nasseralkmim.github.io/notes/gme-big-short/</link>
+      <pubDate>Sat, 30 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://nasseralkmim.github.io/notes/gme-big-short/</guid>
+      <description>Problems for hedge funds   Short squeeze   Brokers and margin call   Brokers got margin call by the clearinghouse. On other hand, brokers should have margin called the short sellers to cover their positions. But they did not do that, because it would most certainly cause the short sellers to just default.
+ If the short sellers were margin called they would be required to buy shares at whatever price and this would put upward pressure to the price.</description>
+    </item>
+    
+    <item>
+      <title>Resultado em operações de swing trade</title>
+      <link>https://nasseralkmim.github.io/notes/swing-trade-result/</link>
+      <pubDate>Fri, 08 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://nasseralkmim.github.io/notes/swing-trade-result/</guid>
+      <description>Objetivo   Preliminares  import pandas as pd import matplotlib import matplotlib.pyplot as plt matplotlib.style.use(&amp;#39;ggplot&amp;#39;)    Dados  trades = pd.read_csv(&amp;#39;trade_data.csv&amp;#39;, sep=&amp;#39;,&amp;#39;, names=[&amp;#39;date&amp;#39;, &amp;#39;type&amp;#39;, &amp;#39;ticker&amp;#39;, &amp;#39;volume&amp;#39;, &amp;#39;price&amp;#39;], decimal=&amp;#39;,&amp;#39;, parse_dates=[&amp;#39;date&amp;#39;], infer_datetime_format=True) print(trades) print(trades.dtypes)  date type ticker volume price 0 2020-10-03 Buy PETR4 90 17.99 1 2020-10-03 Buy PETR4 90 17.59 2 2020-11-03 Buy PETR4 50 15.17 3 2020-03-13 Buy PETR4 50 14.24 4 2020-03-16 Buy PETR4 50 13.</description>
+    </item>
+    
+    <item>
+      <title>Portfolio theory, CAPM and Nassim Taleb</title>
+      <link>https://nasseralkmim.github.io/notes/portfolio-theory-and-capm/</link>
+      <pubDate>Thu, 07 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://nasseralkmim.github.io/notes/portfolio-theory-and-capm/</guid>
+      <description>Portfolio theory   Markowitz calculou o desvio padrão de uma carteira por meio da covariança entre os ativos que compõem a carteira. Com isso obteve uma relação entre retorno e desvio padrão da carteira, que entendia como medida de risco.
+ Além disso, outra conclusão importante: o risco de uma carteira não é simplesmente a soma da variância de cada ativo mas a soma das covariâncias. Portanto, é possível a combinação de dois ativos com retornos voláteis para gerar uma carteira menos volátil se por exemplo quando um ativo cai de preço o outro aumenta, ou seja, são correlacionados negativamente.</description>
+    </item>
+    
+    <item>
+      <title>Gerenciamento de portfolio com portman</title>
+      <link>https://nasseralkmim.github.io/notes/portman/</link>
+      <pubDate>Wed, 30 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://nasseralkmim.github.io/notes/portman/</guid>
+      <description> Consolidação do portfolio  import pandas as pd import portman as pm pm.consolidate(&amp;#39;trade_data.csv&amp;#39;)    Análise  import matplotlib import matplotlib.pyplot as plt matplotlib.style.use(&amp;#39;ggplot&amp;#39;) import portman as pm pm.analysis.summary(&amp;#39;portfolio.csv&amp;#39;) pm.analysis.allocation(&amp;#39;portfolio.csv&amp;#39;) pm.analysis.returns(&amp;#39;returns.csv&amp;#39;) pm.analysis.dividends(&amp;#39;dividends.csv&amp;#39;) plt.tight_layout()    </description>
+    </item>
+    
     <item>
       <title>Performance de um portfolio</title>
       <link>https://nasseralkmim.github.io/notes/portfolio-performance/</link>
@@ -36,6 +120,27 @@ import yahooquery as yf import pandas as pd pd.options.display.float_format = &a
       <description>Objetivo   Dado uma série de trades, saber quanto de dividendo foi recebido até então, separado por valores mensais.
    Resultado  Antecipando o resultado do artigo. Se quiser acompanhar a lógica de solução o restante do texto mostra o processo.
 Input  trade_data = pd.read_csv(&amp;#39;trade_data.csv&amp;#39;, sep=&amp;#39;;&amp;#39;, header=None) print(trade_data)  0 1 2 3 4 0 20-07-2020 buy MGLU3 10 50,5 1 29-07-2020 buy MGLU3 30 60 2 30-07-2020 sell ITSA4 15 12 3 11-12-2019 buy MGLU3 50 10 4 19-02-2020 buy ITSA4 20 11 5 29-05-2020 buy ITSA4 25 10    Processar as negociações  trades = process_trades(trade_data_file=&amp;#39;trade_data.</description>
+    </item>
+    
+    <item>
+      <title>Did LTCM were too greed?</title>
+      <link>https://nasseralkmim.github.io/notes/ltcm/</link>
+      <pubDate>Sat, 12 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://nasseralkmim.github.io/notes/ltcm/</guid>
+      <description>What was LTCM trade?  They traded spreads in the bond market. Buying under priced bonds and short sell overpriced ones, then wait them to converge to a fair value and unwind the trade. Tiny spreads can be amplified with leverage.
+ Long term means that this convergence of prices can take some time.
+  Why it failed?   A crises in Asian and Russia made all LTCM trades to diverge, risking insolvency by reducing its long position value and increasing its short.</description>
+    </item>
+    
+    <item>
+      <title>Fat tails and Gaussian fallacies</title>
+      <link>https://nasseralkmim.github.io/notes/fat-tails/</link>
+      <pubDate>Sat, 12 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://nasseralkmim.github.io/notes/fat-tails/</guid>
+      <description>  Por que quando lidamos com problemas que envolvem fat tails as estatísticas da distribuição normal (média, variância) não fazem sentido?
+Eventos extremos e eventos medíocres   Fat tails   References   </description>
     </item>
     
   </channel>

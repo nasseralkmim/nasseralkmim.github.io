@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>statistics on Nasser&#39;s personal website</title>
+    <link>https://nasseralkmim.github.io/tags/statistics/</link>
+    <description>Recent content in statistics on Nasser&#39;s personal website</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© {year}</copyright>
+    <lastBuildDate>Sat, 12 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/tags/statistics/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Fat tails and Gaussian fallacies</title>
+      <link>https://nasseralkmim.github.io/notes/fat-tails/</link>
+      <pubDate>Sat, 12 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://nasseralkmim.github.io/notes/fat-tails/</guid>
+      <description>  Por que quando lidamos com problemas que envolvem fat tails as estatísticas da distribuição normal (média, variância) não fazem sentido?
+Eventos extremos e eventos medíocres   Fat tails   References   </description>
+    </item>
+    
+  </channel>
+</rss>

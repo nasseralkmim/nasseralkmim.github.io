@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <title>Automatizar IR - Rendimentos | Nasser&#39;s personal website</title>
+
+  <meta charset="UTF-8">
+  <meta name="language" content="en">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  
+  
+
+  <link rel="shortcut icon" type="image/png" href="/favicon.ico" />
+
+
+  
+  
+    
+ 
+  
+  
+  
+  
+  
+  
+    
+    <link type="text/css" rel="stylesheet" href="/css/post.min.a74e392619e10b534ed018113147a605e2dfdc329ba2e2de512308b7b193758c.css" integrity="sha256-p045JhnhC1NO0BgRMUemBeLf3DKbouLeUSMIt7GTdYw="/>
+  
+    
+    <link type="text/css" rel="stylesheet" href="/css/custom.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" integrity="sha256-47DEQpj8HBSa&#43;/TImW&#43;5JCeuQeRkm5NMpJWZG3hSuFU="/>
+  
+  
+   
+   
+    
+
+<script type="application/ld+json">
+  
+    { 
+      "@context": "http://schema.org", 
+      "@type": "WebSite", 
+      "url": "https:\/\/nasseralkmim.github.io\/notes\/automatizar-ir\/",
+      "name": "Automatizar IR - Rendimentos",
+      "author": {
+        "@type": "Person",
+        "name": ""
+      },
+      "description": ""
+    }
+  
+  </script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-74704246-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+</head>
+
+<body>
+  <div class="burger__container">
+  <div class="burger" aria-controls="navigation" aria-label="Menu">
+    <div class="burger__meat burger__meat--1"></div>
+    <div class="burger__meat burger__meat--2"></div>
+    <div class="burger__meat burger__meat--3"></div>
+  </div>
+</div>
+ 
+
+  <nav class="nav" id="navigation">
+  <ul class="nav__list">
+    
+    
+      <li>
+        <a  href="/">home</a>
+      </li>
+    
+      <li>
+        <a  class="active"
+         href="/notes">notes</a>
+      </li>
+    
+  </ul>
+</nav>
+
+
+  <main>
+    
+    
+
+    <div class="flex-wrapper">
+      <div class="post__container">
+        <div class="post">
+          <header class="post__header">
+            <h1 id="post__title">Automatizar IR - Rendimentos</h1>
+            <time datetime="2021-03-18 00:00:00 &#43;0000 UTC" class="post__date">Mar 18 2021</time> 
+          </header>
+          <article class="post__content">
+              
+
+<div id="outline-container-headline-1" class="outline-2">
+<h2 id="headline-1">
+Objetivo
+</h2>
+<div id="outline-text-headline-1" class="outline-text-2">
+<p>
+Rendimentos recebidos são fornecidos pelo banco escriturador para cada ativo registrado no seu CPF.</p>
+<p>
+Na declaração é necessário preencher na ficha &#34;Rendimentos sujeitos à tributação exclusiva/definitiva&#34; o juros sobre capital próprio JSCP recebido (item 10).
+Nesse caso será preciso do CNPJ da fonte pagadora para a receita fazer o cruzamento.</p>
+<p>
+Na ficha &#34;rendimentos isentos e não-tributáveis&#34; devem ser declarados os dividendos recebido (09).</p>
+</div>
+</div>
+<div id="outline-container-headline-2" class="outline-2">
+<h2 id="headline-2">
+Estratégia
+</h2>
+<div id="outline-text-headline-2" class="outline-text-2">
+<p>
+Automatizar a leitura dos pdfs de informe de rendimentos e preencher uma tabela (spreadsheet) com os dados necessários para a declaração.</p>
+</div>
+</div>
+<div id="outline-container-headline-3" class="outline-2">
+<h2 id="headline-3">
+Protótipo
+</h2>
+<div id="outline-text-headline-3" class="outline-text-2">
+<div class="src src-jupyter-python">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">import tabula
+
+df = tabula.read_pdf(&#39;Informe de Rendimento Posição Acionária (8).pdf&#39;, pages=1, guess=False)[0]
+df = df.rename(index={1: &#34;tipo&#34;})</code></pre></div>
+</div>
+<div class="src src-jupyter-python">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">print(df)</code></pre></div>
+</div>
+<pre class="example">
+                                             Unnamed: 0  Unnamed: 1  \
+0                                                   NaN         NaN   
+tipo                                                NaN         NaN   
+2                                             ACIONISTA         NaN   
+3         NOME: NASSER SAMIR ALKMIM CPF: 004.920.951-59         NaN   
+4                                        FONTE PAGADORA         NaN   
+5               RAZÃO SOCIAL: ITAU UNIBANCO HOLDING S/A         NaN   
+6       1 - RENDIMENTOS SUJEITOS À TRIBUTAÇÃO EXCLUSIVA         NaN   
+7                              1.1 - CREDITADOS E PAGOS         NaN   
+8                    CÓDIGO DE RETENÇÃO MÊS VALOR BRUTO         NaN   
+9                  5706 - JUROS SOBRE CAPITAL MAR 15,73         NaN   
+10                                          TOTAL 15,73         NaN   
+11                     1.2 - CREDITADOS E NÃO PAGOS (1)         NaN   
+12                   CÓDIGO DE RETENÇÃO MÊS VALOR BRUTO         NaN   
+13                  5706 - JUROS SOBRE CAPITAL DEZ 1,42         NaN   
+14                                           TOTAL 1,42         NaN   
+15           1.3 - TOTAL DOS RENDIMENTOS CREDITADOS (2)         NaN   
+16                               2 - DECLARAÇÃO DE BENS         NaN   
+17                        DESCRIÇÃO SALDO EM 31/12/2018         NaN   
+18      JUROS SOBRE CAPITAL CREDITADOS E NAO PAGOS 0,19         NaN   
+19            3 - RENDIMENTOS ISENTOS E NÃO TRIBUTÁVEIS         NaN   
+20    LUCROS E DIVIDENDO APURADOS A PARTIR DE 1996 E...         NaN   
+21                   4. POSIÇÃO ACIONÁRIA EM 31.12.2019         NaN   
+22                                  4.1 AÇÕES POSSUIDAS         NaN   
+23                      TIPO/SIGLA DESCRIÇÃO QUANTIDADE         NaN   
+24                            4.2 AÇÕES BONIFICADAS (3)         NaN   
+25                      TIPO/SIGLA DESCRIÇÃO QUANTIDADE         NaN   
+26                                 4.3 AÇÕES SUBSCRITAS         NaN   
+27                      TIPO/SIGLA DESCRIÇÃO QUANTIDADE         NaN   
+28    Informações Complementares - As posições acion...         NaN   
+29    pela(s) corretora(s) onde você mantém posição....         NaN   
+30                              www.itau.com.br/guiair.         NaN   
+31    (1) O valor líquido total dos rendimentos cred...         NaN   
+32    como créditos a receber da Pessoa Jurídica emi...         NaN   
+33    (2) O total dos rendimentos creditados deverá ...         NaN   
+34    (3) O custo das ações bonificadas (custo de aq...         NaN   
+35    &#34;Incorporação de Reservas ao Capital/Bonificaç...         NaN   
+36    As principais informações sobre sua posição ac...         NaN   
+37    podem realizar a consulta pelo site www.itau.c...         NaN   
+38    acessar pelo site da Itaú Corretora www.itauco...         NaN   
+39    Rendimentos. Para se cadastrar acesse Não Corr...         NaN   
+40    Mantenha sempre seu cadastro de acionista atua...         NaN   
+41    comprovante de residência e comprovante de sua...         NaN   
+42    Caso tenha recebido bonificação de ações em bo...         NaN   
+43    Dúvidas, sugestões e reclamações fale com a Ce...         NaN   
+44    0800 720 9285, dias úteis, das 9h às 18h. Se n...         NaN   
+45    Atendimento pela Internet, no website www.itau...         NaN   
+46    Ouvidoria Corporativa Itaú 0800 570 0011, dias...         NaN   
+47                                       0800 722 1722.         NaN   
+48                                                  NaN         NaN   
+
+                               INFORME DE RENDIMENTOS  
+0                                 E POSIÇÃO ACIONARIA  
+tipo                             Ano Calendário: 2019  
+2                                                 NaN  
+3                                  CÓDIGO: 5995933081  
+4                                                 NaN  
+5                      No DO CNPJ: 60.872.504/0001-23  
+6                                                 NaN  
+7                                                 NaN  
+8                              I.R.R.F. VALOR LÍQUIDO  
+9                                          2,35 13,38  
+10                                         2,35 13,38  
+11                                                NaN  
+12                             I.R.R.F. VALOR LÍQUIDO  
+13                                          0,21 1,21  
+14                                          0,21 1,21  
+15                                              14,59  
+16                                                NaN  
+17                                SALDO EM 31/12/2019  
+18                                               1,21  
+19                                        VALOR BRUTO  
+20                                              57,50  
+21                                                NaN  
+22                                                NaN  
+23                                                NaN  
+24                                                NaN  
+25                           CUSTO DE AQUISIÇÃO TOTAL  
+26                                                NaN  
+27                              VALOR SUBSCRITO TOTAL  
+28                                                NaN  
+29                                                NaN  
+30                                                NaN  
+31                                                NaN  
+32                                                NaN  
+33                                                NaN  
+34                                                NaN  
+35                                                NaN  
+36                                                NaN  
+37                                                NaN  
+38                                                NaN  
+39                                                NaN  
+40                                                NaN  
+41                                                NaN  
+42                                                NaN  
+43                                                NaN  
+44                                                NaN  
+45                                                NaN  
+46                                                NaN  
+47                                                NaN  
+48    1230225 DF020 14/02/2020 DFR16F39 G0061 2546640
+</pre>
+</div>
+</div>
+
+
+              
+                  
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+              
+          </article>
+          
+
+<ul class="tags__list">
+    
+    <li class="tag__item">
+        <a class="tag__link" href="https://nasseralkmim.github.io/tags/portugues/">portugues</a>
+    </li>
+    <li class="tag__item">
+        <a class="tag__link" href="https://nasseralkmim.github.io/tags/finance/">finance</a>
+    </li>
+    <li class="tag__item">
+        <a class="tag__link" href="https://nasseralkmim.github.io/tags/automatization/">automatization</a>
+    </li></ul>
+
+ <div class="pagination">
+  
+    <a class="pagination__item" href="https://nasseralkmim.github.io/notes/phd-setup/">
+        <span class="pagination__label">Previous Post</span>
+        <span class="pagination__title">PhD setup</span>
+    </a>
+  
+
+  
+    <a class="pagination__item" href="https://nasseralkmim.github.io/notes/cpp-environment-setup/">
+      <span class="pagination__label">Next Post</span>
+      <span class="pagination__title" >C&#43;&#43; Development environment in Emacs</span>
+    </a>
+  
+</div>
+
+          <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "nasseralkmim" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+          <footer class="post__footer">
+            
+
+
+<div class="social-icons">
+  
+     
+    
+      <a class="social-icons__link" rel="me" title="Email"
+         href="mailto:nasser.alkmim@gmail.com"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('https://nasseralkmim.github.io/svg/email.svg')"></div>
+      </a>
+    
+  
+     
+    
+      <a class="social-icons__link" rel="me" title="LinkedIn"
+         href="https://www.linkedin.com/in/nasser-alkmim-300882a6/"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('https://nasseralkmim.github.io/svg/linkedin.svg')"></div>
+      </a>
+    
+  
+     
+    
+      <a class="social-icons__link" rel="me" title="GitHub"
+         href="https://github.com/nasseralkmim"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('https://nasseralkmim.github.io/svg/github.svg')"></div>
+      </a>
+    
+  
+     
+    
+      <a class="social-icons__link" rel="me" title="Instagram"
+         href="https://instagram.com/naszr"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('https://nasseralkmim.github.io/svg/instagram.svg')"></div>
+      </a>
+    
+     
+</div>
+
+            <p>© 2021</p>
+          </footer>
+          </div>
+      </div>
+      
+      <div class="toc-container">
+           <div class="toc-post-title">Automatizar IR - Rendimentos</div> 
+        <nav id="TableOfContents">
+<ul>
+<li><a href="#headline-1">Objetivo</a>
+</li>
+<li><a href="#headline-2">Estratégia</a>
+</li>
+<li><a href="#headline-3">Protótipo</a>
+</li>
+</ul>
+</nav>
+      </div>
+      
+    </div>
+    
+
+  </main>
+
+   
+
+  
+  <script src="/js/index.min.49e4d8a384357d9b445b87371863419937ede9fa77737522ffb633073aebfa44.js" integrity="sha256-SeTYo4Q1fZtEW4c3GGNBmTft6fp3c3Ui/7YzBzrr&#43;kQ=" crossorigin="anonymous"></script>
+  
+  
+  
+
+  
+  
+  
+
+  
+    <script src="/js/table-of-contents.js"></script>
+  
+
+
+</body>
+
+</html>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>org-mode on Nasser&#39;s personal website</title>
+    <link>https://nasseralkmim.github.io/tags/org-mode/</link>
+    <description>Recent content in org-mode on Nasser&#39;s personal website</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© {year}</copyright>
+    <lastBuildDate>Fri, 25 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/tags/org-mode/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Org-mode magic</title>
+      <link>https://nasseralkmim.github.io/notes/org-mode-magic/</link>
+      <pubDate>Fri, 25 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://nasseralkmim.github.io/notes/org-mode-magic/</guid>
+      <description> What is org-mode?   Why I like it?   </description>
+    </item>
+    
+  </channel>
+</rss>
