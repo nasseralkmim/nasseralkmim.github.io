@@ -1,22 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>linear-algebra on Nasser&#39;s personal website</title>
-    <link>https://nasseralkmim.github.io/tags/linear-algebra/</link>
-    <description>Recent content in linear-algebra on Nasser&#39;s personal website</description>
+    <title>numerical-methods on Nasser&#39;s personal website</title>
+    <link>https://nasseralkmim.github.io/tags/numerical-methods/</link>
+    <description>Recent content in numerical-methods on Nasser&#39;s personal website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© {year}</copyright>
-    <lastBuildDate>Tue, 13 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/tags/linear-algebra/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>QR Decomposition in one image</title>
-      <link>https://nasseralkmim.github.io/notes/qr-decomposition/</link>
-      <pubDate>Tue, 13 Apr 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/notes/qr-decomposition/</guid>
-      <description></description>
-    </item>
-    
+    <lastBuildDate>Tue, 06 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/tags/numerical-methods/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Jacobi method</title>
       <link>https://nasseralkmim.github.io/notes/jacobi-method/</link>

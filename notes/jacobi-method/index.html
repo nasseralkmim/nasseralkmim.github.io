@@ -113,10 +113,11 @@ if (!doNotTrack) {
 Introduction
 </h2>
 <div id="outline-text-headline-1" class="outline-text-2">
-<p>Jacobi method is a standard iterative scheme for solving the linear system Ax=b.</p>
+<p>Jacobi method is a standard iterative scheme for solving the linear system $Ax=b$.
+It is part of what is known as <em>relaxation-based</em> methods, together with Gauss-Seidel.</p>
 <p>
-Basically writes the diagonal product as a function of the non diagonal products.</p>
-<img src="Introduction/2021-04-07_08-27-28_screenshot.png" alt="Introduction/2021-04-07_08-27-28_screenshot.png" title="Introduction/2021-04-07_08-27-28_screenshot.png" style="width: 350px"/>
+The basic idea is to write the diagonal product as a function of off-diagonal ones.</p>
+<img src="Introduction/2021-04-15_07-13-44_screenshot.png" alt="Introduction/2021-04-15_07-13-44_screenshot.png" title="Introduction/2021-04-15_07-13-44_screenshot.png" style="width: 350px"/>
 </div>
 </div>
 <div id="outline-container-headline-2" class="outline-2">
@@ -124,7 +125,7 @@ Basically writes the diagonal product as a function of the non diagonal products
 Ax=b
 </h2>
 <div id="outline-text-headline-2" class="outline-text-2">
-<p>From Peter Olver lecture notes.</p>
+<p>Take this simple linear system of equations.</p>
 <div class="src src-python">
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
 A <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array([[<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">1</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>], [<span style="color:#ae81ff">1</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">2</span>], [<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">5</span>]])
@@ -147,21 +148,21 @@ b: [ 3 -1  2]
 Iterative scheme
 </h2>
 <div id="outline-text-headline-3" class="outline-text-2">
-<div class="src src-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">D <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>diag(np<span style="color:#f92672">.</span>diag(A))
-E <span style="color:#f92672">=</span> A <span style="color:#f92672">-</span> D
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;D: &#34;</span>, D)
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;E: &#34;</span>, E)</code></pre></div>
-</div>
-<pre class="example">
-D:  [[ 3  0  0]
- [ 0 -4  0]
- [ 0  0  5]]
-E:  [[ 0  1 -1]
- [ 1  0  2]
- [-2 -1  0]]
-</pre>
-<img src="Example/2021-04-07_08-32-59_screenshot.png" alt="Example/2021-04-07_08-32-59_screenshot.png" title="Example/2021-04-07_08-32-59_screenshot.png" style="width: 350px"/>
+<p>The iterative scheme, in a programming language would be as follows:</p>
+<ol>
+<li>
+<p>input an initial solution guess</p>
+</li>
+<li>
+<p>loop over rows and columns</p>
+</li>
+<li>
+<p>if not a in the diagonal, perform a row-column multiplication and sum the results</p>
+</li>
+<li>
+<p>solve for the updated solution by inverting the diagonal entry</p>
+</li>
+</ol>
 </div>
 </div>
 <div id="outline-container-headline-4" class="outline-2">
@@ -247,6 +248,18 @@ Slight difference, exact solution at 14th iteration.
 From computational point of view, it does not requires to store simultaneously the previous iteration and the new one.</p>
 </div>
 </div>
+<div id="outline-container-headline-6" class="outline-2">
+<h2 id="headline-6">
+References
+</h2>
+<div id="outline-text-headline-6" class="outline-text-2">
+<ol>
+<li>
+<p>Saad, Y., &amp; van der Vorst, H. A. (). Iterative solution of linear systems in the 20th century. , 123(1-2), 1–33. <a href="http://dx.doi.org/10.1016/S0377-0427(00)00412-X">http://dx.doi.org/10.1016/S0377-0427(00)00412-X</a></p>
+</li>
+</ol>
+</div>
+</div>
 
 
               
@@ -272,6 +285,9 @@ From computational point of view, it does not requires to store simultaneously t
     </li>
     <li class="tag__item">
         <a class="tag__link" href="https://nasseralkmim.github.io/tags/python/">python</a>
+    </li>
+    <li class="tag__item">
+        <a class="tag__link" href="https://nasseralkmim.github.io/tags/numerical-methods/">numerical-methods</a>
     </li></ul>
 
  <div class="pagination">
@@ -372,6 +388,8 @@ From computational point of view, it does not requires to store simultaneously t
 <li><a href="#headline-4">Iterations Jacobi</a>
 </li>
 <li><a href="#headline-5">Iterations Gauss Seidel</a>
+</li>
+<li><a href="#headline-6">References</a>
 </li>
 </ul>
 </nav>

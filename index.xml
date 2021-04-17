@@ -33,10 +33,10 @@
       <pubDate>Tue, 06 Apr 2021 00:00:00 +0000</pubDate>
       
       <guid>https://nasseralkmim.github.io/notes/jacobi-method/</guid>
-      <description>Introduction  Jacobi method is a standard iterative scheme for solving the linear system Ax=b.
- Basically writes the diagonal product as a function of the non diagonal products.
-  Ax=b  From Peter Olver lecture notes.
-import numpy as np A = np.array([[3, 1, -1], [1, -4, 2], [-2, -1, 5]]) b = np.array([3, -1, 2]) print(&amp;#34;A:&amp;#34;, A) print(&amp;#34;b:&amp;#34;, b) print(np.linalg.inv(A) @ b) # solving with numpy inverse function  A: [[ 3 1 -1] [ 1 -4 2] [-2 -1 5]] b: [ 3 -1 2] [1.</description>
+      <description>Introduction  Jacobi method is a standard iterative scheme for solving the linear system $Ax=b$. It is part of what is known as relaxation-based methods, together with Gauss-Seidel.
+ The basic idea is to write the diagonal product as a function of off-diagonal ones.
+  Ax=b  Take this simple linear system of equations.
+import numpy as np A = np.array([[3, 1, -1], [1, -4, 2], [-2, -1, 5]]) b = np.</description>
     </item>
     
     <item>
@@ -49,8 +49,8 @@ import numpy as np A = np.array([[3, 1, -1], [1, -4, 2], [-2, -1, 5]]) b = np.ar
  I will follow mostly:
   A tour of C++
   Programming principles and practices using C++
-    Basics  Minimal program  Defines a function with no arguments, empty (), and does nothing, empty {}.
- Every program needs a main function. The int is the value returned by the function.</description>
+    Technicalities  Declarations and definitions  Declaration introduces a name into a scope. It is different from defining something. A declaration that specifies the entity is a definition.
+ Before a name can be used it must be declared.</description>
     </item>
     
     <item>
@@ -61,7 +61,7 @@ import numpy as np A = np.array([[3, 1, -1], [1, -4, 2], [-2, -1, 5]]) b = np.ar
       <guid>https://nasseralkmim.github.io/notes/cpp-environment-setup/</guid>
       <description>Introduction   This set up already starts with wsl (version 2) already installed and emacs as well. Emacs on windows with WSL2 | Nasser&amp;#39;s personal website
  This guide also is helpful to set up emacs for c++ development: Configuring Emacs as a C/C++ IDE - LSP Mode - LSP support for Emacs.
-  Emacs  Lsp-mode clangd server   Language server that provides intelligent features to emacs via lsp-mode.</description>
+  Emacs  Lsp-mode clangd server   clangd is language server that provides intelligent features to emacs (client) via lsp-mode (client-server application).</description>
     </item>
     
     <item>
@@ -84,7 +84,7 @@ import numpy as np A = np.array([[3, 1, -1], [1, -4, 2], [-2, -1, 5]]) b = np.ar
       <guid>https://nasseralkmim.github.io/notes/favorite-garments/</guid>
       <description>Base layer  All good options, get the one on sale. Black or orange for consistency.
 Karrimor quarter zip €15,00   Cheapest one, still waiting to check quality. Update: I tested the t-shirt. The quality is ok, good enough to run with.
-  Craft CORE gain €35,00    Nike pacer 1/2 zip €40,00      Insulation  Should be black, because outer layer is orange already and you don&amp;#39;t want to be a clown.</description>
+  Craft CORE gain €35,00    Nike pacer 1/2 zip €40,00      Insulation  Arc&amp;#39;teryx Proton LT €300,00  Best combination of style, quality, warmth and breathability.</description>
     </item>
     
     <item>
@@ -132,12 +132,9 @@ Chicken and rice stir fry   Ingredients:
       <pubDate>Mon, 04 Jan 2021 00:00:00 +0000</pubDate>
       
       <guid>https://nasseralkmim.github.io/notes/emacs-windows/</guid>
-      <description>Introduction   I&amp;#39;m basically using emacs with wsl for coding.
+      <description>Introduction   Build emacs inside windows subsystem for linux (wsl). The main advantage is that emacs is considerably faster when using LSP.
   Reference for installation   GitHub - hubisan/emacs-wsl: Install and run emacs with the Windows Subsystem …
-  Shortcut  Currently just using the shortcuts provided in Hubisan repository.
-Old  I had to use two files:
- first one is a .vsb with
-If WScript.Arguments.Count &amp;lt;= 0 Then WScript.Quit End If bat = Left(WScript.ScriptFullName, InStrRev(WScript.</description>
+  Shortcut   One .bat file that starts the vcxsrv is it nor already running and calls the power shell script that starts emacs. @echo off TASKLIST | FINDSTR vcxsrv || start &amp;#34;&amp;#34; &amp;#34;C:\Program Files\VcXsrv\vcxsrv.</description>
     </item>
     
     <item>

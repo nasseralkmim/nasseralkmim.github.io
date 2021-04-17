@@ -114,7 +114,8 @@ Introduction
 </h2>
 <div id="outline-text-headline-1" class="outline-text-2">
 <p>
-I&#39;m basically using emacs with wsl for coding.</p>
+Build emacs inside windows subsystem for linux (wsl).
+The main advantage is that emacs is considerably faster when using LSP.</p>
 </div>
 </div>
 <div id="outline-container-headline-2" class="outline-2">
@@ -131,17 +132,33 @@ Reference for installation
 Shortcut
 </h2>
 <div id="outline-text-headline-3" class="outline-text-2">
-<p>Currently just using the shortcuts provided in Hubisan repository.</p>
-<div id="outline-container-headline-4" class="outline-4">
-<h4 id="headline-4">
-Old
-</h4>
-<div id="outline-text-headline-4" class="outline-text-4">
-<p>I had to use two files:</p>
 <p>
-first one is a <code class="verbatim">.vsb</code> with</p>
-<pre class="example">
-If WScript.Arguments.Count &lt;= 0 Then
+One <code class="verbatim">.bat</code> file that starts the vcxsrv is it nor already running and calls the power shell script that starts emacs. </p>
+<div class="src src-bat">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bat" data-lang="bat">@<span style="color:#66d9ef">echo</span> off
+
+TASKLIST | FINDSTR vcxsrv || <span style="color:#66d9ef">start</span> <span style="color:#e6db74">&#34;&#34;</span> <span style="color:#e6db74">&#34;C:\Program Files\VcXsrv\vcxsrv.exe&#34;</span> :0 -multiwindow -clipboard -wgl -ac
+
+@<span style="color:#75715e">rem Just run the PowerShell script.</span>
+
+powershell -NoProfile -ExecutionPolicy Bypass -Command <span style="color:#e6db74">&#34;&amp; &#39;./wsl-emacs.ps1&#39;&#34;</span></code></pre></div>
+</div>
+<p>
+One power shell script, provided by the Hubisan repository.
+Just added the keyboard layout and key chord to switch.</p>
+<div class="src src-powershell">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e"># WSL2 - Launch Emacs</span>
+
+<span style="color:#75715e"># Get the IP to use from wsl and set to a variable.</span>
+$wslip = wsl -d Ubuntu-20.04 bash -c <span style="color:#e6db74">&#39;ip route | awk &#39;&#39;/default via /&#39;&#39; | cut -d&#39;&#39; &#39;&#39; -f3&#39;</span>
+
+<span style="color:#75715e"># Run Emacs</span>
+wsl -d Ubuntu-20.04 bash -c <span style="color:#e6db74">&#34;export DISPLAY=$wslip`:0.0 export LIBGL_ALWAYS_INDIRECT=1 &amp;&amp; setxkbmap -layout &#39;br,us&#39; -option grp:shifts_toggle &amp;&amp; setsid emacs&#34;</span></code></pre></div>
+</div>
+<p>
+Then, a <code class="verbatim">.vbs</code> file that launches the bat script.</p>
+<div class="src src-vbs">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">If WScript.Arguments.Count &lt;= 0 Then
     WScript.Quit
 End If
 
@@ -152,28 +169,12 @@ If WScript.Arguments.Count &gt; 1 Then
     arg = WScript.Arguments(1)
 End If
 
-CreateObject(&#34;WScript.Shell&#34;).Run &#34;&#34;&#34;&#34; &amp; bat &amp; &#34;&#34;&#34; &#34;&#34;&#34; &amp; arg &amp; &#34;&#34;&#34;&#34;, 0, False
-</pre>
-<p>
-and the second a <code class="verbatim">.bat</code> script.</p>
-<pre class="example">
-u/ECHO OFF
-TASKLIST | FINDSTR XWwin || START /B C:\cygwin64\bin\run.exe --quote /usr/bin/bash.exe -l -c &#34;XWin :0 -listen tcp -multiwindow -clipboard -wgl -ac&#34;
-wsl zsh -c &#34;export DISPLAY=$( awk &#39;/nameserver/ { print $2 }&#39; /etc/resolv.conf ):0; export LIBGL_ALWAYS_INDIRECT=1; eval $(dbus-launch); export DBUS_SESSION_BUS_ADDRESS; setxkbmap -layout &#34;br,us&#34; -option grp:shifts_toggle; setsid emacs;&#34;
-</pre>
-<p>
-Notice:</p>
-<ol>
-<li>
-<p>keyboard layout set to br and us with two shifts as toggle shortcut.</p>
-</li>
-</ol>
-<p>Finally the shortcut to the <code class="verbatim">.vbs</code></p>
-<pre class="example">
-C:\Windows\System32\wscript.exe C:\Users\nasse\Documents\emacs-wsl-shortcut\bat-launcher.vbs &#34;&#34;script&#34;
-</pre>
+CreateObject(&#34;WScript.Shell&#34;).Run &#34;&#34;&#34;&#34; &amp; bat &amp; &#34;&#34;&#34; &#34;&#34;&#34; &amp; arg &amp; &#34;&#34;&#34;&#34;, 0, False</code></pre></div>
 </div>
-</div>
+<p>
+And finally a shortcut to this vbs with target the <code class="verbatim">.bat</code> script</p>
+<p>
+<code class="verbatim">C:\Windows\System32\wscript.exe C:\Users\nasse\OneDrive\emacs-wsl\run-emacs-wsl-2\launcher.vbs &#34;wsl-emacs&#34;</code></p>
 </div>
 </div>
 <div id="outline-container-headline-5" class="outline-2">
@@ -181,15 +182,54 @@ C:\Windows\System32\wscript.exe C:\Users\nasse\Documents\emacs-wsl-shortcut\bat-
 Fonts
 </h2>
 <div id="outline-text-headline-5" class="outline-text-2">
-<p>Donwload the <code class="verbatim">.ttf</code> font file, move them to <code class="verbatim">~/.fonts/</code> and <code class="verbatim">fc-cache -f -v</code> to rebuild font cache.</p>
+<p>
+Download the <code class="verbatim">.ttf</code> font file, move them to <code class="verbatim">~/.fonts/</code> and <code class="verbatim">fc-cache -f -v</code> to rebuild font cache.</p>
 </div>
 </div>
 <div id="outline-container-headline-6" class="outline-2">
 <h2 id="headline-6">
-Hugo
+LaTeX
 </h2>
 <div id="outline-text-headline-6" class="outline-text-2">
 <p>
+TeX Live is a easy way to have TeX programs, macro packages and fonts to produce documents with LaTeX macros.</p>
+<div class="src src-sh">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">wget http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
+tar -xzf install-tl-unx.tar.gz</code></pre></div>
+</div>
+<p>
+Then go inside the folder and <code class="verbatim">sudo ./install</code> to install TeX-live.
+Other details in <a href="https://tex.stackexchange.com/questions/1092/how-to-install-vanilla-texlive-on-debian-or-ubuntu">packages - How to install &#34;vanilla&#34; TeXLive on Debian or Ubuntu? - TeX - LaTe…</a>.</p>
+<p>
+To install additional packages, use the tex live manager: <code class="verbatim">tlmgr install packages</code>.</p>
+<p>
+To install biblatex we need <code class="verbatim">sudo apt install biber</code>.</p>
+<p>
+A good and simple <code class="verbatim">.pdf</code> reader zathura: <code class="verbatim">sudo apt install zathura</code>.</p>
+</div>
+</div>
+<div id="outline-container-headline-7" class="outline-2">
+<h2 id="headline-7">
+Hugo
+</h2>
+<div id="outline-text-headline-7" class="outline-text-2">
+<p>
+Just use the windows version of Hugo and call it within wsl with <code class="verbatim">hugo.exe</code> instead of just <code class="verbatim">hugo</code>.</p>
+</div>
+</div>
+<div id="outline-container-headline-8" class="outline-2">
+<h2 id="headline-8">
+Problems
+</h2>
+<div id="outline-text-headline-8" class="outline-text-2">
+<div id="outline-container-headline-9" class="outline-4">
+<h4 id="headline-9">
+<span class="todo">DONE</span>
+Hugo 
+</h4>
+<div id="outline-text-headline-9" class="outline-text-4">
+<p>
+Update (<span class="timestamp">&lt;2021-04-16 Fri&gt;</span>): discovered that I can use windows programs within wsl2 by just calling with the suffix <code class="verbatim">.exe</code>.
 Update: for now I&#39;m writing my posts with standard windows emacs.</p>
 <p>
 Apt in wsl2 has only an old version of hugo.  
@@ -204,37 +244,18 @@ I don&#39;t have a solution for this yet.</p>
 Trying the solution in here <a href="https://medium.com/@heberleh/wsl-2-installation-and-changes-c01e3cbe205a">WSL 2 installation and changes. Problems and solutions before and after… | by…</a></p>
 </div>
 </div>
-<div id="outline-container-headline-7" class="outline-2">
-<h2 id="headline-7">
-Emacs jupyter
-</h2>
-<div id="outline-text-headline-7" class="outline-text-2">
-<p>
-Emacs-jupyter was not finding python, even though I could call <code class="verbatim">python</code> in the wsl terminal.
-It seems that  emacs-jupyter was looking for python at limited places, namely <code class="verbatim">jupyter --path</code>. </p>
-<p>
-I had to create a symlink for python3 to one of <code class="verbatim">jupyter --path</code> so emacs-jupyter can find python.</p>
-</div>
-</div>
-<div id="outline-container-headline-8" class="outline-2">
-<h2 id="headline-8">
-Treemacs <code class="verbatim">visit-node-in-external-application</code>
-</h2>
-<div id="outline-text-headline-8" class="outline-text-2">
-<p>This is a reason for me to keep standard emacs on windows.</p>
-<p>
-When I call this function in a <code class="verbatim">.sh</code> file it opens as a text in another emacs instance.
-However I want it to just run, currently I have to call <code class="verbatim">treemacs-run-shell-command-for-current-node</code> and manually type the filename <code class="verbatim">./script.sh</code>.</p>
-<p>
-For instance, in windows I just go to <code class="verbatim">deploy.sh</code> on treemacs and hit <code class="verbatim">o x</code> to run the script.</p>
-</div>
-</div>
-<div id="outline-container-headline-9" class="outline-2">
-<h2 id="headline-9">
+<div id="outline-container-headline-10" class="outline-4">
+<h4 id="headline-10">
+<span class="todo">DONE</span>
 Org-download not getting clipboard from windows
-</h2>
-<div id="outline-text-headline-9" class="outline-text-2">
-<p>This is one of the reasons for me continue using standard emacs on windows.</p>
+</h4>
+<div id="outline-text-headline-10" class="outline-text-4">
+<p>
+Update (<span class="timestamp">&lt;2021-04-16 Fri&gt;</span>): Just discovered that to run windows command in wsl we just need to add <code class="verbatim">.exe</code> to the windows program.
+I also had to change the variable <code class="verbatim">(setq org-download-screenshot-file &#34;./tmp/screenshot.png&#34;)</code> so we can create an image with the <code class="verbatim">convert.exe</code> and then access it with <code class="verbatim">org-download-image</code> to generate an org link.
+A minor inconvenience is that a <code class="verbatim">/tmp/</code> folder is created and I don&#39;t want to write a function to delete it.</p>
+<p>
+This is one of the reasons for me continue using standard emacs on windows.</p>
 <p>
 It does not work with emacs in WSL2.
 It seem xclip can not get clipboard.</p>
@@ -245,11 +266,43 @@ It seem xclip can not get clipboard.</p>
 </ol>
 </div>
 </div>
-<div id="outline-container-headline-10" class="outline-2">
-<h2 id="headline-10">
-Uninstalling zsh
+<div id="outline-container-headline-11" class="outline-4">
+<h4 id="headline-11">
+Emacs jupyter
+</h4>
+<div id="outline-text-headline-11" class="outline-text-4">
+<p>
+Emacs-jupyter was not finding python, even though I could call <code class="verbatim">python</code> in the wsl terminal.
+It seems that  emacs-jupyter was looking for python at limited places, namely <code class="verbatim">jupyter --path</code>. </p>
+<p>
+I had to create a symlink for python3 to one of <code class="verbatim">jupyter --path</code> so emacs-jupyter can find python.</p>
+</div>
+</div>
+<div id="outline-container-headline-12" class="outline-4">
+<h4 id="headline-12">
+Treemacs <code class="verbatim">visit-node-in-external-application</code>
+</h4>
+<div id="outline-text-headline-12" class="outline-text-4">
+<p>This is a reason for me to keep standard emacs on windows.</p>
+<p>
+When I call this function in a <code class="verbatim">.sh</code> file it opens as a text in another emacs instance.
+However I want it to just run, currently I have to call <code class="verbatim">treemacs-run-shell-command-for-current-node</code> and manually type the filename <code class="verbatim">./script.sh</code>.</p>
+<p>
+For instance, in windows I just go to <code class="verbatim">deploy.sh</code> on treemacs and hit <code class="verbatim">o x</code> to run the script.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-13" class="outline-2">
+<h2 id="headline-13">
+Details
 </h2>
-<div id="outline-text-headline-10" class="outline-text-2">
+<div id="outline-text-headline-13" class="outline-text-2">
+<div id="outline-container-headline-14" class="outline-4">
+<h4 id="headline-14">
+Uninstalling zsh
+</h4>
+<div id="outline-text-headline-14" class="outline-text-4">
 <p>
 When I uninstalled zhs from wsl, it wouldn&#39;t start up again. </p>
 <p>
@@ -267,17 +320,6 @@ then change the default shell to bash again.</p>
 </div>
 </div>
 </div>
-<div id="outline-container-headline-11" class="outline-2">
-<h2 id="headline-11">
-Installing LaTeX
-</h2>
-<div id="outline-text-headline-11" class="outline-text-2">
-<p>
-<code class="verbatim">sudo apt-get install texlive</code></p>
-<p>
-pdf reader zathura</p>
-<p>
-<code class="verbatim">sudo apt-get install zathura</code></p>
 </div>
 </div>
 
@@ -302,6 +344,9 @@ pdf reader zathura</p>
     
     <li class="tag__item">
         <a class="tag__link" href="https://nasseralkmim.github.io/tags/emacs/">emacs</a>
+    </li>
+    <li class="tag__item">
+        <a class="tag__link" href="https://nasseralkmim.github.io/tags/tools/">tools</a>
     </li></ul>
 
  <div class="pagination">
@@ -405,17 +450,27 @@ pdf reader zathura</p>
 </li>
 <li><a href="#headline-5">Fonts</a>
 </li>
-<li><a href="#headline-6">Hugo</a>
+<li><a href="#headline-6">LaTeX</a>
 </li>
-<li><a href="#headline-7">Emacs jupyter</a>
+<li><a href="#headline-7">Hugo</a>
 </li>
-<li><a href="#headline-8">Treemacs <code class="verbatim">visit-node-in-external-application</code></a>
+<li><a href="#headline-8">Problems</a>
+<ul>
+<li><a href="#headline-9">Hugo </a>
 </li>
-<li><a href="#headline-9">Org-download not getting clipboard from windows</a>
+<li><a href="#headline-10">Org-download not getting clipboard from windows</a>
 </li>
-<li><a href="#headline-10">Uninstalling zsh</a>
+<li><a href="#headline-11">Emacs jupyter</a>
 </li>
-<li><a href="#headline-11">Installing LaTeX</a>
+<li><a href="#headline-12">Treemacs <code class="verbatim">visit-node-in-external-application</code></a>
+</li>
+</ul>
+</li>
+<li><a href="#headline-13">Details</a>
+<ul>
+<li><a href="#headline-14">Uninstalling zsh</a>
+</li>
+</ul>
 </li>
 </ul>
 </nav>

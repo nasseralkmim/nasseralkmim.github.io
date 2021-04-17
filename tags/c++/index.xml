@@ -18,8 +18,8 @@
  I will follow mostly:
   A tour of C++
   Programming principles and practices using C++
-    Basics  Minimal program  Defines a function with no arguments, empty (), and does nothing, empty {}.
- Every program needs a main function. The int is the value returned by the function.</description>
+    Technicalities  Declarations and definitions  Declaration introduces a name into a scope. It is different from defining something. A declaration that specifies the entity is a definition.
+ Before a name can be used it must be declared.</description>
     </item>
     
     <item>
@@ -30,7 +30,7 @@
       <guid>https://nasseralkmim.github.io/notes/cpp-environment-setup/</guid>
       <description>Introduction   This set up already starts with wsl (version 2) already installed and emacs as well. Emacs on windows with WSL2 | Nasser&amp;#39;s personal website
  This guide also is helpful to set up emacs for c++ development: Configuring Emacs as a C/C++ IDE - LSP Mode - LSP support for Emacs.
-  Emacs  Lsp-mode clangd server   Language server that provides intelligent features to emacs via lsp-mode.</description>
+  Emacs  Lsp-mode clangd server   clangd is language server that provides intelligent features to emacs (client) via lsp-mode (client-server application).</description>
     </item>
     
   </channel>
