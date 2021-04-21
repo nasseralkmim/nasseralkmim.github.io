@@ -21,24 +21,6 @@ import numpy as np A = np.array([[3, 1, -1], [1, -4, 2], [-2, -1, 5]]) b = np.</
     </item>
     
     <item>
-      <title>Resultado em operações de swing trade</title>
-      <link>https://nasseralkmim.github.io/notes/swing-trade-result/</link>
-      <pubDate>Fri, 08 Jan 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/notes/swing-trade-result/</guid>
-      <description>Objetivo   Preliminares  import pandas as pd import matplotlib import matplotlib.pyplot as plt matplotlib.style.use(&amp;#39;ggplot&amp;#39;)    Dados  trades = pd.read_csv(&amp;#39;trade_data.csv&amp;#39;, sep=&amp;#39;,&amp;#39;, names=[&amp;#39;date&amp;#39;, &amp;#39;type&amp;#39;, &amp;#39;ticker&amp;#39;, &amp;#39;volume&amp;#39;, &amp;#39;price&amp;#39;], decimal=&amp;#39;,&amp;#39;, parse_dates=[&amp;#39;date&amp;#39;], infer_datetime_format=True) print(trades) print(trades.dtypes)  date type ticker volume price 0 2020-10-03 Buy PETR4 90 17.99 1 2020-10-03 Buy PETR4 90 17.59 2 2020-11-03 Buy PETR4 50 15.17 3 2020-03-13 Buy PETR4 50 14.24 4 2020-03-16 Buy PETR4 50 13.</description>
-    </item>
-    
-    <item>
-      <title>Gerenciamento de portfolio com portman</title>
-      <link>https://nasseralkmim.github.io/notes/portman/</link>
-      <pubDate>Wed, 30 Dec 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/notes/portman/</guid>
-      <description> Consolidação do portfolio  import pandas as pd import portman as pm pm.consolidate(&amp;#39;trade_data.csv&amp;#39;)    Análise  import matplotlib import matplotlib.pyplot as plt matplotlib.style.use(&amp;#39;ggplot&amp;#39;) import portman as pm pm.analysis.summary(&amp;#39;portfolio.csv&amp;#39;) pm.analysis.allocation(&amp;#39;portfolio.csv&amp;#39;) pm.analysis.returns(&amp;#39;returns.csv&amp;#39;) pm.analysis.dividends(&amp;#39;dividends.csv&amp;#39;) plt.tight_layout()    </description>
-    </item>
-    
-    <item>
       <title>Performance de um portfolio</title>
       <link>https://nasseralkmim.github.io/notes/portfolio-performance/</link>
       <pubDate>Sat, 26 Dec 2020 00:00:00 +0000</pubDate>
@@ -55,20 +37,6 @@ import numpy as np A = np.array([[3, 1, -1], [1, -4, 2], [-2, -1, 5]]) b = np.</
       <guid>https://nasseralkmim.github.io/notes/finace-python/</guid>
       <description>Introdução   Usar biblioteca yahooquery pois parece ser mais completa e melhor que yfinance.
 import yahooquery as yf import pandas as pd pd.options.display.float_format = &amp;#39;{:,.2f}&amp;#39;.format import matplotlib import matplotlib.pyplot as plt matplotlib.style.use(&amp;#39;seaborn&amp;#39;)    Preço em tempo real  ticker = yf.Ticker(&amp;#39;EGIE3.SA&amp;#39;) print(ticker.quotes[&amp;#39;EGIE3.SA&amp;#39;][&amp;#39;bid&amp;#39;])  44.13    Histórico da cotação  ticker.history(period=&amp;#39;max&amp;#39;).close.plot(ylabel=&amp;#39;price R$&amp;#39;, xlabel=&amp;#39;date&amp;#39;) ticker.history(start=&amp;#39;2018-09-15&amp;#39;, end=&amp;#39;2018-09-18&amp;#39;).close.plot(ylabel=&amp;#39;price R$&amp;#39;, xlabel=&amp;#39;date&amp;#39;)    Informação sobre empresa  print(ticker.asset_profile)  {&amp;#39;EGIE3.</description>
-    </item>
-    
-    <item>
-      <title>Pandas power</title>
-      <link>https://nasseralkmim.github.io/notes/pandas-power/</link>
-      <pubDate>Thu, 24 Dec 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/notes/pandas-power/</guid>
-      <description>Apply   Use cases:
-  apply a function along rows or column (default).
-  better alternative than for loops, more efficient.
-  Alternatives:
-  itertuples seems to be faster if the data is smaller than 100k rows https://stackoverflow.com/questions/52581057/is-dataframe-apply-really-slower-than-dataframe-itertuples
-    Groupby   Resampling   Changing dataframe inside a function   If you passa a DF to a function, manipulate it and return it.</description>
     </item>
     
     <item>

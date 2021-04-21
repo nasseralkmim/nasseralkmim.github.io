@@ -1,55 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>economy on Nasser&#39;s personal website</title>
+    <title>economy, on Nasser&#39;s personal website</title>
     <link>https://nasseralkmim.github.io/tags/economy/</link>
-    <description>Recent content in economy on Nasser&#39;s personal website</description>
+    <description>Recent content in economy, on Nasser&#39;s personal website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© {year}</copyright>
-    <lastBuildDate>Thu, 21 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/tags/economy/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Hot money impact on EM</title>
-      <link>https://nasseralkmim.github.io/notes/hot-money-flow-eme/</link>
-      <pubDate>Thu, 21 Jan 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/notes/hot-money-flow-eme/</guid>
-      <description> References    Hot Money Flows, Commodity Price Cycles, and Financial Repression in the US and the People’s Republic of China: The Consequences of Near Zero US Interest Rates. Ronald McKinnon and Zhao Liu. 2013.
-    </description>
-    </item>
-    
-    <item>
-      <title>Money credit and cryptocurrency</title>
-      <link>https://nasseralkmim.github.io/notes/money-credit-btc/</link>
-      <pubDate>Sat, 26 Dec 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/notes/money-credit-btc/</guid>
-      <description>Dinheiro e crédito  O que é dinheiro? O que é crédito? Os dois são lados da mesma moeda. Dinheiro é o meio de liquidar acordos que maturaram, means of settlement. Crédito é uma forma de postergar essa liquidação para o futuro.
- Os diversos ativos financeiros: reservas no Banco Central, ouro, moeda local, depósitos e securities (títulos), podem ser entendidos ora como dinheiro ora como crédito. Um depósito é uma promessa de pagar moeda local, um título pode ser uma promessa de pagar um depósito, e assim por diante.</description>
-    </item>
-    
-    <item>
-      <title>Does monetary easing causes &#34;asset inflation&#34;?</title>
-      <link>https://nasseralkmim.github.io/notes/asset-price-inflation/</link>
-      <pubDate>Fri, 25 Dec 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/notes/asset-price-inflation/</guid>
-      <description>Introduction   Some people say that monetary easing by the central bank in the past decade is not affecting the CPI but the asset prices (stocks and bonds).
- To see how this is wrong (?) we need to understand inflation, monetary policy and modern finance.
-  Inflation   Results from excess demand for goods and the ability of the supply side to provide.
-Monetarist   Right wingers can be so fanciful about their intellectual inheritance.</description>
-    </item>
-    
-    <item>
-      <title>Shadow banking and FED as a lender of last resort</title>
-      <link>https://nasseralkmim.github.io/notes/shadow-banking-monetary-policy/</link>
-      <pubDate>Fri, 25 Dec 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/notes/shadow-banking-monetary-policy/</guid>
-      <description>Traditional crisis   During a traditional crises, with mostly traditional banks1, the cash commitments are greater than the cash flows. So, there is a liquidity problem for the banks. The FED can directly provide that liquidity by increasing banks reserves.
-  References    https://voxeu.org/article/growth-non-bank-finance-and-new-monetary-policy-tools     Footnotes   1 Traditional banks accept deposits (short term borrowing) and make loas (long term lending).</description>
-    </item>
-    
+    <lastBuildDate>Sun, 13 Dec 2020 20:08:58 -0300</lastBuildDate><atom:link href="https://nasseralkmim.github.io/tags/economy/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Monetary policy and lender of last resort</title>
       <link>https://nasseralkmim.github.io/notes/fed-monetary-mechanism/</link>
@@ -60,17 +18,6 @@ Monetarist   Right wingers can be so fanciful about their intellectual inheritan
  If the FED reduces reserves, buying T-Bills in the open market operations, it affects the FFR upwards.
   Money Market dealers  Money market (MM) dealers are directly affected because they borrow short (overnight) and lend in term (3 months).
  If the financing cost increases, the MM dealers also push the term price upwards.</description>
-    </item>
-    
-    <item>
-      <title>Did LTCM were too greed?</title>
-      <link>https://nasseralkmim.github.io/notes/ltcm/</link>
-      <pubDate>Sat, 12 Dec 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/notes/ltcm/</guid>
-      <description>What was LTCM trade?  They traded spreads in the bond market. Buying under priced bonds and short sell overpriced ones, then wait them to converge to a fair value and unwind the trade. Tiny spreads can be amplified with leverage.
- Long term means that this convergence of prices can take some time.
-  Why it failed?   A crises in Asian and Russia made all LTCM trades to diverge, risking insolvency by reducing its long position value and increasing its short.</description>
     </item>
     
   </channel>

@@ -7,18 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© {year}</copyright>
-    <lastBuildDate>Sun, 27 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/tags/meta/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Blog, learning and skin in the game</title>
-      <link>https://nasseralkmim.github.io/notes/blog-learn-skininthegame/</link>
-      <pubDate>Sun, 27 Dec 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/notes/blog-learn-skininthegame/</guid>
-      <description>First let me briefly explain what I thin &amp;#34;learning&amp;#34; is.
- What does this have to do with skin in the game?
- Blog is what connects this two together. If you are into programming and data analysis the best tool is emacs org-mode.</description>
-    </item>
-    
+    <lastBuildDate>Thu, 03 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/tags/meta/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>First post in HUGO</title>
       <link>https://nasseralkmim.github.io/notes/first-hugo-post/</link>

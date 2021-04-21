@@ -174,7 +174,21 @@ Namespace
 <div id="outline-text-headline-5" class="outline-text-4">
 <p>
 Allow us to identify part of a program without defining a type.
-A name is composed by the namespace name and a member name combined with <code class="verbatim">::</code>, this is a fully qualified name.</p>
+A name is composed by the namespace name and a member name combined with <code class="verbatim">::</code>, this is a fully qualified name.
+With <code class="verbatim">namespace</code> we can group named entities, useful to narrow scope of naming.</p>
+<div class="src src-c++">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">namespace</span> identifier {
+<span style="color:#66d9ef">int</span> a <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>; <span style="color:#75715e">// name &#34;a&#34; is narrowed in scope by the identifier
+</span><span style="color:#75715e"></span>} <span style="color:#75715e">// namespace identifier
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() { std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> identifier<span style="color:#f92672">::</span>a; }
+</code></pre></div>
+</div>
+<pre class="example">
+10
+</pre>
 <p>
 A shorthand can be used to avoid typing the namespace name every time with <code class="verbatim">using namespace &#34;name&#34;</code>.
 This way the name becomes directly available for use.</p>
@@ -204,7 +218,7 @@ If its operand on its right is true, <code class="verbatim">!</code> turns it in
   <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>false)			<span style="color:#75715e">// !false == true
 </span><span style="color:#75715e"></span>    {
       cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;ok&#34;</span>;
-    };
+    }
   
 }
 </code></pre></div>
@@ -216,7 +230,7 @@ ok
 </div>
 <div id="outline-container-headline-8" class="outline-6">
 <h6 id="headline-8">
-Compound assignments (+=, -<code class="verbatim">, /</code>, *=)
+Compound assignments (+=, *=)
 </h6>
 <div id="outline-text-headline-8" class="outline-text-6">
 <p>
@@ -745,14 +759,14 @@ The member-access notation uses the <code class="verbatim">.</code>.</p>
 <span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
   <span style="color:#66d9ef">int</span> m;		<span style="color:#75715e">// data member
 </span><span style="color:#75715e"></span>  <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">method</span>(<span style="color:#66d9ef">int</span> arg) {<span style="color:#66d9ef">int</span> old <span style="color:#f92672">=</span> m; m <span style="color:#f92672">=</span> arg; <span style="color:#66d9ef">return</span> old; } <span style="color:#75715e">// function member
-</span><span style="color:#75715e"></span>};
+</span><span style="color:#75715e"></span>}
 
 <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span> () {
   Myclass var;			<span style="color:#75715e">// creates a variable type Myclass
 </span><span style="color:#75715e"></span>  var.m <span style="color:#f92672">=</span> <span style="color:#ae81ff">6</span>;			<span style="color:#75715e">// ASSIGN value 6 to member
 </span><span style="color:#75715e"></span>  <span style="color:#66d9ef">int</span> x <span style="color:#f92672">=</span> var.method(<span style="color:#ae81ff">10</span>);	<span style="color:#75715e">// CALL function with argument 10
 </span><span style="color:#75715e"></span>  cout <span style="color:#f92672">&lt;&lt;</span> var.m <span style="color:#f92672">&lt;&lt;</span> endl;	<span style="color:#75715e">// changed member from 6 to 10
-</span><span style="color:#75715e"></span>};
+</span><span style="color:#75715e"></span>}
 </code></pre></div>
 </div>
 <pre class="example">
@@ -790,7 +804,7 @@ It is a <span style="text-decoration: underline;">class</span> that does only ha
 <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">Vector</span> {			<span style="color:#75715e">// defines a type: Vector
 </span><span style="color:#75715e"></span>  <span style="color:#66d9ef">int</span> sz;			<span style="color:#75715e">// type element sz
 </span><span style="color:#75715e"></span>  <span style="color:#66d9ef">double</span><span style="color:#f92672">*</span> elem;			<span style="color:#75715e">// elem is a pointer
-</span><span style="color:#75715e"></span>};
+</span><span style="color:#75715e"></span>}
 
 <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">vector_init</span>(Vector<span style="color:#f92672">&amp;</span>v, <span style="color:#66d9ef">int</span> s){ <span style="color:#75715e">// &amp; v is passed by non-const reference
 </span><span style="color:#75715e"></span>  v.elem <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">double</span>[s];	<span style="color:#75715e">// new creates objects independent on the scope
@@ -870,15 +884,15 @@ Is the same as instantiating an object.</p>
     year <span style="color:#f92672">=</span> yy;
     month <span style="color:#f92672">=</span> mm;
     day <span style="color:#f92672">=</span> dd;
-    };	<span style="color:#75715e">// constructor, initialize the class when the class is called with correct arguments
+    }	<span style="color:#75715e">// constructor, initialize the class when the class is called with correct arguments
 </span><span style="color:#75715e"></span>  <span style="color:#66d9ef">int</span> year;
   <span style="color:#66d9ef">int</span> month;
   <span style="color:#66d9ef">int</span> day;
-};
+}
 <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span> () {
   Date today {<span style="color:#ae81ff">1999</span>, <span style="color:#ae81ff">12</span>, <span style="color:#ae81ff">5</span>};	<span style="color:#75715e">// creates an object type Date, use {} to INITIALIZE (modern style)
 </span><span style="color:#75715e"></span>  cout <span style="color:#f92672">&lt;&lt;</span> today.month;
-};
+}
 </code></pre></div>
 </div>
 <pre class="example">
@@ -912,17 +926,17 @@ The notation <code class="verbatim">:year{y}, month{m}, day{d}</code> more direc
 <span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>				<span style="color:#75715e">// accessible outside
 </span><span style="color:#75715e"></span>  <span style="color:#66d9ef">int</span> year, month, day;
   Date(<span style="color:#66d9ef">int</span> y, <span style="color:#66d9ef">int</span> m, <span style="color:#66d9ef">int</span> d);	<span style="color:#75715e">// just DECLARING the constructor
-</span><span style="color:#75715e"></span>};
+</span><span style="color:#75715e"></span>}
 
 Date<span style="color:#f92672">::</span>Date(<span style="color:#66d9ef">int</span> y, <span style="color:#66d9ef">int</span> m, <span style="color:#66d9ef">int</span> d) <span style="color:#75715e">// define the constructor
 </span><span style="color:#75715e"></span>  <span style="color:#f92672">:</span>year{y}, month{m}, day{d}	<span style="color:#75715e">// initialize member variables with passed arguments
 </span><span style="color:#75715e"></span>{
-};
+}
 
 <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span> () {
   Date today {<span style="color:#ae81ff">1999</span>, <span style="color:#ae81ff">12</span>, <span style="color:#ae81ff">20</span>};	<span style="color:#75715e">// create an object
 </span><span style="color:#75715e"></span>  cout <span style="color:#f92672">&lt;&lt;</span> today.day;
-};
+}
 </code></pre></div>
 </div>
 <pre class="example">
@@ -935,21 +949,21 @@ Alternative to</p>
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Date</span> {
-<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>				<span style="color:#75715e">// accessible outside
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span> <span style="color:#75715e">// accessible outside
 </span><span style="color:#75715e"></span>  <span style="color:#66d9ef">int</span> year, month, day;
-  Date(<span style="color:#66d9ef">int</span> y, <span style="color:#66d9ef">int</span> m, <span style="color:#66d9ef">int</span> d);	<span style="color:#75715e">// just DECLARING the constructor
-</span><span style="color:#75715e"></span>};
+  Date(<span style="color:#66d9ef">int</span> y, <span style="color:#66d9ef">int</span> m, <span style="color:#66d9ef">int</span> d); <span style="color:#75715e">// just DECLARING the constructor
+</span><span style="color:#75715e"></span>}
 
-Date<span style="color:#f92672">::</span>Date(<span style="color:#66d9ef">int</span> y, <span style="color:#66d9ef">int</span> m, <span style="color:#66d9ef">int</span> d)  <span style="color:#75715e">// DEFINE the constructor for the class Date
+Date<span style="color:#f92672">::</span>Date(<span style="color:#66d9ef">int</span> y, <span style="color:#66d9ef">int</span> m, <span style="color:#66d9ef">int</span> d) <span style="color:#75715e">// DEFINE the constructor for the class Date
 </span><span style="color:#75715e"></span>{
-year <span style="color:#f92672">=</span> y; 			<span style="color:#75715e">// assign the arguments from the class call into the class members
-</span><span style="color:#75715e"></span>month <span style="color:#f92672">=</span> m;
-day <span style="color:#f92672">=</span> d;
-};
-<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span> () {
-  Date today {<span style="color:#ae81ff">1999</span>, <span style="color:#ae81ff">12</span>, <span style="color:#ae81ff">20</span>};	<span style="color:#75715e">// create an object
+  year <span style="color:#f92672">=</span> y; <span style="color:#75715e">// assign the arguments from the class call into the class members
+</span><span style="color:#75715e"></span>  month <span style="color:#f92672">=</span> m;
+  day <span style="color:#f92672">=</span> d;
+}
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
+  Date today{<span style="color:#ae81ff">1999</span>, <span style="color:#ae81ff">12</span>, <span style="color:#ae81ff">20</span>}; <span style="color:#75715e">// create an object
 </span><span style="color:#75715e"></span>  cout <span style="color:#f92672">&lt;&lt;</span> today.day <span style="color:#f92672">&lt;&lt;</span> endl;
-};
+}
 </code></pre></div>
 </div>
 <pre class="example">
@@ -1016,14 +1030,14 @@ Can be used to restrict the argument of a function or class, requiring it to be 
 
 <span style="color:#66d9ef">enum</span> <span style="color:#a6e22e">Month</span> {
   jan<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec
-};
+}
 
 <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span> () {
   Month m <span style="color:#f92672">=</span> feb;		<span style="color:#75715e">// feb in Month scope
 </span><span style="color:#75715e"></span>  cout <span style="color:#f92672">&lt;&lt;</span> m <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>;
   <span style="color:#75715e">// Month m2 = 2;			// not ok.
 </span><span style="color:#75715e"></span>  cout <span style="color:#f92672">&lt;&lt;</span> Month(<span style="color:#ae81ff">5</span>);		<span style="color:#75715e">// convert int to month
-</span><span style="color:#75715e"></span>};
+</span><span style="color:#75715e"></span>}
 </code></pre></div>
 </div>
 <table>
@@ -1047,42 +1061,651 @@ Templates
 </div>
 <div id="outline-container-headline-44" class="outline-2">
 <h2 id="headline-44">
-Libraries
+Containers
 </h2>
 <div id="outline-text-headline-44" class="outline-text-2">
-<div id="outline-container-headline-45" class="outline-4">
-<h4 id="headline-45">
+<p>A class that holds objects.</p>
+<p>
+The standard library provides the container vector for instance.</p>
+</div>
+</div>
+<div id="outline-container-headline-45" class="outline-2">
+<h2 id="headline-45">
+Libraries
+</h2>
+<div id="outline-text-headline-45" class="outline-text-2">
+<div id="outline-container-headline-46" class="outline-4">
+<h4 id="headline-46">
 Standard library
 </h4>
-<div id="outline-text-headline-45" class="outline-text-4">
+<div id="outline-text-headline-46" class="outline-text-4">
 <p>Libraries that provide some useful tools (data structures and algorithms) for every programmer.</p>
 </div>
 </div>
-<div id="outline-container-headline-46" class="outline-4">
-<h4 id="headline-46">
+<div id="outline-container-headline-47" class="outline-4">
+<h4 id="headline-47">
 Headers and namespace
 </h4>
-<div id="outline-text-headline-46" class="outline-text-4">
+<div id="outline-text-headline-47" class="outline-text-4">
 <p>A header argument provides a standard library facility.
 Standard library is defined in a namespace <code class="verbatim">std</code>, which is a prefix that access the facilities.
 The prefix can be avoided with <code class="verbatim">using namespace std;</code>.</p>
 <div class="src src-c++">
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span><span style="color:#75715e">&lt;string&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e"></span>std<span style="color:#f92672">::</span>string s {<span style="color:#e6db74">&#34;a string&#34;</span>};
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() { std<span style="color:#f92672">::</span>string s{<span style="color:#e6db74">&#34;a string&#34;</span>}; }
 </code></pre></div>
 </div>
-</div>
-</div>
-</div>
-</div>
-<div id="outline-container-headline-47" class="outline-2">
-<h2 id="headline-47">
-Containers
-</h2>
-<div id="outline-text-headline-47" class="outline-text-2">
-<p>A class that holds objects.</p>
+<div id="outline-container-headline-48" class="outline-4">
+<h4 id="headline-48">
+External libraries
+</h4>
+<div id="outline-text-headline-48" class="outline-text-4">
 <p>
-The standard library provides the container vector for instance.</p>
+With an external library source code in a specific folder.</p>
+<p>
+We need:</p>
+<ol>
+<li>
+<p>compile our code including the path of the library that we downloaded</p>
+<ol>
+<li>
+<p>compiler must know where the library header files are (<code class="verbatim">.h</code>)</p>
+</li>
+</ol>
+</li>
+<li>
+<p>linker must know where the libraries are (for static or dynamic linking)</p>
+<ol>
+<li>
+<p>linker must know where the &#34;implementation&#34; of the things &#34;declared&#34; in the header files</p>
+</li>
+<li>
+<p>libsynaptics</p>
+</li>
+<li>
+</li>
+</ol>
+</li>
+</ol>
+<div id="outline-container-headline-49" class="outline-6">
+<h6 id="headline-49">
+General definitions
+</h6>
+<div id="outline-text-headline-49" class="outline-text-6">
+<p>A library is just code with <span style="text-decoration: underline;">declarations</span> with statements of how to use the functions and classes.</p>
+<ol>
+<li>
+<p>static libraries are represented with <code class="verbatim">.lib</code> or <code class="verbatim">.a</code></p>
+</li>
+<li>
+<p>dynamic libraries with <code class="verbatim">.dll</code> or <code class="verbatim">.so</code></p>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-headline-50" class="outline-6">
+<h6 id="headline-50">
+Including a library in <code class="verbatim">/usr/include/</code>
+</h6>
+<div id="outline-text-headline-50" class="outline-text-6">
+<p>C++ compiler founds automatically external libraries in the folder <code class="verbatim">/usr/include/</code>.</p>
+<div class="src src-c++">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;library_name/headerfile.h&gt;</span><span style="color:#75715e">
+</span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-51" class="outline-6">
+<h6 id="headline-51">
+Including a library elsewhere
+</h6>
+<div id="outline-text-headline-51" class="outline-text-6">
+<p>
+Need to find the path to the library header file.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-52" class="outline-4">
+<h4 id="headline-52">
+Static and dynamic libraries
+</h4>
+<div id="outline-text-headline-52" class="outline-text-4">
+<p>
+Static libraries (also known as &#34;archive&#34;) are linked to the programs at <span style="text-decoration: underline;">compile time</span>.
+The executable has a copy of library code, makes it bloated.
+If we modify the library we need to recompile and link again the other parts of the application that depend on this library.</p>
+<p>
+On the other hand, dynamic or shared libraries have code that is meant to be used by multiple programs.
+The content is loaded to the memory at <span style="text-decoration: underline;">runtime</span> and only once.
+Loading a library dynamic is more efficient way to use memory when there are more than one executable running and depending on the dynamic library content.
+One hurdle is a more intricate installation process regarding proper placement of the library.</p>
+<p>
+Reference: <a href="https://domiyanyue.medium.com/c-development-tutorial-4-static-and-dynamic-libraries-7b537656163e">C++ Development Tutorial 4: Static and Dynamic Libraries | by Domi Yan | Medium</a></p>
+</div>
+</div>
+<div id="outline-container-headline-53" class="outline-4">
+<h4 id="headline-53">
+Using dynamic libraries
+</h4>
+<div id="outline-text-headline-53" class="outline-text-4">
+<p>
+Dynamic libraries can be used by compiling your program together with the shared library file.</p>
+<p>
+Let&#39;s say we have this header file called <code class="verbatim">mymath.h</code> with a declaration of a function</p>
+<div class="src src-c++">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">double</span> <span style="color:#a6e22e">reciprocal</span> (<span style="color:#66d9ef">double</span> x);
+</code></pre></div>
+</div>
+<p>
+and its implementation/definition in <code class="verbatim">mymath.cpp</code></p>
+<div class="src src-c++">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;mymath.h&#34;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">double</span> <span style="color:#a6e22e">reciprocal</span> (<span style="color:#66d9ef">double</span> x) { <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1.</span> <span style="color:#f92672">/</span> x; }
+</code></pre></div>
+</div>
+<p>
+We want to use this &#34;library&#34; in our program.
+We just want to use the function <code class="verbatim">reciprocal</code> without having to worry about compilations details of this library.
+Then, we build the shared library with</p>
+<div class="src src-shell">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">clang++ -shared -o libmath.so mymath.cpp
+ls</code></pre></div>
+</div>
+<table>
+<tbody>
+<tr>
+<td>libmath.so</td>
+</tr>
+<tr>
+<td>main.cpp</td>
+</tr>
+<tr>
+<td>mymath.cpp</td>
+</tr>
+<tr>
+<td>mymath.h</td>
+</tr>
+</tbody>
+</table>
+<p>
+Now we have the library we want to use compiled as a shared library <code class="verbatim">libmath.so</code>.
+In our code we then include the declaration of the function with the head <code class="verbatim">math.h</code>, and use the function.</p>
+<div class="src src-c++">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;mymath.h&#34;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
+ std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> reciprocal(<span style="color:#ae81ff">2.</span>); 
+}
+</code></pre></div>
+</div>
+<p>
+When we compile our code, we use the commands bellow.
+Notice that we manually have to pass the library path to the linker with <code class="verbatim">-rpath</code> flag.
+The flag <code class="verbatim">-Wl</code> is used to pass a list of arguments to the linker.</p>
+<div class="src src-shell">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">clang++ main.cpp libmath.so -Wl,-rpath,/mnt/c/Users/nasse/OneDrive/nasser-website/content/notes/cpp-notes
+./a.out</code></pre></div>
+</div>
+<pre class="example">
+0.5
+</pre>
+<p>
+It seems that CMake builds the executable with the RPATH for the build tree (<a href="https://gitlab.kitware.com/cmake/community/-/wikis/doc/cmake/RPATH-handling).">https://gitlab.kitware.com/cmake/community/-/wikis/doc/cmake/RPATH-handling).</a></p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-54" class="outline-2">
+<h2 id="headline-54">
+Compiler
+</h2>
+<div id="outline-text-headline-54" class="outline-text-2">
+<div id="outline-container-headline-55" class="outline-4">
+<h4 id="headline-55">
+Compilation
+</h4>
+<div id="outline-text-headline-55" class="outline-text-4">
+<p>
+The <span style="text-decoration: underline;">compiler</span> translates the source code from human language to machine language (executable or object code).</p>
+</div>
+</div>
+<div id="outline-container-headline-56" class="outline-4">
+<h4 id="headline-56">
+Linking
+</h4>
+<div id="outline-text-headline-56" class="outline-text-4">
+<p>
+All parts of the program must be compile and the resulted <span style="text-decoration: underline;">object code files <code class="verbatim">.obj</code> must be linked</span> to form an executable program.
+The linker is responsible for linking.</p>
+<p>
+Object code and executable <strong>are not portable</strong> among different systems.</p>
+</div>
+</div>
+<div id="outline-container-headline-57" class="outline-4">
+<h4 id="headline-57">
+Makefile
+</h4>
+<div id="outline-text-headline-57" class="outline-text-4">
+<p>
+It is a file that manages the compiling of a project (multiple c++ files). 
+When you call <code class="verbatim">make</code> it uses the <code class="verbatim">Makefile</code> instructions.</p>
+<p>
+The management means:</p>
+<ol>
+<li>
+<p>specify &#34;targets&#34;</p>
+</li>
+<li>
+<p>specify &#34;make actions&#34;, e.g. clean or build</p>
+</li>
+<li>
+<p>specify files/objects that make need to build</p>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-headline-58" class="outline-4">
+<h4 id="headline-58">
+Make
+</h4>
+<div id="outline-text-headline-58" class="outline-text-4">
+<p>
+The command <code class="verbatim">make</code> is responsible to &#34;build&#34; the software.
+It takes the <code class="verbatim">./makefile</code> and build the first target.
+The makefile has instructions to compile all the files that we need for our program.</p>
+<p>
+A simple makefile can be</p>
+<pre class="example">
+targets: prerequisites
+      command
+</pre>
+<p>
+If we want to compile <code class="verbatim">main.cpp</code> (from the example in <a href="*Using dynamic libraries">Using dynamic libraries</a>) for instance, the <code class="verbatim">Makefile</code> should have</p>
+<pre class="example">
+default:
+    clang++ main.cpp mymath.cpp -o output_with_make.out
+</pre>
+<p>
+Then, we can run with</p>
+<div class="src src-shell">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">make
+./output_with_make.out</code></pre></div>
+</div>
+<pre class="example">
+clang++ main.cpp mymath.cpp -o output_with_make.out
+0.5
+</pre>
+<p>
+References: <a href="https://makefiletutorial.com/">Makefile Tutorial By Example</a></p>
+</div>
+</div>
+<div id="outline-container-headline-59" class="outline-4">
+<h4 id="headline-59">
+CMake
+</h4>
+<div id="outline-text-headline-59" class="outline-text-4">
+<p>
+CMake is a system that manages the build process (configures the project).
+It works together with a native build environment (make for Linux).
+It substitute the manual creation of Makefiles.</p>
+<p>
+CMake uses <code class="verbatim">CMakeLists.txt</code> file in the source directory with configuration to generate &#34;standard build files&#34;, e.g. makefiles on Linux and projects/workspaces on Windows.</p>
+<p>
+CMake can create <em>native build environment</em> (?) to compile the source code, <em>create libraries</em> (?), </p>
+<p>
+A typical <code class="verbatim">CMakeLists.txt</code> would contain:</p>
+<pre class="example">
+cmake_minimum_required(version x.x)
+
+project(project_name)
+
+add_executable(project_name main.cpp)
+</pre>
+<p>
+Reference: <a href="https://tuannguyen68.gitbooks.io/learning-cmake-a-beginner-s-guide/content/chap1/chap1.html">Tutorial 1: Let&amp;apos;s start with CMake | Learning CMake: A beginner&amp;apos;s g…</a></p>
+</div>
+</div>
+<div id="outline-container-headline-60" class="outline-4">
+<h4 id="headline-60">
+Using CMake
+</h4>
+<div id="outline-text-headline-60" class="outline-text-4">
+<div id="outline-container-headline-61" class="outline-6">
+<h6 id="headline-61">
+Basic setup
+</h6>
+<div id="outline-text-headline-61" class="outline-text-6">
+<p>If we want to build our <code class="verbatim">main.cpp</code> with the content:</p>
+<div class="src src-c++">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;mymath.h&#34;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
+ std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> reciprocal(<span style="color:#ae81ff">2.</span>); 
+}
+</code></pre></div>
+</div>
+<p>
+where the header <code class="verbatim">mymath.h</code> has the declaration of the function <code class="verbatim">reciprocal</code> and the file <code class="verbatim">mymath.cpp</code> has its implementation </p>
+<div class="src src-c++">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">double</span> <span style="color:#a6e22e">reciprocal</span> (<span style="color:#66d9ef">double</span> x);
+</code></pre></div>
+</div>
+<div class="src src-c++">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;mymath.h&#34;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">double</span> <span style="color:#a6e22e">reciprocal</span> (<span style="color:#66d9ef">double</span> x) { <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1.</span> <span style="color:#f92672">/</span> x; }
+</code></pre></div>
+</div>
+<p>
+The files are:</p>
+<table>
+<tbody>
+<tr>
+<td>main.cpp</td>
+</tr>
+<tr>
+<td>mymath.cpp</td>
+</tr>
+<tr>
+<td>mymath.h</td>
+</tr>
+</tbody>
+</table>
+<p>
+Then, we create an empty <code class="verbatim">CMakeLists.txt</code> file on the source code.</p>
+<pre class="example">
+CMakeLists.txt
+main.cpp
+mymath.cpp
+mymath.h
+</pre>
+<p>
+Then, to get out our configured build system from CMake we create a separate <code class="verbatim">/build/</code> folder and run <code class="verbatim">cmake</code> on our source code:</p>
+<div class="src src-shell">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">mkdir build			<span style="color:#75715e"># create build directory</span>
+cd build			<span style="color:#75715e"># go to the build directory</span>
+cmake -S ../ -B .		<span style="color:#75715e"># Source and Build directories</span>
+ls</code></pre></div>
+</div>
+<pre class="example">
+-- The C compiler identification is GNU 9.3.0
+-- The CXX compiler identification is GNU 9.3.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /mnt/c/Users/nasse/OneDrive/nasser-website/content/notes/cpp-notes/build
+CMakeCache.txt
+CMakeFiles
+Makefile
+cmake_install.cmake
+</pre>
+<p>
+Inside the build directory a <code class="verbatim">Makefile</code> was created by CMake with the content,</p>
+<div class="src src-shell">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">cd build
+head --lines<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span> Makefile	<span style="color:#75715e"># limit to only the first 20 lines</span></code></pre></div>
+</div>
+<pre class="example">
+# CMAKE generated file: DO NOT EDIT!
+# Generated by &#34;Unix Makefiles&#34; Generator, CMake Version 3.20
+
+# Default target executed when no arguments are given to make.
+default_target: all
+.PHONY : default_target
+
+# Allow only one &#34;make -f Makefile2&#34; at a time, but pass parallelism.
+.NOTPARALLEL:
+
+#=============================================================================
+# Special targets provided by cmake.
+
+# Disable implicit rules so canonical targets will work.
+.SUFFIXES:
+
+# Disable VCS-based implicit rules.
+% : %,v
+
+# Disable VCS-based implicit rules.
+</pre>
+<p>
+This <code class="verbatim">Makefile</code> created by CMake has a bunch of predefined defaults even with the <code class="verbatim">CMakeLists.txt</code> empty.
+If we try to <code class="verbatim">build</code> our project with this <code class="verbatim">Makefile</code>, we get nothing because there was no mention of our code in it.
+However there are no errors in the process.</p>
+<div class="src src-shell">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">cd build
+make
+ls</code></pre></div>
+</div>
+<pre class="example">
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /mnt/c/Users/nasse/OneDrive/nasser-website/content/notes/cpp-notes/build
+CMakeCache.txt
+CMakeFiles
+Makefile
+cmake_install.cmake
+</pre>
+<p>
+Reference: <a href="https://cmake.org/cmake/help/git-stage/guide/tutorial/index.html">CMake Tutorial — CMake 3.20.20210421-g8d4c864 Documentation</a></p>
+</div>
+</div>
+<div id="outline-container-headline-62" class="outline-6">
+<h6 id="headline-62">
+Adding information to <code class="verbatim">CMakeLists.txt</code>
+</h6>
+<div id="outline-text-headline-62" class="outline-text-6">
+<p>
+Now, if we have a <code class="verbatim">CMakeLists.txt</code> with just a reference to our main file</p>
+<pre class="example">
+cmake_minimum_required(VERSION 3.17)
+
+project(myproject)
+
+add_executable(project_name main.cpp)
+</pre>
+<p>
+and run <code class="verbatim">cmake</code> to configure our project</p>
+<div class="src src-shell">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">mkdir build2
+cd build2
+cmake -S ../ -B .</code></pre></div>
+</div>
+<pre class="example">
+-- The C compiler identification is GNU 9.3.0
+-- The CXX compiler identification is GNU 9.3.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /mnt/c/Users/nasse/OneDrive/nasser-website/content/notes/cpp-notes/build2
+</pre>
+<p>
+now, if we build with <code class="verbatim">make</code> </p>
+<div class="src src-shell">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">cd build2
+make</code></pre></div>
+</div>
+<p>
+<code class="verbatim">main.cpp:(.text+0x15): undefined reference to `reciprocal(double)&#39;</code></p>
+<p>
+we get an error saying that a reference is undefined.</p>
+</div>
+</div>
+<div id="outline-container-headline-63" class="outline-6">
+<h6 id="headline-63">
+Adding multiple sources to <code class="verbatim">CMakeLists.txt</code>
+</h6>
+<div id="outline-text-headline-63" class="outline-text-6">
+<p>Adding a reference to the file with the function definition.</p>
+<pre class="example">
+cmake_minimum_required(VERSION 3.17)
+
+project(myproject)
+
+add_executable(project_name main.cpp mymath.cpp)
+</pre>
+<div class="src src-shell">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">mkdir build3
+cd build3
+cmake -S ../ -B .
+make</code></pre></div>
+</div>
+<pre class="example">
+-- The C compiler identification is GNU 9.3.0
+-- The CXX compiler identification is GNU 9.3.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /mnt/c/Users/nasse/OneDrive/nasser-website/content/notes/cpp-notes/build3
+[ 33%] Building CXX object CMakeFiles/project_name.dir/main.cpp.o
+[ 66%] Building CXX object CMakeFiles/project_name.dir/mymath.cpp.o
+[100%] Linking CXX executable project_name
+[100%] Built target project_name
+</pre>
+<p>
+and we can run the code by calling the executable</p>
+<div class="src src-shell">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">cd build3
+./project_name</code></pre></div>
+</div>
+<pre class="example">
+0.5
+</pre>
+</div>
+</div>
+<div id="outline-container-headline-64" class="outline-6">
+<h6 id="headline-64">
+Adding a dynamic library to <code class="verbatim">CMakeLists.txt</code>
+</h6>
+<div id="outline-text-headline-64" class="outline-text-6">
+<p>
+Now we want to compile our project using a ready to use dynamic library created by someone else.
+For the example lets compile our dynamic/shared library with the function definition.</p>
+<div class="src src-shell">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">clang++ -shared -o libmymath.so mymath.cpp
+ls</code></pre></div>
+</div>
+<p>
+The resulting folder structure is</p>
+<pre class="example">
+CMakeLists.txt
+libmymath.so
+main.cpp
+mymath.cpp
+mymath.h
+</pre>
+<p>
+Now, with our dynamic library <code class="verbatim">libmymath.so</code> ready, let&#39;s include it on our project.</p>
+<p>
+In order to <em>import</em> a library into another project we use the concept of importing targets <a href="https://gitlab.kitware.com/cmake/community/-/wikis/doc/tutorials/Exporting-and-Importing-Targets">Exporting and Importing Targets · Wiki · CMake / Community · GitLab</a>.
+The command <code class="verbatim">add_library</code> when importing from an outside library must have the <code class="verbatim">IMPORTED</code> option together with the library type <code class="verbatim">SHARED</code> or <code class="verbatim">STATIC</code>.
+Then we need to tell CMake where this library is located with the <code class="verbatim">set_property</code> command.</p>
+<pre class="example">
+cmake_minimum_required(VERSION 3.17)
+
+project(myproject)
+
+add_library(libmymath SHARED IMPORTED)
+set_property(TARGET libmymath PROPERTY IMPORTED_LOCATION ../libmymath.so)
+
+add_executable(project_name main.cpp)
+
+target_link_libraries(myproject libmymath)
+</pre>
+<p>
+When we run <code class="verbatim">cmake</code> with that, it will add a rule to link the library to the project executable.</p>
+<div class="src src-shell">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">mkdir build4
+cd build4
+cmake -S ../ -B .
+make</code></pre></div>
+</div>
+<pre class="example">
+-- The C compiler identification is GNU 9.3.0
+-- The CXX compiler identification is GNU 9.3.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /mnt/c/Users/nasse/OneDrive/nasser-website/content/notes/cpp-notes/build4
+[ 50%] Building CXX object CMakeFiles/myproject.dir/main.cpp.o
+[100%] Linking CXX executable myproject
+[100%] Built target myproject
+</pre>
+<p>
+Then running the generated executable</p>
+<div class="src src-shell">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">cd build4
+./myproject</code></pre></div>
+</div>
+<pre class="example">
+0.5
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-65" class="outline-4">
+<h4 id="headline-65">
+Install
+</h4>
+<div id="outline-text-headline-65" class="outline-text-4">
+<p>
+The command <code class="verbatim">make install</code> will copy the program and its libraries to correct locations.
+The program will be copied to a directory on the system PATH.</p>
+</div>
+</div>
+<div id="outline-container-headline-66" class="outline-4">
+<h4 id="headline-66">
+When to rerun CMake
+</h4>
+<div id="outline-text-headline-66" class="outline-text-4">
+<p>
+CMake automatically check for changes in the build targets.
+When invoking make it triggers new execution of cmake if necessary.</p>
+</div>
+</div>
 </div>
 </div>
 
@@ -1212,7 +1835,7 @@ The standard library provides the container vector for instance.</p>
 <ul>
 <li><a href="#headline-7">Logical operators (!, &amp;&amp;, ||)</a>
 </li>
-<li><a href="#headline-8">Compound assignments (+=, -<code class="verbatim">, /</code>, *=)</a>
+<li><a href="#headline-8">Compound assignments (+=, *=)</a>
 </li>
 <li><a href="#headline-9">Member operators (., -&gt;)</a>
 </li>
@@ -1296,15 +1919,59 @@ The standard library provides the container vector for instance.</p>
 </li>
 <li><a href="#headline-43">Templates</a>
 </li>
-<li><a href="#headline-44">Libraries</a>
-<ul>
-<li><a href="#headline-45">Standard library</a>
+<li><a href="#headline-44">Containers</a>
 </li>
-<li><a href="#headline-46">Headers and namespace</a>
+<li><a href="#headline-45">Libraries</a>
+<ul>
+<li><a href="#headline-46">Standard library</a>
+</li>
+<li><a href="#headline-47">Headers and namespace</a>
+</li>
+<li><a href="#headline-48">External libraries</a>
+<ul>
+<li><a href="#headline-49">General definitions</a>
+</li>
+<li><a href="#headline-50">Including a library in <code class="verbatim">/usr/include/</code></a>
+</li>
+<li><a href="#headline-51">Including a library elsewhere</a>
 </li>
 </ul>
 </li>
-<li><a href="#headline-47">Containers</a>
+<li><a href="#headline-52">Static and dynamic libraries</a>
+</li>
+<li><a href="#headline-53">Using dynamic libraries</a>
+</li>
+</ul>
+</li>
+<li><a href="#headline-54">Compiler</a>
+<ul>
+<li><a href="#headline-55">Compilation</a>
+</li>
+<li><a href="#headline-56">Linking</a>
+</li>
+<li><a href="#headline-57">Makefile</a>
+</li>
+<li><a href="#headline-58">Make</a>
+</li>
+<li><a href="#headline-59">CMake</a>
+</li>
+<li><a href="#headline-60">Using CMake</a>
+<ul>
+<li><a href="#headline-61">Basic setup</a>
+</li>
+<li><a href="#headline-62">Adding information to <code class="verbatim">CMakeLists.txt</code></a>
+</li>
+<li><a href="#headline-63">Adding multiple sources to <code class="verbatim">CMakeLists.txt</code></a>
+</li>
+<li><a href="#headline-64">Adding a dynamic library to <code class="verbatim">CMakeLists.txt</code></a>
+</li>
+</ul>
+</li>
+<li><a href="#headline-65">Install</a>
+</li>
+<li><a href="#headline-66">When to rerun CMake</a>
+</li>
+</ul>
 </li>
 </ul>
 </nav>

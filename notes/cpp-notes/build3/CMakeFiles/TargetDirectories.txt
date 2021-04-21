@@ -1,0 +1,3 @@
+/mnt/c/Users/nasse/OneDrive/nasser-website/content/notes/cpp-notes/build3/CMakeFiles/rebuild_cache.dir
+/mnt/c/Users/nasse/OneDrive/nasser-website/content/notes/cpp-notes/build3/CMakeFiles/edit_cache.dir
+/mnt/c/Users/nasse/OneDrive/nasser-website/content/notes/cpp-notes/build3/CMakeFiles/project_name.dir

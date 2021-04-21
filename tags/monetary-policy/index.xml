@@ -7,29 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© {year}</copyright>
-    <lastBuildDate>Fri, 25 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/tags/monetary-policy/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Does monetary easing causes &#34;asset inflation&#34;?</title>
-      <link>https://nasseralkmim.github.io/notes/asset-price-inflation/</link>
-      <pubDate>Fri, 25 Dec 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/notes/asset-price-inflation/</guid>
-      <description>Introduction   Some people say that monetary easing by the central bank in the past decade is not affecting the CPI but the asset prices (stocks and bonds).
- To see how this is wrong (?) we need to understand inflation, monetary policy and modern finance.
-  Inflation   Results from excess demand for goods and the ability of the supply side to provide.
-Monetarist   Right wingers can be so fanciful about their intellectual inheritance.</description>
-    </item>
-    
-    <item>
-      <title>Shadow banking and FED as a lender of last resort</title>
-      <link>https://nasseralkmim.github.io/notes/shadow-banking-monetary-policy/</link>
-      <pubDate>Fri, 25 Dec 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/notes/shadow-banking-monetary-policy/</guid>
-      <description>Traditional crisis   During a traditional crises, with mostly traditional banks1, the cash commitments are greater than the cash flows. So, there is a liquidity problem for the banks. The FED can directly provide that liquidity by increasing banks reserves.
-  References    https://voxeu.org/article/growth-non-bank-finance-and-new-monetary-policy-tools     Footnotes   1 Traditional banks accept deposits (short term borrowing) and make loas (long term lending).</description>
-    </item>
-    
+    <lastBuildDate>Sun, 13 Dec 2020 20:08:58 -0300</lastBuildDate><atom:link href="https://nasseralkmim.github.io/tags/monetary-policy/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Monetary policy and lender of last resort</title>
       <link>https://nasseralkmim.github.io/notes/fed-monetary-mechanism/</link>

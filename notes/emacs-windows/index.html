@@ -268,14 +268,38 @@ It seem xclip can not get clipboard.</p>
 </div>
 <div id="outline-container-headline-11" class="outline-4">
 <h4 id="headline-11">
+<span class="todo">DONE</span>
 Emacs jupyter
 </h4>
 <div id="outline-text-headline-11" class="outline-text-4">
 <p>
-Emacs-jupyter was not finding python, even though I could call <code class="verbatim">python</code> in the wsl terminal.
-It seems that  emacs-jupyter was looking for python at limited places, namely <code class="verbatim">jupyter --path</code>. </p>
+It seems that emacs-jupyter was looking for jupyter in the search path that emacs uses to find programs (<code class="verbatim">exec-path</code> variable).</p>
 <p>
-I had to create a symlink for python3 to one of <code class="verbatim">jupyter --path</code> so emacs-jupyter can find python.</p>
+<code class="verbatim">jupyter --path</code> gives:</p>
+<div class="src src-shell">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">config:
+    /home/nasser/.jupyter
+    /usr/etc/jupyter
+    /usr/local/etc/jupyter
+    /etc/jupyter
+data:
+    /home/nasser/.local/share/jupyter
+    /usr/local/share/jupyter
+    /usr/share/jupyter
+runtime:
+    /home/nasser/.local/share/jupyter/runtime</code></pre></div>
+</div>
+<p>
+Which is not inside <code class="verbatim">exec-path</code> variable. 
+Added with <code class="verbatim">(add-to-list &#39;exec-path &#34;/usr/etc&#34;)</code>.</p>
+<p>
+I also was getting error for emacs-jupyter not finding python (<code class="verbatim">apply: Searching for program: No such file or directory, python</code>).
+Emacs-jupyter was not finding python, even though I could call <code class="verbatim">python3</code> in the wsl terminal.
+It seems that emacs-jupyter (<code class="verbatim">jupyter-locate-python</code>) looks for python only at <code class="verbatim">jupyter --paths</code>.</p>
+<p>
+More specifically emacs-jupyter looks at <code class="verbatim">/usr/local/bin/</code> and my python3 was installed <code class="verbatim">which python3</code> at <code class="verbatim">/usr/bin/</code>.
+So I had to create a symbolic link <code class="verbatim">sudo ln -s /usr/bin/python3 /usr/local/bin/python</code>.
+Then it worked.</p>
 </div>
 </div>
 <div id="outline-container-headline-12" class="outline-4">
@@ -351,16 +375,16 @@ then change the default shell to bash again.</p>
 
  <div class="pagination">
   
-    <a class="pagination__item" href="https://nasseralkmim.github.io/notes/portman/">
+    <a class="pagination__item" href="https://nasseralkmim.github.io/notes/portfolio-performance/">
         <span class="pagination__label">Previous Post</span>
-        <span class="pagination__title">Gerenciamento de portfolio com portman</span>
+        <span class="pagination__title">Performance de um portfolio</span>
     </a>
   
 
   
-    <a class="pagination__item" href="https://nasseralkmim.github.io/notes/portfolio-theory-and-capm/">
+    <a class="pagination__item" href="https://nasseralkmim.github.io/notes/inn-1-first-impressions/">
       <span class="pagination__label">Next Post</span>
-      <span class="pagination__title" >Portfolio theory, CAPM and Nassim Taleb</span>
+      <span class="pagination__title" >Innsbruck - First impressions</span>
     </a>
   
 </div>

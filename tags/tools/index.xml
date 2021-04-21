@@ -32,18 +32,6 @@
     </item>
     
     <item>
-      <title>System configuration</title>
-      <link>https://nasseralkmim.github.io/notes/system-configuration/</link>
-      <pubDate>Sun, 17 Jan 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/notes/system-configuration/</guid>
-      <description>Intro   Log of my system configuration for windows.
-  Swap CAPS LOCK to CTRL  GitHub - ililim/dual-key-remap: Remap any key to any other two keys on Window…
- Configure to use as escape (ESC) and control (CTRL) when with other. Perfect for emasc.
-remap_key=CAPSLOCK when_alone=ESCAPE with_other=CTRL    Tpmiddle  GitHub - Jyny/TPmiddle: Scroll &amp;amp; middle-click with the TrackPoint Configure to use middle button on trackpad.</description>
-    </item>
-    
-    <item>
       <title>Emacs on windows with WSL2</title>
       <link>https://nasseralkmim.github.io/notes/emacs-windows/</link>
       <pubDate>Mon, 04 Jan 2021 00:00:00 +0000</pubDate>

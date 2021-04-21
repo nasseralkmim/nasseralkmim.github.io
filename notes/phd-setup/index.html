@@ -168,153 +168,6 @@ Typeface for $LaTeX$
 From this catalogue <a href="https://tug.org/FontCatalogue/seriffonts.html">The LaTeX Font Catalogue – Serif Fonts</a>, I&#39;m experimenting with Erewhon and linux libertine.</p>
 </div>
 </div>
-<div id="outline-container-headline-4" class="outline-2">
-<h2 id="headline-4">
-Trilinos
-</h2>
-<div id="outline-text-headline-4" class="outline-text-2">
-<p>I&#39;m following the instructions in <a href="https://github.com/trilinos/Trilinos/blob/master/INSTALL.rst">Trilinos/INSTALL.rst at master · trilinos/Trilinos · GitHub</a>.</p>
-<div id="outline-container-headline-5" class="outline-4">
-<h4 id="headline-5">
-Operating system
-</h4>
-<div id="outline-text-headline-5" class="outline-text-4">
-<p>
-I am using windows 10 with windows subystem for linux (wsl2) with Ubunto 20.04.</p>
-</div>
-</div>
-<div id="outline-container-headline-6" class="outline-4">
-<h4 id="headline-6">
-CMake
-</h4>
-<div id="outline-text-headline-6" class="outline-text-4">
-<p>
-One of the current requirements is Cmake 3.17.1 or newer, and the version in the Ubunto is 3.16.
-I followed the steps in this <a href="https://askubuntu.com/questions/355565/how-do-i-install-the-latest-version-of-cmake-from-the-command-line">software installation - How do I install the latest version of cmake from the…</a>.
-The <code class="verbatim">cmake -version</code> installed is <code class="verbatim">3.20.1</code>.</p>
-<div id="outline-container-headline-7" class="outline-6">
-<h6 id="headline-7">
-Notes on CMake, make and makefile
-</h6>
-<div id="outline-text-headline-7" class="outline-text-6">
-<ol>
-<li>
-<p><code class="verbatim">make</code> is a tool that controls the generation of executables</p>
-<ol>
-<li>
-<p><code class="verbatim">make</code> compiles a program from source code</p>
-</li>
-<li>
-<p><code class="verbatim">make</code> compile a final executable binary that can be installed using <code class="verbatim">make install</code></p>
-</li>
-<li>
-<p>it enables to build and install a package without knowing the details of it, <code class="verbatim">make</code> knows which files need to be updated</p>
-</li>
-</ol>
-</li>
-<li>
-<p>a makefile is a file required by <code class="verbatim">make</code> and defines a set of tasks to be executed</p>
-<ol>
-<li>
-<p>without a makefile one needs to type <code class="verbatim">clang -o &lt;executable&gt; &lt;file1.c&gt; &lt;file2.c&gt; ....</code> every time to compile the executable</p>
-</li>
-<li>
-<p>if you change only 1 <code class="verbatim">.c</code> file, you would have to recompile all of them which is inefficient, just run <code class="verbatim">make</code> is better</p>
-</li>
-</ol>
-</li>
-<li>
-<p>CMake is a tool for build, test and package software</p>
-</li>
-<li>
-<p>CMake is cross platform, it recognizes which compilers to use and automatically discovers and configure the tool chain to compile the source code in any operating system</p>
-</li>
-<li>
-<p>CMake is equivalent to running <code class="verbatim">./configure</code> (check if all tools needed are in place)</p>
-</li>
-<li>
-<p><code class="verbatim">CMakeList.txt</code> has information for cmake</p>
-</li>
-<li>
-<p>CMake control software compilation process and generate &#34;native makefiles&#34; and &#34;workspaces&#34;</p>
-<ol>
-<li>
-<p>native makefiles and workspaces can be used in the &#34;compiler environment&#34;</p>
-</li>
-</ol>
-</li>
-</ol>
-<p>References:</p>
-<ol>
-<li>
-<p><a href="https://www.cs.colby.edu/maxwell/courses/tutorials/maketutor/">A Simple Makefile Tutorial</a></p>
-</li>
-<li>
-<p><a href="https://prateekvjoshi.com/2014/02/01/cmake-vs-make/">CMake vs Make | PERPETUAL ENIGMA</a></p>
-</li>
-</ol>
-</div>
-</div>
-</div>
-</div>
-<div id="outline-container-headline-8" class="outline-4">
-<h4 id="headline-8">
-C compiler
-</h4>
-<div id="outline-text-headline-8" class="outline-text-4">
-<p>
-I am using clang as C++ compiler, <code class="verbatim">sudo apt install clang</code>.</p>
-</div>
-</div>
-<div id="outline-container-headline-9" class="outline-4">
-<h4 id="headline-9">
-Fortran compiler
-</h4>
-<div id="outline-text-headline-9" class="outline-text-4">
-<p>
-<code class="verbatim">sudo apt install gfortran</code></p>
-</div>
-</div>
-<div id="outline-container-headline-10" class="outline-4">
-<h4 id="headline-10">
-MPI
-</h4>
-<div id="outline-text-headline-10" class="outline-text-4">
-<p>Message passing interface.
-MPI is a standardized API for parallel computing, <a href="https://www.open-mpi.org/faq/?category=general#what-is-mpi">FAQ: General information about the Open MPI Project</a>.</p>
-<p>
-<code class="verbatim">sudo apt install mpi</code></p>
-</div>
-</div>
-<div id="outline-container-headline-11" class="outline-4">
-<h4 id="headline-11">
-BLAS and LAPACK
-</h4>
-<div id="outline-text-headline-11" class="outline-text-4">
-<p>Third part libraries (TLPs) that are required.</p>
-<p>
-<code class="verbatim">sudo apt install libblas-dev liblapack-dev</code></p>
-</div>
-</div>
-<div id="outline-container-headline-12" class="outline-4">
-<h4 id="headline-12">
-Configuration script
-</h4>
-<div id="outline-text-headline-12" class="outline-text-4">
-<p>
-I created a shell script with in a folder with <code class="verbatim">Trilinos</code> source code cloned with <code class="verbatim">git clone https://github.com/trilinos/Trilinos/</code></p>
-<div class="src src-bash">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cmake <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>-DTPL_ENABLE_MPI<span style="color:#f92672">=</span>ON <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>-DMPI_BASE_DIR<span style="color:#f92672">=</span>./mpi/ <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>-DTrilinos_ENABLE_ALL_PACKAGES<span style="color:#f92672">=</span>ON <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>-DCMAKE_INSTALL_PREFIX<span style="color:#f92672">=</span>./trilinos-build/ <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>./Trilinos/</code></pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
 
 
               
@@ -340,6 +193,9 @@ I created a shell script with in a folder with <code class="verbatim">Trilinos</
     </li>
     <li class="tag__item">
         <a class="tag__link" href="https://nasseralkmim.github.io/tags/emacs/">emacs</a>
+    </li>
+    <li class="tag__item">
+        <a class="tag__link" href="https://nasseralkmim.github.io/tags/phd/">phd</a>
     </li></ul>
 
  <div class="pagination">
@@ -351,9 +207,9 @@ I created a shell script with in a folder with <code class="verbatim">Trilinos</
   
 
   
-    <a class="pagination__item" href="https://nasseralkmim.github.io/notes/automatizar-ir/">
+    <a class="pagination__item" href="https://nasseralkmim.github.io/notes/cpp-environment-setup/">
       <span class="pagination__label">Next Post</span>
-      <span class="pagination__title" >Automatizar IR - Rendimentos</span>
+      <span class="pagination__title" >C&#43;&#43; Development environment in Emacs</span>
     </a>
   
 </div>

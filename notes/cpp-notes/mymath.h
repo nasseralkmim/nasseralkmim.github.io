@@ -1,0 +1,1 @@
+double reciprocal (double x);

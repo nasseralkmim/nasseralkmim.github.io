@@ -7,48 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© {year}</copyright>
-    <lastBuildDate>Thu, 18 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/tags/portugues/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Automatizar IR - Rendimentos</title>
-      <link>https://nasseralkmim.github.io/notes/automatizar-ir/</link>
-      <pubDate>Thu, 18 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/notes/automatizar-ir/</guid>
-      <description>Objetivo   Rendimentos recebidos são fornecidos pelo banco escriturador para cada ativo registrado no seu CPF.
- Na declaração é necessário preencher na ficha &amp;#34;Rendimentos sujeitos à tributação exclusiva/definitiva&amp;#34; o juros sobre capital próprio JSCP recebido (item 10). Nesse caso será preciso do CNPJ da fonte pagadora para a receita fazer o cruzamento.
- Na ficha &amp;#34;rendimentos isentos e não-tributáveis&amp;#34; devem ser declarados os dividendos recebido (09).
-  Estratégia   Automatizar a leitura dos pdfs de informe de rendimentos e preencher uma tabela (spreadsheet) com os dados necessários para a declaração.</description>
-    </item>
-    
-    <item>
-      <title>Portfolio theory, CAPM and Nassim Taleb</title>
-      <link>https://nasseralkmim.github.io/notes/portfolio-theory-and-capm/</link>
-      <pubDate>Thu, 07 Jan 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/notes/portfolio-theory-and-capm/</guid>
-      <description>Portfolio theory   Markowitz calculou o desvio padrão de uma carteira por meio da covariança entre os ativos que compõem a carteira. Com isso obteve uma relação entre retorno e desvio padrão da carteira, que entendia como medida de risco.
- Além disso, outra conclusão importante: o risco de uma carteira não é simplesmente a soma da variância de cada ativo mas a soma das covariâncias. Portanto, é possível a combinação de dois ativos com retornos voláteis para gerar uma carteira menos volátil se por exemplo quando um ativo cai de preço o outro aumenta, ou seja, são correlacionados negativamente.</description>
-    </item>
-    
-    <item>
-      <title>Gerenciamento de portfolio com portman</title>
-      <link>https://nasseralkmim.github.io/notes/portman/</link>
-      <pubDate>Wed, 30 Dec 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/notes/portman/</guid>
-      <description> Consolidação do portfolio  import pandas as pd import portman as pm pm.consolidate(&amp;#39;trade_data.csv&amp;#39;)    Análise  import matplotlib import matplotlib.pyplot as plt matplotlib.style.use(&amp;#39;ggplot&amp;#39;) import portman as pm pm.analysis.summary(&amp;#39;portfolio.csv&amp;#39;) pm.analysis.allocation(&amp;#39;portfolio.csv&amp;#39;) pm.analysis.returns(&amp;#39;returns.csv&amp;#39;) pm.analysis.dividends(&amp;#39;dividends.csv&amp;#39;) plt.tight_layout()    </description>
-    </item>
-    
-    <item>
-      <title>Money credit and cryptocurrency</title>
-      <link>https://nasseralkmim.github.io/notes/money-credit-btc/</link>
-      <pubDate>Sat, 26 Dec 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/notes/money-credit-btc/</guid>
-      <description>Dinheiro e crédito  O que é dinheiro? O que é crédito? Os dois são lados da mesma moeda. Dinheiro é o meio de liquidar acordos que maturaram, means of settlement. Crédito é uma forma de postergar essa liquidação para o futuro.
- Os diversos ativos financeiros: reservas no Banco Central, ouro, moeda local, depósitos e securities (títulos), podem ser entendidos ora como dinheiro ora como crédito. Um depósito é uma promessa de pagar moeda local, um título pode ser uma promessa de pagar um depósito, e assim por diante.</description>
-    </item>
-    
+    <lastBuildDate>Sat, 26 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/tags/portugues/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Performance de um portfolio</title>
       <link>https://nasseralkmim.github.io/notes/portfolio-performance/</link>
@@ -56,18 +15,6 @@
       
       <guid>https://nasseralkmim.github.io/notes/portfolio-performance/</guid>
       <description>Introdução  E ai? quanto rendeu seu portfólio? Fácil, $$R_p = V_{final}/V_{inicial} - 1$$ certo? sim, se você investiu em um único aporte. Normalmente, as pessoas fazem vários aportes ao longo do tempo. Então, se você fez um aporte de 1.000,00, e depois fez outro aporte de 1.000,00; o valor final do seu portfólio é 2.000,00. Se usarmos a fórmula acima iremos obter 100% de retorno, isso indica &amp;#34;performance&amp;#34;?</description>
-    </item>
-    
-    <item>
-      <title>Does monetary easing causes &#34;asset inflation&#34;?</title>
-      <link>https://nasseralkmim.github.io/notes/asset-price-inflation/</link>
-      <pubDate>Fri, 25 Dec 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/notes/asset-price-inflation/</guid>
-      <description>Introduction   Some people say that monetary easing by the central bank in the past decade is not affecting the CPI but the asset prices (stocks and bonds).
- To see how this is wrong (?) we need to understand inflation, monetary policy and modern finance.
-  Inflation   Results from excess demand for goods and the ability of the supply side to provide.
-Monetarist   Right wingers can be so fanciful about their intellectual inheritance.</description>
     </item>
     
     <item>
@@ -89,16 +36,6 @@ import yahooquery as yf import pandas as pd pd.options.display.float_format = &a
       <description>Objetivo   Dado uma série de trades, saber quanto de dividendo foi recebido até então, separado por valores mensais.
    Resultado  Antecipando o resultado do artigo. Se quiser acompanhar a lógica de solução o restante do texto mostra o processo.
 Input  trade_data = pd.read_csv(&amp;#39;trade_data.csv&amp;#39;, sep=&amp;#39;;&amp;#39;, header=None) print(trade_data)  0 1 2 3 4 0 20-07-2020 buy MGLU3 10 50,5 1 29-07-2020 buy MGLU3 30 60 2 30-07-2020 sell ITSA4 15 12 3 11-12-2019 buy MGLU3 50 10 4 19-02-2020 buy ITSA4 20 11 5 29-05-2020 buy ITSA4 25 10    Processar as negociações  trades = process_trades(trade_data_file=&amp;#39;trade_data.</description>
-    </item>
-    
-    <item>
-      <title>Fat tails and Gaussian fallacies</title>
-      <link>https://nasseralkmim.github.io/notes/fat-tails/</link>
-      <pubDate>Sat, 12 Dec 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/notes/fat-tails/</guid>
-      <description>  Por que quando lidamos com problemas que envolvem fat tails as estatísticas da distribuição normal (média, variância) não fazem sentido?
-Eventos extremos e eventos medíocres   Fat tails   References   </description>
     </item>
     
   </channel>

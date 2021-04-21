@@ -65,18 +65,6 @@ import numpy as np A = np.array([[3, 1, -1], [1, -4, 2], [-2, -1, 5]]) b = np.</
     </item>
     
     <item>
-      <title>Automatizar IR - Rendimentos</title>
-      <link>https://nasseralkmim.github.io/notes/automatizar-ir/</link>
-      <pubDate>Thu, 18 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/notes/automatizar-ir/</guid>
-      <description>Objetivo   Rendimentos recebidos são fornecidos pelo banco escriturador para cada ativo registrado no seu CPF.
- Na declaração é necessário preencher na ficha &amp;#34;Rendimentos sujeitos à tributação exclusiva/definitiva&amp;#34; o juros sobre capital próprio JSCP recebido (item 10). Nesse caso será preciso do CNPJ da fonte pagadora para a receita fazer o cruzamento.
- Na ficha &amp;#34;rendimentos isentos e não-tributáveis&amp;#34; devem ser declarados os dividendos recebido (09).
-  Estratégia   Automatizar a leitura dos pdfs de informe de rendimentos e preencher uma tabela (spreadsheet) com os dados necessários para a declaração.</description>
-    </item>
-    
-    <item>
       <title>PhD setup</title>
       <link>https://nasseralkmim.github.io/notes/phd-setup/</link>
       <pubDate>Tue, 16 Mar 2021 00:00:00 +0000</pubDate>
@@ -139,154 +127,6 @@ Chicken and rice stir fry   Ingredients:
     </item>
     
     <item>
-      <title>National debt</title>
-      <link>https://nasseralkmim.github.io/notes/national-debt/</link>
-      <pubDate>Mon, 01 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/notes/national-debt/</guid>
-      <description> References    Servicing the National Debt | St. Louis Fed
-    </description>
-    </item>
-    
-    <item>
-      <title>Banks and finance in modern macroeconmics</title>
-      <link>https://nasseralkmim.github.io/notes/macroeconomics-and-banks/</link>
-      <pubDate>Tue, 16 Feb 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/notes/macroeconomics-and-banks/</guid>
-      <description>Old view of banking   Discretionary bank decision to expand its balance sheet and therefore expandid credit to entepreneurs with positive net present value projects.
- Sometimes these project may never yield returns and we have a break in the payments chain, causing a crisis.
-  New view of banking   Banks as intermediaries that face daily liquidity constraints, or clearing constraint.
- This constraint is enforced by a reserve limitation that banks must follow.</description>
-    </item>
-    
-    <item>
-      <title>Crypto</title>
-      <link>https://nasseralkmim.github.io/notes/crypto/</link>
-      <pubDate>Wed, 10 Feb 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/notes/crypto/</guid>
-      <description>Crypto as an asset    no income (like stocks or bonds)
-  no utility (currency as means of payment)
-    Crypto as an alternative to credit  What is credit?   One of the key features of crypto is its manufactured scarcity. Whereas current fiat money can be created by the central bank expansion of its balance sheet (increasing both assets and liabilities).</description>
-    </item>
-    
-    <item>
-      <title>Decentralized finance</title>
-      <link>https://nasseralkmim.github.io/notes/descentrilized-finance/</link>
-      <pubDate>Wed, 10 Feb 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/notes/descentrilized-finance/</guid>
-      <description> Collateralized debt markets   Clearing and settlement   Financial Society is inherently hierarchical, as promises to pay (i.e. credit) at one level in the system serve as means of payment (i.e. money) lower down. — Perry Mehrling
-   References    Decentralized Finance: On Blockchain- and Smart Contract-Based Financial Mark…   Financialization and its discontents | Mehrling | Finance and Society
-    </description>
-    </item>
-    
-    <item>
-      <title>2008 Crises compilation</title>
-      <link>https://nasseralkmim.github.io/notes/2008-crisis/</link>
-      <pubDate>Sun, 31 Jan 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/notes/2008-crisis/</guid>
-      <description>Introduction  This is a compilation about my understanding of the 2008 GFC.
-  Causes of the crisis    Shadow banking expanding market-based credit with riskier assets (hedged with derivatives to become quasi-treasuries)
-  price of this assets declined, dealers could not access the usual funding liquidity to roll their loans;
-  with no access to cash from market-based credit, they were forced to sell their securities;</description>
-    </item>
-    
-    <item>
-      <title>GME big short</title>
-      <link>https://nasseralkmim.github.io/notes/gme-big-short/</link>
-      <pubDate>Sat, 30 Jan 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/notes/gme-big-short/</guid>
-      <description>Problems for hedge funds   Short squeeze   Brokers and margin call   Brokers got margin call by the clearinghouse. On other hand, brokers should have margin called the short sellers to cover their positions. But they did not do that, because it would most certainly cause the short sellers to just default.
- If the short sellers were margin called they would be required to buy shares at whatever price and this would put upward pressure to the price.</description>
-    </item>
-    
-    <item>
-      <title>Absence of evidence is not evidence of absence</title>
-      <link>https://nasseralkmim.github.io/notes/evidence-of-absence/</link>
-      <pubDate>Thu, 21 Jan 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/notes/evidence-of-absence/</guid>
-      <description> Exempli gratia   First, there is no evidence that consumption of consumer staples had actually fallen much during 2020 as people had stayed home but continued to spend on food, drinks and home refurbishment as usual, if not more. – vlbuzz (FT comment)
-   </description>
-    </item>
-    
-    <item>
-      <title>Hot money impact on EM</title>
-      <link>https://nasseralkmim.github.io/notes/hot-money-flow-eme/</link>
-      <pubDate>Thu, 21 Jan 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/notes/hot-money-flow-eme/</guid>
-      <description> References    Hot Money Flows, Commodity Price Cycles, and Financial Repression in the US and the People’s Republic of China: The Consequences of Near Zero US Interest Rates. Ronald McKinnon and Zhao Liu. 2013.
-    </description>
-    </item>
-    
-    <item>
-      <title>System configuration</title>
-      <link>https://nasseralkmim.github.io/notes/system-configuration/</link>
-      <pubDate>Sun, 17 Jan 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/notes/system-configuration/</guid>
-      <description>Intro   Log of my system configuration for windows.
-  Swap CAPS LOCK to CTRL  GitHub - ililim/dual-key-remap: Remap any key to any other two keys on Window…
- Configure to use as escape (ESC) and control (CTRL) when with other. Perfect for emasc.
-remap_key=CAPSLOCK when_alone=ESCAPE with_other=CTRL    Tpmiddle  GitHub - Jyny/TPmiddle: Scroll &amp;amp; middle-click with the TrackPoint Configure to use middle button on trackpad.</description>
-    </item>
-    
-    <item>
-      <title>Passive investing and price discovery in the market</title>
-      <link>https://nasseralkmim.github.io/notes/passive-investing/</link>
-      <pubDate>Sat, 16 Jan 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/notes/passive-investing/</guid>
-      <description>Passive investing   Price discovery in a passive market   Passive monopoly   RobinWigglesworth Muppet I did, and he is pretty unconcerned. He reckons we could approach 90% passive and we might not notice any issues, and that will take a long long time.. He points out - rightly - that there are plenty of companies that are mostly owned by the founder or parent company, but no one thinks that price discovery is materially impaired.</description>
-    </item>
-    
-    <item>
-      <title>Future expectation, personal goals and advice</title>
-      <link>https://nasseralkmim.github.io/notes/goals-future-advice/</link>
-      <pubDate>Wed, 13 Jan 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/notes/goals-future-advice/</guid>
-      <description>Where you want to be?   Where you want to be in 5 years? What you want to do after graduating? What do you want graduate in? Hard questions. You are better off not creating too much future expectation because the future outcome may be very little in your control.
- The better advice is to &amp;#34;stay upwind&amp;#34;. Given the choices in front of you, choose the one that will allow you to be higher.</description>
-    </item>
-    
-    <item>
-      <title>Fischer Black CAPM</title>
-      <link>https://nasseralkmim.github.io/notes/fischer-black-capm/</link>
-      <pubDate>Sat, 09 Jan 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/notes/fischer-black-capm/</guid>
-      <description>Fischer&amp;#39;s quote:
- stock prices are informative if they are between “one-half” and “twice” their fundamental values.
-  Here he is saying that when in normal times, in the range [0.5, 2], stock prices are in fact informative. However when an event that largely deviates from the standard deviation (Mandelbrot), we call this event a Black Swan (Taleb), stock prices does not contain information about value.
-  https://economicquestions.</description>
-    </item>
-    
-    <item>
-      <title>Resultado em operações de swing trade</title>
-      <link>https://nasseralkmim.github.io/notes/swing-trade-result/</link>
-      <pubDate>Fri, 08 Jan 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/notes/swing-trade-result/</guid>
-      <description>Objetivo   Preliminares  import pandas as pd import matplotlib import matplotlib.pyplot as plt matplotlib.style.use(&amp;#39;ggplot&amp;#39;)    Dados  trades = pd.read_csv(&amp;#39;trade_data.csv&amp;#39;, sep=&amp;#39;,&amp;#39;, names=[&amp;#39;date&amp;#39;, &amp;#39;type&amp;#39;, &amp;#39;ticker&amp;#39;, &amp;#39;volume&amp;#39;, &amp;#39;price&amp;#39;], decimal=&amp;#39;,&amp;#39;, parse_dates=[&amp;#39;date&amp;#39;], infer_datetime_format=True) print(trades) print(trades.dtypes)  date type ticker volume price 0 2020-10-03 Buy PETR4 90 17.99 1 2020-10-03 Buy PETR4 90 17.59 2 2020-11-03 Buy PETR4 50 15.17 3 2020-03-13 Buy PETR4 50 14.24 4 2020-03-16 Buy PETR4 50 13.</description>
-    </item>
-    
-    <item>
-      <title>Portfolio theory, CAPM and Nassim Taleb</title>
-      <link>https://nasseralkmim.github.io/notes/portfolio-theory-and-capm/</link>
-      <pubDate>Thu, 07 Jan 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/notes/portfolio-theory-and-capm/</guid>
-      <description>Portfolio theory   Markowitz calculou o desvio padrão de uma carteira por meio da covariança entre os ativos que compõem a carteira. Com isso obteve uma relação entre retorno e desvio padrão da carteira, que entendia como medida de risco.
- Além disso, outra conclusão importante: o risco de uma carteira não é simplesmente a soma da variância de cada ativo mas a soma das covariâncias. Portanto, é possível a combinação de dois ativos com retornos voláteis para gerar uma carteira menos volátil se por exemplo quando um ativo cai de preço o outro aumenta, ou seja, são correlacionados negativamente.</description>
-    </item>
-    
-    <item>
       <title>Emacs on windows with WSL2</title>
       <link>https://nasseralkmim.github.io/notes/emacs-windows/</link>
       <pubDate>Mon, 04 Jan 2021 00:00:00 +0000</pubDate>
@@ -298,63 +138,12 @@ remap_key=CAPSLOCK when_alone=ESCAPE with_other=CTRL    Tpmiddle  GitHub - Jyny/
     </item>
     
     <item>
-      <title>Gerenciamento de portfolio com portman</title>
-      <link>https://nasseralkmim.github.io/notes/portman/</link>
-      <pubDate>Wed, 30 Dec 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/notes/portman/</guid>
-      <description> Consolidação do portfolio  import pandas as pd import portman as pm pm.consolidate(&amp;#39;trade_data.csv&amp;#39;)    Análise  import matplotlib import matplotlib.pyplot as plt matplotlib.style.use(&amp;#39;ggplot&amp;#39;) import portman as pm pm.analysis.summary(&amp;#39;portfolio.csv&amp;#39;) pm.analysis.allocation(&amp;#39;portfolio.csv&amp;#39;) pm.analysis.returns(&amp;#39;returns.csv&amp;#39;) pm.analysis.dividends(&amp;#39;dividends.csv&amp;#39;) plt.tight_layout()    </description>
-    </item>
-    
-    <item>
-      <title>Portfolio pessoal</title>
-      <link>https://nasseralkmim.github.io/notes/personal-portolio/</link>
-      <pubDate>Wed, 30 Dec 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/notes/personal-portolio/</guid>
-      <description>Consolidação do portfolio  import pandas as pd import portman as pm pm.consolidate(&amp;#39;trade_data.csv&amp;#39;)    Análise  import matplotlib import matplotlib.pyplot as plt matplotlib.style.use(&amp;#39;ggplot&amp;#39;) import portman as pm pm.analysis.summary(&amp;#39;portfolio.csv&amp;#39;) pm.analysis.allocation(&amp;#39;portfolio.csv&amp;#39;) pm.analysis.returns(&amp;#39;returns.csv&amp;#39;) pm.analysis.dividends(&amp;#39;dividends.csv&amp;#39;) plt.tight_layout()    Outros  div = pd.read_csv(&amp;#39;dividends.csv&amp;#39;, parse_dates=[&amp;#39;date_com&amp;#39;]) print(div.groupby([div.date_com.dt.to_period(&amp;#39;M&amp;#39;), &amp;#39;ticker&amp;#39;, &amp;#39;type&amp;#39;, &amp;#39;date_com&amp;#39;]).sum().tail(10))  Unnamed: 0 value vol_liq total date_com ticker type date_com 2020-12 B3SA3 DIVIDENDO 2020-12-30 67 0.41 36 14.78 JRS CAP PROPRIO 2020-12-30 68 0.</description>
-    </item>
-    
-    <item>
-      <title>Blog, learning and skin in the game</title>
-      <link>https://nasseralkmim.github.io/notes/blog-learn-skininthegame/</link>
-      <pubDate>Sun, 27 Dec 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/notes/blog-learn-skininthegame/</guid>
-      <description>First let me briefly explain what I thin &amp;#34;learning&amp;#34; is.
- What does this have to do with skin in the game?
- Blog is what connects this two together. If you are into programming and data analysis the best tool is emacs org-mode.</description>
-    </item>
-    
-    <item>
-      <title>Money credit and cryptocurrency</title>
-      <link>https://nasseralkmim.github.io/notes/money-credit-btc/</link>
-      <pubDate>Sat, 26 Dec 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/notes/money-credit-btc/</guid>
-      <description>Dinheiro e crédito  O que é dinheiro? O que é crédito? Os dois são lados da mesma moeda. Dinheiro é o meio de liquidar acordos que maturaram, means of settlement. Crédito é uma forma de postergar essa liquidação para o futuro.
- Os diversos ativos financeiros: reservas no Banco Central, ouro, moeda local, depósitos e securities (títulos), podem ser entendidos ora como dinheiro ora como crédito. Um depósito é uma promessa de pagar moeda local, um título pode ser uma promessa de pagar um depósito, e assim por diante.</description>
-    </item>
-    
-    <item>
       <title>Performance de um portfolio</title>
       <link>https://nasseralkmim.github.io/notes/portfolio-performance/</link>
       <pubDate>Sat, 26 Dec 2020 00:00:00 +0000</pubDate>
       
       <guid>https://nasseralkmim.github.io/notes/portfolio-performance/</guid>
       <description>Introdução  E ai? quanto rendeu seu portfólio? Fácil, $$R_p = V_{final}/V_{inicial} - 1$$ certo? sim, se você investiu em um único aporte. Normalmente, as pessoas fazem vários aportes ao longo do tempo. Então, se você fez um aporte de 1.000,00, e depois fez outro aporte de 1.000,00; o valor final do seu portfólio é 2.000,00. Se usarmos a fórmula acima iremos obter 100% de retorno, isso indica &amp;#34;performance&amp;#34;?</description>
-    </item>
-    
-    <item>
-      <title>Does monetary easing causes &#34;asset inflation&#34;?</title>
-      <link>https://nasseralkmim.github.io/notes/asset-price-inflation/</link>
-      <pubDate>Fri, 25 Dec 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/notes/asset-price-inflation/</guid>
-      <description>Introduction   Some people say that monetary easing by the central bank in the past decade is not affecting the CPI but the asset prices (stocks and bonds).
- To see how this is wrong (?) we need to understand inflation, monetary policy and modern finance.
-  Inflation   Results from excess demand for goods and the ability of the supply side to provide.
-Monetarist   Right wingers can be so fanciful about their intellectual inheritance.</description>
     </item>
     
     <item>
@@ -374,39 +163,6 @@ Monetarist   Right wingers can be so fanciful about their intellectual inheritan
       <guid>https://nasseralkmim.github.io/notes/finace-python/</guid>
       <description>Introdução   Usar biblioteca yahooquery pois parece ser mais completa e melhor que yfinance.
 import yahooquery as yf import pandas as pd pd.options.display.float_format = &amp;#39;{:,.2f}&amp;#39;.format import matplotlib import matplotlib.pyplot as plt matplotlib.style.use(&amp;#39;seaborn&amp;#39;)    Preço em tempo real  ticker = yf.Ticker(&amp;#39;EGIE3.SA&amp;#39;) print(ticker.quotes[&amp;#39;EGIE3.SA&amp;#39;][&amp;#39;bid&amp;#39;])  44.13    Histórico da cotação  ticker.history(period=&amp;#39;max&amp;#39;).close.plot(ylabel=&amp;#39;price R$&amp;#39;, xlabel=&amp;#39;date&amp;#39;) ticker.history(start=&amp;#39;2018-09-15&amp;#39;, end=&amp;#39;2018-09-18&amp;#39;).close.plot(ylabel=&amp;#39;price R$&amp;#39;, xlabel=&amp;#39;date&amp;#39;)    Informação sobre empresa  print(ticker.asset_profile)  {&amp;#39;EGIE3.</description>
-    </item>
-    
-    <item>
-      <title>Org-mode magic</title>
-      <link>https://nasseralkmim.github.io/notes/org-mode-magic/</link>
-      <pubDate>Fri, 25 Dec 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/notes/org-mode-magic/</guid>
-      <description> What is org-mode?   Why I like it?   </description>
-    </item>
-    
-    <item>
-      <title>Shadow banking and FED as a lender of last resort</title>
-      <link>https://nasseralkmim.github.io/notes/shadow-banking-monetary-policy/</link>
-      <pubDate>Fri, 25 Dec 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/notes/shadow-banking-monetary-policy/</guid>
-      <description>Traditional crisis   During a traditional crises, with mostly traditional banks1, the cash commitments are greater than the cash flows. So, there is a liquidity problem for the banks. The FED can directly provide that liquidity by increasing banks reserves.
-  References    https://voxeu.org/article/growth-non-bank-finance-and-new-monetary-policy-tools     Footnotes   1 Traditional banks accept deposits (short term borrowing) and make loas (long term lending).</description>
-    </item>
-    
-    <item>
-      <title>Pandas power</title>
-      <link>https://nasseralkmim.github.io/notes/pandas-power/</link>
-      <pubDate>Thu, 24 Dec 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/notes/pandas-power/</guid>
-      <description>Apply   Use cases:
-  apply a function along rows or column (default).
-  better alternative than for loops, more efficient.
-  Alternatives:
-  itertuples seems to be faster if the data is smaller than 100k rows https://stackoverflow.com/questions/52581057/is-dataframe-apply-really-slower-than-dataframe-itertuples
-    Groupby   Resampling   Changing dataframe inside a function   If you passa a DF to a function, manipulate it and return it.</description>
     </item>
     
     <item>
@@ -465,27 +221,6 @@ Input  trade_data = pd.read_csv(&amp;#39;trade_data.csv&amp;#39;, sep=&amp;#39;;
  If the FED reduces reserves, buying T-Bills in the open market operations, it affects the FFR upwards.
   Money Market dealers  Money market (MM) dealers are directly affected because they borrow short (overnight) and lend in term (3 months).
  If the financing cost increases, the MM dealers also push the term price upwards.</description>
-    </item>
-    
-    <item>
-      <title>Did LTCM were too greed?</title>
-      <link>https://nasseralkmim.github.io/notes/ltcm/</link>
-      <pubDate>Sat, 12 Dec 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/notes/ltcm/</guid>
-      <description>What was LTCM trade?  They traded spreads in the bond market. Buying under priced bonds and short sell overpriced ones, then wait them to converge to a fair value and unwind the trade. Tiny spreads can be amplified with leverage.
- Long term means that this convergence of prices can take some time.
-  Why it failed?   A crises in Asian and Russia made all LTCM trades to diverge, risking insolvency by reducing its long position value and increasing its short.</description>
-    </item>
-    
-    <item>
-      <title>Fat tails and Gaussian fallacies</title>
-      <link>https://nasseralkmim.github.io/notes/fat-tails/</link>
-      <pubDate>Sat, 12 Dec 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/notes/fat-tails/</guid>
-      <description>  Por que quando lidamos com problemas que envolvem fat tails as estatísticas da distribuição normal (média, variância) não fazem sentido?
-Eventos extremos e eventos medíocres   Fat tails   References   </description>
     </item>
     
     <item>
