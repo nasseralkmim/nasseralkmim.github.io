@@ -316,7 +316,19 @@ However I want it to just run, currently I have to call <code class="verbatim">t
 <p>
 For instance, in windows I just go to <code class="verbatim">deploy.sh</code> on treemacs and hit <code class="verbatim">o x</code> to run the script.</p>
 <p>
-Use wsl-open to fix that.</p>
+Use <code class="verbatim">wsl-open</code> to fix that.
+Change the default application that runs shell scripts (application/x-shellscript) for the <code class="verbatim">wsl-open</code>.
+Use <code class="verbatim">xdg-mime query filetype file.sh</code> to discover the filetype.
+And use <code class="verbatim">xdg-mime query default &lt;new filetype&gt;</code> to discover which application is the default for it.
+I created a <code class="verbatim">wsl-open.desktop</code> inside <code class="verbatim">~/.local/share/applications</code> with </p>
+<pre class="example">
+[Desktop Entry]
+Name=wsl-open
+Exec=/usr/local/bin/wsl-open
+Type=Application
+</pre>
+<p>
+and set as default with <code class="verbatim">xdg-mime default wsl-open.desktop application/x-shellscript</code>.</p>
 <p>
 <a href="https://github.com/4U6U57/wsl-open">GitHub - 4U6U57/wsl-open: Open files with xdg-open on Bash for Windows in Win…</a></p>
 </div>
