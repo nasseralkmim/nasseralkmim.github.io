@@ -219,15 +219,24 @@ Just use the windows version of Hugo and call it within wsl with <code class="ve
 </div>
 <div id="outline-container-headline-8" class="outline-2">
 <h2 id="headline-8">
-Problems
+Xdg-open
 </h2>
 <div id="outline-text-headline-8" class="outline-text-2">
-<div id="outline-container-headline-9" class="outline-4">
-<h4 id="headline-9">
+<p>
+<a href="https://github.com/4U6U57/wsl-open">GitHub - 4U6U57/wsl-open: Open files with xdg-open on Bash for Windows in Win…</a></p>
+</div>
+</div>
+<div id="outline-container-headline-9" class="outline-2">
+<h2 id="headline-9">
+Problems
+</h2>
+<div id="outline-text-headline-9" class="outline-text-2">
+<div id="outline-container-headline-10" class="outline-4">
+<h4 id="headline-10">
 <span class="todo">DONE</span>
 Hugo 
 </h4>
-<div id="outline-text-headline-9" class="outline-text-4">
+<div id="outline-text-headline-10" class="outline-text-4">
 <p>
 Update (<span class="timestamp">&lt;2021-04-16 Fri&gt;</span>): discovered that I can use windows programs within wsl2 by just calling with the suffix <code class="verbatim">.exe</code>.
 Update: for now I&#39;m writing my posts with standard windows emacs.</p>
@@ -244,12 +253,12 @@ I don&#39;t have a solution for this yet.</p>
 Trying the solution in here <a href="https://medium.com/@heberleh/wsl-2-installation-and-changes-c01e3cbe205a">WSL 2 installation and changes. Problems and solutions before and after… | by…</a></p>
 </div>
 </div>
-<div id="outline-container-headline-10" class="outline-4">
-<h4 id="headline-10">
+<div id="outline-container-headline-11" class="outline-4">
+<h4 id="headline-11">
 <span class="todo">DONE</span>
 Org-download not getting clipboard from windows
 </h4>
-<div id="outline-text-headline-10" class="outline-text-4">
+<div id="outline-text-headline-11" class="outline-text-4">
 <p>
 Update (<span class="timestamp">&lt;2021-04-16 Fri&gt;</span>): Just discovered that to run windows command in wsl we just need to add <code class="verbatim">.exe</code> to the windows program.
 I also had to change the variable <code class="verbatim">(setq org-download-screenshot-file &#34;./tmp/screenshot.png&#34;)</code> so we can create an image with the <code class="verbatim">convert.exe</code> and then access it with <code class="verbatim">org-download-image</code> to generate an org link.
@@ -266,12 +275,12 @@ It seem xclip can not get clipboard.</p>
 </ol>
 </div>
 </div>
-<div id="outline-container-headline-11" class="outline-4">
-<h4 id="headline-11">
+<div id="outline-container-headline-12" class="outline-4">
+<h4 id="headline-12">
 <span class="todo">DONE</span>
 Emacs jupyter
 </h4>
-<div id="outline-text-headline-11" class="outline-text-4">
+<div id="outline-text-headline-12" class="outline-text-4">
 <p>
 It seems that emacs-jupyter was looking for jupyter in the search path that emacs uses to find programs (<code class="verbatim">exec-path</code> variable).</p>
 <p>
@@ -302,11 +311,11 @@ So I had to create a symbolic link <code class="verbatim">sudo ln -s /usr/bin/py
 Then it worked.</p>
 </div>
 </div>
-<div id="outline-container-headline-12" class="outline-4">
-<h4 id="headline-12">
+<div id="outline-container-headline-13" class="outline-4">
+<h4 id="headline-13">
 Treemacs <code class="verbatim">visit-node-in-external-application</code>
 </h4>
-<div id="outline-text-headline-12" class="outline-text-4">
+<div id="outline-text-headline-13" class="outline-text-4">
 <p>This is a reason for me to keep standard emacs on windows.</p>
 <p>
 When I call this function in a <code class="verbatim">.sh</code> file it opens as a text in another emacs instance.
@@ -317,16 +326,16 @@ For instance, in windows I just go to <code class="verbatim">deploy.sh</code> on
 </div>
 </div>
 </div>
-<div id="outline-container-headline-13" class="outline-2">
-<h2 id="headline-13">
+<div id="outline-container-headline-14" class="outline-2">
+<h2 id="headline-14">
 Details
 </h2>
-<div id="outline-text-headline-13" class="outline-text-2">
-<div id="outline-container-headline-14" class="outline-4">
-<h4 id="headline-14">
+<div id="outline-text-headline-14" class="outline-text-2">
+<div id="outline-container-headline-15" class="outline-4">
+<h4 id="headline-15">
 Uninstalling zsh
 </h4>
-<div id="outline-text-headline-14" class="outline-text-4">
+<div id="outline-text-headline-15" class="outline-text-4">
 <p>
 When I uninstalled zhs from wsl, it wouldn&#39;t start up again. </p>
 <p>
@@ -478,21 +487,23 @@ then change the default shell to bash again.</p>
 </li>
 <li><a href="#headline-7">Hugo</a>
 </li>
-<li><a href="#headline-8">Problems</a>
+<li><a href="#headline-8">Xdg-open</a>
+</li>
+<li><a href="#headline-9">Problems</a>
 <ul>
-<li><a href="#headline-9">Hugo </a>
+<li><a href="#headline-10">Hugo </a>
 </li>
-<li><a href="#headline-10">Org-download not getting clipboard from windows</a>
+<li><a href="#headline-11">Org-download not getting clipboard from windows</a>
 </li>
-<li><a href="#headline-11">Emacs jupyter</a>
+<li><a href="#headline-12">Emacs jupyter</a>
 </li>
-<li><a href="#headline-12">Treemacs <code class="verbatim">visit-node-in-external-application</code></a>
+<li><a href="#headline-13">Treemacs <code class="verbatim">visit-node-in-external-application</code></a>
 </li>
 </ul>
 </li>
-<li><a href="#headline-13">Details</a>
+<li><a href="#headline-14">Details</a>
 <ul>
-<li><a href="#headline-14">Uninstalling zsh</a>
+<li><a href="#headline-15">Uninstalling zsh</a>
 </li>
 </ul>
 </li>
