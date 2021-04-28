@@ -7,7 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© {year}</copyright>
-    <lastBuildDate>Thu, 01 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/tags/tools/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 18 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/tags/tools/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Trilinos notes</title>
+      <link>https://nasseralkmim.github.io/notes/trilinos/</link>
+      <pubDate>Sun, 18 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://nasseralkmim.github.io/notes/trilinos/</guid>
+      <description>Basics  What is Trilinos?   Object oriented framework for solving math and engineering problems (linear system of equations). Can solve problems up to 2 billion unknowns.
+  What packages make Trilinos?  Trilinos is made out of multiple packages. The packages can depend on each other.
+ Documentation for each package can be found Packages | Trilinos.
+ The packages are divided in core &amp;#34;services&amp;#34;, solvers, methods and discretization.</description>
+    </item>
+    
     <item>
       <title>C&#43;&#43; Development environment in Emacs</title>
       <link>https://nasseralkmim.github.io/notes/cpp-environment-setup/</link>

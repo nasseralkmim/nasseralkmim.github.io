@@ -7,7 +7,30 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© {year}</copyright>
-    <lastBuildDate>Tue, 13 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 25 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Exploring Trilinos with Python - Epetra and AztecOO</title>
+      <link>https://nasseralkmim.github.io/notes/laplace2d-trilinos/</link>
+      <pubDate>Sun, 25 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://nasseralkmim.github.io/notes/laplace2d-trilinos/</guid>
+      <description>Introduction  This is an example from PyTrilinos tutorial with a more detailed and exploratory approach with steps outputs to help understand the program functionalities and dataflows. Trilinos/exAztecOO.py.in at master · trilinos/Trilinos · GitHub.
+ The problem involves solving a linear system $Ax=b$ derived from discretization of the Laplace partial differential equation.
+ This exploratory example was run using emacs org-mode with jupyter-emacs package. I am using python version:</description>
+    </item>
+    
+    <item>
+      <title>Trilinos notes</title>
+      <link>https://nasseralkmim.github.io/notes/trilinos/</link>
+      <pubDate>Sun, 18 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://nasseralkmim.github.io/notes/trilinos/</guid>
+      <description>Basics  What is Trilinos?   Object oriented framework for solving math and engineering problems (linear system of equations). Can solve problems up to 2 billion unknowns.
+  What packages make Trilinos?  Trilinos is made out of multiple packages. The packages can depend on each other.
+ Documentation for each package can be found Packages | Trilinos.
+ The packages are divided in core &amp;#34;services&amp;#34;, solvers, methods and discretization.</description>
+    </item>
+    
     <item>
       <title>QR Decomposition in one image</title>
       <link>https://nasseralkmim.github.io/notes/qr-decomposition/</link>

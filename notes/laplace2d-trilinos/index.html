@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <title>Exploring Trilinos with Python - Epetra and AztecOO | Nasser&#39;s personal website</title>
+
+  <meta charset="UTF-8">
+  <meta name="language" content="en">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  
+  
+
+  <link rel="shortcut icon" type="image/png" href="/favicon.ico" />
+
+
+  
+  
+    
+ 
+  
+  
+  
+  
+  
+  
+    
+    <link type="text/css" rel="stylesheet" href="/css/post.min.a74e392619e10b534ed018113147a605e2dfdc329ba2e2de512308b7b193758c.css" integrity="sha256-p045JhnhC1NO0BgRMUemBeLf3DKbouLeUSMIt7GTdYw="/>
+  
+    
+    <link type="text/css" rel="stylesheet" href="/css/custom.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" integrity="sha256-47DEQpj8HBSa&#43;/TImW&#43;5JCeuQeRkm5NMpJWZG3hSuFU="/>
+  
+  
+   
+   
+    
+
+<script type="application/ld+json">
+  
+    { 
+      "@context": "http://schema.org", 
+      "@type": "WebSite", 
+      "url": "https:\/\/nasseralkmim.github.io\/notes\/laplace2d-trilinos\/",
+      "name": "Exploring Trilinos with Python - Epetra and AztecOO",
+      "author": {
+        "@type": "Person",
+        "name": ""
+      },
+      "description": ""
+    }
+  
+  </script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-74704246-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+</head>
+
+<body>
+  <div class="burger__container">
+  <div class="burger" aria-controls="navigation" aria-label="Menu">
+    <div class="burger__meat burger__meat--1"></div>
+    <div class="burger__meat burger__meat--2"></div>
+    <div class="burger__meat burger__meat--3"></div>
+  </div>
+</div>
+ 
+
+  <nav class="nav" id="navigation">
+  <ul class="nav__list">
+    
+    
+      <li>
+        <a  href="/">home</a>
+      </li>
+    
+      <li>
+        <a  class="active"
+         href="/notes">notes</a>
+      </li>
+    
+  </ul>
+</nav>
+
+
+  <main>
+    
+    
+
+    <div class="flex-wrapper">
+      <div class="post__container">
+        <div class="post">
+          <header class="post__header">
+            <h1 id="post__title">Exploring Trilinos with Python - Epetra and AztecOO</h1>
+            <time datetime="2021-04-25 00:00:00 &#43;0000 UTC" class="post__date">Apr 25 2021</time> 
+          </header>
+          <article class="post__content">
+              
+
+<div id="outline-container-headline-1" class="outline-2">
+<h2 id="headline-1">
+Introduction
+</h2>
+<div id="outline-text-headline-1" class="outline-text-2">
+<p>This is an example from PyTrilinos tutorial with a more detailed and exploratory approach with steps outputs to help understand the program functionalities and dataflows.
+<a href="https://github.com/trilinos/Trilinos/blob/master/packages/PyTrilinos/example/exAztecOO.py.in">Trilinos/exAztecOO.py.in at master · trilinos/Trilinos · GitHub</a>.</p>
+<p>
+The problem involves solving a linear system $Ax=b$ derived from discretization of the Laplace partial differential equation.</p>
+<p>
+This exploratory example was run using emacs org-mode with jupyter-emacs package.
+I am using python version:</p>
+<div class="src src-sh">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">python --version</code></pre></div>
+</div>
+<pre class="example">
+Python 3.8.5
+</pre>
+</div>
+</div>
+<div id="outline-container-headline-2" class="outline-2">
+<h2 id="headline-2">
+Preliminaries
+</h2>
+<div id="outline-text-headline-2" class="outline-text-2">
+<div class="src src-python">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> PyTrilinos <span style="color:#f92672">import</span> Epetra, Galeri, AztecOO, version
+<span style="color:#66d9ef">print</span>(version())
+
+<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
+plt<span style="color:#f92672">.</span>style<span style="color:#f92672">.</span>use(<span style="color:#e6db74">&#39;bmh&#39;</span>)
+<span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np</code></pre></div>
+</div>
+<pre class="example">
+Trilinos version: 13.1
+PyTrilinos version: 12.13
+</pre>
+</div>
+</div>
+<div id="outline-container-headline-3" class="outline-2">
+<h2 id="headline-3">
+Construct the problem
+</h2>
+<div id="outline-text-headline-3" class="outline-text-2">
+<p>We need the matrix $A$ and vector $b$, right hand side (RHS), of our problem.</p>
+<div id="outline-container-headline-4" class="outline-4">
+<h4 id="headline-4">
+Communicator
+</h4>
+<div id="outline-text-headline-4" class="outline-text-4">
+<p>
+The Epetra communicator object encapsulates <span style="text-decoration: underline;">information and services</span> for other Epetra classes to run on <span style="text-decoration: underline;">serial or parallel</span> computer.
+It contains information required to construct a <code class="verbatim">map</code> object which is <span style="text-decoration: underline;">required</span> for all other Epetra classes.</p>
+<div class="src src-python">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">comm <span style="color:#f92672">=</span> Epetra<span style="color:#f92672">.</span>PyComm()      <span style="color:#75715e"># Epetra communicator</span>
+<span style="color:#66d9ef">print</span>(comm)
+<span style="color:#66d9ef">print</span>(comm<span style="color:#f92672">.</span>MyPID<span style="color:#f92672">.</span>__doc__)</code></pre></div>
+</div>
+<pre class="example">
+::Processor 0 of 1 total processors.
+
+        Return my process ID. In MPI mode returns the rank of the calling process.  In serial mode
+           returns 0.
+        
+</pre>
+</div>
+</div>
+<div id="outline-container-headline-5" class="outline-4">
+<h4 id="headline-5">
+Map
+</h4>
+<div id="outline-text-headline-5" class="outline-text-4">
+<p>
+The <code class="verbatim">map</code> is a distribution of integer labels across processes.
+This object encapsulates information to help in parallel solvers.
+It contains global number of elements, local number of elements and global numbering of local elements.</p>
+<p>
+Here the Galeri package creates a map however there are other ways to create it.</p>
+<p>
+The linear map subdivides elements of the map linearly among the available processes.</p>
+<div class="src src-python">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">nx, ny <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">3</span>                   <span style="color:#75715e"># problem size nx x ny nodes in Cartesian 2D</span>
+galeri_params <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#39;n&#39;</span>: nx <span style="color:#f92672">*</span> ny,
+                 <span style="color:#e6db74">&#39;nx&#39;</span>: nx,
+                 <span style="color:#e6db74">&#39;ny&#39;</span>: ny}
+map <span style="color:#f92672">=</span> Galeri<span style="color:#f92672">.</span>CreateMap(<span style="color:#e6db74">&#39;Linear&#39;</span>, comm, galeri_params)
+<span style="color:#66d9ef">print</span>(map)</code></pre></div>
+</div>
+<pre class="example">
+
+Number of Global Elements  = 9
+Number of Global Points    = 9
+Maximum of all GIDs        = 8
+Minimum of all GIDs        = 0
+Index Base                 = 0
+Constant Element Size      = 1
+
+Number of Local Elements   = 9
+Number of Local Points     = 9
+Maximum of my GIDs         = 8
+Minimum of my GIDs         = 0
+
+         MyPID           Local Index        Global Index  
+             0                 0                 0    
+             0                 1                 1    
+             0                 2                 2    
+             0                 3                 3    
+             0                 4                 4    
+             0                 5                 5    
+             0                 6                 6    
+             0                 7                 7    
+             0                 8                 8
+</pre>
+</div>
+</div>
+<div id="outline-container-headline-6" class="outline-4">
+<h4 id="headline-6">
+$A$ matrix
+</h4>
+<div id="outline-text-headline-6" class="outline-text-4">
+<p>
+The matrix of our linear system comes from discretization of Laplace equation in 2D.
+Fortunately, Trilinos comes with a package that has function that we can use to create example matrices and vectors, the package is <code class="verbatim">Galeri</code>. </p>
+<div class="src src-python">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">A <span style="color:#f92672">=</span> Galeri<span style="color:#f92672">.</span>CreateCrsMatrix(<span style="color:#e6db74">&#39;Laplace2D&#39;</span>, map, galeri_params)
+<span style="color:#66d9ef">print</span>(A)</code></pre></div>
+</div>
+<pre class="example">
+
+Number of Global Rows        = 9
+Number of Global Cols        = 9
+Number of Global Diagonals   = 9
+Number of Global Nonzeros    = 33
+Global Maximum Num Entries   = 5
+
+Number of My Rows        = 9
+Number of My Cols        = 9
+Number of My Diagonals   = 9
+Number of My Nonzeros    = 33
+My Maximum Num Entries   = 5
+
+   Processor    Row Index    Col Index           Value     
+       0             0             0                       4    
+       0             0             1                      -1    
+       0             0             3                      -1    
+       0             1             0                      -1    
+       0             1             1                       4    
+       0             1             2                      -1    
+       0             1             4                      -1    
+       0             2             1                      -1    
+       0             2             2                       4    
+       0             2             5                      -1    
+       0             3             0                      -1    
+       0             3             3                       4    
+       0             3             4                      -1    
+       0             3             6                      -1    
+       0             4             1                      -1    
+       0             4             3                      -1    
+       0             4             4                       4    
+       0             4             5                      -1    
+       0             4             7                      -1    
+       0             5             2                      -1    
+       0             5             4                      -1    
+       0             5             5                       4    
+       0             5             8                      -1    
+       0             6             3                      -1    
+       0             6             6                       4    
+       0             6             7                      -1    
+       0             7             4                      -1    
+       0             7             6                      -1    
+       0             7             7                       4    
+       0             7             8                      -1    
+       0             8             5                      -1    
+       0             8             7                      -1    
+       0             8             8                       4
+</pre>
+</div>
+</div>
+<div id="outline-container-headline-7" class="outline-4">
+<h4 id="headline-7">
+Visualization of $A$ sparse matrix
+</h4>
+<div id="outline-text-headline-7" class="outline-text-4">
+<p>
+We can visualize the sparse matrix by putting it back the condensed rows into a 2d numpy array.</p>
+<div class="src src-python">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">print</span>(A<span style="color:#f92672">.</span>ExtractGlobalRowCopy<span style="color:#f92672">.</span>__doc__)
+n_row, n_col <span style="color:#f92672">=</span> A<span style="color:#f92672">.</span>NumGlobalRows(), A<span style="color:#f92672">.</span>NumGlobalCols()
+A_sparse <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>zeros((n_row, n_col))
+<span style="color:#66d9ef">for</span> row <span style="color:#f92672">in</span> range(n_row):
+    value, col_id <span style="color:#f92672">=</span> A<span style="color:#f92672">.</span>ExtractGlobalRowCopy(row)
+    <span style="color:#66d9ef">for</span> v, col <span style="color:#f92672">in</span> zip(value, col_id):
+        A_sparse[row, col] <span style="color:#f92672">=</span> v
+fig, ax <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>subplots(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">8</span>,<span style="color:#ae81ff">8</span>))
+ax<span style="color:#f92672">.</span>spy(A_sparse)</code></pre></div>
+</div>
+<pre class="example">
+
+        ExtractGlobalRowCopy(self, int globalRow) -&gt; (numpy.ndarray,numpy.ndarray)
+
+          Returns a two-tuple of numpy arrays of the same size; the first is
+          an array of integers that represent the nonzero columns on the
+          matrix; the second is an array of doubles that represent the values
+          of the matrix entries.  The input argument is a global row index.
+        
+</pre>
+<p><img src="./jupyter/3f1170c5c8468bb4897a9d99e7099ae44fb9f051.png" alt="./jupyter/3f1170c5c8468bb4897a9d99e7099ae44fb9f051.png" title="./jupyter/3f1170c5c8468bb4897a9d99e7099ae44fb9f051.png" /></p>
+</div>
+</div>
+<div id="outline-container-headline-8" class="outline-4">
+<h4 id="headline-8">
+$b$ RHS vector
+</h4>
+<div id="outline-text-headline-8" class="outline-text-4">
+<p>Create b vector with same map that determined the layout of matrix rows and fill it with random values.</p>
+<div class="src src-python">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">b <span style="color:#f92672">=</span> Epetra<span style="color:#f92672">.</span>Vector(map)
+b<span style="color:#f92672">.</span>Random()
+<span style="color:#66d9ef">print</span>(b)</code></pre></div>
+</div>
+<pre class="example">
+[ 0.14609411 -0.59633352 -0.57747566  0.36649935 -0.24548529  0.12870635
+ -0.83239817 -0.11602075  0.03932   ]
+</pre>
+</div>
+</div>
+<div id="outline-container-headline-9" class="outline-4">
+<h4 id="headline-9">
+$x$ solution vector
+</h4>
+<div id="outline-text-headline-9" class="outline-text-4">
+<div class="src src-python">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">x <span style="color:#f92672">=</span> Epetra<span style="color:#f92672">.</span>Vector(map)
+x<span style="color:#f92672">.</span>PutScalar(<span style="color:#ae81ff">0.0</span>)
+<span style="color:#66d9ef">print</span>(x)</code></pre></div>
+</div>
+<pre class="example">
+[0. 0. 0. 0. 0. 0. 0. 0. 0.]
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-10" class="outline-2">
+<h2 id="headline-10">
+Solver
+</h2>
+<div id="outline-text-headline-10" class="outline-text-2">
+<div id="outline-container-headline-11" class="outline-4">
+<h4 id="headline-11">
+AztecOO solver object
+</h4>
+<div id="outline-text-headline-11" class="outline-text-4">
+<p>For solving the system $AX=b$ we need to create a solver object from <code class="verbatim">AztecOO</code> package which is also names <code class="verbatim">AztecOO</code>.
+This object takes Epetra matrix and vectors objects but it could also be constructed with a &#34;linea problem instance&#34; also from Epetra.</p>
+<div class="src src-python">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">solver <span style="color:#f92672">=</span> AztecOO<span style="color:#f92672">.</span>AztecOO(A, x, b)
+<span style="color:#66d9ef">print</span>(solver<span style="color:#f92672">.</span>__doc__)
+<span style="color:#66d9ef">print</span>(dir(solver))</code></pre></div>
+</div>
+<pre class="example">
+
+    AztecOO:  An object-oriented wrapper for Aztec. Currently it accepts a Petra matrix, initial guess and RHS as
+     separate arguments, or alternatively, accepts a Epetra_LinearProblem.
+     If constructed using a Epetra_LinearProblem, AztecOO will infer some
+     solver/preconditioner, etc., options and parameters. Users may override
+     these choices and manually choose from among the full set of Aztec options
+     using the SetAztecOption() and SetAztecParam() functions.
+
+     AztecOO will solve a linear systems of equations: :math:`AX=B`, using Epetra
+     objects and the Aztec solver library, where :math:`A` is an Epetra_Operator or Epetra_RowMatrix (note
+     that the Epetra_Operator class is a base class for Epetra_RowMatrix so that Epetra_RowMatrix *isa*
+     Epetra_Operator.) :math:`X` and :math:`B` are Epetra_MultiVector objects.
+
+     Warning: AztecOO does not presently support solution of more than one simultaneous right-hand-side.
+    
+[&#39;AdaptiveIterate&#39;, &#39;CheckInput&#39;, &#39;Condest&#39;, &#39;ConstructPreconditioner&#39;, &#39;DestroyPreconditioner&#39;, &#39;GetAllAztecOptions&#39;, &#39;GetAllAztecParams&#39;, &#39;GetAztecOption&#39;, &#39;GetAztecStatus&#39;, &#39;GetLHS&#39;, &#39;GetLabel&#39;, &#39;GetPrecMatrix&#39;, &#39;GetPrecOperator&#39;, &#39;GetProblem&#39;, &#39;GetRHS&#39;, &#39;GetUserMatrix&#39;, &#39;GetUserOperator&#39;, &#39;Iterate&#39;, &#39;NumIters&#39;, &#39;PrintLinearSystem&#39;, &#39;RecursiveResidual&#39;, &#39;ScaledResidual&#39;, &#39;SetAdaptiveParams&#39;, &#39;SetAllAztecOptions&#39;, &#39;SetAllAztecParams&#39;, &#39;SetAztecDefaults&#39;, &#39;SetAztecOption&#39;, &#39;SetAztecParam&#39;, &#39;SetErrorStream&#39;, &#39;SetLHS&#39;, &#39;SetLabel&#39;, &#39;SetMatrixName&#39;, &#39;SetOutputStream&#39;, &#39;SetParameters&#39;, &#39;SetPrecMatrix&#39;, &#39;SetPrecOperator&#39;, &#39;SetPreconditioner&#39;, &#39;SetProblem&#39;, &#39;SetRHS&#39;, &#39;SetScaling&#39;, &#39;SetStatusTest&#39;, &#39;SetUseAdaptiveDefaultsTrue&#39;, &#39;SetUserMatrix&#39;, &#39;SetUserOperator&#39;, &#39;SolveTime&#39;, &#39;TrueResidual&#39;, &#39;UnsetLHSRHS&#39;, &#39;__class__&#39;, &#39;__delattr__&#39;, &#39;__dict__&#39;, &#39;__dir__&#39;, &#39;__doc__&#39;, &#39;__eq__&#39;, &#39;__format__&#39;, &#39;__ge__&#39;, &#39;__getattribute__&#39;, &#39;__gt__&#39;, &#39;__hash__&#39;, &#39;__init__&#39;, &#39;__init_subclass__&#39;, &#39;__le__&#39;, &#39;__lt__&#39;, &#39;__module__&#39;, &#39;__ne__&#39;, &#39;__new__&#39;, &#39;__reduce__&#39;, &#39;__reduce_ex__&#39;, &#39;__repr__&#39;, &#39;__setattr__&#39;, &#39;__sizeof__&#39;, &#39;__str__&#39;, &#39;__subclasshook__&#39;, &#39;__swig_destroy__&#39;, &#39;__weakref__&#39;, &#39;recursiveIterate&#39;, &#39;this&#39;, &#39;thisown&#39;]
+</pre>
+</div>
+</div>
+<div id="outline-container-headline-12" class="outline-4">
+<h4 id="headline-12">
+Solver options
+</h4>
+<div id="outline-text-headline-12" class="outline-text-4">
+<p>
+The default AztecOO options are:</p>
+<ol>
+<li>
+<p>solution algorithm: <code class="verbatim">AZ_GMRES</code> generalized minimal residual</p>
+</li>
+<li>
+<p>preconditioner: <code class="verbatim">AZ_none</code> no preconditioner in the default</p>
+</li>
+<li>
+<p>residual expression for convergence check: <code class="verbatim">AZ_r0</code> $||r||_2 / ||r^{(0)}||_2$</p>
+</li>
+</ol>
+<div class="src src-python">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">print</span>(solver<span style="color:#f92672">.</span>GetAllAztecOptions())</code></pre></div>
+</div>
+<pre class="example">
+[  1   0   0   0   1   1 500   1   0   0  30   0   0   1   0   0   0   0
+   9   1   0   0   0   0   0   1  -4   0   0   0   0   0   0   0   0   0
+   0   0   0   0   0   0   0   0   0   0   0]
+</pre>
+</div>
+</div>
+<div id="outline-container-headline-13" class="outline-4">
+<h4 id="headline-13">
+Solver parameters
+</h4>
+<div id="outline-text-headline-13" class="outline-text-4">
+<div class="src src-python">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">print</span>(solver<span style="color:#f92672">.</span>CheckInput<span style="color:#f92672">.</span>__doc__)
+<span style="color:#66d9ef">print</span>(solver<span style="color:#f92672">.</span>CheckInput())</code></pre></div>
+</div>
+<pre class="example">
+ Prints a summary of solver parameters, performs simple sanity checks.
+0
+</pre>
+</div>
+</div>
+<div id="outline-container-headline-14" class="outline-4">
+<h4 id="headline-14">
+Solving the system
+</h4>
+<div id="outline-text-headline-14" class="outline-text-4">
+<p>
+The method <code class="verbatim">Iterate</code> is modifies the solution stored in the variable <code class="verbatim">x</code> every time it runs.
+This method takes the maximum number of iterations and tolerance.</p>
+<div class="src src-python">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">x<span style="color:#f92672">.</span>PutScalar(<span style="color:#ae81ff">0.0</span>)
+solver<span style="color:#f92672">.</span>Iterate(<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">1e-5</span>)         <span style="color:#75715e"># number of max iterations and tolerance</span>
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;solution: &#39;</span>, x)
+exact <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linalg<span style="color:#f92672">.</span>inv(A_sparse) <span style="color:#960050;background-color:#1e0010">@</span> b
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;exact soluction: &#39;</span>, exact)
+error <span style="color:#f92672">=</span> x <span style="color:#f92672">-</span> exact
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;error norm: &#39;</span>, error<span style="color:#f92672">.</span>Norm2())
+Ax <span style="color:#f92672">=</span> Epetra<span style="color:#f92672">.</span>Vector(map)
+A<span style="color:#f92672">.</span>Multiply(False, x, Ax)
+residual <span style="color:#f92672">=</span> b <span style="color:#f92672">-</span> Ax
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;residual: &#39;</span>, residual)
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;residual norm: &#39;</span>, residual<span style="color:#f92672">.</span>Norm2(), type(residual))</code></pre></div>
+</div>
+<pre class="example">
+solution:  [ 0.02680169 -0.19547903 -0.17928597  0.04830349 -0.07719315 -0.00736351
+ -0.20915358 -0.0863673   0.01118655]
+exact soluction:  [-0.0374102  -0.26552884 -0.23264235 -0.03020605 -0.19572929 -0.08756488
+ -0.25418408 -0.15413209 -0.05059424]
+error norm:  [0.2212703]
+residual:  [-0.10828818 -0.04409484 -0.06317433 -0.08625965 -0.17761903 -0.0871322
+ -0.03384767 -0.04571172 -0.09915699]
+residual norm:  [0.27804727] &lt;class &#39;PyTrilinos.Epetra.Vector&#39;&gt;
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-15" class="outline-2">
+<h2 id="headline-15">
+Convergence analysis
+</h2>
+<div id="outline-text-headline-15" class="outline-text-2">
+<p>After experimenting with the libraries, let&#39;s try do some experiments.</p>
+<div id="outline-container-headline-16" class="outline-4">
+<h4 id="headline-16">
+Problem definition
+</h4>
+<div id="outline-text-headline-16" class="outline-text-4">
+<div class="src src-python">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">problem_setup</span>(size):
+    comm <span style="color:#f92672">=</span> Epetra<span style="color:#f92672">.</span>PyComm()      <span style="color:#75715e"># Epetra communicator</span>
+    nx, ny <span style="color:#f92672">=</span> size, size
+    galeri_params <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#39;n&#39;</span>: nx <span style="color:#f92672">*</span> ny,
+                     <span style="color:#e6db74">&#39;nx&#39;</span>: nx,
+                     <span style="color:#e6db74">&#39;ny&#39;</span>: ny}
+    map <span style="color:#f92672">=</span> Galeri<span style="color:#f92672">.</span>CreateMap(<span style="color:#e6db74">&#39;Linear&#39;</span>, comm, galeri_params)
+    A <span style="color:#f92672">=</span> Galeri<span style="color:#f92672">.</span>CreateCrsMatrix(<span style="color:#e6db74">&#39;Laplace2D&#39;</span>, map, galeri_params)
+    b <span style="color:#f92672">=</span> Epetra<span style="color:#f92672">.</span>Vector(map)
+    b<span style="color:#f92672">.</span>Random()
+    x <span style="color:#f92672">=</span> Epetra<span style="color:#f92672">.</span>Vector(map)
+    x<span style="color:#f92672">.</span>PutScalar(<span style="color:#ae81ff">0.0</span>)
+    <span style="color:#66d9ef">return</span> A, x, b, map</code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-17" class="outline-4">
+<h4 id="headline-17">
+Solver routine
+</h4>
+<div id="outline-text-headline-17" class="outline-text-4">
+<div class="src src-python">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">solver_routine</span>(A, x, b, num_iter, map):
+    solver <span style="color:#f92672">=</span> AztecOO<span style="color:#f92672">.</span>AztecOO(A, x, b)
+    solver<span style="color:#f92672">.</span>Iterate(num_iter, <span style="color:#ae81ff">1e-5</span>)         <span style="color:#75715e"># number of max iterations and tolerance</span>
+    Ax <span style="color:#f92672">=</span> Epetra<span style="color:#f92672">.</span>Vector(map)
+    A<span style="color:#f92672">.</span>Multiply(False, x, Ax)
+    residual <span style="color:#f92672">=</span> b <span style="color:#f92672">-</span> Ax
+    <span style="color:#66d9ef">return</span> residual<span style="color:#f92672">.</span>Norm2()[<span style="color:#ae81ff">0</span>]</code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-18" class="outline-4">
+<h4 id="headline-18">
+Analysis
+</h4>
+<div id="outline-text-headline-18" class="outline-text-4">
+<div class="src src-python">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">A, x, b, map <span style="color:#f92672">=</span> problem_setup(<span style="color:#ae81ff">100</span>)
+residual <span style="color:#f92672">=</span> []
+num_iter <span style="color:#f92672">=</span> [<span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">50</span>, <span style="color:#ae81ff">100</span>, <span style="color:#ae81ff">200</span>, <span style="color:#ae81ff">400</span>]
+<span style="color:#66d9ef">for</span> ni <span style="color:#f92672">in</span> num_iter:
+    residual<span style="color:#f92672">.</span>append(solver_routine(A, x, b, ni, map))</code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-19" class="outline-4">
+<h4 id="headline-19">
+Visualizing
+</h4>
+<div id="outline-text-headline-19" class="outline-text-4">
+<div class="src src-python">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">10</span>,<span style="color:#ae81ff">8</span>))
+plt<span style="color:#f92672">.</span>plot(num_iter, residual)
+plt<span style="color:#f92672">.</span>xlabel(<span style="color:#e6db74">&#39;Number of iterations&#39;</span>)
+plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">&#39;Residual Norm&#39;</span>)</code></pre></div>
+</div>
+<p><img src="./jupyter/a1920bea8b21bff0f0310f378c0b09475a640de7.png" alt="./jupyter/a1920bea8b21bff0f0310f378c0b09475a640de7.png" title="./jupyter/a1920bea8b21bff0f0310f378c0b09475a640de7.png" /></p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-20" class="outline-2">
+<h2 id="headline-20">
+References
+</h2>
+<div id="outline-text-headline-20" class="outline-text-2">
+<ol>
+<li>
+<p><a href="https://docs.trilinos.org/dev/packages/epetra/doc/html/classEpetra__CrsMatrix.html">Epetra: Epetra_CrsMatrix Class Reference</a></p>
+</li>
+<li>
+<p><a href="https://docs.trilinos.org/dev/packages/aztecoo/doc/html/classAztecOO.html">AztecOO: AztecOO Class Reference</a></p>
+</li>
+<li>
+<p><a href="https://trilinos.github.io/pdfs/Trilinos10.12Tutorial.pdf">https://trilinos.github.io/pdfs/Trilinos10.12Tutorial.pdf</a></p>
+</li>
+<li>
+<p><a href="https://github.com/trilinos/Trilinos/blob/master/packages/PyTrilinos/example/exAztecOO.py.in">Trilinos/exAztecOO.py.in at master · trilinos/Trilinos · GitHub</a></p>
+</li>
+<li>
+<p><a href="https://trilinos.github.io/pdfs/AztecOOUserGuide.pdf">https://trilinos.github.io/pdfs/AztecOOUserGuide.pdf</a></p>
+</li>
+</ol>
+</div>
+</div>
+
+
+              
+                  
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+              
+          </article>
+          
+
+<ul class="tags__list">
+    
+    <li class="tag__item">
+        <a class="tag__link" href="https://nasseralkmim.github.io/tags/trilinos/">trilinos</a>
+    </li>
+    <li class="tag__item">
+        <a class="tag__link" href="https://nasseralkmim.github.io/tags/python/">python</a>
+    </li></ul>
+
+ <div class="pagination">
+  
+    <a class="pagination__item" href="https://nasseralkmim.github.io/notes/trilinos/">
+        <span class="pagination__label">Previous Post</span>
+        <span class="pagination__title">Trilinos notes</span>
+    </a>
+  
+
+  
+</div>
+
+          <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "nasseralkmim" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+          <footer class="post__footer">
+            
+
+
+<div class="social-icons">
+  
+     
+    
+      <a class="social-icons__link" rel="me" title="Email"
+         href="mailto:nasser.alkmim@gmail.com"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('https://nasseralkmim.github.io/svg/email.svg')"></div>
+      </a>
+    
+  
+     
+    
+      <a class="social-icons__link" rel="me" title="LinkedIn"
+         href="https://www.linkedin.com/in/nasser-alkmim-300882a6/"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('https://nasseralkmim.github.io/svg/linkedin.svg')"></div>
+      </a>
+    
+  
+     
+    
+      <a class="social-icons__link" rel="me" title="GitHub"
+         href="https://github.com/nasseralkmim"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('https://nasseralkmim.github.io/svg/github.svg')"></div>
+      </a>
+    
+  
+     
+    
+      <a class="social-icons__link" rel="me" title="Instagram"
+         href="https://instagram.com/naszr"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('https://nasseralkmim.github.io/svg/instagram.svg')"></div>
+      </a>
+    
+     
+</div>
+
+            <p>© 2021</p>
+          </footer>
+          </div>
+      </div>
+      
+      <div class="toc-container">
+           <div class="toc-post-title">Exploring Trilinos with Python - Epetra and AztecOO</div> 
+        <nav id="TableOfContents">
+<ul>
+<li><a href="#headline-1">Introduction</a>
+</li>
+<li><a href="#headline-2">Preliminaries</a>
+</li>
+<li><a href="#headline-3">Construct the problem</a>
+<ul>
+<li><a href="#headline-4">Communicator</a>
+</li>
+<li><a href="#headline-5">Map</a>
+</li>
+<li><a href="#headline-6">$A$ matrix</a>
+</li>
+<li><a href="#headline-7">Visualization of $A$ sparse matrix</a>
+</li>
+<li><a href="#headline-8">$b$ RHS vector</a>
+</li>
+<li><a href="#headline-9">$x$ solution vector</a>
+</li>
+</ul>
+</li>
+<li><a href="#headline-10">Solver</a>
+<ul>
+<li><a href="#headline-11">AztecOO solver object</a>
+</li>
+<li><a href="#headline-12">Solver options</a>
+</li>
+<li><a href="#headline-13">Solver parameters</a>
+</li>
+<li><a href="#headline-14">Solving the system</a>
+</li>
+</ul>
+</li>
+<li><a href="#headline-15">Convergence analysis</a>
+<ul>
+<li><a href="#headline-16">Problem definition</a>
+</li>
+<li><a href="#headline-17">Solver routine</a>
+</li>
+<li><a href="#headline-18">Analysis</a>
+</li>
+<li><a href="#headline-19">Visualizing</a>
+</li>
+</ul>
+</li>
+<li><a href="#headline-20">References</a>
+</li>
+<li><a href="#headline-21">Epetra</a>
+<ul>
+<li><a href="#headline-22">CRS matrix</a>
+<ul>
+<li><a href="#headline-23">Methods</a>
+</li>
+<li><a href="#headline-24">Number of columns and rows</a>
+</li>
+<li><a href="#headline-25">Reconstructing sparse matrix</a>
+</li>
+<li><a href="#headline-26">Visualizing sparse matrix</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+      </div>
+      
+    </div>
+    
+
+  </main>
+
+   
+
+  
+  <script src="/js/index.min.49e4d8a384357d9b445b87371863419937ede9fa77737522ffb633073aebfa44.js" integrity="sha256-SeTYo4Q1fZtEW4c3GGNBmTft6fp3c3Ui/7YzBzrr&#43;kQ=" crossorigin="anonymous"></script>
+  
+  
+  
+
+  
+  
+  
+
+  
+    <script src="/js/table-of-contents.js"></script>
+  
+
+
+</body>
+
+</html>

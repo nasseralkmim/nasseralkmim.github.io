@@ -193,19 +193,25 @@ LaTeX
 <div id="outline-text-headline-6" class="outline-text-2">
 <p>
 TeX Live is a easy way to have TeX programs, macro packages and fonts to produce documents with LaTeX macros.</p>
-<div class="src src-sh">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">wget http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
-tar -xzf install-tl-unx.tar.gz</code></pre></div>
+<div class="src src-shell">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo apt install tex-common texlive-base texlive-latex-recommended <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>                 texlive-latex-extra texlive-fonts-recommended latex-cjk-all</code></pre></div>
 </div>
-<p>
-Then go inside the folder and <code class="verbatim">sudo ./install</code> to install TeX-live.
-Other details in <a href="https://tex.stackexchange.com/questions/1092/how-to-install-vanilla-texlive-on-debian-or-ubuntu">packages - How to install &#34;vanilla&#34; TeXLive on Debian or Ubuntu? - TeX - LaTe…</a>.</p>
-<p>
-To install additional packages, use the tex live manager: <code class="verbatim">tlmgr install packages</code>.</p>
 <p>
 To install biblatex we need <code class="verbatim">sudo apt install biber</code>.</p>
 <p>
-A good and simple <code class="verbatim">.pdf</code> reader zathura: <code class="verbatim">sudo apt install zathura</code>.</p>
+To view pdf using Windows SumatraPDF add folder with <code class="verbatim">SumatraPDF.exe</code> on windows $PATH (environment variables) and this to <code class="verbatim">init.el</code>.</p>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq TeX-view-program-list
+	  <span style="color:#f92672">&#39;</span>((<span style="color:#e6db74">&#34;Sumatra PDF&#34;</span> (<span style="color:#e6db74">&#34;\&#34;SumatraPDF.exe\&#34; -reuse-instance&#34;</span>
+			    (mode-io-correlate <span style="color:#e6db74">&#34; -forward-search %b %n &#34;</span>) <span style="color:#e6db74">&#34; %o&#34;</span>))))
+    (assq-delete-all <span style="color:#e6db74">&#39;output-pdf</span> TeX-view-program-selection)
+    (add-to-list <span style="color:#e6db74">&#39;TeX-view-program-selection</span> <span style="color:#f92672">&#39;</span>(output-pdf <span style="color:#e6db74">&#34;Sumatra PDF&#34;</span>))</code></pre></div>
+</div>
+<p>
+To get inverse search using <code class="verbatim">wsl emacsclient -n +%l &#34;$(wslpath &#39;%f&#39;)&#34;</code>  on SumatraPDF options.</p>
+<p>
+To get the fonts that I use <code class="verbatim">sudo apt install texlive-fonts-extra</code>.</p>
 </div>
 </div>
 <div id="outline-container-headline-7" class="outline-2">
@@ -220,15 +226,106 @@ The solution is to just use the windows version of Hugo and call it within wsl w
 </div>
 <div id="outline-container-headline-8" class="outline-2">
 <h2 id="headline-8">
-Problems
+Paths
 </h2>
 <div id="outline-text-headline-8" class="outline-text-2">
-<div id="outline-container-headline-9" class="outline-4">
-<h4 id="headline-9">
+<p>
+<a href="https://docs.microsoft.com/en-us/windows/wsl/interop">Windows interoperability with Linux | Microsoft Docs</a></p>
+<p>
+Works inside wsl:</p>
+<ol>
+<li>
+<p>notepad.exe C:\\temp\\foo.txt</p>
+</li>
+<li>
+<p>notepad.exe &#34;C:\temp\foo.txt&#34;</p>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-headline-9" class="outline-2">
+<h2 id="headline-9">
+Problems
+</h2>
+<div id="outline-text-headline-9" class="outline-text-2">
+<div id="outline-container-headline-10" class="outline-4">
+<h4 id="headline-10">
+<span class="todo">TODO</span>
+Bibtex actions open pdf
+</h4>
+<div id="outline-text-headline-10" class="outline-text-4">
+<p>
+Problem: (f-exists?) does not recognize windows path in Zotero entry.</p>
+<p>
+<code class="verbatim">xdg-mime query filetype</code> gives <code class="verbatim">application/pdf</code>.</p>
+<p>
+<code class="verbatim">xdg-mime query default application/pdf</code> gives <code class="verbatim">org.gnome.Evince.deskto</code> which I don&#39;t have installed.</p>
+<p>
+Install wsl utils with <code class="verbatim">sudo apt install wslu</code>,<a href="https://github.com/wslutilities/wslu">GitHub - wslutilities/wslu: A collection of utilities for Windows 10 Linux Su…</a> , in order to use <code class="verbatim">wslview</code></p>
+<p>
+works from wsl:</p>
+<ol>
+<li>
+<p><code class="verbatim">wslview &#34;PMNHILH2/Pawlowski et al. - 2006 - Globalization Techniques for Newton–Krylov Methods.pdf&#34;</code> relative path</p>
+</li>
+<li>
+<p><code class="verbatim">wslview &#34;C:/Users/nasse/Zotero/storage/PMNHILH2/Pawlowski et al. - 2006 - Globalization Techniques for Newton–Krylov Methods.pdf&#34;</code> absolute path with windows style in quotes</p>
+</li>
+<li>
+<p><code class="verbatim">wslview C:\\Users\\nasse\\Zotero\\storage\\PMNHILH2\\Pawlowski\ et\ al.\ -\ 2006\ -\ Globalization\ Techniques\ for\ Newton–Krylov\ Methods.pdf</code> absolute path without quotes with <code class="verbatim">\</code> escaping \, and spaces. This is the Zotero way to store file path but it does not escape spaces (bibtex-action does that).</p>
+</li>
+<li>
+<p>(f-exists? &#34;C:/Users/nasse/Zotero/storage/PMNHILH2/Pawlowski et al. - 2006 - Globalization Techniques for Newton–Krylov Methods.pdf&#34;)nil </p>
+</li>
+<li>
+<p>(f-exists? &#34;C:\\Users\\nasse\\Zotero\\storage\\PMNHILH2\\Pawlowski et al. - 2006 - Globalization Techniques for Newton–Krylov Methods.pdf&#34;)nil</p>
+<ol>
+<li>
+<p><span style="text-decoration: underline;">this works on emacs on windows…</span> <strong>that&#39;s the problem…</strong></p>
+</li>
+</ol>
+</li>
+<li>
+<p>(f-exists? &#34;C:\\Users\\nasse\\Zotero\\storage\\PMNHILH2\\Pawlowski\ et\ al.\ -\ 2006\ -\ Globalization\ Techniques\ for\ Newton–Krylov\ Methods.pdf&#34;)nil</p>
+</li>
+<li>
+<p>(f-exists? &#34;/C:\\Users\\nasse\\Zotero\\storage\\PMNHILH2\\Pawlowski et al. - 2006 - Globalization Techniques for Newton–Krylov Methods.pdf&#34;)nil</p>
+</li>
+<li>
+<p>(f-exists? &#34;/mnt/c/Users/nasse/Zotero/storage/PMNHILH2/Pawlowski et al. - 2006 - Globalization Techniques for Newton–Krylov Methods.pdf&#34;)t</p>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-headline-11" class="outline-4">
+<h4 id="headline-11">
+<span class="todo">TODO</span>
+LaTeX forward search does not work properly
+</h4>
+<div id="outline-text-headline-11" class="outline-text-4">
+<p>
+It opens the pdf but not at the location…
+Probably a problem with windows/wsl path conversions…</p>
+</div>
+</div>
+<div id="outline-container-headline-12" class="outline-4">
+<h4 id="headline-12">
+<span class="todo">DONE</span>
+Inverse search from SumatraPDF to emacs
+</h4>
+<div id="outline-text-headline-12" class="outline-text-4">
+<p>
+<a href="https://github.com/sumatrapdfreader/sumatrapdf/issues/1861">sumatrapdfreader/sumatrapdf#1861 Inverse search with WSL</a></p>
+<p>
+using <code class="verbatim">wsl emacsclient -n +%l &#34;$(wslpath &#39;%f&#39;)&#34;</code> on sumatra inverse search command-line</p>
+</div>
+</div>
+<div id="outline-container-headline-13" class="outline-4">
+<h4 id="headline-13">
 <span class="todo">DONE</span>
 Hugo 
 </h4>
-<div id="outline-text-headline-9" class="outline-text-4">
+<div id="outline-text-headline-13" class="outline-text-4">
 <p>
 Update (<span class="timestamp">&lt;2021-04-16 Fri&gt;</span>): discovered that I can use windows programs within wsl2 by just calling with the suffix <code class="verbatim">.exe</code>.
 Update: for now I&#39;m writing my posts with standard windows emacs.</p>
@@ -245,21 +342,17 @@ I don&#39;t have a solution for this yet.</p>
 Trying the solution in here <a href="https://medium.com/@heberleh/wsl-2-installation-and-changes-c01e3cbe205a">WSL 2 installation and changes. Problems and solutions before and after… | by…</a></p>
 </div>
 </div>
-<div id="outline-container-headline-10" class="outline-4">
-<h4 id="headline-10">
+<div id="outline-container-headline-14" class="outline-4">
+<h4 id="headline-14">
 <span class="todo">DONE</span>
 Org-download not getting clipboard from windows
 </h4>
-<div id="outline-text-headline-10" class="outline-text-4">
+<div id="outline-text-headline-14" class="outline-text-4">
 <p>
 Update (<span class="timestamp">&lt;2021-04-16 Fri&gt;</span>): Just discovered that to run windows command in wsl we just need to add <code class="verbatim">.exe</code> to the windows program.
 I also had to change the variable <code class="verbatim">(setq org-download-screenshot-file &#34;./tmp/screenshot.png&#34;)</code> so we can create an image with the <code class="verbatim">convert.exe</code> and then access it with <code class="verbatim">org-download-image</code> to generate an org link.
-A minor inconvenience is that a <code class="verbatim">/tmp/</code> folder is created and I don&#39;t want to write a function to delete it.</p>
-<p>
-This is one of the reasons for me continue using standard emacs on windows.</p>
-<p>
-It does not work with emacs in WSL2.
-It seem xclip can not get clipboard.</p>
+A minor inconvenience is that a <code class="verbatim">tmp/</code> folder is created and I don&#39;t want to write a function to delete it.</p>
+<img src="Problems/2021-04-24_19-55-11_screenshot.png" alt="Problems/2021-04-24_19-55-11_screenshot.png" title="Problems/2021-04-24_19-55-11_screenshot.png" width="350px"/>
 <ol>
 <li>
 <p><a href="https://github.com/microsoft/WSL/issues/4440">microsoft/WSL#4440 WSL2 clipboard not shared between Linux and Windows</a></p>
@@ -267,12 +360,12 @@ It seem xclip can not get clipboard.</p>
 </ol>
 </div>
 </div>
-<div id="outline-container-headline-11" class="outline-4">
-<h4 id="headline-11">
+<div id="outline-container-headline-15" class="outline-4">
+<h4 id="headline-15">
 <span class="todo">DONE</span>
 Emacs jupyter
 </h4>
-<div id="outline-text-headline-11" class="outline-text-4">
+<div id="outline-text-headline-15" class="outline-text-4">
 <p>
 It seems that emacs-jupyter was looking for jupyter in the search path that emacs uses to find programs (<code class="verbatim">exec-path</code> variable).</p>
 <p>
@@ -303,12 +396,12 @@ So I had to create a symbolic link <code class="verbatim">sudo ln -s /usr/bin/py
 Then it worked.</p>
 </div>
 </div>
-<div id="outline-container-headline-12" class="outline-4">
-<h4 id="headline-12">
+<div id="outline-container-headline-16" class="outline-4">
+<h4 id="headline-16">
 <span class="todo">DONE</span>
 Treemacs <code class="verbatim">visit-node-in-external-application</code>
 </h4>
-<div id="outline-text-headline-12" class="outline-text-4">
+<div id="outline-text-headline-16" class="outline-text-4">
 <p>This is a reason for me to keep standard emacs on windows.</p>
 <p>
 When I call this function in a <code class="verbatim">.sh</code> file it opens as a text in another emacs instance.
@@ -333,35 +426,6 @@ Type=Application
 <p>
 and set as default with <code class="verbatim">xdg-mime default wsl-open.desktop application/x-shellscript</code>. 
 Now when I open a shell script with xdg-open (<code class="verbatim">x o</code> in treemacs) it runs the script just like in windows.</p>
-</div>
-</div>
-</div>
-</div>
-<div id="outline-container-headline-13" class="outline-2">
-<h2 id="headline-13">
-Details
-</h2>
-<div id="outline-text-headline-13" class="outline-text-2">
-<div id="outline-container-headline-14" class="outline-4">
-<h4 id="headline-14">
-Uninstalling zsh
-</h4>
-<div id="outline-text-headline-14" class="outline-text-4">
-<p>
-When I uninstalled zhs from wsl, it wouldn&#39;t start up again. </p>
-<p>
-This blog post helped.
-<a href="https://blog.hildenco.com/2019/07/diagnozing-and-fixing-wsl.html">Diagnosing and Fixing WSL initialization issues | HildenCo Software</a></p>
-<p>
-I had to go to go to System32 folder, log in wsl as a root wit</p>
-<div class="src src-bash">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">C:<span style="color:#ae81ff">\W</span>indows<span style="color:#ae81ff">\S</span>ystem32&gt;wsl -u root</code></pre></div>
-</div>
-<p>
-then change the default shell to bash again.</p>
-<div class="src src-bash">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">chsh -s /bin/bash name</code></pre></div>
-</div>
 </div>
 </div>
 </div>
@@ -498,21 +562,29 @@ then change the default shell to bash again.</p>
 </li>
 <li><a href="#headline-7">Hugo</a>
 </li>
-<li><a href="#headline-8">Problems</a>
+<li><a href="#headline-8">Paths</a>
+</li>
+<li><a href="#headline-9">Problems</a>
 <ul>
-<li><a href="#headline-9">Hugo </a>
+<li><a href="#headline-10">Bibtex actions open pdf</a>
 </li>
-<li><a href="#headline-10">Org-download not getting clipboard from windows</a>
+<li><a href="#headline-11">LaTeX forward search does not work properly</a>
 </li>
-<li><a href="#headline-11">Emacs jupyter</a>
+<li><a href="#headline-12">Inverse search from SumatraPDF to emacs</a>
 </li>
-<li><a href="#headline-12">Treemacs <code class="verbatim">visit-node-in-external-application</code></a>
+<li><a href="#headline-13">Hugo </a>
+</li>
+<li><a href="#headline-14">Org-download not getting clipboard from windows</a>
+</li>
+<li><a href="#headline-15">Emacs jupyter</a>
+</li>
+<li><a href="#headline-16">Treemacs <code class="verbatim">visit-node-in-external-application</code></a>
 </li>
 </ul>
 </li>
-<li><a href="#headline-13">Details</a>
+<li><a href="#headline-17">Details</a>
 <ul>
-<li><a href="#headline-14">Uninstalling zsh</a>
+<li><a href="#headline-18">Uninstalling zsh</a>
 </li>
 </ul>
 </li>

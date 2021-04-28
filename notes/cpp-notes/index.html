@@ -1299,7 +1299,15 @@ When you call <code class="verbatim">make</code> it uses the <code class="verbat
 The management means:</p>
 <ol>
 <li>
-<p>specify &#34;targets&#34;</p>
+<p>specify &#34;targets&#34; and list of dependencies</p>
+<ol>
+<li>
+<p>a target can be a word (a phony) such as &#34;all&#34;and &#34;clear&#34; or a file name</p>
+</li>
+<li>
+<p>convention is to use the first target &#34;all&#34; will run with simple <code class="verbatim">make</code></p>
+</li>
+</ol>
 </li>
 <li>
 <p>specify &#34;make actions&#34;, e.g. clean or build</p>
@@ -1308,6 +1316,16 @@ The management means:</p>
 <p>specify files/objects that make need to build</p>
 </li>
 </ol>
+<p>A sample Makefile would look like</p>
+<pre class="example">
+all: mybinary
+
+mybinary: files.o
+commands
+
+files.o: files.cpp files.h
+commands
+</pre>
 </div>
 </div>
 <div id="outline-container-headline-58" class="outline-4">
@@ -1317,7 +1335,7 @@ Make
 <div id="outline-text-headline-58" class="outline-text-4">
 <p>
 The command <code class="verbatim">make</code> is responsible to &#34;build&#34; the software.
-It takes the <code class="verbatim">./makefile</code> and build the first target.
+It takes the <code class="verbatim">./Makefile</code> and build the first target.
 The makefile has instructions to compile all the files that we need for our program.</p>
 <p>
 A simple makefile can be</p>
@@ -1326,7 +1344,16 @@ targets: prerequisites
       command
 </pre>
 <p>
-If we want to compile <code class="verbatim">main.cpp</code> (from the example in <a href="*Using dynamic libraries">Using dynamic libraries</a>) for instance, the <code class="verbatim">Makefile</code> should have</p>
+When we run <code class="verbatim">make</code> it will check if the file with target: &#34;all&#34; is updated.
+If it is not newer than its dependencies, it will call the command to rebuild the binary.</p>
+</div>
+</div>
+<div id="outline-container-headline-59" class="outline-4">
+<h4 id="headline-59">
+Make usage
+</h4>
+<div id="outline-text-headline-59" class="outline-text-4">
+<p>If we want to compile <code class="verbatim">main.cpp</code> (from the example in <a href="*Using dynamic libraries">Using dynamic libraries</a>) for instance, the <code class="verbatim">Makefile</code> should have</p>
 <pre class="example">
 default:
     clang++ main.cpp mymath.cpp -o output_with_make.out
@@ -1345,19 +1372,37 @@ clang++ main.cpp mymath.cpp -o output_with_make.out
 References: <a href="https://makefiletutorial.com/">Makefile Tutorial By Example</a></p>
 </div>
 </div>
-<div id="outline-container-headline-59" class="outline-4">
-<h4 id="headline-59">
-CMake
+<div id="outline-container-headline-60" class="outline-4">
+<h4 id="headline-60">
+Make install
 </h4>
-<div id="outline-text-headline-59" class="outline-text-4">
+<div id="outline-text-headline-60" class="outline-text-4">
 <p>
-CMake is a system that manages the build process (configures the project).
-It works together with a native build environment (make for Linux).
+The command <code class="verbatim">make install</code> copies the binaries from the step (with <code class="verbatim">make</code>) and put them into appropriate locations to be accessed.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-61" class="outline-2">
+<h2 id="headline-61">
+CMake
+</h2>
+<div id="outline-text-headline-61" class="outline-text-2">
+<div id="outline-container-headline-62" class="outline-4">
+<h4 id="headline-62">
+Introduction
+</h4>
+<div id="outline-text-headline-62" class="outline-text-4">
+<p>CMake is a system that manages the build process (configures the project) of a executable or library.
+The build process consist of configuring and generating project files, the <em>setup stage</em>.
+These project files work together with a native build tools (make for Linux, visual studio).
 It substitute the manual creation of Makefiles.</p>
 <p>
 CMake uses <code class="verbatim">CMakeLists.txt</code> file in the source directory with configuration to generate &#34;standard build files&#34;, e.g. makefiles on Linux and projects/workspaces on Windows.</p>
 <p>
-CMake can create <em>native build environment</em> (?) to compile the source code, <em>create libraries</em> (?), </p>
+CMake can create <em>native build environment</em> (?) to compile the source code, <em>create libraries</em> (?), 
+A build environment is what a specific system uses to create executables from source code and libraries as well.
+In Linux, the command <code class="verbatim">make</code> is responsible for that, whereas in windows, visual studio handles the build process.</p>
 <p>
 A typical <code class="verbatim">CMakeLists.txt</code> would contain:</p>
 <pre class="example">
@@ -1371,16 +1416,42 @@ add_executable(project_name main.cpp)
 Reference: <a href="https://tuannguyen68.gitbooks.io/learning-cmake-a-beginner-s-guide/content/chap1/chap1.html">Tutorial 1: Let&amp;apos;s start with CMake | Learning CMake: A beginner&amp;apos;s g…</a></p>
 </div>
 </div>
-<div id="outline-container-headline-60" class="outline-4">
-<h4 id="headline-60">
+<div id="outline-container-headline-63" class="outline-4">
+<h4 id="headline-63">
+Project setup
+</h4>
+<div id="outline-text-headline-63" class="outline-text-4">
+<p>
+A build system transforms a collection of files into a coherent project.
+CMake uses <code class="verbatim">CMakeLists.txt</code> to define what should be built, how is built, what tests to run and what packages to create.
+It contain a <em>description</em> of the project.</p>
+<p>
+A project has a source directory, <code class="verbatim">src</code>, and a binary directory <code class="verbatim">bin</code> (aka build directory).
+The binary directory is the destination of everything the build system creates, e.g. executables, libraries, test output and packages.</p>
+</div>
+</div>
+<div id="outline-container-headline-64" class="outline-4">
+<h4 id="headline-64">
+File generator
+</h4>
+<div id="outline-text-headline-64" class="outline-text-4">
+<p>
+Makefiles, visual studio and ninja.
+CMake produce <em>project files</em> that are adequate to a particular file generator depending o the system.</p>
+<p>
+The project files creating involves 1) configuring and 2) generating.</p>
+</div>
+</div>
+<div id="outline-container-headline-65" class="outline-4">
+<h4 id="headline-65">
 Using CMake
 </h4>
-<div id="outline-text-headline-60" class="outline-text-4">
-<div id="outline-container-headline-61" class="outline-6">
-<h6 id="headline-61">
+<div id="outline-text-headline-65" class="outline-text-4">
+<div id="outline-container-headline-66" class="outline-6">
+<h6 id="headline-66">
 Basic setup
 </h6>
-<div id="outline-text-headline-61" class="outline-text-6">
+<div id="outline-text-headline-66" class="outline-text-6">
 <p>If we want to build our <code class="verbatim">main.cpp</code> with the content:</p>
 <div class="src src-c++">
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
@@ -1505,11 +1576,11 @@ cmake_install.cmake
 Reference: <a href="https://cmake.org/cmake/help/git-stage/guide/tutorial/index.html">CMake Tutorial — CMake 3.20.20210421-g8d4c864 Documentation</a></p>
 </div>
 </div>
-<div id="outline-container-headline-62" class="outline-6">
-<h6 id="headline-62">
+<div id="outline-container-headline-67" class="outline-6">
+<h6 id="headline-67">
 Adding information to <code class="verbatim">CMakeLists.txt</code>
 </h6>
-<div id="outline-text-headline-62" class="outline-text-6">
+<div id="outline-text-headline-67" class="outline-text-6">
 <p>
 Now, if we have a <code class="verbatim">CMakeLists.txt</code> with just a reference to our main file</p>
 <pre class="example">
@@ -1555,11 +1626,11 @@ make</code></pre></div>
 we get an error saying that a reference is undefined.</p>
 </div>
 </div>
-<div id="outline-container-headline-63" class="outline-6">
-<h6 id="headline-63">
+<div id="outline-container-headline-68" class="outline-6">
+<h6 id="headline-68">
 Adding multiple sources to <code class="verbatim">CMakeLists.txt</code>
 </h6>
-<div id="outline-text-headline-63" class="outline-text-6">
+<div id="outline-text-headline-68" class="outline-text-6">
 <p>Adding a reference to the file with the function definition.</p>
 <pre class="example">
 cmake_minimum_required(VERSION 3.17)
@@ -1606,11 +1677,11 @@ and we can run the code by calling the executable</p>
 </pre>
 </div>
 </div>
-<div id="outline-container-headline-64" class="outline-6">
-<h6 id="headline-64">
+<div id="outline-container-headline-69" class="outline-6">
+<h6 id="headline-69">
 Adding a dynamic library to <code class="verbatim">CMakeLists.txt</code>
 </h6>
-<div id="outline-text-headline-64" class="outline-text-6">
+<div id="outline-text-headline-69" class="outline-text-6">
 <p>
 Now we want to compile our project using a ready to use dynamic library created by someone else.
 For the example lets compile our dynamic/shared library with the function definition.</p>
@@ -1686,24 +1757,16 @@ Then running the generated executable</p>
 </div>
 </div>
 </div>
-<div id="outline-container-headline-65" class="outline-4">
-<h4 id="headline-65">
-Install
+<div id="outline-container-headline-70" class="outline-4">
+<h4 id="headline-70">
+Reference
 </h4>
-<div id="outline-text-headline-65" class="outline-text-4">
-<p>
-The command <code class="verbatim">make install</code> will copy the program and its libraries to correct locations.
-The program will be copied to a directory on the system PATH.</p>
-</div>
-</div>
-<div id="outline-container-headline-66" class="outline-4">
-<h4 id="headline-66">
-When to rerun CMake
-</h4>
-<div id="outline-text-headline-66" class="outline-text-4">
-<p>
-CMake automatically check for changes in the build targets.
-When invoking make it triggers new execution of cmake if necessary.</p>
+<div id="outline-text-headline-70" class="outline-text-4">
+<ul>
+<li>
+<p>Scott, C. (). Professional CMake. : .</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -1953,23 +2016,33 @@ When invoking make it triggers new execution of cmake if necessary.</p>
 </li>
 <li><a href="#headline-58">Make</a>
 </li>
-<li><a href="#headline-59">CMake</a>
+<li><a href="#headline-59">Make usage</a>
 </li>
-<li><a href="#headline-60">Using CMake</a>
-<ul>
-<li><a href="#headline-61">Basic setup</a>
-</li>
-<li><a href="#headline-62">Adding information to <code class="verbatim">CMakeLists.txt</code></a>
-</li>
-<li><a href="#headline-63">Adding multiple sources to <code class="verbatim">CMakeLists.txt</code></a>
-</li>
-<li><a href="#headline-64">Adding a dynamic library to <code class="verbatim">CMakeLists.txt</code></a>
+<li><a href="#headline-60">Make install</a>
 </li>
 </ul>
 </li>
-<li><a href="#headline-65">Install</a>
+<li><a href="#headline-61">CMake</a>
+<ul>
+<li><a href="#headline-62">Introduction</a>
 </li>
-<li><a href="#headline-66">When to rerun CMake</a>
+<li><a href="#headline-63">Project setup</a>
+</li>
+<li><a href="#headline-64">File generator</a>
+</li>
+<li><a href="#headline-65">Using CMake</a>
+<ul>
+<li><a href="#headline-66">Basic setup</a>
+</li>
+<li><a href="#headline-67">Adding information to <code class="verbatim">CMakeLists.txt</code></a>
+</li>
+<li><a href="#headline-68">Adding multiple sources to <code class="verbatim">CMakeLists.txt</code></a>
+</li>
+<li><a href="#headline-69">Adding a dynamic library to <code class="verbatim">CMakeLists.txt</code></a>
+</li>
+</ul>
+</li>
+<li><a href="#headline-70">Reference</a>
 </li>
 </ul>
 </li>

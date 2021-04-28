@@ -7,7 +7,43 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© {year}</copyright>
-    <lastBuildDate>Tue, 13 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 25 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>python</title>
+      <link>https://nasseralkmim.github.io/tags/python/</link>
+      <pubDate>Sun, 25 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://nasseralkmim.github.io/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>trilinos</title>
+      <link>https://nasseralkmim.github.io/tags/trilinos/</link>
+      <pubDate>Sun, 25 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://nasseralkmim.github.io/tags/trilinos/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>draft</title>
+      <link>https://nasseralkmim.github.io/tags/draft/</link>
+      <pubDate>Sun, 18 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://nasseralkmim.github.io/tags/draft/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tools</title>
+      <link>https://nasseralkmim.github.io/tags/tools/</link>
+      <pubDate>Sun, 18 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://nasseralkmim.github.io/tags/tools/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>linear-algebra</title>
       <link>https://nasseralkmim.github.io/tags/linear-algebra/</link>
@@ -36,15 +72,6 @@
     </item>
     
     <item>
-      <title>python</title>
-      <link>https://nasseralkmim.github.io/tags/python/</link>
-      <pubDate>Tue, 06 Apr 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/tags/python/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>c&#43;&#43;</title>
       <link>https://nasseralkmim.github.io/tags/c&#43;&#43;/</link>
       <pubDate>Fri, 02 Apr 2021 00:00:00 +0000</pubDate>
@@ -59,15 +86,6 @@
       <pubDate>Thu, 01 Apr 2021 00:00:00 +0000</pubDate>
       
       <guid>https://nasseralkmim.github.io/tags/emacs/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>tools</title>
-      <link>https://nasseralkmim.github.io/tags/tools/</link>
-      <pubDate>Thu, 01 Apr 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/tags/tools/</guid>
       <description></description>
     </item>
     
