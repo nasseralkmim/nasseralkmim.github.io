@@ -7,18 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© {year}</copyright>
-    <lastBuildDate>Sun, 25 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Exploring Trilinos with Python - Epetra and AztecOO</title>
-      <link>https://nasseralkmim.github.io/notes/laplace2d-trilinos/</link>
-      <pubDate>Sun, 25 Apr 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/notes/laplace2d-trilinos/</guid>
-      <description>Introduction  This is an example from PyTrilinos tutorial with a more detailed and exploratory approach with steps outputs to help understand the program functionalities and dataflows. Trilinos/exAztecOO.py.in at master · trilinos/Trilinos · GitHub.
- The problem involves solving a linear system $Ax=b$ derived from discretization of the Laplace partial differential equation.
- This exploratory example was run using emacs org-mode with jupyter-emacs package. I am using python version:</description>
-    </item>
-    
+    <lastBuildDate>Tue, 06 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Jacobi method</title>
       <link>https://nasseralkmim.github.io/notes/jacobi-method/</link>
