@@ -77,18 +77,6 @@ import numpy as np A = np.array([[3, 1, -1], [1, -4, 2], [-2, -1, 5]]) b = np.</
     </item>
     
     <item>
-      <title>PhD setup</title>
-      <link>https://nasseralkmim.github.io/notes/phd-setup/</link>
-      <pubDate>Tue, 16 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/notes/phd-setup/</guid>
-      <description>Emacs  Emacs, of course.
- Tried briefly overleaf, it was good first. Nice to have instant previews and so on.
- But then, it got little complicated with the bibliography export from Zotero. If I add a reference to zotero I have to manually update the bibliography, and it also takes some time to update. Real downside.
- Another minor problem that I anticipated is when I create figures with scripts, I would have to manually upload then (?</description>
-    </item>
-    
-    <item>
       <title>Favorite garments 2021</title>
       <link>https://nasseralkmim.github.io/notes/favorite-garments/</link>
       <pubDate>Mon, 15 Mar 2021 00:00:00 +0000</pubDate>
