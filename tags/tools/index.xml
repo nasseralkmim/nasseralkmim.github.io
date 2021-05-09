@@ -39,7 +39,9 @@
       <guid>https://nasseralkmim.github.io/notes/emacs-windows/</guid>
       <description>Introduction   Build emacs inside windows subsystem for linux (wsl). The main advantage is that emacs is considerably faster when using LSP.
   Reference for installation   GitHub - hubisan/emacs-wsl: Install and run emacs with the Windows Subsystem …
-  Shortcut   One .bat file that starts the vcxsrv is it nor already running and calls the power shell script that starts emacs. @echo off TASKLIST | FINDSTR vcxsrv || start &amp;#34;&amp;#34; &amp;#34;C:\Program Files\VcXsrv\vcxsrv.</description>
+  Shortcut  Followed this steps for creating a taskbar shortcut:
+  rename .bat to .exe
+  right click on the .exe and create the shortcut</description>
     </item>
     
   </channel>

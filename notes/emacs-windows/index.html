@@ -132,65 +132,40 @@ Reference for installation
 Shortcut
 </h2>
 <div id="outline-text-headline-3" class="outline-text-2">
-<p>
-One <code class="verbatim">.bat</code> file that starts the vcxsrv is it nor already running and calls the power shell script that starts emacs. </p>
-<div class="src src-bat">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bat" data-lang="bat">@<span style="color:#66d9ef">echo</span> off
-
-TASKLIST | FINDSTR vcxsrv || <span style="color:#66d9ef">start</span> <span style="color:#e6db74">&#34;&#34;</span> <span style="color:#e6db74">&#34;C:\Program Files\VcXsrv\vcxsrv.exe&#34;</span> :0 -multiwindow -clipboard -wgl -ac
-
-@<span style="color:#75715e">rem Just run the PowerShell script.</span>
-
-powershell -NoProfile -ExecutionPolicy Bypass -Command <span style="color:#e6db74">&#34;&amp; &#39;./wsl-emacs.ps1&#39;&#34;</span></code></pre></div>
-</div>
-<p>
-One power shell script, provided by the Hubisan repository.
-Just added the keyboard layout and key chord to switch.</p>
-<div class="src src-powershell">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e"># WSL2 - Launch Emacs</span>
-
-<span style="color:#75715e"># Get the IP to use from wsl and set to a variable.</span>
-$wslip = wsl -d Ubuntu-20.04 bash -c <span style="color:#e6db74">&#39;ip route | awk &#39;&#39;/default via /&#39;&#39; | cut -d&#39;&#39; &#39;&#39; -f3&#39;</span>
-
-<span style="color:#75715e"># Run Emacs</span>
-wsl -d Ubuntu-20.04 bash -c <span style="color:#e6db74">&#34;export DISPLAY=$wslip`:0.0 export LIBGL_ALWAYS_INDIRECT=1 &amp;&amp; setxkbmap -layout &#39;br,us&#39; -option grp:shifts_toggle &amp;&amp; setsid emacs&#34;</span></code></pre></div>
-</div>
-<p>
-Then, a <code class="verbatim">.vbs</code> file that launches the bat script.</p>
-<div class="src src-vbs">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">If WScript.Arguments.Count &lt;= 0 Then
-    WScript.Quit
-End If
-
-bat = Left(WScript.ScriptFullName, InStrRev(WScript.ScriptFullName, &#34;\&#34;)) &amp; WScript.Arguments(0) &amp; &#34;.bat&#34;
-arg = &#34;&#34;
-
-If WScript.Arguments.Count &gt; 1 Then
-    arg = WScript.Arguments(1)
-End If
-
-CreateObject(&#34;WScript.Shell&#34;).Run &#34;&#34;&#34;&#34; &amp; bat &amp; &#34;&#34;&#34; &#34;&#34;&#34; &amp; arg &amp; &#34;&#34;&#34;&#34;, 0, False</code></pre></div>
-</div>
-<p>
-And finally a shortcut to this vbs with target the <code class="verbatim">.bat</code> script</p>
-<p>
-<code class="verbatim">C:\Windows\System32\wscript.exe C:\Users\nasse\OneDrive\emacs-wsl\run-emacs-wsl-2\launcher.vbs &#34;wsl-emacs&#34;</code></p>
-</div>
-</div>
-<div id="outline-container-headline-5" class="outline-2">
-<h2 id="headline-5">
-Fonts
-</h2>
-<div id="outline-text-headline-5" class="outline-text-2">
-<p>
-Download the <code class="verbatim">.ttf</code> font file, move them to <code class="verbatim">~/.fonts/</code> and <code class="verbatim">fc-cache -f -v</code> to rebuild font cache.</p>
+<p>Followed this steps for creating a taskbar shortcut:</p>
+<ol>
+<li>
+<p>rename <code class="verbatim">.bat</code> to <code class="verbatim">.exe</code></p>
+</li>
+<li>
+<p>right click on the <code class="verbatim">.exe</code> and create the shortcut</p>
+</li>
+<li>
+<p>change the shortcut icon</p>
+</li>
+<li>
+<p>rename back the <code class="verbatim">.exe</code> to <code class="verbatim">.bat</code></p>
+</li>
+<li>
+<p>change target of shortcut to <code class="verbatim">.bat</code> instead of <code class="verbatim">.exe</code> (shif-right click on the taskbar icon, then properties)</p>
+</li>
+</ol>
 </div>
 </div>
 <div id="outline-container-headline-6" class="outline-2">
 <h2 id="headline-6">
-LaTeX
+Fonts
 </h2>
 <div id="outline-text-headline-6" class="outline-text-2">
+<p>
+Download the <code class="verbatim">.ttf</code> font file, move them to <code class="verbatim">~/.fonts/</code> and <code class="verbatim">fc-cache -f -v</code> to rebuild font cache.</p>
+</div>
+</div>
+<div id="outline-container-headline-7" class="outline-2">
+<h2 id="headline-7">
+LaTeX
+</h2>
+<div id="outline-text-headline-7" class="outline-text-2">
 <p>
 TeX Live is a easy way to have TeX programs, macro packages and fonts to produce documents with LaTeX macros.</p>
 <div class="src src-sh">
@@ -214,21 +189,21 @@ To get inverse search using <code class="verbatim">wsl emacsclient -n +%l &#34;$
 To get the fonts that I use <code class="verbatim">sudo apt install texlive-fonts-extra</code>.</p>
 </div>
 </div>
-<div id="outline-container-headline-7" class="outline-2">
-<h2 id="headline-7">
+<div id="outline-container-headline-8" class="outline-2">
+<h2 id="headline-8">
 Hugo
 </h2>
-<div id="outline-text-headline-7" class="outline-text-2">
+<div id="outline-text-headline-8" class="outline-text-2">
 <p>
 I had problems with the Ubunto 20.04 version of hugo.
 The solution is to just use the windows version of Hugo and call it within wsl with <code class="verbatim">hugo.exe</code> instead of just <code class="verbatim">hugo</code>.</p>
 </div>
 </div>
-<div id="outline-container-headline-8" class="outline-2">
-<h2 id="headline-8">
+<div id="outline-container-headline-9" class="outline-2">
+<h2 id="headline-9">
 Paths
 </h2>
-<div id="outline-text-headline-8" class="outline-text-2">
+<div id="outline-text-headline-9" class="outline-text-2">
 <p>
 <a href="https://docs.microsoft.com/en-us/windows/wsl/interop">Windows interoperability with Linux | Microsoft Docs</a></p>
 <p>
@@ -243,17 +218,17 @@ Works inside wsl:</p>
 </ol>
 </div>
 </div>
-<div id="outline-container-headline-9" class="outline-2">
-<h2 id="headline-9">
+<div id="outline-container-headline-10" class="outline-2">
+<h2 id="headline-10">
 Problems
 </h2>
-<div id="outline-text-headline-9" class="outline-text-2">
-<div id="outline-container-headline-10" class="outline-4">
-<h4 id="headline-10">
+<div id="outline-text-headline-10" class="outline-text-2">
+<div id="outline-container-headline-11" class="outline-4">
+<h4 id="headline-11">
 <span class="todo">TODO</span>
 Bibtex actions open pdf
 </h4>
-<div id="outline-text-headline-10" class="outline-text-4">
+<div id="outline-text-headline-11" class="outline-text-4">
 <p>
 Problem: (f-exists?) does not recognize windows path in Zotero entry.</p>
 <p>
@@ -297,35 +272,35 @@ works from wsl:</p>
 </ol>
 </div>
 </div>
-<div id="outline-container-headline-11" class="outline-4">
-<h4 id="headline-11">
+<div id="outline-container-headline-12" class="outline-4">
+<h4 id="headline-12">
 <span class="todo">TODO</span>
 LaTeX forward search does not work properly
 </h4>
-<div id="outline-text-headline-11" class="outline-text-4">
+<div id="outline-text-headline-12" class="outline-text-4">
 <p>
 It opens the pdf but not at the location…
 Probably a problem with windows/wsl path conversions…</p>
 </div>
 </div>
-<div id="outline-container-headline-12" class="outline-4">
-<h4 id="headline-12">
+<div id="outline-container-headline-13" class="outline-4">
+<h4 id="headline-13">
 <span class="todo">DONE</span>
 Inverse search from SumatraPDF to emacs
 </h4>
-<div id="outline-text-headline-12" class="outline-text-4">
+<div id="outline-text-headline-13" class="outline-text-4">
 <p>
 <a href="https://github.com/sumatrapdfreader/sumatrapdf/issues/1861">sumatrapdfreader/sumatrapdf#1861 Inverse search with WSL</a></p>
 <p>
 using <code class="verbatim">wsl emacsclient -n +%l &#34;$(wslpath &#39;%f&#39;)&#34;</code> on sumatra inverse search command-line</p>
 </div>
 </div>
-<div id="outline-container-headline-13" class="outline-4">
-<h4 id="headline-13">
+<div id="outline-container-headline-14" class="outline-4">
+<h4 id="headline-14">
 <span class="todo">DONE</span>
 Hugo
 </h4>
-<div id="outline-text-headline-13" class="outline-text-4">
+<div id="outline-text-headline-14" class="outline-text-4">
 <p>
 Update (<span class="timestamp">&lt;2021-04-16 Fri&gt;</span>): discovered that I can use windows programs within wsl2 by just calling with the suffix <code class="verbatim">.exe</code>.
 Update: for now I&#39;m writing my posts with standard windows emacs.</p>
@@ -342,12 +317,12 @@ I don&#39;t have a solution for this yet.</p>
 Trying the solution in here <a href="https://medium.com/@heberleh/wsl-2-installation-and-changes-c01e3cbe205a">WSL 2 installation and changes. Problems and solutions before and after… | by…</a></p>
 </div>
 </div>
-<div id="outline-container-headline-14" class="outline-4">
-<h4 id="headline-14">
+<div id="outline-container-headline-15" class="outline-4">
+<h4 id="headline-15">
 <span class="todo">DONE</span>
 Org-download not getting clipboard from windows
 </h4>
-<div id="outline-text-headline-14" class="outline-text-4">
+<div id="outline-text-headline-15" class="outline-text-4">
 <p>
 Update (<span class="timestamp">&lt;2021-04-16 Fri&gt;</span>): Just discovered that to run windows command in wsl we just need to add <code class="verbatim">.exe</code> to the windows program.
 I also had to change the variable <code class="verbatim">(setq org-download-screenshot-file &#34;./tmp/screenshot.png&#34;)</code> so we can create an image with the <code class="verbatim">convert.exe</code> and then access it with <code class="verbatim">org-download-image</code> to generate an org link.
@@ -359,12 +334,12 @@ A minor inconvenience is that a <code class="verbatim">tmp/</code> folder is cre
 </ol>
 </div>
 </div>
-<div id="outline-container-headline-15" class="outline-4">
-<h4 id="headline-15">
+<div id="outline-container-headline-16" class="outline-4">
+<h4 id="headline-16">
 <span class="todo">DONE</span>
 Emacs jupyter
 </h4>
-<div id="outline-text-headline-15" class="outline-text-4">
+<div id="outline-text-headline-16" class="outline-text-4">
 <p>
 It seems that emacs-jupyter was looking for jupyter in the search path that emacs uses to find programs (<code class="verbatim">exec-path</code> variable).</p>
 <div class="src src-sh">
@@ -386,12 +361,12 @@ So I had to create a symbolic link <code class="verbatim">sudo ln -s /usr/bin/py
 Then it worked.</p>
 </div>
 </div>
-<div id="outline-container-headline-16" class="outline-4">
-<h4 id="headline-16">
+<div id="outline-container-headline-17" class="outline-4">
+<h4 id="headline-17">
 <span class="todo">DONE</span>
 Treemacs <code class="verbatim">visit-node-in-external-application</code>
 </h4>
-<div id="outline-text-headline-16" class="outline-text-4">
+<div id="outline-text-headline-17" class="outline-text-4">
 <p>Update: <span class="timestamp">&lt;2021-05-08 Sat&gt;</span> Using bash from wsl. Set up a desktop application with <code class="verbatim">/usr/bin/sh</code> and set it as default for xdg-open.</p>
 <p>
 This is a reason for me to keep standard emacs on windows.</p>
@@ -555,39 +530,41 @@ Now when I open a shell script with xdg-open (<code class="verbatim">x o</code> 
 </li>
 <li><a href="#headline-3">Shortcut</a>
 <ul>
-<li><a href="#headline-4">Old</a>
+<li><a href="#headline-4">Old <span class="timestamp">&lt;2021-05-09 Sun&gt;</span></a>
+</li>
+<li><a href="#headline-5">Old</a>
 </li>
 </ul>
 </li>
-<li><a href="#headline-5">Fonts</a>
+<li><a href="#headline-6">Fonts</a>
 </li>
-<li><a href="#headline-6">LaTeX</a>
+<li><a href="#headline-7">LaTeX</a>
 </li>
-<li><a href="#headline-7">Hugo</a>
+<li><a href="#headline-8">Hugo</a>
 </li>
-<li><a href="#headline-8">Paths</a>
+<li><a href="#headline-9">Paths</a>
 </li>
-<li><a href="#headline-9">Problems</a>
+<li><a href="#headline-10">Problems</a>
 <ul>
-<li><a href="#headline-10">Bibtex actions open pdf</a>
+<li><a href="#headline-11">Bibtex actions open pdf</a>
 </li>
-<li><a href="#headline-11">LaTeX forward search does not work properly</a>
+<li><a href="#headline-12">LaTeX forward search does not work properly</a>
 </li>
-<li><a href="#headline-12">Inverse search from SumatraPDF to emacs</a>
+<li><a href="#headline-13">Inverse search from SumatraPDF to emacs</a>
 </li>
-<li><a href="#headline-13">Hugo</a>
+<li><a href="#headline-14">Hugo</a>
 </li>
-<li><a href="#headline-14">Org-download not getting clipboard from windows</a>
+<li><a href="#headline-15">Org-download not getting clipboard from windows</a>
 </li>
-<li><a href="#headline-15">Emacs jupyter</a>
+<li><a href="#headline-16">Emacs jupyter</a>
 </li>
-<li><a href="#headline-16">Treemacs <code class="verbatim">visit-node-in-external-application</code></a>
+<li><a href="#headline-17">Treemacs <code class="verbatim">visit-node-in-external-application</code></a>
 </li>
 </ul>
 </li>
-<li><a href="#headline-17">Details</a>
+<li><a href="#headline-18">Details</a>
 <ul>
-<li><a href="#headline-18">Uninstalling zsh</a>
+<li><a href="#headline-19">Uninstalling zsh</a>
 </li>
 </ul>
 </li>
