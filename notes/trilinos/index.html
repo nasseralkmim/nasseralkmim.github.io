@@ -385,17 +385,17 @@ Simple configuration
 </li>
 </ol>
 <div class="src src-bash">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
-</span><span style="color:#75715e"></span>
-TRILINOS_HOME<span style="color:#f92672">=</span>../Trilinos
-INSTALL_PATH<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>HOME<span style="color:#e6db74">}</span>/trilinos
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#93a1a1;font-style:italic">#!/bin/bash
+</span><span style="color:#93a1a1;font-style:italic"></span>
+<span style="color:#268bd2">TRILINOS_HOME</span>=../Trilinos
+<span style="color:#268bd2">INSTALL_PATH</span>=<span style="color:#2aa198">${</span><span style="color:#268bd2">HOME</span><span style="color:#2aa198">}</span>/trilinos
 
-cmake <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>  -D CMAKE_INSTALL_PREFIX<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>INSTALL_PATH<span style="color:#e6db74">}</span> <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>  -D CMAKE_BUILD_TYPE<span style="color:#f92672">=</span>RELEASE <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>  -D BUILD_SHARED_LIBS<span style="color:#f92672">=</span>ON <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>$EXTRA_ARGS <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>$TRILINOS_HOME</code></pre></div>
+cmake <span style="color:#2aa198">\
+</span><span style="color:#2aa198"></span>  -D <span style="color:#268bd2">CMAKE_INSTALL_PREFIX</span>=<span style="color:#2aa198">${</span><span style="color:#268bd2">INSTALL_PATH</span><span style="color:#2aa198">}</span> <span style="color:#2aa198">\
+</span><span style="color:#2aa198"></span>  -D <span style="color:#268bd2">CMAKE_BUILD_TYPE</span>=RELEASE <span style="color:#2aa198">\
+</span><span style="color:#2aa198"></span>  -D <span style="color:#268bd2">BUILD_SHARED_LIBS</span>=ON <span style="color:#2aa198">\
+</span><span style="color:#2aa198"></span><span style="color:#268bd2">$EXTRA_ARGS</span> <span style="color:#2aa198">\
+</span><span style="color:#2aa198"></span><span style="color:#268bd2">$TRILINOS_HOME</span></code></pre></div>
 </div>
 </div>
 </div>
@@ -514,18 +514,18 @@ I got errors saying that some dependences were missing.</p>
 <p>
 (**) BLAS and LAPACK are linear algebra software.</p>
 <div class="src src-bash">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
-</span><span style="color:#75715e"></span>
-TRILINOS_HOME<span style="color:#f92672">=</span>../Trilinos
-INSTALL_PATH<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>HOME<span style="color:#e6db74">}</span>/trilinos
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#93a1a1;font-style:italic">#!/bin/bash
+</span><span style="color:#93a1a1;font-style:italic"></span>
+<span style="color:#268bd2">TRILINOS_HOME</span>=../Trilinos
+<span style="color:#268bd2">INSTALL_PATH</span>=<span style="color:#2aa198">${</span><span style="color:#268bd2">HOME</span><span style="color:#2aa198">}</span>/trilinos
 
-cmake <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>  -D CMAKE_INSTALL_PREFIX<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>INSTALL_PATH<span style="color:#e6db74">}</span> <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>  -D CMAKE_BUILD_TYPE<span style="color:#f92672">=</span>RELEASE <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>  -D BUILD_SHARED_LIBS<span style="color:#f92672">=</span>ON <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>  -D Trilinos_ENABLE_PyTrilinos<span style="color:#f92672">=</span>ON <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>$EXTRA_ARGS <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>$TRILINOS_HOME</code></pre></div>
+cmake <span style="color:#2aa198">\
+</span><span style="color:#2aa198"></span>  -D <span style="color:#268bd2">CMAKE_INSTALL_PREFIX</span>=<span style="color:#2aa198">${</span><span style="color:#268bd2">INSTALL_PATH</span><span style="color:#2aa198">}</span> <span style="color:#2aa198">\
+</span><span style="color:#2aa198"></span>  -D <span style="color:#268bd2">CMAKE_BUILD_TYPE</span>=RELEASE <span style="color:#2aa198">\
+</span><span style="color:#2aa198"></span>  -D <span style="color:#268bd2">BUILD_SHARED_LIBS</span>=ON <span style="color:#2aa198">\
+</span><span style="color:#2aa198"></span>  -D <span style="color:#268bd2">Trilinos_ENABLE_PyTrilinos</span>=ON <span style="color:#2aa198">\
+</span><span style="color:#2aa198"></span><span style="color:#268bd2">$EXTRA_ARGS</span> <span style="color:#2aa198">\
+</span><span style="color:#2aa198"></span><span style="color:#268bd2">$TRILINOS_HOME</span></code></pre></div>
 </div>
 </div>
 </div>
@@ -677,9 +677,9 @@ If this variable is not specified the python installation is the same as others 
 There are many ways to do that.
 One is just append to the variable <code class="verbatim">sys.path</code></p>
 <div class="src src-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> sys
-sys<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>append(<span style="color:#e6db74">&#39;/home/nasser/trilinos/lib/python3.8/site-packages&#39;</span>)
-<span style="color:#f92672">from</span> PyTrilinos <span style="color:#f92672">import</span> Epetra</code></pre></div>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#dc322f;font-weight:bold">import</span> <span style="color:#268bd2">sys</span>
+<span style="color:#268bd2">sys</span>.<span style="color:#268bd2">path</span>.<span style="color:#268bd2">append</span>(<span style="color:#2aa198">&#39;/home/nasser/trilinos/lib/python3.8/site-packages&#39;</span>)
+<span style="color:#dc322f;font-weight:bold">from</span> <span style="color:#268bd2">PyTrilinos</span> <span style="color:#dc322f;font-weight:bold">import</span> <span style="color:#268bd2">Epetra</span></code></pre></div>
 </div>
 <pre class="example">
 None
@@ -687,7 +687,7 @@ None
 <p>A more permanent solution is to create a symbolic link from the Trilinos installation folder to a place where the python interpret looks for libraries.
 To check where python looks for packages/libraries:</p>
 <div class="src src-shell">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">python -m site</code></pre></div>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">python -m site</code></pre></div>
 </div>
 <pre class="example">
 sys.path = [
@@ -706,12 +706,12 @@ ENABLE_USER_SITE: True
 <p>
 So we add a symbolic link for the PyTrilinos python package path intto one of this paths</p>
 <div class="src src-shell">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo ln -s /home/nasser/trilinos/lib/python3.8/site-packages/PyTrilinos /usr/local/lib/python3.8/dist-packages</code></pre></div>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo ln -s /home/nasser/trilinos/lib/python3.8/site-packages/PyTrilinos /usr/local/lib/python3.8/dist-packages</code></pre></div>
 </div>
 <p>
 And to check the link:</p>
 <div class="src src-shell">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">cd /usr/local/lib/python3.8/dist-packages/ <span style="color:#f92672">&amp;&amp;</span> ls -l | grep <span style="color:#e6db74">&#34;Tri&#34;</span></code></pre></div>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#cb4b16">cd</span> /usr/local/lib/python3.8/dist-packages/ &amp;&amp; ls -l | grep <span style="color:#2aa198">&#34;Tri&#34;</span></code></pre></div>
 </div>
 <pre class="example">
 lrwxrwxrwx  1 root staff     60 Apr 25 16:00 PyTrilinos -&gt; /home/nasser/trilinos/lib/python3.8/site-packages/PyTrilinos
@@ -719,7 +719,7 @@ lrwxrwxrwx  1 root staff     60 Apr 25 16:00 PyTrilinos -&gt; /home/nasser/trili
 <p>
 Now we can simply</p>
 <div class="src src-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> PyTrilinos <span style="color:#f92672">import</span> Epetra</code></pre></div>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#dc322f;font-weight:bold">from</span> <span style="color:#268bd2">PyTrilinos</span> <span style="color:#dc322f;font-weight:bold">import</span> <span style="color:#268bd2">Epetra</span></code></pre></div>
 </div>
 <pre class="example">
 None
@@ -739,8 +739,8 @@ Epetra
 </h4>
 <div id="outline-text-headline-36" class="outline-text-4">
 <div class="src src-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> PyTrilinos <span style="color:#f92672">import</span> Epetra 
-<span style="color:#66d9ef">print</span>(Epetra<span style="color:#f92672">.</span>PyComm())</code></pre></div>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#dc322f;font-weight:bold">from</span> <span style="color:#268bd2">PyTrilinos</span> <span style="color:#dc322f;font-weight:bold">import</span> <span style="color:#268bd2">Epetra</span> 
+<span style="color:#859900">print</span>(<span style="color:#268bd2">Epetra</span>.<span style="color:#268bd2">PyComm</span>())</code></pre></div>
 </div>
 <pre class="example">
 None

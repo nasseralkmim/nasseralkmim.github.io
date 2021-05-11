@@ -151,23 +151,23 @@ Visualization of the objective function
 <p>
 The objective function can be visualized as the following,</p>
 <div class="src src-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">%</span>matplotlib inline
-<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
-<span style="color:#f92672">from</span> mpl_toolkits.mplot3d <span style="color:#f92672">import</span> Axes3D
-<span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">%<span style="color:#268bd2">matplotlib</span> <span style="color:#268bd2">inline</span>
+<span style="color:#dc322f;font-weight:bold">import</span> <span style="color:#268bd2">matplotlib.pyplot</span> <span style="color:#dc322f;font-weight:bold">as</span> <span style="color:#268bd2">plt</span>
+<span style="color:#dc322f;font-weight:bold">from</span> <span style="color:#268bd2">mpl_toolkits.mplot3d</span> <span style="color:#dc322f;font-weight:bold">import</span> <span style="color:#268bd2">Axes3D</span>
+<span style="color:#dc322f;font-weight:bold">import</span> <span style="color:#268bd2">numpy</span> <span style="color:#dc322f;font-weight:bold">as</span> <span style="color:#268bd2">np</span>
 
-fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure()
-ax <span style="color:#f92672">=</span> Axes3D(fig)
-ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;x&#39;</span>)
-ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;y&#39;</span>)
+<span style="color:#268bd2">fig</span> = <span style="color:#268bd2">plt</span>.<span style="color:#268bd2">figure</span>()
+<span style="color:#268bd2">ax</span> = <span style="color:#268bd2">Axes3D</span>(<span style="color:#268bd2">fig</span>)
+<span style="color:#268bd2">ax</span>.<span style="color:#268bd2">set_xlabel</span>(<span style="color:#2aa198">&#39;x&#39;</span>)
+<span style="color:#268bd2">ax</span>.<span style="color:#268bd2">set_ylabel</span>(<span style="color:#2aa198">&#39;y&#39;</span>)
 
-x1 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>)
-x2 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">1</span>)
+<span style="color:#268bd2">x1</span> = <span style="color:#268bd2">np</span>.<span style="color:#268bd2">linspace</span>(<span style="color:#2aa198;font-weight:bold">0</span>, <span style="color:#2aa198;font-weight:bold">1</span>)
+<span style="color:#268bd2">x2</span> = <span style="color:#268bd2">np</span>.<span style="color:#268bd2">linspace</span>(-<span style="color:#2aa198;font-weight:bold">2</span>, <span style="color:#2aa198;font-weight:bold">1</span>)
 
-X1, X2 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>meshgrid(x1, x2)
-X3 <span style="color:#f92672">=</span> (X1 <span style="color:#f92672">-</span> <span style="color:#ae81ff">3</span>)<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">+</span> (X2 <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>)<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>
+<span style="color:#268bd2">X1</span>, <span style="color:#268bd2">X2</span> = <span style="color:#268bd2">np</span>.<span style="color:#268bd2">meshgrid</span>(<span style="color:#268bd2">x1</span>, <span style="color:#268bd2">x2</span>)
+<span style="color:#268bd2">X3</span> = (<span style="color:#268bd2">X1</span> - <span style="color:#2aa198;font-weight:bold">3</span>)**<span style="color:#2aa198;font-weight:bold">2</span> + (<span style="color:#268bd2">X2</span> + <span style="color:#2aa198;font-weight:bold">1</span>)**<span style="color:#2aa198;font-weight:bold">2</span>
 
-ax<span style="color:#f92672">.</span>plot_surface(X1, X2, X3, cmap<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;plasma&#39;</span>)</code></pre></div>
+<span style="color:#268bd2">ax</span>.<span style="color:#268bd2">plot_surface</span>(<span style="color:#268bd2">X1</span>, <span style="color:#268bd2">X2</span>, <span style="color:#268bd2">X3</span>, <span style="color:#268bd2">cmap</span>=<span style="color:#2aa198">&#39;plasma&#39;</span>)</code></pre></div>
 </div>
 <p><img src="img/lagr1.png" alt="img/lagr1.png" title="img/lagr1.png" /></p>
 </div>
@@ -178,26 +178,26 @@ Visualization of the restrained domain
 </h4>
 <div id="outline-text-headline-4" class="outline-text-4">
 <div class="src src-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">xr1 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>)
-xr2 <span style="color:#f92672">=</span> <span style="color:#ae81ff">1.5</span> <span style="color:#f92672">-</span> xr1
-xr3 <span style="color:#f92672">=</span> (xr1 <span style="color:#f92672">-</span> <span style="color:#ae81ff">3</span>)<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">+</span> (xr2 <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>)<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#268bd2">xr1</span> = <span style="color:#268bd2">np</span>.<span style="color:#268bd2">linspace</span>(<span style="color:#2aa198;font-weight:bold">0</span>, <span style="color:#2aa198;font-weight:bold">1</span>)
+<span style="color:#268bd2">xr2</span> = <span style="color:#2aa198;font-weight:bold">1.5</span> - <span style="color:#268bd2">xr1</span>
+<span style="color:#268bd2">xr3</span> = (<span style="color:#268bd2">xr1</span> - <span style="color:#2aa198;font-weight:bold">3</span>)**<span style="color:#2aa198;font-weight:bold">2</span> + (<span style="color:#268bd2">xr2</span> + <span style="color:#2aa198;font-weight:bold">1</span>)**<span style="color:#2aa198;font-weight:bold">2</span>
 
 
-xp3 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">16</span>)
-XP1, XP3 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>meshgrid(xr1, xp3)
-XP2 <span style="color:#f92672">=</span> <span style="color:#f92672">-</span>XP1 <span style="color:#f92672">+</span> <span style="color:#ae81ff">1.5</span>
+<span style="color:#268bd2">xp3</span> = <span style="color:#268bd2">np</span>.<span style="color:#268bd2">linspace</span>(<span style="color:#2aa198;font-weight:bold">0</span>, <span style="color:#2aa198;font-weight:bold">16</span>)
+<span style="color:#268bd2">XP1</span>, <span style="color:#268bd2">XP3</span> = <span style="color:#268bd2">np</span>.<span style="color:#268bd2">meshgrid</span>(<span style="color:#268bd2">xr1</span>, <span style="color:#268bd2">xp3</span>)
+<span style="color:#268bd2">XP2</span> = -<span style="color:#268bd2">XP1</span> + <span style="color:#2aa198;font-weight:bold">1.5</span>
 
-fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure()
-ax <span style="color:#f92672">=</span> Axes3D(fig)
-ax<span style="color:#f92672">.</span>set_ylim(<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">1</span>)
+<span style="color:#268bd2">fig</span> = <span style="color:#268bd2">plt</span>.<span style="color:#268bd2">figure</span>()
+<span style="color:#268bd2">ax</span> = <span style="color:#268bd2">Axes3D</span>(<span style="color:#268bd2">fig</span>)
+<span style="color:#268bd2">ax</span>.<span style="color:#268bd2">set_ylim</span>(-<span style="color:#2aa198;font-weight:bold">2</span>, <span style="color:#2aa198;font-weight:bold">1</span>)
 
 
-ax<span style="color:#f92672">.</span>plot_surface(XP1, XP2, XP3, cmap<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;gray&#39;</span>, cstride<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>, rstride<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>, edgecolor<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;w&#39;</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.15</span>)
+<span style="color:#268bd2">ax</span>.<span style="color:#268bd2">plot_surface</span>(<span style="color:#268bd2">XP1</span>, <span style="color:#268bd2">XP2</span>, <span style="color:#268bd2">XP3</span>, <span style="color:#268bd2">cmap</span>=<span style="color:#2aa198">&#39;gray&#39;</span>, <span style="color:#268bd2">cstride</span>=<span style="color:#2aa198;font-weight:bold">100</span>, <span style="color:#268bd2">rstride</span>=<span style="color:#2aa198;font-weight:bold">100</span>, <span style="color:#268bd2">edgecolor</span>=<span style="color:#2aa198">&#39;w&#39;</span>, <span style="color:#268bd2">alpha</span>=<span style="color:#2aa198;font-weight:bold">0.15</span>)
 
-ax<span style="color:#f92672">.</span>plot_surface(X1, X2, X3, cmap<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;plasma&#39;</span>,  cstride<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, rstride<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, edgecolor<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;w&#39;</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.5</span>)
+<span style="color:#268bd2">ax</span>.<span style="color:#268bd2">plot_surface</span>(<span style="color:#268bd2">X1</span>, <span style="color:#268bd2">X2</span>, <span style="color:#268bd2">X3</span>, <span style="color:#268bd2">cmap</span>=<span style="color:#2aa198">&#39;plasma&#39;</span>,  <span style="color:#268bd2">cstride</span>=<span style="color:#2aa198;font-weight:bold">3</span>, <span style="color:#268bd2">rstride</span>=<span style="color:#2aa198;font-weight:bold">3</span>, <span style="color:#268bd2">edgecolor</span>=<span style="color:#2aa198">&#39;w&#39;</span>, <span style="color:#268bd2">alpha</span>=<span style="color:#2aa198;font-weight:bold">0.5</span>)
 
-ax<span style="color:#f92672">.</span>plot(xr1, xr2, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;k&#39;</span>)
-ax<span style="color:#f92672">.</span>plot(xr1, xr2, xr3, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;w&#39;</span>)</code></pre></div>
+<span style="color:#268bd2">ax</span>.<span style="color:#268bd2">plot</span>(<span style="color:#268bd2">xr1</span>, <span style="color:#268bd2">xr2</span>, <span style="color:#268bd2">color</span>=<span style="color:#2aa198">&#39;k&#39;</span>)
+<span style="color:#268bd2">ax</span>.<span style="color:#268bd2">plot</span>(<span style="color:#268bd2">xr1</span>, <span style="color:#268bd2">xr2</span>, <span style="color:#268bd2">xr3</span>, <span style="color:#268bd2">color</span>=<span style="color:#2aa198">&#39;w&#39;</span>)</code></pre></div>
 </div>
 <p><img src="img/lagr2.png" alt="img/lagr2.png" title="img/lagr2.png" /></p>
 <p>
@@ -210,18 +210,18 @@ Visualization with contour plot
 </h4>
 <div id="outline-text-headline-5" class="outline-text-4">
 <div class="src src-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">10</span>,<span style="color:#ae81ff">10</span>))
-ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>)
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#268bd2">fig</span> = <span style="color:#268bd2">plt</span>.<span style="color:#268bd2">figure</span>(<span style="color:#268bd2">figsize</span>=(<span style="color:#2aa198;font-weight:bold">10</span>,<span style="color:#2aa198;font-weight:bold">10</span>))
+<span style="color:#268bd2">ax</span> = <span style="color:#268bd2">fig</span>.<span style="color:#268bd2">add_subplot</span>(<span style="color:#2aa198;font-weight:bold">1</span>, <span style="color:#2aa198;font-weight:bold">1</span>, <span style="color:#2aa198;font-weight:bold">1</span>)
 
-ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;y&#39;</span>)
-ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;x&#39;</span>)
-ax<span style="color:#f92672">.</span>set_aspect(<span style="color:#e6db74">&#39;equal&#39;</span>)
-ax<span style="color:#f92672">.</span>set_ylim(<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">1</span>)
+<span style="color:#268bd2">ax</span>.<span style="color:#268bd2">set_ylabel</span>(<span style="color:#2aa198">&#39;y&#39;</span>)
+<span style="color:#268bd2">ax</span>.<span style="color:#268bd2">set_xlabel</span>(<span style="color:#2aa198">&#39;x&#39;</span>)
+<span style="color:#268bd2">ax</span>.<span style="color:#268bd2">set_aspect</span>(<span style="color:#2aa198">&#39;equal&#39;</span>)
+<span style="color:#268bd2">ax</span>.<span style="color:#268bd2">set_ylim</span>(-<span style="color:#2aa198;font-weight:bold">2</span>, <span style="color:#2aa198;font-weight:bold">1</span>)
 
-CS <span style="color:#f92672">=</span> ax<span style="color:#f92672">.</span>contour(X1, X2, X3, colors<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;w&#39;</span>)
-ax<span style="color:#f92672">.</span>clabel(CS)
-ax<span style="color:#f92672">.</span>plot(xr1, xr2, <span style="color:#e6db74">&#39;k&#39;</span>)
-ax<span style="color:#f92672">.</span>fill_between(xr1, xr2, <span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.4</span>)</code></pre></div>
+<span style="color:#268bd2">CS</span> = <span style="color:#268bd2">ax</span>.<span style="color:#268bd2">contour</span>(<span style="color:#268bd2">X1</span>, <span style="color:#268bd2">X2</span>, <span style="color:#268bd2">X3</span>, <span style="color:#268bd2">colors</span>=<span style="color:#2aa198">&#39;w&#39;</span>)
+<span style="color:#268bd2">ax</span>.<span style="color:#268bd2">clabel</span>(<span style="color:#268bd2">CS</span>)
+<span style="color:#268bd2">ax</span>.<span style="color:#268bd2">plot</span>(<span style="color:#268bd2">xr1</span>, <span style="color:#268bd2">xr2</span>, <span style="color:#2aa198">&#39;k&#39;</span>)
+<span style="color:#268bd2">ax</span>.<span style="color:#268bd2">fill_between</span>(<span style="color:#268bd2">xr1</span>, <span style="color:#268bd2">xr2</span>, -<span style="color:#2aa198;font-weight:bold">2</span>, <span style="color:#268bd2">alpha</span>=<span style="color:#2aa198;font-weight:bold">0.4</span>)</code></pre></div>
 </div>
 <p><img src="img/lagr4.png" alt="img/lagr4.png" title="img/lagr4.png" /></p>
 </div>
@@ -281,23 +281,23 @@ The minimization of the Lagrangian function with each separable variable is perf
 </ol>
 <p>We can try visualize this logic with a generic quadratic function,</p>
 <div class="src src-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(<span style="color:#f92672">-</span><span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">5</span>)
-x1 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">5</span>)
-y <span style="color:#f92672">=</span> x<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>
-y1 <span style="color:#f92672">=</span> x1<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#268bd2">x</span> = <span style="color:#268bd2">np</span>.<span style="color:#268bd2">linspace</span>(-<span style="color:#2aa198;font-weight:bold">5</span>, <span style="color:#2aa198;font-weight:bold">5</span>)
+<span style="color:#268bd2">x1</span> = <span style="color:#268bd2">np</span>.<span style="color:#268bd2">linspace</span>(<span style="color:#2aa198;font-weight:bold">2</span>, <span style="color:#2aa198;font-weight:bold">5</span>)
+<span style="color:#268bd2">y</span> = <span style="color:#268bd2">x</span>**<span style="color:#2aa198;font-weight:bold">2</span>
+<span style="color:#268bd2">y1</span> = <span style="color:#268bd2">x1</span>**<span style="color:#2aa198;font-weight:bold">2</span>
 
-dy <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span><span style="color:#f92672">*</span>x <span style="color:#f92672">-</span> <span style="color:#ae81ff">4</span> <span style="color:#75715e"># tangent line at x=2</span>
+<span style="color:#268bd2">dy</span> = <span style="color:#2aa198;font-weight:bold">4</span>*<span style="color:#268bd2">x</span> - <span style="color:#2aa198;font-weight:bold">4</span> <span style="color:#93a1a1;font-style:italic"># tangent line at x=2</span>
 
-fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure()
-ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>)
-ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;x&#39;</span>)
-ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;y&#39;</span>)
-ax<span style="color:#f92672">.</span>set_xlim(<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">5</span>)
-ax<span style="color:#f92672">.</span>set_ylim(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">20</span>)
+<span style="color:#268bd2">fig</span> = <span style="color:#268bd2">plt</span>.<span style="color:#268bd2">figure</span>()
+<span style="color:#268bd2">ax</span> = <span style="color:#268bd2">fig</span>.<span style="color:#268bd2">add_subplot</span>(<span style="color:#2aa198;font-weight:bold">1</span>, <span style="color:#2aa198;font-weight:bold">1</span>, <span style="color:#2aa198;font-weight:bold">1</span>)
+<span style="color:#268bd2">ax</span>.<span style="color:#268bd2">set_xlabel</span>(<span style="color:#2aa198">&#39;x&#39;</span>)
+<span style="color:#268bd2">ax</span>.<span style="color:#268bd2">set_ylabel</span>(<span style="color:#2aa198">&#39;y&#39;</span>)
+<span style="color:#268bd2">ax</span>.<span style="color:#268bd2">set_xlim</span>(-<span style="color:#2aa198;font-weight:bold">2</span>, <span style="color:#2aa198;font-weight:bold">5</span>)
+<span style="color:#268bd2">ax</span>.<span style="color:#268bd2">set_ylim</span>(<span style="color:#2aa198;font-weight:bold">0</span>, <span style="color:#2aa198;font-weight:bold">20</span>)
 
-ax<span style="color:#f92672">.</span>plot(x, y, <span style="color:#e6db74">&#39;--k&#39;</span>)
-ax<span style="color:#f92672">.</span>plot(x1, y1, <span style="color:#e6db74">&#39;Tomato&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>)
-ax<span style="color:#f92672">.</span>plot(x, dy, <span style="color:#e6db74">&#39;SteelBlue&#39;</span>)</code></pre></div>
+<span style="color:#268bd2">ax</span>.<span style="color:#268bd2">plot</span>(<span style="color:#268bd2">x</span>, <span style="color:#268bd2">y</span>, <span style="color:#2aa198">&#39;--k&#39;</span>)
+<span style="color:#268bd2">ax</span>.<span style="color:#268bd2">plot</span>(<span style="color:#268bd2">x1</span>, <span style="color:#268bd2">y1</span>, <span style="color:#2aa198">&#39;Tomato&#39;</span>, <span style="color:#268bd2">lw</span>=<span style="color:#2aa198;font-weight:bold">5</span>)
+<span style="color:#268bd2">ax</span>.<span style="color:#268bd2">plot</span>(<span style="color:#268bd2">x</span>, <span style="color:#268bd2">dy</span>, <span style="color:#2aa198">&#39;SteelBlue&#39;</span>)</code></pre></div>
 </div>
 <p><img src="img/lagr3.png" alt="img/lagr3.png" title="img/lagr3.png" /></p>
 <p>
@@ -377,24 +377,24 @@ Visualize the dual objective function
 </h4>
 <div id="outline-text-headline-12" class="outline-text-4">
 <div class="src src-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">lambd <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">10</span>)
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#268bd2">lambd</span> = <span style="color:#268bd2">np</span>.<span style="color:#268bd2">linspace</span>(<span style="color:#2aa198;font-weight:bold">0</span>, <span style="color:#2aa198;font-weight:bold">10</span>)
 
 
-<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">phi</span>(lambd):
-    <span style="color:#66d9ef">return</span> ((<span style="color:#ae81ff">0</span> <span style="color:#f92672">&lt;=</span> lambd <span style="color:#f92672">&lt;=</span><span style="color:#ae81ff">2</span>)<span style="color:#f92672">*</span>(<span style="color:#f92672">-</span>lambd<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span><span style="color:#f92672">/</span><span style="color:#ae81ff">4</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">3</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>lambd <span style="color:#f92672">+</span> <span style="color:#ae81ff">4</span>) <span style="color:#f92672">+</span> 
-            (<span style="color:#ae81ff">2</span> <span style="color:#f92672">&lt;</span> lambd <span style="color:#f92672">&lt;=</span><span style="color:#ae81ff">4</span>)<span style="color:#f92672">*</span>(<span style="color:#f92672">-</span><span style="color:#ae81ff">5</span><span style="color:#f92672">*</span>lambd<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">5</span>) <span style="color:#f92672">+</span>
-            (<span style="color:#ae81ff">4</span> <span style="color:#f92672">&lt;</span> lambd <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">6</span>)<span style="color:#f92672">*</span>(<span style="color:#f92672">-</span>lambd<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span><span style="color:#f92672">/</span><span style="color:#ae81ff">4</span> <span style="color:#f92672">-</span> lambd<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>) <span style="color:#f92672">+</span>
-            (lambd <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">6</span>)<span style="color:#f92672">*</span>(<span style="color:#f92672">-</span><span style="color:#ae81ff">7</span><span style="color:#f92672">*</span>lambd<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">+</span><span style="color:#ae81ff">10</span>))
-p <span style="color:#f92672">=</span> []
-<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> lambd:
-    p<span style="color:#f92672">.</span>append(phi(i))
+<span style="color:#859900">def</span> <span style="color:#268bd2">phi</span>(<span style="color:#268bd2">lambd</span>):
+    <span style="color:#859900">return</span> ((<span style="color:#2aa198;font-weight:bold">0</span> &lt;= <span style="color:#268bd2">lambd</span> &lt;=<span style="color:#2aa198;font-weight:bold">2</span>)*(-<span style="color:#268bd2">lambd</span>**<span style="color:#2aa198;font-weight:bold">2</span>/<span style="color:#2aa198;font-weight:bold">4</span> -<span style="color:#2aa198;font-weight:bold">3</span>/<span style="color:#2aa198;font-weight:bold">2</span>*<span style="color:#268bd2">lambd</span> + <span style="color:#2aa198;font-weight:bold">4</span>) + 
+            (<span style="color:#2aa198;font-weight:bold">2</span> &lt; <span style="color:#268bd2">lambd</span> &lt;=<span style="color:#2aa198;font-weight:bold">4</span>)*(-<span style="color:#2aa198;font-weight:bold">5</span>*<span style="color:#268bd2">lambd</span>/<span style="color:#2aa198;font-weight:bold">2</span> + <span style="color:#2aa198;font-weight:bold">5</span>) +
+            (<span style="color:#2aa198;font-weight:bold">4</span> &lt; <span style="color:#268bd2">lambd</span> &lt;= <span style="color:#2aa198;font-weight:bold">6</span>)*(-<span style="color:#268bd2">lambd</span>**<span style="color:#2aa198;font-weight:bold">2</span>/<span style="color:#2aa198;font-weight:bold">4</span> - <span style="color:#268bd2">lambd</span>/<span style="color:#2aa198;font-weight:bold">2</span> +<span style="color:#2aa198;font-weight:bold">1</span>) +
+            (<span style="color:#268bd2">lambd</span> &gt;= <span style="color:#2aa198;font-weight:bold">6</span>)*(-<span style="color:#2aa198;font-weight:bold">7</span>*<span style="color:#268bd2">lambd</span>/<span style="color:#2aa198;font-weight:bold">2</span> +<span style="color:#2aa198;font-weight:bold">10</span>))
+<span style="color:#268bd2">p</span> = []
+<span style="color:#859900">for</span> <span style="color:#268bd2">i</span> <span style="color:#859900">in</span> <span style="color:#268bd2">lambd</span>:
+    <span style="color:#268bd2">p</span>.<span style="color:#268bd2">append</span>(<span style="color:#268bd2">phi</span>(<span style="color:#268bd2">i</span>))
 
-fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure()
-ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>)
-ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">r</span><span style="color:#e6db74">&#39;$\lambda$&#39;</span>)
-ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">r</span><span style="color:#e6db74">&#39;$\phi$&#39;</span>)
+<span style="color:#268bd2">fig</span> = <span style="color:#268bd2">plt</span>.<span style="color:#268bd2">figure</span>()
+<span style="color:#268bd2">ax</span> = <span style="color:#268bd2">fig</span>.<span style="color:#268bd2">add_subplot</span>(<span style="color:#2aa198;font-weight:bold">1</span>, <span style="color:#2aa198;font-weight:bold">1</span>, <span style="color:#2aa198;font-weight:bold">1</span>)
+<span style="color:#268bd2">ax</span>.<span style="color:#268bd2">set_xlabel</span>(<span style="color:#2aa198">r</span><span style="color:#2aa198">&#39;$\lambda$&#39;</span>)
+<span style="color:#268bd2">ax</span>.<span style="color:#268bd2">set_ylabel</span>(<span style="color:#2aa198">r</span><span style="color:#2aa198">&#39;$\phi$&#39;</span>)
 
-ax<span style="color:#f92672">.</span>plot(lambd, p, <span style="color:#e6db74">&#39;-k&#39;</span>)</code></pre></div>
+<span style="color:#268bd2">ax</span>.<span style="color:#268bd2">plot</span>(<span style="color:#268bd2">lambd</span>, <span style="color:#268bd2">p</span>, <span style="color:#2aa198">&#39;-k&#39;</span>)</code></pre></div>
 </div>
 <p><img src="img/lagr5.png" alt="img/lagr5.png" title="img/lagr5.png" /></p>
 </div>
@@ -429,20 +429,20 @@ Visualize the final solution
 </h4>
 <div id="outline-text-headline-15" class="outline-text-4">
 <div class="src src-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">10</span>,<span style="color:#ae81ff">10</span>))
-ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>)
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#268bd2">fig</span> = <span style="color:#268bd2">plt</span>.<span style="color:#268bd2">figure</span>(<span style="color:#268bd2">figsize</span>=(<span style="color:#2aa198;font-weight:bold">10</span>,<span style="color:#2aa198;font-weight:bold">10</span>))
+<span style="color:#268bd2">ax</span> = <span style="color:#268bd2">fig</span>.<span style="color:#268bd2">add_subplot</span>(<span style="color:#2aa198;font-weight:bold">1</span>, <span style="color:#2aa198;font-weight:bold">1</span>, <span style="color:#2aa198;font-weight:bold">1</span>)
 
-ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;y&#39;</span>)
-ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;x&#39;</span>)
-ax<span style="color:#f92672">.</span>set_aspect(<span style="color:#e6db74">&#39;equal&#39;</span>)
-ax<span style="color:#f92672">.</span>set_ylim(<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">1</span>)
+<span style="color:#268bd2">ax</span>.<span style="color:#268bd2">set_ylabel</span>(<span style="color:#2aa198">&#39;y&#39;</span>)
+<span style="color:#268bd2">ax</span>.<span style="color:#268bd2">set_xlabel</span>(<span style="color:#2aa198">&#39;x&#39;</span>)
+<span style="color:#268bd2">ax</span>.<span style="color:#268bd2">set_aspect</span>(<span style="color:#2aa198">&#39;equal&#39;</span>)
+<span style="color:#268bd2">ax</span>.<span style="color:#268bd2">set_ylim</span>(-<span style="color:#2aa198;font-weight:bold">2</span>, <span style="color:#2aa198;font-weight:bold">1</span>)
 
-CS <span style="color:#f92672">=</span> ax<span style="color:#f92672">.</span>contour(X1, X2, X3, colors<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;w&#39;</span>)
-ax<span style="color:#f92672">.</span>clabel(CS)
-ax<span style="color:#f92672">.</span>plot(xr1, xr2, <span style="color:#e6db74">&#39;k&#39;</span>)
-ax<span style="color:#f92672">.</span>fill_between(xr1, xr2, <span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.4</span>)
+<span style="color:#268bd2">CS</span> = <span style="color:#268bd2">ax</span>.<span style="color:#268bd2">contour</span>(<span style="color:#268bd2">X1</span>, <span style="color:#268bd2">X2</span>, <span style="color:#268bd2">X3</span>, <span style="color:#268bd2">colors</span>=<span style="color:#2aa198">&#39;w&#39;</span>)
+<span style="color:#268bd2">ax</span>.<span style="color:#268bd2">clabel</span>(<span style="color:#268bd2">CS</span>)
+<span style="color:#268bd2">ax</span>.<span style="color:#268bd2">plot</span>(<span style="color:#268bd2">xr1</span>, <span style="color:#268bd2">xr2</span>, <span style="color:#2aa198">&#39;k&#39;</span>)
+<span style="color:#268bd2">ax</span>.<span style="color:#268bd2">fill_between</span>(<span style="color:#268bd2">xr1</span>, <span style="color:#268bd2">xr2</span>, -<span style="color:#2aa198;font-weight:bold">2</span>, <span style="color:#268bd2">alpha</span>=<span style="color:#2aa198;font-weight:bold">0.4</span>)
 
-ax<span style="color:#f92672">.</span>plot(<span style="color:#ae81ff">1</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#39;or&#39;</span>, ms<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>)</code></pre></div>
+<span style="color:#268bd2">ax</span>.<span style="color:#268bd2">plot</span>(<span style="color:#2aa198;font-weight:bold">1</span>, -<span style="color:#2aa198;font-weight:bold">1</span>, <span style="color:#2aa198">&#39;or&#39;</span>, <span style="color:#268bd2">ms</span>=<span style="color:#2aa198;font-weight:bold">20</span>)</code></pre></div>
 </div>
 <p><img src="img/lagr6.png" alt="img/lagr6.png" title="img/lagr6.png" /></p>
 </div>

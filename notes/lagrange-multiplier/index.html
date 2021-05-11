@@ -139,29 +139,29 @@ $$</p>
 <p>
 which can be visualized with</p>
 <div class="src src-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#dc322f;font-weight:bold">import</span> <span style="color:#268bd2">numpy</span> <span style="color:#dc322f;font-weight:bold">as</span> <span style="color:#268bd2">np</span>
 
-x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(<span style="color:#f92672">-</span><span style="color:#ae81ff">1.5</span>, <span style="color:#ae81ff">1.5</span>)
+<span style="color:#268bd2">x</span> = <span style="color:#268bd2">np</span>.<span style="color:#268bd2">linspace</span>(-<span style="color:#2aa198;font-weight:bold">1.5</span>, <span style="color:#2aa198;font-weight:bold">1.5</span>)
 
-[X, Y] <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>meshgrid(x, x)
+[<span style="color:#268bd2">X</span>, <span style="color:#268bd2">Y</span>] = <span style="color:#268bd2">np</span>.<span style="color:#268bd2">meshgrid</span>(<span style="color:#268bd2">x</span>, <span style="color:#268bd2">x</span>)
 
-<span style="color:#f92672">%</span>matplotlib inline
-<span style="color:#f92672">import</span> matplotlib <span style="color:#f92672">as</span> mpl
-<span style="color:#f92672">from</span> mpl_toolkits.mplot3d <span style="color:#f92672">import</span> Axes3D
-<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
+%<span style="color:#268bd2">matplotlib</span> <span style="color:#268bd2">inline</span>
+<span style="color:#dc322f;font-weight:bold">import</span> <span style="color:#268bd2">matplotlib</span> <span style="color:#dc322f;font-weight:bold">as</span> <span style="color:#268bd2">mpl</span>
+<span style="color:#dc322f;font-weight:bold">from</span> <span style="color:#268bd2">mpl_toolkits.mplot3d</span> <span style="color:#dc322f;font-weight:bold">import</span> <span style="color:#268bd2">Axes3D</span>
+<span style="color:#dc322f;font-weight:bold">import</span> <span style="color:#268bd2">matplotlib.pyplot</span> <span style="color:#dc322f;font-weight:bold">as</span> <span style="color:#268bd2">plt</span>
 
-fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure()
-ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>gca(projection<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;3d&#39;</span>)
+<span style="color:#268bd2">fig</span> = <span style="color:#268bd2">plt</span>.<span style="color:#268bd2">figure</span>()
+<span style="color:#268bd2">ax</span> = <span style="color:#268bd2">fig</span>.<span style="color:#268bd2">gca</span>(<span style="color:#268bd2">projection</span>=<span style="color:#2aa198">&#39;3d&#39;</span>)
 
-ax<span style="color:#f92672">.</span>plot_surface(X, Y, X<span style="color:#f92672">+</span>Y)
+<span style="color:#268bd2">ax</span>.<span style="color:#268bd2">plot_surface</span>(<span style="color:#268bd2">X</span>, <span style="color:#268bd2">Y</span>, <span style="color:#268bd2">X</span>+<span style="color:#268bd2">Y</span>)
 
-theta <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>np<span style="color:#f92672">.</span>pi)
-R <span style="color:#f92672">=</span> <span style="color:#ae81ff">1.0</span>
-x1 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>cos(theta)
-y1 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>sin(theta)
+<span style="color:#268bd2">theta</span> = <span style="color:#268bd2">np</span>.<span style="color:#268bd2">linspace</span>(<span style="color:#2aa198;font-weight:bold">0</span>, <span style="color:#2aa198;font-weight:bold">2</span>*<span style="color:#268bd2">np</span>.<span style="color:#268bd2">pi</span>)
+<span style="color:#268bd2">R</span> = <span style="color:#2aa198;font-weight:bold">1.0</span>
+<span style="color:#268bd2">x1</span> = <span style="color:#268bd2">np</span>.<span style="color:#268bd2">cos</span>(<span style="color:#268bd2">theta</span>)
+<span style="color:#268bd2">y1</span> = <span style="color:#268bd2">np</span>.<span style="color:#268bd2">sin</span>(<span style="color:#268bd2">theta</span>)
 
-ax<span style="color:#f92672">.</span>plot(x1, y1, x1<span style="color:#f92672">+</span>y1, <span style="color:#e6db74">&#39;r-&#39;</span>)
-plt<span style="color:#f92672">.</span>tight_layout()</code></pre></div>
+<span style="color:#268bd2">ax</span>.<span style="color:#268bd2">plot</span>(<span style="color:#268bd2">x1</span>, <span style="color:#268bd2">y1</span>, <span style="color:#268bd2">x1</span>+<span style="color:#268bd2">y1</span>, <span style="color:#2aa198">&#39;r-&#39;</span>)
+<span style="color:#268bd2">plt</span>.<span style="color:#268bd2">tight_layout</span>()</code></pre></div>
 </div>
 <p><img src="img/lagrange1.png" alt="img/lagrange1.png" title="img/lagrange1.png" /></p>
 </div>
@@ -186,11 +186,11 @@ $$</p>
 <p>
 in code:</p>
 <div class="src src-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">func</span>(X):
-    x <span style="color:#f92672">=</span> X[<span style="color:#ae81ff">0</span>]
-    y <span style="color:#f92672">=</span> X[<span style="color:#ae81ff">1</span>]
-    L <span style="color:#f92672">=</span> X[<span style="color:#ae81ff">2</span>] <span style="color:#75715e"># the multiplier</span>
-    <span style="color:#66d9ef">return</span> x <span style="color:#f92672">+</span> y <span style="color:#f92672">+</span> L <span style="color:#f92672">*</span>(x<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">+</span> y<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)</code></pre></div>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#859900">def</span> <span style="color:#268bd2">func</span>(<span style="color:#268bd2">X</span>):
+    <span style="color:#268bd2">x</span> = <span style="color:#268bd2">X</span>[<span style="color:#2aa198;font-weight:bold">0</span>]
+    <span style="color:#268bd2">y</span> = <span style="color:#268bd2">X</span>[<span style="color:#2aa198;font-weight:bold">1</span>]
+    <span style="color:#268bd2">L</span> = <span style="color:#268bd2">X</span>[<span style="color:#2aa198;font-weight:bold">2</span>] <span style="color:#93a1a1;font-style:italic"># the multiplier</span>
+    <span style="color:#859900">return</span> <span style="color:#268bd2">x</span> + <span style="color:#268bd2">y</span> + <span style="color:#268bd2">L</span> *(<span style="color:#268bd2">x</span>**<span style="color:#2aa198;font-weight:bold">2</span> + <span style="color:#268bd2">y</span>**<span style="color:#2aa198;font-weight:bold">2</span> -<span style="color:#2aa198;font-weight:bold">1</span>)</code></pre></div>
 </div>
 </div>
 </div>
@@ -212,14 +212,14 @@ $$
 \dfrac{\partial f}{\partial x} = \dfrac{f(x+\Delta x) - f(x-\Delta x)}{2 \Delta x}
 $$</p>
 <div class="src src-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">dfunc</span>(X):
-    dLambda <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>zeros(len(X))
-    h <span style="color:#f92672">=</span> <span style="color:#ae81ff">1e-3</span> <span style="color:#75715e"># step size used in the finite differences</span>
-    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(len(X)):
-        dX <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>zeros(len(X))
-        dX[i] <span style="color:#f92672">=</span> h
-        dLambda[i] <span style="color:#f92672">=</span> (func(X <span style="color:#f92672">+</span> dX) <span style="color:#f92672">-</span> func(X <span style="color:#f92672">-</span> dX))<span style="color:#f92672">/</span>(<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>h)
-    <span style="color:#66d9ef">return</span> dLambda</code></pre></div>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#859900">def</span> <span style="color:#268bd2">dfunc</span>(<span style="color:#268bd2">X</span>):
+    <span style="color:#268bd2">dLambda</span> = <span style="color:#268bd2">np</span>.<span style="color:#268bd2">zeros</span>(<span style="color:#cb4b16">len</span>(<span style="color:#268bd2">X</span>))
+    <span style="color:#268bd2">h</span> = <span style="color:#2aa198;font-weight:bold">1e-3</span> <span style="color:#93a1a1;font-style:italic"># step size used in the finite differences</span>
+    <span style="color:#859900">for</span> <span style="color:#268bd2">i</span> <span style="color:#859900">in</span> <span style="color:#cb4b16">range</span>(<span style="color:#cb4b16">len</span>(<span style="color:#268bd2">X</span>)):
+        <span style="color:#268bd2">dX</span> = <span style="color:#268bd2">np</span>.<span style="color:#268bd2">zeros</span>(<span style="color:#cb4b16">len</span>(<span style="color:#268bd2">X</span>))
+        <span style="color:#268bd2">dX</span>[<span style="color:#268bd2">i</span>] = <span style="color:#268bd2">h</span>
+        <span style="color:#268bd2">dLambda</span>[<span style="color:#268bd2">i</span>] = (<span style="color:#268bd2">func</span>(<span style="color:#268bd2">X</span> + <span style="color:#268bd2">dX</span>) - <span style="color:#268bd2">func</span>(<span style="color:#268bd2">X</span> - <span style="color:#268bd2">dX</span>))/(<span style="color:#2aa198;font-weight:bold">2</span>*<span style="color:#268bd2">h</span>)
+    <span style="color:#859900">return</span> <span style="color:#268bd2">dLambda</span></code></pre></div>
 </div>
 </div>
 </div>
@@ -231,15 +231,15 @@ Finding the maximum or minimum
 <p>
 Setting the derivative <code>dfunc</code> to zero will enable was to find the maximum or minimum.</p>
 <div class="src src-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> scipy.optimize <span style="color:#f92672">import</span> fsolve
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#dc322f;font-weight:bold">from</span> <span style="color:#268bd2">scipy.optimize</span> <span style="color:#dc322f;font-weight:bold">import</span> <span style="color:#268bd2">fsolve</span>
 
-<span style="color:#75715e"># the max</span>
-X1 <span style="color:#f92672">=</span> fsolve(dfunc, [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>])
-<span style="color:#66d9ef">print</span>(X1, func(X1))
+<span style="color:#93a1a1;font-style:italic"># the max</span>
+<span style="color:#268bd2">X1</span> = <span style="color:#268bd2">fsolve</span>(<span style="color:#268bd2">dfunc</span>, [<span style="color:#2aa198;font-weight:bold">1</span>, <span style="color:#2aa198;font-weight:bold">1</span>, <span style="color:#2aa198;font-weight:bold">0</span>])
+<span style="color:#859900">print</span>(<span style="color:#268bd2">X1</span>, <span style="color:#268bd2">func</span>(<span style="color:#268bd2">X1</span>))
 
-<span style="color:#75715e"># the min</span>
-X2 <span style="color:#f92672">=</span> fsolve(dfunc, [<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>])
-<span style="color:#66d9ef">print</span>(X2, func(X2))</code></pre></div>
+<span style="color:#93a1a1;font-style:italic"># the min</span>
+<span style="color:#268bd2">X2</span> = <span style="color:#268bd2">fsolve</span>(<span style="color:#268bd2">dfunc</span>, [-<span style="color:#2aa198;font-weight:bold">1</span>, -<span style="color:#2aa198;font-weight:bold">1</span>, <span style="color:#2aa198;font-weight:bold">0</span>])
+<span style="color:#859900">print</span>(<span style="color:#268bd2">X2</span>, <span style="color:#268bd2">func</span>(<span style="color:#268bd2">X2</span>))</code></pre></div>
 </div>
 <pre class="example">
 [ 0.70710678  0.70710678 -0.70710678] 1.41421356237
@@ -262,8 +262,8 @@ Create the Figure and Axes
 <p>
  The whole Figure keeps track of the child Axes and for it to be useful it needs at least one Axes. <a href="http://matplotlib.org/faq/usage_faq.html#axes">Axes</a> is  the &#39;plot&#39; itself: it is the region of the image where the data will be located, it contains most of the figure elements . A given Axes object can only be in one Figure. A 3D Axes is create by calling the Axed3D class.</p>
 <div class="src src-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">fig2 <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure() <span style="color:#75715e"># create an empty figure with no axes</span>
-ax2 <span style="color:#f92672">=</span> Axes3D(fig2) <span style="color:#75715e"># create a 3D axes object</span></code></pre></div>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#268bd2">fig2</span> = <span style="color:#268bd2">plt</span>.<span style="color:#268bd2">figure</span>() <span style="color:#93a1a1;font-style:italic"># create an empty figure with no axes</span>
+<span style="color:#268bd2">ax2</span> = <span style="color:#268bd2">Axes3D</span>(<span style="color:#268bd2">fig2</span>) <span style="color:#93a1a1;font-style:italic"># create a 3D axes object</span></code></pre></div>
 </div>
 <p><img src="img/lagrange2.png" alt="img/lagrange2.png" title="img/lagrange2.png" /></p>
 </div>
@@ -278,9 +278,9 @@ An artist is everything we see in the figure except the Axis, which are inside t
 <p>
 In order to plot this function, which is a surface, we add to the Axes3D object <code class="verbatim">ax2</code> a surface plot. A surface plot requires an $X, Y, Z$ values in 2D arrays. The 2D arrays are created with the <code class="verbatim">numpy.meshgrid</code> function. The input of this function are 1D arrays representing coordinates, and the output is coordinate matrices.</p>
 <div class="src src-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">fig3 <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure()
-ax3 <span style="color:#f92672">=</span> Axes3D(fig3)
-ax3<span style="color:#f92672">.</span>plot_surface(X, Y, X<span style="color:#f92672">+</span>Y, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;y&#39;</span>, rstride<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, cstride<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.5</span>, edgecolor<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;w&#39;</span>)</code></pre></div>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#268bd2">fig3</span> = <span style="color:#268bd2">plt</span>.<span style="color:#268bd2">figure</span>()
+<span style="color:#268bd2">ax3</span> = <span style="color:#268bd2">Axes3D</span>(<span style="color:#268bd2">fig3</span>)
+<span style="color:#268bd2">ax3</span>.<span style="color:#268bd2">plot_surface</span>(<span style="color:#268bd2">X</span>, <span style="color:#268bd2">Y</span>, <span style="color:#268bd2">X</span>+<span style="color:#268bd2">Y</span>, <span style="color:#268bd2">color</span>=<span style="color:#2aa198">&#39;y&#39;</span>, <span style="color:#268bd2">rstride</span>=<span style="color:#2aa198;font-weight:bold">1</span>, <span style="color:#268bd2">cstride</span>=<span style="color:#2aa198;font-weight:bold">1</span>, <span style="color:#268bd2">alpha</span>=<span style="color:#2aa198;font-weight:bold">0.5</span>, <span style="color:#268bd2">edgecolor</span>=<span style="color:#2aa198">&#39;w&#39;</span>)</code></pre></div>
 </div>
 <p><img src="img/lagrange3.png" alt="img/lagrange3.png" title="img/lagrange3.png" /></p>
 </div>
@@ -293,15 +293,15 @@ Add the data Artist: the restriction $g(x,y) = x^2 + y^2 -1$
 <p>
 The restriction imposed on the problem is a limitation to the domain of $f(x, y). In this case its a circle in the plane $(x,y)$. This plot can be done by using the function <code class="verbatim">Axes3D.plot()</code> which takes the coordinates of each point individually. The next figure show a projection of the circle in the function plane.</p>
 <div class="src src-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">fig4 <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure()
-ax4 <span style="color:#f92672">=</span> Axes3D(fig4)
-ax4<span style="color:#f92672">.</span>plot_surface(X, Y, X<span style="color:#f92672">+</span>Y, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;y&#39;</span>, rstride<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, cstride<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.5</span>, edgecolor<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;w&#39;</span>)
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#268bd2">fig4</span> = <span style="color:#268bd2">plt</span>.<span style="color:#268bd2">figure</span>()
+<span style="color:#268bd2">ax4</span> = <span style="color:#268bd2">Axes3D</span>(<span style="color:#268bd2">fig4</span>)
+<span style="color:#268bd2">ax4</span>.<span style="color:#268bd2">plot_surface</span>(<span style="color:#268bd2">X</span>, <span style="color:#268bd2">Y</span>, <span style="color:#268bd2">X</span>+<span style="color:#268bd2">Y</span>, <span style="color:#268bd2">color</span>=<span style="color:#2aa198">&#39;y&#39;</span>, <span style="color:#268bd2">rstride</span>=<span style="color:#2aa198;font-weight:bold">1</span>, <span style="color:#268bd2">cstride</span>=<span style="color:#2aa198;font-weight:bold">1</span>, <span style="color:#268bd2">alpha</span>=<span style="color:#2aa198;font-weight:bold">0.5</span>, <span style="color:#268bd2">edgecolor</span>=<span style="color:#2aa198">&#39;w&#39;</span>)
 
-theta <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>np<span style="color:#f92672">.</span>pi)
-R <span style="color:#f92672">=</span> <span style="color:#ae81ff">1.0</span>
-x1 <span style="color:#f92672">=</span> R <span style="color:#f92672">*</span> np<span style="color:#f92672">.</span>cos(theta)
-y1 <span style="color:#f92672">=</span> R <span style="color:#f92672">*</span> np<span style="color:#f92672">.</span>sin(theta)
-ax4<span style="color:#f92672">.</span>plot(x1, y1, x1<span style="color:#f92672">+</span>y1)</code></pre></div>
+<span style="color:#268bd2">theta</span> = <span style="color:#268bd2">np</span>.<span style="color:#268bd2">linspace</span>(<span style="color:#2aa198;font-weight:bold">0</span>, <span style="color:#2aa198;font-weight:bold">2</span>*<span style="color:#268bd2">np</span>.<span style="color:#268bd2">pi</span>)
+<span style="color:#268bd2">R</span> = <span style="color:#2aa198;font-weight:bold">1.0</span>
+<span style="color:#268bd2">x1</span> = <span style="color:#268bd2">R</span> * <span style="color:#268bd2">np</span>.<span style="color:#268bd2">cos</span>(<span style="color:#268bd2">theta</span>)
+<span style="color:#268bd2">y1</span> = <span style="color:#268bd2">R</span> * <span style="color:#268bd2">np</span>.<span style="color:#268bd2">sin</span>(<span style="color:#268bd2">theta</span>)
+<span style="color:#268bd2">ax4</span>.<span style="color:#268bd2">plot</span>(<span style="color:#268bd2">x1</span>, <span style="color:#268bd2">y1</span>, <span style="color:#268bd2">x1</span>+<span style="color:#268bd2">y1</span>)</code></pre></div>
 </div>
 <p><img src="img/lagrange4.png" alt="img/lagrange4.png" title="img/lagrange4.png" /></p>
 </div>
@@ -314,20 +314,20 @@ Add the data Artist: the maximum and minimum points
 <p>
 For plotting points we can use the <code class="verbatim">Axes3D.scatter()</code> function which takes the position of the data as input argument.</p>
 <div class="src src-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">fig5 <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure()
-ax5 <span style="color:#f92672">=</span> Axes3D(fig5)
-ax5<span style="color:#f92672">.</span>plot_surface(X, Y, X<span style="color:#f92672">+</span>Y, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;y&#39;</span>, rstride<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>, cstride<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.2</span>, edgecolor<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;w&#39;</span>)
-ax5<span style="color:#f92672">.</span>plot_surface(X, Y, <span style="color:#ae81ff">0</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;b&#39;</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.05</span>, rstride<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>, cstride<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>)
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#268bd2">fig5</span> = <span style="color:#268bd2">plt</span>.<span style="color:#268bd2">figure</span>()
+<span style="color:#268bd2">ax5</span> = <span style="color:#268bd2">Axes3D</span>(<span style="color:#268bd2">fig5</span>)
+<span style="color:#268bd2">ax5</span>.<span style="color:#268bd2">plot_surface</span>(<span style="color:#268bd2">X</span>, <span style="color:#268bd2">Y</span>, <span style="color:#268bd2">X</span>+<span style="color:#268bd2">Y</span>, <span style="color:#268bd2">color</span>=<span style="color:#2aa198">&#39;y&#39;</span>, <span style="color:#268bd2">rstride</span>=<span style="color:#2aa198;font-weight:bold">100</span>, <span style="color:#268bd2">cstride</span>=<span style="color:#2aa198;font-weight:bold">100</span>, <span style="color:#268bd2">alpha</span>=<span style="color:#2aa198;font-weight:bold">0.2</span>, <span style="color:#268bd2">edgecolor</span>=<span style="color:#2aa198">&#39;w&#39;</span>)
+<span style="color:#268bd2">ax5</span>.<span style="color:#268bd2">plot_surface</span>(<span style="color:#268bd2">X</span>, <span style="color:#268bd2">Y</span>, <span style="color:#2aa198;font-weight:bold">0</span>, <span style="color:#268bd2">color</span>=<span style="color:#2aa198">&#39;b&#39;</span>, <span style="color:#268bd2">alpha</span>=<span style="color:#2aa198;font-weight:bold">0.05</span>, <span style="color:#268bd2">rstride</span>=<span style="color:#2aa198;font-weight:bold">100</span>, <span style="color:#268bd2">cstride</span>=<span style="color:#2aa198;font-weight:bold">100</span>)
 
-theta <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>np<span style="color:#f92672">.</span>pi)
-R <span style="color:#f92672">=</span> <span style="color:#ae81ff">1.0</span>
-x1 <span style="color:#f92672">=</span> R <span style="color:#f92672">*</span> np<span style="color:#f92672">.</span>cos(theta)
-y1 <span style="color:#f92672">=</span> R <span style="color:#f92672">*</span> np<span style="color:#f92672">.</span>sin(theta)
-ax5<span style="color:#f92672">.</span>plot(x1, y1, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.3</span>)
-ax5<span style="color:#f92672">.</span>plot(x1, y1, x1<span style="color:#f92672">+</span>y1, c<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;y&#39;</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.8</span>)
+<span style="color:#268bd2">theta</span> = <span style="color:#268bd2">np</span>.<span style="color:#268bd2">linspace</span>(<span style="color:#2aa198;font-weight:bold">0</span>, <span style="color:#2aa198;font-weight:bold">2</span>*<span style="color:#268bd2">np</span>.<span style="color:#268bd2">pi</span>)
+<span style="color:#268bd2">R</span> = <span style="color:#2aa198;font-weight:bold">1.0</span>
+<span style="color:#268bd2">x1</span> = <span style="color:#268bd2">R</span> * <span style="color:#268bd2">np</span>.<span style="color:#268bd2">cos</span>(<span style="color:#268bd2">theta</span>)
+<span style="color:#268bd2">y1</span> = <span style="color:#268bd2">R</span> * <span style="color:#268bd2">np</span>.<span style="color:#268bd2">sin</span>(<span style="color:#268bd2">theta</span>)
+<span style="color:#268bd2">ax5</span>.<span style="color:#268bd2">plot</span>(<span style="color:#268bd2">x1</span>, <span style="color:#268bd2">y1</span>, <span style="color:#268bd2">alpha</span>=<span style="color:#2aa198;font-weight:bold">0.3</span>)
+<span style="color:#268bd2">ax5</span>.<span style="color:#268bd2">plot</span>(<span style="color:#268bd2">x1</span>, <span style="color:#268bd2">y1</span>, <span style="color:#268bd2">x1</span>+<span style="color:#268bd2">y1</span>, <span style="color:#268bd2">c</span>=<span style="color:#2aa198">&#39;y&#39;</span>, <span style="color:#268bd2">alpha</span>=<span style="color:#2aa198;font-weight:bold">0.8</span>)
 
-ax5<span style="color:#f92672">.</span>scatter(X1[<span style="color:#ae81ff">0</span>], X1[<span style="color:#ae81ff">1</span>], X1[<span style="color:#ae81ff">2</span>], s<span style="color:#f92672">=</span><span style="color:#ae81ff">30</span>, c<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r&#39;</span>)
-ax5<span style="color:#f92672">.</span>scatter(X2[<span style="color:#ae81ff">0</span>], X2[<span style="color:#ae81ff">1</span>], X2[<span style="color:#ae81ff">2</span>], s<span style="color:#f92672">=</span><span style="color:#ae81ff">30</span>, c<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;g&#39;</span>)</code></pre></div>
+<span style="color:#268bd2">ax5</span>.<span style="color:#268bd2">scatter</span>(<span style="color:#268bd2">X1</span>[<span style="color:#2aa198;font-weight:bold">0</span>], <span style="color:#268bd2">X1</span>[<span style="color:#2aa198;font-weight:bold">1</span>], <span style="color:#268bd2">X1</span>[<span style="color:#2aa198;font-weight:bold">2</span>], <span style="color:#268bd2">s</span>=<span style="color:#2aa198;font-weight:bold">30</span>, <span style="color:#268bd2">c</span>=<span style="color:#2aa198">&#39;r&#39;</span>)
+<span style="color:#268bd2">ax5</span>.<span style="color:#268bd2">scatter</span>(<span style="color:#268bd2">X2</span>[<span style="color:#2aa198;font-weight:bold">0</span>], <span style="color:#268bd2">X2</span>[<span style="color:#2aa198;font-weight:bold">1</span>], <span style="color:#268bd2">X2</span>[<span style="color:#2aa198;font-weight:bold">2</span>], <span style="color:#268bd2">s</span>=<span style="color:#2aa198;font-weight:bold">30</span>, <span style="color:#268bd2">c</span>=<span style="color:#2aa198">&#39;g&#39;</span>)</code></pre></div>
 </div>
 <p><img src="img/lagrange5.png" alt="img/lagrange5.png" title="img/lagrange5.png" /></p>
 </div>

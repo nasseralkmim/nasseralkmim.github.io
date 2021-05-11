@@ -169,19 +169,19 @@ LaTeX
 <p>
 TeX Live is a easy way to have TeX programs, macro packages and fonts to produce documents with LaTeX macros.</p>
 <div class="src src-sh">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo apt install tex-common texlive-base texlive-latex-recommended <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>                 texlive-latex-extra texlive-fonts-recommended latex-cjk-all</code></pre></div>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo apt install tex-common texlive-base texlive-latex-recommended <span style="color:#2aa198">\
+</span><span style="color:#2aa198"></span>                 texlive-latex-extra texlive-fonts-recommended latex-cjk-all</code></pre></div>
 </div>
 <p>
 To install biblatex we need <code class="verbatim">sudo apt install biber</code>.</p>
 <p>
 To view pdf using Windows SumatraPDF add folder with <code class="verbatim">SumatraPDF.exe</code> on windows $PATH (environment variables) and this to <code class="verbatim">init.el</code>.</p>
 <div class="src src-emacs-lisp">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq TeX-view-program-list
-	  <span style="color:#f92672">&#39;</span>((<span style="color:#e6db74">&#34;Sumatra PDF&#34;</span> (<span style="color:#e6db74">&#34;\&#34;SumatraPDF.exe\&#34; -reuse-instance&#34;</span>
-			    (mode-io-correlate <span style="color:#e6db74">&#34; -forward-search %b %n &#34;</span>) <span style="color:#e6db74">&#34; %o&#34;</span>))))
-    (assq-delete-all <span style="color:#e6db74">&#39;output-pdf</span> TeX-view-program-selection)
-    (add-to-list <span style="color:#e6db74">&#39;TeX-view-program-selection</span> <span style="color:#f92672">&#39;</span>(output-pdf <span style="color:#e6db74">&#34;Sumatra PDF&#34;</span>))</code></pre></div>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(<span style="color:#cb4b16">setq</span> <span style="color:#268bd2">TeX-view-program-list</span>
+	  &#39;((<span style="color:#2aa198">&#34;Sumatra PDF&#34;</span> (<span style="color:#2aa198">&#34;\&#34;SumatraPDF.exe\&#34; -reuse-instance&#34;</span>
+			    (<span style="color:#268bd2">mode-io-correlate</span> <span style="color:#2aa198">&#34; -forward-search %b %n &#34;</span>) <span style="color:#2aa198">&#34; %o&#34;</span>))))
+    (<span style="color:#268bd2">assq-delete-all</span> <span style="color:#2aa198">&#39;output-pdf</span> <span style="color:#268bd2">TeX-view-program-selection</span>)
+    (<span style="color:#268bd2">add-to-list</span> <span style="color:#2aa198">&#39;TeX-view-program-selection</span> &#39;(<span style="color:#268bd2">output-pdf</span> <span style="color:#2aa198">&#34;Sumatra PDF&#34;</span>))</code></pre></div>
 </div>
 <p>
 To get inverse search using <code class="verbatim">wsl emacsclient -n +%l &#34;$(wslpath &#39;%f&#39;)&#34;</code>  on SumatraPDF options.</p>
@@ -343,7 +343,7 @@ Emacs jupyter
 <p>
 It seems that emacs-jupyter was looking for jupyter in the search path that emacs uses to find programs (<code class="verbatim">exec-path</code> variable).</p>
 <div class="src src-sh">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">which jupyter</code></pre></div>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">which jupyter</code></pre></div>
 </div>
 <p>
 as a result
@@ -394,7 +394,7 @@ Type=Application
 <p>
 and set as default with</p>
 <div class="src src-sh">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">xdg-mime query default application/x-sh
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">xdg-mime query default application/x-sh
 xdg-mime default bash.desktop application/x-sh
 xdg-mime query default application/x-sh</code></pre></div>
 </div>
