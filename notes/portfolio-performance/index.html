@@ -168,7 +168,7 @@ Preliminares
 </h4>
 <div id="outline-text-headline-5" class="outline-text-4">
 <div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">import numpy as np
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">import numpy as np
 import pandas as pd
 pd.options.display.float_format = &#39;{:,.2f}&#39;.format
 import matplotlib
@@ -184,7 +184,7 @@ Input
 </h4>
 <div id="outline-text-headline-6" class="outline-text-4">
 <div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">trade_data = pd.read_csv(&#39;trade_data.csv&#39;)
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">trade_data = pd.read_csv(&#39;trade_data.csv&#39;)
 print(trade_data)</code></pre></div>
 </div>
 <pre class="example">
@@ -206,7 +206,7 @@ Processar trades
 </h4>
 <div id="outline-text-headline-7" class="outline-text-4">
 <div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">def process_trades(trade_data_file):
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">def process_trades(trade_data_file):
     trades = pd.read_csv(trade_data_file, sep=&#39;,&#39;,
                          names=[&#39;date&#39;, &#39;type&#39;,
                                 &#39;ticker&#39;, &#39;volume&#39;,
@@ -244,7 +244,7 @@ Consolidar portfolio
 </h4>
 <div id="outline-text-headline-8" class="outline-text-4">
 <div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">def consolidate_portfolio(trades):
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">def consolidate_portfolio(trades):
     portfolio = pd.DataFrame()
     portfolio[&#39;vol_liq&#39;] = (trades
                             .groupby(&#39;ticker&#39;)[&#39;vol_adj&#39;]
@@ -289,7 +289,7 @@ Retorno do portfolio
 </li>
 </ol>
 <div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">def consolidate_partial_portfolio(trades, date):
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">def consolidate_partial_portfolio(trades, date):
     portfolio = pd.DataFrame()
     portfolio[&#39;vol_liq&#39;] = (trades[trades.date &lt; date]
                             .groupby(&#39;ticker&#39;)[&#39;vol_adj&#39;]
@@ -333,7 +333,7 @@ def process_returns(trades):
     return returns</code></pre></div>
 </div>
 <div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">rr = pd.read_csv(&#39;returns.csv&#39;, parse_dates=[&#39;date&#39;])
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">rr = pd.read_csv(&#39;returns.csv&#39;, parse_dates=[&#39;date&#39;])
 print(rr)
 print(rr[&#39;hpr&#39;].apply(lambda x: x + 1).prod())</code></pre></div>
 </div>
@@ -431,7 +431,7 @@ Footnotes
         <a class="tag__link" href="https://nasseralkmim.github.io/tags/python/">python</a>
     </li>
     <li class="tag__item">
-        <a class="tag__link" href="https://nasseralkmim.github.io/tags/data-analysis/">data-analysis</a>
+        <a class="tag__link" href="https://nasseralkmim.github.io/tags/data-analysis/">data analysis</a>
     </li>
     <li class="tag__item">
         <a class="tag__link" href="https://nasseralkmim.github.io/tags/portugues/">portugues</a>

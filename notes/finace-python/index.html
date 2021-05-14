@@ -116,7 +116,7 @@ Introdução
 <p>
 Usar biblioteca <code class="verbatim">yahooquery</code> pois parece ser mais completa e melhor que <code class="verbatim">yfinance</code>.</p>
 <div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">import yahooquery as yf
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">import yahooquery as yf
 import pandas as pd
 pd.options.display.float_format = &#39;{:,.2f}&#39;.format
 import matplotlib
@@ -131,7 +131,7 @@ Preço em tempo real
 </h2>
 <div id="outline-text-headline-2" class="outline-text-2">
 <div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">ticker = yf.Ticker(&#39;EGIE3.SA&#39;)
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">ticker = yf.Ticker(&#39;EGIE3.SA&#39;)
 print(ticker.quotes[&#39;EGIE3.SA&#39;][&#39;bid&#39;])</code></pre></div>
 </div>
 <pre class="example">
@@ -145,7 +145,7 @@ Histórico da cotação
 </h2>
 <div id="outline-text-headline-3" class="outline-text-2">
 <div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">ticker.history(period=&#39;max&#39;).close.plot(ylabel=&#39;price R$&#39;, xlabel=&#39;date&#39;)
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">ticker.history(period=&#39;max&#39;).close.plot(ylabel=&#39;price R$&#39;, xlabel=&#39;date&#39;)
 ticker.history(start=&#39;2018-09-15&#39;, end=&#39;2018-09-18&#39;).close.plot(ylabel=&#39;price R$&#39;, xlabel=&#39;date&#39;)</code></pre></div>
 </div>
 <p><img src="./jupyter/9eb70397cb6c102ce0d508cef61d78a0862577c1.png" alt="./jupyter/9eb70397cb6c102ce0d508cef61d78a0862577c1.png" title="./jupyter/9eb70397cb6c102ce0d508cef61d78a0862577c1.png" /></p>
@@ -157,7 +157,7 @@ Informação sobre empresa
 </h2>
 <div id="outline-text-headline-4" class="outline-text-2">
 <div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">print(ticker.asset_profile)</code></pre></div>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">print(ticker.asset_profile)</code></pre></div>
 </div>
 <pre class="example">
 {&#39;EGIE3.SA&#39;: {&#39;address1&#39;: &#39;Rua Paschoal ApOstolo PItsica, no 5064&#39;, &#39;address2&#39;: &#39;Agronomica&#39;, &#39;city&#39;: &#39;FlorianÃ³polis&#39;, &#39;state&#39;: &#39;SC&#39;, &#39;zip&#39;: &#39;88025-255&#39;, &#39;country&#39;: &#39;Brazil&#39;, &#39;phone&#39;: &#39;55 48 3221 7225&#39;, &#39;fax&#39;: &#39;55 48 3221 7253&#39;, &#39;website&#39;: &#39;http://www.engieenergia.com.br&#39;, &#39;industry&#39;: &#39;Utilities—Regulated Electric&#39;, &#39;sector&#39;: &#39;Utilities&#39;, &#39;longBusinessSummary&#39;: &#39;Engie Brasil Energia S.A., together with its subsidiaries, generates, sells, and trades in electrical energy in Brazil. The company operates 60 plants, including 11 hydroelectric power plants; 4 thermal power plants; and 45 complementary plants, which comprise 3 biomass, 38 wind farms, 2 photovoltaic solar power plants, and 2 small hydroelectric plants in the 21 states of Brazil. As of December 31, 2019, it had an installed capacity of 10,431.2 megawatts. The company also transports natural gas through 4,500 km of gas pipelines in the Southeast, Northeast, and North regions of Brazil. In addition, it engages in manufacture, wholesale, retail sale, operation, and maintenance of solar panels. The company was formerly known as Tractebel Energia S.A. and changed its name to Engie Brasil Energia S.A. in July 2016. The company was incorporated in 2005 and is headquartered in FlorianÃ³polis, Brazil. Engie Brasil Energia S.A. operates as a subsidiary of ENGIE SA.&#39;, &#39;fullTimeEmployees&#39;: 1398, &#39;companyOfficers&#39;: [{&#39;maxAge&#39;: 1, &#39;name&#39;: &#39;Mr. Eduardo Antonio Gori Sattamini&#39;, &#39;title&#39;: &#39;CEO, Investor Relations Officer &amp; Member of Management Board&#39;, &#39;exercisedValue&#39;: 0, &#39;unexercisedValue&#39;: 0}, {&#39;maxAge&#39;: 1, &#39;name&#39;: &#39;Mr. Marcelo Cardoso Malta&#39;, &#39;title&#39;: &#39;CFO &amp; Member of Management Board&#39;, &#39;exercisedValue&#39;: 0, &#39;unexercisedValue&#39;: 0}, {&#39;maxAge&#39;: 1, &#39;name&#39;: &#39;Mr. Jose Luiz Jansson Laydner&#39;, &#39;title&#39;: &#39;Chief Generation Officer &amp; Member of Management Board&#39;, &#39;exercisedValue&#39;: 0, &#39;unexercisedValue&#39;: 0}, {&#39;maxAge&#39;: 1, &#39;name&#39;: &#39;Mr. Gabriel Mann dos Santos&#39;, &#39;title&#39;: &#39;Chief Trading Officer,  Energy Commercialization Officer &amp; Member of Management Board&#39;, &#39;exercisedValue&#39;: 0, &#39;unexercisedValue&#39;: 0}, {&#39;maxAge&#39;: 1, &#39;name&#39;: &#39;Mr. Guilherme Slovinski Ferrari&#39;, &#39;title&#39;: &#39;Chief New Bus.es, Strategy &amp; Innovation Officer and Member of Management Board&#39;, &#39;exercisedValue&#39;: 0, &#39;unexercisedValue&#39;: 0}, {&#39;maxAge&#39;: 1, &#39;name&#39;: &#39;Mr. Marcos Keller Amboni&#39;, &#39;title&#39;: &#39;Chief Regulation &amp; Market Officer and Member of Management Board&#39;, &#39;exercisedValue&#39;: 0, &#39;unexercisedValue&#39;: 0}, {&#39;maxAge&#39;: 1, &#39;name&#39;: &#39;Ms. Luciana Moura Nabarrete&#39;, &#39;title&#39;: &#39;Chief Admin. Officer &amp; Member of Management Board&#39;, &#39;exercisedValue&#39;: 0, &#39;unexercisedValue&#39;: 0}, {&#39;maxAge&#39;: 1, &#39;name&#39;: &#39;Mr. Gustavo Henrique Labanca Novo&#39;, &#39;age&#39;: 51, &#39;title&#39;: &#39;CEO of TAG &amp; Alternate Director&#39;, &#39;yearBorn&#39;: 1968, &#39;exercisedValue&#39;: 0, &#39;unexercisedValue&#39;: 0}, {&#39;maxAge&#39;: 1, &#39;name&#39;: &#39;Mr. Leonardo Augusto Serpa&#39;, &#39;age&#39;: 39, &#39;title&#39;: &#39;Alternate Director&#39;, &#39;yearBorn&#39;: 1980, &#39;exercisedValue&#39;: 0, &#39;unexercisedValue&#39;: 0}, {&#39;maxAge&#39;: 1, &#39;name&#39;: &#39;Ms. Natacha Marly Herero Et Guichard&#39;, &#39;age&#39;: 48, &#39;title&#39;: &#39;Group Controller&#39;, &#39;yearBorn&#39;: 1971, &#39;exercisedValue&#39;: 0, &#39;unexercisedValue&#39;: 0}], &#39;auditRisk&#39;: 5, &#39;boardRisk&#39;: 7, &#39;compensationRisk&#39;: 1, &#39;shareHolderRightsRisk&#39;: 6, &#39;overallRisk&#39;: 5, &#39;governanceEpochDate&#39;: &#39;2019-11-01 21:00:00&#39;, &#39;maxAge&#39;: 86400}}
@@ -170,7 +170,7 @@ FII
 </h2>
 <div id="outline-text-headline-5" class="outline-text-2">
 <div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">fii = yf.Ticker(&#39;VISC11.SA&#39;)
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">fii = yf.Ticker(&#39;VISC11.SA&#39;)
 print(fii.asset_profile)
 print(fii.quotes[&#39;VISC11.SA&#39;][&#39;bid&#39;])
 fii.history().close.plot()</code></pre></div>
@@ -209,7 +209,7 @@ fii.history().close.plot()</code></pre></div>
         <a class="tag__link" href="https://nasseralkmim.github.io/tags/finance/">finance</a>
     </li>
     <li class="tag__item">
-        <a class="tag__link" href="https://nasseralkmim.github.io/tags/data-analysis/">data-analysis</a>
+        <a class="tag__link" href="https://nasseralkmim.github.io/tags/data-analysis/">data analysis</a>
     </li>
     <li class="tag__item">
         <a class="tag__link" href="https://nasseralkmim.github.io/tags/portugues/">portugues</a>

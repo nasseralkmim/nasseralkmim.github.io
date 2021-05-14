@@ -157,7 +157,7 @@ In order to use the generated graph from the code in the blog published with Hug
 </li>
 </ol>
 <div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">import matplotlib.pyplot as plt
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">import matplotlib.pyplot as plt
 import numpy as np
 
 x=np.linspace(-15,15, 100)
@@ -177,7 +177,7 @@ I create a new folder for each post that will have pictures.
 Inside this folder the post goes on a <code class="verbatim">index.org</code> file.
 And the figures are generated automatically with <code class="verbatim">emacs-jupyter</code>, I just changed the default directory variable to <code class="verbatim">(setq jupyter-org-resource-directory &#34;./jupter/&#34;).</code></p>
 <div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">import matplotlib.pyplot as plt
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">import matplotlib.pyplot as plt
 import numpy as np
 
 x=np.linspace(-15,15, 100)
@@ -193,7 +193,7 @@ Dataframes from interactive jupyter-python code blocks
 </h2>
 <div id="outline-text-headline-5" class="outline-text-2">
 <div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">import pandas as pd
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">import pandas as pd
 data = [[1, 2], [3, 4]]
 DF = pd.DataFrame(data, columns=[&#34;Foo&#34;, &#34;Bar&#34;])
 print(DF)</code></pre></div>
@@ -213,10 +213,10 @@ Python code block
 <p>If I want python syntax highlight but using jupyter-python src blocks I need to change the language of the source block when I finish the post.
 <span style="text-decoration: underline;">Update:</span> there is a emacs-jupyter function that overrides the default python source block: <code class="verbatim">(org-babel-jupyter-override-src-block &#34;python&#34;)</code></p>
 <div class="src src-python">
-<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#dc322f;font-weight:bold">import</span> <span style="color:#268bd2">numpy</span> <span style="color:#dc322f;font-weight:bold">as</span> <span style="color:#268bd2">np</span>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">import</span> <span style="color:#b06;font-weight:bold">numpy</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#b06;font-weight:bold">np</span>
 
-<span style="color:#268bd2">a</span> = <span style="color:#268bd2">np</span>.<span style="color:#268bd2">linspace</span>(<span style="color:#2aa198;font-weight:bold">3</span>, <span style="color:#2aa198;font-weight:bold">2</span>)
-<span style="color:#859900">print</span>(<span style="color:#268bd2">a</span>)</code></pre></div>
+a = np.linspace(<span style="color:#00d;font-weight:bold">3</span>, <span style="color:#00d;font-weight:bold">2</span>)
+<span style="color:#080;font-weight:bold">print</span>(a)</code></pre></div>
 </div>
 <pre class="example">
 [3.         2.97959184 2.95918367 2.93877551 2.91836735 2.89795918
@@ -268,7 +268,7 @@ Stylized balance sheets from ditaa
 <p>
 Well, this works. However it is too time consuming.</p>
 <div class="src src-ditaa">
-<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">/------------------\
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">/------------------\
 |Federal Reserve   |
 +--------+---------+
 |assets	 |liabilit |

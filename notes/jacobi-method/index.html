@@ -127,12 +127,12 @@ Ax=b
 <div id="outline-text-headline-2" class="outline-text-2">
 <p>Take this simple linear system of equations.</p>
 <div class="src src-python">
-<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#dc322f;font-weight:bold">import</span> <span style="color:#268bd2">numpy</span> <span style="color:#dc322f;font-weight:bold">as</span> <span style="color:#268bd2">np</span>
-<span style="color:#268bd2">A</span> = <span style="color:#268bd2">np</span>.<span style="color:#268bd2">array</span>([[<span style="color:#2aa198;font-weight:bold">3</span>, <span style="color:#2aa198;font-weight:bold">1</span>, -<span style="color:#2aa198;font-weight:bold">1</span>], [<span style="color:#2aa198;font-weight:bold">1</span>, -<span style="color:#2aa198;font-weight:bold">4</span>, <span style="color:#2aa198;font-weight:bold">2</span>], [-<span style="color:#2aa198;font-weight:bold">2</span>, -<span style="color:#2aa198;font-weight:bold">1</span>, <span style="color:#2aa198;font-weight:bold">5</span>]])
-<span style="color:#268bd2">b</span> = <span style="color:#268bd2">np</span>.<span style="color:#268bd2">array</span>([<span style="color:#2aa198;font-weight:bold">3</span>, -<span style="color:#2aa198;font-weight:bold">1</span>, <span style="color:#2aa198;font-weight:bold">2</span>])
-<span style="color:#859900">print</span>(<span style="color:#2aa198">&#34;A:&#34;</span>, <span style="color:#268bd2">A</span>)
-<span style="color:#859900">print</span>(<span style="color:#2aa198">&#34;b:&#34;</span>, <span style="color:#268bd2">b</span>)
-<span style="color:#859900">print</span>(<span style="color:#268bd2">np</span>.<span style="color:#268bd2">linalg</span>.<span style="color:#268bd2">inv</span>(<span style="color:#268bd2">A</span>) @ <span style="color:#268bd2">b</span>)     <span style="color:#93a1a1;font-style:italic"># solving with numpy inverse function</span></code></pre></div>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">import</span> <span style="color:#b06;font-weight:bold">numpy</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#b06;font-weight:bold">np</span>
+A = np.array([[<span style="color:#00d;font-weight:bold">3</span>, <span style="color:#00d;font-weight:bold">1</span>, -<span style="color:#00d;font-weight:bold">1</span>], [<span style="color:#00d;font-weight:bold">1</span>, -<span style="color:#00d;font-weight:bold">4</span>, <span style="color:#00d;font-weight:bold">2</span>], [-<span style="color:#00d;font-weight:bold">2</span>, -<span style="color:#00d;font-weight:bold">1</span>, <span style="color:#00d;font-weight:bold">5</span>]])
+b = np.array([<span style="color:#00d;font-weight:bold">3</span>, -<span style="color:#00d;font-weight:bold">1</span>, <span style="color:#00d;font-weight:bold">2</span>])
+<span style="color:#080;font-weight:bold">print</span>(<span style="color:#d20;background-color:#fff0f0">&#34;A:&#34;</span>, A)
+<span style="color:#080;font-weight:bold">print</span>(<span style="color:#d20;background-color:#fff0f0">&#34;b:&#34;</span>, b)
+<span style="color:#080;font-weight:bold">print</span>(np.linalg.inv(A) <span style="color:#a61717;background-color:#e3d2d2">@</span> b)     <span style="color:#888"># solving with numpy inverse function</span></code></pre></div>
 </div>
 <pre class="example">
 A: [[ 3  1 -1]
@@ -171,19 +171,19 @@ Iterations Jacobi
 </h2>
 <div id="outline-text-headline-4" class="outline-text-2">
 <div class="src src-python">
-<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#268bd2">x</span> = <span style="color:#268bd2">np</span>.<span style="color:#268bd2">array</span>([<span style="color:#2aa198;font-weight:bold">0.2</span>, <span style="color:#2aa198;font-weight:bold">0.3</span>, <span style="color:#2aa198;font-weight:bold">0.4</span>])         <span style="color:#93a1a1;font-style:italic"># initial guess</span>
-<span style="color:#268bd2">x_new</span> = <span style="color:#268bd2">np</span>.<span style="color:#268bd2">zeros</span>(<span style="color:#268bd2">np</span>.<span style="color:#268bd2">shape</span>(<span style="color:#268bd2">x</span>))
-<span style="color:#268bd2">rows</span>, <span style="color:#268bd2">columns</span> = <span style="color:#268bd2">np</span>.<span style="color:#268bd2">shape</span>(<span style="color:#268bd2">A</span>)
-<span style="color:#268bd2">num_iter</span> = <span style="color:#2aa198;font-weight:bold">15</span>
-<span style="color:#859900">for</span> <span style="color:#268bd2">m</span> <span style="color:#859900">in</span> <span style="color:#cb4b16">range</span>(<span style="color:#268bd2">num_iter</span>):
-    <span style="color:#859900">for</span> <span style="color:#268bd2">i</span> <span style="color:#859900">in</span> <span style="color:#cb4b16">range</span>(<span style="color:#268bd2">rows</span>):             <span style="color:#93a1a1;font-style:italic"># loop over rows</span>
-        <span style="color:#268bd2">sumprod</span> = <span style="color:#2aa198;font-weight:bold">0</span>
-        <span style="color:#859900">for</span> <span style="color:#268bd2">j</span> <span style="color:#859900">in</span> <span style="color:#cb4b16">range</span>(<span style="color:#268bd2">columns</span>):
-            <span style="color:#859900">if</span> <span style="color:#268bd2">i</span> <span style="color:#859900">is</span> <span style="color:#859900">not</span> <span style="color:#268bd2">j</span>:
-                <span style="color:#268bd2">sumprod</span> += <span style="color:#268bd2">A</span>[<span style="color:#268bd2">i</span>, <span style="color:#268bd2">j</span>] * <span style="color:#268bd2">x</span>[<span style="color:#268bd2">j</span>] <span style="color:#93a1a1;font-style:italic"># non diagonal</span>
-        <span style="color:#268bd2">x_new</span>[<span style="color:#268bd2">i</span>] = (<span style="color:#268bd2">b</span>[<span style="color:#268bd2">i</span>] - <span style="color:#268bd2">sumprod</span>) / <span style="color:#268bd2">A</span>[<span style="color:#268bd2">i</span>, <span style="color:#268bd2">i</span>]
-    <span style="color:#268bd2">x</span> = <span style="color:#268bd2">x_new</span>
-    <span style="color:#859900">print</span>(<span style="color:#268bd2">f</span><span style="color:#2aa198">&#34;iteration {m + 1}: {x}&#34;</span>)</code></pre></div>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">x = np.array([<span style="color:#00d;font-weight:bold">0.2</span>, <span style="color:#00d;font-weight:bold">0.3</span>, <span style="color:#00d;font-weight:bold">0.4</span>])         <span style="color:#888"># initial guess</span>
+x_new = np.zeros(np.shape(x))
+rows, columns = np.shape(A)
+num_iter = <span style="color:#00d;font-weight:bold">15</span>
+<span style="color:#080;font-weight:bold">for</span> m <span style="color:#080">in</span> <span style="color:#038">range</span>(num_iter):
+    <span style="color:#080;font-weight:bold">for</span> i <span style="color:#080">in</span> <span style="color:#038">range</span>(rows):             <span style="color:#888"># loop over rows</span>
+        sumprod = <span style="color:#00d;font-weight:bold">0</span>
+        <span style="color:#080;font-weight:bold">for</span> j <span style="color:#080">in</span> <span style="color:#038">range</span>(columns):
+            <span style="color:#080;font-weight:bold">if</span> i <span style="color:#080">is</span> <span style="color:#080">not</span> j:
+                sumprod += A[i, j] * x[j] <span style="color:#888"># non diagonal</span>
+        x_new[i] = (b[i] - sumprod) / A[i, i]
+    x = x_new
+    <span style="color:#080;font-weight:bold">print</span>(f<span style="color:#d20;background-color:#fff0f0">&#34;iteration {m + 1}: {x}&#34;</span>)</code></pre></div>
 </div>
 <pre class="example">
 iteration 1: [1.03333333 0.5        0.54      ]
@@ -214,17 +214,17 @@ Iterations Gauss Seidel
 <p>
 What if we use the updated solution on the other rows instead of waiting the whole system to be solved (<em>i-loop</em>).</p>
 <div class="src src-python">
-<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#268bd2">x</span> = <span style="color:#268bd2">np</span>.<span style="color:#268bd2">array</span>([<span style="color:#2aa198;font-weight:bold">0.2</span>, <span style="color:#2aa198;font-weight:bold">0.3</span>, <span style="color:#2aa198;font-weight:bold">0.4</span>])         <span style="color:#93a1a1;font-style:italic"># initial guess</span>
-<span style="color:#268bd2">rows</span>, <span style="color:#268bd2">columns</span> = <span style="color:#268bd2">np</span>.<span style="color:#268bd2">shape</span>(<span style="color:#268bd2">A</span>)
-<span style="color:#268bd2">num_iter</span> = <span style="color:#2aa198;font-weight:bold">15</span>
-<span style="color:#859900">for</span> <span style="color:#268bd2">m</span> <span style="color:#859900">in</span> <span style="color:#cb4b16">range</span>(<span style="color:#268bd2">num_iter</span>):
-    <span style="color:#859900">for</span> <span style="color:#268bd2">i</span> <span style="color:#859900">in</span> <span style="color:#cb4b16">range</span>(<span style="color:#268bd2">rows</span>):             <span style="color:#93a1a1;font-style:italic"># loop over rows</span>
-        <span style="color:#268bd2">sumprod</span> = <span style="color:#2aa198;font-weight:bold">0</span>
-        <span style="color:#859900">for</span> <span style="color:#268bd2">j</span> <span style="color:#859900">in</span> <span style="color:#cb4b16">range</span>(<span style="color:#268bd2">columns</span>):
-            <span style="color:#859900">if</span> <span style="color:#268bd2">i</span> <span style="color:#859900">is</span> <span style="color:#859900">not</span> <span style="color:#268bd2">j</span>:
-                <span style="color:#268bd2">sumprod</span> += <span style="color:#268bd2">A</span>[<span style="color:#268bd2">i</span>, <span style="color:#268bd2">j</span>] * <span style="color:#268bd2">x</span>[<span style="color:#268bd2">j</span>] <span style="color:#93a1a1;font-style:italic"># non diagonal</span>
-        <span style="color:#268bd2">x</span>[<span style="color:#268bd2">i</span>] = (<span style="color:#268bd2">b</span>[<span style="color:#268bd2">i</span>] - <span style="color:#268bd2">sumprod</span>) / <span style="color:#268bd2">A</span>[<span style="color:#268bd2">i</span>, <span style="color:#268bd2">i</span>]
-    <span style="color:#859900">print</span>(<span style="color:#268bd2">f</span><span style="color:#2aa198">&#34;iteration {m + 1}: {x}&#34;</span>)</code></pre></div>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">x = np.array([<span style="color:#00d;font-weight:bold">0.2</span>, <span style="color:#00d;font-weight:bold">0.3</span>, <span style="color:#00d;font-weight:bold">0.4</span>])         <span style="color:#888"># initial guess</span>
+rows, columns = np.shape(A)
+num_iter = <span style="color:#00d;font-weight:bold">15</span>
+<span style="color:#080;font-weight:bold">for</span> m <span style="color:#080">in</span> <span style="color:#038">range</span>(num_iter):
+    <span style="color:#080;font-weight:bold">for</span> i <span style="color:#080">in</span> <span style="color:#038">range</span>(rows):             <span style="color:#888"># loop over rows</span>
+        sumprod = <span style="color:#00d;font-weight:bold">0</span>
+        <span style="color:#080;font-weight:bold">for</span> j <span style="color:#080">in</span> <span style="color:#038">range</span>(columns):
+            <span style="color:#080;font-weight:bold">if</span> i <span style="color:#080">is</span> <span style="color:#080">not</span> j:
+                sumprod += A[i, j] * x[j] <span style="color:#888"># non diagonal</span>
+        x[i] = (b[i] - sumprod) / A[i, i]
+    <span style="color:#080;font-weight:bold">print</span>(f<span style="color:#d20;background-color:#fff0f0">&#34;iteration {m + 1}: {x}&#34;</span>)</code></pre></div>
 </div>
 <pre class="example">
 iteration 1: [1.03333333 0.70833333 0.955     ]
@@ -281,13 +281,13 @@ References
 <ul class="tags__list">
     
     <li class="tag__item">
-        <a class="tag__link" href="https://nasseralkmim.github.io/tags/linear-algebra/">linear-algebra</a>
+        <a class="tag__link" href="https://nasseralkmim.github.io/tags/linear-algebra/">linear algebra</a>
     </li>
     <li class="tag__item">
         <a class="tag__link" href="https://nasseralkmim.github.io/tags/python/">python</a>
     </li>
     <li class="tag__item">
-        <a class="tag__link" href="https://nasseralkmim.github.io/tags/numerical-methods/">numerical-methods</a>
+        <a class="tag__link" href="https://nasseralkmim.github.io/tags/numerical-methods/">numerical methods</a>
     </li></ul>
 
  <div class="pagination">

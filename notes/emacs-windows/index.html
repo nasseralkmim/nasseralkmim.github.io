@@ -169,24 +169,28 @@ LaTeX
 <p>
 TeX Live is a easy way to have TeX programs, macro packages and fonts to produce documents with LaTeX macros.</p>
 <div class="src src-sh">
-<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo apt install tex-common texlive-base texlive-latex-recommended <span style="color:#2aa198">\
-</span><span style="color:#2aa198"></span>                 texlive-latex-extra texlive-fonts-recommended latex-cjk-all</code></pre></div>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo apt install tex-common texlive-base texlive-latex-recommended <span style="color:#04d;background-color:#fff0f0">\
+</span><span style="color:#04d;background-color:#fff0f0"></span>                 texlive-latex-extra texlive-fonts-recommended latex-cjk-all</code></pre></div>
 </div>
 <p>
 To install biblatex we need <code class="verbatim">sudo apt install biber</code>.</p>
 <p>
+Update  <span class="timestamp">&lt;2021-05-13 Thu&gt;</span>: I&#39;m using Zathura now, the forward/inverse works out of the box.</p>
+<p>
 To view pdf using Windows SumatraPDF add folder with <code class="verbatim">SumatraPDF.exe</code> on windows $PATH (environment variables) and this to <code class="verbatim">init.el</code>.</p>
 <div class="src src-emacs-lisp">
-<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(<span style="color:#cb4b16">setq</span> <span style="color:#268bd2">TeX-view-program-list</span>
-	  &#39;((<span style="color:#2aa198">&#34;Sumatra PDF&#34;</span> (<span style="color:#2aa198">&#34;\&#34;SumatraPDF.exe\&#34; -reuse-instance&#34;</span>
-			    (<span style="color:#268bd2">mode-io-correlate</span> <span style="color:#2aa198">&#34; -forward-search %b %n &#34;</span>) <span style="color:#2aa198">&#34; %o&#34;</span>))))
-    (<span style="color:#268bd2">assq-delete-all</span> <span style="color:#2aa198">&#39;output-pdf</span> <span style="color:#268bd2">TeX-view-program-selection</span>)
-    (<span style="color:#268bd2">add-to-list</span> <span style="color:#2aa198">&#39;TeX-view-program-selection</span> &#39;(<span style="color:#268bd2">output-pdf</span> <span style="color:#2aa198">&#34;Sumatra PDF&#34;</span>))</code></pre></div>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(<span style="color:#038">setq</span> <span style="color:#369">TeX-view-program-list</span>
+	  &#39;((<span style="color:#d20;background-color:#fff0f0">&#34;Sumatra PDF&#34;</span> (<span style="color:#d20;background-color:#fff0f0">&#34;\&#34;SumatraPDF.exe\&#34; -reuse-instance&#34;</span>
+			    (<span style="color:#369">mode-io-correlate</span> <span style="color:#d20;background-color:#fff0f0">&#34; -forward-search %b %n &#34;</span>) <span style="color:#d20;background-color:#fff0f0">&#34; %o&#34;</span>))))
+    (<span style="color:#369">assq-delete-all</span> <span style="color:#a60;background-color:#fff0f0">&#39;output-pdf</span> <span style="color:#369">TeX-view-program-selection</span>)
+    (<span style="color:#369">add-to-list</span> <span style="color:#a60;background-color:#fff0f0">&#39;TeX-view-program-selection</span> &#39;(<span style="color:#369">output-pdf</span> <span style="color:#d20;background-color:#fff0f0">&#34;Sumatra PDF&#34;</span>))</code></pre></div>
 </div>
 <p>
 To get inverse search using <code class="verbatim">wsl emacsclient -n +%l &#34;$(wslpath &#39;%f&#39;)&#34;</code>  on SumatraPDF options.</p>
 <p>
 To get the fonts that I use <code class="verbatim">sudo apt install texlive-fonts-extra</code>.</p>
+<p>
+To use algorithmicx package I install <code class="verbatim">sudo apt install texlive-science</code>.</p>
 </div>
 </div>
 <div id="outline-container-headline-8" class="outline-2">
@@ -230,13 +234,14 @@ Bibtex actions open pdf
 </h4>
 <div id="outline-text-headline-11" class="outline-text-4">
 <p>
+Update <span class="timestamp">&lt;2021-05-13 Thu&gt;</span>: to open with default windows applications we can use from wsl <code class="verbatim">cmd.exe /C start</code>. 
+But still, the helm-bibtex function can not properly check if the file exists with the windows path.</p>
+<p>
 Problem: (f-exists?) does not recognize windows path in Zotero entry.</p>
 <p>
-<code class="verbatim">xdg-mime query filetype</code> gives <code class="verbatim">application/pdf</code>.</p>
-<p>
-<code class="verbatim">xdg-mime query default application/pdf</code> gives <code class="verbatim">org.gnome.Evince.deskto</code> which I don&#39;t have installed.</p>
-<p>
-Install wsl utils with <code class="verbatim">sudo apt install wslu</code>,<a href="https://github.com/wslutilities/wslu">GitHub - wslutilities/wslu: A collection of utilities for Windows 10 Linux Su…</a> , in order to use <code class="verbatim">wslview</code></p>
+Wsl utils command <code class="verbatim">wslview</code> can be an option. 
+Install with <code class="verbatim">sudo apt install wslu</code>.
+<a href="https://github.com/wslutilities/wslu">GitHub - wslutilities/wslu: A collection of utilities for Windows 10 Linux Su…</a>.</p>
 <p>
 works from wsl:</p>
 <ol>
@@ -325,6 +330,8 @@ Org-download not getting clipboard from windows
 <div id="outline-text-headline-15" class="outline-text-4">
 <p>
 Update (<span class="timestamp">&lt;2021-04-16 Fri&gt;</span>): Just discovered that to run windows command in wsl we just need to add <code class="verbatim">.exe</code> to the windows program.
+So I&#39;m using standard Imagemagick from windows <a href="https://imagemagick.org/script/download.php#windows">ImageMagick - Download</a>.</p>
+<p>
 I also had to change the variable <code class="verbatim">(setq org-download-screenshot-file &#34;./tmp/screenshot.png&#34;)</code> so we can create an image with the <code class="verbatim">convert.exe</code> and then access it with <code class="verbatim">org-download-image</code> to generate an org link.
 A minor inconvenience is that a <code class="verbatim">tmp/</code> folder is created and I don&#39;t want to write a function to delete it.</p>
 <ol>
@@ -343,7 +350,7 @@ Emacs jupyter
 <p>
 It seems that emacs-jupyter was looking for jupyter in the search path that emacs uses to find programs (<code class="verbatim">exec-path</code> variable).</p>
 <div class="src src-sh">
-<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">which jupyter</code></pre></div>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">which jupyter</code></pre></div>
 </div>
 <p>
 as a result
@@ -394,7 +401,7 @@ Type=Application
 <p>
 and set as default with</p>
 <div class="src src-sh">
-<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">xdg-mime query default application/x-sh
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">xdg-mime query default application/x-sh
 xdg-mime default bash.desktop application/x-sh
 xdg-mime query default application/x-sh</code></pre></div>
 </div>
