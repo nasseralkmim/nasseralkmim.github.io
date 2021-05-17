@@ -15,8 +15,8 @@
       
       <guid>https://nasseralkmim.github.io/notes/cpp-notes/</guid>
       <description>Introduction   These are my notes about C++. Mostly experiments and running examples with org-babel within Emacs.
- If you don&amp;#39;t know about org-mode with org-babel, it is an Emacs package that allows prose and code execution (multiple languages) within the same file. It is extremely powerful and useful as a learning tool and also to create literate programming narratives or prototypes.
-  Advice  General    state intent in comments, don&amp;#39;t say what can be stated in code</description>
+ Ideally, if you want to benefit from this, you should write, run, and understand the examples yourself.
+ If you don&amp;#39;t know about org-mode with org-babel, it is an Emacs package that allows prose and code execution (multiple languages) within the same file. It is extremely powerful and useful as a learning tool and also to create literate programming narratives or prototypes.</description>
     </item>
     
     <item>

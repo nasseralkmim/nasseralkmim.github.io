@@ -7,19 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© {year}</copyright>
-    <lastBuildDate>Sun, 18 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Trilinos notes</title>
-      <link>https://nasseralkmim.github.io/notes/trilinos/</link>
-      <pubDate>Sun, 18 Apr 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/notes/trilinos/</guid>
-      <description>Basics  What is Trilinos?   Object oriented framework for solving math and engineering problems (linear system of equations). Can solve problems up to 2 billion unknowns.
-  What packages make Trilinos?  Trilinos is made out of multiple packages. The packages can depend on each other.
- Documentation for each package can be found Packages | Trilinos.
- The packages are divided in core &amp;#34;services&amp;#34;, solvers, methods and discretization.</description>
-    </item>
-    
+    <lastBuildDate>Tue, 13 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>QR Decomposition in one image</title>
       <link>https://nasseralkmim.github.io/notes/qr-decomposition/</link>
@@ -27,16 +15,6 @@
       
       <guid>https://nasseralkmim.github.io/notes/qr-decomposition/</guid>
       <description></description>
-    </item>
-    
-    <item>
-      <title>Innsbruck - Efficiency and bureaucracy</title>
-      <link>https://nasseralkmim.github.io/notes/inn-2-efficiency-and-burocracy/</link>
-      <pubDate>Wed, 07 Apr 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/notes/inn-2-efficiency-and-burocracy/</guid>
-      <description>Efficiency  I was impressed by the efficiency of two particular services that I&amp;#39;ve used. One of which was the supermarket and the other the post mail service.
- The affordable supermarket, Hoffer or Aldi, has impressive operations processes. Primo, they do not unpack all products into shelfs, they just open the boxes and pilled them up. This is way easier and faster than manually remove all items from boxes.</description>
     </item>
     
     <item>
@@ -58,8 +36,8 @@ import numpy as np A = np.array([[3, 1, -1], [1, -4, 2], [-2, -1, 5]]) b = np.</
       
       <guid>https://nasseralkmim.github.io/notes/cpp-notes/</guid>
       <description>Introduction   These are my notes about C++. Mostly experiments and running examples with org-babel within Emacs.
- If you don&amp;#39;t know about org-mode with org-babel, it is an Emacs package that allows prose and code execution (multiple languages) within the same file. It is extremely powerful and useful as a learning tool and also to create literate programming narratives or prototypes.
-  Advice  General    state intent in comments, don&amp;#39;t say what can be stated in code</description>
+ Ideally, if you want to benefit from this, you should write, run, and understand the examples yourself.
+ If you don&amp;#39;t know about org-mode with org-babel, it is an Emacs package that allows prose and code execution (multiple languages) within the same file. It is extremely powerful and useful as a learning tool and also to create literate programming narratives or prototypes.</description>
     </item>
     
     <item>
@@ -74,17 +52,6 @@ import numpy as np A = np.array([[3, 1, -1], [1, -4, 2], [-2, -1, 5]]) b = np.</
     </item>
     
     <item>
-      <title>Favorite garments 2021</title>
-      <link>https://nasseralkmim.github.io/notes/favorite-garments/</link>
-      <pubDate>Mon, 15 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/notes/favorite-garments/</guid>
-      <description>Base layer  All good options, get the one on sale. Black or orange for consistency.
-Karrimor quarter zip €15,00   Cheapest one, still waiting to check quality. Update: I tested the t-shirt. The quality is ok, good enough to run with.
-  Craft CORE gain €35,00    Nike pacer 1/2 zip €40,00      Insulation  Arc&amp;#39;teryx Proton LT €300,00  Best combination of style, quality, warmth and breathability.</description>
-    </item>
-    
-    <item>
       <title>Favorites from IKEA 2021</title>
       <link>https://nasseralkmim.github.io/notes/inn-2-ikea-favorites/</link>
       <pubDate>Sun, 14 Mar 2021 00:00:00 +0000</pubDate>
@@ -93,34 +60,6 @@ Karrimor quarter zip €15,00   Cheapest one, still waiting to check quality. Up
       <description>Why Ikea is so good?   The one thing that makes IKEA aesthetics stand out is consistency.
   Bags   The large bag, which costs only 0,79 EUR are good for laundry, groceries, moving things around. It is also good because it packs small and can be easily carried.
  The smaller ones can be used for organizing clothes in the wardrobe and be used as packing cubes when traveling.</description>
-    </item>
-    
-    <item>
-      <title>Favorite recipes 2021</title>
-      <link>https://nasseralkmim.github.io/notes/minimalist-recipes/</link>
-      <pubDate>Sat, 13 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/notes/minimalist-recipes/</guid>
-      <description>My favorites recipes with simple and healthy ingredients. Focusing on high volume and low calorie ingredients for maximum satiety.
-Chicken and rice stir fry   Ingredients:
-  chicken
-  rice
-  spinach (baby)
-  champignon mushroom
-  frozen vegetables (red bell pepper, corn, beans, carrots)
-  siracha on top
-    Curry with rice    same as stir fry</description>
-    </item>
-    
-    <item>
-      <title>Innsbruck - First impressions</title>
-      <link>https://nasseralkmim.github.io/notes/inn-1-first-impressions/</link>
-      <pubDate>Fri, 12 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/notes/inn-1-first-impressions/</guid>
-      <description>I recently started my PhD at the University of Innsbruck, and will start share some of my day to day life and work here.
- Innsbruck is the capital of a region called Tirol. It is not a big city, the first thing I noticed when arrived here through the train station is how quick you can get to places with the rail train system.
- The city is very organized, and I was really impressed with the tiny gap between the rail train and the concrete sidewalk.</description>
     </item>
     
     <item>
