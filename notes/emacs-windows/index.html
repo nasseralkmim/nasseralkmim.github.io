@@ -230,9 +230,38 @@ Problems
 <div id="outline-container-headline-11" class="outline-4">
 <h4 id="headline-11">
 <span class="todo">TODO</span>
-Bibtex actions open pdf
+LaTeX forward search does not work properly
 </h4>
 <div id="outline-text-headline-11" class="outline-text-4">
+<p>
+It opens the pdf but not at the location…
+Probably a problem with windows/wsl path conversions…</p>
+</div>
+</div>
+<div id="outline-container-headline-12" class="outline-4">
+<h4 id="headline-12">
+<span class="todo">TODO</span>
+Bibtex actions
+</h4>
+<div id="outline-text-headline-12" class="outline-text-4">
+<p>
+It seems that the minibuffer is not expanding correctly to fit the options available.</p>
+<p>
+Probably a problem with Vcxsrv and its GUI.</p>
+</div>
+</div>
+<div id="outline-container-headline-13" class="outline-4">
+<h4 id="headline-13">
+<span class="todo">DONE</span>
+Bibtex actions open pdf
+</h4>
+<div id="outline-text-headline-13" class="outline-text-4">
+<p>Update <span class="timestamp">&lt;2021-05-18 Tue&gt;</span>: using <code class="verbatim">wsl-path.el</code> <code class="verbatim">wsl-path-activate</code> and adding a custom function to open pdf with windows default pdf viewer (xodo in my case).</p>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(<span style="color:#038">setq</span> <span style="color:#369">bibtex-completion-pdf-open-function</span>
+	(<span style="color:#038">lambda</span> (<span style="color:#369">fpath</span>)
+	  (<span style="color:#06b;font-weight:bold">call-process</span> <span style="color:#d20;background-color:#fff0f0">&#34;cmd.exe&#34;</span> <span style="color:#036;font-weight:bold">nil</span> <span style="color:#00d;font-weight:bold">0</span> <span style="color:#036;font-weight:bold">nil</span> (<span style="color:#06b;font-weight:bold">concat</span> <span style="color:#d20;background-color:#fff0f0">&#34;/C start &#34;</span> <span style="color:#369">fpath</span>))))</code></pre></div>
+</div>
 <p>
 Update <span class="timestamp">&lt;2021-05-13 Thu&gt;</span>: to open with default windows applications we can use from wsl <code class="verbatim">cmd.exe /C start</code>. 
 But still, the helm-bibtex function can not properly check if the file exists with the windows path.</p>
@@ -275,29 +304,6 @@ works from wsl:</p>
 <p>(f-exists? &#34;/mnt/c/Users/nasse/Zotero/storage/PMNHILH2/Pawlowski et al. - 2006 - Globalization Techniques for Newton–Krylov Methods.pdf&#34;)t</p>
 </li>
 </ol>
-</div>
-</div>
-<div id="outline-container-headline-12" class="outline-4">
-<h4 id="headline-12">
-<span class="todo">TODO</span>
-LaTeX forward search does not work properly
-</h4>
-<div id="outline-text-headline-12" class="outline-text-4">
-<p>
-It opens the pdf but not at the location…
-Probably a problem with windows/wsl path conversions…</p>
-</div>
-</div>
-<div id="outline-container-headline-13" class="outline-4">
-<h4 id="headline-13">
-<span class="todo">TODO</span>
-Bibtex actions
-</h4>
-<div id="outline-text-headline-13" class="outline-text-4">
-<p>
-It seems that the minibuffer is not expanding correctly to fit the options available.</p>
-<p>
-Probably a problem with Vcxsrv and its GUI.</p>
 </div>
 </div>
 <div id="outline-container-headline-14" class="outline-4">
@@ -564,11 +570,11 @@ Now when I open a shell script with xdg-open (<code class="verbatim">x o</code> 
 </li>
 <li><a href="#headline-10">Problems</a>
 <ul>
-<li><a href="#headline-11">Bibtex actions open pdf</a>
+<li><a href="#headline-11">LaTeX forward search does not work properly</a>
 </li>
-<li><a href="#headline-12">LaTeX forward search does not work properly</a>
+<li><a href="#headline-12">Bibtex actions</a>
 </li>
-<li><a href="#headline-13">Bibtex actions</a>
+<li><a href="#headline-13">Bibtex actions open pdf</a>
 </li>
 <li><a href="#headline-14">Inverse search from SumatraPDF to emacs</a>
 </li>
