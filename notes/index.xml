@@ -63,19 +63,6 @@ import numpy as np A = np.array([[3, 1, -1], [1, -4, 2], [-2, -1, 5]]) b = np.</
     </item>
     
     <item>
-      <title>Emacs on windows with WSL2</title>
-      <link>https://nasseralkmim.github.io/notes/emacs-windows/</link>
-      <pubDate>Mon, 04 Jan 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/notes/emacs-windows/</guid>
-      <description>Introduction   Build emacs inside windows subsystem for linux (wsl). The main advantage is that emacs is considerably faster when using LSP.
-  Reference for installation   GitHub - hubisan/emacs-wsl: Install and run emacs with the Windows Subsystem …
-  Shortcut  Followed this steps for creating a taskbar shortcut:
-  rename .bat to .exe
-  right click on the .exe and create the shortcut</description>
-    </item>
-    
-    <item>
       <title>Performance de um portfolio</title>
       <link>https://nasseralkmim.github.io/notes/portfolio-performance/</link>
       <pubDate>Sat, 26 Dec 2020 00:00:00 +0000</pubDate>
