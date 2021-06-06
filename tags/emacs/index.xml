@@ -7,16 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© {year}</copyright>
-    <lastBuildDate>Thu, 01 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/tags/emacs/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>C&#43;&#43; Development environment in Emacs</title>
-      <link>https://nasseralkmim.github.io/notes/cpp-environment-setup/</link>
-      <pubDate>Thu, 01 Apr 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/notes/cpp-environment-setup/</guid>
-      <description>Introduction   This set up already starts with wsl (version 2) already installed and emacs as well. Emacs on windows with WSL2 | Nasser&amp;#39;s personal website</description>
-    </item>
-    
+    <lastBuildDate>Thu, 23 Feb 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/tags/emacs/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How I manage academic sources in emacs</title>
       <link>https://nasseralkmim.github.io/notes/bibliography-management/</link>
