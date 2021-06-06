@@ -14,8 +14,7 @@
       <pubDate>Fri, 11 Dec 2020 00:00:00 +0000</pubDate>
       
       <guid>https://nasseralkmim.github.io/notes/topic_modelig/</guid>
-      <description>Introduction  Topic modeling is a form of semantic analysis, a step forwarding finding meaning from word counts. This analysis allows discovery of document topic without trainig data. It involves counting words and grouping similar word patterns to describe the data.
-  Latent Dirichlet Allocation   Latent Dirichlet Allocation (LDA) is one topic modeling technique. It can infer the probability distribution of words for each topic, characterizing it.</description>
+      <description>Introduction  Topic modeling is a form of semantic analysis, a step forwarding finding meaning from word counts. This analysis allows discovery of document topic without trainig data.</description>
     </item>
     
     <item>
@@ -25,8 +24,7 @@
       
       <guid>https://nasseralkmim.github.io/notes/nlp-with-python/</guid>
       <description>Introduction  This is an attempt to compile different sources of informations about Natural Language processing with python.
-  Techiniques used in NLP  Tokenization  Converts text into segments (n-grams) that could represent a word, two words or more. During this step, usually it is performed some kind of vocabulary reduction such as normalization, stemming, lemmatization and removing stop words.
-Tools    NLTK: string processing library, built by academics.</description>
+  Techiniques used in NLP  Tokenization  Converts text into segments (n-grams) that could represent a word, two words or more.</description>
     </item>
     
     <item>
@@ -35,8 +33,7 @@ Tools    NLTK: string processing library, built by academics.</description>
       <pubDate>Wed, 09 Dec 2020 00:00:00 +0000</pubDate>
       
       <guid>https://nasseralkmim.github.io/notes/text-processing-with-spacy/</guid>
-      <description>Introduction   spaCy is a library for Natural Language Processing (NLP) in python. It offers multiple solutions for text processing such as tokenization, named entity recognition, word vectors, part of speech tagging. The alternative is the library NLTK which seems to be used mostly in academia whereas spaCy is recommended for production use.
-  Load the language model  We need to download the models for the language with python -m spacy download model-name.</description>
+      <description>Introduction   spaCy is a library for Natural Language Processing (NLP) in python. It offers multiple solutions for text processing such as tokenization, named entity recognition, word vectors, part of speech tagging.</description>
     </item>
     
     <item>
@@ -46,7 +43,7 @@ Tools    NLTK: string processing library, built by academics.</description>
       
       <guid>https://nasseralkmim.github.io/notes/question-classifier/</guid>
       <description>Introduction   An example from the book by Aman Kedia. About label encoding.
-  Loading data  import pandas as pd data = open(&amp;#34;train_1000-label.txt&amp;#34;, &amp;#39;r&amp;#39;) train_raw = pd.DataFrame(data.readlines(), columns=[&amp;#39;data&amp;#39;]) print(train_raw.head())  data 0 DESC:manner How did serfdom develop in and the... 1 ENTY:cremat What films featured the character ... 2 DESC:manner How can I find a list of celebriti... 3 ENTY:animal What fowl grabs the spotlight afte... 4 ABBR:exp What is the full form of .</description>
+  Loading data  import pandas as pd data = open(&amp;#34;train_1000-label.</description>
     </item>
     
     <item>
@@ -55,10 +52,7 @@ Tools    NLTK: string processing library, built by academics.</description>
       <pubDate>Fri, 04 Dec 2020 00:00:00 +0000</pubDate>
       
       <guid>https://nasseralkmim.github.io/notes/sentiment-analysis/</guid>
-      <description>Introduction   This is as exemple from the excellent book by François Chollet on deep learning. My idea here is to further detail the explanation with the code output, which the book does not contain. And since tensorflow 2.0 was released, I will be using tf.keras instead.
- The goal of this example is
- The steps are
-  Load data   Load imdb data from keras datasets.</description>
+      <description>Introduction   This is as exemple from the excellent book by François Chollet on deep learning. My idea here is to further detail the explanation with the code output, which the book does not contain.</description>
     </item>
     
   </channel>

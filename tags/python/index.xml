@@ -14,10 +14,7 @@
       <pubDate>Tue, 06 Apr 2021 00:00:00 +0000</pubDate>
       
       <guid>https://nasseralkmim.github.io/notes/jacobi-method/</guid>
-      <description>Introduction  Jacobi method is a standard iterative scheme for solving the linear system $Ax=b$. It is part of what is known as relaxation-based methods, together with Gauss-Seidel.
- The basic idea is to write the diagonal product as a function of off-diagonal ones.
-  Ax=b  Take this simple linear system of equations.
-import numpy as np A = np.array([[3, 1, -1], [1, -4, 2], [-2, -1, 5]]) b = np.</description>
+      <description>Introduction  Jacobi method is a standard iterative scheme for solving the linear system $Ax=b$. It is part of what is known as relaxation-based methods, together with Gauss-Seidel.</description>
     </item>
     
     <item>
@@ -26,7 +23,7 @@ import numpy as np A = np.array([[3, 1, -1], [1, -4, 2], [-2, -1, 5]]) b = np.</
       <pubDate>Sat, 26 Dec 2020 00:00:00 +0000</pubDate>
       
       <guid>https://nasseralkmim.github.io/notes/portfolio-performance/</guid>
-      <description>Introdução  E ai? quanto rendeu seu portfólio? Fácil, $$R_p = V_{final}/V_{inicial} - 1$$ certo? sim, se você investiu em um único aporte. Normalmente, as pessoas fazem vários aportes ao longo do tempo. Então, se você fez um aporte de 1.000,00, e depois fez outro aporte de 1.000,00; o valor final do seu portfólio é 2.000,00. Se usarmos a fórmula acima iremos obter 100% de retorno, isso indica &amp;#34;performance&amp;#34;?</description>
+      <description>Introdução  E ai? quanto rendeu seu portfólio? Fácil, $$R_p = V_{final}/V_{inicial} - 1$$ certo? sim, se você investiu em um único aporte.</description>
     </item>
     
     <item>
@@ -36,7 +33,7 @@ import numpy as np A = np.array([[3, 1, -1], [1, -4, 2], [-2, -1, 5]]) b = np.</
       
       <guid>https://nasseralkmim.github.io/notes/finace-python/</guid>
       <description>Introdução   Usar biblioteca yahooquery pois parece ser mais completa e melhor que yfinance.
-import yahooquery as yf import pandas as pd pd.options.display.float_format = &amp;#39;{:,.2f}&amp;#39;.format import matplotlib import matplotlib.pyplot as plt matplotlib.style.use(&amp;#39;seaborn&amp;#39;)    Preço em tempo real  ticker = yf.Ticker(&amp;#39;EGIE3.SA&amp;#39;) print(ticker.quotes[&amp;#39;EGIE3.SA&amp;#39;][&amp;#39;bid&amp;#39;])  44.13    Histórico da cotação  ticker.history(period=&amp;#39;max&amp;#39;).close.plot(ylabel=&amp;#39;price R$&amp;#39;, xlabel=&amp;#39;date&amp;#39;) ticker.history(start=&amp;#39;2018-09-15&amp;#39;, end=&amp;#39;2018-09-18&amp;#39;).close.plot(ylabel=&amp;#39;price R$&amp;#39;, xlabel=&amp;#39;date&amp;#39;)    Informação sobre empresa  print(ticker.asset_profile)  {&amp;#39;EGIE3.</description>
+import yahooquery as yf import pandas as pd pd.</description>
     </item>
     
     <item>
@@ -45,8 +42,7 @@ import yahooquery as yf import pandas as pd pd.options.display.float_format = &a
       <pubDate>Mon, 20 Mar 2017 00:00:00 +0000</pubDate>
       
       <guid>https://nasseralkmim.github.io/notes/change-of-basis/</guid>
-      <description>Motivation   I&amp;#39;m always forgetting about the intuition behind the change of basis in linear algebra. There is a very nice video explaining it on Youtube, but I want the explanation in text format so I can easily refer too when in doubt.
-  Change of basis   Let&amp;#39;s say we have two sets of basis vector $\color{blue}{\boldsymbol{b_{i}}}$ and $\color{red}{\boldsymbol{\beta_{i}}}$. The set $\color{blue}{\boldsymbol{b_{i}}}$ defines the original system, the one we start with, and the set $\color{red}{\boldsymbol{\beta_{i}}}$ the transformed system.</description>
+      <description>Motivation   I&amp;#39;m always forgetting about the intuition behind the change of basis in linear algebra. There is a very nice video explaining it on Youtube, but I want the explanation in text format so I can easily refer too when in doubt.</description>
     </item>
     
     <item>
@@ -55,9 +51,7 @@ import yahooquery as yf import pandas as pd pd.options.display.float_format = &a
       <pubDate>Thu, 18 Aug 2016 00:00:00 +0000</pubDate>
       
       <guid>https://nasseralkmim.github.io/notes/oop-fem/</guid>
-      <description>Introduction   After a solid 2 days of research, multiple articles and thesis, I figured that the whole OOP paradigm might be the best alternative to an extensible fem code.
- The thing is: I need something simple enough so people can learn how the code works only with basic knowledge of the language and the theory.
-  The current framework  Top level description   User input as the Mesh file and the Problem parameters.</description>
+      <description>Introduction   After a solid 2 days of research, multiple articles and thesis, I figured that the whole OOP paradigm might be the best alternative to an extensible fem code.</description>
     </item>
     
     <item>
@@ -66,11 +60,7 @@ import yahooquery as yf import pandas as pd pd.options.display.float_format = &a
       <pubDate>Thu, 10 Mar 2016 00:00:00 +0000</pubDate>
       
       <guid>https://nasseralkmim.github.io/notes/lagrange-duality/</guid>
-      <description>Introduction   This is an example extracted from &amp;#34;An Introduction to Structural Optimization&amp;#34;, I also added a few extra images to clarify some points.
-  What is Lagrangian duality?
-  Why is it called Lagrangian duality?
-    Problem statement   We want to optimize the following convex and separable problem,
- \begin{equation} \mathbb{(P)} \; \begin{cases} \min \limits_{x_1, x_2} (x_1 -3)^2 + (x_2 + 1)^2 \\ s.</description>
+      <description>Introduction   This is an example extracted from &amp;#34;An Introduction to Structural Optimization&amp;#34;, I also added a few extra images to clarify some points.</description>
     </item>
     
     <item>
@@ -79,7 +69,7 @@ import yahooquery as yf import pandas as pd pd.options.display.float_format = &a
       <pubDate>Thu, 03 Mar 2016 00:00:00 +0000</pubDate>
       
       <guid>https://nasseralkmim.github.io/notes/lagrange-multiplier/</guid>
-      <description>Introduction   This is an experiment with org-mode and ob-python that simulates a notebok environment which mix code, text and math (latex). I am going through example presented in John Kitchin work, which is extremely useful for someone planning on start coding in python for science.  I take no credit from the material presented here, it is a copy with a new format. I am particularly interested in this subject due an ongoing project in structural optimization therefore I will put an effort on detailing some of the method derivation.</description>
+      <description>Introduction   This is an experiment with org-mode and ob-python that simulates a notebok environment which mix code, text and math (latex).</description>
     </item>
     
   </channel>

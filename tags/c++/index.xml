@@ -15,8 +15,7 @@
       
       <guid>https://nasseralkmim.github.io/notes/cpp-notes/</guid>
       <description>Introduction   These are my notes about C++. Mostly experiments and running examples with org-babel within Emacs.
- Ideally, if you want to benefit from this, you should write, run, and understand the examples yourself.
- If you don&amp;#39;t know about org-mode with org-babel, it is an Emacs package that allows prose and code execution (multiple languages) within the same file. It is extremely powerful and useful as a learning tool and also to create literate programming narratives or prototypes.</description>
+ Ideally, if you want to benefit from this, you should write, run, and understand the examples yourself.</description>
     </item>
     
     <item>
@@ -25,9 +24,7 @@
       <pubDate>Thu, 01 Apr 2021 00:00:00 +0000</pubDate>
       
       <guid>https://nasseralkmim.github.io/notes/cpp-environment-setup/</guid>
-      <description>Introduction   This set up already starts with wsl (version 2) already installed and emacs as well. Emacs on windows with WSL2 | Nasser&amp;#39;s personal website
- This guide also is helpful to set up emacs for c++ development: Configuring Emacs as a C/C++ IDE - LSP Mode - LSP support for Emacs.
-  Emacs  Lsp-mode clangd server   clangd is language server that provides intelligent features to emacs (client) via lsp-mode (client-server application).</description>
+      <description>Introduction   This set up already starts with wsl (version 2) already installed and emacs as well. Emacs on windows with WSL2 | Nasser&amp;#39;s personal website</description>
     </item>
     
   </channel>

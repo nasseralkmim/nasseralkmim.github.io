@@ -14,9 +14,7 @@
       <pubDate>Thu, 18 Aug 2016 00:00:00 +0000</pubDate>
       
       <guid>https://nasseralkmim.github.io/notes/oop-fem/</guid>
-      <description>Introduction   After a solid 2 days of research, multiple articles and thesis, I figured that the whole OOP paradigm might be the best alternative to an extensible fem code.
- The thing is: I need something simple enough so people can learn how the code works only with basic knowledge of the language and the theory.
-  The current framework  Top level description   User input as the Mesh file and the Problem parameters.</description>
+      <description>Introduction   After a solid 2 days of research, multiple articles and thesis, I figured that the whole OOP paradigm might be the best alternative to an extensible fem code.</description>
     </item>
     
   </channel>

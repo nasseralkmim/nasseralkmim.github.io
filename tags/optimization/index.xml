@@ -14,11 +14,7 @@
       <pubDate>Thu, 10 Mar 2016 00:00:00 +0000</pubDate>
       
       <guid>https://nasseralkmim.github.io/notes/lagrange-duality/</guid>
-      <description>Introduction   This is an example extracted from &amp;#34;An Introduction to Structural Optimization&amp;#34;, I also added a few extra images to clarify some points.
-  What is Lagrangian duality?
-  Why is it called Lagrangian duality?
-    Problem statement   We want to optimize the following convex and separable problem,
- \begin{equation} \mathbb{(P)} \; \begin{cases} \min \limits_{x_1, x_2} (x_1 -3)^2 + (x_2 + 1)^2 \\ s.</description>
+      <description>Introduction   This is an example extracted from &amp;#34;An Introduction to Structural Optimization&amp;#34;, I also added a few extra images to clarify some points.</description>
     </item>
     
   </channel>

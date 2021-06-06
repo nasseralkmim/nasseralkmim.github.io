@@ -14,9 +14,7 @@
       <pubDate>Thu, 01 Apr 2021 00:00:00 +0000</pubDate>
       
       <guid>https://nasseralkmim.github.io/notes/cpp-environment-setup/</guid>
-      <description>Introduction   This set up already starts with wsl (version 2) already installed and emacs as well. Emacs on windows with WSL2 | Nasser&amp;#39;s personal website
- This guide also is helpful to set up emacs for c++ development: Configuring Emacs as a C/C++ IDE - LSP Mode - LSP support for Emacs.
-  Emacs  Lsp-mode clangd server   clangd is language server that provides intelligent features to emacs (client) via lsp-mode (client-server application).</description>
+      <description>Introduction   This set up already starts with wsl (version 2) already installed and emacs as well. Emacs on windows with WSL2 | Nasser&amp;#39;s personal website</description>
     </item>
     
     <item>
@@ -25,7 +23,7 @@
       <pubDate>Thu, 23 Feb 2017 00:00:00 +0000</pubDate>
       
       <guid>https://nasseralkmim.github.io/notes/bibliography-management/</guid>
-      <description>Introduction   In this post I will go over my workflow for managing academic resources and seamless add citation into a $\LaTeX$ file. Usually this process is boring since you have to add a source into your .bib file, then insert the citation with the bibtex key into your latex to generate the references section. This process is independent of your .pdf source, so you can add citation for source that you have physically.</description>
+      <description>Introduction   In this post I will go over my workflow for managing academic resources and seamless add citation into a $\LaTeX$ file.</description>
     </item>
     
   </channel>
