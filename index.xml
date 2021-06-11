@@ -7,16 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© {year}</copyright>
-    <lastBuildDate>Wed, 09 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Eigenvalue analysis</title>
-      <link>https://nasseralkmim.github.io/notes/eigenvalue-analysis/</link>
-      <pubDate>Wed, 09 Jun 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/notes/eigenvalue-analysis/</guid>
-      <description>Objective?    find the eigenvalues of the system matrix during the solution procedure of a specific nonlinear problem.</description>
-    </item>
-    
+    <lastBuildDate>Tue, 13 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>QR Decomposition in one image</title>
       <link>https://nasseralkmim.github.io/notes/qr-decomposition/</link>
