@@ -29,7 +29,7 @@
   
   
     
-    <link type="text/css" rel="stylesheet" href="/css/post.min.4c5e5ab0d03e404ece7b74443ea2e91e86a9af1b0d56693e939274558f24efdc.css" integrity="sha256-TF5asNA&#43;QE7Oe3REPqLpHoaprxsNVmk&#43;k5J0VY8k79w="/>
+    <link type="text/css" rel="stylesheet" href="/css/post.min.c5b1d93a95eba82eb3565c32d5a2502c5432f2fc02567098c786e5273ba634ca.css" integrity="sha256-xbHZOpXrqC6zVlwy1aJQLFQy8vwCVnCYx4blJzumNMo="/>
   
     
     <link type="text/css" rel="stylesheet" href="/css/custom.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" integrity="sha256-47DEQpj8HBSa&#43;/TImW&#43;5JCeuQeRkm5NMpJWZG3hSuFU="/>
@@ -3788,54 +3788,90 @@ It seems that CMake builds the executable with the RPATH for the build tree (<a 
 </div>
 <div id="outline-container-headline-136" class="outline-2">
 <h2 id="headline-136">
-Effective and modern
+Features overview
 </h2>
 <div id="outline-text-headline-136" class="outline-text-2">
 <div id="outline-container-headline-137" class="outline-3">
 <h3 id="headline-137">
-Template type deduction
+C++ 20
 </h3>
 <div id="outline-text-headline-137" class="outline-text-3">
+<div id="outline-container-headline-138" class="outline-4">
+<h4 id="headline-138">
+Range-based for loops with initializer
+</h4>
+<div id="outline-text-headline-138" class="outline-text-4">
+<p>
+Loops through an object elements.</p>
+<div class="src src-c++">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#c00;font-weight:bold">#include</span> <span style="color:#c00;font-weight:bold">&lt;iostream&gt;</span><span style="color:#c00;font-weight:bold">
+</span><span style="color:#c00;font-weight:bold">#include</span> <span style="color:#c00;font-weight:bold">&lt;vector&gt;</span><span style="color:#c00;font-weight:bold">
+</span><span style="color:#c00;font-weight:bold"></span>
+<span style="color:#888;font-weight:bold">int</span> <span style="color:#06b;font-weight:bold">main</span> () {
+<span style="color:#080;font-weight:bold">for</span> (std::vector&lt;<span style="color:#888;font-weight:bold">int</span>&gt; v{<span style="color:#00d;font-weight:bold">1</span>, <span style="color:#00d;font-weight:bold">2</span>, <span style="color:#00d;font-weight:bold">3</span>}; <span style="color:#080;font-weight:bold">auto</span>&amp; <span style="color:#369;font-style:italic">e</span> : v) {
+  std::cout &lt;&lt; e;
+ }
+}</code></pre></div>
+</div>
+<pre class="example">
+123
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-139" class="outline-2">
+<h2 id="headline-139">
+Effective and modern
+</h2>
+<div id="outline-text-headline-139" class="outline-text-2">
+<div id="outline-container-headline-140" class="outline-3">
+<h3 id="headline-140">
+Template type deduction
+</h3>
+<div id="outline-text-headline-140" class="outline-text-3">
 <p>Frees you from typing obvious or redundant types.</p>
 <p>
 Appears in calls to function templates and when auto is used. </p>
 </div>
 </div>
-<div id="outline-container-headline-138" class="outline-3">
-<h3 id="headline-138">
+<div id="outline-container-headline-141" class="outline-3">
+<h3 id="headline-141">
 <span class="todo">TODO</span>
 <code class="verbatim">auto</code> type deduction (2 Meyers)
 </h3>
-<div id="outline-text-headline-138" class="outline-text-3">
-<div id="outline-container-headline-139" class="outline-4">
-<h4 id="headline-139">
+<div id="outline-text-headline-141" class="outline-text-3">
+<div id="outline-container-headline-142" class="outline-4">
+<h4 id="headline-142">
 Why prefer <code class="verbatim">auto</code> to explicit type declarations?
 </h4>
 </div>
 </div>
 </div>
-<div id="outline-container-headline-140" class="outline-3">
-<h3 id="headline-140">
+<div id="outline-container-headline-143" class="outline-3">
+<h3 id="headline-143">
 Smart pointers
 </h3>
-<div id="outline-text-headline-140" class="outline-text-3">
-<div id="outline-container-headline-141" class="outline-4">
-<h4 id="headline-141">
+<div id="outline-text-headline-143" class="outline-text-3">
+<div id="outline-container-headline-144" class="outline-4">
+<h4 id="headline-144">
 What is it smart about it?
 </h4>
 </div>
 </div>
 </div>
-<div id="outline-container-headline-142" class="outline-3">
-<h3 id="headline-142">
+<div id="outline-container-headline-145" class="outline-3">
+<h3 id="headline-145">
 Universal references (&amp;&amp;)
 </h3>
-<div id="outline-text-headline-142" class="outline-text-3">
-<div id="outline-container-headline-143" class="outline-4">
-<h4 id="headline-143">
+<div id="outline-text-headline-145" class="outline-text-3">
+<div id="outline-container-headline-146" class="outline-4">
+<h4 id="headline-146">
 What is an universal reference?
 </h4>
-<div id="outline-text-headline-143" class="outline-text-4">
+<div id="outline-text-headline-146" class="outline-text-4">
 <p>It is a term to describe the concept of: taking an <code class="verbatim">rvalue</code> reference to a cv-unqualified template, which can be deduced as a <code class="verbatim">rvalue</code> or <code class="verbatim">lvalue</code>.</p>
 <div class="src src-c++">
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#c00;font-weight:bold">#include</span> <span style="color:#c00;font-weight:bold">&lt;iostream&gt;</span><span style="color:#c00;font-weight:bold">
@@ -3854,22 +3890,22 @@ Widget(Widget&amp;&amp; rhs);		<span style="color:#888">// an argument to this c
 </div>
 </div>
 </div>
-<div id="outline-container-headline-144" class="outline-3">
-<h3 id="headline-144">
+<div id="outline-container-headline-147" class="outline-3">
+<h3 id="headline-147">
 Modern practices
 </h3>
-<div id="outline-text-headline-144" class="outline-text-3">
-<div id="outline-container-headline-145" class="outline-4">
-<h4 id="headline-145">
+<div id="outline-text-headline-147" class="outline-text-3">
+<div id="outline-container-headline-148" class="outline-4">
+<h4 id="headline-148">
 <span class="todo">TODO</span>
 Why choose <code class="verbatim">()</code> instead <code class="verbatim">{}</code> when creating objects matter? (7 Mayers)
 </h4>
-<div id="outline-text-headline-145" class="outline-text-4">
-<div id="outline-container-headline-146" class="outline-5">
-<h5 id="headline-146">
+<div id="outline-text-headline-148" class="outline-text-4">
+<div id="outline-container-headline-149" class="outline-5">
+<h5 id="headline-149">
 Possible initialization operators
 </h5>
-<div id="outline-text-headline-146" class="outline-text-5">
+<div id="outline-text-headline-149" class="outline-text-5">
 <p>Object initilization:</p>
 <ol>
 <li>
@@ -3887,11 +3923,11 @@ Possible initialization operators
 </ol>
 </div>
 </div>
-<div id="outline-container-headline-147" class="outline-5">
-<h5 id="headline-147">
+<div id="outline-container-headline-150" class="outline-5">
+<h5 id="headline-150">
 Problems with <code class="verbatim">= {};</code> 
 </h5>
-<div id="outline-text-headline-147" class="outline-text-5">
+<div id="outline-text-headline-150" class="outline-text-5">
 <ol>
 <li>
 <p>Usage of equal sign is confused with object <em>assignment</em> (calls to <code class="verbatim">copy operator=</code>).</p>
@@ -3901,11 +3937,11 @@ Problems with <code class="verbatim">= {};</code>
 There are situations where initilization with <code class="verbatim">()</code> and <code class="verbatim">=</code> does not work, for instance default value of private class members and uncopyable objects respectively.</p>
 </div>
 </div>
-<div id="outline-container-headline-148" class="outline-5">
-<h5 id="headline-148">
+<div id="outline-container-headline-151" class="outline-5">
+<h5 id="headline-151">
 Narrowing conversion
 </h5>
-<div id="outline-text-headline-148" class="outline-text-5">
+<div id="outline-text-headline-151" class="outline-text-5">
 <p>Braced <code class="verbatim">{}</code> initialization prohibits <span style="text-decoration: underline;">implicit narrowing conversions</span> among built-in types.
 If the type of the expression in the brace in not guaranteed to be expressible by the <em>type of the object been initialized</em>, it gives an error.</p>
 <p>
@@ -3930,39 +3966,39 @@ The compiler just gives a warning: <code class="verbatim">clang: Type &#39;doubl
 </pre>
 </div>
 </div>
-<div id="outline-container-headline-149" class="outline-5">
-<h5 id="headline-149">
+<div id="outline-container-headline-152" class="outline-5">
+<h5 id="headline-152">
 Problems with <code class="verbatim">{}</code> braced initialization
 </h5>
-<div id="outline-text-headline-149" class="outline-text-5">
+<div id="outline-text-headline-152" class="outline-text-5">
 <p>
 If the class has a constructor, <em>ctor</em>, that has an <code class="verbatim">std::initilize_list</code> as argument it seems that the compiler &#34;strongly prefer&#34; overloads taking this list initialization constructor.</p>
 </div>
 </div>
 </div>
 </div>
-<div id="outline-container-headline-150" class="outline-4">
-<h4 id="headline-150">
+<div id="outline-container-headline-153" class="outline-4">
+<h4 id="headline-153">
 What are scoped <code class="verbatim">enums</code>?
 </h4>
 </div>
-<div id="outline-container-headline-151" class="outline-4">
-<h4 id="headline-151">
+<div id="outline-container-headline-154" class="outline-4">
+<h4 id="headline-154">
 What are special function generation?
 </h4>
 </div>
-<div id="outline-container-headline-152" class="outline-4">
-<h4 id="headline-152">
+<div id="outline-container-headline-155" class="outline-4">
+<h4 id="headline-155">
 Pass by value or pass by reference?
 </h4>
 </div>
 </div>
 </div>
-<div id="outline-container-headline-153" class="outline-3">
-<h3 id="headline-153">
+<div id="outline-container-headline-156" class="outline-3">
+<h3 id="headline-156">
 Abstract base class (ABC) or Template
 </h3>
-<div id="outline-text-headline-153" class="outline-text-3">
+<div id="outline-text-headline-156" class="outline-text-3">
 <p>When a function is intended to process on multiple object types.
 We can have an abstract class and multiple derived ones or a function with a template.</p>
 <p>
@@ -3976,36 +4012,36 @@ This can be hard to debug in some cases.</p>
 </div>
 </div>
 </div>
-<div id="outline-container-headline-154" class="outline-2">
-<h2 id="headline-154">
+<div id="outline-container-headline-157" class="outline-2">
+<h2 id="headline-157">
 Compiler
 </h2>
-<div id="outline-text-headline-154" class="outline-text-2">
-<div id="outline-container-headline-155" class="outline-4">
-<h4 id="headline-155">
+<div id="outline-text-headline-157" class="outline-text-2">
+<div id="outline-container-headline-158" class="outline-4">
+<h4 id="headline-158">
 Compilation
 </h4>
-<div id="outline-text-headline-155" class="outline-text-4">
+<div id="outline-text-headline-158" class="outline-text-4">
 <p>
 The <span style="text-decoration: underline;">compiler</span> translates the source code from human language to machine language (executable or object code).</p>
 </div>
 </div>
-<div id="outline-container-headline-156" class="outline-4">
-<h4 id="headline-156">
+<div id="outline-container-headline-159" class="outline-4">
+<h4 id="headline-159">
 Linking
 </h4>
-<div id="outline-text-headline-156" class="outline-text-4">
+<div id="outline-text-headline-159" class="outline-text-4">
 <p>All parts of the program must be compile and the resulted <span style="text-decoration: underline;">object code files <code class="verbatim">.obj</code> must be linked</span> to form an executable program.
 The linker is responsible for linking.</p>
 <p>
 Object code and executable <strong>are not portable</strong> among different systems.</p>
 </div>
 </div>
-<div id="outline-container-headline-157" class="outline-4">
-<h4 id="headline-157">
+<div id="outline-container-headline-160" class="outline-4">
+<h4 id="headline-160">
 Makefile
 </h4>
-<div id="outline-text-headline-157" class="outline-text-4">
+<div id="outline-text-headline-160" class="outline-text-4">
 <p>
 It is a file that manages the compiling of a project (multiple c++ files). 
 When you call <code class="verbatim">make</code> it uses the <code class="verbatim">Makefile</code> instructions.</p>
@@ -4042,11 +4078,11 @@ commands
 </pre>
 </div>
 </div>
-<div id="outline-container-headline-158" class="outline-4">
-<h4 id="headline-158">
+<div id="outline-container-headline-161" class="outline-4">
+<h4 id="headline-161">
 Configure
 </h4>
-<div id="outline-text-headline-158" class="outline-text-4">
+<div id="outline-text-headline-161" class="outline-text-4">
 <p>This script is used to set up the building process.
 The set up involves making sure that all tools necessary are available in the <span style="text-decoration: underline;">specific environment</span> where the program is going to be built.
 For instance, which compiler is it going to use to translate the source code?</p>
@@ -4057,32 +4093,32 @@ The <code class="verbatim">./configure</code> script examines the system and get
 Usually the <code class="verbatim">./configure</code> and <code class="verbatim">Makefile.in</code> template are automatically generated with other tools.</p>
 </div>
 </div>
-<div id="outline-container-headline-159" class="outline-4">
-<h4 id="headline-159">
+<div id="outline-container-headline-162" class="outline-4">
+<h4 id="headline-162">
 Make
 </h4>
-<div id="outline-text-headline-159" class="outline-text-4">
+<div id="outline-text-headline-162" class="outline-text-4">
 <p>
 The command <code class="verbatim">make</code> is responsible to &#34;<span style="text-decoration: underline;">build</span>&#34; the software.
 It takes the <code class="verbatim">./Makefile</code> and build the first target.
-The <code class="verbatim">Makefile</code> has <span style="text-decoration: underline;">instructions to compile</span> all the files that we need for our program.</p>
+The <code class="verbatim">Makefile</code> has <span style="text-decoration: underline;">instructions to compile</span> (and linking) all the files that we need for our program to work.</p>
 </div>
 </div>
-<div id="outline-container-headline-160" class="outline-4">
-<h4 id="headline-160">
+<div id="outline-container-headline-163" class="outline-4">
+<h4 id="headline-163">
 Subsequent <code class="verbatim">Make</code> calls
 </h4>
-<div id="outline-text-headline-160" class="outline-text-4">
+<div id="outline-text-headline-163" class="outline-text-4">
 <p>
 When we run <code class="verbatim">make</code> it will check if the file with target: &#34;all&#34; is updated.
 If it is not newer than its dependencies, it will call the command to <span style="text-decoration: underline;">rebuild</span> the binary.</p>
 </div>
 </div>
-<div id="outline-container-headline-161" class="outline-4">
-<h4 id="headline-161">
+<div id="outline-container-headline-164" class="outline-4">
+<h4 id="headline-164">
 Make usage
 </h4>
-<div id="outline-text-headline-161" class="outline-text-4">
+<div id="outline-text-headline-164" class="outline-text-4">
 <p>If we want to compile <code class="verbatim">main.cpp</code> (from the example in <a href="*Using dynamic libraries">Using dynamic libraries</a>) for instance, the <code class="verbatim">Makefile</code> should have</p>
 <pre class="example">
 default:
@@ -4102,11 +4138,11 @@ clang++ main.cpp mymath.cpp -o output_with_make.out
 References: <a href="https://makefiletutorial.com/">Makefile Tutorial By Example</a></p>
 </div>
 </div>
-<div id="outline-container-headline-162" class="outline-4">
-<h4 id="headline-162">
+<div id="outline-container-headline-165" class="outline-4">
+<h4 id="headline-165">
 Make install
 </h4>
-<div id="outline-text-headline-162" class="outline-text-4">
+<div id="outline-text-headline-165" class="outline-text-4">
 <p>
 The command <code class="verbatim">make install</code> copies the binaries from the step (with <code class="verbatim">make</code>) and put them into appropriate locations to be accessed.</p>
 <p>
@@ -4118,25 +4154,27 @@ If the location requires administrative privileges we can use <code class="verba
 </div>
 </div>
 </div>
-<div id="outline-container-headline-163" class="outline-2">
-<h2 id="headline-163">
+<div id="outline-container-headline-166" class="outline-2">
+<h2 id="headline-166">
 CMake
 </h2>
-<div id="outline-text-headline-163" class="outline-text-2">
-<div id="outline-container-headline-164" class="outline-3">
-<h3 id="headline-164">
+<div id="outline-text-headline-166" class="outline-text-2">
+<div id="outline-container-headline-167" class="outline-3">
+<h3 id="headline-167">
 Introduction
 </h3>
-<div id="outline-text-headline-164" class="outline-text-3">
+<div id="outline-text-headline-167" class="outline-text-3">
 <p>CMake is a system that manages the build process (configures the project) of a executable or library.
 The build process consist of configuring and generating project files, the <em>setup stage</em>.
-These project files work together with a native build tools (make for Linux, visual studio).
-It substitute the manual creation of Makefiles.</p>
+These project files work together with a native build tools (make for Linux, visual studio, ninja).
+<span style="text-decoration: underline;">It substitute the manual creation of Makefiles.</span></p>
 <p>
 CMake uses <code class="verbatim">CMakeLists.txt</code> file in the source directory with configuration to generate &#34;standard build files&#34;, e.g. makefiles on Linux and projects/workspaces on Windows.</p>
 <p>
-CMake can create <em>native build environment</em> (?) to compile the source code, <em>create libraries</em> (?), 
+CMake can create <em>native build environment</em> (for a specific system) to compile the source code, <em>create libraries</em> (?), 
 A build environment is what a specific system uses to create executables from source code and libraries as well.
+The build files contain calls to the compiler.</p>
+<p>
 In Linux, the command <code class="verbatim">make</code> is responsible for that, whereas in windows, visual studio handles the build process.</p>
 <p>
 A typical <code class="verbatim">CMakeLists.txt</code> would contain:</p>
@@ -4151,11 +4189,34 @@ add_executable(project_name main.cpp)
 Reference: <a href="https://tuannguyen68.gitbooks.io/learning-cmake-a-beginner-s-guide/content/chap1/chap1.html">Tutorial 1: Let&amp;apos;s start with CMake | Learning CMake: A beginner&amp;apos;s g…</a></p>
 </div>
 </div>
-<div id="outline-container-headline-165" class="outline-3">
-<h3 id="headline-165">
+<div id="outline-container-headline-168" class="outline-3">
+<h3 id="headline-168">
+Difference between compiler, build system and CMake
+</h3>
+<div id="outline-text-headline-168" class="outline-text-3">
+<p>
+Compiler is the program that transforms the source code in a executable one.
+For example, <code class="verbatim">gcc</code>, <code class="verbatim">clang</code> and so on.</p>
+<p>
+Over time, there were so many flags been passed to the compiler that it was inconvenient to type them every time.
+People starting creating a script with those compiler calls.
+This evolved to the &#34;build system&#34;, <code class="verbatim">make</code> or <code class="verbatim">ninja</code>.</p>
+<p>
+When people wanted the support their software on multiple platforms and different compilers, the build system became too error prone and hard to maintain.
+Then, they created a &#34;meta&#34; build system, something to create the build system depending on the environment.
+For example <code class="verbatim">CMake</code> and <code class="verbatim">Autotools</code>.</p>
+<ol>
+<li>
+<p><a href="https://stackoverflow.com/questions/39761924/understanding-roles-of-cmake-make-and-gcc">makefile - Understanding roles of CMake, make and GCC - Stack Overflow</a></p>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-headline-169" class="outline-3">
+<h3 id="headline-169">
 Project setup
 </h3>
-<div id="outline-text-headline-165" class="outline-text-3">
+<div id="outline-text-headline-169" class="outline-text-3">
 <p>
 A build system transforms a collection of files into a coherent project.
 CMake uses <code class="verbatim">CMakeLists.txt</code> to define what should be built, how is built, what tests to run and what packages to create.
@@ -4165,11 +4226,11 @@ A project has a source directory, <code class="verbatim">src</code>, and a binar
 The binary directory is the destination of everything the build system creates, e.g. executables, libraries, test output and packages.</p>
 </div>
 </div>
-<div id="outline-container-headline-166" class="outline-3">
-<h3 id="headline-166">
+<div id="outline-container-headline-170" class="outline-3">
+<h3 id="headline-170">
 File generator
 </h3>
-<div id="outline-text-headline-166" class="outline-text-3">
+<div id="outline-text-headline-170" class="outline-text-3">
 <p>
 Makefiles, visual studio and ninja.
 CMake produce <em>project files</em> that are adequate to a particular file generator depending o the system.</p>
@@ -4177,16 +4238,16 @@ CMake produce <em>project files</em> that are adequate to a particular file gene
 The project files creating involves 1) configuring and 2) generating.</p>
 </div>
 </div>
-<div id="outline-container-headline-167" class="outline-3">
-<h3 id="headline-167">
+<div id="outline-container-headline-171" class="outline-3">
+<h3 id="headline-171">
 Using CMake
 </h3>
-<div id="outline-text-headline-167" class="outline-text-3">
-<div id="outline-container-headline-168" class="outline-4">
-<h4 id="headline-168">
+<div id="outline-text-headline-171" class="outline-text-3">
+<div id="outline-container-headline-172" class="outline-4">
+<h4 id="headline-172">
 Basic setup
 </h4>
-<div id="outline-text-headline-168" class="outline-text-4">
+<div id="outline-text-headline-172" class="outline-text-4">
 <p>If we want to build our <code class="verbatim">main.cpp</code> with the content:</p>
 <div class="src src-c++">
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#c00;font-weight:bold">#include</span> <span style="color:#c00;font-weight:bold">&lt;iostream&gt;</span><span style="color:#c00;font-weight:bold">
@@ -4230,7 +4291,8 @@ mymath.cpp
 mymath.h
 </pre>
 <p>
-Then, to get out our configured build system from CMake we create a separate <code class="verbatim">/build/</code> folder and run <code class="verbatim">cmake</code> on our source code:</p>
+Then, to get out our configured build system from CMake we create a separate <code class="verbatim">/build/</code> folder and run <code class="verbatim">cmake</code> on our source code:
+The <code class="verbatim">-S</code> is where <code class="verbatim">CMakeList.txt</code> is.</p>
 <div class="src src-shell">
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">mkdir build			<span style="color:#888"># create build directory</span>
 <span style="color:#038">cd</span> build			<span style="color:#888"># go to the build directory</span>
@@ -4308,11 +4370,11 @@ cmake_install.cmake
 Reference: <a href="https://cmake.org/cmake/help/git-stage/guide/tutorial/index.html">CMake Tutorial — CMake 3.20.20210421-g8d4c864 Documentation</a></p>
 </div>
 </div>
-<div id="outline-container-headline-169" class="outline-4">
-<h4 id="headline-169">
+<div id="outline-container-headline-173" class="outline-4">
+<h4 id="headline-173">
 Adding information to <code class="verbatim">CMakeLists.txt</code>
 </h4>
-<div id="outline-text-headline-169" class="outline-text-4">
+<div id="outline-text-headline-173" class="outline-text-4">
 <p>
 Now, if we have a <code class="verbatim">CMakeLists.txt</code> with just a reference to our main file</p>
 <pre class="example">
@@ -4358,11 +4420,11 @@ make</code></pre></div>
 we get an error saying that a reference is undefined.</p>
 </div>
 </div>
-<div id="outline-container-headline-170" class="outline-4">
-<h4 id="headline-170">
+<div id="outline-container-headline-174" class="outline-4">
+<h4 id="headline-174">
 Adding multiple sources to <code class="verbatim">CMakeLists.txt</code>
 </h4>
-<div id="outline-text-headline-170" class="outline-text-4">
+<div id="outline-text-headline-174" class="outline-text-4">
 <p>Adding a reference to the file with the function definition.</p>
 <pre class="example">
 cmake_minimum_required(VERSION 3.17)
@@ -4409,11 +4471,11 @@ and we can run the code by calling the executable</p>
 </pre>
 </div>
 </div>
-<div id="outline-container-headline-171" class="outline-4">
-<h4 id="headline-171">
+<div id="outline-container-headline-175" class="outline-4">
+<h4 id="headline-175">
 Adding a dynamic library to <code class="verbatim">CMakeLists.txt</code>
 </h4>
-<div id="outline-text-headline-171" class="outline-text-4">
+<div id="outline-text-headline-175" class="outline-text-4">
 <p>
 Now we want to compile our project using a ready to use dynamic library created by someone else.
 For the example lets compile our dynamic/shared library with the function definition.</p>
@@ -4489,11 +4551,11 @@ Then running the generated executable</p>
 </div>
 </div>
 </div>
-<div id="outline-container-headline-172" class="outline-3">
-<h3 id="headline-172">
+<div id="outline-container-headline-176" class="outline-3">
+<h3 id="headline-176">
 When should I rerun <code class="verbatim">cmake</code>
 </h3>
-<div id="outline-text-headline-172" class="outline-text-3">
+<div id="outline-text-headline-176" class="outline-text-3">
 <p>
 The build targets created by <code class="verbatim">cmake</code> automatically include checks for each file.
 When <code class="verbatim">make</code> is called, it will re run <code class="verbatim">cmake</code> if necessary.</p>
@@ -4502,13 +4564,29 @@ If you change build settings, then you need to re run <code class="verbatim">cma
 <code class="verbatim">--target clean</code> to remove old files.</p>
 </div>
 </div>
+<div id="outline-container-headline-177" class="outline-3">
+<h3 id="headline-177">
+Questions
+</h3>
+<div id="outline-text-headline-177" class="outline-text-3">
+<div id="outline-container-headline-178" class="outline-4">
+<h4 id="headline-178">
+Changed installation path, need to rerun <code class="verbatim">cmake</code> and <code class="verbatim">make</code>?
+</h4>
+<div id="outline-text-headline-178" class="outline-text-4">
+<p>
+No, just <code class="verbatim">make install DESTDIR=&lt;new path</code>.</p>
 </div>
 </div>
-<div id="outline-container-headline-173" class="outline-2">
-<h2 id="headline-173">
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-179" class="outline-2">
+<h2 id="headline-179">
 References
 </h2>
-<div id="outline-text-headline-173" class="outline-text-2">
+<div id="outline-text-headline-179" class="outline-text-2">
 <ul>
 <li>
 <p>Stroustrup, B. (2014). Programming: principles and practice using C++. Upper Saddle River, NJ: Addison-Wesley.</p>
@@ -4518,6 +4596,9 @@ References
 </li>
 <li>
 <p>Scott, C. (). Professional CMake. : .</p>
+</li>
+<li>
+<p><a href="https://github.com/AnthonyCalandra/modern-cpp-features">GitHub - AnthonyCalandra/modern-cpp-features: A cheatsheet of modern C++ lang…</a></p>
 </li>
 </ul>
 </div>
@@ -4945,99 +5026,117 @@ References
 </li>
 </ul>
 </li>
-<li><a href="#headline-136">Effective and modern</a>
+<li><a href="#headline-136">Features overview</a>
 <ul>
-<li><a href="#headline-137">Template type deduction</a>
-</li>
-<li><a href="#headline-138"><code class="verbatim">auto</code> type deduction (2 Meyers)</a>
+<li><a href="#headline-137">C++ 20</a>
 <ul>
-<li><a href="#headline-139">Why prefer <code class="verbatim">auto</code> to explicit type declarations?</a>
+<li><a href="#headline-138">Range-based for loops with initializer</a>
 </li>
 </ul>
 </li>
-<li><a href="#headline-140">Smart pointers</a>
+</ul>
+</li>
+<li><a href="#headline-139">Effective and modern</a>
 <ul>
-<li><a href="#headline-141">What is it smart about it?</a>
+<li><a href="#headline-140">Template type deduction</a>
 </li>
-</ul>
-</li>
-<li><a href="#headline-142">Universal references (&amp;&amp;)</a>
+<li><a href="#headline-141"><code class="verbatim">auto</code> type deduction (2 Meyers)</a>
 <ul>
-<li><a href="#headline-143">What is an universal reference?</a>
+<li><a href="#headline-142">Why prefer <code class="verbatim">auto</code> to explicit type declarations?</a>
 </li>
 </ul>
 </li>
-<li><a href="#headline-144">Modern practices</a>
+<li><a href="#headline-143">Smart pointers</a>
 <ul>
-<li><a href="#headline-145">Why choose <code class="verbatim">()</code> instead <code class="verbatim">{}</code> when creating objects matter? (7 Mayers)</a>
+<li><a href="#headline-144">What is it smart about it?</a>
+</li>
+</ul>
+</li>
+<li><a href="#headline-145">Universal references (&amp;&amp;)</a>
 <ul>
-<li><a href="#headline-146">Possible initialization operators</a>
-</li>
-<li><a href="#headline-147">Problems with <code class="verbatim">= {};</code> </a>
-</li>
-<li><a href="#headline-148">Narrowing conversion</a>
-</li>
-<li><a href="#headline-149">Problems with <code class="verbatim">{}</code> braced initialization</a>
+<li><a href="#headline-146">What is an universal reference?</a>
 </li>
 </ul>
 </li>
-<li><a href="#headline-150">What are scoped <code class="verbatim">enums</code>?</a>
-</li>
-<li><a href="#headline-151">What are special function generation?</a>
-</li>
-<li><a href="#headline-152">Pass by value or pass by reference?</a>
-</li>
-</ul>
-</li>
-<li><a href="#headline-153">Abstract base class (ABC) or Template</a>
-</li>
-</ul>
-</li>
-<li><a href="#headline-154">Compiler</a>
+<li><a href="#headline-147">Modern practices</a>
 <ul>
-<li><a href="#headline-155">Compilation</a>
-</li>
-<li><a href="#headline-156">Linking</a>
-</li>
-<li><a href="#headline-157">Makefile</a>
-</li>
-<li><a href="#headline-158">Configure</a>
-</li>
-<li><a href="#headline-159">Make</a>
-</li>
-<li><a href="#headline-160">Subsequent <code class="verbatim">Make</code> calls</a>
-</li>
-<li><a href="#headline-161">Make usage</a>
-</li>
-<li><a href="#headline-162">Make install</a>
-</li>
-</ul>
-</li>
-<li><a href="#headline-163">CMake</a>
+<li><a href="#headline-148">Why choose <code class="verbatim">()</code> instead <code class="verbatim">{}</code> when creating objects matter? (7 Mayers)</a>
 <ul>
-<li><a href="#headline-164">Introduction</a>
+<li><a href="#headline-149">Possible initialization operators</a>
 </li>
-<li><a href="#headline-165">Project setup</a>
+<li><a href="#headline-150">Problems with <code class="verbatim">= {};</code> </a>
 </li>
-<li><a href="#headline-166">File generator</a>
+<li><a href="#headline-151">Narrowing conversion</a>
 </li>
-<li><a href="#headline-167">Using CMake</a>
+<li><a href="#headline-152">Problems with <code class="verbatim">{}</code> braced initialization</a>
+</li>
+</ul>
+</li>
+<li><a href="#headline-153">What are scoped <code class="verbatim">enums</code>?</a>
+</li>
+<li><a href="#headline-154">What are special function generation?</a>
+</li>
+<li><a href="#headline-155">Pass by value or pass by reference?</a>
+</li>
+</ul>
+</li>
+<li><a href="#headline-156">Abstract base class (ABC) or Template</a>
+</li>
+</ul>
+</li>
+<li><a href="#headline-157">Compiler</a>
 <ul>
-<li><a href="#headline-168">Basic setup</a>
+<li><a href="#headline-158">Compilation</a>
 </li>
-<li><a href="#headline-169">Adding information to <code class="verbatim">CMakeLists.txt</code></a>
+<li><a href="#headline-159">Linking</a>
 </li>
-<li><a href="#headline-170">Adding multiple sources to <code class="verbatim">CMakeLists.txt</code></a>
+<li><a href="#headline-160">Makefile</a>
 </li>
-<li><a href="#headline-171">Adding a dynamic library to <code class="verbatim">CMakeLists.txt</code></a>
+<li><a href="#headline-161">Configure</a>
+</li>
+<li><a href="#headline-162">Make</a>
+</li>
+<li><a href="#headline-163">Subsequent <code class="verbatim">Make</code> calls</a>
+</li>
+<li><a href="#headline-164">Make usage</a>
+</li>
+<li><a href="#headline-165">Make install</a>
 </li>
 </ul>
 </li>
-<li><a href="#headline-172">When should I rerun <code class="verbatim">cmake</code></a>
+<li><a href="#headline-166">CMake</a>
+<ul>
+<li><a href="#headline-167">Introduction</a>
+</li>
+<li><a href="#headline-168">Difference between compiler, build system and CMake</a>
+</li>
+<li><a href="#headline-169">Project setup</a>
+</li>
+<li><a href="#headline-170">File generator</a>
+</li>
+<li><a href="#headline-171">Using CMake</a>
+<ul>
+<li><a href="#headline-172">Basic setup</a>
+</li>
+<li><a href="#headline-173">Adding information to <code class="verbatim">CMakeLists.txt</code></a>
+</li>
+<li><a href="#headline-174">Adding multiple sources to <code class="verbatim">CMakeLists.txt</code></a>
+</li>
+<li><a href="#headline-175">Adding a dynamic library to <code class="verbatim">CMakeLists.txt</code></a>
 </li>
 </ul>
 </li>
-<li><a href="#headline-173">References</a>
+<li><a href="#headline-176">When should I rerun <code class="verbatim">cmake</code></a>
+</li>
+<li><a href="#headline-177">Questions</a>
+<ul>
+<li><a href="#headline-178">Changed installation path, need to rerun <code class="verbatim">cmake</code> and <code class="verbatim">make</code>?</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#headline-179">References</a>
 </li>
 </ul>
 </nav>
