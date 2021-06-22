@@ -10,20 +10,20 @@
     <lastBuildDate>Wed, 09 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>NLP with Python</title>
-      <link>https://nasseralkmim.github.io/notes/nlp-with-python/</link>
+      <link>https://nasseralkmim.github.io/notes/nlp-python/</link>
       <pubDate>Wed, 09 Dec 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://nasseralkmim.github.io/notes/nlp-with-python/</guid>
+      <guid>https://nasseralkmim.github.io/notes/nlp-python/</guid>
       <description>Introduction  This is an attempt to compile different sources of informations about Natural Language processing with python.
   Techiniques used in NLP  Tokenization  Converts text into segments (n-grams) that could represent a word, two words or more.</description>
     </item>
     
     <item>
       <title>Text processing with spaCy</title>
-      <link>https://nasseralkmim.github.io/notes/text-processing-with-spacy/</link>
+      <link>https://nasseralkmim.github.io/notes/text-processing-python/</link>
       <pubDate>Wed, 09 Dec 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://nasseralkmim.github.io/notes/text-processing-with-spacy/</guid>
+      <guid>https://nasseralkmim.github.io/notes/text-processing-python/</guid>
       <description>Introduction   spaCy is a library for Natural Language Processing (NLP) in python. It offers multiple solutions for text processing such as tokenization, named entity recognition, word vectors, part of speech tagging.</description>
     </item>
     

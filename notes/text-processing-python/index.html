@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <title>Text processing with spaCy | Notes</title>
+
+  <meta charset="UTF-8">
+  <meta name="language" content="en">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  
+  
+
+  <link rel="shortcut icon" type="image/png" href="/favicon.ico" />
+
+
+  
+  
+    
+ 
+  
+  
+  
+  
+  
+  
+    
+    <link type="text/css" rel="stylesheet" href="/css/post.min.c5b1d93a95eba82eb3565c32d5a2502c5432f2fc02567098c786e5273ba634ca.css" integrity="sha256-xbHZOpXrqC6zVlwy1aJQLFQy8vwCVnCYx4blJzumNMo="/>
+  
+    
+    <link type="text/css" rel="stylesheet" href="/css/custom.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" integrity="sha256-47DEQpj8HBSa&#43;/TImW&#43;5JCeuQeRkm5NMpJWZG3hSuFU="/>
+  
+  
+   
+   
+    
+
+<script type="application/ld+json">
+  
+    { 
+      "@context": "http://schema.org", 
+      "@type": "WebSite", 
+      "url": "https:\/\/nasseralkmim.github.io\/notes\/text-processing-python\/",
+      "name": "Text processing with spaCy",
+      "author": {
+        "@type": "Person",
+        "name": ""
+      },
+      "description": ""
+    }
+  
+  </script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-74704246-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+</head>
+
+<body>
+  <div class="burger__container">
+  <div class="burger" aria-controls="navigation" aria-label="Menu">
+    <div class="burger__meat burger__meat--1"></div>
+    <div class="burger__meat burger__meat--2"></div>
+    <div class="burger__meat burger__meat--3"></div>
+  </div>
+</div>
+ 
+
+  <nav class="nav" id="navigation">
+  <ul class="nav__list">
+    
+    
+      <li>
+        <a  href="/">about</a>
+      </li>
+    
+      <li>
+        <a  class="active"
+         href="/notes">notes</a>
+      </li>
+    
+  </ul>
+</nav>
+
+
+  <main>
+    
+    
+
+    <div class="flex-wrapper">
+      <div class="post__container">
+        <div class="post">
+          <header class="post__header">
+            <h1 id="post__title">Text processing with spaCy</h1>
+            <time datetime="2020-12-09 00:00:00 &#43;0000 UTC" class="post__date">Dec 9 2020</time> 
+          </header>
+          <article class="post__content">
+              
+
+<div id="outline-container-headline-1" class="outline-2">
+<h2 id="headline-1">
+Introduction
+</h2>
+<div id="outline-text-headline-1" class="outline-text-2">
+<p>
+spaCy is a library for Natural Language Processing (NLP) in python.
+It offers multiple solutions for text processing such as tokenization, named entity recognition, word vectors, part of speech tagging.
+The alternative is the library NLTK which seems to be used mostly in academia whereas spaCy is recommended for production use.</p>
+</div>
+</div>
+<div id="outline-container-headline-2" class="outline-2">
+<h2 id="headline-2">
+Load the language model
+</h2>
+<div id="outline-text-headline-2" class="outline-text-2">
+<p>We need to download the models for the language with <code class="verbatim">python -m spacy download model-name.</code>
+Then we can load the language model in our code by creating a <code class="verbatim">Language</code> object.
+This object has all the data and methods required to process the text.
+By calling this object on a string of text we get a processed object <code class="verbatim">Doc</code>, which is a sequence of <code class="verbatim">Token</code> objects.
+The <code class="verbatim">Doc</code> object has a <code class="verbatim">__getitem__()</code> method which enabled the container to be accessed like a list.</p>
+<div class="src src-python">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">import</span> <span style="color:#b06;font-weight:bold">spacy</span>
+nlp = spacy.load(<span style="color:#d20;background-color:#fff0f0">&#39;pt_core_news_sm&#39;</span>)
+text = <span style="color:#d20;background-color:#fff0f0">&#34;&#34;&#34;Joaquim Maria Machado de Assis (Rio de Janeiro, 21 de junho de
+</span><span style="color:#d20;background-color:#fff0f0">1839 — Rio de Janeiro, 29 de setembro de 1908) foi um escritor
+</span><span style="color:#d20;background-color:#fff0f0">brasileiro, considerado por muitos críticos, estudiosos, escritores e
+</span><span style="color:#d20;background-color:#fff0f0">leitores um dos maiores senão o maior nome da literatura do Brasil.&#34;&#34;&#34;</span>
+doc = nlp(text)
+<span style="color:#080;font-weight:bold">print</span>(doc, <span style="color:#038">type</span>(doc))</code></pre></div>
+</div>
+<pre class="example">
+Joaquim Maria Machado de Assis (Rio de Janeiro, 21 de junho de
+1839 — Rio de Janeiro, 29 de setembro de 1908) foi um escritor
+brasileiro, considerado por muitos críticos, estudiosos, escritores e
+leitores um dos maiores senão o maior nome da literatura do Brasil. &lt;class &#39;spacy.tokens.doc.Doc&#39;&gt;
+</pre>
+</div>
+</div>
+<div id="outline-container-headline-3" class="outline-2">
+<h2 id="headline-3">
+Tokenization
+</h2>
+<div id="outline-text-headline-3" class="outline-text-2">
+<p>
+When the string is processed into <code class="verbatim">Doc</code> spaCy automatically tokenizes the text.
+Which is the process of dividing the text in individual entities.</p>
+<div class="src src-python">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">for</span> token <span style="color:#080">in</span> doc[:<span style="color:#00d;font-weight:bold">10</span>]:
+    <span style="color:#080;font-weight:bold">print</span>(token.text)</code></pre></div>
+</div>
+<pre class="example">
+Joaquim
+Maria
+Machado
+de
+Assis
+(
+Rio
+de
+Janeiro
+,
+</pre>
+<p>
+We can see it considers already punctuation rules.</p>
+</div>
+</div>
+<div id="outline-container-headline-4" class="outline-2">
+<h2 id="headline-4">
+Part of speech (POS)
+</h2>
+<div id="outline-text-headline-4" class="outline-text-2">
+<p>
+Part of speech tagging is a process in which we want to know what word type our tokens are.
+The model loaded was trained to be capable of associate words to its type.
+We need to use <code class="verbatim">token.pos_</code> in order to get a readable string.</p>
+<div class="src src-python">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">for</span> token <span style="color:#080">in</span> doc[:<span style="color:#00d;font-weight:bold">10</span>]:
+    <span style="color:#080;font-weight:bold">print</span>(token.text, token.pos_)</code></pre></div>
+</div>
+<pre class="example">
+Joaquim PROPN
+Maria PROPN
+Machado PROPN
+de ADP
+Assis PROPN
+( PUNCT
+Rio PROPN
+de ADP
+Janeiro PROPN
+, PUNCT
+</pre>
+<p>
+we can see the types: PROPN (proper noun), ADP (adposition), PUNCT (punctuation).</p>
+<p>
+spaCy offers a really neat form of displaying the text.</p>
+<div class="src src-python">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">spacy.displacy.render(doc[:<span style="color:#00d;font-weight:bold">5</span>])</code></pre></div>
+</div>
+<span class="tex2jax_ignore"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:lang="pt" id="4f5594799d994e6689374bbd276acd3b-0" class="displacy" width="925" height="399.5" direction="ltr" style="max-width: none; height: 399.5px; color: #000000; background: #ffffff; font-family: Arial; direction: ltr">
+<text class="displacy-token" fill="currentColor" text-anchor="middle" y="309.5">
+    <tspan class="displacy-word" fill="currentColor" x="50">Joaquim</tspan>
+    <tspan class="displacy-tag" dy="2em" fill="currentColor" x="50">PROPN</tspan>
+</text>
+
+<text class="displacy-token" fill="currentColor" text-anchor="middle" y="309.5">
+    <tspan class="displacy-word" fill="currentColor" x="225">Maria</tspan>
+    <tspan class="displacy-tag" dy="2em" fill="currentColor" x="225">PROPN</tspan>
+</text>
+
+<text class="displacy-token" fill="currentColor" text-anchor="middle" y="309.5">
+    <tspan class="displacy-word" fill="currentColor" x="400">Machado</tspan>
+    <tspan class="displacy-tag" dy="2em" fill="currentColor" x="400">PROPN</tspan>
+</text>
+
+<text class="displacy-token" fill="currentColor" text-anchor="middle" y="309.5">
+    <tspan class="displacy-word" fill="currentColor" x="575">de</tspan>
+    <tspan class="displacy-tag" dy="2em" fill="currentColor" x="575">ADP</tspan>
+</text>
+
+<text class="displacy-token" fill="currentColor" text-anchor="middle" y="309.5">
+    <tspan class="displacy-word" fill="currentColor" x="750">Assis</tspan>
+    <tspan class="displacy-tag" dy="2em" fill="currentColor" x="750">PROPN</tspan>
+</text>
+
+<g class="displacy-arrow">
+    <path class="displacy-arc" id="arrow-4f5594799d994e6689374bbd276acd3b-0-0" stroke-width="2px" d="M70,264.5 C70,177.0 215.0,177.0 215.0,264.5" fill="none" stroke="currentColor"/>
+    <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
+        <textPath xlink:href="#arrow-4f5594799d994e6689374bbd276acd3b-0-0" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">flat:name</textPath>
+    </text>
+    <path class="displacy-arrowhead" d="M215.0,266.5 L223.0,254.5 207.0,254.5" fill="currentColor"/>
+</g>
+
+<g class="displacy-arrow">
+    <path class="displacy-arc" id="arrow-4f5594799d994e6689374bbd276acd3b-0-1" stroke-width="2px" d="M70,264.5 C70,89.5 395.0,89.5 395.0,264.5" fill="none" stroke="currentColor"/>
+    <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
+        <textPath xlink:href="#arrow-4f5594799d994e6689374bbd276acd3b-0-1" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">flat:name</textPath>
+    </text>
+    <path class="displacy-arrowhead" d="M395.0,266.5 L403.0,254.5 387.0,254.5" fill="currentColor"/>
+</g>
+
+<g class="displacy-arrow">
+    <path class="displacy-arc" id="arrow-4f5594799d994e6689374bbd276acd3b-0-2" stroke-width="2px" d="M595,264.5 C595,177.0 740.0,177.0 740.0,264.5" fill="none" stroke="currentColor"/>
+    <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
+        <textPath xlink:href="#arrow-4f5594799d994e6689374bbd276acd3b-0-2" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">case</textPath>
+    </text>
+    <path class="displacy-arrowhead" d="M595,266.5 L587,254.5 603,254.5" fill="currentColor"/>
+</g>
+
+<g class="displacy-arrow">
+    <path class="displacy-arc" id="arrow-4f5594799d994e6689374bbd276acd3b-0-3" stroke-width="2px" d="M70,264.5 C70,2.0 750.0,2.0 750.0,264.5" fill="none" stroke="currentColor"/>
+    <text dy="1.25em" style="font-size: 0.8em; letter-spacing: 1px">
+        <textPath xlink:href="#arrow-4f5594799d994e6689374bbd276acd3b-0-3" class="displacy-label" startOffset="50%" side="left" fill="currentColor" text-anchor="middle">nmod</textPath>
+    </text>
+    <path class="displacy-arrowhead" d="M750.0,266.5 L758.0,254.5 742.0,254.5" fill="currentColor"/>
+</g>
+</svg></span>
+</div>
+</div>
+<div id="outline-container-headline-5" class="outline-2">
+<h2 id="headline-5">
+Named entity recognition (NER)
+</h2>
+<div id="outline-text-headline-5" class="outline-text-2">
+<p>The NER process aims to identify entities that represent something in reality (e.g. person, city, date).
+The attribute <code class="verbatim">doc.ents</code> are the named entities as a tuple.</p>
+<div class="src src-python">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">for</span> ent <span style="color:#080">in</span> doc.ents:
+    <span style="color:#080;font-weight:bold">print</span>(ent.text, ent.label_)</code></pre></div>
+</div>
+<pre class="example">
+Joaquim Maria Machado de Assis PER
+Rio de Janeiro LOC
+Rio de Janeiro LOC
+Brasil LOC
+</pre>
+<p>
+Very nice and easy.
+This result can also be display nicely.</p>
+<div class="src src-python">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">spacy.displacy.render(doc, style=<span style="color:#d20;background-color:#fff0f0">&#39;ent&#39;</span>)</code></pre></div>
+</div>
+<span class="tex2jax_ignore"><div class="entities" style="line-height: 2.5; direction: ltr">
+<mark class="entity" style="background: #ddd; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    Joaquim Maria Machado de Assis
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; text-transform: uppercase; vertical-align: middle; margin-left: 0.5rem">PER</span>
+</mark>
+ (
+<mark class="entity" style="background: #ff9561; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    Rio de Janeiro
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; text-transform: uppercase; vertical-align: middle; margin-left: 0.5rem">LOC</span>
+</mark>
+, 21 de junho de</br>1839 — 
+<mark class="entity" style="background: #ff9561; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    Rio de Janeiro
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; text-transform: uppercase; vertical-align: middle; margin-left: 0.5rem">LOC</span>
+</mark>
+, 29 de setembro de 1908) foi um escritor</br>brasileiro, considerado por muitos críticos, estudiosos, escritores e</br>leitores um dos maiores senão o maior nome da literatura do 
+<mark class="entity" style="background: #ff9561; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    Brasil
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; text-transform: uppercase; vertical-align: middle; margin-left: 0.5rem">LOC</span>
+</mark>
+.</div></span>
+<p>
+As we can see, it didn&#39;t recognize the dates.
+We can manually assign those.</p>
+<div class="src src-python">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">print</span>(doc[<span style="color:#00d;font-weight:bold">10</span>:<span style="color:#00d;font-weight:bold">16</span>])
+<span style="color:#080;font-weight:bold">from</span> <span style="color:#b06;font-weight:bold">spacy.tokens</span> <span style="color:#080;font-weight:bold">import</span> Span
+date_ent = Span(doc, <span style="color:#00d;font-weight:bold">10</span>, <span style="color:#00d;font-weight:bold">16</span>, label=<span style="color:#d20;background-color:#fff0f0">&#39;DATE&#39;</span>)
+doc.ents = <span style="color:#038">list</span>(doc.ents) + [date_ent] <span style="color:#888"># add a new ent to the list</span>
+spacy.displacy.render(doc, style=<span style="color:#d20;background-color:#fff0f0">&#39;ent&#39;</span>)</code></pre></div>
+</div>
+<pre class="example">
+21 de junho de
+1839
+</pre>
+<span class="tex2jax_ignore"><div class="entities" style="line-height: 2.5; direction: ltr">
+<mark class="entity" style="background: #ddd; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    Joaquim Maria Machado de Assis
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; text-transform: uppercase; vertical-align: middle; margin-left: 0.5rem">PER</span>
+</mark>
+ (
+<mark class="entity" style="background: #ff9561; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    Rio de Janeiro
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; text-transform: uppercase; vertical-align: middle; margin-left: 0.5rem">LOC</span>
+</mark>
+, 
+<mark class="entity" style="background: #bfe1d9; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    21 de junho de
+1839
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; text-transform: uppercase; vertical-align: middle; margin-left: 0.5rem">DATE</span>
+</mark>
+ — 
+<mark class="entity" style="background: #ff9561; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    Rio de Janeiro
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; text-transform: uppercase; vertical-align: middle; margin-left: 0.5rem">LOC</span>
+</mark>
+, 29 de setembro de 1908) foi um escritor</br>brasileiro, considerado por muitos críticos, estudiosos, escritores e</br>leitores um dos maiores senão o maior nome da literatura do 
+<mark class="entity" style="background: #ff9561; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    Brasil
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; text-transform: uppercase; vertical-align: middle; margin-left: 0.5rem">LOC</span>
+</mark>
+.</div></span>
+</div>
+</div>
+<div id="outline-container-headline-6" class="outline-2">
+<h2 id="headline-6">
+Conclusion
+</h2>
+<div id="outline-text-headline-6" class="outline-text-2">
+<p>
+I am very impressed by this tool.
+Very high level and easy to use, I&#39;m looking forward to explore it more.</p>
+</div>
+</div>
+
+
+              
+                  
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+              
+          </article>
+          
+
+<ul class="tags__list">
+    
+    <li class="tag__item">
+        <a class="tag__link" href="https://nasseralkmim.github.io/tags/machine-learning/">machine learning</a>
+    </li>
+    <li class="tag__item">
+        <a class="tag__link" href="https://nasseralkmim.github.io/tags/natural-language-processing/">natural language processing</a>
+    </li></ul>
+
+ <div class="pagination">
+  
+    <a class="pagination__item" href="https://nasseralkmim.github.io/notes/question-classifier-python/">
+        <span class="pagination__label">Previous Post</span>
+        <span class="pagination__title">Question classifier preprocessing</span>
+    </a>
+  
+
+  
+    <a class="pagination__item" href="https://nasseralkmim.github.io/notes/nlp-python/">
+      <span class="pagination__label">Next Post</span>
+      <span class="pagination__title" >NLP with Python</span>
+    </a>
+  
+</div>
+
+          <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "nasseralkmim" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+          <footer class="post__footer">
+            
+
+
+<div class="social-icons">
+  
+     
+    
+      <a class="social-icons__link" rel="me" title="Email"
+         href="mailto:nasser.alkmim@gmail.com"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('https://nasseralkmim.github.io/svg/email.svg')"></div>
+      </a>
+    
+  
+     
+    
+      <a class="social-icons__link" rel="me" title="LinkedIn"
+         href="https://www.linkedin.com/in/nasser-alkmim-300882a6/"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('https://nasseralkmim.github.io/svg/linkedin.svg')"></div>
+      </a>
+    
+  
+     
+    
+      <a class="social-icons__link" rel="me" title="GitHub"
+         href="https://github.com/nasseralkmim"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('https://nasseralkmim.github.io/svg/github.svg')"></div>
+      </a>
+    
+  
+     
+    
+      <a class="social-icons__link" rel="me" title="Instagram"
+         href="https://instagram.com/naszr"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('https://nasseralkmim.github.io/svg/instagram.svg')"></div>
+      </a>
+    
+     
+</div>
+
+            <p>© 2021</p>
+          </footer>
+          </div>
+      </div>
+      
+      <div class="toc-container">
+           <div class="toc-post-title">Text processing with spaCy</div> 
+        <nav id="TableOfContents">
+<ul>
+<li><a href="#headline-1">Introduction</a>
+</li>
+<li><a href="#headline-2">Load the language model</a>
+</li>
+<li><a href="#headline-3">Tokenization</a>
+</li>
+<li><a href="#headline-4">Part of speech (POS)</a>
+</li>
+<li><a href="#headline-5">Named entity recognition (NER)</a>
+</li>
+<li><a href="#headline-6">Conclusion</a>
+</li>
+</ul>
+</nav>
+      </div>
+      
+    </div>
+    
+
+  </main>
+
+   
+
+  
+  <script src="/js/index.min.575dda8d49ee02639942c63564273e6da972ab531dda26a08800bdcb477cbd7f.js" integrity="sha256-V13ajUnuAmOZQsY1ZCc&#43;balyq1Md2iagiAC9y0d8vX8=" crossorigin="anonymous"></script>
+  
+  
+  
+
+  
+  
+  
+
+  
+    <script src="/js/table-of-contents.js"></script>
+  
+
+
+</body>
+
+</html>

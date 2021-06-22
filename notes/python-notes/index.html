@@ -110,30 +110,24 @@ if (!doNotTrack) {
 
 <div id="outline-container-headline-1" class="outline-2">
 <h2 id="headline-1">
-Practices
+Style guide
 </h2>
 <div id="outline-text-headline-1" class="outline-text-2">
-<div id="outline-container-headline-2" class="outline-3">
-<h3 id="headline-2">
-Single underscore file prefix <code class="verbatim">_file.py</code>
-</h3>
-<div id="outline-text-headline-2" class="outline-text-3">
+<p>A good and well rationalized convention is the one from google: <a href="https://google.github.io/styleguide/pyguide.html.">https://google.github.io/styleguide/pyguide.html.</a></p>
 <p>
-Convention for methods that should be for internal use.</p>
+A complete example can be found here <a href="https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html">Example Google Style Python Docstrings — napoleon 0.7 documentation</a>.</p>
 </div>
 </div>
-</div>
-</div>
-<div id="outline-container-headline-3" class="outline-2">
-<h2 id="headline-3">
+<div id="outline-container-headline-2" class="outline-2">
+<h2 id="headline-2">
 Packaging
 </h2>
-<div id="outline-text-headline-3" class="outline-text-2">
-<div id="outline-container-headline-4" class="outline-3">
-<h3 id="headline-4">
+<div id="outline-text-headline-2" class="outline-text-2">
+<div id="outline-container-headline-3" class="outline-3">
+<h3 id="headline-3">
 Goal
 </h3>
-<div id="outline-text-headline-4" class="outline-text-3">
+<div id="outline-text-headline-3" class="outline-text-3">
 <p>
 If we want to use out package in a specific environment elsewhere we just <code class="verbatim">pip install -e .</code> inside the package folder.</p>
 <p>
@@ -144,11 +138,11 @@ If someone wants to use our code, they just need the source code, the <code clas
 An example of the project structure is in <a href="https://github.com/nasseralkmim/package">GitHub - nasseralkmim/package</a>.</p>
 </div>
 </div>
-<div id="outline-container-headline-5" class="outline-3">
-<h3 id="headline-5">
+<div id="outline-container-headline-4" class="outline-3">
+<h3 id="headline-4">
 Folder structure
 </h3>
-<div id="outline-text-headline-5" class="outline-text-3">
+<div id="outline-text-headline-4" class="outline-text-3">
 <div class="src src-shell">
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">tree . -L <span style="color:#00d;font-weight:bold">2</span></code></pre></div>
 </div>
@@ -184,11 +178,11 @@ Folder structure
 </pre>
 </div>
 </div>
-<div id="outline-container-headline-6" class="outline-3">
-<h3 id="headline-6">
+<div id="outline-container-headline-5" class="outline-3">
+<h3 id="headline-5">
 Setup files
 </h3>
-<div id="outline-text-headline-6" class="outline-text-3">
+<div id="outline-text-headline-5" class="outline-text-3">
 <p>
 Used to specify how the package should be installed.</p>
 <p>
@@ -224,11 +218,11 @@ install_requires =
 The <code class="verbatim">install_requires</code> are the dependencies that your package have and that will be installed automatically when your package is installed.</p>
 </div>
 </div>
-<div id="outline-container-headline-7" class="outline-3">
-<h3 id="headline-7">
+<div id="outline-container-headline-6" class="outline-3">
+<h3 id="headline-6">
 Developing requirements
 </h3>
-<div id="outline-text-headline-7" class="outline-text-3">
+<div id="outline-text-headline-6" class="outline-text-3">
 <p>
 In the <code class="verbatim">requirements.txt</code> you can specific the package that you use to develop your package.
 For instance, the testing framework <code class="verbatim">pytest</code> or an auto formater <code class="verbatim">black</code>.</p>
@@ -243,11 +237,29 @@ pytest
 </pre>
 </div>
 </div>
-<div id="outline-container-headline-8" class="outline-3">
-<h3 id="headline-8">
+<div id="outline-container-headline-7" class="outline-3">
+<h3 id="headline-7">
 Documentation
 </h3>
-<div id="outline-text-headline-8" class="outline-text-3">
+<div id="outline-text-headline-7" class="outline-text-3">
+<div id="outline-container-headline-8" class="outline-4">
+<h4 id="headline-8">
+Style
+</h4>
+<div id="outline-text-headline-8" class="outline-text-4">
+<p>There are basically three major styles, reStructuredText, Google and Numpy.
+I favor Google, because:</p>
+<ol>
+<li>
+<p>simplicity;</p>
+</li>
+<li>
+<p>clarity;</p>
+</li>
+</ol>
+<p><a href="https://www.sphinx-doc.org/en/master/usage/extensions/example_google.html#example-google">Example Google Style Python Docstrings — Sphinx documentation</a></p>
+</div>
+</div>
 <div id="outline-container-headline-9" class="outline-4">
 <h4 id="headline-9">
 Automatic generate documentation <code class="verbatim">sphinx</code>
@@ -473,34 +485,9 @@ Included with python.</p>
 </div>
 <div id="outline-container-headline-22" class="outline-3">
 <h3 id="headline-22">
-What is Pyenv
-</h3>
-<div id="outline-text-headline-22" class="outline-text-3">
-<p>
-Python version manager.</p>
-<p>
-Allow easy switch between multiple versions of Python.</p>
-<p>
-Does not depend on python.
-It substitutes manual management with virtualenv.</p>
-</div>
-</div>
-<div id="outline-container-headline-23" class="outline-3">
-<h3 id="headline-23">
-What is <code class="verbatim">virtualenv</code>
-</h3>
-<div id="outline-text-headline-23" class="outline-text-3">
-<p>
-Python environment manager.</p>
-<p>
-It addresses the problem of dependency on different versions of a library.</p>
-</div>
-</div>
-<div id="outline-container-headline-24" class="outline-3">
-<h3 id="headline-24">
 What is Anaconda?
 </h3>
-<div id="outline-text-headline-24" class="outline-text-3">
+<div id="outline-text-headline-22" class="outline-text-3">
 <p>
 Anaconda is a package manager (like pip) and an environment manager (like virtualenv).
 Plus other things.</p>
@@ -508,11 +495,11 @@ Plus other things.</p>
 Miniconda is a light weight version.</p>
 </div>
 </div>
-<div id="outline-container-headline-25" class="outline-3">
-<h3 id="headline-25">
-What is the difference between Jupyter and jupyter kernel?
+<div id="outline-container-headline-23" class="outline-3">
+<h3 id="headline-23">
+What is the difference between <code class="verbatim">jupyter</code> and <code class="verbatim">jupyter kernel</code>?
 </h3>
-<div id="outline-text-headline-25" class="outline-text-3">
+<div id="outline-text-headline-23" class="outline-text-3">
 <p>
 A kernel is a program (specific for a language) that runs and introspects users&#39;s code.
 It interacts with jupyter applications and the user interface.
@@ -534,23 +521,45 @@ Subsequent calls will use the same URL.</p>
 </pre>
 </div>
 </div>
-<div id="outline-container-headline-26" class="outline-3">
-<h3 id="headline-26">
-What is a method?
+<div id="outline-container-headline-24" class="outline-3">
+<h3 id="headline-24">
+What is <code class="verbatim">pyenv</code>?
 </h3>
+<div id="outline-text-headline-24" class="outline-text-3">
+<p>
+Python version manager.
+It is a <code class="verbatim">bash</code> extension (shell).</p>
+<p>
+Allow easy switch between multiple versions of Python.</p>
+<p>
+Does not depend on python.
+It substitutes manual management with virtualenv.</p>
+</div>
+</div>
+<div id="outline-container-headline-25" class="outline-3">
+<h3 id="headline-25">
+What is <code class="verbatim">virtualenv</code>?
+</h3>
+<div id="outline-text-headline-25" class="outline-text-3">
+<p>
+Python environment manager.
+It is a python implementation, works everywhere.</p>
+<p>
+It addresses the problem of dependency on different versions of a library.</p>
 </div>
 </div>
 </div>
-<div id="outline-container-headline-27" class="outline-2">
-<h2 id="headline-27">
+</div>
+<div id="outline-container-headline-26" class="outline-2">
+<h2 id="headline-26">
 Virtual environments
 </h2>
-<div id="outline-text-headline-27" class="outline-text-2">
-<div id="outline-container-headline-28" class="outline-3">
-<h3 id="headline-28">
+<div id="outline-text-headline-26" class="outline-text-2">
+<div id="outline-container-headline-27" class="outline-3">
+<h3 id="headline-27">
 Rationale
 </h3>
-<div id="outline-text-headline-28" class="outline-text-3">
+<div id="outline-text-headline-27" class="outline-text-3">
 <p>We want to isolate specific python installations.
 This is called environment.</p>
 <p>
@@ -559,52 +568,53 @@ In each python installation we can have a specific set of libraries for a specif
 Why? This is a more organizing way to deal with package dependencies.</p>
 </div>
 </div>
-<div id="outline-container-headline-29" class="outline-3">
-<h3 id="headline-29">
+<div id="outline-container-headline-28" class="outline-3">
+<h3 id="headline-28">
 Using <code class="verbatim">conda</code>
 </h3>
-<div id="outline-text-headline-29" class="outline-text-3">
+<div id="outline-text-headline-28" class="outline-text-3">
 <p>
-When conda is installed, the shell will have a <code class="verbatim">(base)</code> in front of the command line.</p>
+When conda is installed, the shell will have a <code class="verbatim">(base)</code> in front of the prompt when conda is activated.</p>
 <p>
-Conda will add lines to the <code class="verbatim">.bashrc</code> for automatic loading.</p>
+<code class="verbatim">conda</code> will add lines to the <code class="verbatim">.bashrc</code> for automatically activation of the default <code class="verbatim">conda</code> environment.
+To avoid that type <code class="verbatim">conda config --set auto_activate_base false</code>.</p>
 </div>
 </div>
-<div id="outline-container-headline-30" class="outline-3">
-<h3 id="headline-30">
+<div id="outline-container-headline-29" class="outline-3">
+<h3 id="headline-29">
 Create environment
 </h3>
-<div id="outline-text-headline-30" class="outline-text-3">
+<div id="outline-text-headline-29" class="outline-text-3">
 <p>
 <code class="verbatim">conda create --name myenv</code></p>
 </div>
 </div>
-<div id="outline-container-headline-31" class="outline-3">
-<h3 id="headline-31">
+<div id="outline-container-headline-30" class="outline-3">
+<h3 id="headline-30">
 Activate environment
 </h3>
-<div id="outline-text-headline-31" class="outline-text-3">
+<div id="outline-text-headline-30" class="outline-text-3">
 <p>
 <code class="verbatim">conda activate myenv</code></p>
 <p>
 or <code class="verbatim">pip -V</code> to see which one is been called.</p>
 </div>
 </div>
-<div id="outline-container-headline-32" class="outline-3">
-<h3 id="headline-32">
+<div id="outline-container-headline-31" class="outline-3">
+<h3 id="headline-31">
 Available environments
 </h3>
-<div id="outline-text-headline-32" class="outline-text-3">
+<div id="outline-text-headline-31" class="outline-text-3">
 <div class="src src-shell">
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">conda env list</code></pre></div>
 </div>
 </div>
 </div>
-<div id="outline-container-headline-33" class="outline-3">
-<h3 id="headline-33">
+<div id="outline-container-headline-32" class="outline-3">
+<h3 id="headline-32">
 Adding an environment to Jupyter
 </h3>
-<div id="outline-text-headline-33" class="outline-text-3">
+<div id="outline-text-headline-32" class="outline-text-3">
 <p>
 Install <code class="verbatim">ipykernel</code> inside your environment.
 <code class="verbatim">ipykernel</code> provides Ipython kernel for Jupyter.</p>
@@ -624,25 +634,25 @@ This can be check with <code class="verbatim">jupyter kernelspec list</code></p>
 </div>
 </div>
 </div>
-<div id="outline-container-headline-34" class="outline-2">
-<h2 id="headline-34">
+<div id="outline-container-headline-33" class="outline-2">
+<h2 id="headline-33">
 Python modules
 </h2>
-<div id="outline-text-headline-34" class="outline-text-2">
-<div id="outline-container-headline-35" class="outline-3">
-<h3 id="headline-35">
+<div id="outline-text-headline-33" class="outline-text-2">
+<div id="outline-container-headline-34" class="outline-3">
+<h3 id="headline-34">
 Where python looks for modules?
 </h3>
-<div id="outline-text-headline-35" class="outline-text-3">
+<div id="outline-text-headline-34" class="outline-text-3">
 <p>
 It looks to python files in <code class="verbatim">sys.path</code>.</p>
 </div>
 </div>
-<div id="outline-container-headline-36" class="outline-3">
-<h3 id="headline-36">
+<div id="outline-container-headline-35" class="outline-3">
+<h3 id="headline-35">
 Python executable and version
 </h3>
-<div id="outline-text-headline-36" class="outline-text-3">
+<div id="outline-text-headline-35" class="outline-text-3">
 <div class="src src-shell">
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">which python
 python --version</code></pre></div>
@@ -653,16 +663,16 @@ Python 3.8.10
 </pre>
 </div>
 </div>
-<div id="outline-container-headline-37" class="outline-3">
-<h3 id="headline-37">
+<div id="outline-container-headline-36" class="outline-3">
+<h3 id="headline-36">
 Syspath
 </h3>
-<div id="outline-text-headline-37" class="outline-text-3">
-<div id="outline-container-headline-38" class="outline-4">
-<h4 id="headline-38">
+<div id="outline-text-headline-36" class="outline-text-3">
+<div id="outline-container-headline-37" class="outline-4">
+<h4 id="headline-37">
 Shell
 </h4>
-<div id="outline-text-headline-38" class="outline-text-4">
+<div id="outline-text-headline-37" class="outline-text-4">
 <p>From the shell,</p>
 <div class="src src-shell">
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">python -c <span style="color:#d20;background-color:#fff0f0">&#34;import sys; print(sys.path)&#34;</span></code></pre></div>
@@ -675,22 +685,22 @@ We can see the default location pointing to the conda environment.
 This because conda default environment is loaded with the shell, configured in the <code class="verbatim">.bashrc</code> file.</p>
 </div>
 </div>
-<div id="outline-container-headline-39" class="outline-4">
-<h4 id="headline-39">
+<div id="outline-container-headline-38" class="outline-4">
+<h4 id="headline-38">
 Change conda environment within emacs shell
 </h4>
-<div id="outline-text-headline-39" class="outline-text-4">
+<div id="outline-text-headline-38" class="outline-text-4">
 <p>
 With <code class="verbatim">conda.el</code> package </p>
 <p>
 Getting the error: <code class="verbatim">conda--get-path-prefix: Error: executing command &#34;&#34;/home/nasser/.anaconda3/bin/conda&#34; ..activate &#34;bash&#34; &#34;/home/nasser/miniconda3/envs/edelweissFE/&#34;&#34; produced error code 127</code></p>
 </div>
 </div>
-<div id="outline-container-headline-40" class="outline-4">
-<h4 id="headline-40">
+<div id="outline-container-headline-39" class="outline-4">
+<h4 id="headline-39">
 Jupyter default kernel
 </h4>
-<div id="outline-text-headline-40" class="outline-text-4">
+<div id="outline-text-headline-39" class="outline-text-4">
 <p>Using the default jupyter python kernel,</p>
 <div class="src src-python">
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">import</span> <span style="color:#b06;font-weight:bold">sys</span>
@@ -703,11 +713,11 @@ Jupyter default kernel
 We can see the default <code class="verbatim">/usr/lib/python3.8/site-packages.</code></p>
 </div>
 </div>
-<div id="outline-container-headline-41" class="outline-4">
-<h4 id="headline-41">
+<div id="outline-container-headline-40" class="outline-4">
+<h4 id="headline-40">
 Jupyter kernel with conda virtual environment
 </h4>
-<div id="outline-text-headline-41" class="outline-text-4">
+<div id="outline-text-headline-40" class="outline-text-4">
 <p>If we use a different kernel with a conda virtual environment in jupyter,</p>
 <div class="src src-python">
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">import</span> <span style="color:#b06;font-weight:bold">sys</span>
@@ -754,6 +764,11 @@ Jupyter kernel with conda virtual environment
     </a>
   
 
+  
+    <a class="pagination__item" href="https://nasseralkmim.github.io/notes/eigenvalue-analysis/">
+      <span class="pagination__label">Next Post</span>
+      <span class="pagination__title" >Eigenvalue analysis</span>
+    </a>
   
 </div>
 
@@ -830,24 +845,22 @@ Jupyter kernel with conda virtual environment
            <div class="toc-post-title">Python notes</div> 
         <nav id="TableOfContents">
 <ul>
-<li><a href="#headline-1">Practices</a>
+<li><a href="#headline-1">Style guide</a>
+</li>
+<li><a href="#headline-2">Packaging</a>
 <ul>
-<li><a href="#headline-2">Single underscore file prefix <code class="verbatim">_file.py</code></a>
+<li><a href="#headline-3">Goal</a>
 </li>
-</ul>
+<li><a href="#headline-4">Folder structure</a>
 </li>
-<li><a href="#headline-3">Packaging</a>
+<li><a href="#headline-5">Setup files</a>
+</li>
+<li><a href="#headline-6">Developing requirements</a>
+</li>
+<li><a href="#headline-7">Documentation</a>
 <ul>
-<li><a href="#headline-4">Goal</a>
+<li><a href="#headline-8">Style</a>
 </li>
-<li><a href="#headline-5">Folder structure</a>
-</li>
-<li><a href="#headline-6">Setup files</a>
-</li>
-<li><a href="#headline-7">Developing requirements</a>
-</li>
-<li><a href="#headline-8">Documentation</a>
-<ul>
 <li><a href="#headline-9">Automatic generate documentation <code class="verbatim">sphinx</code></a>
 </li>
 <li><a href="#headline-10">Automatic hosting formatted</a>
@@ -880,49 +893,47 @@ Jupyter kernel with conda virtual environment
 <ul>
 <li><a href="#headline-21">What is <code class="verbatim">pip</code></a>
 </li>
-<li><a href="#headline-22">What is Pyenv</a>
+<li><a href="#headline-22">What is Anaconda?</a>
 </li>
-<li><a href="#headline-23">What is <code class="verbatim">virtualenv</code></a>
+<li><a href="#headline-23">What is the difference between <code class="verbatim">jupyter</code> and <code class="verbatim">jupyter kernel</code>?</a>
 </li>
-<li><a href="#headline-24">What is Anaconda?</a>
+<li><a href="#headline-24">What is <code class="verbatim">pyenv</code>?</a>
 </li>
-<li><a href="#headline-25">What is the difference between Jupyter and jupyter kernel?</a>
-</li>
-<li><a href="#headline-26">What is a method?</a>
+<li><a href="#headline-25">What is <code class="verbatim">virtualenv</code>?</a>
 </li>
 </ul>
 </li>
-<li><a href="#headline-27">Virtual environments</a>
+<li><a href="#headline-26">Virtual environments</a>
 <ul>
-<li><a href="#headline-28">Rationale</a>
+<li><a href="#headline-27">Rationale</a>
 </li>
-<li><a href="#headline-29">Using <code class="verbatim">conda</code></a>
+<li><a href="#headline-28">Using <code class="verbatim">conda</code></a>
 </li>
-<li><a href="#headline-30">Create environment</a>
+<li><a href="#headline-29">Create environment</a>
 </li>
-<li><a href="#headline-31">Activate environment</a>
+<li><a href="#headline-30">Activate environment</a>
 </li>
-<li><a href="#headline-32">Available environments</a>
+<li><a href="#headline-31">Available environments</a>
 </li>
-<li><a href="#headline-33">Adding an environment to Jupyter</a>
+<li><a href="#headline-32">Adding an environment to Jupyter</a>
 </li>
 </ul>
 </li>
-<li><a href="#headline-34">Python modules</a>
+<li><a href="#headline-33">Python modules</a>
 <ul>
-<li><a href="#headline-35">Where python looks for modules?</a>
+<li><a href="#headline-34">Where python looks for modules?</a>
 </li>
-<li><a href="#headline-36">Python executable and version</a>
+<li><a href="#headline-35">Python executable and version</a>
 </li>
-<li><a href="#headline-37">Syspath</a>
+<li><a href="#headline-36">Syspath</a>
 <ul>
-<li><a href="#headline-38">Shell</a>
+<li><a href="#headline-37">Shell</a>
 </li>
-<li><a href="#headline-39">Change conda environment within emacs shell</a>
+<li><a href="#headline-38">Change conda environment within emacs shell</a>
 </li>
-<li><a href="#headline-40">Jupyter default kernel</a>
+<li><a href="#headline-39">Jupyter default kernel</a>
 </li>
-<li><a href="#headline-41">Jupyter kernel with conda virtual environment</a>
+<li><a href="#headline-40">Jupyter kernel with conda virtual environment</a>
 </li>
 </ul>
 </li>

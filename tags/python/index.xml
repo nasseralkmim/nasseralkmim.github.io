@@ -14,8 +14,8 @@
       <pubDate>Sat, 15 May 2021 00:00:00 +0000</pubDate>
       
       <guid>https://nasseralkmim.github.io/notes/python-notes/</guid>
-      <description>Practices  Single underscore file prefix _file.py   Convention for methods that should be for internal use.
-    Packaging  Goal   If we want to use out package in a specific environment elsewhere we just pip install -e .</description>
+      <description>Style guide  A good and well rationalized convention is the one from google: https://google.github.io/styleguide/pyguide.html.
+ A complete example can be found here Example Google Style Python Docstrings — napoleon 0.</description>
     </item>
     
     <item>

@@ -1,0 +1,31 @@
+#    -*- mode: org -*-
+
+
+Archived entries from file /mnt/c/Users/c8441205/OneDrive/nasser-website/content/notes/eigenvalue-analysis/index.org
+
+
+* Numpy eigenvalue computation
+:PROPERTIES:
+:ARCHIVE_TIME: 2021-06-18 Fri 13:27
+:ARCHIVE_FILE: /mnt/c/Users/c8441205/OneDrive/nasser-website/content/notes/eigenvalue-analysis/index.org
+:ARCHIVE_OLPATH: Methods
+:ARCHIVE_CATEGORY: index
+:ARCHIVE_ITAGS: noexport
+:END:
+
+Numpy has a =linalg.eigvals(a)= function that computes the eigenvalues of a general matrix.
+The eigenvalues are returned in the same order they appear in matrix. 
+
+#+begin_src python
+import numpy as np
+
+D = np.diag((19, 17, 1, 3, 2))
+eigvals = np.linalg.eigvals(D)
+print(eigvals)
+#+end_src
+
+#+RESULTS:
+: [19. 17.  1.  3.  2.]
+
+
+

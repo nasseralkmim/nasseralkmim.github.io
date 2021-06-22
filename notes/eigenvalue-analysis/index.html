@@ -29,7 +29,7 @@
   
   
     
-    <link type="text/css" rel="stylesheet" href="/css/post.min.4c5e5ab0d03e404ece7b74443ea2e91e86a9af1b0d56693e939274558f24efdc.css" integrity="sha256-TF5asNA&#43;QE7Oe3REPqLpHoaprxsNVmk&#43;k5J0VY8k79w="/>
+    <link type="text/css" rel="stylesheet" href="/css/post.min.c5b1d93a95eba82eb3565c32d5a2502c5432f2fc02567098c786e5273ba634ca.css" integrity="sha256-xbHZOpXrqC6zVlwy1aJQLFQy8vwCVnCYx4blJzumNMo="/>
   
     
     <link type="text/css" rel="stylesheet" href="/css/custom.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" integrity="sha256-47DEQpj8HBSa&#43;/TImW&#43;5JCeuQeRkm5NMpJWZG3hSuFU="/>
@@ -82,7 +82,7 @@ if (!doNotTrack) {
     
     
       <li>
-        <a  href="/">home</a>
+        <a  href="/">about</a>
       </li>
     
       <li>
@@ -127,10 +127,10 @@ Expected results?
 <div id="outline-text-headline-2" class="outline-text-2">
 <ol>
 <li>
-<p>eigenvalue evolution for each nodes (average of displacement) plotted as contour using paraview.</p>
+<p>eigenvalue distribution (ignoring the ones) at each time step</p>
 </li>
 <li>
-<p>condition number evolution through time steps.</p>
+<p>condition number (max/min) evolution through time steps.</p>
 </li>
 </ol>
 </div>
@@ -147,231 +147,129 @@ Preconditioning improves convergence by clustering eigenvalues and hence reduces
 If we know how the nonlinear behavior affects the eigenvalues we can use this information in the preconditioning process.</p>
 </div>
 </div>
-<div id="outline-container-headline-4" class="outline-2">
-<h2 id="headline-4">
-Methods?
+<div id="outline-container-headline-23" class="outline-2">
+<h2 id="headline-23">
+Analysis
 </h2>
-<div id="outline-text-headline-4" class="outline-text-2">
-<div id="outline-container-headline-5" class="outline-3">
-<h3 id="headline-5">
-Strategy
-</h3>
-<div id="outline-text-headline-5" class="outline-text-3">
-<ol>
-<li>
-<p>setup a simple test problem in edelweissFE.</p>
-</li>
-<li>
-<p>implement the function to compute the eigenvalue of the system matrix after each Newton step (outer).</p>
-</li>
-<li>
-<p>implement a visualization routine</p>
-<ol>
-<li>
-<p>eigenvalue as nodal value (average between dofs)</p>
-</li>
-<li>
-<p>eigenvalue condition number (max/min) over time step</p>
-</li>
-</ol>
-</li>
-<li>
-<p>run analysis on more elaborate.</p>
-</li>
-</ol>
-</div>
-</div>
-<div id="outline-container-headline-6" class="outline-3">
-<h3 id="headline-6">
-Python library to compute eigenvalues
-</h3>
-<div id="outline-text-headline-6" class="outline-text-3">
-<p>
-Numpy has a <code class="verbatim">linalg.eigvals(a)</code> function that computes the eigenvalues of a general matrix.
-The eigenvalues are returned in the same order they appear in matrix. </p>
-<div class="src src-python">
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">import</span> <span style="color:#b06;font-weight:bold">numpy</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#b06;font-weight:bold">np</span>
-
-D = np.diag((<span style="color:#00d;font-weight:bold">19</span>, <span style="color:#00d;font-weight:bold">17</span>, <span style="color:#00d;font-weight:bold">1</span>, <span style="color:#00d;font-weight:bold">3</span>, <span style="color:#00d;font-weight:bold">2</span>))
-eigvals = np.linalg.eigvals(D)
-<span style="color:#080;font-weight:bold">print</span>(eigvals)</code></pre></div>
-</div>
-<pre class="example">
-[19. 17.  1.  3.  2.]
-</pre>
-</div>
-</div>
-</div>
-</div>
-<div id="outline-container-headline-7" class="outline-2">
-<h2 id="headline-7">
-Running edelweissFE
-</h2>
-<div id="outline-text-headline-7" class="outline-text-2">
-<p>
-<code class="verbatim">edelweissfe</code> is an alias to <code class="verbatim">python</code> in the correct environment and to the <code class="verbatim">edelweissfe.py</code> script.</p>
-<div class="src src-shell">
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#038">cd</span> simple-test
-edelweissfe simple.inp</code></pre></div>
-</div>
-<pre class="example">
- total size of eq. system: 24                                                                feCore 
-+--------------------------------------------------------------------------------------------------+
-   Converting elSet all to a nSet due to requested nodal results                       displacement 
-   Using 12 threads                                                                     NISTPSolver 
-+--------------------------------------------------------------------------------------------------+
-   increment 0: 0.000000, 0.000000; time   0.000000 to   0.000000                       NISTPSolver 
-           displacement                                                                 NISTPSolver 
-      ||R||∞      ||ddU||∞                                                              NISTPSolver 
-      0.00e+00✓   0.00e+00✓                                                             NISTPSolver 
-   Converged in 1 iteration(s)                                                          NISTPSolver 
-   sig22, elementResult: [-0.]                                                              Monitor 
-+--------------------------------------------------------------------------------------------------+
-   increment 1: 1.000000, 1.000000; time   0.000000 to   1.000000                       NISTPSolver 
-           displacement                                                                 NISTPSolver 
-      ||R||∞      ||ddU||∞                                                              NISTPSolver 
-      0.00e+00✓   0.00e+00✓                                                             NISTPSolver 
-   Converged in 1 iteration(s)                                                          NISTPSolver 
-   sig22, elementResult: [-0.]                                                              Monitor 
-   +-------------------------------------+-------------------------------------+        NISTPSolver 
-   |Time in elements                     |     0.0097s                         |        NISTPSolver 
-   |Time in distributed loads            |     0.0001s                         |        NISTPSolver 
-   |Time in body forces                  |     0.0000s                         |        NISTPSolver 
-   |Time in constraints                  |     0.0000s                         |        NISTPSolver 
-   |Time in dirichlet R                  |     0.0001s                         |        NISTPSolver 
-   |Time in CSR generation               |     0.0004s                         |        NISTPSolver 
-   |Time in dirichlet K                  |     0.0001s                         |        NISTPSolver 
-   |Time in linear solve                 |     0.0108s                         |        NISTPSolver 
-   |Time in convergence check            |     0.0003s                         |        NISTPSolver 
-   +-------------------------------------+-------------------------------------+        NISTPSolver 
- +--------------------------------------+--------------------------------------+                  feCore 
- |Step computation time                 |    0.0859s                           |                  feCore 
- +--------------------------------------+--------------------------------------+                  feCore 
-   Using 12 threads                                                                          NISTPSolver 
-+-------------------------------------------------------------------------------------------------------+
-   increment 0: 0.000000, 0.000000; time   1.000000 to   1.000000                            NISTPSolver 
-           displacement                                                                      NISTPSolver 
-      ||R||∞      ||ddU||∞                                                                   NISTPSolver 
-      0.00e+00✓   0.00e+00✓                                                                  NISTPSolver 
-   Converged in 1 iteration(s)                                                               NISTPSolver 
-   skipping output for zero-increment in step 2                                           Ensight Export 
-   sig22, elementResult: [-0.]                                                                   Monitor 
-+-------------------------------------------------------------------------------------------------------+
-   increment 1: 1.000000, 1.000000; time   1.000000 to   2.000000                            NISTPSolver 
-           displacement                                                                      NISTPSolver 
-      ||R||∞      ||ddU||∞                                                                   NISTPSolver 
-      7.17e-16✓   1.00e-02                                                                   NISTPSolver 
-      2.64e-16✓   2.48e-18✓                                                                  NISTPSolver 
-   Converged in 2 iteration(s)                                                               NISTPSolver 
-   sig22, elementResult: [1800.]                                                                 Monitor 
-   +---------------------------------------+---------------------------------------+         NISTPSolver 
-   |Time in elements                       |     0.0071s                           |         NISTPSolver 
-   |Time in distributed loads              |     0.0001s                           |         NISTPSolver 
-   |Time in body forces                    |     0.0000s                           |         NISTPSolver 
-   |Time in constraints                    |     0.0000s                           |         NISTPSolver 
-   |Time in dirichlet R                    |     0.0001s                           |         NISTPSolver 
-   |Time in CSR generation                 |     0.0006s                           |         NISTPSolver 
-   |Time in dirichlet K                    |     0.0001s                           |         NISTPSolver 
-   |Time in linear solve                   |     0.0066s                           |         NISTPSolver 
-   |Time in convergence check              |     0.0006s                           |         NISTPSolver 
-   +---------------------------------------+---------------------------------------+         NISTPSolver 
- +-----------------------------------------+-----------------------------------------+                 feCore 
- |Step computation time                    |    0.0456s                              |                 feCore 
- +-----------------------------------------+-----------------------------------------+                 feCore 
- |Job computation time                       |    0.1315s                                |                  feCore 
- +-------------------------------------------+-------------------------------------------+                  feCore
-</pre>
-<div id="outline-container-headline-8" class="outline-3">
-<h3 id="headline-8">
-Checking
-</h3>
-<div id="outline-text-headline-8" class="outline-text-3">
-<div class="src src-shell">
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">paraview.exe simple-test/test.case</code></pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div id="outline-container-headline-9" class="outline-2">
-<h2 id="headline-9">
-Results
-</h2>
-<div id="outline-text-headline-9" class="outline-text-2">
-<div id="outline-container-headline-10" class="outline-3">
-<h3 id="headline-10">
-Simple example
-</h3>
-<div id="outline-text-headline-10" class="outline-text-3">
-<div id="outline-container-headline-11" class="outline-4">
-<h4 id="headline-11">
+<div id="outline-text-headline-23" class="outline-text-2">
+<div id="outline-container-headline-24" class="outline-3">
+<h3 id="headline-24">
 Description
-</h4>
-<div id="outline-text-headline-11" class="outline-text-4">
-<p>Single element with 8 nodes and 3 degrees of freedom per node.</p>
-<img src="Results/2021-06-09_16-24-37_screenshot.png" alt="Results/2021-06-09_16-24-37_screenshot.png" title="Results/2021-06-09_16-24-37_screenshot.png" width="350px"/>
+</h3>
+<div id="outline-text-headline-24" class="outline-text-3">
+<p>
+A rectangular domain size 200x50.</p>
+<p>
+With bottom nodes fixed in the y-direction and the leftmost node fixed in the x-direction.</p>
+<p>
+The load is a specified displacement on the top face of -5 in the y-direction.</p>
+<p>
+The material model has damage internal variables.</p>
+<p>
+The element used is a the GCCPE8R.</p>
 </div>
 </div>
-<div id="outline-container-headline-12" class="outline-4">
-<h4 id="headline-12">
-Reading the eigenvalues
-</h4>
-<div id="outline-text-headline-12" class="outline-text-4">
+<div id="outline-container-headline-25" class="outline-3">
+<h3 id="headline-25">
+Damage evolution
+</h3>
+<div id="outline-text-headline-25" class="outline-text-3">
+<p>
+<img src="analysis/damage.gif" alt="analysis/damage.gif" title="analysis/damage.gif" /></p>
+</div>
+</div>
+<div id="outline-container-headline-26" class="outline-3">
+<h3 id="headline-26">
+Eigenvalue distribution
+</h3>
+<div id="outline-text-headline-26" class="outline-text-3">
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">import</span> <span style="color:#b06;font-weight:bold">numpy</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#b06;font-weight:bold">np</span>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">import</span> <span style="color:#b06;font-weight:bold">matplotlib.pyplot</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#b06;font-weight:bold">plt</span>
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#b06;font-weight:bold">matplotlib</span>
+matplotlib.style.use(<span style="color:#d20;background-color:#fff0f0">&#39;ggplot&#39;</span>)
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#b06;font-weight:bold">numpy</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#b06;font-weight:bold">np</span>
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#b06;font-weight:bold">pandas</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#b06;font-weight:bold">pd</span>
 
-time_step = [<span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">1</span>]
-eigvals = []
-<span style="color:#080;font-weight:bold">for</span> i <span style="color:#080">in</span> time_step:
-    eigvals.append(np.load(f<span style="color:#d20;background-color:#fff0f0">&#34;simple-test/eigenvalues_{i}.npy&#34;</span>))
-<span style="color:#080;font-weight:bold">print</span>(eigvals)</code></pre></div>
+fig, ax = plt.subplots()
+fig2, ax2 = plt.subplots()
+
+time_steps = [<span style="color:#00d;font-weight:bold">1</span>, <span style="color:#00d;font-weight:bold">5</span>, <span style="color:#00d;font-weight:bold">15</span>, <span style="color:#00d;font-weight:bold">20</span>, <span style="color:#00d;font-weight:bold">25</span>, <span style="color:#00d;font-weight:bold">50</span>, <span style="color:#00d;font-weight:bold">100</span>]
+df = pd.DataFrame(np.loadtxt(<span style="color:#d20;background-color:#fff0f0">&#34;analysis/eigvals.txt&#34;</span>).T)
+<span style="color:#080;font-weight:bold">for</span> t <span style="color:#080">in</span> time_steps:
+    df[t].plot.kde(ax=ax, label=f<span style="color:#d20;background-color:#fff0f0">&#39;t={t}&#39;</span>)
+
+df.plot.kde(ax=ax2, legend=False)
+ax2.set_xlabel(<span style="color:#d20;background-color:#fff0f0">&#34;Eigenvalues&#34;</span>)
+ax.legend()</code></pre></div>
 </div>
-<pre class="example">
-[array([1.23811313e+03, 7.05151972e+02, 6.68982435e+02, 6.48173861e+02,
-       5.73026612e+02, 1.98781798e+01, 5.13089800e+01, 7.07402572e+01,
-       1.28163962e+02, 1.58758348e+02, 1.67894112e+02, 2.42820965e+02,
-       2.76313008e+02, 3.66106570e+02, 4.85038681e+02, 4.44600300e+02,
-       4.23546899e+02, 1.00000000e+00, 1.00000000e+00, 1.00000000e+00,
-       1.00000000e+00, 1.00000000e+00, 1.00000000e+00, 1.00000000e+00]), array([1.14180987e+03, 6.85802817e+02, 6.39536508e+02, 2.09685217e+01,
-       5.80573221e+01, 1.19868895e+02, 1.60609754e+02, 2.44274278e+02,
-       4.99719600e+02, 3.22140204e+02, 3.68852459e+02, 4.31019322e+02,
-       4.06872066e+02, 1.00000000e+00, 1.00000000e+00, 1.00000000e+00,
-       1.00000000e+00, 1.00000000e+00, 1.00000000e+00, 1.00000000e+00,
-       1.00000000e+00, 1.00000000e+00, 1.00000000e+00, 1.00000000e+00])]
-</pre>
+<p><img src="./jupyter/9a59e0d75d0263817923cbcb0f91abf7d9b5bb17.png" alt="./jupyter/9a59e0d75d0263817923cbcb0f91abf7d9b5bb17.png" title="./jupyter/9a59e0d75d0263817923cbcb0f91abf7d9b5bb17.png" />
+<img src="./jupyter/e90532a4101dfb4e8f87e2177223987986032277.png" alt="./jupyter/e90532a4101dfb4e8f87e2177223987986032277.png" title="./jupyter/e90532a4101dfb4e8f87e2177223987986032277.png" /></p>
+<p>
+Remarks:</p>
+<ol>
+<li>
+<p>At the time of formation of the shear band from time steps 15-20 we can see that the change in the distribution of the eigenvalues. </p>
+</li>
+</ol>
 </div>
 </div>
-<div id="outline-container-headline-13" class="outline-4">
-<h4 id="headline-13">
-System matrix heatmap
-</h4>
-<div id="outline-text-headline-13" class="outline-text-4">
+<div id="outline-container-headline-27" class="outline-3">
+<h3 id="headline-27">
+Eigenvalues ratio
+</h3>
+<div id="outline-text-headline-27" class="outline-text-3">
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">import</span> <span style="color:#b06;font-weight:bold">seaborn</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#b06;font-weight:bold">sns</span>
-<span style="color:#080;font-weight:bold">import</span> <span style="color:#b06;font-weight:bold">matplotlib.pyplot</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#b06;font-weight:bold">plt</span>
-
-<span style="color:#080;font-weight:bold">for</span> i <span style="color:#080">in</span> time_step:
-    fig, ax = plt.subplots() 
-    sns.heatmap(np.diag(eigvals[<span style="color:#00d;font-weight:bold">0</span>]))</code></pre></div>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">fig, ax = plt.subplots()
+df = pd.DataFrame(np.loadtxt(<span style="color:#d20;background-color:#fff0f0">&#34;analysis/eigvals.txt&#34;</span>).T)
+cn = df.max().abs() / df.min().abs()
+cn.plot(ax=ax)
+ax.set_xlabel(<span style="color:#d20;background-color:#fff0f0">&#39;Time step&#39;</span>)
+ax.set_ylabel(<span style="color:#d20;background-color:#fff0f0">r</span><span style="color:#d20;background-color:#fff0f0">&#39;max $\lambda$ / min $\lambda$&#39;</span>)</code></pre></div>
 </div>
-<p><img src="./jupyter/02d779bde78699a03c61b83f7f3cbec563842207.png" alt="./jupyter/02d779bde78699a03c61b83f7f3cbec563842207.png" title="./jupyter/02d779bde78699a03c61b83f7f3cbec563842207.png" />
-<img src="./jupyter/02d779bde78699a03c61b83f7f3cbec563842207.png" alt="./jupyter/02d779bde78699a03c61b83f7f3cbec563842207.png" title="./jupyter/02d779bde78699a03c61b83f7f3cbec563842207.png" /></p>
+<p><img src="./jupyter/cfbfedeaaa8d73cbf6c9efa06e82fb52c9d79365.png" alt="./jupyter/cfbfedeaaa8d73cbf6c9efa06e82fb52c9d79365.png" title="./jupyter/cfbfedeaaa8d73cbf6c9efa06e82fb52c9d79365.png" /></p>
+<p>
+Remarks:</p>
+<ol>
+<li>
+<p>The system is not symmetric, hence the condition number is not the same as the eigenvalues ratio.</p>
+</li>
+<li>
+<p>However, this ratio somewhat captures the phenomena.</p>
+</li>
+</ol>
 </div>
 </div>
-<div id="outline-container-headline-14" class="outline-4">
-<h4 id="headline-14">
-Eigenvalues as nodal scalar field
-</h4>
+<div id="outline-container-headline-28" class="outline-3">
+<h3 id="headline-28">
+Condition number
+</h3>
+<div id="outline-text-headline-28" class="outline-text-3">
+<p>
+Computed with the definition $\kappa = \lVert A \rvert \lVert A^{-1} \rVert$.</p>
+<div class="src src-python">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">fig, ax = plt.subplots()
+df = pd.DataFrame(np.loadtxt(<span style="color:#d20;background-color:#fff0f0">&#34;analysis/cond.txt&#34;</span>).T)
+df.plot(ax=ax, legend=False)
+ax.set_xlabel(<span style="color:#d20;background-color:#fff0f0">&#39;Time step&#39;</span>)
+ax.set_ylabel(<span style="color:#d20;background-color:#fff0f0">&#39;Condition number&#39;</span>)</code></pre></div>
+</div>
+<p><img src="./jupyter/6cb2f7be88b19d40d429ff25826742ad2fb24c7b.png" alt="./jupyter/6cb2f7be88b19d40d429ff25826742ad2fb24c7b.png" title="./jupyter/6cb2f7be88b19d40d429ff25826742ad2fb24c7b.png" /></p>
+<p>
+Remarks:</p>
+<ol>
+<li>
+<p>The system becomes close to be singular around the time where the shear band is formed.</p>
+</li>
+</ol>
 </div>
 </div>
 </div>
 </div>
-</div>
-<div id="outline-container-headline-15" class="outline-2">
-<h2 id="headline-15">
+<div id="outline-container-headline-29" class="outline-2">
+<h2 id="headline-29">
 References
 </h2>
-<div id="outline-text-headline-15" class="outline-text-2">
+<div id="outline-text-headline-29" class="outline-text-2">
 <ul>
 <li>
 <p>Elman, H. C., Silvester, D. J., &amp; Wathen, A. J. (). Finite elements
@@ -399,20 +297,11 @@ fluid dynamics. : Oxford University Press.</p>
           </article>
           
 
-<ul class="tags__list">
-    
-    <li class="tag__item">
-        <a class="tag__link" href="https://nasseralkmim.github.io/tags/python/">python</a>
-    </li>
-    <li class="tag__item">
-        <a class="tag__link" href="https://nasseralkmim.github.io/tags/linear-algebra/">linear algebra</a>
-    </li></ul>
-
  <div class="pagination">
   
-    <a class="pagination__item" href="https://nasseralkmim.github.io/notes/qr-decomposition/">
+    <a class="pagination__item" href="https://nasseralkmim.github.io/notes/python-notes/">
         <span class="pagination__label">Previous Post</span>
-        <span class="pagination__title">QR Decomposition in one image</span>
+        <span class="pagination__title">Python notes</span>
     </a>
   
 
@@ -498,37 +387,65 @@ fluid dynamics. : Oxford University Press.</p>
 </li>
 <li><a href="#headline-3">Why?</a>
 </li>
-<li><a href="#headline-4">Methods?</a>
+<li><a href="#headline-4">Methods</a>
 <ul>
 <li><a href="#headline-5">Strategy</a>
 </li>
-<li><a href="#headline-6">Python library to compute eigenvalues</a>
+<li><a href="#headline-6">Eigenvalues</a>
 </li>
-</ul>
+<li><a href="#headline-7"><code class="verbatim">numpy.linalg.eig</code></a>
 </li>
-<li><a href="#headline-7">Running edelweissFE</a>
+<li><a href="#headline-8"><code class="verbatim">scipy.linalg.eig</code></a>
+</li>
+<li><a href="#headline-9"><code class="verbatim">scipy.sparse.linalg.eigs</code></a>
+</li>
+<li><a href="#headline-10">Comparing</a>
+</li>
+<li><a href="#headline-11">Output treatment</a>
+</li>
+<li><a href="#headline-12">Eigenvalue distribution</a>
+</li>
+<li><a href="#headline-13">Max and min eigen values</a>
+</li>
+<li><a href="#headline-14">Condition number</a>
+</li>
+<li><a href="#headline-15">Function</a>
 <ul>
-<li><a href="#headline-8">Checking</a>
+<li><a href="#headline-16">Eigenvalues distribution </a>
+</li>
+<li><a href="#headline-17">Condition number</a>
 </li>
 </ul>
 </li>
-<li><a href="#headline-9">Results</a>
+</ul>
+</li>
+<li><a href="#headline-18">Prototype</a>
 <ul>
-<li><a href="#headline-10">Simple example</a>
+<li><a href="#headline-19">Description</a>
+</li>
+<li><a href="#headline-20">Running edelweissFE</a>
+</li>
+<li><a href="#headline-21">Checking on paraview</a>
+</li>
+<li><a href="#headline-22">Deformed shape</a>
+</li>
+</ul>
+</li>
+<li><a href="#headline-23">Analysis</a>
 <ul>
-<li><a href="#headline-11">Description</a>
+<li><a href="#headline-24">Description</a>
 </li>
-<li><a href="#headline-12">Reading the eigenvalues</a>
+<li><a href="#headline-25">Damage evolution</a>
 </li>
-<li><a href="#headline-13">System matrix heatmap</a>
+<li><a href="#headline-26">Eigenvalue distribution</a>
 </li>
-<li><a href="#headline-14">Eigenvalues as nodal scalar field</a>
+<li><a href="#headline-27">Eigenvalues ratio</a>
+</li>
+<li><a href="#headline-28">Condition number</a>
 </li>
 </ul>
 </li>
-</ul>
-</li>
-<li><a href="#headline-15">References</a>
+<li><a href="#headline-29">References</a>
 </li>
 </ul>
 </nav>
