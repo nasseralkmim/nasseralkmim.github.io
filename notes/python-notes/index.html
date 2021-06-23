@@ -198,6 +198,8 @@ setup()
 </pre>
 <p>
 The <code class="verbatim">setup.cfg</code> uses the standards providing by the distribution tool <a href="https://setuptools.readthedocs.io/en/latest/setuptools.html#configuring-setup-using-setup-cfg-files">Building and Distributing Packages with Setuptools — setuptools 57.0.0 docume…</a></p>
+<p>
+The directive <code class="verbatim">package = find:</code> <a href="https://setuptools.readthedocs.io/en/latest/userguide/package_discovery.html?highlight=find%3A#using-find-or-find-packages">from the manual</a> automatically looks the for package directory (with <code class="verbatim">__init__.py</code>).</p>
 <div class="src src-shell">
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">cat setup.cfg</code></pre></div>
 </div>
@@ -209,13 +211,13 @@ author = Nasser Alkmim
 description = package does this and that
 
 [options]
-package = find;
+package = find:
 install_requires =
     numpy
     pandas
 </pre>
 <p>
-The <code class="verbatim">install_requires</code> are the dependencies that your package have and that will be installed automatically when your package is installed.</p>
+The <code class="verbatim">install_requires</code> are the dependencies that your package have and that will be installed automatically when your package is installed with <code class="verbatim">pip install -e .</code>.</p>
 </div>
 </div>
 <div id="outline-container-headline-6" class="outline-3">

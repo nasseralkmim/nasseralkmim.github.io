@@ -132,6 +132,9 @@ Expected results?
 <li>
 <p>condition number (max/min) evolution through time steps.</p>
 </li>
+<li>
+<p>plot of reaction force (or other variable) over the condition number.</p>
+</li>
 </ol>
 </div>
 </div>
@@ -162,9 +165,11 @@ A rectangular domain size 200x50.</p>
 <p>
 With bottom nodes fixed in the y-direction and the leftmost node fixed in the x-direction.</p>
 <p>
-The load is a specified displacement on the top face of -5 in the y-direction.</p>
+The load is a specified displacement on the top face of -5 in the y-direction.
+Resulting in compression of the model.</p>
 <p>
-The material model has damage internal variables.</p>
+The material model used is the gradient-enhanced micropolar concrete damage-plasticity (GMCDP).
+This model extends on the classic concrete damage-plasticity (CPD) model and attempts to provide mesh-independent behavior when non-associative plastic flow rule is used.</p>
 <p>
 The element used is a the GCCPE8R.</p>
 </div>
@@ -249,12 +254,16 @@ Computed with the definition $\kappa = \lVert A \rvert \lVert A^{-1} \rVert$.</p
 <div class="src src-python">
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">fig, ax = plt.subplots()
 df = pd.DataFrame(np.loadtxt(<span style="color:#d20;background-color:#fff0f0">&#34;analysis/cond.txt&#34;</span>).T)
-df.plot(ax=ax, legend=False)
+df[<span style="color:#d20;background-color:#fff0f0">&#39;react&#39;</span>] = pd.DataFrame(np.loadtxt(<span style="color:#d20;background-color:#fff0f0">&#34;analysis/RF.csv&#34;</span>)[:, <span style="color:#00d;font-weight:bold">1</span>])
+df[<span style="color:#00d;font-weight:bold">0</span>].plot(ax=ax, label=<span style="color:#d20;background-color:#fff0f0">&#39;cond&#39;</span>) 
+df[<span style="color:#d20;background-color:#fff0f0">&#39;react&#39;</span>].plot(ax=ax, label=<span style="color:#d20;background-color:#fff0f0">&#39;react&#39;</span>, secondary_y=True) 
 ax.set_xlabel(<span style="color:#d20;background-color:#fff0f0">&#39;Time step&#39;</span>)
-ax.set_ylabel(<span style="color:#d20;background-color:#fff0f0">&#39;Condition number&#39;</span>)</code></pre></div>
+ax.set_ylabel(<span style="color:#d20;background-color:#fff0f0">&#39;Condition number&#39;</span>)
+ax.right_ax.set_ylabel(<span style="color:#d20;background-color:#fff0f0">&#39;Reaction force&#39;</span>)
+ax.right_ax.legend([<span style="color:#d20;background-color:#fff0f0">&#39;react&#39;</span>], loc=[.<span style="color:#00d;font-weight:bold">8</span>, .<span style="color:#00d;font-weight:bold">8</span>])
+ax.legend([<span style="color:#d20;background-color:#fff0f0">&#39;cond&#39;</span>], loc=[.<span style="color:#00d;font-weight:bold">8</span>, .<span style="color:#00d;font-weight:bold">9</span>])</code></pre></div>
 </div>
-<p><img src="./jupyter/6cb2f7be88b19d40d429ff25826742ad2fb24c7b.png" alt="./jupyter/6cb2f7be88b19d40d429ff25826742ad2fb24c7b.png" title="./jupyter/6cb2f7be88b19d40d429ff25826742ad2fb24c7b.png" /></p>
-<p>
+<p><img src="./jupyter/e13d54b29317603bb5b8e32bba9b1ccf0e994c72.png" alt="./jupyter/e13d54b29317603bb5b8e32bba9b1ccf0e994c72.png" title="./jupyter/e13d54b29317603bb5b8e32bba9b1ccf0e994c72.png" />
 Remarks:</p>
 <ol>
 <li>
