@@ -29,7 +29,7 @@
   
   
     
-    <link type="text/css" rel="stylesheet" href="/css/post.min.c5b1d93a95eba82eb3565c32d5a2502c5432f2fc02567098c786e5273ba634ca.css" integrity="sha256-xbHZOpXrqC6zVlwy1aJQLFQy8vwCVnCYx4blJzumNMo="/>
+    <link type="text/css" rel="stylesheet" href="/css/post.min.9184109084ab0858f4d61e201ec74c667f1e039aaddd71fb8204359b0bae18a1.css" integrity="sha256-kYQQkISrCFj01h4gHsdMZn8eA5qt3XH7ggQ1mwuuGKE="/>
   
     
     <link type="text/css" rel="stylesheet" href="/css/custom.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" integrity="sha256-47DEQpj8HBSa&#43;/TImW&#43;5JCeuQeRkm5NMpJWZG3hSuFU="/>
@@ -293,7 +293,7 @@ python:
 </div>
 <div id="outline-container-headline-11" class="outline-3">
 <h3 id="headline-11">
-Continout integration
+Continous integration
 </h3>
 <div id="outline-text-headline-11" class="outline-text-3">
 <p>Travis-CI.
@@ -731,6 +731,89 @@ Jupyter kernel with conda virtual environment
 </div>
 </div>
 </div>
+<div id="outline-container-headline-41" class="outline-2">
+<h2 id="headline-41">
+Pip
+</h2>
+<div id="outline-text-headline-41" class="outline-text-2">
+<div id="outline-container-headline-42" class="outline-3">
+<h3 id="headline-42">
+Definition
+</h3>
+<div id="outline-text-headline-42" class="outline-text-3">
+<p>
+Is a packager manager for python.</p>
+</div>
+</div>
+<div id="outline-container-headline-43" class="outline-3">
+<h3 id="headline-43">
+Check version and what is the current environment running
+</h3>
+<div id="outline-text-headline-43" class="outline-text-3">
+<div class="src src-shell">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">pip -V
+which pip</code></pre></div>
+</div>
+<pre class="example">
+pip 20.0.2 from /usr/lib/python3/dist-packages/pip (python 3.8)
+/usr/bin/pip
+</pre>
+</div>
+</div>
+<div id="outline-container-headline-44" class="outline-3">
+<h3 id="headline-44">
+Check where pip install packages
+</h3>
+<div id="outline-text-headline-44" class="outline-text-3">
+<p>
+If it installed in the users folder (~)</p>
+<div class="src src-python">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">pip <span style="color:#038">list</span> -v | grep jupy</code></pre></div>
+</div>
+<pre class="example">
+jupyter                1.0.0                /home/nasser/.local/lib/python3.8/site-packages         pip
+jupyter-client         6.1.12               /home/nasser/.local/lib/python3.8/site-packages         pip
+jupyter-console        6.4.0                /home/nasser/.local/lib/python3.8/site-packages         pip
+jupyter-core           4.7.1                /home/nasser/.local/lib/python3.8/site-packages         pip
+jupyterlab-pygments    0.1.2                /home/nasser/.local/lib/python3.8/site-packages         pip
+jupyterlab-widgets     1.0.0                /home/nasser/.local/lib/python3.8/site-packages         pip
+Note: you may need to restart the kernel to use updated packages.
+</pre>
+</div>
+</div>
+<div id="outline-container-headline-45" class="outline-3">
+<h3 id="headline-45">
+Install package for all users
+</h3>
+<div id="outline-text-headline-45" class="outline-text-3">
+<div class="src src-shell">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo pip install jupyter</code></pre></div>
+</div>
+<div class="src src-shell">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">pip list -v | grep jupyter</code></pre></div>
+</div>
+<pre class="example">
+jupyter                1.0.0                /usr/local/lib/python3.8/dist-packages                  pip
+jupyter-client         6.1.12               /home/nasser/.local/lib/python3.8/site-packages         pip
+jupyter-console        6.4.0                /home/nasser/.local/lib/python3.8/site-packages         pip
+jupyter-core           4.7.1                /home/nasser/.local/lib/python3.8/site-packages         pip
+jupyterlab-pygments    0.1.2                /home/nasser/.local/lib/python3.8/site-packages         pip
+jupyterlab-widgets     1.0.0                /home/nasser/.local/lib/python3.8/site-packages         pip
+</pre>
+</div>
+</div>
+<div id="outline-container-headline-46" class="outline-3">
+<h3 id="headline-46">
+Check package available
+</h3>
+<div id="outline-text-headline-46" class="outline-text-3">
+<div class="src src-shell">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">pip search pygments</code></pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
 
 
               
@@ -753,9 +836,6 @@ Jupyter kernel with conda virtual environment
     
     <li class="tag__item">
         <a class="tag__link" href="https://nasseralkmim.github.io/tags/python/">python</a>
-    </li>
-    <li class="tag__item">
-        <a class="tag__link" href="https://nasseralkmim.github.io/tags/notes/">notes</a>
     </li></ul>
 
  <div class="pagination">
@@ -869,7 +949,7 @@ Jupyter kernel with conda virtual environment
 </li>
 </ul>
 </li>
-<li><a href="#headline-11">Continout integration</a>
+<li><a href="#headline-11">Continous integration</a>
 </li>
 <li><a href="#headline-12">Intra module importing</a>
 </li>
@@ -938,6 +1018,20 @@ Jupyter kernel with conda virtual environment
 <li><a href="#headline-40">Jupyter kernel with conda virtual environment</a>
 </li>
 </ul>
+</li>
+</ul>
+</li>
+<li><a href="#headline-41">Pip</a>
+<ul>
+<li><a href="#headline-42">Definition</a>
+</li>
+<li><a href="#headline-43">Check version and what is the current environment running</a>
+</li>
+<li><a href="#headline-44">Check where pip install packages</a>
+</li>
+<li><a href="#headline-45">Install package for all users</a>
+</li>
+<li><a href="#headline-46">Check package available</a>
 </li>
 </ul>
 </li>
