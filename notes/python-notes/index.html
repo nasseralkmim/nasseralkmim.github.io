@@ -103,7 +103,10 @@ if (!doNotTrack) {
         <div class="post">
           <header class="post__header">
             <h1 id="post__title">Python notes</h1>
+	    
             <time datetime="2021-05-15 00:00:00 &#43;0000 UTC" class="post__date">May 15 2021</time> 
+	    
+	    
           </header>
           <article class="post__content">
               
@@ -113,21 +116,287 @@ if (!doNotTrack) {
 Style guide
 </h2>
 <div id="outline-text-headline-1" class="outline-text-2">
+<div id="outline-container-headline-2" class="outline-3">
+<h3 id="headline-2">
+Prologue
+</h3>
+<div id="outline-text-headline-2" class="outline-text-3">
 <p>A good and well rationalized convention is the one from google: <a href="https://google.github.io/styleguide/pyguide.html.">https://google.github.io/styleguide/pyguide.html.</a></p>
 <p>
 A complete example can be found here <a href="https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html">Example Google Style Python Docstrings — napoleon 0.7 documentation</a>.</p>
+<p>
+<a href="https://www.sphinx-doc.org/en/master/usage/extensions/napoleon.html">sphinx.ext.napoleon – Support for NumPy and Google style docstrings — Sphinx …</a></p>
 </div>
 </div>
-<div id="outline-container-headline-2" class="outline-2">
-<h2 id="headline-2">
-Packaging
-</h2>
-<div id="outline-text-headline-2" class="outline-text-2">
 <div id="outline-container-headline-3" class="outline-3">
 <h3 id="headline-3">
-Goal
+Type hinting
 </h3>
 <div id="outline-text-headline-3" class="outline-text-3">
+<p>New in python 3.5.</p>
+<p>
+<a href="https://docs.python.org/3/library/typing.html">typing — Support for type hints — Python 3.9.6 documentation</a></p>
+<p>
+Help documenting arguments and returns.
+Make it easier to read.
+From the function definition we can see that the argument is a <code class="verbatim">str</code> and the return is also a <code class="verbatim">str</code>.</p>
+<p>
+This is similar with C++ standard.
+But <span style="text-decoration: underline;">it does not perform a type checking</span>.
+Python does not enforce those annotations.
+What is the point then?
+It allows for tools to perform this check.</p>
+<div class="src src-python">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">hello_function</span>(name: <span style="color:#038">str</span>) -&gt; <span style="color:#038">str</span>:
+    <span style="color:#080;font-weight:bold">return</span>(f<span style="color:#d20;background-color:#fff0f0">&#34;Hello {name}&#34;</span>)
+
+<span style="color:#080;font-weight:bold">print</span>(hello_function(<span style="color:#d20;background-color:#fff0f0">&#39;Jul&#39;</span>))
+<span style="color:#080;font-weight:bold">print</span>(hello_function.__annotations__)</code></pre></div>
+</div>
+<pre class="example">
+Hello Jul
+{&#39;name&#39;: &lt;class &#39;str&#39;&gt;, &#39;return&#39;: &lt;class &#39;str&#39;&gt;}
+</pre>
+</div>
+</div>
+<div id="outline-container-headline-4" class="outline-3">
+<h3 id="headline-4">
+Type hint with user defined type
+</h3>
+<div id="outline-text-headline-4" class="outline-text-3">
+<div class="src src-python">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">Labels</span>:
+    <span style="color:#080;font-weight:bold">def</span> __init__(self):
+        self.first_label = <span style="color:#d20;background-color:#fff0f0">&#39;first&#39;</span>
+
+<span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">Trades</span>:
+    <span style="color:#080;font-weight:bold">def</span> __init__(self, labels: Labels):
+        self.labels = labels
+
+labels = Labels()
+trade = Trades(labels)
+<span style="color:#080;font-weight:bold">print</span>(trade.labels.first_label)</code></pre></div>
+</div>
+<pre class="example">
+first
+</pre>
+</div>
+</div>
+<div id="outline-container-headline-5" class="outline-3">
+<h3 id="headline-5">
+PEP 563 - Postponed evaluation of annotations
+</h3>
+<div id="outline-text-headline-5" class="outline-text-3">
+<p><a href="https://docs.python.org/3/whatsnew/3.7.html#pep-563-postponed-evaluation-of-annotations">What’s New In Python 3.7 — Python 3.9.6 documentation</a></p>
+<p>
+Need to add <code class="verbatim">from __future__ import annotations</code>.
+So we can use names that were not referenced before.
+When running python versions less than 3.10.
+Right now I&#39;m running</p>
+<div class="src src-shell">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">python -V</code></pre></div>
+</div>
+<pre class="example">
+Python 3.8.10
+</pre>
+<div class="src src-python">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">C</span>:
+    <span style="color:#080;font-weight:bold">def</span> __init__(self, source: <span style="color:#038">str</span>) -&gt; C:
+        <span style="color:#080;font-weight:bold">pass</span></code></pre></div>
+</div>
+<pre class="example">
+
+NameErrorTraceback (most recent call last)
+&lt;ipython-input-2-88d77d16c870&gt; in &lt;module&gt;
+----&gt; 1 class C:
+      2     def __init__(self, source: str) -&gt; C:
+      3         pass
+
+&lt;ipython-input-2-88d77d16c870&gt; in C()
+      1 class C:
+----&gt; 2     def __init__(self, source: str) -&gt; C:
+      3         pass
+
+NameError: name &#39;C&#39; is not defined
+</pre>
+<p>
+This works with this python version.</p>
+<div class="src src-python">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">from</span> <span style="color:#b06;font-weight:bold">__future__</span> <span style="color:#080;font-weight:bold">import</span> annotations
+<span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">C</span>:
+    <span style="color:#080;font-weight:bold">def</span> __init__(self, source: <span style="color:#038">str</span>) -&gt; C:
+        <span style="color:#080;font-weight:bold">pass</span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-6" class="outline-3">
+<h3 id="headline-6">
+PEP 526 - Variable annotations
+</h3>
+<div id="outline-text-headline-6" class="outline-text-3">
+<p>
+<a href="https://www.python.org/dev/peps/pep-0526/">PEP 526 – Syntax for Variable Annotations | Python.org</a></p>
+</div>
+</div>
+<div id="outline-container-headline-7" class="outline-3">
+<h3 id="headline-7">
+PEP 585 - Type hinting generics in standard collections
+</h3>
+<div id="outline-text-headline-7" class="outline-text-3">
+<p>
+For new python 3.9.
+Or from python 3.7 with <code class="verbatim">from __future__ import annotations</code>.
+Generic collections such as: <code class="verbatim">list, dict, tuple</code>.</p>
+<p>
+With <div class="src src-inline src-shell">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">python -V} {{{results(=Python 3.8.10=)}}</code></pre></div>
+</div>:</p>
+<div class="src src-python">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">func</span>(stack: <span style="color:#038">list</span>[<span style="color:#038">int</span>]) -&gt; <span style="color:#038">list</span>[<span style="color:#038">int</span>]:
+    stack.append(<span style="color:#00d;font-weight:bold">10</span>)
+    <span style="color:#080;font-weight:bold">return</span> stack
+l = [<span style="color:#00d;font-weight:bold">1</span>, <span style="color:#00d;font-weight:bold">2</span>]
+func(l)
+<span style="color:#080;font-weight:bold">print</span>(l)</code></pre></div>
+</div>
+<pre class="example">
+
+TypeErrorTraceback (most recent call last)
+&lt;ipython-input-1-e9c487a88009&gt; in &lt;module&gt;
+----&gt; 1 def func(stack: list[int]) -&gt; list[int]:
+      2     stack.append(10)
+      3     return stack
+      4 l = [1, 2]
+      5 func(l)
+
+TypeError: &#39;type&#39; object is not subscriptable
+</pre>
+<p>
+Then we need:</p>
+<div class="src src-python">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">from</span> <span style="color:#b06;font-weight:bold">__future__</span> <span style="color:#080;font-weight:bold">import</span> annotations
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">func</span>(stack: <span style="color:#038">list</span>[<span style="color:#038">int</span>]) -&gt; <span style="color:#038">list</span>[<span style="color:#038">int</span>]:
+    stack.append(<span style="color:#00d;font-weight:bold">10</span>)
+    <span style="color:#080;font-weight:bold">return</span> stack
+l = [<span style="color:#00d;font-weight:bold">1</span>, <span style="color:#00d;font-weight:bold">2</span>]
+func(l)
+<span style="color:#080;font-weight:bold">print</span>(l)</code></pre></div>
+</div>
+<pre class="example">
+[1, 2, 10]
+</pre>
+</div>
+</div>
+<div id="outline-container-headline-8" class="outline-3">
+<h3 id="headline-8">
+<code class="verbatim">mypy</code> type checker
+</h3>
+<div id="outline-text-headline-8" class="outline-text-3">
+<p>
+Mypy is a static checker.
+It checks if the type hints are correct, like a more robust linter.</p>
+<p>
+Why should we use this?
+By getting into the habit of always specifying the type the program becomes easier to read since the types are clear.</p>
+<p>
+It can be integrated in an IDE.
+Flycheck in Emacs, for instance, which is included in the lsp package.</p>
+</div>
+</div>
+<div id="outline-container-headline-9" class="outline-3">
+<h3 id="headline-9">
+Automatic documentation generator
+</h3>
+<div id="outline-text-headline-9" class="outline-text-3">
+<div id="outline-container-headline-10" class="outline-4">
+<h4 id="headline-10">
+Pycco
+</h4>
+<div id="outline-text-headline-10" class="outline-text-4">
+<p>
+Generates documentation with code side by side.</p>
+<p>
+Nice for projects with low complexity since we can see the source and the comments in a nice way.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-11" class="outline-3">
+<h3 id="headline-11">
+Good practices
+</h3>
+<div id="outline-text-headline-11" class="outline-text-3">
+<div id="outline-container-headline-12" class="outline-4">
+<h4 id="headline-12">
+Don&#39;t repeat yourself
+</h4>
+<div id="outline-text-headline-12" class="outline-text-4">
+<div id="outline-container-headline-13" class="outline-5">
+<h5 id="headline-13">
+Example 1 processing a portfolio
+</h5>
+<div id="outline-text-headline-13" class="outline-text-5">
+<ol>
+<li>
+<p>multiple function calls with same argument.</p>
+<ol>
+<li>
+<p>this is begging for an abstraction into a class with common attributes</p>
+</li>
+</ol>
+</li>
+<li>
+<p>multiple state change of the object &#39;portfolio&#39;</p>
+</li>
+</ol>
+<div class="src src-python">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">process</span>(trades):
+    <span style="color:#d20;background-color:#fff0f0">&#34;&#34;&#34;Consolidates trade data into a portfolio DataFrame with current holdings.
+</span><span style="color:#d20;background-color:#fff0f0">
+</span><span style="color:#d20;background-color:#fff0f0">    Note:
+</span><span style="color:#d20;background-color:#fff0f0">        Saves into a &#39;.csv&#39; file.
+</span><span style="color:#d20;background-color:#fff0f0">
+</span><span style="color:#d20;background-color:#fff0f0">    Args:
+</span><span style="color:#d20;background-color:#fff0f0">        trades (DataFrame): processed trades data.
+</span><span style="color:#d20;background-color:#fff0f0">
+</span><span style="color:#d20;background-color:#fff0f0">    &#34;&#34;&#34;</span>
+    portfolio = pd.DataFrame()
+    portfolio = net_position(trades, portfolio)
+    portfolio = average_purchase_price(trades, portfolio)
+    portfolio = current_price(portfolio)
+    portfolio = profit_and_loss(portfolio)
+    portfolio = current_value(portfolio)
+    portfolio = sector(portfolio)
+    portfolio.to_csv(labels.PORTFOLIO_FILE)
+    <span style="color:#080;font-weight:bold">return</span> portfolio</code></pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-14" class="outline-4">
+<h4 id="headline-14">
+Avoid bare exceptions
+</h4>
+<div id="outline-text-headline-14" class="outline-text-4">
+<p>To avoid naked errors.
+When an exception is caught it hide all errors, even the ones we do not expect. </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-15" class="outline-2">
+<h2 id="headline-15">
+Packaging
+</h2>
+<div id="outline-text-headline-15" class="outline-text-2">
+<div id="outline-container-headline-16" class="outline-3">
+<h3 id="headline-16">
+Goal
+</h3>
+<div id="outline-text-headline-16" class="outline-text-3">
 <p>
 If we want to use out package in a specific environment elsewhere we just <code class="verbatim">pip install -e .</code> inside the package folder.</p>
 <p>
@@ -138,11 +407,11 @@ If someone wants to use our code, they just need the source code, the <code clas
 An example of the project structure is in <a href="https://github.com/nasseralkmim/package">GitHub - nasseralkmim/package</a>.</p>
 </div>
 </div>
-<div id="outline-container-headline-4" class="outline-3">
-<h3 id="headline-4">
+<div id="outline-container-headline-17" class="outline-3">
+<h3 id="headline-17">
 Folder structure
 </h3>
-<div id="outline-text-headline-4" class="outline-text-3">
+<div id="outline-text-headline-17" class="outline-text-3">
 <div class="src src-shell">
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">tree . -L <span style="color:#00d;font-weight:bold">2</span></code></pre></div>
 </div>
@@ -178,11 +447,11 @@ Folder structure
 </pre>
 </div>
 </div>
-<div id="outline-container-headline-5" class="outline-3">
-<h3 id="headline-5">
+<div id="outline-container-headline-18" class="outline-3">
+<h3 id="headline-18">
 Setup files
 </h3>
-<div id="outline-text-headline-5" class="outline-text-3">
+<div id="outline-text-headline-18" class="outline-text-3">
 <p>
 Used to specify how the package should be installed.</p>
 <p>
@@ -220,11 +489,11 @@ install_requires =
 The <code class="verbatim">install_requires</code> are the dependencies that your package have and that will be installed automatically when your package is installed with <code class="verbatim">pip install -e .</code>.</p>
 </div>
 </div>
-<div id="outline-container-headline-6" class="outline-3">
-<h3 id="headline-6">
+<div id="outline-container-headline-19" class="outline-3">
+<h3 id="headline-19">
 Developing requirements
 </h3>
-<div id="outline-text-headline-6" class="outline-text-3">
+<div id="outline-text-headline-19" class="outline-text-3">
 <p>
 In the <code class="verbatim">requirements.txt</code> you can specific the package that you use to develop your package.
 For instance, the testing framework <code class="verbatim">pytest</code> or an auto formater <code class="verbatim">black</code>.</p>
@@ -239,16 +508,16 @@ pytest
 </pre>
 </div>
 </div>
-<div id="outline-container-headline-7" class="outline-3">
-<h3 id="headline-7">
+<div id="outline-container-headline-20" class="outline-3">
+<h3 id="headline-20">
 Documentation
 </h3>
-<div id="outline-text-headline-7" class="outline-text-3">
-<div id="outline-container-headline-8" class="outline-4">
-<h4 id="headline-8">
+<div id="outline-text-headline-20" class="outline-text-3">
+<div id="outline-container-headline-21" class="outline-4">
+<h4 id="headline-21">
 Style
 </h4>
-<div id="outline-text-headline-8" class="outline-text-4">
+<div id="outline-text-headline-21" class="outline-text-4">
 <p>There are basically three major styles, reStructuredText, Google and Numpy.
 I favor Google, because:</p>
 <ol>
@@ -262,22 +531,22 @@ I favor Google, because:</p>
 <p><a href="https://www.sphinx-doc.org/en/master/usage/extensions/example_google.html#example-google">Example Google Style Python Docstrings — Sphinx documentation</a></p>
 </div>
 </div>
-<div id="outline-container-headline-9" class="outline-4">
-<h4 id="headline-9">
+<div id="outline-container-headline-22" class="outline-4">
+<h4 id="headline-22">
 Automatic generate documentation <code class="verbatim">sphinx</code>
 </h4>
-<div id="outline-text-headline-9" class="outline-text-4">
+<div id="outline-text-headline-22" class="outline-text-4">
 <p>
 Is automatically generated with a <code class="verbatim">sphinx</code> package.</p>
 <p>
 You can use it with <em>numpydoc</em> style, which I prefer, with the extension <code class="verbatim">sphinx.ext.napoleon</code>.</p>
 </div>
 </div>
-<div id="outline-container-headline-10" class="outline-4">
-<h4 id="headline-10">
+<div id="outline-container-headline-23" class="outline-4">
+<h4 id="headline-23">
 Automatic hosting formatted
 </h4>
-<div id="outline-text-headline-10" class="outline-text-4">
+<div id="outline-text-headline-23" class="outline-text-4">
 <p>
 For hosting you will need a <code class="verbatim">.readthedocs.yml</code> project root folder.</p>
 <div class="src src-shell">
@@ -291,20 +560,20 @@ python:
 </div>
 </div>
 </div>
-<div id="outline-container-headline-11" class="outline-3">
-<h3 id="headline-11">
+<div id="outline-container-headline-24" class="outline-3">
+<h3 id="headline-24">
 Continous integration
 </h3>
-<div id="outline-text-headline-11" class="outline-text-3">
+<div id="outline-text-headline-24" class="outline-text-3">
 <p>Travis-CI.
 Used to run tests every time code is uploaded to Github.</p>
 </div>
 </div>
-<div id="outline-container-headline-12" class="outline-3">
-<h3 id="headline-12">
+<div id="outline-container-headline-25" class="outline-3">
+<h3 id="headline-25">
 Intra module importing
 </h3>
-<div id="outline-text-headline-12" class="outline-text-3">
+<div id="outline-text-headline-25" class="outline-text-3">
 <p>
 <a href="https://docs.python.org/3/tutorial/modules.html#packages">6. Modules — Python 3.9.5 documentation</a></p>
 <p>
@@ -335,11 +604,11 @@ def func_1():
 we import the specific mo</p>
 </div>
 </div>
-<div id="outline-container-headline-13" class="outline-3">
-<h3 id="headline-13">
+<div id="outline-container-headline-26" class="outline-3">
+<h3 id="headline-26">
 Editable installs
 </h3>
-<div id="outline-text-headline-13" class="outline-text-3">
+<div id="outline-text-headline-26" class="outline-text-3">
 <p>
 Useful to write a package and make it available to python use it anywhere on your system.
 So you can keep development centralized in one place.</p>
@@ -375,11 +644,11 @@ Successfully installed package
 </pre>
 </div>
 </div>
-<div id="outline-container-headline-14" class="outline-3">
-<h3 id="headline-14">
+<div id="outline-container-headline-27" class="outline-3">
+<h3 id="headline-27">
 Using the package
 </h3>
-<div id="outline-text-headline-14" class="outline-text-3">
+<div id="outline-text-headline-27" class="outline-text-3">
 <p>
 Now we should be able to use <code class="verbatim">package</code>.</p>
 <div class="src src-python">
@@ -397,16 +666,16 @@ This is a module2 function!!
 </pre>
 </div>
 </div>
-<div id="outline-container-headline-15" class="outline-3">
-<h3 id="headline-15">
+<div id="outline-container-headline-28" class="outline-3">
+<h3 id="headline-28">
 Testing
 </h3>
-<div id="outline-text-headline-15" class="outline-text-3">
-<div id="outline-container-headline-16" class="outline-4">
-<h4 id="headline-16">
+<div id="outline-text-headline-28" class="outline-text-3">
+<div id="outline-container-headline-29" class="outline-4">
+<h4 id="headline-29">
 What is the relation between <code class="verbatim">pytest</code> and <code class="verbatim">tox</code>?
 </h4>
-<div id="outline-text-headline-16" class="outline-text-4">
+<div id="outline-text-headline-29" class="outline-text-4">
 <p>
 <code class="verbatim">tox</code> aims to (i) automate and (ii) standardize testing.
 It works with virtual environments (with predefined dependencies) and testing tools (like <code class="verbatim">pytest</code>).
@@ -421,11 +690,11 @@ It is very easy and convenient to write and run the tests, which incentives a go
 So, definitely use it.</p>
 </div>
 </div>
-<div id="outline-container-headline-17" class="outline-4">
-<h4 id="headline-17">
+<div id="outline-container-headline-30" class="outline-4">
+<h4 id="headline-30">
 Where tests should be put?
 </h4>
-<div id="outline-text-headline-17" class="outline-text-4">
+<div id="outline-text-headline-30" class="outline-text-4">
 <p>Separate folder, outside the source code.</p>
 <p>
 In this separate folder we can import our code that was installed with <code class="verbatim">pip install --editable ..</code></p>
@@ -434,21 +703,21 @@ If you don’t have a <code class="verbatim">setup.py</code> file and are relyin
 But is better to have it installed as package with <code class="verbatim">setup.py</code>.</p>
 </div>
 </div>
-<div id="outline-container-headline-18" class="outline-4">
-<h4 id="headline-18">
+<div id="outline-container-headline-31" class="outline-4">
+<h4 id="headline-31">
 How <code class="verbatim">pytest</code> know which tests to run?
 </h4>
-<div id="outline-text-headline-18" class="outline-text-4">
+<div id="outline-text-headline-31" class="outline-text-4">
 <p>
 It looks in the <code class="verbatim">/package/test/</code> folder for files with <code class="verbatim">*_test.py</code> convention.
 In those files it collects <code class="verbatim">test_*()</code> prefixed functions (or methods in <code class="verbatim">Test</code> classes)</p>
 </div>
 </div>
-<div id="outline-container-headline-19" class="outline-4">
-<h4 id="headline-19">
+<div id="outline-container-headline-32" class="outline-4">
+<h4 id="headline-32">
 Running a test
 </h4>
-<div id="outline-text-headline-19" class="outline-text-4">
+<div id="outline-text-headline-32" class="outline-text-4">
 <p>After the package was installed we just need to import the function in the test files and run <code class="verbatim">pytest</code>.</p>
 <div class="src src-shell">
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">python -m pytest</code></pre></div>
@@ -468,28 +737,48 @@ tests/submodule_test.py .                                                [100%]
 </div>
 </div>
 </div>
+<div id="outline-container-headline-33" class="outline-3">
+<h3 id="headline-33">
+Requirements not on Pypi
+</h3>
+<div id="outline-text-headline-33" class="outline-text-3">
+<p><a href="https://setuptools.readthedocs.io/en/latest/userguide/dependency_management.html#dependencies-that-aren-t-in-pypi">Dependencies Management in Setuptools — setuptools 57.0.0 documentation</a></p>
+<p>
+In the requirements.txt add</p>
+<pre class="example">
+install_requires = [
+non_pypi @ https://github.com/package_repo
+]
+</pre>
+<ol>
+<li>
+<p>packages that are not a single <code class="verbatim">.py</code> file need to append to the link <code class="verbatim">#egg=version</code>.</p>
+</li>
+</ol>
 </div>
 </div>
-<div id="outline-container-headline-20" class="outline-2">
-<h2 id="headline-20">
+</div>
+</div>
+<div id="outline-container-headline-34" class="outline-2">
+<h2 id="headline-34">
 Definitions
 </h2>
-<div id="outline-text-headline-20" class="outline-text-2">
-<div id="outline-container-headline-21" class="outline-3">
-<h3 id="headline-21">
+<div id="outline-text-headline-34" class="outline-text-2">
+<div id="outline-container-headline-35" class="outline-3">
+<h3 id="headline-35">
 What is <code class="verbatim">pip</code>
 </h3>
-<div id="outline-text-headline-21" class="outline-text-3">
+<div id="outline-text-headline-35" class="outline-text-3">
 <p>Pip: python packager manager.
 Use to install packages/libraries.
 Included with python.</p>
 </div>
 </div>
-<div id="outline-container-headline-22" class="outline-3">
-<h3 id="headline-22">
+<div id="outline-container-headline-36" class="outline-3">
+<h3 id="headline-36">
 What is Anaconda?
 </h3>
-<div id="outline-text-headline-22" class="outline-text-3">
+<div id="outline-text-headline-36" class="outline-text-3">
 <p>
 Anaconda is a package manager (like pip) and an environment manager (like virtualenv).
 Plus other things.</p>
@@ -497,11 +786,11 @@ Plus other things.</p>
 Miniconda is a light weight version.</p>
 </div>
 </div>
-<div id="outline-container-headline-23" class="outline-3">
-<h3 id="headline-23">
+<div id="outline-container-headline-37" class="outline-3">
+<h3 id="headline-37">
 What is the difference between <code class="verbatim">jupyter</code> and <code class="verbatim">jupyter kernel</code>?
 </h3>
-<div id="outline-text-headline-23" class="outline-text-3">
+<div id="outline-text-headline-37" class="outline-text-3">
 <p>
 A kernel is a program (specific for a language) that runs and introspects users&#39;s code.
 It interacts with jupyter applications and the user interface.
@@ -523,11 +812,11 @@ Subsequent calls will use the same URL.</p>
 </pre>
 </div>
 </div>
-<div id="outline-container-headline-24" class="outline-3">
-<h3 id="headline-24">
+<div id="outline-container-headline-38" class="outline-3">
+<h3 id="headline-38">
 What is <code class="verbatim">pyenv</code>?
 </h3>
-<div id="outline-text-headline-24" class="outline-text-3">
+<div id="outline-text-headline-38" class="outline-text-3">
 <p>
 Python version manager.
 It is a <code class="verbatim">bash</code> extension (shell).</p>
@@ -538,11 +827,11 @@ Does not depend on python.
 It substitutes manual management with virtualenv.</p>
 </div>
 </div>
-<div id="outline-container-headline-25" class="outline-3">
-<h3 id="headline-25">
+<div id="outline-container-headline-39" class="outline-3">
+<h3 id="headline-39">
 What is <code class="verbatim">virtualenv</code>?
 </h3>
-<div id="outline-text-headline-25" class="outline-text-3">
+<div id="outline-text-headline-39" class="outline-text-3">
 <p>
 Python environment manager.
 It is a python implementation, works everywhere.</p>
@@ -550,18 +839,113 @@ It is a python implementation, works everywhere.</p>
 It addresses the problem of dependency on different versions of a library.</p>
 </div>
 </div>
+<div id="outline-container-headline-40" class="outline-3">
+<h3 id="headline-40">
+Where <code class="verbatim">python</code> looks for modules?
+</h3>
+<div id="outline-text-headline-40" class="outline-text-3">
+<p>
+It looks to python files in <code class="verbatim">sys.path</code>.</p>
 </div>
 </div>
-<div id="outline-container-headline-26" class="outline-2">
-<h2 id="headline-26">
+<div id="outline-container-headline-41" class="outline-3">
+<h3 id="headline-41">
+Which <code class="verbatim">python</code> executable and version?
+</h3>
+<div id="outline-text-headline-41" class="outline-text-3">
+<div class="src src-shell">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">which python
+python --version</code></pre></div>
+</div>
+<pre class="example">
+/usr/local/bin/python
+Python 3.8.10
+</pre>
+</div>
+</div>
+<div id="outline-container-headline-42" class="outline-3">
+<h3 id="headline-42">
+Which <code class="verbatim">pip</code> version and what is the current environment?
+</h3>
+<div id="outline-text-headline-42" class="outline-text-3">
+<div class="src src-shell">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">pip -V
+which pip</code></pre></div>
+</div>
+<pre class="example">
+pip 20.0.2 from /usr/lib/python3/dist-packages/pip (python 3.8)
+/usr/bin/pip
+</pre>
+</div>
+</div>
+<div id="outline-container-headline-43" class="outline-3">
+<h3 id="headline-43">
+Where <code class="verbatim">pip</code> install packages?
+</h3>
+<div id="outline-text-headline-43" class="outline-text-3">
+<p>
+If it installed in the users folder (~)</p>
+<div class="src src-python">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">pip <span style="color:#038">list</span> -v | grep jupy</code></pre></div>
+</div>
+<pre class="example">
+jupyter                1.0.0                /home/nasser/.local/lib/python3.8/site-packages         pip
+jupyter-client         6.1.12               /home/nasser/.local/lib/python3.8/site-packages         pip
+jupyter-console        6.4.0                /home/nasser/.local/lib/python3.8/site-packages         pip
+jupyter-core           4.7.1                /home/nasser/.local/lib/python3.8/site-packages         pip
+jupyterlab-pygments    0.1.2                /home/nasser/.local/lib/python3.8/site-packages         pip
+jupyterlab-widgets     1.0.0                /home/nasser/.local/lib/python3.8/site-packages         pip
+Note: you may need to restart the kernel to use updated packages.
+</pre>
+</div>
+</div>
+<div id="outline-container-headline-44" class="outline-3">
+<h3 id="headline-44">
+How to install package for all users?
+</h3>
+<div id="outline-text-headline-44" class="outline-text-3">
+<p>
+I had to do this so Emacs could easily find <code class="verbatim">jupyter</code>.
+But I would say it is not a good practice.
+Better to keep the new python packages installations contained in a specific environment.</p>
+<div class="src src-shell">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo pip install jupyter</code></pre></div>
+</div>
+<div class="src src-shell">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">pip list -v | grep jupyter</code></pre></div>
+</div>
+<pre class="example">
+jupyter                1.0.0                /usr/local/lib/python3.8/dist-packages                  pip
+jupyter-client         6.1.12               /home/nasser/.local/lib/python3.8/site-packages         pip
+jupyter-console        6.4.0                /home/nasser/.local/lib/python3.8/site-packages         pip
+jupyter-core           4.7.1                /home/nasser/.local/lib/python3.8/site-packages         pip
+jupyterlab-pygments    0.1.2                /home/nasser/.local/lib/python3.8/site-packages         pip
+jupyterlab-widgets     1.0.0                /home/nasser/.local/lib/python3.8/site-packages         pip
+</pre>
+</div>
+</div>
+<div id="outline-container-headline-45" class="outline-3">
+<h3 id="headline-45">
+How to check package available?
+</h3>
+<div id="outline-text-headline-45" class="outline-text-3">
+<div class="src src-shell">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">pip search pygments</code></pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-46" class="outline-2">
+<h2 id="headline-46">
 Virtual environments
 </h2>
-<div id="outline-text-headline-26" class="outline-text-2">
-<div id="outline-container-headline-27" class="outline-3">
-<h3 id="headline-27">
+<div id="outline-text-headline-46" class="outline-text-2">
+<div id="outline-container-headline-47" class="outline-3">
+<h3 id="headline-47">
 Rationale
 </h3>
-<div id="outline-text-headline-27" class="outline-text-3">
+<div id="outline-text-headline-47" class="outline-text-3">
 <p>We want to isolate specific python installations.
 This is called environment.</p>
 <p>
@@ -570,53 +954,52 @@ In each python installation we can have a specific set of libraries for a specif
 Why? This is a more organizing way to deal with package dependencies.</p>
 </div>
 </div>
-<div id="outline-container-headline-28" class="outline-3">
-<h3 id="headline-28">
+<div id="outline-container-headline-48" class="outline-3">
+<h3 id="headline-48">
 Using <code class="verbatim">conda</code>
 </h3>
-<div id="outline-text-headline-28" class="outline-text-3">
-<p>
-When conda is installed, the shell will have a <code class="verbatim">(base)</code> in front of the prompt when conda is activated.</p>
+<div id="outline-text-headline-48" class="outline-text-3">
+<p>When conda is installed, the shell will have a <code class="verbatim">(base)</code> in front of the prompt when conda is activated.</p>
 <p>
 <code class="verbatim">conda</code> will add lines to the <code class="verbatim">.bashrc</code> for automatically activation of the default <code class="verbatim">conda</code> environment.
 To avoid that type <code class="verbatim">conda config --set auto_activate_base false</code>.</p>
 </div>
 </div>
-<div id="outline-container-headline-29" class="outline-3">
-<h3 id="headline-29">
+<div id="outline-container-headline-49" class="outline-3">
+<h3 id="headline-49">
 Create environment
 </h3>
-<div id="outline-text-headline-29" class="outline-text-3">
+<div id="outline-text-headline-49" class="outline-text-3">
 <p>
 <code class="verbatim">conda create --name myenv</code></p>
 </div>
 </div>
-<div id="outline-container-headline-30" class="outline-3">
-<h3 id="headline-30">
+<div id="outline-container-headline-50" class="outline-3">
+<h3 id="headline-50">
 Activate environment
 </h3>
-<div id="outline-text-headline-30" class="outline-text-3">
+<div id="outline-text-headline-50" class="outline-text-3">
 <p>
 <code class="verbatim">conda activate myenv</code></p>
 <p>
 or <code class="verbatim">pip -V</code> to see which one is been called.</p>
 </div>
 </div>
-<div id="outline-container-headline-31" class="outline-3">
-<h3 id="headline-31">
+<div id="outline-container-headline-51" class="outline-3">
+<h3 id="headline-51">
 Available environments
 </h3>
-<div id="outline-text-headline-31" class="outline-text-3">
+<div id="outline-text-headline-51" class="outline-text-3">
 <div class="src src-shell">
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">conda env list</code></pre></div>
 </div>
 </div>
 </div>
-<div id="outline-container-headline-32" class="outline-3">
-<h3 id="headline-32">
+<div id="outline-container-headline-52" class="outline-3">
+<h3 id="headline-52">
 Adding an environment to Jupyter
 </h3>
-<div id="outline-text-headline-32" class="outline-text-3">
+<div id="outline-text-headline-52" class="outline-text-3">
 <p>
 Install <code class="verbatim">ipykernel</code> inside your environment.
 <code class="verbatim">ipykernel</code> provides Ipython kernel for Jupyter.</p>
@@ -634,27 +1017,15 @@ Now this kernel is available for Jupyter.
 This can be check with <code class="verbatim">jupyter kernelspec list</code></p>
 </div>
 </div>
-</div>
-</div>
-<div id="outline-container-headline-33" class="outline-2">
-<h2 id="headline-33">
-Python modules
-</h2>
-<div id="outline-text-headline-33" class="outline-text-2">
-<div id="outline-container-headline-34" class="outline-3">
-<h3 id="headline-34">
-Where python looks for modules?
+<div id="outline-container-headline-53" class="outline-3">
+<h3 id="headline-53">
+Managing multiple python versions
 </h3>
-<div id="outline-text-headline-34" class="outline-text-3">
+<div id="outline-text-headline-53" class="outline-text-3">
 <p>
-It looks to python files in <code class="verbatim">sys.path</code>.</p>
-</div>
-</div>
-<div id="outline-container-headline-35" class="outline-3">
-<h3 id="headline-35">
-Python executable and version
-</h3>
-<div id="outline-text-headline-35" class="outline-text-3">
+Currently with, <div class="src src-inline src-shell">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">python --version} {{{results(=Python 3.8.10=)}}</code></pre></div>
+</div>.</p>
 <div class="src src-shell">
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">which python
 python --version</code></pre></div>
@@ -663,153 +1034,202 @@ python --version</code></pre></div>
 /usr/local/bin/python
 Python 3.8.10
 </pre>
-</div>
-</div>
-<div id="outline-container-headline-36" class="outline-3">
-<h3 id="headline-36">
-Syspath
-</h3>
-<div id="outline-text-headline-36" class="outline-text-3">
-<div id="outline-container-headline-37" class="outline-4">
-<h4 id="headline-37">
-Shell
-</h4>
-<div id="outline-text-headline-37" class="outline-text-4">
-<p>From the shell,</p>
+<p>
+But I just installed python 3.9 from <code class="verbatim">sudo add-apt-repository ppa:deadsnakes/ppa</code>.</p>
 <div class="src src-shell">
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">python -c <span style="color:#d20;background-color:#fff0f0">&#34;import sys; print(sys.path)&#34;</span></code></pre></div>
-</div>
-<pre class="example">
-[&#39;&#39;, &#39;/usr/lib/python38.zip&#39;, &#39;/usr/lib/python3.8&#39;, &#39;/usr/lib/python3.8/lib-dynload&#39;, &#39;/home/nasser/.local/lib/python3.8/site-packages&#39;, &#39;/mnt/c/Users/c8441205/OneDrive/Academy/Projects/package&#39;, &#39;/usr/local/lib/python3.8/dist-packages&#39;, &#39;/usr/lib/python3/dist-packages&#39;]
-</pre>
-<p>
-We can see the default location pointing to the conda environment.
-This because conda default environment is loaded with the shell, configured in the <code class="verbatim">.bashrc</code> file.</p>
-</div>
-</div>
-<div id="outline-container-headline-38" class="outline-4">
-<h4 id="headline-38">
-Change conda environment within emacs shell
-</h4>
-<div id="outline-text-headline-38" class="outline-text-4">
-<p>
-With <code class="verbatim">conda.el</code> package </p>
-<p>
-Getting the error: <code class="verbatim">conda--get-path-prefix: Error: executing command &#34;&#34;/home/nasser/.anaconda3/bin/conda&#34; ..activate &#34;bash&#34; &#34;/home/nasser/miniconda3/envs/edelweissFE/&#34;&#34; produced error code 127</code></p>
-</div>
-</div>
-<div id="outline-container-headline-39" class="outline-4">
-<h4 id="headline-39">
-Jupyter default kernel
-</h4>
-<div id="outline-text-headline-39" class="outline-text-4">
-<p>Using the default jupyter python kernel,</p>
-<div class="src src-python">
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">import</span> <span style="color:#b06;font-weight:bold">sys</span>
-<span style="color:#080;font-weight:bold">print</span>(sys.path)</code></pre></div>
-</div>
-<pre class="example">
-[&#39;/mnt/c/Users/c8441205/OneDrive/nasser-website/content/notes/python-notes&#39;, &#39;/usr/lib/python38.zip&#39;, &#39;/usr/lib/python3.8&#39;, &#39;/usr/lib/python3.8/lib-dynload&#39;, &#39;&#39;, &#39;/home/nasser/.local/lib/python3.8/site-packages&#39;, &#39;/mnt/c/Users/c8441205/OneDrive/Academy/Projects/package&#39;, &#39;/usr/local/lib/python3.8/dist-packages&#39;, &#39;/usr/lib/python3/dist-packages&#39;, &#39;/home/nasser/.local/lib/python3.8/site-packages/IPython/extensions&#39;, &#39;/home/nasser/.ipython&#39;]
-</pre>
-<p>
-We can see the default <code class="verbatim">/usr/lib/python3.8/site-packages.</code></p>
-</div>
-</div>
-<div id="outline-container-headline-40" class="outline-4">
-<h4 id="headline-40">
-Jupyter kernel with conda virtual environment
-</h4>
-<div id="outline-text-headline-40" class="outline-text-4">
-<p>If we use a different kernel with a conda virtual environment in jupyter,</p>
-<div class="src src-python">
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">import</span> <span style="color:#b06;font-weight:bold">sys</span>
-<span style="color:#080;font-weight:bold">print</span>(sys.path)</code></pre></div>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo update-alternatives --list python</code></pre></div>
 </div>
 </div>
 </div>
 </div>
 </div>
-</div>
-</div>
-<div id="outline-container-headline-41" class="outline-2">
-<h2 id="headline-41">
-Pip
+<div id="outline-container-headline-54" class="outline-2">
+<h2 id="headline-54">
+Programming Concepts
 </h2>
-<div id="outline-text-headline-41" class="outline-text-2">
-<div id="outline-container-headline-42" class="outline-3">
-<h3 id="headline-42">
-Definition
+<div id="outline-text-headline-54" class="outline-text-2">
+<div id="outline-container-headline-55" class="outline-3">
+<h3 id="headline-55">
+Handling exceptions
 </h3>
-<div id="outline-text-headline-42" class="outline-text-3">
+<div id="outline-text-headline-55" class="outline-text-3">
+<p>An exception error occurs even if the code is syntactically correct.</p>
 <p>
-Is a packager manager for python.</p>
-</div>
-</div>
-<div id="outline-container-headline-43" class="outline-3">
-<h3 id="headline-43">
-Check version and what is the current environment running
-</h3>
-<div id="outline-text-headline-43" class="outline-text-3">
-<div class="src src-shell">
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">pip -V
-which pip</code></pre></div>
-</div>
-<pre class="example">
-pip 20.0.2 from /usr/lib/python3/dist-packages/pip (python 3.8)
-/usr/bin/pip
-</pre>
-</div>
-</div>
-<div id="outline-container-headline-44" class="outline-3">
-<h3 id="headline-44">
-Check where pip install packages
-</h3>
-<div id="outline-text-headline-44" class="outline-text-3">
+<code class="verbatim">raise</code> throw an error when it is run.</p>
 <p>
-If it installed in the users folder (~)</p>
+<code class="verbatim">assert</code> check a condition and throw an error if it fails.</p>
+<p>
+<code class="verbatim">try</code> and <code class="verbatim">except</code> block is used to handle exceptions in the algorithm.
+The <code class="verbatim">try</code> is run normally, and the <code class="verbatim">except</code> when an exception happen.
+This way we can handle the exception without crashing the program.</p>
+</div>
+</div>
+<div id="outline-container-headline-56" class="outline-3">
+<h3 id="headline-56">
+OOP x functional
+</h3>
+<div id="outline-text-headline-56" class="outline-text-3">
+<div id="outline-container-headline-57" class="outline-4">
+<h4 id="headline-57">
+Classes with methods or module with function?
+</h4>
+<div id="outline-text-headline-57" class="outline-text-4">
+<p>
+Classes are good:</p>
+<ol>
+<li>
+<p>if you want multiple instanced of the object defined by it.</p>
+</li>
+<li>
+<p>if the functions work on &#34;shared state&#34; of the data.</p>
+</li>
+<li>
+<p>if function change the &#34;state&#34; of the data.</p>
+<ol>
+<li>
+<p>classes group data with operations</p>
+</li>
+</ol>
+</li>
+</ol>
+<p>
+Function are good:</p>
+<ol>
+<li>
+<p>when they are &#34;pure&#34;</p>
+<ol>
+<li>
+<p>input and output are clear, input does not depend on external state.</p>
+</li>
+<li>
+<p>question and answer are straightforward.</p>
+</li>
+<li>
+<p>they are self-contained.</p>
+</li>
+<li>
+<p>they composable: self contained and stateless.</p>
+</li>
+</ol>
+</li>
+<li>
+<p>when they have no side effect</p>
+<ol>
+<li>
+<p>they do not change &#34;state&#34; of the data that is important elsewhere outside the function</p>
+</li>
+</ol>
+</li>
+</ol>
+<p><a href="https://stackoverflow.com/questions/40929959/why-use-python-classes-over-modules-with-functions">Why use python classes over modules with functions? - Stack Overflow</a></p>
+</div>
+</div>
+<div id="outline-container-headline-58" class="outline-4">
+<h4 id="headline-58">
+Pure functions
+</h4>
+<div id="outline-text-headline-58" class="outline-text-4">
+<p>In a pure function:</p>
+<ol>
+<li>
+<p>return value is the only observable output.</p>
+</li>
+<li>
+<p>the output depends only on the arguments.</p>
+</li>
+</ol>
+<p>
+<a href="https://stackoverflow.com/questions/602444/functional-declarative-and-imperative-programming">terminology - Functional, Declarative, and Imperative Programming - Stack Ove…</a></p>
+</div>
+</div>
+<div id="outline-container-headline-59" class="outline-4">
+<h4 id="headline-59">
+Functional programming and imperative
+</h4>
+<div id="outline-text-headline-59" class="outline-text-4">
+<p>
+Functional is a form of declarative programming.
+You declare something, then you use anyway you want.
+What the computer can/will do.</p>
+<p>
+Imperative is procedural.
+The order of execution matters.
+What the steps for the computer do.</p>
+<p>
+<a href="https://stackoverflow.com/questions/17826380/what-is-difference-between-functional-and-imperative-programming-languages">oop - What is difference between functional and imperative programming langua…</a></p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-60" class="outline-3">
+<h3 id="headline-60">
+Composition x aggregation
+</h3>
+<div id="outline-text-headline-60" class="outline-text-3">
+<p>
+In <span style="text-decoration: underline;">composition</span> one class acts as a container of the other.
+One class attribute is an object of another class.
+There is an &#34;owner-owned&#34; relation.</p>
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">pip <span style="color:#038">list</span> -v | grep jupy</code></pre></div>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">Trades</span>:
+    <span style="color:#080;font-weight:bold">def</span> __init__(self):
+        self.labels = Labels()  <span style="color:#888"># composition</span>
+
+<span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">Labels</span>:
+    <span style="color:#080;font-weight:bold">def</span> __init__(self):
+        self.LABEL = <span style="color:#d20;background-color:#fff0f0">&#39;this is a label&#39;</span>
+
+    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">set_label</span>(self, **kwargs: <span style="color:#038">str</span>):
+        <span style="color:#d20;background-color:#fff0f0">&#34;&#34;&#34;Set a label.&#34;&#34;&#34;</span>
+        self.__dict__.update(kwargs)
+	
+
+trades = Trades()
+<span style="color:#080;font-weight:bold">print</span>(trades.labels.LABEL)
+trades.labels.set_label(OTHER_LABEL=<span style="color:#d20;background-color:#fff0f0">&#39;other label&#39;</span>)
+<span style="color:#080;font-weight:bold">print</span>(trades.labels.OTHER_LABEL)</code></pre></div>
 </div>
 <pre class="example">
-jupyter                1.0.0                /home/nasser/.local/lib/python3.8/site-packages         pip
-jupyter-client         6.1.12               /home/nasser/.local/lib/python3.8/site-packages         pip
-jupyter-console        6.4.0                /home/nasser/.local/lib/python3.8/site-packages         pip
-jupyter-core           4.7.1                /home/nasser/.local/lib/python3.8/site-packages         pip
-jupyterlab-pygments    0.1.2                /home/nasser/.local/lib/python3.8/site-packages         pip
-jupyterlab-widgets     1.0.0                /home/nasser/.local/lib/python3.8/site-packages         pip
-Note: you may need to restart the kernel to use updated packages.
+this is a label
+other label
 </pre>
-</div>
-</div>
-<div id="outline-container-headline-45" class="outline-3">
-<h3 id="headline-45">
-Install package for all users
-</h3>
-<div id="outline-text-headline-45" class="outline-text-3">
-<div class="src src-shell">
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo pip install jupyter</code></pre></div>
-</div>
-<div class="src src-shell">
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">pip list -v | grep jupyter</code></pre></div>
+<p>
+Aggregation is a form of composition.
+However, instead of instantiating an object inside the other class we just pass the instance.
+There as &#34;user-used&#34; relation.</p>
+<div class="src src-python">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">Trades</span>:
+    <span style="color:#080;font-weight:bold">def</span> __init__(self, labels: Labels):
+        self.labels = labels    <span style="color:#888">#  aggregation</span>
+
+<span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">Labels</span>:
+    <span style="color:#080;font-weight:bold">def</span> __init__(self):
+        self.LABEL = <span style="color:#d20;background-color:#fff0f0">&#39;this is a label&#39;</span>
+
+    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">set_label</span>(self, **kwargs: <span style="color:#038">str</span>):
+        <span style="color:#d20;background-color:#fff0f0">&#34;&#34;&#34;Set a label.&#34;&#34;&#34;</span>
+        self.__dict__.update(kwargs)
+	
+labels = Labels()
+trades = Trades(labels)
+<span style="color:#080;font-weight:bold">print</span>(trades.labels.LABEL)
+trades.labels.set_label(OTHER_LABEL=<span style="color:#d20;background-color:#fff0f0">&#39;other label&#39;</span>)
+<span style="color:#080;font-weight:bold">print</span>(trades.labels.OTHER_LABEL)</code></pre></div>
 </div>
 <pre class="example">
-jupyter                1.0.0                /usr/local/lib/python3.8/dist-packages                  pip
-jupyter-client         6.1.12               /home/nasser/.local/lib/python3.8/site-packages         pip
-jupyter-console        6.4.0                /home/nasser/.local/lib/python3.8/site-packages         pip
-jupyter-core           4.7.1                /home/nasser/.local/lib/python3.8/site-packages         pip
-jupyterlab-pygments    0.1.2                /home/nasser/.local/lib/python3.8/site-packages         pip
-jupyterlab-widgets     1.0.0                /home/nasser/.local/lib/python3.8/site-packages         pip
+this is a label
+other label
 </pre>
-</div>
-</div>
-<div id="outline-container-headline-46" class="outline-3">
-<h3 id="headline-46">
-Check package available
-</h3>
-<div id="outline-text-headline-46" class="outline-text-3">
-<div class="src src-shell">
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">pip search pygments</code></pre></div>
-</div>
+<p>
+For this use case I prefer aggregation because:</p>
+<ol>
+<li>
+<p>in composition the &#34;trades&#34; own the &#34;labels&#34;, which is no adequate because other classes can also benefit from the &#34;labels&#34; (portfolio, visualization, analysis).</p>
+</li>
+<li>
+<p>in aggregation labels exist independently of the trades.</p>
+</li>
+</ol>
 </div>
 </div>
 </div>
@@ -928,110 +1348,144 @@ Check package available
         <nav id="TableOfContents">
 <ul>
 <li><a href="#headline-1">Style guide</a>
-</li>
-<li><a href="#headline-2">Packaging</a>
 <ul>
-<li><a href="#headline-3">Goal</a>
+<li><a href="#headline-2">Prologue</a>
 </li>
-<li><a href="#headline-4">Folder structure</a>
+<li><a href="#headline-3">Type hinting</a>
 </li>
-<li><a href="#headline-5">Setup files</a>
+<li><a href="#headline-4">Type hint with user defined type</a>
 </li>
-<li><a href="#headline-6">Developing requirements</a>
+<li><a href="#headline-5">PEP 563 - Postponed evaluation of annotations</a>
 </li>
-<li><a href="#headline-7">Documentation</a>
+<li><a href="#headline-6">PEP 526 - Variable annotations</a>
+</li>
+<li><a href="#headline-7">PEP 585 - Type hinting generics in standard collections</a>
+</li>
+<li><a href="#headline-8"><code class="verbatim">mypy</code> type checker</a>
+</li>
+<li><a href="#headline-9">Automatic documentation generator</a>
 <ul>
-<li><a href="#headline-8">Style</a>
-</li>
-<li><a href="#headline-9">Automatic generate documentation <code class="verbatim">sphinx</code></a>
-</li>
-<li><a href="#headline-10">Automatic hosting formatted</a>
+<li><a href="#headline-10">Pycco</a>
 </li>
 </ul>
 </li>
-<li><a href="#headline-11">Continous integration</a>
-</li>
-<li><a href="#headline-12">Intra module importing</a>
-</li>
-<li><a href="#headline-13">Editable installs</a>
-</li>
-<li><a href="#headline-14">Using the package</a>
-</li>
-<li><a href="#headline-15">Testing</a>
+<li><a href="#headline-11">Good practices</a>
 <ul>
-<li><a href="#headline-16">What is the relation between <code class="verbatim">pytest</code> and <code class="verbatim">tox</code>?</a>
+<li><a href="#headline-12">Don&#39;t repeat yourself</a>
+<ul>
+<li><a href="#headline-13">Example 1 processing a portfolio</a>
 </li>
-<li><a href="#headline-17">Where tests should be put?</a>
+</ul>
 </li>
-<li><a href="#headline-18">How <code class="verbatim">pytest</code> know which tests to run?</a>
-</li>
-<li><a href="#headline-19">Running a test</a>
+<li><a href="#headline-14">Avoid bare exceptions</a>
 </li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#headline-20">Definitions</a>
+<li><a href="#headline-15">Packaging</a>
 <ul>
-<li><a href="#headline-21">What is <code class="verbatim">pip</code></a>
+<li><a href="#headline-16">Goal</a>
 </li>
-<li><a href="#headline-22">What is Anaconda?</a>
+<li><a href="#headline-17">Folder structure</a>
 </li>
-<li><a href="#headline-23">What is the difference between <code class="verbatim">jupyter</code> and <code class="verbatim">jupyter kernel</code>?</a>
+<li><a href="#headline-18">Setup files</a>
 </li>
-<li><a href="#headline-24">What is <code class="verbatim">pyenv</code>?</a>
+<li><a href="#headline-19">Developing requirements</a>
 </li>
-<li><a href="#headline-25">What is <code class="verbatim">virtualenv</code>?</a>
+<li><a href="#headline-20">Documentation</a>
+<ul>
+<li><a href="#headline-21">Style</a>
+</li>
+<li><a href="#headline-22">Automatic generate documentation <code class="verbatim">sphinx</code></a>
+</li>
+<li><a href="#headline-23">Automatic hosting formatted</a>
 </li>
 </ul>
 </li>
-<li><a href="#headline-26">Virtual environments</a>
+<li><a href="#headline-24">Continous integration</a>
+</li>
+<li><a href="#headline-25">Intra module importing</a>
+</li>
+<li><a href="#headline-26">Editable installs</a>
+</li>
+<li><a href="#headline-27">Using the package</a>
+</li>
+<li><a href="#headline-28">Testing</a>
 <ul>
-<li><a href="#headline-27">Rationale</a>
+<li><a href="#headline-29">What is the relation between <code class="verbatim">pytest</code> and <code class="verbatim">tox</code>?</a>
 </li>
-<li><a href="#headline-28">Using <code class="verbatim">conda</code></a>
+<li><a href="#headline-30">Where tests should be put?</a>
 </li>
-<li><a href="#headline-29">Create environment</a>
+<li><a href="#headline-31">How <code class="verbatim">pytest</code> know which tests to run?</a>
 </li>
-<li><a href="#headline-30">Activate environment</a>
-</li>
-<li><a href="#headline-31">Available environments</a>
-</li>
-<li><a href="#headline-32">Adding an environment to Jupyter</a>
+<li><a href="#headline-32">Running a test</a>
 </li>
 </ul>
 </li>
-<li><a href="#headline-33">Python modules</a>
-<ul>
-<li><a href="#headline-34">Where python looks for modules?</a>
-</li>
-<li><a href="#headline-35">Python executable and version</a>
-</li>
-<li><a href="#headline-36">Syspath</a>
-<ul>
-<li><a href="#headline-37">Shell</a>
-</li>
-<li><a href="#headline-38">Change conda environment within emacs shell</a>
-</li>
-<li><a href="#headline-39">Jupyter default kernel</a>
-</li>
-<li><a href="#headline-40">Jupyter kernel with conda virtual environment</a>
+<li><a href="#headline-33">Requirements not on Pypi</a>
 </li>
 </ul>
 </li>
+<li><a href="#headline-34">Definitions</a>
+<ul>
+<li><a href="#headline-35">What is <code class="verbatim">pip</code></a>
+</li>
+<li><a href="#headline-36">What is Anaconda?</a>
+</li>
+<li><a href="#headline-37">What is the difference between <code class="verbatim">jupyter</code> and <code class="verbatim">jupyter kernel</code>?</a>
+</li>
+<li><a href="#headline-38">What is <code class="verbatim">pyenv</code>?</a>
+</li>
+<li><a href="#headline-39">What is <code class="verbatim">virtualenv</code>?</a>
+</li>
+<li><a href="#headline-40">Where <code class="verbatim">python</code> looks for modules?</a>
+</li>
+<li><a href="#headline-41">Which <code class="verbatim">python</code> executable and version?</a>
+</li>
+<li><a href="#headline-42">Which <code class="verbatim">pip</code> version and what is the current environment?</a>
+</li>
+<li><a href="#headline-43">Where <code class="verbatim">pip</code> install packages?</a>
+</li>
+<li><a href="#headline-44">How to install package for all users?</a>
+</li>
+<li><a href="#headline-45">How to check package available?</a>
+</li>
 </ul>
 </li>
-<li><a href="#headline-41">Pip</a>
+<li><a href="#headline-46">Virtual environments</a>
 <ul>
-<li><a href="#headline-42">Definition</a>
+<li><a href="#headline-47">Rationale</a>
 </li>
-<li><a href="#headline-43">Check version and what is the current environment running</a>
+<li><a href="#headline-48">Using <code class="verbatim">conda</code></a>
 </li>
-<li><a href="#headline-44">Check where pip install packages</a>
+<li><a href="#headline-49">Create environment</a>
 </li>
-<li><a href="#headline-45">Install package for all users</a>
+<li><a href="#headline-50">Activate environment</a>
 </li>
-<li><a href="#headline-46">Check package available</a>
+<li><a href="#headline-51">Available environments</a>
+</li>
+<li><a href="#headline-52">Adding an environment to Jupyter</a>
+</li>
+<li><a href="#headline-53">Managing multiple python versions</a>
+</li>
+</ul>
+</li>
+<li><a href="#headline-54">Programming Concepts</a>
+<ul>
+<li><a href="#headline-55">Handling exceptions</a>
+</li>
+<li><a href="#headline-56">OOP x functional</a>
+<ul>
+<li><a href="#headline-57">Classes with methods or module with function?</a>
+</li>
+<li><a href="#headline-58">Pure functions</a>
+</li>
+<li><a href="#headline-59">Functional programming and imperative</a>
+</li>
+</ul>
+</li>
+<li><a href="#headline-60">Composition x aggregation</a>
 </li>
 </ul>
 </li>
