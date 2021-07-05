@@ -105,8 +105,8 @@ if (!doNotTrack) {
             <h1 id="post__title">Python notes</h1>
             <time datetime="2021-05-15 00:00:00 &#43;0000 UTC" class="post__date">May 15 2021</time> 
 	    
-	    <time datetime="2021-07-04 21:32:24 &#43;0000 UTC" class="post__date">
-	      edited in Jul 4 2021
+	    <time datetime="2021-07-05 08:02:32 &#43;0000 UTC" class="post__date">
+	      edited in Jul 5 2021
 	    </time>
 	    
           </header>
@@ -1068,7 +1068,7 @@ This way we can handle the exception without crashing the program.</p>
 </div>
 <div id="outline-container-headline-56" class="outline-3">
 <h3 id="headline-56">
-OOP x functional
+OOP versus functional
 </h3>
 <div id="outline-text-headline-56" class="outline-text-3">
 <div id="outline-container-headline-57" class="outline-4">
@@ -1165,13 +1165,14 @@ What the steps for the computer do.</p>
 </div>
 <div id="outline-container-headline-60" class="outline-3">
 <h3 id="headline-60">
-Composition x aggregation
+Composition versus aggregation
 </h3>
 <div id="outline-text-headline-60" class="outline-text-3">
 <p>
 In <span style="text-decoration: underline;">composition</span> one class acts as a container of the other.
 One class attribute is an object of another class.
-There is an &#34;owner-owned&#34; relation.</p>
+There is an &#34;owner-owned&#34; relation, &#34;composite-component&#34;.
+There is also a &#34;has a&#34; relationship.</p>
 <div class="src src-python">
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">Trades</span>:
     <span style="color:#080;font-weight:bold">def</span> __init__(self):
@@ -1186,7 +1187,7 @@ There is an &#34;owner-owned&#34; relation.</p>
         self.__dict__.update(kwargs)
 	
 
-trades = Trades()
+trades = Trades()               <span style="color:#888"># no need to create extra &#34;Label&#34; object!</span>
 <span style="color:#080;font-weight:bold">print</span>(trades.labels.LABEL)
 trades.labels.set_label(OTHER_LABEL=<span style="color:#d20;background-color:#fff0f0">&#39;other label&#39;</span>)
 <span style="color:#080;font-weight:bold">print</span>(trades.labels.OTHER_LABEL)</code></pre></div>
@@ -1212,7 +1213,7 @@ There as &#34;user-used&#34; relation.</p>
         <span style="color:#d20;background-color:#fff0f0">&#34;&#34;&#34;Set a label.&#34;&#34;&#34;</span>
         self.__dict__.update(kwargs)
 	
-labels = Labels()
+labels = Labels()               <span style="color:#888"># extra object! increases complexity</span>
 trades = Trades(labels)
 <span style="color:#080;font-weight:bold">print</span>(trades.labels.LABEL)
 trades.labels.set_label(OTHER_LABEL=<span style="color:#d20;background-color:#fff0f0">&#39;other label&#39;</span>)
@@ -1232,6 +1233,111 @@ For this use case I prefer aggregation because:</p>
 <p>in aggregation labels exist independently of the trades.</p>
 </li>
 </ol>
+<p>After some thought, I changed my mind:</p>
+<ol>
+<li>
+<p>with composition I can hide information, avoiding complexity.</p>
+<ol>
+<li>
+<p>this, there is no need to create a separate object.</p>
+</li>
+</ol>
+</li>
+</ol>
+<p><a href="https://realpython.com/inheritance-composition-python/">Inheritance and Composition: A Python OOP Guide – Real Python</a></p>
+</div>
+</div>
+<div id="outline-container-headline-61" class="outline-3">
+<h3 id="headline-61">
+Composition versus inheritance
+</h3>
+<div id="outline-text-headline-61" class="outline-text-3">
+<p>
+In inheritance there is a <strong>&#34;is a&#34;</strong> relationship, whereas composition represents a &#34;has a&#34; relationship.
+There is a &#34;base&#34; class and a &#34;derived&#34; class which extends the base.
+Every class in python is derived from <code class="verbatim">object</code> class.</p>
+<p>
+Inheritance is useful when a new class may also use the same functionalities of the parent.
+The new class, or <em>child</em>, also can change some specific functionality to adequate to its needs.
+So we don&#39;t need to re-implement methods from the base class.</p>
+<p>
+My comments:</p>
+<ol>
+<li>
+<p>inheritance should be exclusive to very obvious relations.</p>
+</li>
+<li>
+<p>abstract family trees makes the code complex and hard to understand.</p>
+</li>
+</ol>
+<div class="src src-python">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">Labels</span>:
+    <span style="color:#080;font-weight:bold">def</span> __init__(self):
+        self.LABEL = <span style="color:#d20;background-color:#fff0f0">&#39;this is a label&#39;</span>
+    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">base_class_method</span>(self):
+        <span style="color:#080;font-weight:bold">print</span>(<span style="color:#d20;background-color:#fff0f0">&#39;from the parent!&#39;</span>)
+
+    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">set_label</span>(self, **kwargs: <span style="color:#038">str</span>):
+        <span style="color:#d20;background-color:#fff0f0">&#34;&#34;&#34;Set a label.&#34;&#34;&#34;</span>
+        self.__dict__.update(kwargs)
+	
+<span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">Trades</span>(Labels):           <span style="color:#888"># &#34;Labels&#34; should be defined prior to calling here</span>
+    <span style="color:#080;font-weight:bold">def</span> __init__(self):
+        <span style="color:#038">super</span>().__init__()  <span style="color:#888"># initialize members of Labels (parent class)</span>
+
+
+trades = Trades()
+<span style="color:#080;font-weight:bold">print</span>(trades.LABEL)             <span style="color:#888"># acces members of parent directly!</span>
+trades.base_class_method()      <span style="color:#888"># child can access parent methods!</span></code></pre></div>
+</div>
+<pre class="example">
+this is a label
+from the parent!
+</pre>
+<p>
+Remarks:</p>
+<ol>
+<li>
+<p>with inheritance, we don&#39;t have verbose of composition.</p>
+<ol>
+<li>
+<p>use <code class="verbatim">trades.LABEL</code> instead of <code class="verbatim">trades.labels.LABEL</code></p>
+</li>
+</ol>
+</li>
+<li>
+<p><span style="text-decoration: underline;">in this case</span>, it does NOT make sense to have inheritance because the abstraction is not a &#34;is a&#34; relationship.</p>
+<ol>
+<li>
+<p>the trades ARE NOT labels!</p>
+</li>
+<li>
+<p>really is a composition case because the trades HAVE labels.</p>
+</li>
+</ol>
+</li>
+<li>
+<p>it is easier to <strong>combine components</strong> with composition than inheritance.</p>
+<ol>
+<li>
+<p>usually good candidates for inheritance share <strong>common traits</strong>, requiring some deep thought about the problem at hand, which is hard when the problem is too abstract.</p>
+</li>
+</ol>
+</li>
+<li>
+<p>long term benefits of composition:</p>
+<ol>
+<li>
+<p>&#34;better to extend what an object <strong>can do</strong> than extend what an object <strong>is</strong>&#34;.</p>
+</li>
+<li>
+<p>easier to think about <strong>&#34;behavior&#34;</strong> of an object than <strong>&#34;nature&#34;</strong> and abstract family-tree.</p>
+</li>
+</ol>
+</li>
+</ol>
+<p><a href="https://realpython.com/inheritance-composition-python/#:~:text=Composition%20enables%20you%20to%20reuse,one%20class%20from%20the%20other.">Inheritance and Composition: A Python OOP Guide – Real Python</a>
+<a href="https://en.wikipedia.org/wiki/Composition_over_inheritance#cite_note-FOOTNOTEGammaHelmJohnsonVlissides199420-3">Composition over inheritance - Wikipedia</a></p>
 </div>
 </div>
 </div>
@@ -1477,7 +1583,7 @@ For this use case I prefer aggregation because:</p>
 <ul>
 <li><a href="#headline-55">Handling exceptions</a>
 </li>
-<li><a href="#headline-56">OOP x functional</a>
+<li><a href="#headline-56">OOP versus functional</a>
 <ul>
 <li><a href="#headline-57">Classes with methods or module with function?</a>
 </li>
@@ -1487,7 +1593,9 @@ For this use case I prefer aggregation because:</p>
 </li>
 </ul>
 </li>
-<li><a href="#headline-60">Composition x aggregation</a>
+<li><a href="#headline-60">Composition versus aggregation</a>
+</li>
+<li><a href="#headline-61">Composition versus inheritance</a>
 </li>
 </ul>
 </li>
