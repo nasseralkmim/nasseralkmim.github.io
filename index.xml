@@ -18,16 +18,6 @@
     </item>
     
     <item>
-      <title>Python notes</title>
-      <link>https://nasseralkmim.github.io/notes/python-notes/</link>
-      <pubDate>Sat, 15 May 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/notes/python-notes/</guid>
-      <description>Style guide  Prologue  A good and well rationalized convention is the one from google: https://google.github.io/styleguide/pyguide.html.
- A complete example can be found here Example Google Style Python Docstrings — napoleon 0.</description>
-    </item>
-    
-    <item>
       <title>QR Decomposition in one image</title>
       <link>https://nasseralkmim.github.io/notes/qr-decomposition/</link>
       <pubDate>Tue, 13 Apr 2021 00:00:00 +0000</pubDate>
@@ -43,16 +33,6 @@
       
       <guid>https://nasseralkmim.github.io/notes/jacobi-method/</guid>
       <description>Introduction  Jacobi method is a standard iterative scheme for solving the linear system $Ax=b$. It is part of what is known as relaxation-based methods, together with Gauss-Seidel.</description>
-    </item>
-    
-    <item>
-      <title>C&#43;&#43; notes</title>
-      <link>https://nasseralkmim.github.io/notes/cpp-notes/</link>
-      <pubDate>Fri, 02 Apr 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/notes/cpp-notes/</guid>
-      <description>Introduction   These are my notes about C++. Mostly experiments and running examples with org-babel within Emacs.
- Ideally, if you want to benefit from this, you should write, run, and understand the examples yourself.</description>
     </item>
     
     <item>
