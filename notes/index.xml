@@ -18,39 +18,12 @@
     </item>
     
     <item>
-      <title>QR Decomposition in one image</title>
-      <link>https://nasseralkmim.github.io/notes/qr-decomposition/</link>
-      <pubDate>Tue, 13 Apr 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/notes/qr-decomposition/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Jacobi method</title>
-      <link>https://nasseralkmim.github.io/notes/jacobi-method/</link>
-      <pubDate>Tue, 06 Apr 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/notes/jacobi-method/</guid>
-      <description>Introduction  Jacobi method is a standard iterative scheme for solving the linear system $Ax=b$. It is part of what is known as relaxation-based methods, together with Gauss-Seidel.</description>
-    </item>
-    
-    <item>
       <title>Performance de um portfolio</title>
       <link>https://nasseralkmim.github.io/notes/portfolio-performance/</link>
       <pubDate>Sat, 26 Dec 2020 00:00:00 +0000</pubDate>
       
       <guid>https://nasseralkmim.github.io/notes/portfolio-performance/</guid>
       <description>Introdução  E ai? quanto rendeu seu portfólio? Fácil, $$R_p = V_{final}/V_{inicial} - 1$$ certo? sim, se você investiu em um único aporte.</description>
-    </item>
-    
-    <item>
-      <title>Favorite typeface</title>
-      <link>https://nasseralkmim.github.io/notes/favorite-typeface/</link>
-      <pubDate>Fri, 25 Dec 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/notes/favorite-typeface/</guid>
-      <description>Iosevka is currently my favorite typeface, really above anything I have tried. Every time I try something new I think it is ugly or rough.</description>
     </item>
     
     <item>

@@ -7,34 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© {year}</copyright>
-    <lastBuildDate>Tue, 13 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>linear-algebra</title>
-      <link>https://nasseralkmim.github.io/tags/linear-algebra/</link>
-      <pubDate>Tue, 13 Apr 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/tags/linear-algebra/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>numerical-methods</title>
-      <link>https://nasseralkmim.github.io/tags/numerical-methods/</link>
-      <pubDate>Tue, 06 Apr 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/tags/numerical-methods/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>python</title>
-      <link>https://nasseralkmim.github.io/tags/python/</link>
-      <pubDate>Tue, 06 Apr 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/tags/python/</guid>
-      <description></description>
-    </item>
-    
+    <lastBuildDate>Sat, 26 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>data-analysis</title>
       <link>https://nasseralkmim.github.io/tags/data-analysis/</link>
@@ -63,20 +36,11 @@
     </item>
     
     <item>
-      <title>favorites</title>
-      <link>https://nasseralkmim.github.io/tags/favorites/</link>
-      <pubDate>Fri, 25 Dec 2020 00:00:00 +0000</pubDate>
+      <title>python</title>
+      <link>https://nasseralkmim.github.io/tags/python/</link>
+      <pubDate>Sat, 26 Dec 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://nasseralkmim.github.io/tags/favorites/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>fonts</title>
-      <link>https://nasseralkmim.github.io/tags/fonts/</link>
-      <pubDate>Fri, 25 Dec 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/tags/fonts/</guid>
+      <guid>https://nasseralkmim.github.io/tags/python/</guid>
       <description></description>
     </item>
     
@@ -140,6 +104,15 @@
       <pubDate>Thu, 03 Dec 2020 00:00:00 +0000</pubDate>
       
       <guid>https://nasseralkmim.github.io/tags/meta/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>favorites</title>
+      <link>https://nasseralkmim.github.io/tags/favorites/</link>
+      <pubDate>Sat, 20 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://nasseralkmim.github.io/tags/favorites/</guid>
       <description></description>
     </item>
     
