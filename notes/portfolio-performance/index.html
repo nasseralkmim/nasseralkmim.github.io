@@ -168,14 +168,14 @@ Implementação
 Preliminares
 </h4>
 <div id="outline-text-headline-5" class="outline-text-4">
-<div class="src src-jupyter-python">
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">import numpy as np
-import pandas as pd
-pd.options.display.float_format = &#39;{:,.2f}&#39;.format
-import matplotlib
-import matplotlib.pyplot as plt
-matplotlib.style.use(&#39;ggplot&#39;)
-import yahooquery as yf</code></pre></div>
+<div class="src src-python">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">import</span> <span style="color:#b06;font-weight:bold">numpy</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#b06;font-weight:bold">np</span>
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#b06;font-weight:bold">pandas</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#b06;font-weight:bold">pd</span>
+pd.options.display.float_format = <span style="color:#d20;background-color:#fff0f0">&#39;{:,.2f}&#39;</span>.format
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#b06;font-weight:bold">matplotlib</span>
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#b06;font-weight:bold">matplotlib.pyplot</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#b06;font-weight:bold">plt</span>
+matplotlib.style.use(<span style="color:#d20;background-color:#fff0f0">&#39;ggplot&#39;</span>)
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#b06;font-weight:bold">yahooquery</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#b06;font-weight:bold">yf</span></code></pre></div>
 </div>
 </div>
 </div>
@@ -184,9 +184,9 @@ import yahooquery as yf</code></pre></div>
 Input
 </h4>
 <div id="outline-text-headline-6" class="outline-text-4">
-<div class="src src-jupyter-python">
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">trade_data = pd.read_csv(&#39;trade_data.csv&#39;)
-print(trade_data)</code></pre></div>
+<div class="src src-python">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">trade_data = pd.read_csv(<span style="color:#d20;background-color:#fff0f0">&#39;trade_data.csv&#39;</span>)
+<span style="color:#080;font-weight:bold">print</span>(trade_data)</code></pre></div>
 </div>
 <pre class="example">
    17/09/2018    Buy  EGIE3  40  36,50
@@ -206,24 +206,24 @@ print(trade_data)</code></pre></div>
 Processar trades
 </h4>
 <div id="outline-text-headline-7" class="outline-text-4">
-<div class="src src-jupyter-python">
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">def process_trades(trade_data_file):
-    trades = pd.read_csv(trade_data_file, sep=&#39;,&#39;,
-                         names=[&#39;date&#39;, &#39;type&#39;,
-                                &#39;ticker&#39;, &#39;volume&#39;,
-                                &#39;price&#39;],
-                         decimal=&#39;,&#39;,
-                         parse_dates=[&#39;date&#39;], infer_datetime_format=True)
-    trades[&#39;total&#39;] = trades.apply(lambda x: x.price * x.volume
-					    if x.type in [&#39;Buy&#39;, &#39;Split&#39;]
-					    else - x.price * x.volume, axis=1)
-    trades[&#39;vol_adj&#39;] = trades.apply(lambda x: x.volume
-					    if x.type in [&#39;Buy&#39;, &#39;Split&#39;]
-					    else
-					    (-x.volume if x.type in [&#39;Sell&#39;] else 0), axis=1)
-    return trades
-trades = process_trades(&#39;trade_data.csv&#39;)
-print(trades)</code></pre></div>
+<div class="src src-python">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">process_trades</span>(trade_data_file):
+    trades = pd.read_csv(trade_data_file, sep=<span style="color:#d20;background-color:#fff0f0">&#39;,&#39;</span>,
+                         names=[<span style="color:#d20;background-color:#fff0f0">&#39;date&#39;</span>, <span style="color:#d20;background-color:#fff0f0">&#39;type&#39;</span>,
+                                <span style="color:#d20;background-color:#fff0f0">&#39;ticker&#39;</span>, <span style="color:#d20;background-color:#fff0f0">&#39;volume&#39;</span>,
+                                <span style="color:#d20;background-color:#fff0f0">&#39;price&#39;</span>],
+                         decimal=<span style="color:#d20;background-color:#fff0f0">&#39;,&#39;</span>,
+                         parse_dates=[<span style="color:#d20;background-color:#fff0f0">&#39;date&#39;</span>], infer_datetime_format=True)
+    trades[<span style="color:#d20;background-color:#fff0f0">&#39;total&#39;</span>] = trades.apply(<span style="color:#080;font-weight:bold">lambda</span> x: x.price * x.volume
+					    <span style="color:#080;font-weight:bold">if</span> x.type <span style="color:#080">in</span> [<span style="color:#d20;background-color:#fff0f0">&#39;Buy&#39;</span>, <span style="color:#d20;background-color:#fff0f0">&#39;Split&#39;</span>]
+					    <span style="color:#080;font-weight:bold">else</span> - x.price * x.volume, axis=<span style="color:#00d;font-weight:bold">1</span>)
+    trades[<span style="color:#d20;background-color:#fff0f0">&#39;vol_adj&#39;</span>] = trades.apply(<span style="color:#080;font-weight:bold">lambda</span> x: x.volume
+					    <span style="color:#080;font-weight:bold">if</span> x.type <span style="color:#080">in</span> [<span style="color:#d20;background-color:#fff0f0">&#39;Buy&#39;</span>, <span style="color:#d20;background-color:#fff0f0">&#39;Split&#39;</span>]
+					    <span style="color:#080;font-weight:bold">else</span>
+					    (-x.volume <span style="color:#080;font-weight:bold">if</span> x.type <span style="color:#080">in</span> [<span style="color:#d20;background-color:#fff0f0">&#39;Sell&#39;</span>] <span style="color:#080;font-weight:bold">else</span> <span style="color:#00d;font-weight:bold">0</span>), axis=<span style="color:#00d;font-weight:bold">1</span>)
+    <span style="color:#080;font-weight:bold">return</span> trades
+trades = process_trades(<span style="color:#d20;background-color:#fff0f0">&#39;trade_data.csv&#39;</span>)
+<span style="color:#080;font-weight:bold">print</span>(trades)</code></pre></div>
 </div>
 <pre class="example">
         date   type ticker  volume  price    total  vol_adj
@@ -244,23 +244,23 @@ print(trades)</code></pre></div>
 Consolidar portfolio
 </h4>
 <div id="outline-text-headline-8" class="outline-text-4">
-<div class="src src-jupyter-python">
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">def consolidate_portfolio(trades):
+<div class="src src-python">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">consolidate_portfolio</span>(trades):
     portfolio = pd.DataFrame()
-    portfolio[&#39;vol_liq&#39;] = (trades
-                            .groupby(&#39;ticker&#39;)[&#39;vol_adj&#39;]
+    portfolio[<span style="color:#d20;background-color:#fff0f0">&#39;vol_liq&#39;</span>] = (trades
+                            .groupby(<span style="color:#d20;background-color:#fff0f0">&#39;ticker&#39;</span>)[<span style="color:#d20;background-color:#fff0f0">&#39;vol_adj&#39;</span>]
                             .sum()) 
-    portfolio[&#39;avg_price (R$)&#39;] = (trades
-                              .groupby(&#39;ticker&#39;)[&#39;total&#39;]
+    portfolio[<span style="color:#d20;background-color:#fff0f0">&#39;avg_price (R$)&#39;</span>] = (trades
+                              .groupby(<span style="color:#d20;background-color:#fff0f0">&#39;ticker&#39;</span>)[<span style="color:#d20;background-color:#fff0f0">&#39;total&#39;</span>]
                               .sum() / portfolio.vol_liq)
-    portfolio = portfolio[portfolio.vol_liq != 0]
-    portfolio[&#39;quote (R$)&#39;] = portfolio.apply(lambda x: yf.Ticker(x.name+&#39;.SA&#39;).quotes[x.name+&#39;.SA&#39;][&#39;bid&#39;], axis=1)
-    portfolio[&#39;p/l (%)&#39;] = (portfolio[&#39;quote (R$)&#39;] - portfolio[&#39;avg_price (R$)&#39;]) / portfolio[&#39;avg_price (R$)&#39;] * 100
-    portfolio[&#39;current_value&#39;] = portfolio[&#39;quote (R$)&#39;] * portfolio[&#39;vol_liq&#39;]
-    portfolio[&#39;sector&#39;] = portfolio.apply(lambda x: yf.Ticker(x.name+&#39;.SA&#39;).asset_profile[x.name+&#39;.SA&#39;][&#39;sector&#39;], axis=1)
-    return portfolio
+    portfolio = portfolio[portfolio.vol_liq != <span style="color:#00d;font-weight:bold">0</span>]
+    portfolio[<span style="color:#d20;background-color:#fff0f0">&#39;quote (R$)&#39;</span>] = portfolio.apply(<span style="color:#080;font-weight:bold">lambda</span> x: yf.Ticker(x.name+<span style="color:#d20;background-color:#fff0f0">&#39;.SA&#39;</span>).quotes[x.name+<span style="color:#d20;background-color:#fff0f0">&#39;.SA&#39;</span>][<span style="color:#d20;background-color:#fff0f0">&#39;bid&#39;</span>], axis=<span style="color:#00d;font-weight:bold">1</span>)
+    portfolio[<span style="color:#d20;background-color:#fff0f0">&#39;p/l (%)&#39;</span>] = (portfolio[<span style="color:#d20;background-color:#fff0f0">&#39;quote (R$)&#39;</span>] - portfolio[<span style="color:#d20;background-color:#fff0f0">&#39;avg_price (R$)&#39;</span>]) / portfolio[<span style="color:#d20;background-color:#fff0f0">&#39;avg_price (R$)&#39;</span>] * <span style="color:#00d;font-weight:bold">100</span>
+    portfolio[<span style="color:#d20;background-color:#fff0f0">&#39;current_value&#39;</span>] = portfolio[<span style="color:#d20;background-color:#fff0f0">&#39;quote (R$)&#39;</span>] * portfolio[<span style="color:#d20;background-color:#fff0f0">&#39;vol_liq&#39;</span>]
+    portfolio[<span style="color:#d20;background-color:#fff0f0">&#39;sector&#39;</span>] = portfolio.apply(<span style="color:#080;font-weight:bold">lambda</span> x: yf.Ticker(x.name+<span style="color:#d20;background-color:#fff0f0">&#39;.SA&#39;</span>).asset_profile[x.name+<span style="color:#d20;background-color:#fff0f0">&#39;.SA&#39;</span>][<span style="color:#d20;background-color:#fff0f0">&#39;sector&#39;</span>], axis=<span style="color:#00d;font-weight:bold">1</span>)
+    <span style="color:#080;font-weight:bold">return</span> portfolio
 portfolio = consolidate_portfolio(trades)
-print(portfolio)</code></pre></div>
+<span style="color:#080;font-weight:bold">print</span>(portfolio)</code></pre></div>
 </div>
 <pre class="example">
         vol_liq  avg_price (R$)  quote (R$)  p/l (%)  current_value  \
@@ -289,54 +289,54 @@ Retorno do portfolio
 <p>cotação de fechamento do dia anterior</p>
 </li>
 </ol>
-<div class="src src-jupyter-python">
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">def consolidate_partial_portfolio(trades, date):
+<div class="src src-python">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">consolidate_partial_portfolio</span>(trades, date):
     portfolio = pd.DataFrame()
-    portfolio[&#39;vol_liq&#39;] = (trades[trades.date &lt; date]
-                            .groupby(&#39;ticker&#39;)[&#39;vol_adj&#39;]
+    portfolio[<span style="color:#d20;background-color:#fff0f0">&#39;vol_liq&#39;</span>] = (trades[trades.date &lt; date]
+                            .groupby(<span style="color:#d20;background-color:#fff0f0">&#39;ticker&#39;</span>)[<span style="color:#d20;background-color:#fff0f0">&#39;vol_adj&#39;</span>]
                             .sum()) 
-    portfolio = portfolio[portfolio.vol_liq != 0]
+    portfolio = portfolio[portfolio.vol_liq != <span style="color:#00d;font-weight:bold">0</span>]
 
-    def get_quote(row):
-        quote = yf.Ticker(row.name+&#39;.SA&#39;).history(
-            start=date + pd.DateOffset(-25), end=date)[&#39;close&#39;].values
-        return quote[-1]
+    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">get_quote</span>(row):
+        quote = yf.Ticker(row.name+<span style="color:#d20;background-color:#fff0f0">&#39;.SA&#39;</span>).history(
+            start=date + pd.DateOffset(-<span style="color:#00d;font-weight:bold">25</span>), end=date)[<span style="color:#d20;background-color:#fff0f0">&#39;close&#39;</span>].values
+        <span style="color:#080;font-weight:bold">return</span> quote[-<span style="color:#00d;font-weight:bold">1</span>]
 
-    portfolio[&#39;quote&#39;] = portfolio.apply(get_quote, axis=1)
-    portfolio[&#39;total&#39;] = portfolio.vol_liq * portfolio.quote
-    return portfolio
+    portfolio[<span style="color:#d20;background-color:#fff0f0">&#39;quote&#39;</span>] = portfolio.apply(get_quote, axis=<span style="color:#00d;font-weight:bold">1</span>)
+    portfolio[<span style="color:#d20;background-color:#fff0f0">&#39;total&#39;</span>] = portfolio.vol_liq * portfolio.quote
+    <span style="color:#080;font-weight:bold">return</span> portfolio
 
-def process_returns(trades):
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">process_returns</span>(trades):
     r = []
-    for (row, cf) in trades.iterrows():
+    <span style="color:#080;font-weight:bold">for</span> (row, cf) <span style="color:#080">in</span> trades.iterrows():
         partial_portfolio = consolidate_partial_portfolio(trades, cf.date)
-        # initial investment
-        if partial_portfolio.total.sum() == 0:
-            r.append({&#39;date&#39;: cf.date,
-                    &#39;ending_value&#39;: cf.total,
-                    &#39;cf_value&#39;: 0})
-        else:
-            r.append({&#39;date&#39;: cf.date,
-                    &#39;ending_value&#39;: partial_portfolio.total.sum(),
-                    &#39;cf_value&#39;: cf.total})
-        print(cf.date, partial_portfolio.total.sum())
+        <span style="color:#888"># initial investment</span>
+        <span style="color:#080;font-weight:bold">if</span> partial_portfolio.total.sum() == <span style="color:#00d;font-weight:bold">0</span>:
+            r.append({<span style="color:#d20;background-color:#fff0f0">&#39;date&#39;</span>: cf.date,
+                    <span style="color:#d20;background-color:#fff0f0">&#39;ending_value&#39;</span>: cf.total,
+                    <span style="color:#d20;background-color:#fff0f0">&#39;cf_value&#39;</span>: <span style="color:#00d;font-weight:bold">0</span>})
+        <span style="color:#080;font-weight:bold">else</span>:
+            r.append({<span style="color:#d20;background-color:#fff0f0">&#39;date&#39;</span>: cf.date,
+                    <span style="color:#d20;background-color:#fff0f0">&#39;ending_value&#39;</span>: partial_portfolio.total.sum(),
+                    <span style="color:#d20;background-color:#fff0f0">&#39;cf_value&#39;</span>: cf.total})
+        <span style="color:#080;font-weight:bold">print</span>(cf.date, partial_portfolio.total.sum())
 
     returns = pd.DataFrame(r)
-    returns = returns.sort_values(&#39;date&#39;)
-    returns = returns.groupby([&#39;date&#39;, &#39;ending_value&#39;], as_index=False)[&#39;cf_value&#39;].sum()
-    def hold_period_return(row):
+    returns = returns.sort_values(<span style="color:#d20;background-color:#fff0f0">&#39;date&#39;</span>)
+    returns = returns.groupby([<span style="color:#d20;background-color:#fff0f0">&#39;date&#39;</span>, <span style="color:#d20;background-color:#fff0f0">&#39;ending_value&#39;</span>], as_index=False)[<span style="color:#d20;background-color:#fff0f0">&#39;cf_value&#39;</span>].sum()
+    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">hold_period_return</span>(row):
         index = returns.index.get_loc(row.name)
-        if index == 0:
-            return 0
-        prev_row = returns.iloc[index - 1]
-        return row.ending_value / (prev_row.ending_value + prev_row.cf_value)
-    returns[&#39;hpr&#39;] = returns.apply(hold_period_return, axis=1)
-    return returns</code></pre></div>
+        <span style="color:#080;font-weight:bold">if</span> index == <span style="color:#00d;font-weight:bold">0</span>:
+            <span style="color:#080;font-weight:bold">return</span> <span style="color:#00d;font-weight:bold">0</span>
+        prev_row = returns.iloc[index - <span style="color:#00d;font-weight:bold">1</span>]
+        <span style="color:#080;font-weight:bold">return</span> row.ending_value / (prev_row.ending_value + prev_row.cf_value)
+    returns[<span style="color:#d20;background-color:#fff0f0">&#39;hpr&#39;</span>] = returns.apply(hold_period_return, axis=<span style="color:#00d;font-weight:bold">1</span>)
+    <span style="color:#080;font-weight:bold">return</span> returns</code></pre></div>
 </div>
-<div class="src src-jupyter-python">
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">rr = pd.read_csv(&#39;returns.csv&#39;, parse_dates=[&#39;date&#39;])
-print(rr)
-print(rr[&#39;hpr&#39;].apply(lambda x: x + 1).prod())</code></pre></div>
+<div class="src src-python">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">rr = pd.read_csv(<span style="color:#d20;background-color:#fff0f0">&#39;returns.csv&#39;</span>, parse_dates=[<span style="color:#d20;background-color:#fff0f0">&#39;date&#39;</span>])
+<span style="color:#080;font-weight:bold">print</span>(rr)
+<span style="color:#080;font-weight:bold">print</span>(rr[<span style="color:#d20;background-color:#fff0f0">&#39;hpr&#39;</span>].apply(<span style="color:#080;font-weight:bold">lambda</span> x: x + <span style="color:#00d;font-weight:bold">1</span>).prod())</code></pre></div>
 </div>
 <pre class="example">
         date  ending_value  cf_value   hpr
