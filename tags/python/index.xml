@@ -23,8 +23,7 @@
       <pubDate>Fri, 25 Dec 2020 00:00:00 +0000</pubDate>
       
       <guid>https://nasseralkmim.github.io/notes/finace-python/</guid>
-      <description>Introdução   Usar biblioteca yahooquery pois parece ser mais completa e melhor que yfinance.
-import yahooquery as yf import pandas as pd pd.</description>
+      <description>Finance data in python using yahooquery. It extracts pretty much all data from Yahoo Finance - Stock Market Live, Quotes, Business &amp;amp; Finance News.</description>
     </item>
     
     <item>
