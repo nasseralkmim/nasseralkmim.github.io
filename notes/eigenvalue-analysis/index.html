@@ -105,6 +105,10 @@ if (!doNotTrack) {
             <h1 id="post__title">Eigenvalue analysis</h1>
             <time datetime="2021-06-09 00:00:00 &#43;0000 UTC" class="post__date">Jun 9 2021</time> 
 	    
+	    <time datetime="2021-07-19 11:33:53 &#43;0000 UTC" class="post__date">
+	      → edited in Jul 19 2021
+	    </time>
+	    
           </header>
           <article class="post__content">
               
@@ -128,13 +132,26 @@ Expected results?
 <div id="outline-text-headline-2" class="outline-text-2">
 <ol>
 <li>
-<p>eigenvalue distribution (ignoring the ones) at each time step</p>
+<p>eigenvalue distribution at each time step</p>
+<ol>
+<li>
+<p>particularly the small eigenvalues.</p>
+</li>
+</ol>
 </li>
 <li>
-<p>condition number (max/min) evolution through time steps.</p>
+<p>condition number evolution through time steps.</p>
 </li>
 <li>
-<p>plot of reaction force (or other variable) over the condition number.</p>
+<p>ratio between maximum and minimum eigenvalues (absolute value).</p>
+<ol>
+<li>
+<p>check its relation with the condition number.</p>
+</li>
+</ol>
+</li>
+<li>
+<p>reaction force over time compared with condition number.</p>
 </li>
 </ol>
 </div>
@@ -189,6 +206,9 @@ Damage evolution
 Eigenvalue distribution
 </h3>
 <div id="outline-text-headline-26" class="outline-text-3">
+<p>
+With this analysis we want to know if the eigenvalues at each time step are concentrated or spread apart.
+A clustered eigenvalue range is associated with good convergence (specially).</p>
 <div class="src src-python">
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">import</span> <span style="color:#b06;font-weight:bold">matplotlib.pyplot</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#b06;font-weight:bold">plt</span>
 <span style="color:#080;font-weight:bold">import</span> <span style="color:#b06;font-weight:bold">matplotlib</span>
@@ -197,89 +217,213 @@ matplotlib.style.use(<span style="color:#d20;background-color:#fff0f0">&#39;ggpl
 <span style="color:#080;font-weight:bold">import</span> <span style="color:#b06;font-weight:bold">pandas</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#b06;font-weight:bold">pd</span>
 
 fig, ax = plt.subplots()
-fig2, ax2 = plt.subplots()
 
-time_steps = [<span style="color:#00d;font-weight:bold">1</span>, <span style="color:#00d;font-weight:bold">5</span>, <span style="color:#00d;font-weight:bold">15</span>, <span style="color:#00d;font-weight:bold">20</span>, <span style="color:#00d;font-weight:bold">25</span>, <span style="color:#00d;font-weight:bold">50</span>, <span style="color:#00d;font-weight:bold">100</span>]
-df = pd.DataFrame(np.loadtxt(<span style="color:#d20;background-color:#fff0f0">&#34;analysis/eigvals.txt&#34;</span>).T)
+time_steps = [<span style="color:#00d;font-weight:bold">1</span>, <span style="color:#00d;font-weight:bold">25</span>, <span style="color:#00d;font-weight:bold">50</span>, <span style="color:#00d;font-weight:bold">100</span>]
+df = pd.DataFrame(np.loadtxt(<span style="color:#d20;background-color:#fff0f0">&#34;analysis/eigvals_numpy.txt&#34;</span>).T)
 <span style="color:#080;font-weight:bold">for</span> t <span style="color:#080">in</span> time_steps:
     df[t].plot.kde(ax=ax, label=f<span style="color:#d20;background-color:#fff0f0">&#39;t={t}&#39;</span>)
-
-df.plot.kde(ax=ax2, legend=False)
-ax2.set_xlabel(<span style="color:#d20;background-color:#fff0f0">&#34;Eigenvalues&#34;</span>)
-ax.legend()</code></pre></div>
+ax.legend()
+ax.set_xlabel(<span style="color:#d20;background-color:#fff0f0">&#39;eigenvalues&#39;</span>)
+<span style="color:#080;font-weight:bold">print</span>(<span style="color:#d20;background-color:#fff0f0">&#39;Number of eigenvalues, number of time steps: &#39;</span>, df.shape)</code></pre></div>
 </div>
-<p><img src="./jupyter/9a59e0d75d0263817923cbcb0f91abf7d9b5bb17.png" alt="./jupyter/9a59e0d75d0263817923cbcb0f91abf7d9b5bb17.png" title="./jupyter/9a59e0d75d0263817923cbcb0f91abf7d9b5bb17.png" />
-<img src="./jupyter/e90532a4101dfb4e8f87e2177223987986032277.png" alt="./jupyter/e90532a4101dfb4e8f87e2177223987986032277.png" title="./jupyter/e90532a4101dfb4e8f87e2177223987986032277.png" /></p>
+<pre class="example">
+Number of eigenvalues, number of time steps:  (5204, 101)
+</pre>
+<p><img src="./jupyter/f2c595379f4292adf8383abf196d4f88788b4379.png" alt="./jupyter/f2c595379f4292adf8383abf196d4f88788b4379.png" title="./jupyter/f2c595379f4292adf8383abf196d4f88788b4379.png" /></p>
 <p>
 Remarks:</p>
 <ol>
 <li>
-<p>At the time of formation of the shear band from time steps 15-20 we can see that the change in the distribution of the eigenvalues. </p>
+<p>The density with <code class="verbatim">kde</code> (kernel density estimation) approximates the distribution of the variable.</p>
+<ol>
+<li>
+<p>the distribution represents the relative frequency of appearance of a particular value.</p>
+</li>
+<li>
+<p>the density is related with the probability of the random variable assuming a value in a specific range, this probability is given by the area under the density curve.</p>
+</li>
+<li>
+<p>we can see the from the distribution that the eigenvalues concentrate around 0, however there are some <span style="text-decoration: underline;">very extreme values</span>.</p>
+</li>
+</ol>
 </li>
 </ol>
 </div>
 </div>
 <div id="outline-container-headline-27" class="outline-3">
 <h3 id="headline-27">
-Eigenvalues ratio
+Eigenvalue histogram
 </h3>
 <div id="outline-text-headline-27" class="outline-text-3">
-<div class="src src-python">
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">fig, ax = plt.subplots()
-df = pd.DataFrame(np.loadtxt(<span style="color:#d20;background-color:#fff0f0">&#34;analysis/eigvals.txt&#34;</span>).T)
-cn = df.max().abs() / df.min().abs()
-cn.plot(ax=ax)
-ax.set_xlabel(<span style="color:#d20;background-color:#fff0f0">&#39;Time step&#39;</span>)
-ax.set_ylabel(<span style="color:#d20;background-color:#fff0f0">r</span><span style="color:#d20;background-color:#fff0f0">&#39;max $\lambda$ / min $\lambda$&#39;</span>)</code></pre></div>
-</div>
-<p><img src="./jupyter/cfbfedeaaa8d73cbf6c9efa06e82fb52c9d79365.png" alt="./jupyter/cfbfedeaaa8d73cbf6c9efa06e82fb52c9d79365.png" title="./jupyter/cfbfedeaaa8d73cbf6c9efa06e82fb52c9d79365.png" /></p>
 <p>
-Remarks:</p>
+A histogram organizes data in specific ranges.
+The goal is to set a small range <code class="verbatim">[-lim, lim]</code>, where we want to see if there is an eigenvalue of on this range. </p>
+<p>
+On this range, the histogram function subdivides it automatically in <span style="text-decoration: underline;">10 bins</span>.
+If during a time step there are an eigenvalues in the range <code class="verbatim">[-lim, lim]</code> then plot how many in each bin.
+However, If there is none, then drop the column referring to this time step with <code class="verbatim">dropna()</code>.</p>
+<div class="src src-python">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">df = pd.DataFrame(np.loadtxt(<span style="color:#d20;background-color:#fff0f0">&#34;analysis/eigvals_numpy.txt&#34;</span>).T)
+lim = <span style="color:#00d;font-weight:bold">0.1</span>
+<span style="color:#080;font-weight:bold">print</span>(<span style="color:#d20;background-color:#fff0f0">&#34;Range limited by: &#34;</span>, lim)
+ax = df[df.abs() &lt;= lim].dropna(axis=<span style="color:#00d;font-weight:bold">1</span>, how=<span style="color:#d20;background-color:#fff0f0">&#34;all&#34;</span>).hist(
+    <span style="color:#038">range</span>=(-lim, lim), figsize=(<span style="color:#00d;font-weight:bold">17</span>, <span style="color:#00d;font-weight:bold">12</span>))
+ax[-<span style="color:#00d;font-weight:bold">1</span>][<span style="color:#00d;font-weight:bold">0</span>].set_ylabel(<span style="color:#d20;background-color:#fff0f0">&#39;absolute frequency&#39;</span>)
+ax[-<span style="color:#00d;font-weight:bold">1</span>][<span style="color:#00d;font-weight:bold">0</span>].set_xlabel(<span style="color:#d20;background-color:#fff0f0">&#39;eigenvalues&#39;</span>)</code></pre></div>
+</div>
+<pre class="example">
+Range limited by:  0.1
+</pre>
+<p><img src="./jupyter/f96416ae4da8e23d1c04c77b604c14353ad49112.png" alt="./jupyter/f96416ae4da8e23d1c04c77b604c14353ad49112.png" title="./jupyter/f96416ae4da8e23d1c04c77b604c14353ad49112.png" /></p>
+<p>Remarks:</p>
 <ol>
 <li>
-<p>The system is not symmetric, hence the condition number is not the same as the eigenvalues ratio.</p>
+<p>At those time steps, there is one eigenvalue in the range <code class="verbatim">[-lim, lim]</code>.</p>
 </li>
 <li>
-<p>However, this ratio somewhat captures the phenomena.</p>
+<p>During the beginning of formation of shear band, close to step 16 we can notice:</p>
+<ol>
+<li>
+<p>the system getting close of being singular (no inverse, no single solution, determinant equal to zero, eigenvalue close to zero).</p>
+</li>
+</ol>
+</li>
+<li>
+<p>Also long after the shear bands formed, steps 90-100, the minimum eigenvalue got very small as well.</p>
 </li>
 </ol>
 </div>
 </div>
 <div id="outline-container-headline-28" class="outline-3">
 <h3 id="headline-28">
-Condition number
+Eigenvalues ratio
 </h3>
 <div id="outline-text-headline-28" class="outline-text-3">
+<div class="src src-python">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">fig, ax = plt.subplots()
+eigvals = pd.DataFrame(np.loadtxt(<span style="color:#d20;background-color:#fff0f0">&#34;analysis/eigvals_numpy.txt&#34;</span>).T)
+eigen_ratio = eigvals.abs().max() / eigvals.abs().min()
+eigen_ratio.plot(ax=ax, label=<span style="color:#d20;background-color:#fff0f0">r</span><span style="color:#d20;background-color:#fff0f0">&#39;max $\lambda$ / min $\lambda$&#39;</span>)
+eigvals.abs().min().plot(ax=ax, secondary_y=True,
+                      label=<span style="color:#d20;background-color:#fff0f0">r</span><span style="color:#d20;background-color:#fff0f0">&#39;min $\lambda$&#39;</span>)
+ax.set_xlabel(<span style="color:#d20;background-color:#fff0f0">&#39;Time step&#39;</span>)
+ax.set_ylabel(<span style="color:#d20;background-color:#fff0f0">r</span><span style="color:#d20;background-color:#fff0f0">&#39;max $\lambda$ / min $\lambda$&#39;</span>)
+ax.right_ax.legend()
+ax.right_ax.set_ylabel(<span style="color:#d20;background-color:#fff0f0">r</span><span style="color:#d20;background-color:#fff0f0">&#39;min $\lambda$&#39;</span>)
+ax.legend()</code></pre></div>
+</div>
+<p><img src="./jupyter/ea6b88b5d362497c96c7b43a0220e13d2d93f9ae.png" alt="./jupyter/ea6b88b5d362497c96c7b43a0220e13d2d93f9ae.png" title="./jupyter/ea6b88b5d362497c96c7b43a0220e13d2d93f9ae.png" /></p>
+<p>
+Remarks:</p>
+<ol>
+<li>
+<p>At time step 20 the eigenvalues get very small (absolute value).</p>
+</li>
+<li>
+<p>After the formation of the shear bands, at around step 20, the minimum eigenvalue returns to around 1,</p>
+<ol>
+<li>
+<p>however, after a while, around step 55, the minimum eigenvalue start to decrease again.</p>
+</li>
+<li>
+<p>this phenomena is not captured by the condition number (see next section).</p>
+</li>
+</ol>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-headline-29" class="outline-3">
+<h3 id="headline-29">
+Condition number and eigenvalue ratio
+</h3>
+<div id="outline-text-headline-29" class="outline-text-3">
+<div class="src src-python">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">fig, ax = plt.subplots()
+
+eigen_ratio.plot(ax=ax, label=<span style="color:#d20;background-color:#fff0f0">r</span><span style="color:#d20;background-color:#fff0f0">&#39;max $\lambda$ / min $\lambda$&#39;</span>, secondary_y=True)
+
+df = pd.DataFrame(np.loadtxt(<span style="color:#d20;background-color:#fff0f0">&#34;analysis/cond_AAinv.txt&#34;</span>).T)
+df[<span style="color:#00d;font-weight:bold">0</span>].plot(ax=ax, label=<span style="color:#d20;background-color:#fff0f0">&#39;cond&#39;</span>)
+
+ax.set_xlabel(<span style="color:#d20;background-color:#fff0f0">&#39;Time step&#39;</span>)
+ax.set_ylabel(<span style="color:#d20;background-color:#fff0f0">&#39;Condition number&#39;</span>)
+ax.right_ax.set_ylabel(<span style="color:#d20;background-color:#fff0f0">r</span><span style="color:#d20;background-color:#fff0f0">&#39;max $\lambda$ / min $\lambda$&#39;</span>)
+ax.right_ax.legend()
+ax.legend(loc=<span style="color:#d20;background-color:#fff0f0">&#39;upper right&#39;</span>)</code></pre></div>
+</div>
+<p><img src="./jupyter/c6c385533d4aeefae457e07fd66532d677f3710c.png" alt="./jupyter/c6c385533d4aeefae457e07fd66532d677f3710c.png" title="./jupyter/c6c385533d4aeefae457e07fd66532d677f3710c.png" /></p>
+<p>
+Remarks:</p>
+<ol>
+<li>
+<p>The system is not symmetric, hence the condition number is not the same as the eigenvalues ratio.</p>
+<ol>
+<li>
+<p>For general square matrices, the singular value is the square route of the eigenvalues of the Gram matrix ($A^T A$), so there still some relation between them.</p>
+</li>
+</ol>
+</li>
+<li>
+<p>However, this ratio somewhat captures the phenomena.</p>
+</li>
+<li>
+<p>At around step 55, the minimum eigenvalue starts to get smaller again, making the eigenvalue ration larger and larger.</p>
+<ol>
+<li>
+<p>this is not captured by the condition number.</p>
+</li>
+</ol>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-headline-30" class="outline-3">
+<h3 id="headline-30">
+Condition number and reaction force
+</h3>
+<div id="outline-text-headline-30" class="outline-text-3">
 <p>
 Computed with the definition $\kappa = \lVert A \rvert \lVert A^{-1} \rVert$.</p>
 <div class="src src-python">
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">fig, ax = plt.subplots()
-df = pd.DataFrame(np.loadtxt(<span style="color:#d20;background-color:#fff0f0">&#34;analysis/cond.txt&#34;</span>).T)
+
+df = pd.DataFrame(np.loadtxt(<span style="color:#d20;background-color:#fff0f0">&#34;analysis/cond_AAinv.txt&#34;</span>).T)
+df[<span style="color:#00d;font-weight:bold">0</span>].plot(ax=ax, label=<span style="color:#d20;background-color:#fff0f0">&#39;cond&#39;</span>)
+
 df[<span style="color:#d20;background-color:#fff0f0">&#39;react&#39;</span>] = pd.DataFrame(np.loadtxt(<span style="color:#d20;background-color:#fff0f0">&#34;analysis/RF.csv&#34;</span>)[:, <span style="color:#00d;font-weight:bold">1</span>])
-df[<span style="color:#00d;font-weight:bold">0</span>].plot(ax=ax, label=<span style="color:#d20;background-color:#fff0f0">&#39;cond&#39;</span>) 
 df[<span style="color:#d20;background-color:#fff0f0">&#39;react&#39;</span>].plot(ax=ax, label=<span style="color:#d20;background-color:#fff0f0">&#39;react&#39;</span>, secondary_y=True) 
+
 ax.set_xlabel(<span style="color:#d20;background-color:#fff0f0">&#39;Time step&#39;</span>)
 ax.set_ylabel(<span style="color:#d20;background-color:#fff0f0">&#39;Condition number&#39;</span>)
 ax.right_ax.set_ylabel(<span style="color:#d20;background-color:#fff0f0">&#39;Reaction force&#39;</span>)
-ax.right_ax.legend([<span style="color:#d20;background-color:#fff0f0">&#39;react&#39;</span>], loc=[.<span style="color:#00d;font-weight:bold">8</span>, .<span style="color:#00d;font-weight:bold">75</span>])
-ax.legend([<span style="color:#d20;background-color:#fff0f0">&#39;cond&#39;</span>], loc=[.<span style="color:#00d;font-weight:bold">8</span>, .<span style="color:#00d;font-weight:bold">9</span>])</code></pre></div>
+ax.right_ax.legend()
+ax.legend(loc=<span style="color:#d20;background-color:#fff0f0">&#39;center right&#39;</span>)</code></pre></div>
 </div>
-<p><img src="./jupyter/3e5ed636ec4d36e3c6aa9595eee13d770daa377b.png" alt="./jupyter/3e5ed636ec4d36e3c6aa9595eee13d770daa377b.png" title="./jupyter/3e5ed636ec4d36e3c6aa9595eee13d770daa377b.png" />
+<p><img src="./jupyter/f3721aae12312eacf40f624ebfebf0cbc5715fcc.png" alt="./jupyter/f3721aae12312eacf40f624ebfebf0cbc5715fcc.png" title="./jupyter/f3721aae12312eacf40f624ebfebf0cbc5715fcc.png" />
 Remarks:</p>
 <ol>
 <li>
 <p>The system becomes close to be singular around the time where the shear band is formed.</p>
+</li>
+<li>
+<p>The function used to compute the norm uses the Frobenius norm, <code class="verbatim">scipy.sparse.linalg.norm</code>, and it does not have a 2-norm implemented.</p>
+<ol>
+<li>
+<p>from my experiences the difference between the two are small.</p>
+</li>
+</ol>
 </li>
 </ol>
 </div>
 </div>
 </div>
 </div>
-<div id="outline-container-headline-29" class="outline-2">
-<h2 id="headline-29">
+<div id="outline-container-headline-31" class="outline-2">
+<h2 id="headline-31">
 References
 </h2>
-<div id="outline-text-headline-29" class="outline-text-2">
+<div id="outline-text-headline-31" class="outline-text-2">
 <ul>
 <li>
 <p>Elman, H. C., Silvester, D. J., &amp; Wathen, A. J. (). Finite elements
@@ -387,80 +531,9 @@ fluid dynamics. : Oxford University Press.</p>
           </div>
       </div>
       
-
-	<nav id="TableOfContents">
-<ul>
-<li><a href="#headline-1">Objective?</a>
-</li>
-<li><a href="#headline-2">Expected results?</a>
-</li>
-<li><a href="#headline-3">Why?</a>
-</li>
-<li><a href="#headline-4">Methods</a>
-<ul>
-<li><a href="#headline-5">Strategy</a>
-</li>
-<li><a href="#headline-6">Eigenvalues</a>
-</li>
-<li><a href="#headline-7"><code class="verbatim">numpy.linalg.eig</code></a>
-</li>
-<li><a href="#headline-8"><code class="verbatim">scipy.linalg.eig</code></a>
-</li>
-<li><a href="#headline-9"><code class="verbatim">scipy.sparse.linalg.eigs</code></a>
-</li>
-<li><a href="#headline-10">Comparing</a>
-</li>
-<li><a href="#headline-11">Output treatment</a>
-</li>
-<li><a href="#headline-12">Eigenvalue distribution</a>
-</li>
-<li><a href="#headline-13">Max and min eigen values</a>
-</li>
-<li><a href="#headline-14">Condition number</a>
-</li>
-<li><a href="#headline-15">Function</a>
-<ul>
-<li><a href="#headline-16">Eigenvalues distribution </a>
-</li>
-<li><a href="#headline-17">Condition number</a>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#headline-18">Prototype</a>
-<ul>
-<li><a href="#headline-19">Description</a>
-</li>
-<li><a href="#headline-20">Running edelweissFE</a>
-</li>
-<li><a href="#headline-21">Checking on paraview</a>
-</li>
-<li><a href="#headline-22">Deformed shape</a>
-</li>
-</ul>
-</li>
-<li><a href="#headline-23">Analysis</a>
-<ul>
-<li><a href="#headline-24">Description</a>
-</li>
-<li><a href="#headline-25">Damage evolution</a>
-</li>
-<li><a href="#headline-26">Eigenvalue distribution</a>
-</li>
-<li><a href="#headline-27">Eigenvalues ratio</a>
-</li>
-<li><a href="#headline-28">Condition number</a>
-</li>
-</ul>
-</li>
-<li><a href="#headline-29">References</a>
-</li>
-</ul>
-</nav>
       <div class="toc-container">
-	 <div class="toc-post-title">Eigenvalue analysis</div> 
-	<nav id="TableOfContents">
+           <div class="toc-post-title">Eigenvalue analysis</div> 
+        <nav id="TableOfContents">
 <ul>
 <li><a href="#headline-1">Objective?</a>
 </li>
@@ -520,13 +593,17 @@ fluid dynamics. : Oxford University Press.</p>
 </li>
 <li><a href="#headline-26">Eigenvalue distribution</a>
 </li>
-<li><a href="#headline-27">Eigenvalues ratio</a>
+<li><a href="#headline-27">Eigenvalue histogram</a>
 </li>
-<li><a href="#headline-28">Condition number</a>
+<li><a href="#headline-28">Eigenvalues ratio</a>
+</li>
+<li><a href="#headline-29">Condition number and eigenvalue ratio</a>
+</li>
+<li><a href="#headline-30">Condition number and reaction force</a>
 </li>
 </ul>
 </li>
-<li><a href="#headline-29">References</a>
+<li><a href="#headline-31">References</a>
 </li>
 </ul>
 </nav>
