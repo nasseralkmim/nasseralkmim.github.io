@@ -24,6 +24,8 @@ elSet=all, field=nonlocal damage, result=U, name=nonlocal damage
 elSet=all, result=sdv, quadraturePoint=0:4, name=alphaP, f(x)='max( x[:,:,0], axis=1) '
 elSet=all, result=sdv, quadraturePoint=0:4, name=alphaD, f(x)='max( x[:,:,1], axis=1) '
 elSet=all, result=sdv, quadraturePoint=0:4, name=omega, f(x)='max( x[:,:,2], axis=1) '
+elSet=all, result=sdv, quadraturePoint=0:4, name=meanOmega, f(x)='max( x[:,:,2], axis=1) ', saveHistory=True, export=meanOmega
+elSet=all, result=sdv, quadraturePoint=0:4, name=meanAlphaP, f(x)='max( x[:,:,0], axis=1) ', saveHistory=True, export=meanAlphaP
 name=RF, nSet=gen_top, field=displacement, result=P, f(x)='sum(x[:,1])', saveHistory=True, export=RF
 name=U, nSet=gen_top, field=displacement, result=U, f(x)='mean(x[:,1])', saveHistory=True, export=U
 

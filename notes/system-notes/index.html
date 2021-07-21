@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>System notes | Notes</title>
+
+  <meta charset="UTF-8">
+  <meta name="language" content="en">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  
+  
+
+  <link rel="shortcut icon" type="image/png" href="/favicon.ico" />
+
+
+  
+  
+    
+ 
+  
+  
+  
+  
+  
+  
+    
+    <link type="text/css" rel="stylesheet" href="/css/post.min.9184109084ab0858f4d61e201ec74c667f1e039aaddd71fb8204359b0bae18a1.css" integrity="sha256-kYQQkISrCFj01h4gHsdMZn8eA5qt3XH7ggQ1mwuuGKE="/>
+  
+    
+    <link type="text/css" rel="stylesheet" href="/css/custom.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" integrity="sha256-47DEQpj8HBSa&#43;/TImW&#43;5JCeuQeRkm5NMpJWZG3hSuFU="/>
+  
+  
+   
+   
+    
+
+<script type="application/ld+json">
+  
+    { 
+      "@context": "http://schema.org", 
+      "@type": "WebSite", 
+      "url": "http:\/\/localhost:1313\/notes\/system-notes\/",
+      "name": "System notes",
+      "author": {
+        "@type": "Person",
+        "name": ""
+      },
+      "description": ""
+    }
+  
+  </script>
+</head>
+
+<body>
+  <div class="burger__container">
+  <div class="burger" aria-controls="navigation" aria-label="Menu">
+    <div class="burger__meat burger__meat--1"></div>
+    <div class="burger__meat burger__meat--2"></div>
+    <div class="burger__meat burger__meat--3"></div>
+  </div>
+</div>
+ 
+
+  <nav class="nav" id="navigation">
+  <ul class="nav__list">
+    
+    
+      <li>
+        <a  href="/">about</a>
+      </li>
+    
+      <li>
+        <a  class="active"
+         href="/notes">notes</a>
+      </li>
+    
+  </ul>
+</nav>
+
+
+  <main>
+    
+    
+
+    <div class="flex-wrapper">
+      <div class="post__container">
+        <div class="post">
+          <header class="post__header">
+            <h1 id="post__title">System notes</h1>
+            <time datetime="2021-01-17 00:00:00 &#43;0000 UTC" class="post__date">Jan 17 2021</time> 
+	    
+          </header>
+          <article class="post__content">
+              
+
+<div id="outline-container-headline-1" class="outline-2">
+<h2 id="headline-1">
+Intro
+</h2>
+<div id="outline-text-headline-1" class="outline-text-2">
+<p>
+Log of my system configuration for windows.</p>
+</div>
+</div>
+<div id="outline-container-headline-2" class="outline-2">
+<h2 id="headline-2">
+Current machine
+</h2>
+<div id="outline-text-headline-2" class="outline-text-2">
+<p><span class="timestamp">&lt;2021-05-24 Mon&gt;</span>: Thinkpad t14s Ryzen PRO 5 (6 cores).</p>
+<p>
+Using a Thinkpad t440s bought in 2013.
+I changed the hard disk to SSD in 2020.
+It still very usable, I guess it can last for 5 more years.
+Only complain is the screen brightness which is 290 nits and not adequate for using outside in the sun.</p>
+<div id="outline-container-headline-3" class="outline-3">
+<h3 id="headline-3">
+Swap CAPS LOCK to CTRL
+</h3>
+<div id="outline-text-headline-3" class="outline-text-3">
+<p>
+<a href="https://github.com/ililim/dual-key-remap">GitHub - ililim/dual-key-remap: Remap any key to any other two keys on Window…</a>
+Configure to use as escape (ESC) and control (CTRL) when with other.
+Perfect for emacs.</p>
+<pre class="example">
+remap_key=CAPSLOCK
+when_alone=ESCAPE
+with_other=CTRL
+</pre>
+</div>
+</div>
+<div id="outline-container-headline-4" class="outline-3">
+<h3 id="headline-4">
+WSL files
+</h3>
+<div id="outline-text-headline-4" class="outline-text-3">
+<p>
+Files are accessible in the explorer through <code class="verbatim">\\wsl$</code>.</p>
+</div>
+</div>
+<div id="outline-container-headline-5" class="outline-3">
+<h3 id="headline-5">
+PDF reader
+</h3>
+<div id="outline-text-headline-5" class="outline-text-3">
+<p><span class="timestamp">&lt;2021-05-24 Mon&gt;</span>: Zathura for viewing pdfs generated with latex in WSL2. It is lightweight, fast, has forward/inverse search.
+Only missing a tab for document outline, which is accessible with <code class="verbatim">&lt;tab&gt;</code>.</p>
+<ol>
+<li>
+<p>xodo (from microsoft store) for using stylus pen</p>
+</li>
+<li>
+<p>sumatra for pdf preview pane <a href="https://www.sumatrapdfreader.org/download-free-pdf-viewer.html">Download Sumatra PDF - a free reader</a>, when installing choose the option that allows that.</p>
+<ol>
+<li>
+<p>inverse search for going back to <code class="verbatim">.tex</code> file (sumatra options): <code class="verbatim">&#34;C:\Program Files\Emacs\x86_64\bin\emacsclientw.exe&#34; -n +%l &#34;%f&#34;</code></p>
+</li>
+</ol>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-headline-6" class="outline-3">
+<h3 id="headline-6">
+Tpmiddle
+</h3>
+<div id="outline-text-headline-6" class="outline-text-3">
+<p><a href="https://github.com/Jyny/TPmiddle">GitHub - Jyny/TPmiddle: Scroll &amp; middle-click with the TrackPoint</a>
+Configure to use middle button on trackpad.
+I use version 0.6, it seems that the newer ones are not compatible with thinkpad T440s…</p>
+<p>
+Synaptics driver version 19.0.17.115 is the one that works fine.</p>
+</div>
+</div>
+<div id="outline-container-headline-7" class="outline-3">
+<h3 id="headline-7">
+Powershell
+</h3>
+<div id="outline-text-headline-7" class="outline-text-3">
+<p>
+<a href="https://github.com/PowerShell/PowerShell/releases/">Releases · PowerShell/PowerShell · GitHub</a></p>
+</div>
+</div>
+<div id="outline-container-headline-8" class="outline-3">
+<h3 id="headline-8">
+Wacom
+</h3>
+<div id="outline-text-headline-8" class="outline-text-3">
+<p>
+Remove press and hold feature to avoid interruption when writing in onenote.
+Control panel, pen and touch, disable pen and hold as right click.</p>
+</div>
+</div>
+<div id="outline-container-headline-9" class="outline-3">
+<h3 id="headline-9">
+Hugo
+</h3>
+<div id="outline-text-headline-9" class="outline-text-3">
+<p>
+It seems that newer version of Hugo (&gt; 0.80) does not correctly generate link to images when they are together within post folder.</p>
+<p>
+Version 0.80 works fine.
+Installed with <code class="verbatim">choco install hugo-extended --version=0.80.0</code></p>
+<p>
+<span class="timestamp">&lt;2021-07-19 Mon&gt;</span>
+This version works fine.</p>
+<div class="src src-shell">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">hugo.exe version</code></pre></div>
+</div>
+<pre class="example">
+hugo v0.83.1-5AFE0A57+extended windows/amd64 BuildDate=2021-05-02T14:38:05Z VendorInfo=gohugoio
+</pre>
+</div>
+</div>
+<div id="outline-container-headline-10" class="outline-3">
+<h3 id="headline-10">
+Zotero
+</h3>
+<div id="outline-text-headline-10" class="outline-text-3">
+<div id="outline-container-headline-11" class="outline-5">
+<h5 id="headline-11">
+Better bibtex
+</h5>
+<div id="outline-text-headline-11" class="outline-text-5">
+<p><span class="timestamp">&lt;2021-05-26 Wed&gt;</span> Better to let it automatically update so to avoid potential errors. I got a Zotero error and it was solved by updating beter-bibtex.</p>
+<p>
+This is an essential plug-in.
+It allows creating a <code class="verbatim">.bib</code> file that we can use to insert references in a <code class="verbatim">.tex</code> document.
+It also <span style="text-decoration: underline;">auto updates</span> the file when another reference is inserted in Zotero.</p>
+<p>
+So the workflow is: import a reference in <code class="verbatim">Zotero</code> with the DOI link and use emacs <code class="verbatim">bibtex-actions</code> to insert the citation in the <code class="verbatim">.tex</code> document.</p>
+<p>
+<a href="https://github.com/retorquere/zotero-better-bibtex">GitHub - retorquere/=Zotero=-better-bibtex: Make Zotero effective for us LaTeX …</a></p>
+</div>
+</div>
+<div id="outline-container-headline-12" class="outline-5">
+<h5 id="headline-12">
+Backup
+</h5>
+<div id="outline-text-headline-12" class="outline-text-5">
+<p>Zotero creates a folder with all its data and automatically stores a local copy of the pdfs in its folder structure.
+So you don&#39;t need to keep the pdf file in a different directory.</p>
+<p>
+Zotero sync can save some of the data but the pdf file storage capacity is very limited.
+The preferably way to backup the library is to copy the whole Zotero directory.</p>
+<p>
+To restore just the data, bibtex entries for instance, Zotero sync is enough.
+I think keeps all the pdfs is excessive, and not necessary.</p>
+<p>
+One downside is that if you want look for a pdf you have to use Zotero application because its folder structure is not human readable.</p>
+</div>
+</div>
+<div id="outline-container-headline-13" class="outline-5">
+<h5 id="headline-13">
+<code class="verbatim">ZotFile</code>
+</h5>
+<div id="outline-text-headline-13" class="outline-text-5">
+<p><span class="timestamp">&lt;2021-06-26 Sat&gt;</span>: Who needs multiple collections and categories when you have &#34;orderless&#34; narrowing completion.
+By having a tailored file link to each bibtex entry, the default behavior of <code class="verbatim">Zotero</code>, it makes loading the bibliography slow in <code class="verbatim">bibtex-completion.el</code> (part of <code class="verbatim">helm-bibtex</code>).</p>
+<p>
+<span class="timestamp">&lt;2021-05-15 Sat&gt;</span>: I don&#39;t care about pdfs since I can get them whenever I need.
+The downside is that I don&#39;t keep the notes that I usually write on the pdf.
+But this can be circumvented by always writing relevant information in a proper review file.</p>
+<p>
+Zotero calls <em>library data</em> the collection of titles, authors, citation key and so on.
+Where as the pdf are called <em>attached files</em>.</p>
+<p>
+Zotero has two forms of handling pdf attachments: <em>default storage</em> and <em>linked files</em>.</p>
+<p>
+The <span style="text-decoration: underline;">default storage</span> uses the same <span style="text-decoration: underline;">Zotero data directory</span> to store and manage the pdfs attachments.
+The advantage is you can manage it through the Zotero app.
+So you can rename the files automatically or delete them, for instance.</p>
+<p>
+The default storage is good if you use syncing to also store files attachments.
+This way you can have the attachments in multiple machines.
+However the free version is limited to 300mb.</p>
+<p>
+If you don&#39;t sync files attachments you are not going to be able to access the files attachments in a different machine.</p>
+<p>
+<span style="text-decoration: underline;">Linked files</span> <code class="verbatim">Zotero</code> stores only a link to the original pdf.
+So you have to manually manage where to store the original pdf and their original name.
+I would keep all of them in a single cloud folder.</p>
+<p>
+The <code class="verbatim">ZotFile</code> plug-in can be useful to manage those linked files.</p>
+</div>
+</div>
+<div id="outline-container-headline-14" class="outline-5">
+<h5 id="headline-14">
+<code class="verbatim">ZotFile</code> renaming and moving files to specific folder
+</h5>
+<div id="outline-text-headline-14" class="outline-text-5">
+<p>
+Within <code class="verbatim">ZotFile</code> preferences, we can:</p>
+<ol>
+<li>
+<p>Location of Files and custom location specify where to save the <code class="verbatim">.pdf</code> and link them to the reference item inside <code class="verbatim">Zotero</code>.</p>
+</li>
+<li>
+<p>Renaming rules and renaming format we can specify the format {%b} which is the same for the bibtex key.</p>
+<ol>
+<li>
+<p>this is convenient for searching a file using just the key and a storage location.</p>
+</li>
+<li>
+<p>this way we can just keep a single folder with all the pdfs and use emacs <code class="verbatim">orderless</code> with <code class="verbatim">bibtex-completion</code> to <em>filter and narrow</em> the list of references with (i) independent terms (author, year, title) in (ii) any order.</p>
+</li>
+</ol>
+</li>
+</ol>
+<p>note: the terms do not need to be exact, they could be partial.
+e.g, to search &#34;Numerical … by Trefethen … in 1997&#34; we can type <code class="verbatim">num</code> so we can narrow the list the items with &#34;Num&#34;.
+Then type <code class="verbatim">97</code> so we get the ones with &#34;97&#34;.
+Finally, if this was not enough, and we vaguely remember that the author starts with &#34;T&#34; we can type <code class="verbatim">T</code> to further narrow down the options for completion.
+Really efficient.</p>
+</div>
+</div>
+<div id="outline-container-headline-15" class="outline-5">
+<h5 id="headline-15">
+Transporting the pdf
+</h5>
+<div id="outline-text-headline-15" class="outline-text-5">
+<ol>
+<li>
+<p>start Zotero in the new machine</p>
+</li>
+<li>
+<p>sync library data with Zotero account</p>
+</li>
+<li>
+<p>copy <code class="verbatim">storage folder</code> that contains the files into the newly created Zotero data directory</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-16" class="outline-3">
+<h3 id="headline-16">
+Fancy zone
+</h3>
+<div id="outline-text-headline-16" class="outline-text-3">
+<p>Windows app for tiling windows.
+Really good.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+              
+                  
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+              
+          </article>
+          
+
+<ul class="tags__list">
+    
+    <li class="tag__item">
+        <a class="tag__link" href="http://localhost:1313/tags/tools/">tools</a>
+    </li>
+    <li class="tag__item">
+        <a class="tag__link" href="http://localhost:1313/tags/draft/">draft</a>
+    </li></ul>
+
+ <div class="pagination">
+  
+    <a class="pagination__item" href="http://localhost:1313/notes/passive-investing/">
+        <span class="pagination__label">Previous Post</span>
+        <span class="pagination__title">Passive investing and price discovery in the market</span>
+    </a>
+  
+
+  
+    <a class="pagination__item" href="http://localhost:1313/notes/hot-money-flow-eme/">
+      <span class="pagination__label">Next Post</span>
+      <span class="pagination__title" >Hot money impact on EM</span>
+    </a>
+  
+</div>
+
+          <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "nasseralkmim" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+          <footer class="post__footer">
+            
+
+
+<div class="social-icons">
+  
+     
+    
+      <a class="social-icons__link" rel="me" title="Email"
+         href="mailto:nasser.alkmim@gmail.com"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('http://localhost:1313/svg/email.svg')"></div>
+      </a>
+    
+  
+     
+    
+      <a class="social-icons__link" rel="me" title="LinkedIn"
+         href="https://www.linkedin.com/in/nasser-alkmim-300882a6/"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('http://localhost:1313/svg/linkedin.svg')"></div>
+      </a>
+    
+  
+     
+    
+      <a class="social-icons__link" rel="me" title="GitHub"
+         href="https://github.com/nasseralkmim"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('http://localhost:1313/svg/github.svg')"></div>
+      </a>
+    
+  
+     
+    
+      <a class="social-icons__link" rel="me" title="Instagram"
+         href="https://instagram.com/naszr"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('http://localhost:1313/svg/instagram.svg')"></div>
+      </a>
+    
+     
+</div>
+
+            <p>© 2021</p>
+          </footer>
+          </div>
+      </div>
+      
+      <div class="toc-container">
+           <div class="toc-post-title">System notes</div> 
+        <nav id="TableOfContents">
+<ul>
+<li><a href="#headline-1">Intro</a>
+</li>
+<li><a href="#headline-2">Current machine</a>
+<ul>
+<li><a href="#headline-3">Swap CAPS LOCK to CTRL</a>
+</li>
+<li><a href="#headline-4">WSL files</a>
+</li>
+<li><a href="#headline-5">PDF reader</a>
+</li>
+<li><a href="#headline-6">Tpmiddle</a>
+</li>
+<li><a href="#headline-7">Powershell</a>
+</li>
+<li><a href="#headline-8">Wacom</a>
+</li>
+<li><a href="#headline-9">Hugo</a>
+</li>
+<li><a href="#headline-10">Zotero</a>
+<ul>
+<li><a href="#headline-11">Better bibtex</a>
+</li>
+<li><a href="#headline-12">Backup</a>
+</li>
+<li><a href="#headline-13"><code class="verbatim">ZotFile</code></a>
+</li>
+<li><a href="#headline-14"><code class="verbatim">ZotFile</code> renaming and moving files to specific folder</a>
+</li>
+<li><a href="#headline-15">Transporting the pdf</a>
+</li>
+</ul>
+</li>
+<li><a href="#headline-16">Fancy zone</a>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+      </div>
+      
+    </div>
+    
+
+  </main>
+
+   
+
+  
+  <script src="/js/index.min.575dda8d49ee02639942c63564273e6da972ab531dda26a08800bdcb477cbd7f.js" integrity="sha256-V13ajUnuAmOZQsY1ZCc&#43;balyq1Md2iagiAC9y0d8vX8=" crossorigin="anonymous"></script>
+  
+  
+  
+
+  
+  
+  
+
+  
+    <script src="/js/table-of-contents.js"></script>
+  
+
+
+</body>
+
+</html>

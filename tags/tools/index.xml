@@ -2,19 +2,110 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>tools on Notes</title>
-    <link>https://nasseralkmim.github.io/tags/tools/</link>
+    <link>http://localhost:1313/tags/tools/</link>
     <description>Recent content in tools on Notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© {year}</copyright>
-    <lastBuildDate>Thu, 01 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/tags/tools/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 04 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/tools/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>C&#43;&#43; Development environment in Emacs</title>
-      <link>https://nasseralkmim.github.io/notes/cpp-environment-setup/</link>
-      <pubDate>Thu, 01 Apr 2021 00:00:00 +0000</pubDate>
+      <title>GIT notes</title>
+      <link>http://localhost:1313/notes/git-notes/</link>
+      <pubDate>Fri, 04 Jun 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://nasseralkmim.github.io/notes/cpp-environment-setup/</guid>
-      <description>Introduction   This set up already starts with wsl (version 2) already installed and emacs as well. Emacs on windows with WSL2 | Nasser&amp;#39;s personal website</description>
+      <guid>http://localhost:1313/notes/git-notes/</guid>
+      <description>Definitions  What is the difference between git and github?   What is upstream and origin when forking in Github?</description>
+    </item>
+    
+    <item>
+      <title>Latex setup in Emacs</title>
+      <link>http://localhost:1313/notes/emacs-latex-setup/</link>
+      <pubDate>Thu, 03 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/notes/emacs-latex-setup/</guid>
+      <description>Emacs is by far the most advanced LaTeX editor that I have used. Why? It makes things easier and more enjoyable.</description>
+    </item>
+    
+    <item>
+      <title>Paraview notes</title>
+      <link>http://localhost:1313/notes/paraview-notes/</link>
+      <pubDate>Wed, 02 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/notes/paraview-notes/</guid>
+      <description>Notes about paraview.
+Concepts  Sources  Algorithms with no input, just output. Reading a file for instance.
+  Sinks  Algorithms with multiple inputs but no output.</description>
+    </item>
+    
+    <item>
+      <title>One liners commands</title>
+      <link>http://localhost:1313/notes/oneliners-commands/</link>
+      <pubDate>Mon, 03 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/notes/oneliners-commands/</guid>
+      <description>tree -L 1  Show tree directory up to the first level.
+ -d show only the directory.
+ Needs the tree package.</description>
+    </item>
+    
+    <item>
+      <title>mpFEM notes</title>
+      <link>http://localhost:1313/notes/mpfem-notes/</link>
+      <pubDate>Sun, 02 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/notes/mpfem-notes/</guid>
+      <description>Questions  Solver params    how to specify preconditioners
+  scaling L,R,T? just number to multiply?     Singularity    sandbox, is like a container with the folder structure accessible</description>
+    </item>
+    
+    <item>
+      <title>Programming notes</title>
+      <link>http://localhost:1313/notes/programming-notes/</link>
+      <pubDate>Sat, 01 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/notes/programming-notes/</guid>
+      <description>Documentation  Architecture decision records    title
+  status
+  context
+  decision
+  consequence</description>
+    </item>
+    
+    <item>
+      <title>PETSc notes</title>
+      <link>http://localhost:1313/notes/petsc-notes/</link>
+      <pubDate>Sun, 25 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/notes/petsc-notes/</guid>
+      <description>What is PETSc?  Portable, extensible toolkit for Scientific computation. It is a collection of data structures and routines for implementing applications for solving partial differential equations numerically.</description>
+    </item>
+    
+    <item>
+      <title>Trilinos notes</title>
+      <link>http://localhost:1313/notes/trilinos-notes/</link>
+      <pubDate>Sun, 18 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/notes/trilinos-notes/</guid>
+      <description>Basics  What is Trilinos? Object oriented framework for solving math and engineering problems (linear system of equations). Can solve problems up to 2 billion unknowns.</description>
+    </item>
+    
+    <item>
+      <title>System notes</title>
+      <link>http://localhost:1313/notes/system-notes/</link>
+      <pubDate>Sun, 17 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/notes/system-notes/</guid>
+      <description>Intro   Log of my system configuration for windows.
+  Current machine  &amp;lt;2021-05-24 Mon&amp;gt;: Thinkpad t14s Ryzen PRO 5 (6 cores).</description>
+    </item>
+    
+    <item>
+      <title>Emacs Notes</title>
+      <link>http://localhost:1313/notes/emacs-notes/</link>
+      <pubDate>Mon, 04 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/notes/emacs-notes/</guid>
+      <description>Introduction   Build emacs inside windows subsystem for linux (wsl). The main advantage is that emacs is considerably faster when using LSP.</description>
     </item>
     
   </channel>

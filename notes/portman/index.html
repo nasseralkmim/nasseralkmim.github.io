@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en-us">
 
-<head>
-  <title>Gerenciamento de portfolio com portman | Nasser&#39;s personal website</title>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>Gerenciamento de portfolio com portman | Notes</title>
 
   <meta charset="UTF-8">
   <meta name="language" content="en">
@@ -29,7 +29,7 @@
   
   
     
-    <link type="text/css" rel="stylesheet" href="/css/post.min.a74e392619e10b534ed018113147a605e2dfdc329ba2e2de512308b7b193758c.css" integrity="sha256-p045JhnhC1NO0BgRMUemBeLf3DKbouLeUSMIt7GTdYw="/>
+    <link type="text/css" rel="stylesheet" href="/css/post.min.9184109084ab0858f4d61e201ec74c667f1e039aaddd71fb8204359b0bae18a1.css" integrity="sha256-kYQQkISrCFj01h4gHsdMZn8eA5qt3XH7ggQ1mwuuGKE="/>
   
     
     <link type="text/css" rel="stylesheet" href="/css/custom.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" integrity="sha256-47DEQpj8HBSa&#43;/TImW&#43;5JCeuQeRkm5NMpJWZG3hSuFU="/>
@@ -44,7 +44,7 @@
     { 
       "@context": "http://schema.org", 
       "@type": "WebSite", 
-      "url": "https:\/\/nasseralkmim.github.io\/notes\/portman\/",
+      "url": "http:\/\/localhost:1313\/notes\/portman\/",
       "name": "Gerenciamento de portfolio com portman",
       "author": {
         "@type": "Person",
@@ -54,17 +54,6 @@
     }
   
   </script>
-
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-74704246-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
 </head>
 
 <body>
@@ -82,7 +71,7 @@ if (!doNotTrack) {
     
     
       <li>
-        <a  href="/">home</a>
+        <a  href="/">about</a>
       </li>
     
       <li>
@@ -104,6 +93,7 @@ if (!doNotTrack) {
           <header class="post__header">
             <h1 id="post__title">Gerenciamento de portfolio com portman</h1>
             <time datetime="2020-12-30 00:00:00 &#43;0000 UTC" class="post__date">Dec 30 2020</time> 
+	    
           </header>
           <article class="post__content">
               
@@ -113,11 +103,11 @@ if (!doNotTrack) {
 Consolidação do portfolio
 </h2>
 <div id="outline-text-headline-1" class="outline-text-2">
-<div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">import pandas as pd
-import portman as pm
+<div class="src src-python">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">import</span> <span style="color:#b06;font-weight:bold">pandas</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#b06;font-weight:bold">pd</span>
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#b06;font-weight:bold">portman</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#b06;font-weight:bold">pm</span>
 
-pm.consolidate(&#39;trade_data.csv&#39;)</code></pre></div>
+pm.consolidate(<span style="color:#d20;background-color:#fff0f0">&#39;trade_data.csv&#39;</span>)</code></pre></div>
 </div>
 </div>
 </div>
@@ -126,16 +116,16 @@ pm.consolidate(&#39;trade_data.csv&#39;)</code></pre></div>
 Análise
 </h2>
 <div id="outline-text-headline-2" class="outline-text-2">
-<div class="src src-jupyter-python">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">import matplotlib
-import matplotlib.pyplot as plt
-matplotlib.style.use(&#39;ggplot&#39;)
-import portman as pm
+<div class="src src-python">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">import</span> <span style="color:#b06;font-weight:bold">matplotlib</span>
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#b06;font-weight:bold">matplotlib.pyplot</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#b06;font-weight:bold">plt</span>
+matplotlib.style.use(<span style="color:#d20;background-color:#fff0f0">&#39;ggplot&#39;</span>)
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#b06;font-weight:bold">portman</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#b06;font-weight:bold">pm</span>
 
-pm.analysis.summary(&#39;portfolio.csv&#39;)
-pm.analysis.allocation(&#39;portfolio.csv&#39;)
-pm.analysis.returns(&#39;returns.csv&#39;)
-pm.analysis.dividends(&#39;dividends.csv&#39;)
+pm.analysis.summary(<span style="color:#d20;background-color:#fff0f0">&#39;portfolio.csv&#39;</span>)
+pm.analysis.allocation(<span style="color:#d20;background-color:#fff0f0">&#39;portfolio.csv&#39;</span>)
+pm.analysis.returns(<span style="color:#d20;background-color:#fff0f0">&#39;returns.csv&#39;</span>)
+pm.analysis.dividends(<span style="color:#d20;background-color:#fff0f0">&#39;dividends.csv&#39;</span>)
 plt.tight_layout()</code></pre></div>
 </div>
 <p><img src="./jupyter/bf44f73d2581e727370006b957659ee15c3aa08c.png" alt="./jupyter/bf44f73d2581e727370006b957659ee15c3aa08c.png" title="./jupyter/bf44f73d2581e727370006b957659ee15c3aa08c.png" />
@@ -165,30 +155,30 @@ plt.tight_layout()</code></pre></div>
 <ul class="tags__list">
     
     <li class="tag__item">
-        <a class="tag__link" href="https://nasseralkmim.github.io/tags/finance/">finance</a>
+        <a class="tag__link" href="http://localhost:1313/tags/finance/">finance</a>
     </li>
     <li class="tag__item">
-        <a class="tag__link" href="https://nasseralkmim.github.io/tags/python/">python</a>
+        <a class="tag__link" href="http://localhost:1313/tags/python/">python</a>
     </li>
     <li class="tag__item">
-        <a class="tag__link" href="https://nasseralkmim.github.io/tags/data-analysis/">data-analysis</a>
+        <a class="tag__link" href="http://localhost:1313/tags/data-analysis/">data analysis</a>
     </li>
     <li class="tag__item">
-        <a class="tag__link" href="https://nasseralkmim.github.io/tags/portugues/">portugues</a>
+        <a class="tag__link" href="http://localhost:1313/tags/portugues/">portugues</a>
     </li></ul>
 
  <div class="pagination">
   
-    <a class="pagination__item" href="https://nasseralkmim.github.io/notes/personal-portolio/">
+    <a class="pagination__item" href="http://localhost:1313/notes/personal-portolio/">
         <span class="pagination__label">Previous Post</span>
         <span class="pagination__title">Portfolio pessoal</span>
     </a>
   
 
   
-    <a class="pagination__item" href="https://nasseralkmim.github.io/notes/emacs-windows/">
+    <a class="pagination__item" href="http://localhost:1313/notes/emacs-notes/">
       <span class="pagination__label">Next Post</span>
-      <span class="pagination__title" >Emacs on windows with WSL2</span>
+      <span class="pagination__title" >Emacs Notes</span>
     </a>
   
 </div>
@@ -224,7 +214,7 @@ plt.tight_layout()</code></pre></div>
       <a class="social-icons__link" rel="me" title="Email"
          href="mailto:nasser.alkmim@gmail.com"
          target="_blank" rel="noopener">
-        <div class="social-icons__icon" style="background-image: url('https://nasseralkmim.github.io/svg/email.svg')"></div>
+        <div class="social-icons__icon" style="background-image: url('http://localhost:1313/svg/email.svg')"></div>
       </a>
     
   
@@ -233,7 +223,7 @@ plt.tight_layout()</code></pre></div>
       <a class="social-icons__link" rel="me" title="LinkedIn"
          href="https://www.linkedin.com/in/nasser-alkmim-300882a6/"
          target="_blank" rel="noopener">
-        <div class="social-icons__icon" style="background-image: url('https://nasseralkmim.github.io/svg/linkedin.svg')"></div>
+        <div class="social-icons__icon" style="background-image: url('http://localhost:1313/svg/linkedin.svg')"></div>
       </a>
     
   
@@ -242,7 +232,7 @@ plt.tight_layout()</code></pre></div>
       <a class="social-icons__link" rel="me" title="GitHub"
          href="https://github.com/nasseralkmim"
          target="_blank" rel="noopener">
-        <div class="social-icons__icon" style="background-image: url('https://nasseralkmim.github.io/svg/github.svg')"></div>
+        <div class="social-icons__icon" style="background-image: url('http://localhost:1313/svg/github.svg')"></div>
       </a>
     
   
@@ -251,7 +241,7 @@ plt.tight_layout()</code></pre></div>
       <a class="social-icons__link" rel="me" title="Instagram"
          href="https://instagram.com/naszr"
          target="_blank" rel="noopener">
-        <div class="social-icons__icon" style="background-image: url('https://nasseralkmim.github.io/svg/instagram.svg')"></div>
+        <div class="social-icons__icon" style="background-image: url('http://localhost:1313/svg/instagram.svg')"></div>
       </a>
     
      
@@ -282,7 +272,7 @@ plt.tight_layout()</code></pre></div>
    
 
   
-  <script src="/js/index.min.49e4d8a384357d9b445b87371863419937ede9fa77737522ffb633073aebfa44.js" integrity="sha256-SeTYo4Q1fZtEW4c3GGNBmTft6fp3c3Ui/7YzBzrr&#43;kQ=" crossorigin="anonymous"></script>
+  <script src="/js/index.min.575dda8d49ee02639942c63564273e6da972ab531dda26a08800bdcb477cbd7f.js" integrity="sha256-V13ajUnuAmOZQsY1ZCc&#43;balyq1Md2iagiAC9y0d8vX8=" crossorigin="anonymous"></script>
   
   
   

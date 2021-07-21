@@ -1,0 +1,2389 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>Emacs Notes | Notes</title>
+
+  <meta charset="UTF-8">
+  <meta name="language" content="en">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  
+  
+
+  <link rel="shortcut icon" type="image/png" href="/favicon.ico" />
+
+
+  
+  
+    
+ 
+  
+  
+  
+  
+  
+  
+    
+    <link type="text/css" rel="stylesheet" href="/css/post.min.9184109084ab0858f4d61e201ec74c667f1e039aaddd71fb8204359b0bae18a1.css" integrity="sha256-kYQQkISrCFj01h4gHsdMZn8eA5qt3XH7ggQ1mwuuGKE="/>
+  
+    
+    <link type="text/css" rel="stylesheet" href="/css/custom.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" integrity="sha256-47DEQpj8HBSa&#43;/TImW&#43;5JCeuQeRkm5NMpJWZG3hSuFU="/>
+  
+  
+   
+   
+    
+
+<script type="application/ld+json">
+  
+    { 
+      "@context": "http://schema.org", 
+      "@type": "WebSite", 
+      "url": "http:\/\/localhost:1313\/notes\/emacs-notes\/",
+      "name": "Emacs Notes",
+      "author": {
+        "@type": "Person",
+        "name": ""
+      },
+      "description": ""
+    }
+  
+  </script>
+</head>
+
+<body>
+  <div class="burger__container">
+  <div class="burger" aria-controls="navigation" aria-label="Menu">
+    <div class="burger__meat burger__meat--1"></div>
+    <div class="burger__meat burger__meat--2"></div>
+    <div class="burger__meat burger__meat--3"></div>
+  </div>
+</div>
+ 
+
+  <nav class="nav" id="navigation">
+  <ul class="nav__list">
+    
+    
+      <li>
+        <a  href="/">about</a>
+      </li>
+    
+      <li>
+        <a  class="active"
+         href="/notes">notes</a>
+      </li>
+    
+  </ul>
+</nav>
+
+
+  <main>
+    
+    
+
+    <div class="flex-wrapper">
+      <div class="post__container">
+        <div class="post">
+          <header class="post__header">
+            <h1 id="post__title">Emacs Notes</h1>
+            <time datetime="2021-01-04 00:00:00 &#43;0000 UTC" class="post__date">Jan 4 2021</time> 
+	    
+	    <time datetime="2021-07-19 22:59:35 &#43;0000 UTC" class="post__date">
+	      → edited in Jul 19 2021
+	    </time>
+	    
+          </header>
+          <article class="post__content">
+              
+
+<div id="outline-container-headline-1" class="outline-2">
+<h2 id="headline-1">
+Introduction
+</h2>
+<div id="outline-text-headline-1" class="outline-text-2">
+<p>
+Build emacs inside windows subsystem for linux (wsl).
+The main advantage is that emacs is considerably faster when using LSP.</p>
+</div>
+</div>
+<div id="outline-container-headline-2" class="outline-2">
+<h2 id="headline-2">
+WSL
+</h2>
+<div id="outline-text-headline-2" class="outline-text-2">
+<div id="outline-container-headline-3" class="outline-3">
+<h3 id="headline-3">
+Reference for installation
+</h3>
+<div id="outline-text-headline-3" class="outline-text-3">
+<p>
+<a href="https://github.com/hubisan/emacs-wsl">GitHub - hubisan/emacs-wsl: Install and run emacs with the Windows Subsystem …</a></p>
+</div>
+</div>
+<div id="outline-container-headline-4" class="outline-3">
+<h3 id="headline-4">
+Shortcut
+</h3>
+<div id="outline-text-headline-4" class="outline-text-3">
+<p>Using GWSL, very easy and nice to set up.
+It just works.</p>
+<div id="outline-container-headline-5" class="outline-4">
+<h4 id="headline-5">
+Old <span class="timestamp">&lt;2021-06-29 Tue&gt;</span>
+</h4>
+<div id="outline-text-headline-5" class="outline-text-4">
+<p>Followed this steps for creating a taskbar shortcut:</p>
+<ol>
+<li>
+<p>rename <code class="verbatim">.bat</code> to <code class="verbatim">.exe</code></p>
+</li>
+<li>
+<p>right click on the <code class="verbatim">.exe</code> and create the shortcut</p>
+</li>
+<li>
+<p>change the shortcut icon</p>
+</li>
+<li>
+<p>add the shortcut to taskbar</p>
+</li>
+<li>
+<p>rename back the <code class="verbatim">.exe</code> to <code class="verbatim">.bat</code></p>
+</li>
+<li>
+<p>change target of shortcut to <code class="verbatim">.bat</code> instead of <code class="verbatim">.exe</code> (shif-right click on the taskbar icon, then properties)</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-8" class="outline-3">
+<h3 id="headline-8">
+Paths
+</h3>
+<div id="outline-text-headline-8" class="outline-text-3">
+<p>
+<a href="https://docs.microsoft.com/en-us/windows/wsl/interop">Windows interoperability with Linux | Microsoft Docs</a></p>
+<p>
+Works inside wsl:</p>
+<ol>
+<li>
+<p>notepad.exe C:\\temp\\foo.txt</p>
+</li>
+<li>
+<p>notepad.exe &#34;C:\temp\foo.txt&#34;</p>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-headline-9" class="outline-3">
+<h3 id="headline-9">
+Hugo
+</h3>
+<div id="outline-text-headline-9" class="outline-text-3">
+<p>
+I had problems with the Ubunto 20.04 version of hugo.
+The solution is to just use the windows version of Hugo and call it within wsl with <code class="verbatim">hugo.exe</code> instead of just <code class="verbatim">hugo</code>.</p>
+</div>
+</div>
+<div id="outline-container-headline-10" class="outline-3">
+<h3 id="headline-10">
+LaTeX
+</h3>
+<div id="outline-text-headline-10" class="outline-text-3">
+<p>[2021-07-19 Mon 22:54] &lt;- <a href="/mnt/c/Users/c8441205/OneDrive/nasser-website/content/notes/emacs-latex-setup/index.org::*AUCTeX">AUCTeX</a></p>
+<p><a href="id:1101f3db-6a0c-477d-8c4e-fc7c684db4d2">AUCTeX</a></p>
+<div id="outline-container-headline-11" class="outline-4">
+<h4 id="headline-11">
+Installing texlive
+</h4>
+<div id="outline-text-headline-11" class="outline-text-4">
+<p>TeX Live is a easy way to have TeX programs, macro packages and fonts to produce documents with LaTeX macros.</p>
+<div class="src src-sh">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo apt install tex-common texlive-base texlive-latex-recommended <span style="color:#04d;background-color:#fff0f0">\
+</span><span style="color:#04d;background-color:#fff0f0"></span>                 texlive-latex-extra texlive-fonts-recommended latex-cjk-all</code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-12" class="outline-4">
+<h4 id="headline-12">
+Installing biber for biblatex
+</h4>
+<div id="outline-text-headline-12" class="outline-text-4">
+<p>To install biblatex we need <code class="verbatim">sudo apt install biber</code>.</p>
+</div>
+</div>
+<div id="outline-container-headline-13" class="outline-4">
+<h4 id="headline-13">
+Installing Zathuras for PDF viewer
+</h4>
+<div id="outline-text-headline-13" class="outline-text-4">
+<p>
+Update  <span class="timestamp">&lt;2021-05-13 Thu&gt;</span>: I&#39;m using Zathura now, the forward/inverse works out of the box.</p>
+<p>
+To view pdf using Windows SumatraPDF add folder with <code class="verbatim">SumatraPDF.exe</code> on windows $PATH (environment variables) and this to <code class="verbatim">init.el</code>.</p>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(<span style="color:#038">setq</span> <span style="color:#369">TeX-view-program-list</span>
+	  &#39;((<span style="color:#d20;background-color:#fff0f0">&#34;Sumatra PDF&#34;</span> (<span style="color:#d20;background-color:#fff0f0">&#34;\&#34;SumatraPDF.exe\&#34; -reuse-instance&#34;</span>
+			    (<span style="color:#369">mode-io-correlate</span> <span style="color:#d20;background-color:#fff0f0">&#34; -forward-search %b %n &#34;</span>) <span style="color:#d20;background-color:#fff0f0">&#34; %o&#34;</span>))))
+    (<span style="color:#369">assq-delete-all</span> <span style="color:#a60;background-color:#fff0f0">&#39;output-pdf</span> <span style="color:#369">TeX-view-program-selection</span>)
+    (<span style="color:#369">add-to-list</span> <span style="color:#a60;background-color:#fff0f0">&#39;TeX-view-program-selection</span> &#39;(<span style="color:#369">output-pdf</span> <span style="color:#d20;background-color:#fff0f0">&#34;Sumatra PDF&#34;</span>))</code></pre></div>
+</div>
+<p>
+To get inverse search using <code class="verbatim">wsl emacsclient -n +%l &#34;$(wslpath &#39;%f&#39;)&#34;</code>  on SumatraPDF options.</p>
+</div>
+</div>
+<div id="outline-container-headline-14" class="outline-4">
+<h4 id="headline-14">
+Font support
+</h4>
+<div id="outline-text-headline-14" class="outline-text-4">
+<p>To get the fonts that I use <code class="verbatim">sudo apt install texlive-fonts-extra</code>.</p>
+</div>
+</div>
+<div id="outline-container-headline-15" class="outline-4">
+<h4 id="headline-15">
+Algorithms rendering support
+</h4>
+<div id="outline-text-headline-15" class="outline-text-4">
+<p>To use algorithmicx package I install <code class="verbatim">sudo apt install texlive-science</code>.</p>
+</div>
+</div>
+<div id="outline-container-headline-16" class="outline-4">
+<h4 id="headline-16">
+Beamer
+</h4>
+<div id="outline-text-headline-16" class="outline-text-4">
+<p>It is included in <code class="verbatim">texlive-latex-recommended</code></p>
+</div>
+</div>
+<div id="outline-container-headline-17" class="outline-4">
+<h4 id="headline-17">
+What is <code class="verbatim">texmf</code>?
+</h4>
+<div id="outline-text-headline-17" class="outline-text-4">
+<p>Stands for tex and metafont.
+Each <code class="verbatim">texmf</code> directory follows a &#34;TeX directory Structure&#34;.</p>
+<p>
+<a href="https://tex.stackexchange.com/questions/420620/what-is-texmf-and-what-is-its-relation-to-tex#:~:text=a%20TeX%20Distribution.-,texmf%20stands%20for%20TeX%20and%20Metafont.,installed%20year%20(here%202017).">texlive - What is texmf, and what is its relation to TeX? - TeX - LaTeX Stack…</a></p>
+</div>
+</div>
+<div id="outline-container-headline-18" class="outline-4">
+<h4 id="headline-18">
+Check texlive <code class="verbatim">texmf-local</code> folder
+</h4>
+<div id="outline-text-headline-18" class="outline-text-4">
+<div class="src src-shell">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">kpsewhich --var-value TEXMFLOCAL</code></pre></div>
+</div>
+<pre class="example">
+/usr/local/share/texmf
+</pre>
+<p>
+Tex Live has its own texmf, which is the <code class="verbatim">texmf-dist</code>.
+The &#34;dist&#34; contains the packages of the distribution.</p>
+<div class="src src-shell">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#038">cd</span> /usr/share/texlive/ 
+ls -la | grep texmf</code></pre></div>
+</div>
+<pre class="example">
+drwxr-xr-x  21 root root    4096 May  7 16:40 texmf-dist
+</pre>
+</div>
+</div>
+<div id="outline-container-headline-19" class="outline-4">
+<h4 id="headline-19">
+Where local packages should be?
+</h4>
+<div id="outline-text-headline-19" class="outline-text-4">
+<p>Create it if it does no exist.
+This folder should have the same structure TDS.</p>
+<div class="src src-shell">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#038">cd</span> ~/texmf/tex/latex
+ls</code></pre></div>
+</div>
+<pre class="example">
+uibklatex
+</pre>
+<p>
+This to install personal university theme.</p>
+<p>
+<a href="https://tex.stackexchange.com/questions/8357/how-to-have-local-package-override-default-package">installing - How to have local package override default package - TeX - LaTeX…</a></p>
+</div>
+</div>
+<div id="outline-container-headline-20" class="outline-4">
+<h4 id="headline-20">
+What is XeTeX?
+</h4>
+<div id="outline-text-headline-20" class="outline-text-4">
+<p>
+XeTeX is Unicode TeX engine that can access system fonts directly.</p>
+<p>
+To get the command <code class="verbatim">xelatex</code> we need to install</p>
+<div class="src src-shell">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo apt install texlive-xetex</code></pre></div>
+</div>
+<p>
+To make AUCTeX use <code class="verbatim">xetex</code> as TeX engine we do</p>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(<span style="color:#038">setq-default</span> <span style="color:#369">TeX-engine</span> <span style="color:#a60;background-color:#fff0f0">&#39;xetex</span>)</code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-21" class="outline-4">
+<h4 id="headline-21">
+Difference between <code class="verbatim">latex-mode</code>, <code class="verbatim">tex-mode</code> and <code class="verbatim">LaTeX-mode</code>?
+</h4>
+<div id="outline-text-headline-21" class="outline-text-4">
+<p>
+The <code class="verbatim">AUCTeX</code> package provides the mode <code class="verbatim">LaTeX-mode</code>.
+This major mode substitutes the <code class="verbatim">tex-mode</code> and <code class="verbatim">latex-mode</code>.</p>
+<p>
+<a href="https://www.gnu.org/software/auctex/manual/auctex.html#Modes-and-Hooks">AUCTeX 12.3</a></p>
+</div>
+</div>
+<div id="outline-container-headline-22" class="outline-4">
+<h4 id="headline-22">
+What is a TeX engine?
+</h4>
+<div id="outline-text-headline-22" class="outline-text-4">
+<p>
+Binaries, programs, that process TeX input.
+Example:</p>
+<dl>
+<dt>
+pdfTeX
+</dt>
+<dd>
+<p>default of most system, it includes the <code class="verbatim">latex</code> and <code class="verbatim">pdflatex</code> commands.</p>
+</dd>
+<dt>
+XeTeX
+</dt>
+<dd>
+<p>can access system fonts and works with native UTF-8 input.</p>
+</dd>
+<dt>
+LuaTeX
+</dt>
+<dd>
+<p>does all and provides access to internals with Lua language.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div id="outline-container-headline-23" class="outline-4">
+<h4 id="headline-23">
+What is UTF-8 input?
+</h4>
+<div id="outline-text-headline-23" class="outline-text-4">
+<p>Unicode transformation format 8 bit.
+Is a standards that connects symbols to binary code, an encoding.</p>
+</div>
+</div>
+<div id="outline-container-headline-24" class="outline-4">
+<h4 id="headline-24">
+What is MiKTeX and TeX Live?
+</h4>
+<div id="outline-text-headline-24" class="outline-text-4">
+<p>Both are TeX distributions.
+It contains a collection of TeX related binaries.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-25" class="outline-3">
+<h3 id="headline-25">
+Emacs on Windows
+</h3>
+<div id="outline-text-headline-25" class="outline-text-3">
+<p>
+<span class="timestamp">&lt;2021-05-24 Mon&gt;</span>: Using emacs built from source with WSL2.</p>
+<ol>
+<li>
+<p><a href="https://www.gnu.org/software/emacs/download.html">GNU Emacs download - GNU Project</a></p>
+</li>
+<li>
+<p>create a variable HOME to <code class="verbatim">c:/Users/&lt;name&gt;/</code> so emacs can find the appropriate <code class="verbatim">.emacs.d</code> folder</p>
+</li>
+<li>
+<p>download all-the-icons <code class="verbatim">M-x all-the-icons-install-fonts</code> font and manually install them</p>
+</li>
+</ol>
+<div id="outline-container-headline-26" class="outline-4">
+<h4 id="headline-26">
+Hunspell
+</h4>
+<div id="outline-text-headline-26" class="outline-text-4">
+<ol>
+<li>
+<p>hunspell download here <a href="https://sourceforge.net/projects/ezwinports/files/">ezwinports - Browse Files at SourceForge.net</a></p>
+<ol>
+<li>
+<p>put bin folder in the path</p>
+</li>
+</ol>
+</li>
+</ol>
+<p>1.Dictionaries in <a href="https://www.freeoffice.com/en/download/dictionaries">www.freeoffice.com - Dictionaries.</a></p>
+<ol>
+<li>
+<p>put the dictionary with correct naming into installation folder of hunspell <code class="verbatim">/share/hunspell</code> folder</p>
+</li>
+<li>
+<p><code class="verbatim">hunspell -D</code> shows the list of available dictionaries</p>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-headline-27" class="outline-4">
+<h4 id="headline-27">
+Org Jupyter
+</h4>
+<div id="outline-text-headline-27" class="outline-text-4">
+<p>It seems that the package can not unzip the zmq requirement.</p>
+<p>
+So I had to manually go into my straight build of zmq and unpack the <code class="verbatim">emacs-zmq</code>.dll= into the <code class="verbatim">\build\zmq\</code> folder.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-28" class="outline-3">
+<h3 id="headline-28">
+WSL hacks
+</h3>
+<div id="outline-text-headline-28" class="outline-text-3">
+<div id="outline-container-headline-29" class="outline-4">
+<h4 id="headline-29">
+<span class="todo">DONE</span>
+Org babel shell command and <code class="verbatim">.bashrc</code> aliases
+</h4>
+<div id="outline-text-headline-29" class="outline-text-4">
+<p>
+Need to pass explicitly the interactive flag <code class="verbatim">-i</code> to the block so it can pick the aliases in the <code class="verbatim">.bashrc</code> file.</p>
+<p>
+<a href="https://emacs.stackexchange.com/questions/46190/how-to-get-bash-source-code-blocks-to-execute-profile-bashrc">org mode - How to get bash source code blocks to execute .profile / .bashrc -…</a></p>
+</div>
+</div>
+<div id="outline-container-headline-30" class="outline-4">
+<h4 id="headline-30">
+<span class="todo">DONE</span>
+LaTeX forward search does not work properly with <code class="verbatim">Suamtra.exe</code> in windows
+</h4>
+<div id="outline-text-headline-30" class="outline-text-4">
+<p>Update <span class="timestamp">&lt;2021-05-18 Tue&gt;</span>: Using zathura from wsl which works out of the box and is great.</p>
+<p>
+It opens the pdf but not at the location.
+Probably a problem with windows/wsl path conversions.</p>
+</div>
+</div>
+<div id="outline-container-headline-31" class="outline-4">
+<h4 id="headline-31">
+<span class="todo">DONE</span>
+Bibtex actions
+</h4>
+<div id="outline-text-headline-31" class="outline-text-4">
+<p>Update <span class="timestamp">&lt;2021-05-18 Tue&gt;</span>: Uninstalled <code class="verbatim">selectrum</code> and installed <code class="verbatim">vertico</code> and now it works as supposed.
+Not sure what happened.</p>
+<p>
+It seems that the minibuffer is not expanding correctly to fit the options available.</p>
+<p>
+Probably a problem with Vcxsrv and its GUI.</p>
+</div>
+</div>
+<div id="outline-container-headline-32" class="outline-4">
+<h4 id="headline-32">
+<span class="todo">DONE</span>
+Bibtex actions open pdf
+</h4>
+<div id="outline-text-headline-32" class="outline-text-4">
+<p>Update <span class="timestamp">&lt;2021-05-18 Tue&gt;</span>: using <code class="verbatim">wsl-path.el</code> <code class="verbatim">wsl-path-activate</code> and adding a custom function to open pdf with windows default pdf viewer (xodo in my case).</p>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(<span style="color:#038">setq</span> <span style="color:#369">bibtex-completion-pdf-open-function</span>
+	(<span style="color:#038">lambda</span> (<span style="color:#369">fpath</span>)
+	  <span style="color:#888">;; (call-process &#34;cmd.exe&#34; nil 0 nil (concat &#34;/C start &#34; fpath))</span>
+	  (<span style="color:#369">shell-command</span> (<span style="color:#06b;font-weight:bold">concat</span>
+			  <span style="color:#d20;background-color:#fff0f0">&#34;cmd.exe /C start \&#34;\&#34; &#34;</span>
+			  (<span style="color:#369">shell-quote-argument</span> <span style="color:#369">fpath</span>)))
+	  ))</code></pre></div>
+</div>
+<p>
+Update <span class="timestamp">&lt;2021-05-13 Thu&gt;</span>: to open with default windows applications we can use from wsl <code class="verbatim">cmd.exe /C start</code>. 
+But still, the helm-bibtex function can not properly check if the file exists with the windows path.</p>
+<p>
+Problem: (f-exists?) does not recognize windows path in Zotero entry.</p>
+<p>
+Wsl utils command <code class="verbatim">wslview</code> can be an option. 
+Install with <code class="verbatim">sudo apt install wslu</code>.
+<a href="https://github.com/wslutilities/wslu">GitHub - wslutilities/wslu: A collection of utilities for Windows 10 Linux Su…</a>.</p>
+<p>
+works from wsl:</p>
+<ol>
+<li>
+<p><code class="verbatim">wslview &#34;PMNHILH2/Pawlowski et al. - 2006 - Globalization Techniques for Newton–Krylov Methods.pdf&#34;</code> relative path</p>
+</li>
+<li>
+<p><code class="verbatim">wslview &#34;C:/Users/nasse/Zotero/storage/PMNHILH2/Pawlowski et al. - 2006 - Globalization Techniques for Newton–Krylov Methods.pdf&#34;</code> absolute path with windows style in quotes</p>
+</li>
+<li>
+<p><code class="verbatim">wslview C:\\Users\\nasse\\Zotero\\storage\\PMNHILH2\\Pawlowski\ et\ al.\ -\ 2006\ -\ Globalization\ Techniques\ for\ Newton–Krylov\ Methods.pdf</code> absolute path without quotes with <code class="verbatim">\</code> escaping \, and spaces. This is the Zotero way to store file path but it does not escape spaces (bibtex-action does that).</p>
+</li>
+<li>
+<p>(f-exists? &#34;C:/Users/nasse/Zotero/storage/PMNHILH2/Pawlowski et al. - 2006 - Globalization Techniques for Newton–Krylov Methods.pdf&#34;)nil </p>
+</li>
+<li>
+<p>(f-exists? &#34;C:\\Users\\nasse\\Zotero\\storage\\PMNHILH2\\Pawlowski et al. - 2006 - Globalization Techniques for Newton–Krylov Methods.pdf&#34;)nil</p>
+<ol>
+<li>
+<p><span style="text-decoration: underline;">this works on emacs on windows…</span> <strong>that&#39;s the problem…</strong></p>
+</li>
+</ol>
+</li>
+<li>
+<p>(f-exists? &#34;C:\\Users\\nasse\\Zotero\\storage\\PMNHILH2\\Pawlowski\ et\ al.\ -\ 2006\ -\ Globalization\ Techniques\ for\ Newton–Krylov\ Methods.pdf&#34;)nil</p>
+</li>
+<li>
+<p>(f-exists? &#34;/C:\\Users\\nasse\\Zotero\\storage\\PMNHILH2\\Pawlowski et al. - 2006 - Globalization Techniques for Newton–Krylov Methods.pdf&#34;)nil</p>
+</li>
+<li>
+<p>(f-exists? &#34;/mnt/c/Users/nasse/Zotero/storage/PMNHILH2/Pawlowski et al. - 2006 - Globalization Techniques for Newton–Krylov Methods.pdf&#34;)t</p>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-headline-33" class="outline-4">
+<h4 id="headline-33">
+<span class="todo">DONE</span>
+Inverse search from SumatraPDF to emacs
+</h4>
+<div id="outline-text-headline-33" class="outline-text-4">
+<p>
+<a href="https://github.com/sumatrapdfreader/sumatrapdf/issues/1861">sumatrapdfreader/sumatrapdf#1861 Inverse search with WSL</a></p>
+<p>
+using <code class="verbatim">wsl emacsclient -n +%l &#34;$(wslpath &#39;%f&#39;)&#34;</code> on sumatra inverse search command-line</p>
+</div>
+</div>
+<div id="outline-container-headline-34" class="outline-4">
+<h4 id="headline-34">
+<span class="todo">DONE</span>
+Hugo
+</h4>
+<div id="outline-text-headline-34" class="outline-text-4">
+<p>
+Update (<span class="timestamp">&lt;2021-04-16 Fri&gt;</span>): discovered that I can use windows programs within wsl2 by just calling with the suffix <code class="verbatim">.exe</code>.
+Update: for now I&#39;m writing my posts with standard windows emacs.</p>
+<p>
+Apt in wsl2 has only an old version of hugo.  
+This version does not properly process org-mode dates format, so I was getting 01/01/0001 as a date.</p>
+<p>
+I had to manually download hugo <a href="https://gohugo.io/getting-started/installing/#binary-cross-platform">Install Hugo | Hugo</a> binary and put it in <code class="verbatim">usr/local/bin</code>.</p>
+<p>
+Also, another problem, it seems that when <code class="verbatim">hugo server</code> it does not detect changes to update the html rendering.
+<a href="https://github.com/microsoft/WSL/issues/4739">microsoft/WSL#4739 {WSL2} File changes made by Windows apps on Windows filesy…</a>
+I don&#39;t have a solution for this yet.</p>
+<p>
+Trying the solution in here <a href="https://medium.com/@heberleh/wsl-2-installation-and-changes-c01e3cbe205a">WSL 2 installation and changes. Problems and solutions before and after… | by…</a></p>
+</div>
+</div>
+<div id="outline-container-headline-35" class="outline-4">
+<h4 id="headline-35">
+<span class="todo">DONE</span>
+Org-download not getting clipboard from windows
+</h4>
+<div id="outline-text-headline-35" class="outline-text-4">
+<p>
+Update (<span class="timestamp">&lt;2021-04-16 Fri&gt;</span>): Just discovered that to run windows command in wsl we just need to add <code class="verbatim">.exe</code> to the windows program.
+So I&#39;m using standard Imagemagick from windows <a href="https://imagemagick.org/script/download.php#windows">ImageMagick - Download</a>.</p>
+<p>
+I also had to change the variable <code class="verbatim">(setq org-download-screenshot-file &#34;./tmp/screenshot.png&#34;)</code> so we can create an image with the <code class="verbatim">convert.exe</code> and then access it with <code class="verbatim">org-download-image</code> to generate an org link.
+A minor inconvenience is that a <code class="verbatim">tmp/</code> folder is created and I don&#39;t want to write a function to delete it.</p>
+<ol>
+<li>
+<p><a href="https://github.com/microsoft/WSL/issues/4440">microsoft/WSL#4440 WSL2 clipboard not shared between Linux and Windows</a></p>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-headline-36" class="outline-4">
+<h4 id="headline-36">
+<span class="todo">DONE</span>
+Emacs jupyter
+</h4>
+<div id="outline-text-headline-36" class="outline-text-4">
+<p><span class="timestamp">&lt;2021-06-23 Wed&gt;</span> the package exec-path-from-shell add the appropriate paths to emacs <code class="verbatim">exec-path</code> variable so it can find jupyter in the user binaries folder.</p>
+<p>
+In the terminal:</p>
+<div class="src src-shell">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">which jupyter</code></pre></div>
+</div>
+<p>
+is installed in the user binaries folder <code class="verbatim">/home/nasser/.local/bin</code></p>
+<p>
+Which is not inside <code class="verbatim">exec-path</code> variable.</p>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(<span style="color:#06b;font-weight:bold">print</span> <span style="color:#369">exec-path</span>)</code></pre></div>
+</div>
+<table>
+<tbody>
+<tr>
+<td><em>usr/local/sbin</em></td>
+<td><em>usr/local/bin</em></td>
+<td><em>usr/sbin</em></td>
+<td><em>usr/bin</em></td>
+<td><em>sbin</em></td>
+<td><em>bin</em></td>
+<td><em>usr/games</em></td>
+<td><em>usr/local/games</em></td>
+<td><em>mnt/c/SIMULIA/Commands</em></td>
+<td><em>mnt/c/Program Files/Microsoft MPI/Bin</em></td>
+<td><em>mnt/c/Program Files/ImageMagick-7.0.11-Q16-HDRI</em></td>
+<td><em>mnt/c/WINDOWS/system32</em></td>
+<td><em>mnt/c/WINDOWS</em></td>
+<td><em>mnt/c/WINDOWS/System32/Wbem</em></td>
+<td><em>mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0</em></td>
+<td><em>mnt/c/Program Files/PuTTY</em></td>
+<td><em>mnt/c/WINDOWS/System32/OpenSSH</em></td>
+<td><em>mnt/c/ProgramData/chocolatey/bin</em></td>
+<td><em>mnt/c/Program Files/PowerShell/7</em></td>
+<td><em>mnt/c/Users/c8441205/AppData/Local/SumatraPDF</em></td>
+<td><em>mnt/c/Program Files/dotnet</em></td>
+<td><em>mnt/c/Program Files/ParaView 5.9.1-Windows-Python3.8-msvc2017-64bit/bin</em></td>
+<td><em>mnt/c/Users/c8441205/AppData/Local/Microsoft/WindowsApps</em></td>
+<td><em>usr/local/libexec/emacs/28.0.50/x86_64-pc-linux-gnu</em></td>
+</tr>
+</tbody>
+</table>
+<p>
+Added with <code class="verbatim">(add-to-list &#39;exec-path &#34;/home/nasser/.local/bin&#34;)</code>.</p>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(<span style="color:#369">add-to-list</span> <span style="color:#a60;background-color:#fff0f0">&#39;exec-path</span> <span style="color:#d20;background-color:#fff0f0">&#34;~/.local/bin&#34;</span>)
+(<span style="color:#06b;font-weight:bold">print</span> <span style="color:#369">exec-path</span>)</code></pre></div>
+</div>
+<table>
+<tbody>
+<tr>
+<td>~/.local/bin</td>
+<td>/usr/local/sbin</td>
+<td>/usr/local/bin</td>
+<td>/usr/sbin</td>
+<td>/usr/bin</td>
+<td>/sbin</td>
+<td>/bin</td>
+<td>/usr/games</td>
+<td>/usr/local/games</td>
+<td>/mnt/c/SIMULIA/Commands</td>
+<td><em>mnt/c/Program Files/Microsoft MPI/Bin</em></td>
+<td>/mnt/c/Program Files/ImageMagick-7.0.11-Q16-HDRI</td>
+<td>/mnt/c/WINDOWS/system32</td>
+<td>/mnt/c/WINDOWS</td>
+<td>/mnt/c/WINDOWS/System32/Wbem</td>
+<td><em>mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0</em></td>
+<td><em>mnt/c/Program Files/PuTTY</em></td>
+<td><em>mnt/c/WINDOWS/System32/OpenSSH</em></td>
+<td>/mnt/c/ProgramData/chocolatey/bin</td>
+<td><em>mnt/c/Program Files/PowerShell/7</em></td>
+<td>/mnt/c/Users/c8441205/AppData/Local/SumatraPDF</td>
+<td><em>mnt/c/Program Files/dotnet</em></td>
+<td>/mnt/c/Program Files/ParaView 5.9.1-Windows-Python3.8-msvc2017-64bit/bin</td>
+<td>/mnt/c/Users/c8441205/AppData/Local/Microsoft/WindowsApps</td>
+<td>/usr/local/libexec/emacs/28.0.50/x86_64-pc-linux-gnu</td>
+</tr>
+</tbody>
+</table>
+<div class="src src-shell">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">jupyter --version</code></pre></div>
+</div>
+<p>
+I also was getting error for emacs-jupyter not finding python (<code class="verbatim">apply: Searching for program: No such file or directory, python</code>).
+Emacs-jupyter was not finding python, even though I could call <code class="verbatim">python3</code> in the wsl terminal.
+It seems that emacs-jupyter (<code class="verbatim">jupyter-locate-python</code>) looks for python only at <code class="verbatim">jupyter --path</code>.</p>
+<p>
+More specifically emacs-jupyter looks at <code class="verbatim">/usr/local/bin/</code> and my python3 was installed <code class="verbatim">which python3</code> at <code class="verbatim">/usr/bin/</code>.
+So I had to create a symbolic link <code class="verbatim">sudo ln -s /usr/bin/python3 /usr/local/bin/python</code>.
+Then it worked.</p>
+</div>
+</div>
+<div id="outline-container-headline-37" class="outline-4">
+<h4 id="headline-37">
+<span class="todo">DONE</span>
+Treemacs <code class="verbatim">visit-node-in-external-application</code>
+</h4>
+<div id="outline-text-headline-37" class="outline-text-4">
+<p>Update: <span class="timestamp">&lt;2021-05-08 Sat&gt;</span> Using bash from wsl. Set up a desktop application with <code class="verbatim">/usr/bin/sh</code> and set it as default for xdg-open.</p>
+<p>
+This is a reason for me to keep standard emacs on windows.</p>
+<p>
+When I call this function in a <code class="verbatim">.sh</code> file it opens as a text in another emacs instance.
+However I want it to just run, currently I have to call <code class="verbatim">treemacs-run-shell-command-for-current-node</code> and manually type the filename <code class="verbatim">./script.sh</code>.</p>
+<p>
+For instance, in windows I just go to <code class="verbatim">deploy.sh</code> on treemacs and hit <code class="verbatim">o x</code> to run the script.</p>
+<p>
+Can use <code class="verbatim">wsl-open</code> to fix that.
+<a href="https://github.com/4U6U57/wsl-open">GitHub - 4U6U57/wsl-open: Open files with xdg-open on Bash for Windows in Win…</a>
+wsl-open will open script with git bash from windows git installation.</p>
+<p>
+Change the default application that runs shell scripts (application/x-shellscript) for the <code class="verbatim">wsl-open</code>.
+Use <code class="verbatim">xdg-mime query filetype file.sh</code> to discover the filetype.
+And use <code class="verbatim">xdg-mime query default &lt;new filetype&gt;</code> to discover which application is the default for it.
+Currently is <code class="verbatim">emacs.desktop</code>, which opens the shell script in another emacs instance.
+I created a <code class="verbatim">wsl-open.desktop</code> inside <code class="verbatim">~/.local/share/applications</code> with </p>
+<pre class="example">
+[Desktop Entry]
+Name=wsl-open
+Exec=/usr/local/bin/wsl-open
+Type=Application
+</pre>
+<p>
+and set as default with</p>
+<div class="src src-sh">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">xdg-mime query default application/x-sh
+xdg-mime default bash.desktop application/x-sh
+xdg-mime query default application/x-sh</code></pre></div>
+</div>
+<pre class="example">
+bash.desktop
+</pre>
+<p>
+Now when I open a shell script with xdg-open (<code class="verbatim">x o</code> in treemacs) it runs the script just like in windows.</p>
+</div>
+</div>
+<div id="outline-container-headline-38" class="outline-4">
+<h4 id="headline-38">
+<span class="todo">DONE</span>
+vterm $PATH variable and emacs <code class="verbatim">exec-path</code>
+</h4>
+<div id="outline-text-headline-38" class="outline-text-4">
+<p><span class="timestamp">&lt;2021-06-23 Wed&gt;</span> It is necessary the default flag <code class="verbatim">-i</code> for interactive.</p>
+<p>
+vterm $PATH does not reproduce the same (exec-path) as emacs,</p>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(<span style="color:#369">exec-path</span>)</code></pre></div>
+</div>
+<table>
+<tbody>
+<tr>
+<td>~/.local/bin</td>
+<td>/usr/local/sbin</td>
+<td>/usr/local/bin</td>
+<td>/usr/sbin</td>
+<td>/usr/bin</td>
+<td>/sbin</td>
+<td>/bin</td>
+<td>/usr/games</td>
+<td>/usr/local/games</td>
+<td>/mnt/c/SIMULIA/Commands</td>
+<td><em>mnt/c/Program Files/Microsoft MPI/Bin</em></td>
+<td>/mnt/c/Program Files/ImageMagick-7.0.11-Q16-HDRI</td>
+<td>/mnt/c/WINDOWS/system32</td>
+<td>/mnt/c/WINDOWS</td>
+<td>/mnt/c/WINDOWS/System32/Wbem</td>
+<td><em>mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0</em></td>
+<td><em>mnt/c/Program Files/PuTTY</em></td>
+<td><em>mnt/c/WINDOWS/System32/OpenSSH</em></td>
+<td>/mnt/c/ProgramData/chocolatey/bin</td>
+<td><em>mnt/c/Program Files/PowerShell/7</em></td>
+<td>/mnt/c/Users/c8441205/AppData/Local/SumatraPDF</td>
+<td><em>mnt/c/Program Files/dotnet</em></td>
+<td>/mnt/c/Program Files/ParaView 5.9.1-Windows-Python3.8-msvc2017-64bit/bin</td>
+<td>/mnt/c/Users/c8441205/AppData/Local/Microsoft/WindowsApps</td>
+<td>/usr/local/libexec/emacs/28.0.50/x86_64-pc-linux-gnu</td>
+</tr>
+</tbody>
+</table>
+<p>
+In vterm, with <code class="verbatim">echo $PATH</code> I get,</p>
+<pre class="example">
+/usr/local/go/bin:/home/nasser/miniconda3/condabin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usoft
+MPI/Bin/:/mnt/c/Program Files/ImageMagick-7.0.11-Q16-HDRI:/mnt/c/WINDOWS/system32:/mnt/c/ram
+Files/PuTTY/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/ProgramData/chocolatey/bin:/mnt/c/Pronet/:/mnt/c/Program
+Files/ParaView
+5.9.1-Windows-Python3.8-msvc2017-64bit/bin:/mnt/c/Users/c84
+</pre>
+<p>
+If I activate the package <code class="verbatim">exec-path-from-shell</code>, I get:</p>
+<div class="src src-text">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">/usr/local/go/bin:/home/nasser/miniconda3/condabin:/home/nasser/.local/bin:/usr/local/go/bin:/home/nasser/miniconda3/condabin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/mnt/c/SIMULIA/Commands:/mnt/c/Program
+Files/Microsoft MPI/Bin/:/mnt/c/Program
+Files/ImageMagick-7.0.11-Q16-HDRI:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/Program
+Files/PuTTY/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/ProgramData/chocolatey/bin:/mnt/c/Program
+Files/PowerShell/7/:/mnt/c/Users/c8441205/AppData/Local/SumatraPDF:/mnt/c/Program
+Files/dotnet/:/mnt/c/Program Files/ParaView
+5.9.1-Windows-Python3.8-msvc2017-64bit/bin:/mnt/c/Users/c8441205/AppData/Local/Microsoft/WindowsApps:/snap/bin:/home/nasser/go/bin:/home/nasser/go/bin</code></pre></div>
+</div>
+<p>
+Which includes <code class="verbatim">~/.local/bin</code>.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-39" class="outline-2">
+<h2 id="headline-39">
+Fonts
+</h2>
+<div id="outline-text-headline-39" class="outline-text-2">
+<p><span class="timestamp">&lt;2021-06-04 Fri&gt;</span> using default.</p>
+<p>
+Download the <code class="verbatim">.ttf</code> font file, move them to <code class="verbatim">~/.fonts/</code> and <code class="verbatim">fc-cache -f -v</code> to rebuild font cache.</p>
+</div>
+</div>
+<div id="outline-container-headline-40" class="outline-2">
+<h2 id="headline-40">
+Keymaps
+</h2>
+<div id="outline-text-headline-40" class="outline-text-2">
+<div id="outline-container-headline-41" class="outline-3">
+<h3 id="headline-41">
+Concepts
+</h3>
+<div id="outline-text-headline-41" class="outline-text-3">
+<div id="outline-container-headline-42" class="outline-4">
+<h4 id="headline-42">
+What are key bindings?
+</h4>
+<div id="outline-text-headline-42" class="outline-text-4">
+<p>A map between keys to commands.</p>
+</div>
+</div>
+<div id="outline-container-headline-43" class="outline-4">
+<h4 id="headline-43">
+What are keymaps?
+</h4>
+<div id="outline-text-headline-43" class="outline-text-4">
+<p>A storage with record of key bindings.
+This record allows emacs to know which command to call for each key pressed by the user.</p>
+<p>
+For example, a key-command in the <code class="verbatim">current-global-map</code> is available to be used in all parts of Emacs.</p>
+<p>
+<span style="text-decoration: underline;">Every major mode and minor mode potentially can have a keybinding.</span>
+When a mode is loaded, if it has a keymap, its keymap overrides the global map.
+So, If a chord is in both global and mode specific map, emacs will call the command from the mode specific map.</p>
+</div>
+</div>
+<div id="outline-container-headline-44" class="outline-4">
+<h4 id="headline-44">
+What is a prefix key?
+</h4>
+<div id="outline-text-headline-44" class="outline-text-4">
+<p>A key bound to a keymap is a prefix key.
+Because this key will be added to others to form a complete key.</p>
+<p>
+So, <code class="verbatim">C-l</code> is bound to <code class="verbatim">lsp-command-map</code>, and this keymap has multiple keybindings also bound to other keymaps.</p>
+<p>
+Load <code class="verbatim">lsp</code> and run that to see:</p>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(<span style="color:#369">describe-keymap</span> <span style="color:#369">lsp-command-map</span>)</code></pre></div>
+</div>
+<p>
+A sequence of chords forms a complete key.</p>
+</div>
+</div>
+<div id="outline-container-headline-45" class="outline-4">
+<h4 id="headline-45">
+What happens when a mode is activated?
+</h4>
+<div id="outline-text-headline-45" class="outline-text-4">
+<p>It might override custom key-bindings.</p>
+</div>
+</div>
+<div id="outline-container-headline-46" class="outline-4">
+<h4 id="headline-46">
+Which keymap is activated?
+</h4>
+<div id="outline-text-headline-46" class="outline-text-4">
+<p>Primary keymaps are activated.
+Meaning that they are in use for finding keybindings.</p>
+<p>
+At all times, <span style="text-decoration: underline;">global map</span> is activated.
+When a major mode is loaded (?), it activates a <span style="text-decoration: underline;">local keymap</span>. 
+If a minor mode is activated and it has a keymap defines, then a <span style="text-decoration: underline;">minor mode keymap</span> is also activated.</p>
+<p>
+Keymaps have a hierarchy.
+Minor mode keymaps shadow local keymap and the local keymap shadows the global map.</p>
+<p>
+Evil mode puts its keymaps at the top.</p>
+</div>
+</div>
+<div id="outline-container-headline-47" class="outline-4">
+<h4 id="headline-47">
+What are global, major and minor?
+</h4>
+<div id="outline-text-headline-47" class="outline-text-4">
+<p>Major mode key bindings override global.
+Minor model override major mode and global.</p>
+<p>
+Major mode define &#34;local keymaps&#34;.</p>
+<p>
+Local keymap can redefine a key by defining it as a &#34;prefix keymap&#34;.</p>
+</div>
+</div>
+<div id="outline-container-headline-48" class="outline-4">
+<h4 id="headline-48">
+<code class="verbatim">define-key</code> concepts
+</h4>
+<div id="outline-text-headline-48" class="outline-text-4">
+<p>
+Form:</p>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(<span style="color:#06b;font-weight:bold">define-key</span> <span style="color:#369">&lt;keymap&gt;</span> <span style="color:#369">&lt;key&gt;</span> <span style="color:#369">&lt;definition&gt;</span>)</code></pre></div>
+</div>
+<p>
+Remarks:</p>
+<ol>
+<li>
+<p>The definition can be a command or a keymap or a string.</p>
+</li>
+<li>
+<p>A key bound to a keymap is a prefix.</p>
+<p>
+(require &#39;org)
+(evil-define-key &#39;normal org-mode-map &#34;g l&#34; lsp-mode-map)</p>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-headline-49" class="outline-4">
+<h4 id="headline-49">
+Minor mode conflict
+</h4>
+<div id="outline-text-headline-49" class="outline-text-4">
+<p>
+If two minor modes define the same keybindings, the one earlier in the (minor-mode-map-alist) takes priority.</p>
+</div>
+</div>
+<div id="outline-container-headline-50" class="outline-4">
+<h4 id="headline-50">
+Minor mode keymap activation?
+</h4>
+<div id="outline-text-headline-50" class="outline-text-4">
+<p>It is activated when the mode is enabled.</p>
+</div>
+</div>
+<div id="outline-container-headline-51" class="outline-4">
+<h4 id="headline-51">
+When keybindings are active?
+</h4>
+<div id="outline-text-headline-51" class="outline-text-4">
+<p>When the module that defines them is first loaded (by using <code class="verbatim">require</code>).</p>
+<p>
+Or when the mode is launched using a hook.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-52" class="outline-3">
+<h3 id="headline-52">
+Evil keymaps
+</h3>
+<div id="outline-text-headline-52" class="outline-text-3">
+<div id="outline-container-headline-53" class="outline-4">
+<h4 id="headline-53">
+What are states?
+</h4>
+<div id="outline-text-headline-53" class="outline-text-4">
+<p>Evil define states as global keymaps.
+States represent: insert, normal, visual and others.</p>
+</div>
+</div>
+<div id="outline-container-headline-54" class="outline-4">
+<h4 id="headline-54">
+What is the difference between <code class="verbatim">define-key</code> and <code class="verbatim">evil-global-set-key</code>
+</h4>
+<div id="outline-text-headline-54" class="outline-text-4">
+<p>
+Standard emacs:</p>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(<span style="color:#369">define</span> <span style="color:#369">key</span> <span style="color:#369">evil-normal-state-map</span> (<span style="color:#369">kbd</span> <span style="color:#d20;background-color:#fff0f0">&#34;chord&#34;</span>) <span style="color:#a60;background-color:#fff0f0">&#39;some-function</span>)</code></pre></div>
+</div>
+<p>
+Evil:</p>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(<span style="color:#369">evil-global-set-key</span> <span style="color:#a60;background-color:#fff0f0">&#39;normal</span> (<span style="color:#369">kbd</span> <span style="color:#d20;background-color:#fff0f0">&#34;chord&#34;</span>) <span style="color:#a60;background-color:#fff0f0">&#39;some-function</span>)</code></pre></div>
+</div>
+<p>
+The state keymap is predefined as a parameter <code class="verbatim">&#39;normal</code>.</p>
+</div>
+</div>
+<div id="outline-container-headline-55" class="outline-4">
+<h4 id="headline-55">
+Global maps in evil?
+</h4>
+<div id="outline-text-headline-55" class="outline-text-4">
+<p>Evil has a global map for each state.</p>
+</div>
+</div>
+<div id="outline-container-headline-56" class="outline-4">
+<h4 id="headline-56">
+What is <code class="verbatim">evil-define-key</code>?
+</h4>
+<div id="outline-text-headline-56" class="outline-text-4">
+<p>
+It is a macro to add state bindings to ordinary keymaps.</p>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(<span style="color:#369">evil-define-key</span> <span style="color:#a60;background-color:#fff0f0">&#39;normal</span> <span style="color:#369">foo-map</span> <span style="color:#d20;background-color:#fff0f0">&#34;a&#34;</span> <span style="color:#a60;background-color:#fff0f0">&#39;bar</span>)</code></pre></div>
+</div>
+<p>
+Binds <code class="verbatim">a</code> to <code class="verbatim">bar</code> in normal state when foo-map is active.</p>
+<p>
+Multiple states with a quoted list <code class="verbatim">&#39;(normal visual)</code>.</p>
+<p>
+Multiple bindings with key-function par <code class="verbatim">(&#34;a&#34; &#39;bar &#34;b&#34; &#39;foo)</code>.</p>
+<p>
+If <code class="verbatim">foo-map</code> has not been initialized the macro adds an entry yo <code class="verbatim">after-load-function</code>.</p>
+<p>
+Keymap can be a quoted symbol: <code class="verbatim">&#39;global</code> to add to the global keymap or <code class="verbatim">&#39;local</code> to the current buffer.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-57" class="outline-3">
+<h3 id="headline-57">
+General
+</h3>
+<div id="outline-text-headline-57" class="outline-text-3">
+<div id="outline-container-headline-58" class="outline-4">
+<h4 id="headline-58">
+What is it?
+</h4>
+<div id="outline-text-headline-58" class="outline-text-4">
+<p>General interface for key definitions that works with <code class="verbatim">evil-mode</code> and is integrated in <code class="verbatim">use-package</code>.</p>
+<p>
+The interface is accessed with <code class="verbatim">general-define-key</code>.</p>
+</div>
+</div>
+<div id="outline-container-headline-59" class="outline-4">
+<h4 id="headline-59">
+What is the difference between <code class="verbatim">general-define-key</code> and <code class="verbatim">general-def</code>?
+</h4>
+<div id="outline-text-headline-59" class="outline-text-4">
+<p>
+<code class="verbatim">general-define-key</code> uses keyword arguments for clarity.</p>
+<p>
+<code class="verbatim">general-def</code> is a wrapper for the <code class="verbatim">general-define-key</code> that improves brevity of the command, but also accepts keywords if needed.
+So, positional arguments are optional but not required.</p>
+</div>
+</div>
+<div id="outline-container-headline-60" class="outline-4">
+<h4 id="headline-60">
+Difference between <code class="verbatim">evil-define-key</code> and <code class="verbatim">general-def</code>?
+</h4>
+<div id="outline-text-headline-60" class="outline-text-4">
+<p>Similar syntax.</p>
+</div>
+</div>
+<div id="outline-container-headline-61" class="outline-4">
+<h4 id="headline-61">
+What is <code class="verbatim">general-describe-keybindings</code>?
+</h4>
+<div id="outline-text-headline-61" class="outline-text-4">
+<p>
+Describe all keybindings.</p>
+</div>
+</div>
+<div id="outline-container-headline-62" class="outline-4">
+<h4 id="headline-62">
+How can <code class="verbatim">general-describe-keybindings</code> be useful?
+</h4>
+<div id="outline-text-headline-62" class="outline-text-4">
+<p>
+Order of presentation of the keybindings is based on keymaps, from</p>
+<ol>
+<li>
+<p>buffer local</p>
+</li>
+<li>
+<p>global</p>
+</li>
+<li>
+<p>evil keybindings</p>
+</li>
+<li>
+<p>others</p>
+</li>
+</ol>
+<p>within each keymap, the keybindings are presented in the order they were created.</p>
+</div>
+</div>
+<div id="outline-container-headline-63" class="outline-4">
+<h4 id="headline-63">
+Autoloaded keymaps
+</h4>
+<div id="outline-text-headline-63" class="outline-text-4">
+<p>If you want to create an &#34;autoload&#34; for keymap.
+Bind a key to a keymap that has not been loaded yet.</p>
+<p>
+I use that to bind a key in <code class="verbatim">LaTeX-mode-map</code> to a <code class="verbatim">preview-map</code> keymap.
+So before latex is loaded this binding try to find the keymap which is not loaded yet (preview-map is loaded with latex).</p>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(<span style="color:#038">unless</span>
+      (<span style="color:#06b;font-weight:bold">fboundp</span> <span style="color:#a60;background-color:#fff0f0">&#39;LaTeX-mode</span>)
+    (<span style="color:#06b;font-weight:bold">autoload</span> <span style="color:#06b;font-weight:bold">#&#39;</span><span style="color:#369">LaTeX-mode</span> <span style="color:#d20;background-color:#fff0f0">&#34;latex&#34;</span> <span style="color:#036;font-weight:bold">nil</span> <span style="color:#036;font-weight:bold">t</span>))</code></pre></div>
+</div>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(<span style="color:#369">general-def</span> <span style="color:#a60;background-color:#fff0f0">&#39;normal</span> <span style="color:#369">LaTeX-mode-map</span> <span style="color:#d20;background-color:#fff0f0">&#34;g p&#34;</span>
+    &#39;(<span style="color:#038">:keymap</span> <span style="color:#369">preview-map</span>)
+    <span style="color:#038">:package</span> <span style="color:#a60;background-color:#fff0f0">&#39;latex</span>)</code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-64" class="outline-4">
+<h4 id="headline-64">
+Bind keys to a keymap that has not been loaded?
+</h4>
+<div id="outline-text-headline-64" class="outline-text-4">
+<p>
+If a keymap does not exist, <code class="verbatim">evil-define-key</code> will defer the keybinding automatically bu suing an <code class="verbatim">eval-after-load</code> expression.
+<code class="verbatim">general-def</code> also does that.</p>
+<p>
+<code class="verbatim">evil-define-key*</code> does not defer a keybinding.
+Which can be accomplished with <code class="verbatim">:demand</code> in the <code class="verbatim">use-package</code> with <code class="verbatim">:general</code>.</p>
+<p>
+Package <code class="verbatim">biblio</code> has not been loaded yet.
+It will <code class="verbatim">autoload</code> when one of its functions are called.</p>
+<p>
+Package <code class="verbatim">ebib-biblio</code> has a function that integrates into <code class="verbatim">biblio</code>.
+I want to assign a keybinding to one of <code class="verbatim">biblio</code> keymaps, before loading it.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-65" class="outline-3">
+<h3 id="headline-65">
+Helper function
+</h3>
+<div id="outline-text-headline-65" class="outline-text-3">
+<p>
+<code class="verbatim">C-h m</code> shows the modes and their keymaps.</p>
+<p>
+<code class="verbatim">C-u M-x apropos-variable RET -mode-map$ RET</code> shows all known <span style="text-decoration: underline;">mode</span> maps.</p>
+<p>
+<code class="verbatim">describe-keymap</code> also useful to see which key is defined in a specific map.
+Alternatively, <code class="verbatim">which-key-show-keymap</code> shows the keymap keys as a pop up.</p>
+</div>
+</div>
+<div id="outline-container-headline-66" class="outline-3">
+<h3 id="headline-66">
+Errors
+</h3>
+<div id="outline-text-headline-66" class="outline-text-3">
+<div id="outline-container-headline-67" class="outline-4">
+<h4 id="headline-67">
+Key sequence &lt;prefix&gt; &lt;key&gt; starts with non-prefix key &lt;prefix&gt;
+</h4>
+<div id="outline-text-headline-67" class="outline-text-4">
+<p>Means that <code class="verbatim">&lt;prefix&gt;</code> is bound to a command and can&#39;t be used as a prefix.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-68" class="outline-3">
+<h3 id="headline-68">
+References
+</h3>
+<div id="outline-text-headline-68" class="outline-text-3">
+<ol>
+<li>
+<p><a href="https://github.com/syl20bnr/spacemacs/wiki/Keymaps-guide">Keymaps guide · syl20bnr/spacemacs Wiki · GitHub</a></p>
+</li>
+<li>
+<p><a href="https://github.com/noctuid/evil-guide">GitHub - noctuid/evil-guide: Draft of a guide for using emacs with evil</a></p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-69" class="outline-2">
+<h2 id="headline-69">
+Building emacs
+</h2>
+<div id="outline-text-headline-69" class="outline-text-2">
+<div id="outline-container-headline-70" class="outline-3">
+<h3 id="headline-70">
+List of packages requires
+</h3>
+<div id="outline-text-headline-70" class="outline-text-3">
+<div class="src src-shell">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo apt install -y <span style="color:#04d;background-color:#fff0f0">\
+</span><span style="color:#04d;background-color:#fff0f0"></span>     make <span style="color:#04d;background-color:#fff0f0">\
+</span><span style="color:#04d;background-color:#fff0f0"></span>     automake <span style="color:#04d;background-color:#fff0f0">\
+</span><span style="color:#04d;background-color:#fff0f0"></span>     gcc <span style="color:#a61717;background-color:#e3d2d2">\</span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-71" class="outline-3">
+<h3 id="headline-71">
+Configuring
+</h3>
+<div id="outline-text-headline-71" class="outline-text-3">
+<p>
+<code class="verbatim">./configure</code> with additional options.</p>
+<ol>
+<li>
+<p>prefix: location for install architecture-independent files</p>
+<ol>
+<li>
+<p>good to separate to see what was added on top by the user</p>
+</li>
+</ol>
+</li>
+<li>
+<p>native compilation: emacs lisp native compile support</p>
+</li>
+<li>
+<p>gnutils</p>
+</li>
+<li>
+<p>imagemagick</p>
+</li>
+<li>
+<p>cairo: vector graphics library with cross-device output support</p>
+</li>
+<li>
+<p>jpeg: image support</p>
+</li>
+<li>
+<p>png: image support</p>
+</li>
+<li>
+<p>rsvg: image support for svg (need to install librsvg2-devel)</p>
+</li>
+<li>
+<p>tiff: image support</p>
+</li>
+<li>
+<p>wide-int</p>
+</li>
+<li>
+<p>xft</p>
+</li>
+<li>
+<p>xml2 - for eww</p>
+</li>
+<li>
+<p>xpm</p>
+</li>
+</ol>
+<div class="src src-shell">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">./configure <span style="color:#04d;background-color:#fff0f0">\
+</span><span style="color:#04d;background-color:#fff0f0"></span>--with-native-compilation  <span style="color:#04d;background-color:#fff0f0">\
+</span><span style="color:#04d;background-color:#fff0f0"></span>--with-gnutls <span style="color:#04d;background-color:#fff0f0">\
+</span><span style="color:#04d;background-color:#fff0f0"></span>--with-imagemagick <span style="color:#04d;background-color:#fff0f0">\
+</span><span style="color:#04d;background-color:#fff0f0"></span>--with-cairo <span style="color:#04d;background-color:#fff0f0">\
+</span><span style="color:#04d;background-color:#fff0f0"></span>--with-jpeg <span style="color:#04d;background-color:#fff0f0">\
+</span><span style="color:#04d;background-color:#fff0f0"></span>--with-png <span style="color:#04d;background-color:#fff0f0">\
+</span><span style="color:#04d;background-color:#fff0f0"></span>--with-rsvg <span style="color:#04d;background-color:#fff0f0">\
+</span><span style="color:#04d;background-color:#fff0f0"></span>--with-tiff <span style="color:#04d;background-color:#fff0f0">\
+</span><span style="color:#04d;background-color:#fff0f0"></span>--with-wide-int <span style="color:#04d;background-color:#fff0f0">\
+</span><span style="color:#04d;background-color:#fff0f0"></span>--with-xft <span style="color:#04d;background-color:#fff0f0">\
+</span><span style="color:#04d;background-color:#fff0f0"></span>--with-xml2 <span style="color:#04d;background-color:#fff0f0">\
+</span><span style="color:#04d;background-color:#fff0f0"></span>--with-xpm <span style="color:#04d;background-color:#fff0f0">\
+</span><span style="color:#04d;background-color:#fff0f0"></span><span style="color:#369">prefix</span>=/usr/local</code></pre></div>
+</div>
+<p>
+Summary at the end contains the what was configured.</p>
+<pre class="example">
+  Where should the build process find the source code?    .
+  What compiler should emacs be built with?               gcc -g3 -O2
+  Should Emacs use the GNU version of malloc?             no
+    (The GNU allocators don&#39;t work with this system configuration.)
+  Should Emacs use a relocating allocator for buffers?    no
+  Should Emacs use mmap(2) for buffer allocation?         no
+  What window system should Emacs use?                    x11
+  What toolkit should Emacs use?                          GTK2
+  Where do we find X Windows header files?                Standard dirs
+  Where do we find X Windows libraries?                   Standard dirs
+  Does Emacs use -lXaw3d?                                 no
+  Does Emacs use -lXpm?                                   yes
+  Does Emacs use -ljpeg?                                  yes
+  Does Emacs use -ltiff?                                  yes
+  Does Emacs use a gif library?                           yes -lgif
+  Does Emacs use a png library?                           yes -lpng16 -lz
+  Does Emacs use -lrsvg-2?                                yes
+  Does Emacs use cairo?                                   yes
+  Does Emacs use -llcms2?                                 yes
+  Does Emacs use imagemagick?                             yes
+  Does Emacs use native APIs for images?                  no
+  Does Emacs support sound?                               yes
+  Does Emacs use -lgpm?                                   no
+  Does Emacs use -ldbus?                                  no
+  Does Emacs use -lgconf?                                 no
+  Does Emacs use GSettings?                               yes
+  Does Emacs use a file notification library?             yes -lglibc (inotify)
+  Does Emacs use access control lists?                    no
+  Does Emacs use -lselinux?                               yes
+  Does Emacs use -lgnutls?                                yes
+  Does Emacs use -lxml2?                                  yes
+  Does Emacs use -lfreetype?                              yes
+  Does Emacs use HarfBuzz?                                yes
+  Does Emacs use -lm17n-flt?                              no
+  Does Emacs use -lotf?                                   no
+  Does Emacs use -lxft?                                   no
+  Does Emacs use -lsystemd?                               no
+  Does Emacs use -ljansson?                               yes
+  Does Emacs use the GMP library?                         yes
+  Does Emacs directly use zlib?                           yes
+  Does Emacs have dynamic modules support?                yes
+  Does Emacs use toolkit scroll bars?                     yes
+  Does Emacs support Xwidgets?                            no
+  Does Emacs have threading support in lisp?              yes
+  Does Emacs support the portable dumper?                 yes
+  Does Emacs support legacy unexec dumping?               no
+  Which dumping strategy does Emacs use?                  pdumper
+  Does Emacs have native lisp compiler?                   yes
+</pre>
+<p>
+obs:</p>
+<ol>
+<li>
+<p>if it fails to create <code class="verbatim">./config.status</code>, try calling <code class="verbatim">sudo</code></p>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-headline-72" class="outline-3">
+<h3 id="headline-72">
+Make
+</h3>
+<div id="outline-text-headline-72" class="outline-text-3">
+<div class="src src-shell">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">neofetch</code></pre></div>
+</div>
+<pre class="example">
+[?25l[?7l[0m[31m[1m            .-/+oossssoo+/-.
+        `:+ssssssssssssssssss+:`
+      -+ssssssssssssssssssyyssss+-
+    .ossssssssssssssssss[37m[0m[1mdMMMNy[0m[31m[1msssso.
+   /sssssssssss[37m[0m[1mhdmmNNmmyNMMMMh[0m[31m[1mssssss/
+  +sssssssss[37m[0m[1mhm[0m[31m[1myd[37m[0m[1mMMMMMMMNddddy[0m[31m[1mssssssss+
+ /ssssssss[37m[0m[1mhNMMM[0m[31m[1myh[37m[0m[1mhyyyyhmNMMMNh[0m[31m[1mssssssss/
+.ssssssss[37m[0m[1mdMMMNh[0m[31m[1mssssssssss[37m[0m[1mhNMMMd[0m[31m[1mssssssss.
++ssss[37m[0m[1mhhhyNMMNy[0m[31m[1mssssssssssss[37m[0m[1myNMMMy[0m[31m[1msssssss+
+oss[37m[0m[1myNMMMNyMMh[0m[31m[1mssssssssssssss[37m[0m[1mhmmmh[0m[31m[1mssssssso
+oss[37m[0m[1myNMMMNyMMh[0m[31m[1msssssssssssssshmmmh[0m[31m[1mssssssso
++ssss[37m[0m[1mhhhyNMMNy[0m[31m[1mssssssssssss[37m[0m[1myNMMMy[0m[31m[1msssssss+
+.ssssssss[37m[0m[1mdMMMNh[0m[31m[1mssssssssss[37m[0m[1mhNMMMd[0m[31m[1mssssssss.
+ /ssssssss[37m[0m[1mhNMMM[0m[31m[1myh[37m[0m[1mhyyyyhdNMMMNh[0m[31m[1mssssssss/
+  +sssssssss[37m[0m[1mdm[0m[31m[1myd[37m[0m[1mMMMMMMMMddddy[0m[31m[1mssssssss+
+   /sssssssssss[37m[0m[1mhdmNNNNmyNMMMMh[0m[31m[1mssssss/
+    .ossssssssssssssssss[37m[0m[1mdMMMNy[0m[31m[1msssso.
+      -+sssssssssssssssss[37m[0m[1myyy[0m[31m[1mssss+-
+        `:+ssssssssssssssssss+:`
+            .-/+oossssoo+/-.[0m
+[20A[9999999D[43C[0m[1m[31m[1mnasser[0m@[31m[1mlt135-c842[0m 
+[43C[0m-----------------[0m 
+[43C[0m[31m[1mOS[0m[0m:[0m Ubuntu 20.04.2 LTS on Windows 10 x86_64[0m 
+[43C[0m[31m[1mKernel[0m[0m:[0m 5.4.72-microsoft-standard-WSL2[0m 
+[43C[0m[31m[1mUptime[0m[0m:[0m 23 mins[0m 
+[43C[0m[31m[1mPackages[0m[0m:[0m 1675 (dpkg)[0m 
+[43C[0m[31m[1mShell[0m[0m:[0m bash 5.0.17[0m 
+[43C[0m[31m[1mResolution[0m[0m:[0m 4096x1440[0m 
+[43C[0m[31m[1mTheme[0m[0m:[0m Adwaita [GTK3][0m 
+[43C[0m[31m[1mIcons[0m[0m:[0m Adwaita [GTK3][0m 
+[43C[0m[31m[1mTerminal[0m[0m:[0m emacs[0m 
+[43C[0m[31m[1mCPU[0m[0m:[0m AMD Ryzen 5 PRO 4650U with Radeon Graphics (10) @ 2.095GHz[0m 
+[43C[0m[31m[1mMemory[0m[0m:[0m 298MiB / 11978MiB[0m 
+
+[43C[30m[40m   [31m[41m   [32m[42m   [33m[43m   [34m[44m   [35m[45m   [36m[46m   [37m[47m   [m
+[?25h[?7h
+</pre>
+<p>
+<code class="verbatim">make -j &lt;#processors&gt;</code> I have currently 12 processors cores (<code class="verbatim">neofetch</code>).
+Use <code class="verbatim">sudo</code> if need extra permissions.</p>
+<p>
+<code class="verbatim">make clean</code> removes files produced by the build process in the current configuration.
+After <code class="verbatim">make clean</code> can rebuild with <code class="verbatim">make</code> and make sure that all built products are from coherent sources.</p>
+<p>
+<code class="verbatim">make distclean</code> removes Makefiles and other generated files.
+Returns to the &#34;freshly unpacked source distribution&#34;</p>
+<div id="outline-container-headline-73" class="outline-4">
+<h4 id="headline-73">
+Error: texinfo-loaddef
+</h4>
+<div id="outline-text-headline-73" class="outline-text-4">
+<p><a href="https://yhetil.org/emacs-devel/83o8dodw3a.fsf@gnu.org/T/">textmodes/makeinfo.el:71:1: Error: Cannot open load file: No such file or dir…</a></p>
+<ul>
+<li>
+<p><code class="verbatim">sudo make -C lisp autoloads-force</code></p>
+</li>
+<li>
+<p><code class="verbatim">sudo make -j12</code> again</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-74" class="outline-3">
+<h3 id="headline-74">
+Git workflow
+</h3>
+<div id="outline-text-headline-74" class="outline-text-3">
+<div id="outline-container-headline-75" class="outline-4">
+<h4 id="headline-75">
+Update remote (github repository)
+</h4>
+<div id="outline-text-headline-75" class="outline-text-4">
+<div class="src src-shell">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#038">cd</span> ~/emacs
+git remote update</code></pre></div>
+</div>
+<pre class="example">
+Fetching origin
+</pre>
+</div>
+</div>
+<div id="outline-container-headline-76" class="outline-4">
+<h4 id="headline-76">
+Check status with remote
+</h4>
+<div id="outline-text-headline-76" class="outline-text-4">
+<div class="src src-shell">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#038">cd</span> ~/emacs
+git status -uno</code></pre></div>
+</div>
+<pre class="example">
+On branch master
+Your branch is behind &#39;origin/master&#39; by 19 commits, and can be fast-forwarded.
+  (use &#34;git pull&#34; to update your local branch)
+
+nothing to commit (use -u to show untracked files)
+</pre>
+</div>
+</div>
+<div id="outline-container-headline-77" class="outline-4">
+<h4 id="headline-77">
+Check commits from master branch
+</h4>
+<div id="outline-text-headline-77" class="outline-text-4">
+<div class="src src-shell">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#038">cd</span> ~/emacs
+git show-branch *master</code></pre></div>
+</div>
+<pre class="example">
+* [master] Fix filling of overlong first lines in Python doc strings
+ ! [refs/remotes/origin/master] Improve previous frames.texi change
+--
+ + [refs/remotes/origin/master] Improve previous frames.texi change
+ + [refs/remotes/origin/master^] Specify which Gsetting font names are used in the manual
+ + [refs/remotes/origin/master~2] Fix previous admin/emake change
+ + [refs/remotes/origin/master~3] Adjust admin/emake filters
+ + [refs/remotes/origin/master~4] Continue checking the same line when hitting SPC in ispell
+ + [refs/remotes/origin/master~5] Fix looking-at-p example in shortdoc.el
+ + [refs/remotes/origin/master~6] Mention the -e switch in an ange-ftp doc string
+ + [refs/remotes/origin/master~7] Fix nnimap lexical conversion problem
+ + [refs/remotes/origin/master~8] * lisp/emacs-lisp/byte-opt.el (byte-compile-inline-expand): Silence warnings
+ + [refs/remotes/origin/master~9] * lisp/progmodes/sql.el: Turn `sql-*-statement-starters&#39; to defvars.
+ + [refs/remotes/origin/master~10] ; * src/character.c (lisp_string_width): Another defensive fix.
+ + [refs/remotes/origin/master~11] * src/character.c (lisp_string_width): Fix a typo in recent change.
+ + [refs/remotes/origin/master~12] Fix resolution of symlinks during dumping
+ + [refs/remotes/origin/master~13] ; * etc/tutorials/TUTORIAL.sv: Fix typo in last change.
+ + [refs/remotes/origin/master~14] * src/character.c (lisp_string_width): Fix last change.
+ + [refs/remotes/origin/master~15] Fix lexing of numbers with trailing decimal point and exponent
+ + [refs/remotes/origin/master~16] Don&#39;t propagate lexical variables into inlined functions
+ + [refs/remotes/origin/master~17] * src/character.c (lisp_string_width): Add missing type checks.
+ + [refs/remotes/origin/master~18] A better fix for &#39;string-width&#39;
+*+ [master] Fix filling of overlong first lines in Python doc strings
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-78" class="outline-3">
+<h3 id="headline-78">
+Update emacs
+</h3>
+<div id="outline-text-headline-78" class="outline-text-3">
+<p>
+<code class="verbatim">git pull</code> to download updates from remote.</p>
+<p>
+<code class="verbatim">sudo make -j12</code> to build and <code class="verbatim">sudo make install</code></p>
+<p>
+To check build date.</p>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(<span style="color:#369">emacs-version</span>)</code></pre></div>
+</div>
+<pre class="example">
+GNU Emacs 28.0.50 (build 3, x86_64-pc-linux-gnu, GTK+ Version 2.24.32, cairo version 1.16.0)
+ of 2021-06-04
+</pre>
+</div>
+</div>
+<div id="outline-container-headline-79" class="outline-3">
+<h3 id="headline-79">
+Debuging emacs
+</h3>
+<div id="outline-text-headline-79" class="outline-text-3">
+<p>To open emacs on wsl.</p>
+<div class="src src-shell">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#038">export</span> <span style="color:#369">DISPLAY</span>=<span style="color:#080;font-weight:bold">$(</span>ip route | awk <span style="color:#d20;background-color:#fff0f0">&#39;/^default/{print $3; exit}&#39;</span><span style="color:#080;font-weight:bold">)</span>:0.0
+<span style="color:#038">export</span> <span style="color:#369">LIBGL_ALWAYS_INDIRECT</span>=<span style="color:#00d;font-weight:bold">1</span>
+setsid emacs -q</code></pre></div>
+</div>
+<p>
+Inside emacs.
+<span class="timestamp">&lt;2021-05-28 Fri&gt;</span> I think it needs to add melpa repository.</p>
+<pre class="example">
+M-x package-initialize
+M-x package-install RET embark
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-80" class="outline-2">
+<h2 id="headline-80">
+Managing packages
+</h2>
+<div id="outline-text-headline-80" class="outline-text-2">
+<div id="outline-container-headline-81" class="outline-3">
+<h3 id="headline-81">
+What is a package?
+</h3>
+<div id="outline-text-headline-81" class="outline-text-3">
+<p>
+A package is represented as a &#34;feature&#34;, which contains a collection of functions and variables.
+The package file should <code class="verbatim">provide</code> the feature.</p>
+<p>
+When you want to use the functions and variables provided you <code class="verbatim">require</code> the feature.</p>
+</div>
+</div>
+<div id="outline-container-headline-82" class="outline-3">
+<h3 id="headline-82">
+What is the difference between <code class="verbatim">load</code>, <code class="verbatim">require</code> and <code class="verbatim">autoload</code>?
+</h3>
+<div id="outline-text-headline-82" class="outline-text-3">
+<p>
+<code class="verbatim">load</code> is a command that <span style="text-decoration: underline;">evaluates</span> a <span style="text-decoration: underline;">complete</span> <strong>file</strong>.
+Thus all functions and variables in the file are <span style="text-decoration: underline;">installed</span>.
+Which means that the are available.</p>
+<p>
+<code class="verbatim">autoload</code> makes the function available without evaluating its definition.
+The installation of the function, and hence loading the file that contains it, is <span style="text-decoration: underline;">deferred until the function is first called</span>.</p>
+<p>
+<code class="verbatim">autoload</code> is make Emacs starts quicker.</p>
+</div>
+</div>
+<div id="outline-container-headline-83" class="outline-3">
+<h3 id="headline-83">
+What does it means to &#34;load&#34; a package?
+</h3>
+<div id="outline-text-headline-83" class="outline-text-3">
+<p>
+When you <code class="verbatim">require</code> the package you &#34;load&#34; it to emacs interpreter so you can use all its definitions.
+A package is called &#34;feature&#34; and usually it is in a file with the same name.</p>
+<p>
+The <code class="verbatim">use-package</code> keyword <code class="verbatim">:demand</code> is necessary to load a package <em>when automatic defer is on</em>.</p>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(<span style="color:#038">use-package</span> <span style="color:#369">xxxx</span>
+  <span style="color:#038">:demand</span>)</code></pre></div>
+</div>
+<p>
+With straight and &#34;always defer&#34;, this will load the package.
+The macro expands to:</p>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(<span style="color:#038">progn</span>
+  (<span style="color:#369">straight-use-package</span> <span style="color:#a60;background-color:#fff0f0">&#39;xxxx</span>)
+  (<span style="color:#038">require</span> <span style="color:#a60;background-color:#fff0f0">&#39;xxxx</span> <span style="color:#036;font-weight:bold">nil</span> <span style="color:#036;font-weight:bold">nil</span>))</code></pre></div>
+</div>
+<p>
+When you call <code class="verbatim">require</code> it searches the file name in the <code class="verbatim">load-path</code>.</p>
+</div>
+</div>
+<div id="outline-container-headline-84" class="outline-3">
+<h3 id="headline-84">
+What does &#34;<code class="verbatim">autoload&#34;</code> means, what is the difference with <code class="verbatim">require</code>?
+</h3>
+<div id="outline-text-headline-84" class="outline-text-3">
+<p>
+When you <code class="verbatim">autoload</code> a function means that <span style="text-decoration: underline;">when the function is called</span> it will <strong>automatically</strong> <code class="verbatim">require</code> the the file where the function was defined (the package).</p>
+<p>
+Thus, <code class="verbatim">autoload</code> is a form of defer loading a file for when the function in it are used.
+Whereas <code class="verbatim">require</code> loads them directly.</p>
+</div>
+</div>
+<div id="outline-container-headline-85" class="outline-3">
+<h3 id="headline-85">
+What is <code class="verbatim">straight</code>?
+</h3>
+<div id="outline-text-headline-85" class="outline-text-3">
+<p>Package manager alternative <a href="eww:https://www.gnu.org/software/emacs/manual/html_node/emacs/Packages.html">package.el</a>.</p>
+<p>
+Straight, differently from <code class="verbatim">package.el</code>, allows getting package from multiple sources (repositories).</p>
+<p>
+It also allows local development on the packages and keep tracking of versions.</p>
+</div>
+</div>
+<div id="outline-container-headline-86" class="outline-3">
+<h3 id="headline-86">
+What <code class="verbatim">straight-use-package</code> does?
+</h3>
+<div id="outline-text-headline-86" class="outline-text-3">
+<p>
+Register, clone, build and activate a package and its dependencies.</p>
+<ol>
+<li>
+<p>register the package recipe.</p>
+</li>
+<li>
+<p>clone the repository if it is missing locally.</p>
+</li>
+<li>
+<p>build and activate a package means to create the symlinks and autoloads.</p>
+</li>
+</ol>
+<p>So it does not &#34;load&#34; a package, no <code class="verbatim">require</code>.</p>
+</div>
+</div>
+<div id="outline-container-headline-87" class="outline-3">
+<h3 id="headline-87">
+What does &#34;register&#34; a package mean in straight?
+</h3>
+<div id="outline-text-headline-87" class="outline-text-3">
+<p>
+It gets the &#34;recipe&#34; for a package in the &#34;configured recipe repositories&#34;
+Or if a custom recipe is provided it uses that to obtain the package.</p>
+</div>
+</div>
+<div id="outline-container-headline-88" class="outline-3">
+<h3 id="headline-88">
+What is a &#34;package recipe&#34; in straight? 
+</h3>
+<div id="outline-text-headline-88" class="outline-text-3">
+<p>Instructions for obtaining a package.</p>
+<p>
+&#34;recipe repositories&#34; are implemented as regular packages.</p>
+</div>
+</div>
+<div id="outline-container-headline-89" class="outline-3">
+<h3 id="headline-89">
+What does &#34;build&#34; a package in straight mean?
+</h3>
+<div id="outline-text-headline-89" class="outline-text-3">
+<p>For straight, build means creating a symbolic links between the &#34;packages directory&#34; and the local package repository directory.</p>
+<p>
+Straight also byte-compile the package files and generate autoloads for them.</p>
+</div>
+</div>
+<div id="outline-container-headline-90" class="outline-3">
+<h3 id="headline-90">
+How does straight &#34;load&#34; a package?
+</h3>
+<div id="outline-text-headline-90" class="outline-text-3">
+<p>
+It adds the <em>package directory</em> to the load path and evaluate the autoloads file.</p>
+<p>
+It does not &#34;require&#34; the package file, it just adds it to the load-path so it can be required.
+This is good because when the file is required, the interpreter goes over the file, reads it, and make its definitions available.
+Which takes time!</p>
+<p>
+Straight automatically provides autoloads to the package.
+This means that you can use use the functions in this autoload file, when you do that, then the packages file is &#34;required&#34;.</p>
+</div>
+</div>
+<div id="outline-container-headline-91" class="outline-3">
+<h3 id="headline-91">
+Where straight keeps the local repository?
+</h3>
+<div id="outline-text-headline-91" class="outline-text-3">
+<p>
+In the repo folder.</p>
+</div>
+</div>
+<div id="outline-container-headline-92" class="outline-3">
+<h3 id="headline-92">
+Where does straight puts the built packages?
+</h3>
+<div id="outline-text-headline-92" class="outline-text-3">
+<p>
+In the build folder.</p>
+</div>
+</div>
+<div id="outline-container-headline-93" class="outline-3">
+<h3 id="headline-93">
+How to update a package?
+</h3>
+<div id="outline-text-headline-93" class="outline-text-3">
+<p>
+<code class="verbatim">straight-pull-all</code> Try to pull all packages from their primary remotes.
+This will get the latest version from the package source.</p>
+</div>
+</div>
+<div id="outline-container-headline-94" class="outline-3">
+<h3 id="headline-94">
+What <code class="verbatim">use-package</code> does?
+</h3>
+<div id="outline-text-headline-94" class="outline-text-3">
+<p>It is a macro for organizing packages.</p>
+</div>
+</div>
+<div id="outline-container-headline-95" class="outline-3">
+<h3 id="headline-95">
+Difference between <code class="verbatim">autoload</code> and <code class="verbatim">activate</code>?
+</h3>
+<div id="outline-text-headline-95" class="outline-text-3">
+<p>Activate means that the autoload file was loaded.
+The autoload file contains the function that will properly load the package when its functions are called.</p>
+</div>
+</div>
+<div id="outline-container-headline-96" class="outline-3">
+<h3 id="headline-96">
+What is the difference between configured, initialized and declared?
+</h3>
+<div id="outline-text-headline-96" class="outline-text-3">
+<p>
+Configured, the package was <span style="text-decoration: underline;">loaded</span> (its file was read and its definition and declarations are usable).
+If a package is at this stage, <code class="verbatim">use-package</code> <code class="verbatim">:config</code> was processed.</p>
+<p>
+Initialized, the package configuration from the <code class="verbatim">:init</code> block was processed but the package itself was not necessarily loaded.
+Load status is unknown.</p>
+<p>
+Declared means that the <code class="verbatim">use-package</code> declaration was seen.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-97" class="outline-2">
+<h2 id="headline-97">
+Python
+</h2>
+<div id="outline-text-headline-97" class="outline-text-2">
+<div id="outline-container-headline-98" class="outline-3">
+<h3 id="headline-98">
+Pyvenv
+</h3>
+<div id="outline-text-headline-98" class="outline-text-3">
+<p>
+Emacs python virtual environment support for emacs.</p>
+<p>
+Change the python virtualenv with <code class="verbatim">pyvenv-activate</code>.</p>
+</div>
+</div>
+<div id="outline-container-headline-99" class="outline-3">
+<h3 id="headline-99">
+Dap mode
+</h3>
+<div id="outline-text-headline-99" class="outline-text-3">
+<ol>
+<li>
+<p>need to require the specific python debugger</p>
+</li>
+<li>
+<p>Need to install the python debugger <code class="verbatim">debugpy</code> which is a successor to <code class="verbatim">ptvsd</code>.</p>
+</li>
+<li>
+<p>when using a specific environment, need to enable environment <code class="verbatim">pyvenv-activate</code> (emacs package)</p>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-headline-100" class="outline-3">
+<h3 id="headline-100">
+Flycheck
+</h3>
+<div id="outline-text-headline-100" class="outline-text-3">
+<p>
+Python checker is executed directly <code class="verbatim">python3 -c ...</code> with <code class="verbatim">python3</code> as the default.</p>
+<p>
+Make sure that the checker is also installed in the specific virtual environment.
+It is useful to add the checker to the <code class="verbatim">requirements.txt</code> when setting up an environment.</p>
+<p>
+For <a href="https://github.com/microsoft/pyright">GitHub - microsoft/pyright: Static type checker for Python</a> the default command <code class="verbatim">pyright</code> should be installed.
+Pyright can check type annotations PEP 484.</p>
+</div>
+</div>
+<div id="outline-container-headline-101" class="outline-3">
+<h3 id="headline-101">
+Syspath
+</h3>
+<div id="outline-text-headline-101" class="outline-text-3">
+<div id="outline-container-headline-102" class="outline-4">
+<h4 id="headline-102">
+Shell
+</h4>
+<div id="outline-text-headline-102" class="outline-text-4">
+<p>From the shell,</p>
+<div class="src src-shell">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">python -c <span style="color:#d20;background-color:#fff0f0">&#34;import sys; print(sys.path)&#34;</span></code></pre></div>
+</div>
+<pre class="example">
+[&#39;&#39;, &#39;/usr/lib/python38.zip&#39;, &#39;/usr/lib/python3.8&#39;, &#39;/usr/lib/python3.8/lib-dynload&#39;, &#39;/home/nasser/.local/lib/python3.8/site-packages&#39;, &#39;/mnt/c/Users/c8441205/OneDrive/Academy/Projects/package&#39;, &#39;/usr/local/lib/python3.8/dist-packages&#39;, &#39;/usr/lib/python3/dist-packages&#39;]
+</pre>
+<p>
+We can see the default location pointing to the conda environment.
+This because conda default environment is loaded with the shell, configured in the <code class="verbatim">.bashrc</code> file.</p>
+</div>
+</div>
+<div id="outline-container-headline-103" class="outline-4">
+<h4 id="headline-103">
+Change conda environment within emacs shell
+</h4>
+<div id="outline-text-headline-103" class="outline-text-4">
+<p>
+With <code class="verbatim">conda.el</code> package </p>
+<p>
+Getting the error: <code class="verbatim">conda--get-path-prefix: Error: executing command &#34;&#34;/home/nasser/.anaconda3/bin/conda&#34; ..activate &#34;bash&#34; &#34;/home/nasser/miniconda3/envs/edelweissFE/&#34;&#34; produced error code 127</code></p>
+</div>
+</div>
+<div id="outline-container-headline-104" class="outline-4">
+<h4 id="headline-104">
+Jupyter default kernel
+</h4>
+<div id="outline-text-headline-104" class="outline-text-4">
+<p>Using the default jupyter python kernel,</p>
+<div class="src src-python">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">import</span> <span style="color:#b06;font-weight:bold">sys</span>
+<span style="color:#080;font-weight:bold">print</span>(sys.path)</code></pre></div>
+</div>
+<pre class="example">
+[&#39;/mnt/c/Users/c8441205/OneDrive/nasser-website/content/notes/python-notes&#39;, &#39;/usr/lib/python38.zip&#39;, &#39;/usr/lib/python3.8&#39;, &#39;/usr/lib/python3.8/lib-dynload&#39;, &#39;&#39;, &#39;/home/nasser/.local/lib/python3.8/site-packages&#39;, &#39;/mnt/c/Users/c8441205/OneDrive/Academy/Projects/package&#39;, &#39;/usr/local/lib/python3.8/dist-packages&#39;, &#39;/usr/lib/python3/dist-packages&#39;, &#39;/home/nasser/.local/lib/python3.8/site-packages/IPython/extensions&#39;, &#39;/home/nasser/.ipython&#39;]
+</pre>
+<p>
+We can see the default <code class="verbatim">/usr/lib/python3.8/site-packages.</code></p>
+</div>
+</div>
+<div id="outline-container-headline-105" class="outline-4">
+<h4 id="headline-105">
+Jupyter kernel with conda virtual environment
+</h4>
+<div id="outline-text-headline-105" class="outline-text-4">
+<p>If we use a different kernel with a conda virtual environment in jupyter,</p>
+<div class="src src-python">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">import</span> <span style="color:#b06;font-weight:bold">sys</span>
+<span style="color:#080;font-weight:bold">print</span>(sys.path)</code></pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-106" class="outline-2">
+<h2 id="headline-106">
+C++
+</h2>
+<div id="outline-text-headline-106" class="outline-text-2">
+<div id="outline-container-headline-107" class="outline-3">
+<h3 id="headline-107">
+Debugger
+</h3>
+<div id="outline-text-headline-107" class="outline-text-3">
+<p>
+<span class="timestamp">&lt;2021-06-27 Sun&gt;</span>
+Using <code class="verbatim">dap-mode</code>.</p>
+<p>
+Need to install <code class="verbatim">gdp</code>, which is the debugger program.</p>
+<div class="src src-shell">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo apt install gdb</code></pre></div>
+</div>
+<p>
+Need a <code class="verbatim">./launch.json</code> on the route of the project.</p>
+<ol>
+<li>
+<p>if <code class="verbatim">gdb</code> is not on path, need to add manually with &#34;miDebuggerPath:&#34; key.</p>
+</li>
+<li>
+<p>&#34;program&#34; specify the path to the executable.</p>
+</li>
+<li>
+<p>&#34;cwd&#34; sets the current directory of the application launched by the debugger.</p>
+</li>
+<li>
+<p>&#34;args&#34; is a JSON array of commands to pass to the program.</p>
+</li>
+<li>
+<p>&#34;environment&#34; to add environment variables. (?)</p>
+</li>
+<li>
+<p>&#34;MIMode indicates the debugger that will be connected.</p>
+</li>
+<li>
+<p>&#34;stopAtEntry&#34; debugger should stop or not at the entry point, default is false.</p>
+</li>
+<li>
+<p>&#34;request&#34; launch the program or attach to an already running instance.</p>
+</li>
+<li>
+<p>&#34;external console&#34; if true it will spawn a external console with <code class="verbatim">lldb-mi</code>, otherwise use the integrated terminal.</p>
+</li>
+<li>
+<p><a href="https://code.visualstudio.com/docs/cpp/launch-json-reference">Configure launch.json for C/C++ debugging in Visual Studio Code</a></p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-108" class="outline-2">
+<h2 id="headline-108">
+Org
+</h2>
+<div id="outline-text-headline-108" class="outline-text-2">
+<div id="outline-container-headline-109" class="outline-3">
+<h3 id="headline-109">
+Straight and org
+</h3>
+<div id="outline-text-headline-109" class="outline-text-3">
+<p>
+Emacs ships with obsolete version of org.</p>
+<p>
+At emacs installation folder <code class="verbatim">~/emacs/lisp/org/org.el</code> you can see the version of org that emacs ships with.
+Right now is 9.4.4.</p>
+<p>
+From straight we get 9.4.6.</p>
+<p>
+using the following guarantees that we will use the newer version of <code class="verbatim">org</code> even if you don&#39;t use it.</p>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(<span style="color:#369">straight-register-package</span> <span style="color:#a60;background-color:#fff0f0">&#39;org</span>)
+(<span style="color:#369">straight-register-package</span> <span style="color:#a60;background-color:#fff0f0">&#39;org-contrib</span>)</code></pre></div>
+</div>
+<p>
+<code class="verbatim">org-contrib</code> (the newer <code class="verbatim">org-plus-contrib</code>) does not contain <code class="verbatim">org</code>, which means they are separate packages.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-110" class="outline-2">
+<h2 id="headline-110">
+Details
+</h2>
+<div id="outline-text-headline-110" class="outline-text-2">
+<div id="outline-container-headline-111" class="outline-4">
+<h4 id="headline-111">
+Uninstalling zsh
+</h4>
+<div id="outline-text-headline-111" class="outline-text-4">
+<p>
+When I uninstalled zhs from wsl, it wouldn&#39;t start up again. </p>
+<p>
+This blog post helped.
+<a href="https://blog.hildenco.com/2019/07/diagnozing-and-fixing-wsl.html">Diagnosing and Fixing WSL initialization issues | HildenCo Software</a></p>
+<p>
+I had to go to go to System32 folder, log in wsl as a root wit</p>
+<div class="src src-bash">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">C:<span style="color:#04d;background-color:#fff0f0">\W</span>indows<span style="color:#04d;background-color:#fff0f0">\S</span>ystem32&gt;wsl -u root</code></pre></div>
+</div>
+<p>
+then change the default shell to bash again.</p>
+<div class="src src-bash">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">chsh -s /bin/bash name</code></pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+              
+                  
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+              
+          </article>
+          
+
+<ul class="tags__list">
+    
+    <li class="tag__item">
+        <a class="tag__link" href="http://localhost:1313/tags/emacs/">emacs</a>
+    </li>
+    <li class="tag__item">
+        <a class="tag__link" href="http://localhost:1313/tags/tools/">tools</a>
+    </li>
+    <li class="tag__item">
+        <a class="tag__link" href="http://localhost:1313/tags/draft/">draft</a>
+    </li></ul>
+
+ <div class="pagination">
+  
+    <a class="pagination__item" href="http://localhost:1313/notes/portman/">
+        <span class="pagination__label">Previous Post</span>
+        <span class="pagination__title">Gerenciamento de portfolio com portman</span>
+    </a>
+  
+
+  
+    <a class="pagination__item" href="http://localhost:1313/notes/portfolio-theory-and-capm/">
+      <span class="pagination__label">Next Post</span>
+      <span class="pagination__title" >Portfolio theory, CAPM and Nassim Taleb</span>
+    </a>
+  
+</div>
+
+          <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "nasseralkmim" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+          <footer class="post__footer">
+            
+
+
+<div class="social-icons">
+  
+     
+    
+      <a class="social-icons__link" rel="me" title="Email"
+         href="mailto:nasser.alkmim@gmail.com"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('http://localhost:1313/svg/email.svg')"></div>
+      </a>
+    
+  
+     
+    
+      <a class="social-icons__link" rel="me" title="LinkedIn"
+         href="https://www.linkedin.com/in/nasser-alkmim-300882a6/"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('http://localhost:1313/svg/linkedin.svg')"></div>
+      </a>
+    
+  
+     
+    
+      <a class="social-icons__link" rel="me" title="GitHub"
+         href="https://github.com/nasseralkmim"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('http://localhost:1313/svg/github.svg')"></div>
+      </a>
+    
+  
+     
+    
+      <a class="social-icons__link" rel="me" title="Instagram"
+         href="https://instagram.com/naszr"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('http://localhost:1313/svg/instagram.svg')"></div>
+      </a>
+    
+     
+</div>
+
+            <p>© 2021</p>
+          </footer>
+          </div>
+      </div>
+      
+      <div class="toc-container">
+           <div class="toc-post-title">Emacs Notes</div> 
+        <nav id="TableOfContents">
+<ul>
+<li><a href="#headline-1">Introduction</a>
+</li>
+<li><a href="#headline-2">WSL</a>
+<ul>
+<li><a href="#headline-3">Reference for installation</a>
+</li>
+<li><a href="#headline-4">Shortcut</a>
+<ul>
+<li><a href="#headline-5">Old <span class="timestamp">&lt;2021-06-29 Tue&gt;</span></a>
+</li>
+<li><a href="#headline-6">Old <span class="timestamp">&lt;2021-05-09 Sun&gt;</span></a>
+</li>
+<li><a href="#headline-7">Old <span class="timestamp">&lt;2021-03-13 Sat&gt;</span></a>
+</li>
+</ul>
+</li>
+<li><a href="#headline-8">Paths</a>
+</li>
+<li><a href="#headline-9">Hugo</a>
+</li>
+<li><a href="#headline-10">LaTeX</a>
+<ul>
+<li><a href="#headline-11">Installing texlive</a>
+</li>
+<li><a href="#headline-12">Installing biber for biblatex</a>
+</li>
+<li><a href="#headline-13">Installing Zathuras for PDF viewer</a>
+</li>
+<li><a href="#headline-14">Font support</a>
+</li>
+<li><a href="#headline-15">Algorithms rendering support</a>
+</li>
+<li><a href="#headline-16">Beamer</a>
+</li>
+<li><a href="#headline-17">What is <code class="verbatim">texmf</code>?</a>
+</li>
+<li><a href="#headline-18">Check texlive <code class="verbatim">texmf-local</code> folder</a>
+</li>
+<li><a href="#headline-19">Where local packages should be?</a>
+</li>
+<li><a href="#headline-20">What is XeTeX?</a>
+</li>
+<li><a href="#headline-21">Difference between <code class="verbatim">latex-mode</code>, <code class="verbatim">tex-mode</code> and <code class="verbatim">LaTeX-mode</code>?</a>
+</li>
+<li><a href="#headline-22">What is a TeX engine?</a>
+</li>
+<li><a href="#headline-23">What is UTF-8 input?</a>
+</li>
+<li><a href="#headline-24">What is MiKTeX and TeX Live?</a>
+</li>
+</ul>
+</li>
+<li><a href="#headline-25">Emacs on Windows</a>
+<ul>
+<li><a href="#headline-26">Hunspell</a>
+</li>
+<li><a href="#headline-27">Org Jupyter</a>
+</li>
+</ul>
+</li>
+<li><a href="#headline-28">WSL hacks</a>
+<ul>
+<li><a href="#headline-29">Org babel shell command and <code class="verbatim">.bashrc</code> aliases</a>
+</li>
+<li><a href="#headline-30">LaTeX forward search does not work properly with <code class="verbatim">Suamtra.exe</code> in windows</a>
+</li>
+<li><a href="#headline-31">Bibtex actions</a>
+</li>
+<li><a href="#headline-32">Bibtex actions open pdf</a>
+</li>
+<li><a href="#headline-33">Inverse search from SumatraPDF to emacs</a>
+</li>
+<li><a href="#headline-34">Hugo</a>
+</li>
+<li><a href="#headline-35">Org-download not getting clipboard from windows</a>
+</li>
+<li><a href="#headline-36">Emacs jupyter</a>
+</li>
+<li><a href="#headline-37">Treemacs <code class="verbatim">visit-node-in-external-application</code></a>
+</li>
+<li><a href="#headline-38">vterm $PATH variable and emacs <code class="verbatim">exec-path</code></a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#headline-39">Fonts</a>
+</li>
+<li><a href="#headline-40">Keymaps</a>
+<ul>
+<li><a href="#headline-41">Concepts</a>
+<ul>
+<li><a href="#headline-42">What are key bindings?</a>
+</li>
+<li><a href="#headline-43">What are keymaps?</a>
+</li>
+<li><a href="#headline-44">What is a prefix key?</a>
+</li>
+<li><a href="#headline-45">What happens when a mode is activated?</a>
+</li>
+<li><a href="#headline-46">Which keymap is activated?</a>
+</li>
+<li><a href="#headline-47">What are global, major and minor?</a>
+</li>
+<li><a href="#headline-48"><code class="verbatim">define-key</code> concepts</a>
+</li>
+<li><a href="#headline-49">Minor mode conflict</a>
+</li>
+<li><a href="#headline-50">Minor mode keymap activation?</a>
+</li>
+<li><a href="#headline-51">When keybindings are active?</a>
+</li>
+</ul>
+</li>
+<li><a href="#headline-52">Evil keymaps</a>
+<ul>
+<li><a href="#headline-53">What are states?</a>
+</li>
+<li><a href="#headline-54">What is the difference between <code class="verbatim">define-key</code> and <code class="verbatim">evil-global-set-key</code></a>
+</li>
+<li><a href="#headline-55">Global maps in evil?</a>
+</li>
+<li><a href="#headline-56">What is <code class="verbatim">evil-define-key</code>?</a>
+</li>
+</ul>
+</li>
+<li><a href="#headline-57">General</a>
+<ul>
+<li><a href="#headline-58">What is it?</a>
+</li>
+<li><a href="#headline-59">What is the difference between <code class="verbatim">general-define-key</code> and <code class="verbatim">general-def</code>?</a>
+</li>
+<li><a href="#headline-60">Difference between <code class="verbatim">evil-define-key</code> and <code class="verbatim">general-def</code>?</a>
+</li>
+<li><a href="#headline-61">What is <code class="verbatim">general-describe-keybindings</code>?</a>
+</li>
+<li><a href="#headline-62">How can <code class="verbatim">general-describe-keybindings</code> be useful?</a>
+</li>
+<li><a href="#headline-63">Autoloaded keymaps</a>
+</li>
+<li><a href="#headline-64">Bind keys to a keymap that has not been loaded?</a>
+</li>
+</ul>
+</li>
+<li><a href="#headline-65">Helper function</a>
+</li>
+<li><a href="#headline-66">Errors</a>
+<ul>
+<li><a href="#headline-67">Key sequence &lt;prefix&gt; &lt;key&gt; starts with non-prefix key &lt;prefix&gt;</a>
+</li>
+</ul>
+</li>
+<li><a href="#headline-68">References</a>
+</li>
+</ul>
+</li>
+<li><a href="#headline-69">Building emacs</a>
+<ul>
+<li><a href="#headline-70">List of packages requires</a>
+</li>
+<li><a href="#headline-71">Configuring</a>
+</li>
+<li><a href="#headline-72">Make</a>
+<ul>
+<li><a href="#headline-73">Error: texinfo-loaddef</a>
+</li>
+</ul>
+</li>
+<li><a href="#headline-74">Git workflow</a>
+<ul>
+<li><a href="#headline-75">Update remote (github repository)</a>
+</li>
+<li><a href="#headline-76">Check status with remote</a>
+</li>
+<li><a href="#headline-77">Check commits from master branch</a>
+</li>
+</ul>
+</li>
+<li><a href="#headline-78">Update emacs</a>
+</li>
+<li><a href="#headline-79">Debuging emacs</a>
+</li>
+</ul>
+</li>
+<li><a href="#headline-80">Managing packages</a>
+<ul>
+<li><a href="#headline-81">What is a package?</a>
+</li>
+<li><a href="#headline-82">What is the difference between <code class="verbatim">load</code>, <code class="verbatim">require</code> and <code class="verbatim">autoload</code>?</a>
+</li>
+<li><a href="#headline-83">What does it means to &#34;load&#34; a package?</a>
+</li>
+<li><a href="#headline-84">What does &#34;<code class="verbatim">autoload&#34;</code> means, what is the difference with <code class="verbatim">require</code>?</a>
+</li>
+<li><a href="#headline-85">What is <code class="verbatim">straight</code>?</a>
+</li>
+<li><a href="#headline-86">What <code class="verbatim">straight-use-package</code> does?</a>
+</li>
+<li><a href="#headline-87">What does &#34;register&#34; a package mean in straight?</a>
+</li>
+<li><a href="#headline-88">What is a &#34;package recipe&#34; in straight? </a>
+</li>
+<li><a href="#headline-89">What does &#34;build&#34; a package in straight mean?</a>
+</li>
+<li><a href="#headline-90">How does straight &#34;load&#34; a package?</a>
+</li>
+<li><a href="#headline-91">Where straight keeps the local repository?</a>
+</li>
+<li><a href="#headline-92">Where does straight puts the built packages?</a>
+</li>
+<li><a href="#headline-93">How to update a package?</a>
+</li>
+<li><a href="#headline-94">What <code class="verbatim">use-package</code> does?</a>
+</li>
+<li><a href="#headline-95">Difference between <code class="verbatim">autoload</code> and <code class="verbatim">activate</code>?</a>
+</li>
+<li><a href="#headline-96">What is the difference between configured, initialized and declared?</a>
+</li>
+</ul>
+</li>
+<li><a href="#headline-97">Python</a>
+<ul>
+<li><a href="#headline-98">Pyvenv</a>
+</li>
+<li><a href="#headline-99">Dap mode</a>
+</li>
+<li><a href="#headline-100">Flycheck</a>
+</li>
+<li><a href="#headline-101">Syspath</a>
+<ul>
+<li><a href="#headline-102">Shell</a>
+</li>
+<li><a href="#headline-103">Change conda environment within emacs shell</a>
+</li>
+<li><a href="#headline-104">Jupyter default kernel</a>
+</li>
+<li><a href="#headline-105">Jupyter kernel with conda virtual environment</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#headline-106">C++</a>
+<ul>
+<li><a href="#headline-107">Debugger</a>
+</li>
+</ul>
+</li>
+<li><a href="#headline-108">Org</a>
+<ul>
+<li><a href="#headline-109">Straight and org</a>
+</li>
+</ul>
+</li>
+<li><a href="#headline-110">Details</a>
+<ul>
+<li><a href="#headline-111">Uninstalling zsh</a>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+      </div>
+      
+    </div>
+    
+
+  </main>
+
+   
+
+  
+  <script src="/js/index.min.575dda8d49ee02639942c63564273e6da972ab531dda26a08800bdcb477cbd7f.js" integrity="sha256-V13ajUnuAmOZQsY1ZCc&#43;balyq1Md2iagiAC9y0d8vX8=" crossorigin="anonymous"></script>
+  
+  
+  
+
+  
+  
+  
+
+  
+    <script src="/js/table-of-contents.js"></script>
+  
+
+
+</body>
+
+</html>

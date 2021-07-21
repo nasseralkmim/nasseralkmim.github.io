@@ -1,32 +1,29 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>innsbruck on Nasser&#39;s personal website</title>
-    <link>https://nasseralkmim.github.io/tags/innsbruck/</link>
-    <description>Recent content in innsbruck on Nasser&#39;s personal website</description>
+    <title>innsbruck on Notes</title>
+    <link>http://localhost:1313/tags/innsbruck/</link>
+    <description>Recent content in innsbruck on Notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© {year}</copyright>
-    <lastBuildDate>Wed, 07 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/tags/innsbruck/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 07 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/innsbruck/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Innsbruck - Efficiency and bureaucracy</title>
-      <link>https://nasseralkmim.github.io/notes/inn-2-efficiency-and-burocracy/</link>
+      <link>http://localhost:1313/notes/inn-2-efficiency-and-burocracy/</link>
       <pubDate>Wed, 07 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://nasseralkmim.github.io/notes/inn-2-efficiency-and-burocracy/</guid>
-      <description>Efficiency  I was impressed by the efficiency of two particular services that I&amp;#39;ve used. One of which was the supermarket and the other the post mail service.
- The affordable supermarket, Hoffer or Aldi, has impressive operations processes. Primo, they do not unpack all products into shelfs, they just open the boxes and pilled them up. This is way easier and faster than manually remove all items from boxes.</description>
+      <guid>http://localhost:1313/notes/inn-2-efficiency-and-burocracy/</guid>
+      <description>Efficiency  I was impressed by the efficiency of two particular services that I&amp;#39;ve used. One of which was the supermarket and the other the post mail service.</description>
     </item>
     
     <item>
       <title>Innsbruck - First impressions</title>
-      <link>https://nasseralkmim.github.io/notes/inn-1-first-impressions/</link>
+      <link>http://localhost:1313/notes/inn-1-first-impressions/</link>
       <pubDate>Fri, 12 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://nasseralkmim.github.io/notes/inn-1-first-impressions/</guid>
-      <description>I recently started my PhD at the University of Innsbruck, and will start share some of my day to day life and work here.
- Innsbruck is the capital of a region called Tirol. It is not a big city, the first thing I noticed when arrived here through the train station is how quick you can get to places with the rail train system.
- The city is very organized, and I was really impressed with the tiny gap between the rail train and the concrete sidewalk.</description>
+      <guid>http://localhost:1313/notes/inn-1-first-impressions/</guid>
+      <description>I recently started my PhD at the University of Innsbruck, and will start share some of my day to day life and work here.</description>
     </item>
     
   </channel>

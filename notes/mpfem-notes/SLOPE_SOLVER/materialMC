@@ -1,0 +1,21 @@
+*-------------------------------
+DESCRIPTION
+SoilMohrCoulombType
+TYPE                            SmoothedMC
+FORMULATION                     TWO_D_PlaneStrain
+PRIMARY_STRESS                  CAUCHY
+SECONDARY_STRESS                NONE
+MATERIAL DATA
+E                               24.0E6
+NU                              0.2
+COHESION                        5.0E3
+PHI                             41.0
+PSI                             17.5
+**DEVIATORIC_ECCENTRICITY         1.0
+**MERIDIONAL_ECCENTRICITY         0.0
+DENSITY                         2000.0
+POROSITY                        0.0
+STARTUP                        YES
+END MATERIAL DATA
+GENERATE ELEMENT LIST
+     1,  1376,     1

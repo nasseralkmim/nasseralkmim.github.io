@@ -2,18 +2,46 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>c&#43;&#43; on Notes</title>
-    <link>https://nasseralkmim.github.io/tags/c&#43;&#43;/</link>
+    <link>http://localhost:1313/tags/c&#43;&#43;/</link>
     <description>Recent content in c&#43;&#43; on Notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© {year}</copyright>
-    <lastBuildDate>Fri, 02 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/tags/c++/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 31 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/c++/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>C&#43;&#43; numerics</title>
+      <link>http://localhost:1313/notes/cpp-numerics/</link>
+      <pubDate>Mon, 31 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/notes/cpp-numerics/</guid>
+      <description>Prologue  Bellow are my notes on using C++ for numerical applications. Multiple sources are used, I will cite them at the end or whenever appropriate.</description>
+    </item>
+    
+    <item>
+      <title>C&#43;&#43; literate environment</title>
+      <link>http://localhost:1313/notes/cpp-literate-environment/</link>
+      <pubDate>Fri, 28 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/notes/cpp-literate-environment/</guid>
+      <description>Prologue  C++ compiler  g++ --version  g++ (Ubuntu 9.3.0-17ubuntu1~20.04) 9.3.0 Copyright (C) 2019 Free Software Foundation, Inc. This is free software; see the source for copying conditions.</description>
+    </item>
+    
+    <item>
+      <title>mpFEM notes</title>
+      <link>http://localhost:1313/notes/mpfem-notes/</link>
+      <pubDate>Sun, 02 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/notes/mpfem-notes/</guid>
+      <description>Questions  Solver params    how to specify preconditioners
+  scaling L,R,T? just number to multiply?     Singularity    sandbox, is like a container with the folder structure accessible</description>
+    </item>
+    
     <item>
       <title>C&#43;&#43; notes</title>
-      <link>https://nasseralkmim.github.io/notes/cpp-notes/</link>
+      <link>http://localhost:1313/notes/cpp-notes/</link>
       <pubDate>Fri, 02 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://nasseralkmim.github.io/notes/cpp-notes/</guid>
+      <guid>http://localhost:1313/notes/cpp-notes/</guid>
       <description>Introduction   These are my notes about C++. Mostly experiments and running examples with org-babel within Emacs.
  Ideally, if you want to benefit from this, you should write, run, and understand the examples yourself.</description>
     </item>

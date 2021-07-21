@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>Paraview notes | Notes</title>
+
+  <meta charset="UTF-8">
+  <meta name="language" content="en">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  
+  
+
+  <link rel="shortcut icon" type="image/png" href="/favicon.ico" />
+
+
+  
+  
+    
+ 
+  
+  
+  
+  
+  
+  
+    
+    <link type="text/css" rel="stylesheet" href="/css/post.min.9184109084ab0858f4d61e201ec74c667f1e039aaddd71fb8204359b0bae18a1.css" integrity="sha256-kYQQkISrCFj01h4gHsdMZn8eA5qt3XH7ggQ1mwuuGKE="/>
+  
+    
+    <link type="text/css" rel="stylesheet" href="/css/custom.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" integrity="sha256-47DEQpj8HBSa&#43;/TImW&#43;5JCeuQeRkm5NMpJWZG3hSuFU="/>
+  
+  
+   
+   
+    
+
+<script type="application/ld+json">
+  
+    { 
+      "@context": "http://schema.org", 
+      "@type": "WebSite", 
+      "url": "http:\/\/localhost:1313\/notes\/paraview-notes\/",
+      "name": "Paraview notes",
+      "author": {
+        "@type": "Person",
+        "name": ""
+      },
+      "description": ""
+    }
+  
+  </script>
+</head>
+
+<body>
+  <div class="burger__container">
+  <div class="burger" aria-controls="navigation" aria-label="Menu">
+    <div class="burger__meat burger__meat--1"></div>
+    <div class="burger__meat burger__meat--2"></div>
+    <div class="burger__meat burger__meat--3"></div>
+  </div>
+</div>
+ 
+
+  <nav class="nav" id="navigation">
+  <ul class="nav__list">
+    
+    
+      <li>
+        <a  href="/">about</a>
+      </li>
+    
+      <li>
+        <a  class="active"
+         href="/notes">notes</a>
+      </li>
+    
+  </ul>
+</nav>
+
+
+  <main>
+    
+    
+
+    <div class="flex-wrapper">
+      <div class="post__container">
+        <div class="post">
+          <header class="post__header">
+            <h1 id="post__title">Paraview notes</h1>
+            <time datetime="2021-06-02 00:00:00 &#43;0000 UTC" class="post__date">Jun 2 2021</time> 
+	    
+          </header>
+          <article class="post__content">
+              
+
+<p>Notes about paraview.</p>
+<div id="outline-container-headline-1" class="outline-2">
+<h2 id="headline-1">
+Concepts
+</h2>
+<div id="outline-text-headline-1" class="outline-text-2">
+<div id="outline-container-headline-2" class="outline-3">
+<h3 id="headline-2">
+Sources
+</h3>
+<div id="outline-text-headline-2" class="outline-text-3">
+<p>Algorithms with no input, just output.
+Reading a file for instance.</p>
+</div>
+</div>
+<div id="outline-container-headline-3" class="outline-3">
+<h3 id="headline-3">
+Sinks
+</h3>
+<div id="outline-text-headline-3" class="outline-text-3">
+<p>Algorithms with multiple inputs but no output.
+For example the algorithms used to render images from data.</p>
+</div>
+</div>
+<div id="outline-container-headline-4" class="outline-3">
+<h3 id="headline-4">
+Filters
+</h3>
+<div id="outline-text-headline-4" class="outline-text-3">
+<p>Intermediary algorithms with input and output.</p>
+</div>
+</div>
+<div id="outline-container-headline-5" class="outline-3">
+<h3 id="headline-5">
+Processing pipelines
+</h3>
+<div id="outline-text-headline-5" class="outline-text-3">
+<p>Connection of algorithms.</p>
+</div>
+</div>
+<div id="outline-container-headline-6" class="outline-3">
+<h3 id="headline-6">
+Pipeline browser
+</h3>
+<div id="outline-text-headline-6" class="outline-text-3">
+<p>Inspect the visualization pipeline.
+It shows the pipeline modules.</p>
+</div>
+</div>
+<div id="outline-container-headline-7" class="outline-3">
+<h3 id="headline-7">
+Property
+</h3>
+<div id="outline-text-headline-7" class="outline-text-3">
+<p>Is a parameter that affect a module behavior.</p>
+</div>
+</div>
+<div id="outline-container-headline-8" class="outline-3">
+<h3 id="headline-8">
+Properties panel
+</h3>
+<div id="outline-text-headline-8" class="outline-text-3">
+<p>Contains parameters for each processing module.
+It shows the properties for the selected module.</p>
+</div>
+</div>
+<div id="outline-container-headline-9" class="outline-3">
+<h3 id="headline-9">
+Multi-block dataset
+</h3>
+<div id="outline-text-headline-9" class="outline-text-3">
+<p>A tree of datasets where the leaf nodes are simple datasets.</p>
+<p>
+Multi-block datasets group datasets that are related.</p>
+<p>
+Can be an abstraction for multiple mesh domains.</p>
+</div>
+</div>
+<div id="outline-container-headline-10" class="outline-3">
+<h3 id="headline-10">
+Ensight format
+</h3>
+<div id="outline-text-headline-10" class="outline-text-3">
+<p>
+Ensight is a output file standard that <em>paraview</em> is equipped to read.
+Stands for Engineering inSight.</p>
+</div>
+</div>
+<div id="outline-container-headline-11" class="outline-3">
+<h3 id="headline-11">
+Selecting data
+</h3>
+<div id="outline-text-headline-11" class="outline-text-3">
+<p>Select elements (cells, points) from datasets.</p>
+</div>
+</div>
+<div id="outline-container-headline-12" class="outline-3">
+<h3 id="headline-12">
+Spreadsheet view
+</h3>
+<div id="outline-text-headline-12" class="outline-text-3">
+<p>
+Instead of viewing just the rendered image.
+We can look it as table where point and elements are displayed together with their associated values.</p>
+</div>
+</div>
+<div id="outline-container-headline-13" class="outline-3">
+<h3 id="headline-13">
+Paraview fetch from server
+</h3>
+<div id="outline-text-headline-13" class="outline-text-3">
+<p>
+The method <code class="verbatim">paraview.servermanager.Fetch()</code> moves data from server to the client in a convenient way.</p>
+</div>
+</div>
+<div id="outline-container-headline-14" class="outline-3">
+<h3 id="headline-14">
+Numpy integration
+</h3>
+<div id="outline-text-headline-14" class="outline-text-3">
+<p>
+<a href="https://docs.paraview.org/en/latest/ReferenceManual/vtkNumPyIntegration.html">5. Using NumPy for processing data — ParaView Documentation 5.8.1 documentation</a></p>
+<p>
+Access and process data with <code class="verbatim">numpy</code> through the API <code class="verbatim">vtk.numpy_interface</code>.
+I think this is promising for automating data extraction with python.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-15" class="outline-2">
+<h2 id="headline-15">
+Filters
+</h2>
+<div id="outline-text-headline-15" class="outline-text-2">
+<div id="outline-container-headline-16" class="outline-3">
+<h3 id="headline-16">
+Calculator
+</h3>
+<div id="outline-text-headline-16" class="outline-text-3">
+<p>Apply a formula to data.</p>
+</div>
+</div>
+<div id="outline-container-headline-17" class="outline-3">
+<h3 id="headline-17">
+Cell data to point data
+</h3>
+<div id="outline-text-headline-17" class="outline-text-3">
+<p>Converts data from element to nodes.</p>
+</div>
+</div>
+<div id="outline-container-headline-18" class="outline-3">
+<h3 id="headline-18">
+Warp by vector
+</h3>
+<div id="outline-text-headline-18" class="outline-text-3">
+<p>Displaces point coordinates along a vector attribute.
+Used to show the deformed shape.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-19" class="outline-2">
+<h2 id="headline-19">
+Extracting data 
+</h2>
+<div id="outline-text-headline-19" class="outline-text-2">
+<div id="outline-container-headline-20" class="outline-3">
+<h3 id="headline-20">
+Plot selection over time
+</h3>
+<div id="outline-text-headline-20" class="outline-text-3">
+<p>
+Filter that plot change in attributes over time for selected set of cells or points.</p>
+</div>
+</div>
+<div id="outline-container-headline-21" class="outline-3">
+<h3 id="headline-21">
+Extract selection
+</h3>
+<div id="outline-text-headline-21" class="outline-text-3">
+<p>
+Filter that extract data for posterior usage.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-22" class="outline-2">
+<h2 id="headline-22">
+Scripting
+</h2>
+<div id="outline-text-headline-22" class="outline-text-2">
+<div id="outline-container-headline-23" class="outline-3">
+<h3 id="headline-23">
+Why?
+</h3>
+<div id="outline-text-headline-23" class="outline-text-3">
+<p>To automate visualization.</p>
+</div>
+</div>
+<div id="outline-container-headline-24" class="outline-3">
+<h3 id="headline-24">
+<code class="verbatim">pvpython.exe</code>
+</h3>
+<div id="outline-text-headline-24" class="outline-text-3">
+<p>Calls the right python interpreter connected to the paraview server.</p>
+<p>
+Usually a good idea to create an alias for this python interpreter or add it to the path variable.</p>
+<div class="src src-shell">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#038">cd</span> <span style="color:#d20;background-color:#fff0f0">&#34;/mnt/c/Program Files/ParaView 5.9.1-Windows-Python3.8-msvc2017-64bit/bin/&#34;</span>
+ls -la | grep py</code></pre></div>
+</div>
+<pre class="example">
+-r-xr-xr-x 1 nasser nasser    22528 May 17 21:03 pvpython.exe
+-r-xr-xr-x 1 nasser nasser  4205584 May 17 21:03 python38.dll
+</pre>
+<div class="src src-shell">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">pvpython -c <span style="color:#d20;background-color:#fff0f0">&#34;import sys; print(sys.version); print(sys.path[1:5])&#34;</span></code></pre></div>
+</div>
+<pre class="example">
+3.8.6 (tags/v3.8.6:db45529, Sep 23 2020, 15:52:53) [MSC v.1927 64 bit (AMD64)]
+[&#39;C:\\Program Files\\ParaView 5.9.1-Windows-Python3.8-msvc2017-64bit\\bin\\Lib\\site-packages&#39;, &#39;C:\\Program Files\\ParaView 5.9.1-Windows-Python3.8-msvc2017-64bit\\bin\\python38.zip&#39;, &#39;C:\\Program Files\\ParaView 5.9.1-Windows-Python3.8-msvc2017-64bit\\bin\\DLLs&#39;, &#39;C:\\Program Files\\ParaView 5.9.1-Windows-Python3.8-msvc2017-64bit\\bin\\lib&#39;]
+</pre>
+</div>
+</div>
+<div id="outline-container-headline-25" class="outline-3">
+<h3 id="headline-25">
+<code class="verbatim">paraview.exe --script=&lt;name&gt;</code> 
+</h3>
+<div id="outline-text-headline-25" class="outline-text-3">
+<p>Call the executable with a script flag.
+Assuming that <code class="verbatim">paraview.exe</code> is in the path.</p>
+</div>
+</div>
+<div id="outline-container-headline-26" class="outline-3">
+<h3 id="headline-26">
+Trace
+</h3>
+<div id="outline-text-headline-26" class="outline-text-3">
+<p>
+Save the GUI commands to a python script.</p>
+</div>
+</div>
+<div id="outline-container-headline-27" class="outline-3">
+<h3 id="headline-27">
+Example
+</h3>
+<div id="outline-text-headline-27" class="outline-text-3">
+<p>;; Local Variables:
+;; eval: (add-hook &#39;after-save-hook #&#39;org-babel-tangle)
+;; End:</p>
+<div id="outline-container-headline-28" class="outline-4">
+<h4 id="headline-28">
+Open the file
+</h4>
+<div id="outline-text-headline-28" class="outline-text-4">
+<p>
+Open the <em>enSight</em> case file with the <code class="verbatim">EnSightReader</code> function, or the <code class="verbatim">OpenDataFile</code> which automatically chooses the appropriate reader.</p>
+<div class="src src-python">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">from</span> <span style="color:#b06;font-weight:bold">paraview.simple</span> <span style="color:#080;font-weight:bold">import</span> *
+reader = OpenDataFile(<span style="color:#d20;background-color:#fff0f0">&#39;test.case&#39;</span>)</code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-29" class="outline-4">
+<h4 id="headline-29">
+EnSight data descriptors
+</h4>
+<div id="outline-text-headline-29" class="outline-text-4">
+<p>Data descriptors are the attributes of the reader that give the label of the data (point, cell).
+In this case the <code class="verbatim">reader.PointArrays</code> refers to &#39;displacement&#39;.</p>
+</div>
+</div>
+<div id="outline-container-headline-30" class="outline-4">
+<h4 id="headline-30">
+Friendly wrapper for data
+</h4>
+<div id="outline-text-headline-30" class="outline-text-4">
+<div class="src src-python">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">from</span> <span style="color:#b06;font-weight:bold">paraview</span> <span style="color:#080;font-weight:bold">import</span> servermanager <span style="color:#080;font-weight:bold">as</span> sm
+<span style="color:#080;font-weight:bold">from</span> <span style="color:#b06;font-weight:bold">paraview.vtk.numpy_interface</span> <span style="color:#080;font-weight:bold">import</span> dataset_adapter <span style="color:#080;font-weight:bold">as</span> dsa
+
+data = sm.Fetch(reader)
+data = dsa.WrapDataObject(data)
+<span style="color:#080;font-weight:bold">print</span>(data.PointData[<span style="color:#d20;background-color:#fff0f0">&#39;displacement&#39;</span>])</code></pre></div>
+</div>
+<p>
+<code class="verbatim">WrapDataObject</code>:</p>
+<pre class="example">
+: This is a python friendly wrapper for vtkDataSetAttributes for composite
+:     datsets. Since composite datasets themselves don&#39;t have attribute data, but
+:     the attribute data is associated with the leaf nodes in the composite
+:     dataset, this class simulates a DataSetAttributes interface by taking a
+:     union of DataSetAttributes associated with all leaf nodes.
+</pre>
+<div id="outline-container-headline-31" class="outline-5">
+<h5 id="headline-31">
+
+</h5>
+<div id="outline-text-headline-31" class="outline-text-5">
+<div class="src src-python">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">SaveData(<span style="color:#d20;background-color:#fff0f0">&#39;point-data.csv&#39;</span>, proxy=reader,
+ChooseArraysToWrite=<span style="color:#00d;font-weight:bold">1</span>,
+    PointDataArrays=[<span style="color:#d20;background-color:#fff0f0">&#39;displacement&#39;</span>])</code></pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-32" class="outline-4">
+<h4 id="headline-32">
+Running
+</h4>
+<div id="outline-text-headline-32" class="outline-text-4">
+<p>
+Call <code class="verbatim">pvpython.exe</code> on the script.</p>
+<div class="src src-shell">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">pvpython pvscript.py</code></pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+              
+                  
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+              
+          </article>
+          
+
+<ul class="tags__list">
+    
+    <li class="tag__item">
+        <a class="tag__link" href="http://localhost:1313/tags/draft/">draft</a>
+    </li>
+    <li class="tag__item">
+        <a class="tag__link" href="http://localhost:1313/tags/tools/">tools</a>
+    </li>
+    <li class="tag__item">
+        <a class="tag__link" href="http://localhost:1313/tags/paraview/">paraview</a>
+    </li></ul>
+
+ <div class="pagination">
+  
+    <a class="pagination__item" href="http://localhost:1313/notes/cpp-numerics/">
+        <span class="pagination__label">Previous Post</span>
+        <span class="pagination__title">C&#43;&#43; numerics</span>
+    </a>
+  
+
+  
+    <a class="pagination__item" href="http://localhost:1313/notes/emacs-latex-setup/">
+      <span class="pagination__label">Next Post</span>
+      <span class="pagination__title" >Latex setup in Emacs</span>
+    </a>
+  
+</div>
+
+          <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "nasseralkmim" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+          <footer class="post__footer">
+            
+
+
+<div class="social-icons">
+  
+     
+    
+      <a class="social-icons__link" rel="me" title="Email"
+         href="mailto:nasser.alkmim@gmail.com"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('http://localhost:1313/svg/email.svg')"></div>
+      </a>
+    
+  
+     
+    
+      <a class="social-icons__link" rel="me" title="LinkedIn"
+         href="https://www.linkedin.com/in/nasser-alkmim-300882a6/"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('http://localhost:1313/svg/linkedin.svg')"></div>
+      </a>
+    
+  
+     
+    
+      <a class="social-icons__link" rel="me" title="GitHub"
+         href="https://github.com/nasseralkmim"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('http://localhost:1313/svg/github.svg')"></div>
+      </a>
+    
+  
+     
+    
+      <a class="social-icons__link" rel="me" title="Instagram"
+         href="https://instagram.com/naszr"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('http://localhost:1313/svg/instagram.svg')"></div>
+      </a>
+    
+     
+</div>
+
+            <p>© 2021</p>
+          </footer>
+          </div>
+      </div>
+      
+      <div class="toc-container">
+           <div class="toc-post-title">Paraview notes</div> 
+        <nav id="TableOfContents">
+<ul>
+<li><a href="#headline-1">Concepts</a>
+<ul>
+<li><a href="#headline-2">Sources</a>
+</li>
+<li><a href="#headline-3">Sinks</a>
+</li>
+<li><a href="#headline-4">Filters</a>
+</li>
+<li><a href="#headline-5">Processing pipelines</a>
+</li>
+<li><a href="#headline-6">Pipeline browser</a>
+</li>
+<li><a href="#headline-7">Property</a>
+</li>
+<li><a href="#headline-8">Properties panel</a>
+</li>
+<li><a href="#headline-9">Multi-block dataset</a>
+</li>
+<li><a href="#headline-10">Ensight format</a>
+</li>
+<li><a href="#headline-11">Selecting data</a>
+</li>
+<li><a href="#headline-12">Spreadsheet view</a>
+</li>
+<li><a href="#headline-13">Paraview fetch from server</a>
+</li>
+<li><a href="#headline-14">Numpy integration</a>
+</li>
+</ul>
+</li>
+<li><a href="#headline-15">Filters</a>
+<ul>
+<li><a href="#headline-16">Calculator</a>
+</li>
+<li><a href="#headline-17">Cell data to point data</a>
+</li>
+<li><a href="#headline-18">Warp by vector</a>
+</li>
+</ul>
+</li>
+<li><a href="#headline-19">Extracting data </a>
+<ul>
+<li><a href="#headline-20">Plot selection over time</a>
+</li>
+<li><a href="#headline-21">Extract selection</a>
+</li>
+</ul>
+</li>
+<li><a href="#headline-22">Scripting</a>
+<ul>
+<li><a href="#headline-23">Why?</a>
+</li>
+<li><a href="#headline-24"><code class="verbatim">pvpython.exe</code></a>
+</li>
+<li><a href="#headline-25"><code class="verbatim">paraview.exe --script=&lt;name&gt;</code> </a>
+</li>
+<li><a href="#headline-26">Trace</a>
+</li>
+<li><a href="#headline-27">Example</a>
+<ul>
+<li><a href="#headline-28">Open the file</a>
+</li>
+<li><a href="#headline-29">EnSight data descriptors</a>
+</li>
+<li><a href="#headline-30">Friendly wrapper for data</a>
+<ul>
+<li><a href="#headline-31"></a>
+</li>
+</ul>
+</li>
+<li><a href="#headline-32">Running</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+      </div>
+      
+    </div>
+    
+
+  </main>
+
+   
+
+  
+  <script src="/js/index.min.575dda8d49ee02639942c63564273e6da972ab531dda26a08800bdcb477cbd7f.js" integrity="sha256-V13ajUnuAmOZQsY1ZCc&#43;balyq1Md2iagiAC9y0d8vX8=" crossorigin="anonymous"></script>
+  
+  
+  
+
+  
+  
+  
+
+  
+    <script src="/js/table-of-contents.js"></script>
+  
+
+
+</body>
+
+</html>

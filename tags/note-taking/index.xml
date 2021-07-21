@@ -2,22 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>note-taking on Notes</title>
-    <link>https://nasseralkmim.github.io/tags/note-taking/</link>
+    <link>http://localhost:1313/tags/note-taking/</link>
     <description>Recent content in note-taking on Notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© {year}</copyright>
-    <lastBuildDate>Mon, 21 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/tags/note-taking/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 21 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/note-taking/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Principles for note taking</title>
-      <link>https://nasseralkmim.github.io/notes/principles-for-note-taking/</link>
+      <link>http://localhost:1313/notes/principles-for-note-taking/</link>
       <pubDate>Mon, 21 Dec 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://nasseralkmim.github.io/notes/principles-for-note-taking/</guid>
-      <description>Principles    be consistent
-  be concise
-  drawing &amp;gt; text
-    Be consistent   Use the same letter size, grids help.</description>
+      <guid>http://localhost:1313/notes/principles-for-note-taking/</guid>
+      <description>Why taking notes?  Legendary Feynman quote   Weiner: Well, the work was done in your head but the record of it is still here  Feynman: No, it’s not a record, not really, it’s working.</description>
     </item>
     
   </channel>

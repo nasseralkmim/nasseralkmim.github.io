@@ -1,0 +1,39 @@
+*
+*                   MESH DATA                   
+*-----------------------------------------------
+NODES                   nodes
+ELEMENTS                elements
+*
+*         ELEMENT AND INTEGRATION DATA          
+*-----------------------------------------------
+MATERIAL_DATA           materialDP
+ELEMENT_DATA            eledata
+*
+*              BOUNDARY CONDITIONS              
+*-----------------------------------------------
+BC_DIRICHLET            bc_node
+BC_FLUX                 neumann
+*
+*               SCALING FUNCTIONS               
+*-----------------------------------------------
+SPACE_SCALING           scaling_space
+TIME_SCALING            scaling_time
+*
+*     TIME INTEGRATION AND SOLUTION METHOD      
+*-----------------------------------------------
+ANALYSIS                analysis
+CHECKPOINTS             steps
+*
+*         CONSTRUCTION AND MESH CHANGE               
+*-----------------------------------------------
+*EXCAVATION              excavate
+*CONSTRUCTION            construct
+*               SOLVER PARAMETERS               
+*-----------------------------------------------
+NONLINEAR_SOLVER        nlsolve
+LINEAR_SOLVER           solverAMGCL
+*
+*          OUTPUT AND RESTART REQUESTS          
+*-----------------------------------------------
+RESTART                 restart
+OUTPUT                  output

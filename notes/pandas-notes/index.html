@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>Pandas notes | Notes</title>
+
+  <meta charset="UTF-8">
+  <meta name="language" content="en">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  
+  
+
+  <link rel="shortcut icon" type="image/png" href="/favicon.ico" />
+
+
+  
+  
+    
+ 
+  
+  
+  
+  
+  
+  
+    
+    <link type="text/css" rel="stylesheet" href="/css/post.min.9184109084ab0858f4d61e201ec74c667f1e039aaddd71fb8204359b0bae18a1.css" integrity="sha256-kYQQkISrCFj01h4gHsdMZn8eA5qt3XH7ggQ1mwuuGKE="/>
+  
+    
+    <link type="text/css" rel="stylesheet" href="/css/custom.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" integrity="sha256-47DEQpj8HBSa&#43;/TImW&#43;5JCeuQeRkm5NMpJWZG3hSuFU="/>
+  
+  
+   
+   
+    
+
+<script type="application/ld+json">
+  
+    { 
+      "@context": "http://schema.org", 
+      "@type": "WebSite", 
+      "url": "http:\/\/localhost:1313\/notes\/pandas-notes\/",
+      "name": "Pandas notes",
+      "author": {
+        "@type": "Person",
+        "name": ""
+      },
+      "description": ""
+    }
+  
+  </script>
+</head>
+
+<body>
+  <div class="burger__container">
+  <div class="burger" aria-controls="navigation" aria-label="Menu">
+    <div class="burger__meat burger__meat--1"></div>
+    <div class="burger__meat burger__meat--2"></div>
+    <div class="burger__meat burger__meat--3"></div>
+  </div>
+</div>
+ 
+
+  <nav class="nav" id="navigation">
+  <ul class="nav__list">
+    
+    
+      <li>
+        <a  href="/">about</a>
+      </li>
+    
+      <li>
+        <a  class="active"
+         href="/notes">notes</a>
+      </li>
+    
+  </ul>
+</nav>
+
+
+  <main>
+    
+    
+
+    <div class="flex-wrapper">
+      <div class="post__container">
+        <div class="post">
+          <header class="post__header">
+            <h1 id="post__title">Pandas notes</h1>
+            <time datetime="2020-12-24 00:00:00 &#43;0000 UTC" class="post__date">Dec 24 2020</time> 
+	    
+	    <time datetime="2021-07-17 17:18:14 &#43;0000 UTC" class="post__date">
+	      → edited in Jul 17 2021
+	    </time>
+	    
+          </header>
+          <article class="post__content">
+              
+
+<div id="outline-container-headline-1" class="outline-2">
+<h2 id="headline-1">
+Apply
+</h2>
+<div id="outline-text-headline-1" class="outline-text-2">
+<div id="outline-container-headline-2" class="outline-3">
+<h3 id="headline-2">
+When to use?
+</h3>
+<div id="outline-text-headline-2" class="outline-text-3">
+<p>Use cases:</p>
+<ol>
+<li>
+<p>apply a function along rows or column (default).</p>
+</li>
+<li>
+<p>apply a user-defined function with &#34;lambda&#34; construct.</p>
+</li>
+<li>
+<p>perform element wise transformation, with a specific condition for instance.</p>
+</li>
+<li>
+<p>better alternative than for loops, more efficient.</p>
+</li>
+</ol>
+<p>Alternatives:</p>
+<ol>
+<li>
+<p>itertuples seems to be faster if the data is smaller than 100k rows <a href="https://stackoverflow.com/questions/52581057/is-dataframe-apply-really-slower-than-dataframe-itertuples">https://stackoverflow.com/questions/52581057/is-dataframe-apply-really-slower-than-dataframe-itertuples</a></p>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-headline-3" class="outline-3">
+<h3 id="headline-3">
+When to avoid?
+</h3>
+<div id="outline-text-headline-3" class="outline-text-3">
+<p>
+I honestly think that <code class="verbatim">apply()</code> sometimes makes it harder to read, specially with nested conditions.
+It is also slow.</p>
+<p>
+<a href="https://stackoverflow.com/questions/54432583/when-should-i-not-want-to-use-pandas-apply-in-my-code">python - When should I (not) want to use pandas apply() in my code? - Stack O…</a></p>
+</div>
+</div>
+<div id="outline-container-headline-4" class="outline-3">
+<h3 id="headline-4">
+Row wise operation with numbers
+</h3>
+<div id="outline-text-headline-4" class="outline-text-3">
+<p>
+If it is just numbers, you can pass <code class="verbatim">raw=True</code> to the <code class="verbatim">apply()</code> so the function will receive a <code class="verbatim">ndarray</code> before passing to the function.
+The default is convert each row or column to a <code class="verbatim">Series</code>.</p>
+<div class="src src-python">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">import</span> <span style="color:#b06;font-weight:bold">pandas</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#b06;font-weight:bold">pd</span>
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#b06;font-weight:bold">numpy</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#b06;font-weight:bold">np</span>
+
+np.random.seed(<span style="color:#00d;font-weight:bold">1</span>)
+df = pd.DataFrame(np.random.randn(<span style="color:#00d;font-weight:bold">1000</span>))
+<span style="color:#080;font-weight:bold">print</span>(<span style="color:#d20;background-color:#fff0f0">&#39;Regular apply:&#39;</span>)
+%timeit df.apply(np.sum)
+<span style="color:#080;font-weight:bold">print</span>(<span style="color:#d20;background-color:#fff0f0">&#39;Apply with raw=True:&#39;</span>)
+%timeit df.apply(np.sum, raw=True)
+<span style="color:#080;font-weight:bold">print</span>(<span style="color:#d20;background-color:#fff0f0">&#39;Optmized version:&#39;</span>)
+%timeit df.sum()</code></pre></div>
+</div>
+<pre class="example">
+Regular apply:
+262 µs ± 8.1 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
+Apply with raw=True:
+89.1 µs ± 263 ns per loop (mean ± std. dev. of 7 runs, 10000 loops each)
+Optmized version:
+236 µs ± 4.67 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
+</pre>
+<p>
+Remarks:</p>
+<ol>
+<li>
+<p>raw was faster than the cython version.</p>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-headline-5" class="outline-3">
+<h3 id="headline-5">
+Alternatives when you need to perform row wise operation based on a string
+</h3>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-6" class="outline-2">
+<h2 id="headline-6">
+Groupby
+</h2>
+<div id="outline-text-headline-6" class="outline-text-2">
+<div id="outline-container-headline-7" class="outline-3">
+<h3 id="headline-7">
+Groupby with conditional sum
+</h3>
+<div id="outline-text-headline-7" class="outline-text-3">
+<p>
+first groupby, then apply with a condition.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-8" class="outline-2">
+<h2 id="headline-8">
+Resampling
+</h2>
+</div>
+<div id="outline-container-headline-9" class="outline-2">
+<h2 id="headline-9">
+Changing <code class="verbatim">DataFrame</code> inside a function
+</h2>
+<div id="outline-text-headline-9" class="outline-text-2">
+<div id="outline-container-headline-10" class="outline-3">
+<h3 id="headline-10">
+Modify the DF inside a function
+</h3>
+<div id="outline-text-headline-10" class="outline-text-3">
+<p>If you pass a DF to a function, manipulate it and return it.
+The result is the DF modified.</p>
+<div class="src src-python">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">import</span> <span style="color:#b06;font-weight:bold">pandas</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#b06;font-weight:bold">pd</span>
+df_old = pd.DataFrame({<span style="color:#d20;background-color:#fff0f0">&#39;column&#39;</span>: [<span style="color:#00d;font-weight:bold">1.</span>]})
+<span style="color:#080;font-weight:bold">print</span>(f<span style="color:#d20;background-color:#fff0f0">&#39;Original! </span><span style="color:#04d;background-color:#fff0f0">\n</span><span style="color:#d20;background-color:#fff0f0"> {df_old}&#39;</span>)
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">manipulate</span>(df):
+    df[<span style="color:#d20;background-color:#fff0f0">&#39;new column added&#39;</span>] = <span style="color:#00d;font-weight:bold">99</span>
+    <span style="color:#080;font-weight:bold">return</span> df
+
+df_new = manipulate(df_old)
+<span style="color:#080;font-weight:bold">print</span>(f<span style="color:#d20;background-color:#fff0f0">&#39;Different DF (no copy)! </span><span style="color:#04d;background-color:#fff0f0">\n</span><span style="color:#d20;background-color:#fff0f0"> {df_new}&#39;</span>)
+<span style="color:#080;font-weight:bold">print</span>(f<span style="color:#d20;background-color:#fff0f0">&#39;Original MODIFIED! </span><span style="color:#04d;background-color:#fff0f0">\n</span><span style="color:#d20;background-color:#fff0f0"> {df_old}&#39;</span>)                    <span style="color:#888"># old also changed</span></code></pre></div>
+</div>
+<pre class="example">
+Original! 
+    column
+0     1.0
+Different DF (no copy)! 
+    column  new column added
+0     1.0                99
+Original MODIFIED! 
+    column  new column added
+0     1.0                99
+</pre>
+</div>
+</div>
+<div id="outline-container-headline-11" class="outline-3">
+<h3 id="headline-11">
+Keep original DF unmodified
+</h3>
+<div id="outline-text-headline-11" class="outline-text-3">
+<p>If you want to keep the old DF <strong>unmodified</strong> you need to <span style="text-decoration: underline;">make a copy</span> of it inside the function.</p>
+<div class="src src-python">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">df_old = pd.DataFrame({<span style="color:#d20;background-color:#fff0f0">&#39;column&#39;</span>: [<span style="color:#00d;font-weight:bold">1.</span>]})
+<span style="color:#080;font-weight:bold">print</span>(f<span style="color:#d20;background-color:#fff0f0">&#39;Original! </span><span style="color:#04d;background-color:#fff0f0">\n</span><span style="color:#d20;background-color:#fff0f0"> {df_old}&#39;</span>)
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">manipulate</span>(df):
+    df_n = df.copy()
+    df_n[<span style="color:#d20;background-color:#fff0f0">&#39;new column&#39;</span>] = <span style="color:#00d;font-weight:bold">10</span>
+    <span style="color:#080;font-weight:bold">return</span> df_n
+
+df_new = manipulate(df_old)
+<span style="color:#080;font-weight:bold">print</span>(f<span style="color:#d20;background-color:#fff0f0">&#39;Different DF (WITH copy)! </span><span style="color:#04d;background-color:#fff0f0">\n</span><span style="color:#d20;background-color:#fff0f0"> {df_new}&#39;</span>)
+<span style="color:#080;font-weight:bold">print</span>(f<span style="color:#d20;background-color:#fff0f0">&#39;Original NOT modified! </span><span style="color:#04d;background-color:#fff0f0">\n</span><span style="color:#d20;background-color:#fff0f0"> {df_old}&#39;</span>)</code></pre></div>
+</div>
+<pre class="example">
+Original! 
+    column
+0     1.0
+Different DF (WITH copy)! 
+    column  new column
+0     1.0          10
+Original NOT modified! 
+    column
+0     1.0
+</pre>
+</div>
+</div>
+<div id="outline-container-headline-12" class="outline-3">
+<h3 id="headline-12">
+Modify dataframe with new assignment
+</h3>
+<div id="outline-text-headline-12" class="outline-text-3">
+<p>
+If you want just modify the original DF in a function, the function don&#39;t even need to return.</p>
+<div class="src src-python">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">import</span> <span style="color:#b06;font-weight:bold">pandas</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#b06;font-weight:bold">pd</span>
+df_old = pd.DataFrame({<span style="color:#d20;background-color:#fff0f0">&#39;column&#39;</span>: [<span style="color:#00d;font-weight:bold">1.</span>]})
+<span style="color:#080;font-weight:bold">print</span>(f<span style="color:#d20;background-color:#fff0f0">&#39;Original! </span><span style="color:#04d;background-color:#fff0f0">\n</span><span style="color:#d20;background-color:#fff0f0"> {df_old}&#39;</span>)
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">manipulate</span>(df):
+    df[<span style="color:#d20;background-color:#fff0f0">&#39;new column added&#39;</span>] = <span style="color:#00d;font-weight:bold">99</span>
+    <span style="color:#080;font-weight:bold">return</span> df
+
+df_old = manipulate(df_old)
+<span style="color:#080;font-weight:bold">print</span>(f<span style="color:#d20;background-color:#fff0f0">&#39;Original MODIFIED! </span><span style="color:#04d;background-color:#fff0f0">\n</span><span style="color:#d20;background-color:#fff0f0"> {df_old}&#39;</span>)</code></pre></div>
+</div>
+<pre class="example">
+Original! 
+    column
+0     1.0
+Original MODIFIED! 
+    column  new column added
+0     1.0                99
+</pre>
+<p>
+Remarks:</p>
+<ol>
+<li>
+<p>The function should <code class="verbatim">return</code> the <code class="verbatim">DataFrame</code> if you want to call them with an <em>assignment statement</em> <code class="verbatim">df = func(df)</code>. </p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-13" class="outline-2">
+<h2 id="headline-13">
+Types
+</h2>
+<div id="outline-text-headline-13" class="outline-text-2">
+<div id="outline-container-headline-14" class="outline-3">
+<h3 id="headline-14">
+What is <code class="verbatim">object</code> type?
+</h3>
+<div id="outline-text-headline-14" class="outline-text-3">
+<p>It is related to <code class="verbatim">str</code> or mixed python types.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+              
+                  
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+              
+          </article>
+          
+
+<ul class="tags__list">
+    
+    <li class="tag__item">
+        <a class="tag__link" href="http://localhost:1313/tags/data-analysis/">data analysis</a>
+    </li>
+    <li class="tag__item">
+        <a class="tag__link" href="http://localhost:1313/tags/python/">python</a>
+    </li>
+    <li class="tag__item">
+        <a class="tag__link" href="http://localhost:1313/tags/draft/">draft</a>
+    </li></ul>
+
+ <div class="pagination">
+  
+    <a class="pagination__item" href="http://localhost:1313/notes/principles-for-note-taking/">
+        <span class="pagination__label">Previous Post</span>
+        <span class="pagination__title">Principles for note taking</span>
+    </a>
+  
+
+  
+    <a class="pagination__item" href="http://localhost:1313/notes/shadow-banking-monetary-policy/">
+      <span class="pagination__label">Next Post</span>
+      <span class="pagination__title" >Shadow banking and FED as a lender of last resort</span>
+    </a>
+  
+</div>
+
+          <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "nasseralkmim" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+          <footer class="post__footer">
+            
+
+
+<div class="social-icons">
+  
+     
+    
+      <a class="social-icons__link" rel="me" title="Email"
+         href="mailto:nasser.alkmim@gmail.com"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('http://localhost:1313/svg/email.svg')"></div>
+      </a>
+    
+  
+     
+    
+      <a class="social-icons__link" rel="me" title="LinkedIn"
+         href="https://www.linkedin.com/in/nasser-alkmim-300882a6/"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('http://localhost:1313/svg/linkedin.svg')"></div>
+      </a>
+    
+  
+     
+    
+      <a class="social-icons__link" rel="me" title="GitHub"
+         href="https://github.com/nasseralkmim"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('http://localhost:1313/svg/github.svg')"></div>
+      </a>
+    
+  
+     
+    
+      <a class="social-icons__link" rel="me" title="Instagram"
+         href="https://instagram.com/naszr"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('http://localhost:1313/svg/instagram.svg')"></div>
+      </a>
+    
+     
+</div>
+
+            <p>© 2021</p>
+          </footer>
+          </div>
+      </div>
+      
+      <div class="toc-container">
+           <div class="toc-post-title">Pandas notes</div> 
+        <nav id="TableOfContents">
+<ul>
+<li><a href="#headline-1">Apply</a>
+<ul>
+<li><a href="#headline-2">When to use?</a>
+</li>
+<li><a href="#headline-3">When to avoid?</a>
+</li>
+<li><a href="#headline-4">Row wise operation with numbers</a>
+</li>
+<li><a href="#headline-5">Alternatives when you need to perform row wise operation based on a string</a>
+</li>
+</ul>
+</li>
+<li><a href="#headline-6">Groupby</a>
+<ul>
+<li><a href="#headline-7">Groupby with conditional sum</a>
+</li>
+</ul>
+</li>
+<li><a href="#headline-8">Resampling</a>
+</li>
+<li><a href="#headline-9">Changing <code class="verbatim">DataFrame</code> inside a function</a>
+<ul>
+<li><a href="#headline-10">Modify the DF inside a function</a>
+</li>
+<li><a href="#headline-11">Keep original DF unmodified</a>
+</li>
+<li><a href="#headline-12">Modify dataframe with new assignment</a>
+</li>
+</ul>
+</li>
+<li><a href="#headline-13">Types</a>
+<ul>
+<li><a href="#headline-14">What is <code class="verbatim">object</code> type?</a>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+      </div>
+      
+    </div>
+    
+
+  </main>
+
+   
+
+  
+  <script src="/js/index.min.575dda8d49ee02639942c63564273e6da972ab531dda26a08800bdcb477cbd7f.js" integrity="sha256-V13ajUnuAmOZQsY1ZCc&#43;balyq1Md2iagiAC9y0d8vX8=" crossorigin="anonymous"></script>
+  
+  
+  
+
+  
+  
+  
+
+  
+    <script src="/js/table-of-contents.js"></script>
+  
+
+
+</body>
+
+</html>

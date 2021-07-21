@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>Trilinos notes | Notes</title>
+
+  <meta charset="UTF-8">
+  <meta name="language" content="en">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  
+  
+
+  <link rel="shortcut icon" type="image/png" href="/favicon.ico" />
+
+
+  
+  
+    
+ 
+  
+  
+  
+  
+  
+  
+    
+    <link type="text/css" rel="stylesheet" href="/css/post.min.9184109084ab0858f4d61e201ec74c667f1e039aaddd71fb8204359b0bae18a1.css" integrity="sha256-kYQQkISrCFj01h4gHsdMZn8eA5qt3XH7ggQ1mwuuGKE="/>
+  
+    
+    <link type="text/css" rel="stylesheet" href="/css/custom.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" integrity="sha256-47DEQpj8HBSa&#43;/TImW&#43;5JCeuQeRkm5NMpJWZG3hSuFU="/>
+  
+  
+   
+   
+    
+
+<script type="application/ld+json">
+  
+    { 
+      "@context": "http://schema.org", 
+      "@type": "WebSite", 
+      "url": "http:\/\/localhost:1313\/notes\/trilinos-notes\/",
+      "name": "Trilinos notes",
+      "author": {
+        "@type": "Person",
+        "name": ""
+      },
+      "description": ""
+    }
+  
+  </script>
+</head>
+
+<body>
+  <div class="burger__container">
+  <div class="burger" aria-controls="navigation" aria-label="Menu">
+    <div class="burger__meat burger__meat--1"></div>
+    <div class="burger__meat burger__meat--2"></div>
+    <div class="burger__meat burger__meat--3"></div>
+  </div>
+</div>
+ 
+
+  <nav class="nav" id="navigation">
+  <ul class="nav__list">
+    
+    
+      <li>
+        <a  href="/">about</a>
+      </li>
+    
+      <li>
+        <a  class="active"
+         href="/notes">notes</a>
+      </li>
+    
+  </ul>
+</nav>
+
+
+  <main>
+    
+    
+
+    <div class="flex-wrapper">
+      <div class="post__container">
+        <div class="post">
+          <header class="post__header">
+            <h1 id="post__title">Trilinos notes</h1>
+            <time datetime="2021-04-18 00:00:00 &#43;0000 UTC" class="post__date">Apr 18 2021</time> 
+	    
+          </header>
+          <article class="post__content">
+              
+
+<div id="outline-container-headline-1" class="outline-2">
+<h2 id="headline-1">
+Basics
+</h2>
+<div id="outline-text-headline-1" class="outline-text-2">
+<div id="outline-container-headline-2" class="outline-3">
+<h3 id="headline-2">
+What is Trilinos? Object oriented framework for solving math and engineering problems (linear system of equations). Can solve problems up to 2 billion unknowns.
+</h3>
+</div>
+<div id="outline-container-headline-3" class="outline-3">
+<h3 id="headline-3">
+What packages make Trilinos?
+</h3>
+<div id="outline-text-headline-3" class="outline-text-3">
+<p>Trilinos is made out of multiple packages.
+The packages can depend on each other.</p>
+<p>
+Documentation for each package can be found <a href="https://trilinos.github.io/packages.html">Packages | Trilinos</a>.</p>
+<p>
+The packages are divided in core &#34;services&#34;, solvers, methods and discretization.</p>
+<div id="outline-container-headline-4" class="outline-5">
+<h5 id="headline-4">
+Core
+</h5>
+<div id="outline-text-headline-4" class="outline-text-5">
+<div id="outline-container-headline-5" class="outline-7">
+<h7 id="headline-5">
+Petra
+</h7>
+<div id="outline-text-headline-5" class="outline-text-7">
+<p>
+Common language for distributed <span style="text-decoration: underline;">sparse</span> linear algebra objects.
+Petra means foundation in greek.</p>
+<p>
+Epetra (essential petra) is the legacy version.
+Tpetra is the Templetade petra, next generation version.
+Tpetra allows multicore CPU and hybrid CPU/GPU.</p>
+<p>
+Typical construction sequence:</p>
+<ol>
+<li>
+<p><code class="verbatim">Construct Comm</code></p>
+</li>
+<li>
+<p><code class="verbatim">Construct Map</code> describe parallel layout</p>
+<ol>
+<li>
+<p>two maps define an export/import object</p>
+</li>
+</ol>
+</li>
+<li>
+<p><code class="verbatim">Construct</code> computationla object (matrix and vectors)</p>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-headline-6" class="outline-7">
+<h7 id="headline-6">
+Teuchos
+</h7>
+<div id="outline-text-headline-6" class="outline-text-7">
+<p>
+Teuchos is an utility package.
+It helps Trilinos work on many platforms as possible.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-7" class="outline-5">
+<h5 id="headline-7">
+Solvers
+</h5>
+<div id="outline-text-headline-7" class="outline-text-5">
+<div id="outline-container-headline-8" class="outline-7">
+<h7 id="headline-8">
+AztecOO
+</h7>
+<div id="outline-text-headline-8" class="outline-text-7">
+<p>Iterative linear solver, e.g., CG and GMRES.</p>
+</div>
+</div>
+<div id="outline-container-headline-9" class="outline-7">
+<h7 id="headline-9">
+Belos
+</h7>
+<div id="outline-text-headline-9" class="outline-text-7">
+<p>Next generation linear iterative solver.
+Improves on AztecOO by allowing control over data layout and kernels.
+Used for parallel solution schemes.</p>
+</div>
+</div>
+<div id="outline-container-headline-10" class="outline-7">
+<h7 id="headline-10">
+ML preconditioners
+</h7>
+<div id="outline-text-headline-10" class="outline-text-7">
+<p>
+Multi-level preconditioners, also known as multigrid methods (algebraic, with or without somoothed aggregation).</p>
+<p>
+Can be used independent of other trilinos packages.
+Accept <code class="verbatim">Petra</code> objects, sparse matrices and dense vectors.</p>
+</div>
+</div>
+<div id="outline-container-headline-11" class="outline-7">
+<h7 id="headline-11">
+MueLu
+</h7>
+<div id="outline-text-headline-11" class="outline-text-7">
+<p>
+Next generation version of ML.</p>
+<p>
+Decouple computational kernels from algorithms, facilitating development of new algorithms.
+Can exploit Tpetra features for parallel solution.</p>
+</div>
+</div>
+<div id="outline-container-headline-12" class="outline-7">
+<h7 id="headline-12">
+Amesos
+</h7>
+<div id="outline-text-headline-12" class="outline-text-7">
+<p>
+Direct solver.</p>
+</div>
+</div>
+<div id="outline-container-headline-13" class="outline-7">
+<h7 id="headline-13">
+ShyLU
+</h7>
+<div id="outline-text-headline-13" class="outline-text-7">
+<p>
+Subdomain solvers.</p>
+</div>
+</div>
+<div id="outline-container-headline-14" class="outline-7">
+<h7 id="headline-14">
+Teko
+</h7>
+<div id="outline-text-headline-14" class="outline-text-7">
+<p>
+Tool to automate construction of block preconditioners.
+Tailored for Navier-Stokes.</p>
+<p>
+Alternative to PETSc PCFieldsplit.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-15" class="outline-5">
+<h5 id="headline-15">
+Abstract solver interfaces
+</h5>
+<div id="outline-text-headline-15" class="outline-text-5">
+<div id="outline-container-headline-16" class="outline-7">
+<h7 id="headline-16">
+Stratimikos
+</h7>
+<div id="outline-text-headline-16" class="outline-text-7">
+<p>
+Interface to many different packages.
+Can create and use linear solvers.</p>
+<p>
+Options are specified with <code class="verbatim">Teuchos::ParameterList</code>.
+Solver and options can change at run time.</p>
+<p>
+Run time differentiate &#34;dynamic&#34; from &#34;static&#34; linking.
+Dynamic linking occurs at runtime.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-17" class="outline-3">
+<h3 id="headline-17">
+How to install?
+</h3>
+<div id="outline-text-headline-17" class="outline-text-3">
+<div id="outline-container-headline-18" class="outline-4">
+<h4 id="headline-18">
+References
+</h4>
+<div id="outline-text-headline-18" class="outline-text-4">
+<ul>
+<li>
+<p>Bartlett, R. A. (). Trilinos Configure, Build, Test, and Install
+Reference Guide. , (), 51.</p>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-headline-19" class="outline-4">
+<h4 id="headline-19">
+Download the source code
+</h4>
+<div id="outline-text-headline-19" class="outline-text-4">
+<p>
+You will need <code class="verbatim">git</code> for this step.
+To download just clone the repository to a directory <code class="verbatim">git clone https://github.com/trilinos/Trilinos</code></p>
+<div class="src src-shell">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#038">cd</span> ~
+git clone https://github.com/trilinos/Trilinos</code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-20" class="outline-4">
+<h4 id="headline-20">
+Requirements
+</h4>
+<div id="outline-text-headline-20" class="outline-text-4">
+<p>Instruction for Linux based systems.
+I use windows with Windows Subsystem for Linux (wsl) <a href="https://docs.microsoft.com/en-us/windows/wsl/install-win10">Install WSL on Windows 10 | Microsoft Docs</a></p>
+<ol>
+<li>
+<p>CMake 3.17.1 or newer <code class="verbatim">sudo apt install cmake</code> (*)</p>
+</li>
+<li>
+<p>C and C++ compiler <code class="verbatim">sudo apt install gcc</code></p>
+</li>
+<li>
+<p>Optionally a Fortran compiler <code class="verbatim">sudo apt install gfortran</code></p>
+</li>
+<li>
+<p>Optionally an installation of MPI (<strong>*</strong>) <code class="verbatim">sudo apt install mpi</code></p>
+</li>
+</ol>
+<p>(*) One of the current requirements is Cmake 3.17.1 or newer, and the version in the Ubunto is 3.16.
+I followed the steps in this <a href="https://askubuntu.com/questions/355565/how-do-i-install-the-latest-version-of-cmake-from-the-command-line">software installation - How do I install the latest version of cmake from the…</a>.
+The <code class="verbatim">cmake -version</code> currently available is <code class="verbatim">3.20.1</code>.</p>
+<p>
+(<strong>*</strong>) MPI is a standardized API for parallel computing, <a href="https://www.open-mpi.org/faq/?category=general#what-is-mpi">FAQ: General information about the Open MPI Project</a>.</p>
+</div>
+</div>
+<div id="outline-container-headline-21" class="outline-4">
+<h4 id="headline-21">
+Check required packages
+</h4>
+<div id="outline-text-headline-21" class="outline-text-4">
+<div class="src src-shell">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">apt list --installed | egrep <span style="color:#d20;background-color:#fff0f0">&#34;gcc|gfortran|mpi|cmake&#34;</span></code></pre></div>
+</div>
+<pre class="example">
+cmake-data/focal,now 3.16.3-1ubuntu1 all [installed,automatic]
+cmake/focal,now 3.16.3-1ubuntu1 amd64 [installed]
+gcc-10-base/focal,now 10.3.0-1ubuntu1~20.04~2 amd64 [installed,automatic]
+gcc-10/focal,now 10.3.0-1ubuntu1~20.04~2 amd64 [installed]
+gcc-9-base/focal,now 9.3.0-25ubuntu1~20.04 amd64 [installed,automatic]
+gcc-9/focal,now 9.3.0-25ubuntu1~20.04 amd64 [installed,automatic]
+gcc/focal,now 4:9.3.0-1ubuntu2 amd64 [installed]
+gfortran-9/focal,now 9.3.0-25ubuntu1~20.04 amd64 [installed,automatic]
+gfortran/focal,now 4:9.3.0-1ubuntu2 amd64 [installed,automatic]
+lib32gcc-s1/focal,now 10.3.0-1ubuntu1~20.04~2 amd64 [installed,automatic]
+libgcc-10-dev/focal,now 10.3.0-1ubuntu1~20.04~2 amd64 [installed,automatic]
+libgcc-9-dev/focal,now 9.3.0-25ubuntu1~20.04 amd64 [installed,automatic]
+libgcc-s1/focal,now 10.3.0-1ubuntu1~20.04~2 amd64 [installed,automatic]
+libgccjit-9-dev/focal,now 9.3.0-25ubuntu1~20.04 amd64 [installed]
+libgccjit0/focal,now 10.3.0-1ubuntu1~20.04~2 amd64 [installed,automatic]
+libgfortran-9-dev/focal,now 9.3.0-25ubuntu1~20.04 amd64 [installed,automatic]
+libgfortran5/focal,now 10.3.0-1ubuntu1~20.04~2 amd64 [installed,automatic]
+libmpich-dev/focal,now 3.3.2-2build1 amd64 [installed,automatic]
+libmpich12/focal,now 3.3.2-2build1 amd64 [installed,automatic]
+libparams-validationcompiler-perl/focal,now 0.30-1 all [installed,automatic]
+mpich/focal,now 3.3.2-2build1 amd64 [installed]
+node-pumpify/focal,now 2.0.1-1 all [installed,automatic]
+</pre>
+</div>
+</div>
+<div id="outline-container-headline-22" class="outline-4">
+<h4 id="headline-22">
+Configuration
+</h4>
+<div id="outline-text-headline-22" class="outline-text-4">
+<div id="outline-container-headline-23" class="outline-5">
+<h5 id="headline-23">
+Introduction
+</h5>
+<div id="outline-text-headline-23" class="outline-text-5">
+<p>
+CMake is used to provide configuration of what to build in the form of a Makefile.
+It is recommended to create a separate folder from the source code to put the build files.
+The folder structure is assuming that trilinos in your ${HOME} directory:</p>
+<pre class="example">
+trilinos
+|   Trilinos &lt;- source code
+|   build &lt;- parallel build directory
+|   |   do_configure
+</pre>
+<div class="src src-shell">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#038">cd</span> ~/trilinos
+tree -L <span style="color:#00d;font-weight:bold">1</span></code></pre></div>
+</div>
+<p>
+The <code class="verbatim">do_configure</code> file contains the bash script that runs CMake with the specific configurations.
+This configurations are going to depend on the user&#39;s specific needs.</p>
+</div>
+</div>
+<div id="outline-container-headline-24" class="outline-5">
+<h5 id="headline-24">
+Simple configuration
+</h5>
+<div id="outline-text-headline-24" class="outline-text-5">
+<p>This configuration does not enables any packages.</p>
+<ol>
+<li>
+<p><code class="verbatim">:BOOL=ON</code> is equivalent to <code class="verbatim">=ON</code>.</p>
+</li>
+<li>
+<p><code class="verbatim">CMAKE_INSTALL_PREFIX</code> prefix for installing, where the files will be copied for usage.</p>
+<ol>
+<li>
+<p>from that prefix, the includes will be on <code class="verbatim">/include/</code>, libraries on <code class="verbatim">/lib/</code>, binaries in <code class="verbatim">/bin/</code> and example in <code class="verbatim">/example/</code>.</p>
+</li>
+<li>
+<p>after build and test, the software will be installed (copied) to its destination folder.</p>
+</li>
+<li>
+<p>the install directory is specified in the configuration step.</p>
+</li>
+<li>
+<p><code class="verbatim">CMakeCache.txt</code> can be viewed after configuring to check the folders.</p>
+</li>
+</ol>
+</li>
+<li>
+<p><code class="verbatim">BUILD_SHARED_LIBS</code> to whether generate or not dynamic shared libraries.</p>
+</li>
+<li>
+<p><code class="verbatim">$TRILINOS_SOURCE</code> is the source location.</p>
+</li>
+</ol>
+<div class="src src-example">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#c00;font-weight:bold">#!/bin/bash
+</span><span style="color:#c00;font-weight:bold"></span>
+<span style="color:#369">TRILINOS_SOURCE</span>=../Trilinos
+<span style="color:#369">INSTALL_PATH</span>=/usr/local
+
+cmake <span style="color:#04d;background-color:#fff0f0">\
+</span><span style="color:#04d;background-color:#fff0f0"></span>  -D <span style="color:#369">CMAKE_INSTALL_PREFIX</span>=<span style="color:#33b;background-color:#fff0f0">${</span><span style="color:#369">INSTALL_PATH</span><span style="color:#33b;background-color:#fff0f0">}</span> <span style="color:#04d;background-color:#fff0f0">\
+</span><span style="color:#04d;background-color:#fff0f0"></span>  -D <span style="color:#369">CMAKE_BUILD_TYPE</span>=RELEASE <span style="color:#04d;background-color:#fff0f0">\
+</span><span style="color:#04d;background-color:#fff0f0"></span>  -D <span style="color:#369">BUILD_SHARED_LIBS</span>=ON <span style="color:#04d;background-color:#fff0f0">\
+</span><span style="color:#04d;background-color:#fff0f0"></span><span style="color:#369">$EXTRA_ARGS</span> <span style="color:#04d;background-color:#fff0f0">\
+</span><span style="color:#04d;background-color:#fff0f0"></span><span style="color:#369">$TRILINOS_SOURCE</span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-25" class="outline-5">
+<h5 id="headline-25">
+<code class="verbatim">CMakeCache.txt</code>
+</h5>
+<div id="outline-text-headline-25" class="outline-text-5">
+<p>This file contains cache variables with all configurations.
+Those are directories for packages and other definitions.</p>
+<p>
+To reconfigure from scratch one needs to delete <code class="verbatim">CMakeCache.txt</code> and the directory <code class="verbatim">CMakeFiles</code>.
+<code class="verbatim">rm -rf CMakeCache.txt CMakeFiles/</code></p>
+<p>
+Every time a variable is removed from the configuration the cached version should be deleted.
+Or when you change the path for package.
+Also when you want to exclude one definition made before.</p>
+</div>
+</div>
+<div id="outline-container-headline-26" class="outline-5">
+<h5 id="headline-26">
+Reconfiguring
+</h5>
+<div id="outline-text-headline-26" class="outline-text-5">
+<p>
+Pass the <code class="verbatim">--target clean</code> flag.</p>
+<p>
+<code class="verbatim">cmake --build &lt;dir&gt; --target clean</code></p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-27" class="outline-4">
+<h4 id="headline-27">
+Ninja
+</h4>
+<div id="outline-text-headline-27" class="outline-text-4">
+<p>
+<span class="timestamp">&lt;2021-06-04 Fri&gt;</span> Did not work with python.</p>
+<p>
+Alternative to <code class="verbatim">Make</code>.
+Seems to be faster.</p>
+<p>
+CMake can generate Ninja files.</p>
+</div>
+</div>
+<div id="outline-container-headline-28" class="outline-4">
+<h4 id="headline-28">
+Build
+</h4>
+<div id="outline-text-headline-28" class="outline-text-4">
+<p>
+After generating the build environment with CMake, we then build the targets with <code class="verbatim">make</code> org <code class="verbatim">make -j#</code> to use # CPU cores.</p>
+<p>
+<code class="verbatim">make help</code> will list all targets that are going to be built, the packages and other phony targets (all, clean, install, test).</p>
+</div>
+</div>
+<div id="outline-container-headline-29" class="outline-4">
+<h4 id="headline-29">
+Install
+</h4>
+<div id="outline-text-headline-29" class="outline-text-4">
+<p>
+Finally we install with <code class="verbatim">make install</code>.
+The install directory should be specified <em>at configure time</em> (when <code class="verbatim">cmake</code> was called) with the variable <code class="verbatim">CMAKE_INSTALL_PREFIX</code>.</p>
+<p>
+You can check this variable in the <code class="verbatim">CMakeCache.txt</code></p>
+</div>
+</div>
+<div id="outline-container-headline-30" class="outline-4">
+<h4 id="headline-30">
+Test
+</h4>
+<div id="outline-text-headline-30" class="outline-text-4">
+<p>
+Run <code class="verbatim">ctest</code> to check, if tests were enable to build.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-31" class="outline-3">
+<h3 id="headline-31">
+Information about Trilinos
+</h3>
+<div id="outline-text-headline-31" class="outline-text-3">
+<p>
+Good source is the library of pdfs in <a href="https://github.com/trilinos/trilinos.github.io/tree/master/pdfs">trilinos.github.io/pdfs at master · trilinos/trilinos.github.io · GitHub</a>.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-32" class="outline-2">
+<h2 id="headline-32">
+PyTrilinos
+</h2>
+<div id="outline-text-headline-32" class="outline-text-2">
+<div id="outline-container-headline-33" class="outline-3">
+<h3 id="headline-33">
+What is Pytrilinos?
+</h3>
+<div id="outline-text-headline-33" class="outline-text-3">
+<p>Python wrapper for trilinos packages.
+It is a trilinos package, meaning that is distributed and built with trilinos.
+It is also a python library, meaning that it can be imported in python with <code class="verbatim">from PyTrilinos import &lt;package&gt;</code>.</p>
+</div>
+</div>
+<div id="outline-container-headline-34" class="outline-3">
+<h3 id="headline-34">
+Why using python with Trilinos?
+</h3>
+<div id="outline-text-headline-34" class="outline-text-3">
+<p>Good to get familiarized with Trilinos multiple packages and tools.
+Also good for rapid prototyping algorithms?</p>
+</div>
+</div>
+<div id="outline-container-headline-35" class="outline-3">
+<h3 id="headline-35">
+Trilinos packages available in the python interface
+</h3>
+<div id="outline-text-headline-35" class="outline-text-3">
+<p>Teuchos, Epetra, Triutils, EpetraExt, AztecOO, Galeri, Amesos, Ifpack, Komplex, Anasazi, ML and NOX.</p>
+</div>
+</div>
+<div id="outline-container-headline-36" class="outline-3">
+<h3 id="headline-36">
+Extra dependencies
+</h3>
+<div id="outline-text-headline-36" class="outline-text-3">
+<p>
+I got errors saying that some dependences were missing.</p>
+<ol>
+<li>
+<p>BLAS and LAPACK <code class="verbatim">sudo apt install libblas-dev liblapack-dev</code> (**)</p>
+</li>
+<li>
+<p>netcdf <code class="verbatim">sudo apt install libnetcdf-dev</code></p>
+</li>
+<li>
+<p>for pytrilinos had to install SWIG <code class="verbatim">sudo apt install swig</code> (*)</p>
+</li>
+<li>
+<p>also had to install Boost <code class="verbatim">sudo apt install libboost-dev</code></p>
+</li>
+<li>
+<p>Ninja build tool (instead of make) <code class="verbatim">sudo apt install ninja-build</code></p>
+</li>
+</ol>
+<p>(*) SWIG is a simplified wrapper and interface generator that connects C++ with python (and other languages).</p>
+<p>
+(**) BLAS and LAPACK are linear algebra software.</p>
+<p>
+Check requirements</p>
+<div class="src src-shell">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">apt list --installed | egrep <span style="color:#d20;background-color:#fff0f0">&#34;blas|lapack|swig|boost|netcdf|ninja&#34;</span></code></pre></div>
+</div>
+<pre class="example">
+libblas-dev/focal,now 3.9.0-1build1 amd64 [installed]
+libblas3/focal,now 3.9.0-1build1 amd64 [installed,automatic]
+libboost-dev/focal,now 1.71.0.0ubuntu2 amd64 [installed]
+libboost1.71-dev/focal,now 1.71.0-6ubuntu6 amd64 [installed,automatic]
+liblapack-dev/focal,now 3.9.0-1build1 amd64 [installed]
+liblapack3/focal,now 3.9.0-1build1 amd64 [installed,automatic]
+libnetcdf-dev/focal,now 1:4.7.3-1 amd64 [installed]
+libnetcdf15/focal,now 1:4.7.3-1 amd64 [installed,automatic]
+ninja-build/focal,now 1.10.0-1build1 amd64 [installed]
+swig4.0/focal,now 4.0.1-5build1 amd64 [installed,automatic]
+swig/focal,now 4.0.1-5build1 all [installed]
+</pre>
+</div>
+</div>
+<div id="outline-container-headline-37" class="outline-3">
+<h3 id="headline-37">
+Configuring
+</h3>
+<div id="outline-text-headline-37" class="outline-text-3">
+<p>
+This configuration enables Pytrilinos.</p>
+<p>
+By default, this configuration enables all the required Trilinos packages which have a python interface.
+This includes AztecOO and ML.
+To avoid building all packages turn off <code class="verbatim">Trilinos_ENABLE_ALL_PACKAGES</code> and enable specific ones with <code class="verbatim">Trilinos_ENABLE_&lt;package&gt;</code>.</p>
+<p>
+The build time is considerable, and can be reduced with no tests or examples are build.
+The variables <code class="verbatim">Trilinos_ENABLE_TESTS</code> and <code class="verbatim">Trilinos_ENABLE_EXAMPLES</code> can be turned off to reduce build time.</p>
+<div id="outline-container-headline-38" class="outline-4">
+<h4 id="headline-38">
+Python executable
+</h4>
+<div id="outline-text-headline-38" class="outline-text-4">
+<p>
+Need to specify the executable CMake was finding the miniconda3 python instead of the standard.
+<code class="verbatim">-D PYTHON_EXECUTABLE:FILEPATH</code>…=</p>
+</div>
+</div>
+<div id="outline-container-headline-39" class="outline-4">
+<h4 id="headline-39">
+Python install path
+</h4>
+<div id="outline-text-headline-39" class="outline-text-4">
+<p>
+To direct the PyTrilinos files into a folder where python can find.</p>
+<div class="src src-shell">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">python -m site</code></pre></div>
+</div>
+<pre class="example">
+sys.path = [
+    &#39;/mnt/c/Users/c8441205/OneDrive/nasser-website/content/notes/trilinos-notes&#39;,
+    &#39;/usr/lib/python38.zip&#39;,
+    &#39;/usr/lib/python3.8&#39;,
+    &#39;/usr/lib/python3.8/lib-dynload&#39;,
+    &#39;/home/nasser/.local/lib/python3.8/site-packages&#39;,
+    &#39;/usr/local/lib/python3.8/dist-packages&#39;,
+    &#39;/usr/lib/python3/dist-packages&#39;,
+]
+USER_BASE: &#39;/home/nasser/.local&#39; (exists)
+USER_SITE: &#39;/home/nasser/.local/lib/python3.8/site-packages&#39; (exists)
+ENABLE_USER_SITE: True
+</pre>
+<p>
+I&#39;m using <code class="verbatim">-D PyTrilinos_INSTALL_PREFIX=/home/nasser/.local</code>.</p>
+</div>
+</div>
+<div id="outline-container-headline-40" class="outline-4">
+<h4 id="headline-40">
+CMake configuration script
+</h4>
+<div id="outline-text-headline-40" class="outline-text-4">
+<p>CMake script file:</p>
+<div class="src src-bash">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#c00;font-weight:bold">#!/bin/bash
+</span><span style="color:#c00;font-weight:bold"></span>
+<span style="color:#369">TRILINOS_SOURCE</span>=../Trilinos
+<span style="color:#369">INSTALL_PATH</span>=/usr/local
+
+cmake <span style="color:#04d;background-color:#fff0f0">\
+</span><span style="color:#04d;background-color:#fff0f0"></span>  -D <span style="color:#369">CMAKE_INSTALL_PREFIX</span>=<span style="color:#33b;background-color:#fff0f0">${</span><span style="color:#369">INSTALL_PATH</span><span style="color:#33b;background-color:#fff0f0">}</span> <span style="color:#04d;background-color:#fff0f0">\
+</span><span style="color:#04d;background-color:#fff0f0"></span>  -D <span style="color:#369">CMAKE_BUILD_TYPE</span>=RELEASE <span style="color:#04d;background-color:#fff0f0">\
+</span><span style="color:#04d;background-color:#fff0f0"></span>  -D <span style="color:#369">BUILD_SHARED_LIBS</span>=ON <span style="color:#04d;background-color:#fff0f0">\
+</span><span style="color:#04d;background-color:#fff0f0"></span>  -D <span style="color:#369">Trilinos_ENABLE_TESTS</span>=OFF <span style="color:#04d;background-color:#fff0f0">\
+</span><span style="color:#04d;background-color:#fff0f0"></span>  -D <span style="color:#369">Trilinos_ENABLE_ALL_PACKAGES</span>=OFF<span style="color:#04d;background-color:#fff0f0">\
+</span><span style="color:#04d;background-color:#fff0f0"></span>  -D <span style="color:#369">Trilinos_ENABLE_PyTrilinos</span>=ON <span style="color:#04d;background-color:#fff0f0">\
+</span><span style="color:#04d;background-color:#fff0f0"></span>  -D <span style="color:#369">PYTHON_EXECUTABLE</span>=/usr/local/bin/python <span style="color:#04d;background-color:#fff0f0">\
+</span><span style="color:#04d;background-color:#fff0f0"></span>  -D <span style="color:#369">PyTrilinos_INSTALL_PREFIX</span>=<span style="color:#33b;background-color:#fff0f0">${</span><span style="color:#369">HOME</span><span style="color:#33b;background-color:#fff0f0">}</span>/.local/lib/python3.8/site-packages <span style="color:#04d;background-color:#fff0f0">\
+</span><span style="color:#04d;background-color:#fff0f0"></span>  -G Ninja <span style="color:#04d;background-color:#fff0f0">\
+</span><span style="color:#04d;background-color:#fff0f0"></span><span style="color:#369">$EXTRA_ARGS</span> <span style="color:#04d;background-color:#fff0f0">\
+</span><span style="color:#04d;background-color:#fff0f0"></span><span style="color:#369">$TRILINOS_SOURCE</span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-41" class="outline-4">
+<h4 id="headline-41">
+CMake output log
+</h4>
+<div id="outline-text-headline-41" class="outline-text-4">
+<div class="src src-shell">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#038">cd</span> ~/trilinos/build/CMakeFiles
+cat CMakeError.log</code></pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-42" class="outline-3">
+<h3 id="headline-42">
+Build
+</h3>
+<div id="outline-text-headline-42" class="outline-text-3">
+<p>
+Call <code class="verbatim">make -j12</code>.
+About 10min on 12 processors.</p>
+<div class="src src-shell">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">neofetch</code></pre></div>
+</div>
+<pre class="example">
+[?25l[?7l[0m[31m[1m            .-/+oossssoo+/-.
+        `:+ssssssssssssssssss+:`
+      -+ssssssssssssssssssyyssss+-
+    .ossssssssssssssssss[37m[0m[1mdMMMNy[0m[31m[1msssso.
+   /sssssssssss[37m[0m[1mhdmmNNmmyNMMMMh[0m[31m[1mssssss/
+  +sssssssss[37m[0m[1mhm[0m[31m[1myd[37m[0m[1mMMMMMMMNddddy[0m[31m[1mssssssss+
+ /ssssssss[37m[0m[1mhNMMM[0m[31m[1myh[37m[0m[1mhyyyyhmNMMMNh[0m[31m[1mssssssss/
+.ssssssss[37m[0m[1mdMMMNh[0m[31m[1mssssssssss[37m[0m[1mhNMMMd[0m[31m[1mssssssss.
++ssss[37m[0m[1mhhhyNMMNy[0m[31m[1mssssssssssss[37m[0m[1myNMMMy[0m[31m[1msssssss+
+oss[37m[0m[1myNMMMNyMMh[0m[31m[1mssssssssssssss[37m[0m[1mhmmmh[0m[31m[1mssssssso
+oss[37m[0m[1myNMMMNyMMh[0m[31m[1msssssssssssssshmmmh[0m[31m[1mssssssso
++ssss[37m[0m[1mhhhyNMMNy[0m[31m[1mssssssssssss[37m[0m[1myNMMMy[0m[31m[1msssssss+
+.ssssssss[37m[0m[1mdMMMNh[0m[31m[1mssssssssss[37m[0m[1mhNMMMd[0m[31m[1mssssssss.
+ /ssssssss[37m[0m[1mhNMMM[0m[31m[1myh[37m[0m[1mhyyyyhdNMMMNh[0m[31m[1mssssssss/
+  +sssssssss[37m[0m[1mdm[0m[31m[1myd[37m[0m[1mMMMMMMMMddddy[0m[31m[1mssssssss+
+   /sssssssssss[37m[0m[1mhdmNNNNmyNMMMMh[0m[31m[1mssssss/
+    .ossssssssssssssssss[37m[0m[1mdMMMNy[0m[31m[1msssso.
+      -+sssssssssssssssss[37m[0m[1myyy[0m[31m[1mssss+-
+        `:+ssssssssssssssssss+:`
+            .-/+oossssoo+/-.[0m
+[20A[9999999D[43C[0m[1m[31m[1mnasser[0m@[31m[1mlt135-c842[0m 
+[43C[0m-----------------[0m 
+[43C[0m[31m[1mOS[0m[0m:[0m Ubuntu 20.04.2 LTS on Windows 10 x86_64[0m 
+[43C[0m[31m[1mKernel[0m[0m:[0m 5.4.72-microsoft-standard-WSL2[0m 
+[43C[0m[31m[1mUptime[0m[0m:[0m 2 days, 41 mins[0m 
+[43C[0m[31m[1mPackages[0m[0m:[0m 1698 (dpkg)[0m 
+[43C[0m[31m[1mShell[0m[0m:[0m bash 5.0.17[0m 
+[43C[0m[31m[1mResolution[0m[0m:[0m 4096x1440[0m 
+[43C[0m[31m[1mTheme[0m[0m:[0m Adwaita [GTK3][0m 
+[43C[0m[31m[1mIcons[0m[0m:[0m Adwaita [GTK3][0m 
+[43C[0m[31m[1mTerminal[0m[0m:[0m emacs[0m 
+[43C[0m[31m[1mCPU[0m[0m:[0m AMD Ryzen 5 PRO 4650U with Radeon Graphics (12) @ 2.095GHz[0m 
+[43C[0m[31m[1mMemory[0m[0m:[0m 335MiB / 11978MiB[0m 
+
+[43C[30m[40m   [31m[41m   [32m[42m   [33m[43m   [34m[44m   [35m[45m   [36m[46m   [37m[47m   [m
+[43C[38;5;8m[48;5;8m   [38;5;9m[48;5;9m   [38;5;10m[48;5;10m   [38;5;11m[48;5;11m   [38;5;12m[48;5;12m   [38;5;13m[48;5;13m   [38;5;14m[48;5;14m   [38;5;15m[48;5;15m   [m
+
+
+
+
+
+[?25h[?7h
+</pre>
+</div>
+</div>
+<div id="outline-container-headline-43" class="outline-3">
+<h3 id="headline-43">
+Trilinos packages installed
+</h3>
+<div id="outline-text-headline-43" class="outline-text-3">
+<p>
+After building the project.
+The following packages are available in the build folder.</p>
+<div class="src src-shell">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#038">cd</span> ~/trilinos/build/packages
+ls</code></pre></div>
+</div>
+<pre class="example">
+PyTrilinos
+amesos
+amesos2
+anasazi
+aztecoo
+belos
+common
+domi
+epetra
+epetraext
+galeri
+ifpack
+ifpack2
+isorropia
+kokkos
+kokkos-kernels
+komplex
+ml
+nox
+pamgen
+pliris
+rtop
+seacas
+shards
+shylu
+stk
+stratimikos
+teko
+teuchos
+thyra
+tpetra
+triutils
+xpetra
+zoltan
+zoltan2
+</pre>
+</div>
+</div>
+<div id="outline-container-headline-44" class="outline-3">
+<h3 id="headline-44">
+Installing
+</h3>
+<div id="outline-text-headline-44" class="outline-text-3">
+<p><code class="verbatim">sudo make install</code> to install (copying to the right location).</p>
+<p>
+After configuration, build and installing you should have a bin, include and lib folder in the specified installation folder.</p>
+<div class="src src-shell">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#038">cd</span> /usr/local/lib
+ls | egrep <span style="color:#d20;background-color:#fff0f0">&#34;azt&#34;</span></code></pre></div>
+</div>
+<pre class="example">
+libaztecoo.so
+libaztecoo.so.13
+libaztecoo.so.13.1
+libstratimikosaztecoo.so
+libstratimikosaztecoo.so.13
+libstratimikosaztecoo.so.13.1
+</pre>
+<p>
+In the lib folder there is a python folder with the python library files.</p>
+</div>
+</div>
+<div id="outline-container-headline-45" class="outline-3">
+<h3 id="headline-45">
+Testing
+</h3>
+<div id="outline-text-headline-45" class="outline-text-3">
+<p>We need to tell python where the package is located.
+This could be done with the CMake variable during build <code class="verbatim">PyTrilinos_INSTALL_PREFIX</code> and pointing it to local site-packages.
+If this variable is not specified the python installation is the same as others Trilinos packages.</p>
+<div class="src src-python">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">from</span> <span style="color:#b06;font-weight:bold">PyTrilinos</span> <span style="color:#080;font-weight:bold">import</span> Epetra</code></pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-46" class="outline-2">
+<h2 id="headline-46">
+Definitions
+</h2>
+<div id="outline-text-headline-46" class="outline-text-2">
+<div id="outline-container-headline-47" class="outline-3">
+<h3 id="headline-47">
+Framework, toolkit and ecosystem
+</h3>
+<div id="outline-text-headline-47" class="outline-text-3">
+<p>Frameworks are APIs (application programming interface), generally
+with a big scope. Toolkits are &#34;plug-and-play&#34; libraries, small scope
+and easy to insert on other applications. Ecosystem is everything.</p>
+</div>
+</div>
+<div id="outline-container-headline-48" class="outline-3">
+<h3 id="headline-48">
+Modern scientific design approach
+</h3>
+<div id="outline-text-headline-48" class="outline-text-3">
+<p>
+<span style="text-decoration: underline;">Compose application within an ecosystem.</span></p>
+<p>
+Instead of developing an application.
+Applications with its own framework uses some libraries and usually have no intended reuse.</p>
+</div>
+</div>
+<div id="outline-container-headline-49" class="outline-3">
+<h3 id="headline-49">
+Interoperability versus dependence
+</h3>
+<div id="outline-text-headline-49" class="outline-text-3">
+<p>
+Trilinos packages have no explicit dependence on each other, but they often have to interact. 
+Trilinos <code class="verbatim">cmake</code> system allows Trilinos packages to interact with each other and at same time keep their independence.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-50" class="outline-2">
+<h2 id="headline-50">
+References
+</h2>
+<div id="outline-text-headline-50" class="outline-text-2">
+<ol>
+<li>
+<p><a href="https://github.com/trilinos/trilinos.github.io/tree/master/pdfs">trilinos.github.io/pdfs at master · trilinos/trilinos.github.io · GitHub</a></p>
+</li>
+</ol>
+</div>
+</div>
+
+
+              
+                  
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+              
+          </article>
+          
+
+<ul class="tags__list">
+    
+    <li class="tag__item">
+        <a class="tag__link" href="http://localhost:1313/tags/tools/">tools</a>
+    </li>
+    <li class="tag__item">
+        <a class="tag__link" href="http://localhost:1313/tags/trilinos/">trilinos</a>
+    </li>
+    <li class="tag__item">
+        <a class="tag__link" href="http://localhost:1313/tags/draft/">draft</a>
+    </li></ul>
+
+ <div class="pagination">
+  
+    <a class="pagination__item" href="http://localhost:1313/notes/inn-2-efficiency-and-burocracy/">
+        <span class="pagination__label">Previous Post</span>
+        <span class="pagination__title">Innsbruck - Efficiency and bureaucracy</span>
+    </a>
+  
+
+  
+    <a class="pagination__item" href="http://localhost:1313/notes/software-survival/">
+      <span class="pagination__label">Next Post</span>
+      <span class="pagination__title" >Software Project survival guide key points</span>
+    </a>
+  
+</div>
+
+          <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "nasseralkmim" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+          <footer class="post__footer">
+            
+
+
+<div class="social-icons">
+  
+     
+    
+      <a class="social-icons__link" rel="me" title="Email"
+         href="mailto:nasser.alkmim@gmail.com"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('http://localhost:1313/svg/email.svg')"></div>
+      </a>
+    
+  
+     
+    
+      <a class="social-icons__link" rel="me" title="LinkedIn"
+         href="https://www.linkedin.com/in/nasser-alkmim-300882a6/"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('http://localhost:1313/svg/linkedin.svg')"></div>
+      </a>
+    
+  
+     
+    
+      <a class="social-icons__link" rel="me" title="GitHub"
+         href="https://github.com/nasseralkmim"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('http://localhost:1313/svg/github.svg')"></div>
+      </a>
+    
+  
+     
+    
+      <a class="social-icons__link" rel="me" title="Instagram"
+         href="https://instagram.com/naszr"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('http://localhost:1313/svg/instagram.svg')"></div>
+      </a>
+    
+     
+</div>
+
+            <p>© 2021</p>
+          </footer>
+          </div>
+      </div>
+      
+      <div class="toc-container">
+           <div class="toc-post-title">Trilinos notes</div> 
+        <nav id="TableOfContents">
+<ul>
+<li><a href="#headline-1">Basics</a>
+<ul>
+<li><a href="#headline-2">What is Trilinos? Object oriented framework for solving math and engineering problems (linear system of equations). Can solve problems up to 2 billion unknowns.</a>
+</li>
+<li><a href="#headline-3">What packages make Trilinos?</a>
+<ul>
+<li><a href="#headline-4">Core</a>
+<ul>
+<li><a href="#headline-5">Petra</a>
+</li>
+<li><a href="#headline-6">Teuchos</a>
+</li>
+</ul>
+</li>
+<li><a href="#headline-7">Solvers</a>
+<ul>
+<li><a href="#headline-8">AztecOO</a>
+</li>
+<li><a href="#headline-9">Belos</a>
+</li>
+<li><a href="#headline-10">ML preconditioners</a>
+</li>
+<li><a href="#headline-11">MueLu</a>
+</li>
+<li><a href="#headline-12">Amesos</a>
+</li>
+<li><a href="#headline-13">ShyLU</a>
+</li>
+<li><a href="#headline-14">Teko</a>
+</li>
+</ul>
+</li>
+<li><a href="#headline-15">Abstract solver interfaces</a>
+<ul>
+<li><a href="#headline-16">Stratimikos</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#headline-17">How to install?</a>
+<ul>
+<li><a href="#headline-18">References</a>
+</li>
+<li><a href="#headline-19">Download the source code</a>
+</li>
+<li><a href="#headline-20">Requirements</a>
+</li>
+<li><a href="#headline-21">Check required packages</a>
+</li>
+<li><a href="#headline-22">Configuration</a>
+<ul>
+<li><a href="#headline-23">Introduction</a>
+</li>
+<li><a href="#headline-24">Simple configuration</a>
+</li>
+<li><a href="#headline-25"><code class="verbatim">CMakeCache.txt</code></a>
+</li>
+<li><a href="#headline-26">Reconfiguring</a>
+</li>
+</ul>
+</li>
+<li><a href="#headline-27">Ninja</a>
+</li>
+<li><a href="#headline-28">Build</a>
+</li>
+<li><a href="#headline-29">Install</a>
+</li>
+<li><a href="#headline-30">Test</a>
+</li>
+</ul>
+</li>
+<li><a href="#headline-31">Information about Trilinos</a>
+</li>
+</ul>
+</li>
+<li><a href="#headline-32">PyTrilinos</a>
+<ul>
+<li><a href="#headline-33">What is Pytrilinos?</a>
+</li>
+<li><a href="#headline-34">Why using python with Trilinos?</a>
+</li>
+<li><a href="#headline-35">Trilinos packages available in the python interface</a>
+</li>
+<li><a href="#headline-36">Extra dependencies</a>
+</li>
+<li><a href="#headline-37">Configuring</a>
+<ul>
+<li><a href="#headline-38">Python executable</a>
+</li>
+<li><a href="#headline-39">Python install path</a>
+</li>
+<li><a href="#headline-40">CMake configuration script</a>
+</li>
+<li><a href="#headline-41">CMake output log</a>
+</li>
+</ul>
+</li>
+<li><a href="#headline-42">Build</a>
+</li>
+<li><a href="#headline-43">Trilinos packages installed</a>
+</li>
+<li><a href="#headline-44">Installing</a>
+</li>
+<li><a href="#headline-45">Testing</a>
+</li>
+</ul>
+</li>
+<li><a href="#headline-46">Definitions</a>
+<ul>
+<li><a href="#headline-47">Framework, toolkit and ecosystem</a>
+</li>
+<li><a href="#headline-48">Modern scientific design approach</a>
+</li>
+<li><a href="#headline-49">Interoperability versus dependence</a>
+</li>
+</ul>
+</li>
+<li><a href="#headline-50">References</a>
+</li>
+</ul>
+</nav>
+      </div>
+      
+    </div>
+    
+
+  </main>
+
+   
+
+  
+  <script src="/js/index.min.575dda8d49ee02639942c63564273e6da972ab531dda26a08800bdcb477cbd7f.js" integrity="sha256-V13ajUnuAmOZQsY1ZCc&#43;balyq1Md2iagiAC9y0d8vX8=" crossorigin="anonymous"></script>
+  
+  
+  
+
+  
+  
+  
+
+  
+    <script src="/js/table-of-contents.js"></script>
+  
+
+
+</body>
+
+</html>

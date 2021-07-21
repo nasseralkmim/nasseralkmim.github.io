@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>javascript on Notes</title>
+    <link>http://localhost:1313/tags/javascript/</link>
+    <description>Recent content in javascript on Notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© {year}</copyright>
+    <lastBuildDate>Thu, 24 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Javascript notes</title>
+      <link>http://localhost:1313/notes/javascript-notes/</link>
+      <pubDate>Thu, 24 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/notes/javascript-notes/</guid>
+      <description>Functions  querySelector() abd querySelectorAll()   Method of Element interface. Allows to find the first element that match one or more CSS selectors.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>programming on Notes</title>
+    <link>http://localhost:1313/tags/programming/</link>
+    <description>Recent content in programming on Notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© {year}</copyright>
+    <lastBuildDate>Fri, 23 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/programming/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Software Project survival guide key points</title>
+      <link>http://localhost:1313/notes/software-survival/</link>
+      <pubDate>Fri, 23 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/notes/software-survival/</guid>
+      <description>Introduction   Software requirements  Clear mission?   Clear benefits and how will be measured?   Clear functionality prototype?</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>paraview on Notes</title>
+    <link>http://localhost:1313/tags/paraview/</link>
+    <description>Recent content in paraview on Notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© {year}</copyright>
+    <lastBuildDate>Wed, 02 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/paraview/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Paraview notes</title>
+      <link>http://localhost:1313/notes/paraview-notes/</link>
+      <pubDate>Wed, 02 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/notes/paraview-notes/</guid>
+      <description>Notes about paraview.
+Concepts  Sources  Algorithms with no input, just output. Reading a file for instance.
+  Sinks  Algorithms with multiple inputs but no output.</description>
+    </item>
+    
+  </channel>
+</rss>

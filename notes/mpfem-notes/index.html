@@ -1,0 +1,2025 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>mpFEM notes | Notes</title>
+
+  <meta charset="UTF-8">
+  <meta name="language" content="en">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  
+  
+
+  <link rel="shortcut icon" type="image/png" href="/favicon.ico" />
+
+
+  
+  
+    
+ 
+  
+  
+  
+  
+  
+  
+    
+    <link type="text/css" rel="stylesheet" href="/css/post.min.9184109084ab0858f4d61e201ec74c667f1e039aaddd71fb8204359b0bae18a1.css" integrity="sha256-kYQQkISrCFj01h4gHsdMZn8eA5qt3XH7ggQ1mwuuGKE="/>
+  
+    
+    <link type="text/css" rel="stylesheet" href="/css/custom.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" integrity="sha256-47DEQpj8HBSa&#43;/TImW&#43;5JCeuQeRkm5NMpJWZG3hSuFU="/>
+  
+  
+   
+   
+    
+
+<script type="application/ld+json">
+  
+    { 
+      "@context": "http://schema.org", 
+      "@type": "WebSite", 
+      "url": "http:\/\/localhost:1313\/notes\/mpfem-notes\/",
+      "name": "mpFEM notes",
+      "author": {
+        "@type": "Person",
+        "name": ""
+      },
+      "description": ""
+    }
+  
+  </script>
+</head>
+
+<body>
+  <div class="burger__container">
+  <div class="burger" aria-controls="navigation" aria-label="Menu">
+    <div class="burger__meat burger__meat--1"></div>
+    <div class="burger__meat burger__meat--2"></div>
+    <div class="burger__meat burger__meat--3"></div>
+  </div>
+</div>
+ 
+
+  <nav class="nav" id="navigation">
+  <ul class="nav__list">
+    
+    
+      <li>
+        <a  href="/">about</a>
+      </li>
+    
+      <li>
+        <a  class="active"
+         href="/notes">notes</a>
+      </li>
+    
+  </ul>
+</nav>
+
+
+  <main>
+    
+    
+
+    <div class="flex-wrapper">
+      <div class="post__container">
+        <div class="post">
+          <header class="post__header">
+            <h1 id="post__title">mpFEM notes</h1>
+            <time datetime="2021-05-02 00:00:00 &#43;0000 UTC" class="post__date">May 2 2021</time> 
+	    
+          </header>
+          <article class="post__content">
+              
+
+<div id="outline-container-headline-1" class="outline-2">
+<h2 id="headline-1">
+Questions
+</h2>
+<div id="outline-text-headline-1" class="outline-text-2">
+<div id="outline-container-headline-2" class="outline-3">
+<h3 id="headline-2">
+Solver params
+</h3>
+<div id="outline-text-headline-2" class="outline-text-3">
+<ol>
+<li>
+<p>how to specify preconditioners</p>
+</li>
+<li>
+<p>scaling L,R,T? just number to multiply? </p>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-headline-3" class="outline-3">
+<h3 id="headline-3">
+Singularity
+</h3>
+<div id="outline-text-headline-3" class="outline-text-3">
+<ol>
+<li>
+<p>sandbox, is like a container with the folder structure accessible</p>
+</li>
+<li>
+<p>cmakelocal is for the container specific </p>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-headline-4" class="outline-3">
+<h3 id="headline-4">
+Comments
+</h3>
+<div id="outline-text-headline-4" class="outline-text-3">
+<ol>
+<li>
+<p>dofelement, implements the multiphysics</p>
+<ol>
+<li>
+<p>virtual classes concept</p>
+</li>
+</ol>
+</li>
+<li>
+<p>nlsolver.cpp</p>
+<ol>
+<li>
+<p>evaluateandassemblelinearsystem function</p>
+</li>
+<li>
+<p>grid facility to access elements (map elements to pointer) in the parallel</p>
+</li>
+<li>
+<p>data is stored in the node base</p>
+</li>
+<li>
+<p>Newton solver</p>
+<ol>
+<li>
+<p>theLinSys.solve solves the linear system</p>
+</li>
+<li>
+<p>inside linsolve/ folder </p>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<p>analysis: time load increment</p>
+<ol>
+<li>
+<p>generalAnalysis.cpp inherint to analysis</p>
+</li>
+<li>
+<p>runparallelanalysis function (q is the solution)</p>
+</li>
+</ol>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-5" class="outline-2">
+<h2 id="headline-5">
+Installation
+</h2>
+<div id="outline-text-headline-5" class="outline-text-2">
+<div id="outline-container-headline-6" class="outline-3">
+<h3 id="headline-6">
+Configure
+</h3>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-7" class="outline-2">
+<h2 id="headline-7">
+Singularity
+</h2>
+<div id="outline-text-headline-7" class="outline-text-2">
+<div id="outline-container-headline-8" class="outline-3">
+<h3 id="headline-8">
+What is singularity?
+</h3>
+<div id="outline-text-headline-8" class="outline-text-3">
+<p>
+Singularity containers provide an application virtualization layer enabling
+mobility of compute via both application and environment portability. With
+Singularity one is capable of building a root file system that runs on any 
+other Linux system where Singularity is installed.</p>
+</div>
+</div>
+<div id="outline-container-headline-9" class="outline-3">
+<h3 id="headline-9">
+Installation
+</h3>
+<div id="outline-text-headline-9" class="outline-text-3">
+<p><a href="https://sylabs.io/guides/3.0/user-guide/quick_start.html#quick-installation-steps">Quick Start — Singularity container 3.0 documentation</a>.</p>
+</div>
+</div>
+<div id="outline-container-headline-10" class="outline-3">
+<h3 id="headline-10">
+mpFEM container download
+</h3>
+<div id="outline-text-headline-10" class="outline-text-3">
+<p>
+From the ftp server</p>
+<pre class="example">
+ftp-Server:  ftp.uibk.ac.at
+User ID:     ftp
+Passwort:    E-Mail-Adresse
+&gt;&gt; bin
+Verzeichnis: /private/c8441094_20210514_5977bfea2d670cbdd7c1aac12f3f25ac
+</pre>
+<p>
+The <code class="verbatim">bin</code> command sent to the server the Type I, which stands for image.
+Image mode and binary mode mean the same in FTP.
+This command tell the server that the transfer will involve a binary data type.</p>
+</div>
+</div>
+<div id="outline-container-headline-11" class="outline-3">
+<h3 id="headline-11">
+mpFEM container
+</h3>
+<div id="outline-text-headline-11" class="outline-text-3">
+<p>With a pre-built environment inside a container (end <code class="verbatim">.simg</code>).</p>
+<div class="src src-sh">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#038">cd</span> ~/SANDBOX_mpFEM.simg/mpFEM
+tree -L <span style="color:#00d;font-weight:bold">1</span></code></pre></div>
+</div>
+<pre class="example">
+.
+├── CMakeCache.txt
+├── CMakeFiles
+├── CMakeLists.txt
+├── CMakeListsLocal.txt
+├── EXTERNAL
+├── Makefile
+├── SRC
+├── cmake_install.cmake
+└── mpFEM
+
+3 directories, 6 files
+</pre>
+</div>
+</div>
+<div id="outline-container-headline-12" class="outline-3">
+<h3 id="headline-12">
+Running inside the container
+</h3>
+<div id="outline-text-headline-12" class="outline-text-3">
+<p>
+The executable for mpFEM is in <code class="verbatim">mpFEM/mpFEM</code> which can be accessed with <code class="verbatim">singularity exec [exec options...] &lt;container&gt; &lt;command&gt;</code>.</p>
+<div class="src src-sh">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">singularity <span style="color:#038">exec</span> ~/SANDBOX_mpFEM.simg /mpFEM/mpFEM</code></pre></div>
+</div>
+<pre class="example">
+
+2021-05-02 11:31:44 CEST
+
+##############################
+#      Starting mpFEM on     #
+#           1 procs          #
+##############################
+
+-&gt; Using default input dir  INPUT
+-&gt; Using default result dir RESULT
+-&gt; Using default resultfile result
+-&gt; Using default config     files
+
+
+Unable to open config file
+INPUTfiles
+ABORTING.
+</pre>
+</div>
+</div>
+<div id="outline-container-headline-13" class="outline-3">
+<h3 id="headline-13">
+Command to run the container
+</h3>
+<div id="outline-text-headline-13" class="outline-text-3">
+<p>
+Flags:</p>
+<ol>
+<li>
+<p><code class="verbatim">-i</code> input directory</p>
+</li>
+<li>
+<p><code class="verbatim">-f</code> configuration file</p>
+</li>
+<li>
+<p><code class="verbatim">-r</code> results directory</p>
+</li>
+<li>
+<p><code class="verbatim">-o</code> results file</p>
+</li>
+</ol>
+<div class="src src-sh">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">singularity <span style="color:#038">exec</span> ~/SANDBOX_mpFEM.simg /mpFEM/mpFEM -i=/home/nasser/mpfem/SLOPE_SOLVER -f=filesAMGCL -r=/home/nasser/mpfem/SLOPE_SOLVER/results -o=results</code></pre></div>
+</div>
+<pre class="example">
+
+2021-05-01 12:37:57 CEST
+
+##############################
+#      Starting mpFEM on     #
+#           1 procs          #
+##############################
+
+-&gt; Using input directory    /home/nasser/mpfem/SLOPE_SOLVER/
+-&gt; Using result directory   /home/nasser/mpfem/SLOPE_SOLVER/results/
+-&gt; Using resultfile         results
+-&gt; Using config file        filesAMGCL
+
+Processing config file
+
+Read input from the following files
+
+-&gt; NODES                    nodes
+-&gt; ELEMENTS                 elements
+-&gt; KNOTS                    -_-
+-&gt; MATERIAL_DATA            materialDP
+-&gt; ELEMENT_DATA             eledata
+-&gt; BC_DIRICHLET             bc_node
+-&gt; BC_FLUX                  neumann
+-&gt; LOCSYS                   -_-
+-&gt; SPACE_SCALING            scaling_space
+-&gt; TIME_SCALING             scaling_time
+-&gt; ANALYSIS                 analysis
+-&gt; CHECKPOINTS              steps
+-&gt; CONSTRUCTION             -_-
+-&gt; EXCAVATION               -_-
+-&gt; COUPLING                 -_-
+-&gt; NONLINEAR_SOLVER         nlsolve
+-&gt; LINEAR_SOLVER            solverAMGCL
+-&gt; RESTART                  restart
+-&gt; OUTPUT                   output
+-&gt; REBAR_BARS               -_-
+-&gt; REBAR_PROP               -_-
+
+
+******************************
+*      input mesh data       *
+******************************
+
+reading restart file: restart
+
+##############################
+#       read coupling        #
+##############################
+
+Master IDs 
+
+Slave IDs 
+
+Matching 0 slave nodes to 0 master nodes
+No master nodes. There is nothing to do.
+
+##############################
+#        read nodes         #
+##############################
+
+There are 1457 nodes in the mesh
+
+##############################
+#      read elements         #
+##############################
+
+PID 0 is aware of  1376 elements in 1 blocks, and expects to receive 1376
+
+##############################
+#  determine parallel mesh   #
+#   layout (call ParMETIS)   #
+##############################
+
+... setup of element graph
+... partitioning of element graph
+... redistribution of elements
+... setup of an appropriate ghosting of nodes
+
+--&gt; Begin setup of element graph
+&lt;-- Completed setup of element graph
+--&gt; Start to generate sendplan for element distribution
+Processor 0
+xadj:   size 1377
+adjncy: size 10536
+
+vtxdist: 
+  0 1376 
+SIZES 8 8 &lt;-&gt; 4 4  | 8 8 8 8 | 4 4 4 8 4 8
+ 1.00000e+00
+&lt;--  successfully generated sendplan for element distribution
+--&gt; Start to redistribute elements according to layout
+&lt;-- Finished to redistribute elements according to layout
+--&gt; Redistribute nodes according to given element layout
+&lt;-- Finished to redistribute nodes according to element layout
+
+##############################
+# generate a grid object
+##############################
+
+... establish tag/id-access methods (maps)
+    for nodes and elements
+
+******************************
+*   input of element data   *
+******************************
+
+##############################
+#      read element data        #
+##############################
+
+contains ... 
+... reduced/full integration flag
+... element specific parameters (except materials)
+will be ... 
+... read
+... communicated to all procs
+... stored at the corresponding elements
+    (prior to material input)
+
+
+*----------------------
+reading a new element data
+name tag is
+Eledata_Rock
+... reading a data block
+*----------------------
+reading a element ids block
+The data was assigned to 1376 elements of type SOLID
+
+******************************
+*   input of material data   *
+******************************
+
+##############################
+#      read materials        #
+##############################
+
+materials are ... 
+... read
+... communicated to all procs
+... stored at the corresponding elements
+
+*----------------------
+reading a new material definition
+name tag is
+SoilDruckerPrager
+TYPE      DruckerPrager (113)
+FORMULATION  TWO_D_PlaneStrain (2)
+primary stress  CAUCHY (1)
+secondary stress  NONE (0)
+... reading a data block
+E                               24.0E6
+NU                              0.2
+TAUY                            5.57E3
+MU                              0.791
+MUBAR                           0.315
+OMEGA                           0.6
+ETA                             0.2
+DENSITY                         2000.0
+POROSITY                        0.0
+STARTUP                         YES
+activate startup
+The data was assigned to 1376 elements
+
+******************************
+*introduce degrees of freedom*
+******************************
+
+##############################
+#  assign degrees of freedom #
+##############################
+
+... determine dof numbering based on node numbering
+%%%%%%%%%%%%%%
+Dof numbers used in computation (name/field/coord):
+        DISP : 1 :  0 
+      DISP_X : 1 :  0 
+      DISP_Y : 1 :  1 
+      DISP_Z : 1 :  2 
+         VEL : 7 :  0 
+       VEL_0 : 7 :  0 
+       VEL_1 : 7 :  1 
+       VEL_2 : 7 :  2 
+           P : 6 
+          PA : 3 
+          PC : 2 
+           T : 4 
+ NLOC_DAMAGE : 5 
+    MICROROT : 8 :  0 
+  MICROROT_0 : 8 :  0 
+  MICROROT_1 : 8 :  1 
+  MICROROT_2 : 8 :  2 
+%%%%%%%%%%%%%%
+
+************************************
+*input of node specific coordinates*
+************************************
+
+x-specific initialisation for spherical or cylindrical coords
+
+******************************
+*input of boundary conditions*
+******************************
+
+##############################
+#  input Dirichlet boundary  #
+#         conditions         #
+##############################
+
+Dirichlet boundary conditions are ...
+... read
+... communicated to all procs
+... stored at the corresponding nodes
+
+*----------------------
+reading a new boundary condition
+name tag is
+BODEN
+this bc covers 1 dofs
+the unique dof ids to use are:
+  1 (field: DISP)
+the values are:
+ 0.00000e+00
+time scaling funtion is 1
+space scaling funtion is 1
+read node ids for this condition
+The condition contained 49 nodes
+*----------------------
+reading a new boundary condition
+name tag is
+Seiten
+this bc covers 1 dofs
+the unique dof ids to use are:
+  0 (field: DISP)
+the values are:
+ 0.00000e+00
+time scaling funtion is 1
+space scaling funtion is 1
+read node ids for this condition
+The condition contained 26 nodes
+
+##############################
+#   input Neumann boundary   #
+#         conditions         #
+##############################
+
+Neumann boundary conditions are ...
+... read
+... communicated to all procs
+... stored as boundary elements at the corresponding elements
+
+*----------------------
+reading a new flux boundary condition
+name tag is
+LOAD_RechteFahrbahn
+acts on side 3 (ABAQUS notation - 1)
+time scaling  funtion is 3
+space scaling funtion is 1
+type is 2
+Time interval ( 1.00000e+00, 1.00000e+10]
+(interval definition might be element specific)
+integer params:
+1
+double params:
+ 9.50000e+04
+read parent ids for this condition
+The condition contained 20 parent elements
+
+##############################
+#  input time/space scaling  #
+#    data (ramp functions)   #
+##############################
+
+reading a new time curve condition
+reading curve id 1
+reading a new time curve condition
+reading curve id 2
+reading a new time curve condition
+reading curve id 3
+reading a new time curve condition
+reading curve id 4
+reading a new time curve condition
+reading curve id 5
+reading a new time curve condition
+reading curve id 6
+reading a new time curve condition
+reading curve id 7
+------------------
+Time scaling:
+Scaling function types (const, lin, ...):
+Id   1   type 1
+Id   2   type 1
+Id   3   type 2
+Id   4   type 2
+Id   5   type 2
+Id   6   type 2
+Id   7   type 2
+Scaling function parameters:
+Id   1   has   4 params
+Id   2   has   4 params
+Id   3   has   6 params
+Id   4   has   4 params
+Id   5   has   4 params
+Id   6   has   4 params
+Id   7   has   4 params
+
+reading a spatial function
+reading a spatial function
+------------------
+Space scaling:
+Scaling function types (const, lin, ...):
+Id   1   type 1
+Id   2   type 1
+Scaling function parameters:
+Id   1   has   1 params
+Id   2   has   1 params
+
+******************************
+*   input of rebar elements  *
+******************************
+
+*  read rebar def from file  *
+
+No rebar input files declared.
+
+******************************
+*  input of analysis params  *
+******************************
+
+reading an analysis
+analysis name: ANALYSIS_GENERAL
+
+The values for the analysis are:
+predictor  = ConstInc
+dt_start   = 1.00000e-02
+dt_min     = 1.00000e-02
+dt_max     = 1.00000e+00
+start      = 0.00000e+00
+end        = 2.00000e+00
+firststep  =0
+maxstep    =1
+delay_inc  =1
+fac_dt_fast= 1.15000e+00
+fac_dt_slow= 7.50000e-01
+fac_dt_fail= 5.00000e-01
+initial field type=ZeroField
+initial field fx=2
+initial field ip  1:  =2
+initial field ip  2:  =3
+initial field dp  1:  = 1.00000e+00
+initial field dp  2:  = 0.00000e+00
+
+
+found keyword *START CHECKPOINT DEFINITION.
+the file position is 29.
+
+found keyword *BEGIN CHECKPOINT.
+the file position is 47.
+
+found keyword *BEGIN CHECKPOINT.
+the file position is 264.
+
+found keyword *BEGIN CHECKPOINT.
+the file position is 480.
+
+search for keyword *BEGIN CHECKPOINT failed.
+Reverting seek position to 675.
+
+found keyword *END CHECKPOINT DEFINITION.
+the file position is -1.
+Checkpoint facility: 3 checkpoints, active id is 0
+------------------
+NUM: 0
+NAME: day_1
+TIME:  1.00000e-01
+RESET STRAINS AT THIS CHECKPOINT
+RESET DT AT THIS CHECKPOINT
+NEW DT    :  1.80000e-01
+NEW DT_MIN:  1.00000e-06
+NEW DT_MAX:  1.00000e+00
+------------------
+NUM: 1
+NAME: day_1
+TIME:  1.00000e+00
+RESET DT AT THIS CHECKPOINT
+NEW DT    :  1.00000e-02
+NEW DT_MIN:  1.00000e-06
+NEW DT_MAX:  1.00000e+00
+------------------
+NUM: 2
+NAME: day_2
+TIME:  2.00000e+00
+
+There are no construction steps defined in the input data. Continuing.
+
+There are no excavation steps defined in the input data. Continuing.
+******************************
+*   input of solver params   *
+******************************
+
+reading solver parameters:
+*SOLVER GENERAL INFORMATION
+*PARAMETERS FOR SCALING
+L&gt;&gt;&gt;&gt; DISP   1.0E0
+R&gt;&gt;&gt;&gt; DISP   1.0E0
+T&gt;&gt;&gt;&gt; DISP   1.0E0
+*PARAMETERS FOR MUMPS DIRECT SOLVER
+*BEGIN_PARAMETERS_FOR_AMGCL
+AMGCL &gt;&gt;&gt;&gt; AMGCL_SOLVER             GMRES
+AMGCL &gt;&gt;&gt;&gt; AMGCL_PSIDE              RIGHT
+AMGCL &gt;&gt;&gt;&gt; AMGCL_BLOCKPRECONDTYPE     BGS
+AMGCL &gt;&gt;&gt;&gt; AMGCL_TOL                 1E-12
+AMGCL &gt;&gt;&gt;&gt; AMGCL_ABSTOL              1E-7
+AMGCL &gt;&gt;&gt;&gt; AMGCL_MAXITER              300
+AMGCL &gt;&gt;&gt;&gt; AMGCL_GMRES_KSPACE         300
+AMGCL &gt;&gt;&gt;&gt; AMGCL_LGMRES_KSPACE_KEEP   300
+AMGCL &gt;&gt;&gt;&gt; AMGCL_LGMRES_ALWAYS_RESET  YES
+AMGCL &gt;&gt;&gt;&gt; AMGCL_IDRS_DIMENSION         9
+AMGCL &gt;&gt;&gt;&gt; AMGCL_IDRS_OMEGA           0.7
+AMGCL &gt;&gt;&gt;&gt; AMGCL_IDRS_SMOOTHING        NO
+AMGCL &gt;&gt;&gt;&gt; AMGCL_IDRS_REPLACE_REC_RES  NO
+AMGCL &gt;&gt;&gt;&gt; AMGCL_BICGSTABL_ORDER        2
+AMGCL &gt;&gt;&gt;&gt; AMGCL_BICGSTABL_THRESH     0.0
+AMGCL &gt;&gt;&gt;&gt; AMGCL_BICGSTABL_USE_CONVEX  NO
+AMGCL &gt;&gt;&gt;&gt; *BEGIN_FIELD_TO_BLOCK_ASSIGNMENT
+AMGCL &gt;&gt;&gt;&gt; DISP 0
+AMGCL &gt;&gt;&gt;&gt; DIRICHLET 1
+AMGCL &gt;&gt;&gt;&gt; *END_FIELD_TO_BLOCK_ASSIGNMENT
+AMGCL &gt;&gt;&gt;&gt; *BEGIN_PARAMETERS_FOR_SUBBLOCK_PRECONDITIONER
+AMGCL &gt;&gt;&gt;&gt; AMGCL_BLOCK_ID                                    0
+AMGCL &gt;&gt;&gt;&gt; AMGCL_BLOCK_PRECOND_CLASS                         AMG
+AMGCL &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_COARSE_ENOUGH                     5
+AMGCL &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_DIRECT_COARSE                     YES
+AMGCL &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_MAX_LEVELS                        3
+AMGCL &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_NPRE                              1
+AMGCL &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_NPOST                             1
+AMGCL &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_NCYCLE                            1
+AMGCL &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_PRE_CYCLES                        1
+AMGCL &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_COARSEN_TYPE                      SMOOTHED_AGGREGATION
+AMGCL &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_COARSEN_BLOCK_SIZE                1
+AMGCL &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_COARSEN_EPS_STRONG                0.08
+AMGCL &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_COARSEN_ESTIMATE_SPECTRAL_RADIUS  YES
+AMGCL &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_COARSEN_POWER_ITERS               10
+AMGCL &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_COARSEN_RELAX                     1.0
+AMGCL &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_COARSEN_OVER_INTERP               1.5
+AMGCL &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_RELAXATION_TYPE                   CHEBYSHEV
+AMGCL &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_RELAXATION_CHEBY_DEGREE           15
+AMGCL &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_RELAXATION_CHEBY_LOWER            0.003
+AMGCL &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_RELAXATION_CHEBY_HIGHER           1.1
+AMGCL &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_RELAXATION_CHEBY_POWER_ITERS      15
+AMGCL &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_RELAXATION_ILU_DAMPING            0.3
+AMGCL &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_RELAXATION_ILU_SERIAL_SOLVE       YES
+AMGCL &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_RELAXATION_ILUK_K                 2
+AMGCL &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_RELAXATION_ILUT_P                 3
+AMGCL &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_RELAXATION_ILUT_TAU               1e-12
+AMGCL &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_RELAXATION_GAUSS_SEIDEL_SERIAL    YES
+AMGCL &gt;&gt;&gt;&gt; *END_PARAMETERS_FOR_SUBBLOCK_PRECONDITIONER
+AMGCL_BLOCK &gt;&gt;&gt;&gt; DISP 0
+AMGCL_BLOCK &gt;&gt;&gt;&gt; DIRICHLET 1
+AMGCL_BLOCK &gt;&gt;&gt;&gt; AMGCL_BLOCK_ID                                    0
+AMGCL_BLOCK &gt;&gt;&gt;&gt; AMGCL_BLOCK_PRECOND_CLASS                         AMG
+AMGCL_BLOCK &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_COARSE_ENOUGH                     5
+AMGCL_BLOCK &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_DIRECT_COARSE                     YES
+AMGCL_BLOCK &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_MAX_LEVELS                        3
+AMGCL_BLOCK &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_NPRE                              1
+AMGCL_BLOCK &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_NPOST                             1
+AMGCL_BLOCK &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_NCYCLE                            1
+AMGCL_BLOCK &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_PRE_CYCLES                        1
+AMGCL_BLOCK &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_COARSEN_TYPE                      SMOOTHED_AGGREGATION
+AMGCL_BLOCK &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_COARSEN_BLOCK_SIZE                1
+AMGCL_BLOCK &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_COARSEN_EPS_STRONG                0.08
+AMGCL_BLOCK &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_COARSEN_ESTIMATE_SPECTRAL_RADIUS  YES
+AMGCL_BLOCK &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_COARSEN_POWER_ITERS               10
+AMGCL_BLOCK &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_COARSEN_RELAX                     1.0
+AMGCL_BLOCK &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_COARSEN_OVER_INTERP               1.5
+AMGCL_BLOCK &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_RELAXATION_TYPE                   CHEBYSHEV
+AMGCL_BLOCK &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_RELAXATION_CHEBY_DEGREE           15
+AMGCL_BLOCK &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_RELAXATION_CHEBY_LOWER            0.003
+AMGCL_BLOCK &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_RELAXATION_CHEBY_HIGHER           1.1
+AMGCL_BLOCK &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_RELAXATION_CHEBY_POWER_ITERS      15
+AMGCL_BLOCK &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_RELAXATION_ILU_DAMPING            0.3
+AMGCL_BLOCK &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_RELAXATION_ILU_SERIAL_SOLVE       YES
+AMGCL_BLOCK &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_RELAXATION_ILUK_K                 2
+AMGCL_BLOCK &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_RELAXATION_ILUT_P                 3
+AMGCL_BLOCK &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_RELAXATION_ILUT_TAU               1e-12
+AMGCL_BLOCK &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_RELAXATION_GAUSS_SEIDEL_SERIAL    YES
+Adding DISP 1 to left scaling
+AMGCL
+-----
+ Left scaling for fields:
+ o  1 -&gt;  1.00000e+00
+******************************
+*   setup of linear system   *
+******************************
+
+Linear system block structure
+
+Block -&gt; Fields:
+
+Block Id  0:         DISP (1)
+
+Field -&gt; Block:
+
+Field Id  1 (        DISP): Block  0
+Block Structure has one extra block for Dirichlet dofs, id is 1
+number on this proc  0:
+.. 2914
+******************************
+*  generation of nln system  *
+******************************
+
+reading nonlinear solver parameters
+
+Input of tolerances
+For field (1) DISP
+Input of monotony check params
+For field (1) DISP
+
+******************************
+* init output&amp;start analysis *
+******************************
+
+... Block preconditioning activated.
+NOT IMPLEMENTED
+Read u
+Read force
+Read ele_eps
+Read ele_epsP
+Read ele_sigma
+Read Type max
+open node restart file /home/nasser/mpfem/SLOPE_SOLVER/results/restart_HDF5.nodes.last
+open element restart file /home/nasser/mpfem/SLOPE_SOLVER/results/restart_HDF5.elements.last
+Writing output.
+Time last output     -1.00000e+00
+Current output time   0.00000e+00
+Current output Delta  1.00000e+00
+Min time elapsed since last output  0.00000e+00
+Write_every is 1
+OPEN AN ENSIGHT GEO FILE FOR WRITE, TIME  0.00000e+00
+Mass/vol summary:  m =  0.00000e+00  v =  0.00000e+00 
+Try analysis step 1 dt=1.00000e-02 (target time +1.00000e-02)
+... using ConstInc predictor
+Syncronisation of nodal forces
+Check convergence using a loop over nodes &amp; fields
++-----------------+-------------+-------------+-------------+
+| step 0          |   ||res||   |   ||inc||   | CONVERGENCE |
++-----------------+-------------+-------------+-------------+
+| DISP            |  1.747e+05  |  0.000e+00  |    - | +    |
++-----------------+-------------+-------------+-------------+
+max residuals and increments on nodes
++-------+-------------------------+-------------------------+
+| field |  max||res||     on node |  max||inc||     on node |
++-------+-------------------------+-------------------------+
+| DISP  |   1.620e+04        1216 |   0.000e+00           0 |
++-------+-------------------------+-------------------------+
+NOT CONVERGED
+BGS Type:             GMRES(300)
+Unknowns:         2914
+Memory footprint: 7.41 M
+
+BGS preconditioner : Empty
+Block 0
+Number of levels:    3
+Operator complexity: 1.14
+Grid complexity:     1.11
+
+level     unknowns       nonzeros
+---------------------------------
+    0         2839          48983 (88.09%) [1]
+    1          293           6251 (11.24%) [1]
+    2           27            369 ( 0.66%) [1]
+
+Block 1
+EMPTY
+
+i    0   ||r||_ini= 1.74727e+05         eps= 1.74727e-07
+i   10   ||r||_abs= 9.33344e+02   ||r||_rel= 5.34172e-03
+i   20   ||r||_abs= 3.04330e-02   ||r||_rel= 1.74175e-07
+iters 27 error  6.86648e-13
+Syncronisation can be improved
+-&gt; include residual
+-&gt; optimize communication pattern
+Syncronisation of nodal forces
+Check convergence using a loop over nodes &amp; fields
+Accept res for field DISP based on abs criterium &lt; 1.00e-06 (TOL)
++-----------------+-------------+-------------+-------------+
+| step 1          |   ||res||   |   ||inc||   | CONVERGENCE |
++-----------------+-------------+-------------+-------------+
+| DISP            |  1.201e-07  |  1.556e+00  |    + | -    |
++-----------------+-------------+-------------+-------------+
+max residuals and increments on nodes
++-------+-------------------------+-------------------------+
+| field |  max||res||     on node |  max||inc||     on node |
++-------+-------------------------+-------------------------+
+| DISP  |   1.354e-08         689 |   4.607e-02          91 |
++-------+-------------------------+-------------------------+
+NOT CONVERGED
+BGS Type:             GMRES(300)
+Unknowns:         2914
+Memory footprint: 7.41 M
+
+BGS preconditioner : Empty
+Block 0
+Number of levels:    3
+Operator complexity: 1.14
+Grid complexity:     1.11
+
+level     unknowns       nonzeros
+---------------------------------
+    0         2839          48983 (88.09%) [1]
+    1          293           6251 (11.24%) [1]
+    2           27            369 ( 0.66%) [1]
+
+Block 1
+EMPTY
+
+i    0   ||r||_ini= 1.20146e-07         eps= 1.00000e-07
+iters 1 error  1.13300e-01
+Syncronisation can be improved
+-&gt; include residual
+-&gt; optimize communication pattern
+Syncronisation of nodal forces
+Check convergence using a loop over nodes &amp; fields
+Accept res for field DISP based on abs criterium &lt; 1.00e-06 (TOL)
++-----------------+-------------+-------------+-------------+
+| step 2          |   ||res||   |   ||inc||   | CONVERGENCE |
++-----------------+-------------+-------------+-------------+
+| DISP            |  2.283e-08  |  2.239e-14  |    + | +    |
++-----------------+-------------+-------------+-------------+
+max residuals and increments on nodes
++-------+-------------------------+-------------------------+
+| field |  max||res||     on node |  max||inc||     on node |
++-------+-------------------------+-------------------------+
+| DISP  |   2.887e-09        1137 |   1.417e-15         156 |
++-------+-------------------------+-------------------------+
+CONVERGED IN   2 STEPS (ATTEMPT  1)
+Successful step 1 (t=0.01, dt=0.01, progress: 0%)
+open node restart file /home/nasser/mpfem/SLOPE_SOLVER/results/restart_HDF5.nodes.last
+open element restart file /home/nasser/mpfem/SLOPE_SOLVER/results/restart_HDF5.elements.last
+Writing output.
+Time last output      0.00000e+00
+Current output time   1.00000e-02
+Current output Delta  1.00000e-02
+Min time elapsed since last output  0.00000e+00
+Write_every is 1
+Mass/vol summary:  m =  0.00000e+00  v =  0.00000e+00 
+AdaptLoadTimeIncrement info 2
+Checkpoint facility: checktime is  1.00000e-01, guess  2.15000e-02, old  1.00000e-02 
+.............................................................
+.                        time monitor                       .
+.............................................................
+.                 .    avg (s)  .    min (s)  .    max (s)  .
+. linear_solve    .  1.133e-01  .  1.133e-01  .  1.133e-01  .
+. assembly        .  5.113e-02  .  5.113e-02  .  5.113e-02  .
+. output          .  5.871e-02  .  5.871e-02  .  5.871e-02  .
+. write_restart   .  3.547e-02  .  3.547e-02  .  3.547e-02  .
+. assembly_comm   .  1.550e-04  .  1.550e-04  .  1.550e-04  .
+. element_loop    .  2.654e-01  .  2.654e-01  .  2.654e-01  .
+. ele_material    .  2.646e-02  .  2.646e-02  .  2.646e-02  .
+. ele_matrixloop  .  3.084e-02  .  3.084e-02  .  3.084e-02  .
+. ele_rhsloop     .  1.524e-02  .  1.524e-02  .  1.524e-02  .
+. ele_shapefct    .  1.855e-02  .  1.855e-02  .  1.855e-02  .
+. ele_boundary    .  3.476e-03  .  3.476e-03  .  3.476e-03  .
+. ele_R_dRdq      .  1.876e-01  .  1.876e-01  .  1.876e-01  .
+.............................................................
+. linear_solve    .  1.133e-01  .  1.133e-01  .  1.133e-01  .
+. assembly        .  5.113e-02  .  5.113e-02  .  5.113e-02  .
+. output          .  5.871e-02  .  5.871e-02  .  5.871e-02  .
+. write_restart   .  3.547e-02  .  3.547e-02  .  3.547e-02  .
+. assembly_comm   .  1.550e-04  .  1.550e-04  .  1.550e-04  .
+. element_loop    .  2.654e-01  .  2.654e-01  .  2.654e-01  .
+. ele_material    .  2.646e-02  .  2.646e-02  .  2.646e-02  .
+. ele_matrixloop  .  3.084e-02  .  3.084e-02  .  3.084e-02  .
+. ele_rhsloop     .  1.524e-02  .  1.524e-02  .  1.524e-02  .
+. ele_shapefct    .  1.855e-02  .  1.855e-02  .  1.855e-02  .
+. ele_boundary    .  3.476e-03  .  3.476e-03  .  3.476e-03  .
+. ele_R_dRdq      .  1.876e-01  .  1.876e-01  .  1.876e-01  .
+.............................................................
+. total           :  5.241e-01  =    00m 01s                .
+.............................................................
+
+2021-05-01 12:37:57 CEST (0h 00m 00s)
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-14" class="outline-2">
+<h2 id="headline-14">
+Input
+</h2>
+<div id="outline-text-headline-14" class="outline-text-2">
+<div id="outline-container-headline-15" class="outline-3">
+<h3 id="headline-15">
+Input flags
+</h3>
+<div id="outline-text-headline-15" class="outline-text-3">
+<p>
+Flags:</p>
+<ol>
+<li>
+<p><code class="verbatim">-i</code> input directory</p>
+</li>
+<li>
+<p><code class="verbatim">-f</code> configuration file</p>
+</li>
+<li>
+<p><code class="verbatim">-r</code> results directory</p>
+</li>
+<li>
+<p><code class="verbatim">-o</code> results file</p>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-headline-16" class="outline-3">
+<h3 id="headline-16">
+Input example
+</h3>
+<div id="outline-text-headline-16" class="outline-text-3">
+<div id="outline-container-headline-17" class="outline-4">
+<h4 id="headline-17">
+Files
+</h4>
+<div id="outline-text-headline-17" class="outline-text-4">
+<div class="src src-sh">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#038">cd</span> ~/mpfem/SLOPE_SOLVER
+tree -L <span style="color:#00d;font-weight:bold">2</span></code></pre></div>
+</div>
+<pre class="example">
+.
+├── analysis
+├── analysis~
+├── bc_node
+├── bc_node~
+├── eledata
+├── eledata~
+├── elements
+├── elements~
+├── files
+├── filesAMGCL
+├── filesMUMPS
+├── filesTRILINOS
+├── files~
+├── materialDP
+├── materialDP~
+├── materialHooke
+├── materialHooke~
+├── materialMC
+├── materialMC~
+├── neumann
+├── neumann~
+├── nlsolve
+├── nlsolve~
+├── nodes
+├── nodes~
+├── output
+├── output~
+├── restart
+├── restart~
+├── scaling_space
+├── scaling_space~
+├── scaling_time
+├── scaling_time~
+├── solverAMGCL
+├── solverMUMPS
+├── solverTRILINOS
+├── solver~
+├── steps
+└── steps~
+
+0 directories, 39 files
+</pre>
+</div>
+</div>
+<div id="outline-container-headline-18" class="outline-4">
+<h4 id="headline-18">
+Configuration file
+</h4>
+<div id="outline-text-headline-18" class="outline-text-4">
+<p>
+Contains all files necessary to define and solve the problem.</p>
+<div class="src src-sh">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#038">cd</span> ~/mpfem/SLOPE_SOLVER
+cat filesAMGCL</code></pre></div>
+</div>
+<pre class="example">
+*
+*                   MESH DATA                   
+*-----------------------------------------------
+NODES                   nodes
+ELEMENTS                elements
+*
+*         ELEMENT AND INTEGRATION DATA          
+*-----------------------------------------------
+MATERIAL_DATA           materialDP
+ELEMENT_DATA            eledata
+*
+*              BOUNDARY CONDITIONS              
+*-----------------------------------------------
+BC_DIRICHLET            bc_node
+BC_FLUX                 neumann
+*
+*               SCALING FUNCTIONS               
+*-----------------------------------------------
+SPACE_SCALING           scaling_space
+TIME_SCALING            scaling_time
+*
+*     TIME INTEGRATION AND SOLUTION METHOD      
+*-----------------------------------------------
+ANALYSIS                analysis
+CHECKPOINTS             steps
+*
+*         CONSTRUCTION AND MESH CHANGE               
+*-----------------------------------------------
+*EXCAVATION              excavate
+*CONSTRUCTION            construct
+*               SOLVER PARAMETERS               
+*-----------------------------------------------
+NONLINEAR_SOLVER        nlsolve
+LINEAR_SOLVER           solverAMGCL
+*
+*          OUTPUT AND RESTART REQUESTS          
+*-----------------------------------------------
+RESTART                 restart
+OUTPUT                  output
+</pre>
+</div>
+</div>
+<div id="outline-container-headline-19" class="outline-4">
+<h4 id="headline-19">
+Nodes
+</h4>
+<div id="outline-text-headline-19" class="outline-text-4">
+<p>Nodes coordinates.</p>
+<div class="src src-sh">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#038">cd</span> ~/mpfem/SLOPE_SOLVER
+head -n <span style="color:#00d;font-weight:bold">10</span> nodes</code></pre></div>
+</div>
+<pre class="example">
+    1 ,  4.55000e+01 ,  0.00000e+00
+    2 ,  4.55000e+01 ,  1.00000e+01
+    3 ,  3.75000e+01 ,  1.00000e+01
+    4 ,  3.75000e+01 ,  0.00000e+00
+    5 ,  4.55000e+01 ,  1.12500e+01
+    6 ,  4.25000e+01 ,  1.12500e+01
+    7 ,  5.35000e+01 ,  1.00000e+01
+    8 ,  4.85000e+01 ,  1.12500e+01
+    9 ,  5.35000e+01 ,  0.00000e+00
+   10 ,  5.55000e+01 ,  0.00000e+00
+</pre>
+</div>
+</div>
+<div id="outline-container-headline-20" class="outline-4">
+<h4 id="headline-20">
+Element
+</h4>
+<div id="outline-text-headline-20" class="outline-text-4">
+<p>Contains element type, dimension (?) and list with element ID and connectivity.</p>
+<div class="src src-sh">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#038">cd</span> ~/mpfem/SLOPE_SOLVER
+head -n <span style="color:#00d;font-weight:bold">10</span> elements</code></pre></div>
+</div>
+<pre class="example">
+*-------------------------------
+QUAD 4
+SOLID 2
+# Ele ID, i(I), ...
+  1,   1,  14, 252,  73
+  2,  14,  15, 253, 252
+  3,  15,  16, 254, 253
+  4,  16,  17, 255, 254
+  5,  17,  18, 256, 255
+  6,  18,  19, 257, 256
+</pre>
+</div>
+</div>
+<div id="outline-container-headline-21" class="outline-4">
+<h4 id="headline-21">
+Solver
+</h4>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-22" class="outline-2">
+<h2 id="headline-22">
+Example
+</h2>
+<div id="outline-text-headline-22" class="outline-text-2">
+<div id="outline-container-headline-23" class="outline-3">
+<h3 id="headline-23">
+Results folder
+</h3>
+<div id="outline-text-headline-23" class="outline-text-3">
+<div class="src src-sh">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">mkdir results</code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-24" class="outline-3">
+<h3 id="headline-24">
+Runing the executable
+</h3>
+<div id="outline-text-headline-24" class="outline-text-3">
+<p>
+We need the</p>
+<ol>
+<li>
+<p>singularity container <code class="verbatim">.simg</code>.</p>
+</li>
+<li>
+<p><code class="verbatim">mpFEM/mpFEM</code> goes inside the container and calls the executable.</p>
+</li>
+<li>
+<p>input directory location with the simulation files</p>
+</li>
+<li>
+<p>results location</p>
+</li>
+</ol>
+<div class="src src-shell">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">singularity <span style="color:#038">exec</span> ~/containers/SANDBOX_mpFEM.simg /mpFEM/mpFEM -i=~/containers/slope -f=filesAMGCL -r=~/containers/slope_output -o=results</code></pre></div>
+</div>
+<pre class="example">
+
+2021-06-08 16:56:23 CEST
+
+##############################
+#      Starting mpFEM on     #
+#           1 procs          #
+##############################
+
+-&gt; Using input directory    ~/containers/slope/
+-&gt; Using result directory   ~/containers/slope_output/
+-&gt; Using resultfile         results
+-&gt; Using config file        filesAMGCL
+
+
+Unable to open config file
+~/containers/slope/filesAMGCL
+ABORTING.
+</pre>
+</div>
+</div>
+<div id="outline-container-headline-25" class="outline-3">
+<h3 id="headline-25">
+Output
+</h3>
+<div id="outline-text-headline-25" class="outline-text-3">
+<pre class="example">
+
+2021-05-03 20:10:12 CEST
+
+##############################
+#      Starting mpFEM on     #
+#           1 procs          #
+##############################
+
+-&gt; Using input directory    /home/nasser/mpfem/SLOPE_SOLVER/
+-&gt; Using result directory   results/
+-&gt; Using resultfile         results
+-&gt; Using config file        filesAMGCL
+
+Processing config file
+
+Read input from the following files
+
+-&gt; NODES                    nodes
+-&gt; ELEMENTS                 elements
+-&gt; KNOTS                    -_-
+-&gt; MATERIAL_DATA            materialDP
+-&gt; ELEMENT_DATA             eledata
+-&gt; BC_DIRICHLET             bc_node
+-&gt; BC_FLUX                  neumann
+-&gt; LOCSYS                   -_-
+-&gt; SPACE_SCALING            scaling_space
+-&gt; TIME_SCALING             scaling_time
+-&gt; ANALYSIS                 analysis
+-&gt; CHECKPOINTS              steps
+-&gt; CONSTRUCTION             -_-
+-&gt; EXCAVATION               -_-
+-&gt; COUPLING                 -_-
+-&gt; NONLINEAR_SOLVER         nlsolve
+-&gt; LINEAR_SOLVER            solverAMGCL
+-&gt; RESTART                  restart
+-&gt; OUTPUT                   output
+-&gt; REBAR_BARS               -_-
+-&gt; REBAR_PROP               -_-
+
+
+******************************
+*      input mesh data       *
+******************************
+
+reading restart file: restart
+
+##############################
+#       read coupling        #
+##############################
+
+Master IDs 
+
+Slave IDs 
+
+Matching 0 slave nodes to 0 master nodes
+No master nodes. There is nothing to do.
+
+##############################
+#        read nodes         #
+##############################
+
+There are 1457 nodes in the mesh
+
+##############################
+#      read elements         #
+##############################
+
+PID 0 is aware of  1376 elements in 1 blocks, and expects to receive 1376
+
+##############################
+#  determine parallel mesh   #
+#   layout (call ParMETIS)   #
+##############################
+
+... setup of element graph
+... partitioning of element graph
+... redistribution of elements
+... setup of an appropriate ghosting of nodes
+
+--&gt; Begin setup of element graph
+&lt;-- Completed setup of element graph
+--&gt; Start to generate sendplan for element distribution
+Processor 0
+xadj:   size 1377
+adjncy: size 10536
+
+vtxdist: 
+  0 1376 
+SIZES 8 8 &lt;-&gt; 4 4  | 8 8 8 8 | 4 4 4 8 4 8
+ 1.00000e+00
+&lt;--  successfully generated sendplan for element distribution
+--&gt; Start to redistribute elements according to layout
+&lt;-- Finished to redistribute elements according to layout
+--&gt; Redistribute nodes according to given element layout
+&lt;-- Finished to redistribute nodes according to element layout
+
+##############################
+# generate a grid object
+##############################
+
+... establish tag/id-access methods (maps)
+    for nodes and elements
+
+******************************
+*   input of element data   *
+******************************
+
+##############################
+#      read element data        #
+##############################
+
+contains ... 
+... reduced/full integration flag
+... element specific parameters (except materials)
+will be ... 
+... read
+... communicated to all procs
+... stored at the corresponding elements
+    (prior to material input)
+
+
+*----------------------
+reading a new element data
+name tag is
+Eledata_Rock
+... reading a data block
+*----------------------
+reading a element ids block
+The data was assigned to 1376 elements of type SOLID
+
+******************************
+*   input of material data   *
+******************************
+
+##############################
+#      read materials        #
+##############################
+
+materials are ... 
+... read
+... communicated to all procs
+... stored at the corresponding elements
+
+*----------------------
+reading a new material definition
+name tag is
+SoilDruckerPrager
+TYPE      DruckerPrager (113)
+FORMULATION  TWO_D_PlaneStrain (2)
+primary stress  CAUCHY (1)
+secondary stress  NONE (0)
+... reading a data block
+E                               24.0E6
+NU                              0.2
+TAUY                            5.57E3
+MU                              0.791
+MUBAR                           0.315
+OMEGA                           0.6
+ETA                             0.2
+DENSITY                         2000.0
+POROSITY                        0.0
+STARTUP                         YES
+activate startup
+The data was assigned to 1376 elements
+
+******************************
+*introduce degrees of freedom*
+******************************
+
+##############################
+#  assign degrees of freedom #
+##############################
+
+... determine dof numbering based on node numbering
+%%%%%%%%%%%%%%
+Dof numbers used in computation (name/field/coord):
+        DISP : 1 :  0 
+      DISP_X : 1 :  0 
+      DISP_Y : 1 :  1 
+      DISP_Z : 1 :  2 
+         VEL : 7 :  0 
+       VEL_0 : 7 :  0 
+       VEL_1 : 7 :  1 
+       VEL_2 : 7 :  2 
+           P : 6 
+          PA : 3 
+          PC : 2 
+           T : 4 
+ NLOC_DAMAGE : 5 
+    MICROROT : 8 :  0 
+  MICROROT_0 : 8 :  0 
+  MICROROT_1 : 8 :  1 
+  MICROROT_2 : 8 :  2 
+%%%%%%%%%%%%%%
+
+************************************
+*input of node specific coordinates*
+************************************
+
+x-specific initialisation for spherical or cylindrical coords
+
+******************************
+*input of boundary conditions*
+******************************
+
+##############################
+#  input Dirichlet boundary  #
+#         conditions         #
+##############################
+
+Dirichlet boundary conditions are ...
+... read
+... communicated to all procs
+... stored at the corresponding nodes
+
+*----------------------
+reading a new boundary condition
+name tag is
+BODEN
+this bc covers 1 dofs
+the unique dof ids to use are:
+  1 (field: DISP)
+the values are:
+ 0.00000e+00
+time scaling funtion is 1
+space scaling funtion is 1
+read node ids for this condition
+The condition contained 49 nodes
+*----------------------
+reading a new boundary condition
+name tag is
+Seiten
+this bc covers 1 dofs
+the unique dof ids to use are:
+  0 (field: DISP)
+the values are:
+ 0.00000e+00
+time scaling funtion is 1
+space scaling funtion is 1
+read node ids for this condition
+The condition contained 26 nodes
+
+##############################
+#   input Neumann boundary   #
+#         conditions         #
+##############################
+
+Neumann boundary conditions are ...
+... read
+... communicated to all procs
+... stored as boundary elements at the corresponding elements
+
+*----------------------
+reading a new flux boundary condition
+name tag is
+LOAD_RechteFahrbahn
+acts on side 3 (ABAQUS notation - 1)
+time scaling  funtion is 3
+space scaling funtion is 1
+type is 2
+Time interval ( 1.00000e+00, 1.00000e+10]
+(interval definition might be element specific)
+integer params:
+1
+double params:
+ 9.50000e+04
+read parent ids for this condition
+The condition contained 20 parent elements
+
+##############################
+#  input time/space scaling  #
+#    data (ramp functions)   #
+##############################
+
+reading a new time curve condition
+reading curve id 1
+reading a new time curve condition
+reading curve id 2
+reading a new time curve condition
+reading curve id 3
+reading a new time curve condition
+reading curve id 4
+reading a new time curve condition
+reading curve id 5
+reading a new time curve condition
+reading curve id 6
+reading a new time curve condition
+reading curve id 7
+------------------
+Time scaling:
+Scaling function types (const, lin, ...):
+Id   1   type 1
+Id   2   type 1
+Id   3   type 2
+Id   4   type 2
+Id   5   type 2
+Id   6   type 2
+Id   7   type 2
+Scaling function parameters:
+Id   1   has   4 params
+Id   2   has   4 params
+Id   3   has   6 params
+Id   4   has   4 params
+Id   5   has   4 params
+Id   6   has   4 params
+Id   7   has   4 params
+
+reading a spatial function
+reading a spatial function
+------------------
+Space scaling:
+Scaling function types (const, lin, ...):
+Id   1   type 1
+Id   2   type 1
+Scaling function parameters:
+Id   1   has   1 params
+Id   2   has   1 params
+
+******************************
+*   input of rebar elements  *
+******************************
+
+*  read rebar def from file  *
+
+No rebar input files declared.
+
+******************************
+*  input of analysis params  *
+******************************
+
+reading an analysis
+analysis name: ANALYSIS_GENERAL
+
+The values for the analysis are:
+predictor  = ConstInc
+dt_start   = 1.00000e-02
+dt_min     = 1.00000e-02
+dt_max     = 1.00000e+00
+start      = 0.00000e+00
+end        = 2.00000e+00
+firststep  =0
+maxstep    =1
+delay_inc  =1
+fac_dt_fast= 1.15000e+00
+fac_dt_slow= 7.50000e-01
+fac_dt_fail= 5.00000e-01
+initial field type=ZeroField
+initial field fx=2
+initial field ip  1:  =2
+initial field ip  2:  =3
+initial field dp  1:  = 1.00000e+00
+initial field dp  2:  = 0.00000e+00
+
+
+found keyword *START CHECKPOINT DEFINITION.
+the file position is 29.
+
+found keyword *BEGIN CHECKPOINT.
+the file position is 47.
+
+found keyword *BEGIN CHECKPOINT.
+the file position is 264.
+
+found keyword *BEGIN CHECKPOINT.
+the file position is 480.
+
+search for keyword *BEGIN CHECKPOINT failed.
+Reverting seek position to 675.
+
+found keyword *END CHECKPOINT DEFINITION.
+the file position is -1.
+Checkpoint facility: 3 checkpoints, active id is 0
+------------------
+NUM: 0
+NAME: day_1
+TIME:  1.00000e-01
+RESET STRAINS AT THIS CHECKPOINT
+RESET DT AT THIS CHECKPOINT
+NEW DT    :  1.80000e-01
+NEW DT_MIN:  1.00000e-06
+NEW DT_MAX:  1.00000e+00
+------------------
+NUM: 1
+NAME: day_1
+TIME:  1.00000e+00
+RESET DT AT THIS CHECKPOINT
+NEW DT    :  1.00000e-02
+NEW DT_MIN:  1.00000e-06
+NEW DT_MAX:  1.00000e+00
+------------------
+NUM: 2
+NAME: day_2
+TIME:  2.00000e+00
+
+There are no construction steps defined in the input data. Continuing.
+
+There are no excavation steps defined in the input data. Continuing.
+******************************
+*   input of solver params   *
+******************************
+
+reading solver parameters:
+*SOLVER GENERAL INFORMATION
+*PARAMETERS FOR SCALING
+L&gt;&gt;&gt;&gt; DISP   1.0E0
+R&gt;&gt;&gt;&gt; DISP   1.0E0
+T&gt;&gt;&gt;&gt; DISP   1.0E0
+*PARAMETERS FOR MUMPS DIRECT SOLVER
+*BEGIN_PARAMETERS_FOR_AMGCL
+AMGCL &gt;&gt;&gt;&gt; AMGCL_SOLVER             GMRES
+AMGCL &gt;&gt;&gt;&gt; AMGCL_PSIDE              RIGHT
+AMGCL &gt;&gt;&gt;&gt; AMGCL_BLOCKPRECONDTYPE     BGS
+AMGCL &gt;&gt;&gt;&gt; AMGCL_TOL                 1E-12
+AMGCL &gt;&gt;&gt;&gt; AMGCL_ABSTOL              1E-7
+AMGCL &gt;&gt;&gt;&gt; AMGCL_MAXITER              300
+AMGCL &gt;&gt;&gt;&gt; AMGCL_GMRES_KSPACE         300
+AMGCL &gt;&gt;&gt;&gt; AMGCL_LGMRES_KSPACE_KEEP   300
+AMGCL &gt;&gt;&gt;&gt; AMGCL_LGMRES_ALWAYS_RESET  YES
+AMGCL &gt;&gt;&gt;&gt; AMGCL_IDRS_DIMENSION         9
+AMGCL &gt;&gt;&gt;&gt; AMGCL_IDRS_OMEGA           0.7
+AMGCL &gt;&gt;&gt;&gt; AMGCL_IDRS_SMOOTHING        NO
+AMGCL &gt;&gt;&gt;&gt; AMGCL_IDRS_REPLACE_REC_RES  NO
+AMGCL &gt;&gt;&gt;&gt; AMGCL_BICGSTABL_ORDER        2
+AMGCL &gt;&gt;&gt;&gt; AMGCL_BICGSTABL_THRESH     0.0
+AMGCL &gt;&gt;&gt;&gt; AMGCL_BICGSTABL_USE_CONVEX  NO
+AMGCL &gt;&gt;&gt;&gt; *BEGIN_FIELD_TO_BLOCK_ASSIGNMENT
+AMGCL &gt;&gt;&gt;&gt; DISP 0
+AMGCL &gt;&gt;&gt;&gt; DIRICHLET 1
+AMGCL &gt;&gt;&gt;&gt; *END_FIELD_TO_BLOCK_ASSIGNMENT
+AMGCL &gt;&gt;&gt;&gt; *BEGIN_PARAMETERS_FOR_SUBBLOCK_PRECONDITIONER
+AMGCL &gt;&gt;&gt;&gt; AMGCL_BLOCK_ID                                    0
+AMGCL &gt;&gt;&gt;&gt; AMGCL_BLOCK_PRECOND_CLASS                         AMG
+AMGCL &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_COARSE_ENOUGH                     5
+AMGCL &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_DIRECT_COARSE                     YES
+AMGCL &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_MAX_LEVELS                        3
+AMGCL &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_NPRE                              1
+AMGCL &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_NPOST                             1
+AMGCL &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_NCYCLE                            1
+AMGCL &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_PRE_CYCLES                        1
+AMGCL &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_COARSEN_TYPE                      SMOOTHED_AGGREGATION
+AMGCL &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_COARSEN_BLOCK_SIZE                1
+AMGCL &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_COARSEN_EPS_STRONG                0.08
+AMGCL &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_COARSEN_ESTIMATE_SPECTRAL_RADIUS  YES
+AMGCL &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_COARSEN_POWER_ITERS               10
+AMGCL &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_COARSEN_RELAX                     1.0
+AMGCL &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_COARSEN_OVER_INTERP               1.5
+AMGCL &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_RELAXATION_TYPE                   CHEBYSHEV
+AMGCL &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_RELAXATION_CHEBY_DEGREE           15
+AMGCL &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_RELAXATION_CHEBY_LOWER            0.003
+AMGCL &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_RELAXATION_CHEBY_HIGHER           1.1
+AMGCL &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_RELAXATION_CHEBY_POWER_ITERS      15
+AMGCL &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_RELAXATION_ILU_DAMPING            0.3
+AMGCL &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_RELAXATION_ILU_SERIAL_SOLVE       YES
+AMGCL &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_RELAXATION_ILUK_K                 2
+AMGCL &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_RELAXATION_ILUT_P                 3
+AMGCL &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_RELAXATION_ILUT_TAU               1e-12
+AMGCL &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_RELAXATION_GAUSS_SEIDEL_SERIAL    YES
+AMGCL &gt;&gt;&gt;&gt; *END_PARAMETERS_FOR_SUBBLOCK_PRECONDITIONER
+AMGCL_BLOCK &gt;&gt;&gt;&gt; DISP 0
+AMGCL_BLOCK &gt;&gt;&gt;&gt; DIRICHLET 1
+AMGCL_BLOCK &gt;&gt;&gt;&gt; AMGCL_BLOCK_ID                                    0
+AMGCL_BLOCK &gt;&gt;&gt;&gt; AMGCL_BLOCK_PRECOND_CLASS                         AMG
+AMGCL_BLOCK &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_COARSE_ENOUGH                     5
+AMGCL_BLOCK &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_DIRECT_COARSE                     YES
+AMGCL_BLOCK &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_MAX_LEVELS                        3
+AMGCL_BLOCK &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_NPRE                              1
+AMGCL_BLOCK &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_NPOST                             1
+AMGCL_BLOCK &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_NCYCLE                            1
+AMGCL_BLOCK &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_PRE_CYCLES                        1
+AMGCL_BLOCK &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_COARSEN_TYPE                      SMOOTHED_AGGREGATION
+AMGCL_BLOCK &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_COARSEN_BLOCK_SIZE                1
+AMGCL_BLOCK &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_COARSEN_EPS_STRONG                0.08
+AMGCL_BLOCK &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_COARSEN_ESTIMATE_SPECTRAL_RADIUS  YES
+AMGCL_BLOCK &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_COARSEN_POWER_ITERS               10
+AMGCL_BLOCK &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_COARSEN_RELAX                     1.0
+AMGCL_BLOCK &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_COARSEN_OVER_INTERP               1.5
+AMGCL_BLOCK &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_RELAXATION_TYPE                   CHEBYSHEV
+AMGCL_BLOCK &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_RELAXATION_CHEBY_DEGREE           15
+AMGCL_BLOCK &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_RELAXATION_CHEBY_LOWER            0.003
+AMGCL_BLOCK &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_RELAXATION_CHEBY_HIGHER           1.1
+AMGCL_BLOCK &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_RELAXATION_CHEBY_POWER_ITERS      15
+AMGCL_BLOCK &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_RELAXATION_ILU_DAMPING            0.3
+AMGCL_BLOCK &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_RELAXATION_ILU_SERIAL_SOLVE       YES
+AMGCL_BLOCK &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_RELAXATION_ILUK_K                 2
+AMGCL_BLOCK &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_RELAXATION_ILUT_P                 3
+AMGCL_BLOCK &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_RELAXATION_ILUT_TAU               1e-12
+AMGCL_BLOCK &gt;&gt;&gt;&gt; AMGCL_BLOCK_AMG_RELAXATION_GAUSS_SEIDEL_SERIAL    YES
+Adding DISP 1 to left scaling
+AMGCL
+-----
+ Left scaling for fields:
+ o  1 -&gt;  1.00000e+00
+******************************
+*   setup of linear system   *
+******************************
+
+Linear system block structure
+
+Block -&gt; Fields:
+
+Block Id  0:         DISP (1)
+
+Field -&gt; Block:
+
+Field Id  1 (        DISP): Block  0
+Block Structure has one extra block for Dirichlet dofs, id is 1
+number on this proc  0:
+.. 2914
+******************************
+*  generation of nln system  *
+******************************
+
+reading nonlinear solver parameters
+
+Input of tolerances
+For field (1) DISP
+Input of monotony check params
+For field (1) DISP
+
+******************************
+* init output&amp;start analysis *
+******************************
+
+... Block preconditioning activated.
+NOT IMPLEMENTED
+
+Cannot access output directory results/
+ABORTING.
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+
+              
+                  
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+              
+          </article>
+          
+
+<ul class="tags__list">
+    
+    <li class="tag__item">
+        <a class="tag__link" href="http://localhost:1313/tags/tools/">tools</a>
+    </li>
+    <li class="tag__item">
+        <a class="tag__link" href="http://localhost:1313/tags/c&#43;&#43;/">c&#43;&#43;</a>
+    </li>
+    <li class="tag__item">
+        <a class="tag__link" href="http://localhost:1313/tags/draft/">draft</a>
+    </li></ul>
+
+ <div class="pagination">
+  
+    <a class="pagination__item" href="http://localhost:1313/notes/programming-notes/">
+        <span class="pagination__label">Previous Post</span>
+        <span class="pagination__title">Programming notes</span>
+    </a>
+  
+
+  
+    <a class="pagination__item" href="http://localhost:1313/notes/oneliners-commands/">
+      <span class="pagination__label">Next Post</span>
+      <span class="pagination__title" >One liners commands</span>
+    </a>
+  
+</div>
+
+          <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "nasseralkmim" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+          <footer class="post__footer">
+            
+
+
+<div class="social-icons">
+  
+     
+    
+      <a class="social-icons__link" rel="me" title="Email"
+         href="mailto:nasser.alkmim@gmail.com"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('http://localhost:1313/svg/email.svg')"></div>
+      </a>
+    
+  
+     
+    
+      <a class="social-icons__link" rel="me" title="LinkedIn"
+         href="https://www.linkedin.com/in/nasser-alkmim-300882a6/"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('http://localhost:1313/svg/linkedin.svg')"></div>
+      </a>
+    
+  
+     
+    
+      <a class="social-icons__link" rel="me" title="GitHub"
+         href="https://github.com/nasseralkmim"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('http://localhost:1313/svg/github.svg')"></div>
+      </a>
+    
+  
+     
+    
+      <a class="social-icons__link" rel="me" title="Instagram"
+         href="https://instagram.com/naszr"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('http://localhost:1313/svg/instagram.svg')"></div>
+      </a>
+    
+     
+</div>
+
+            <p>© 2021</p>
+          </footer>
+          </div>
+      </div>
+      
+      <div class="toc-container">
+           <div class="toc-post-title">mpFEM notes</div> 
+        <nav id="TableOfContents">
+<ul>
+<li><a href="#headline-1">Questions</a>
+<ul>
+<li><a href="#headline-2">Solver params</a>
+</li>
+<li><a href="#headline-3">Singularity</a>
+</li>
+<li><a href="#headline-4">Comments</a>
+</li>
+</ul>
+</li>
+<li><a href="#headline-5">Installation</a>
+<ul>
+<li><a href="#headline-6">Configure</a>
+</li>
+</ul>
+</li>
+<li><a href="#headline-7">Singularity</a>
+<ul>
+<li><a href="#headline-8">What is singularity?</a>
+</li>
+<li><a href="#headline-9">Installation</a>
+</li>
+<li><a href="#headline-10">mpFEM container download</a>
+</li>
+<li><a href="#headline-11">mpFEM container</a>
+</li>
+<li><a href="#headline-12">Running inside the container</a>
+</li>
+<li><a href="#headline-13">Command to run the container</a>
+</li>
+</ul>
+</li>
+<li><a href="#headline-14">Input</a>
+<ul>
+<li><a href="#headline-15">Input flags</a>
+</li>
+<li><a href="#headline-16">Input example</a>
+<ul>
+<li><a href="#headline-17">Files</a>
+</li>
+<li><a href="#headline-18">Configuration file</a>
+</li>
+<li><a href="#headline-19">Nodes</a>
+</li>
+<li><a href="#headline-20">Element</a>
+</li>
+<li><a href="#headline-21">Solver</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#headline-22">Example</a>
+<ul>
+<li><a href="#headline-23">Results folder</a>
+</li>
+<li><a href="#headline-24">Runing the executable</a>
+</li>
+<li><a href="#headline-25">Output</a>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+      </div>
+      
+    </div>
+    
+
+  </main>
+
+   
+
+  
+  <script src="/js/index.min.575dda8d49ee02639942c63564273e6da972ab531dda26a08800bdcb477cbd7f.js" integrity="sha256-V13ajUnuAmOZQsY1ZCc&#43;balyq1Md2iagiAC9y0d8vX8=" crossorigin="anonymous"></script>
+  
+  
+  
+
+  
+  
+  
+
+  
+    <script src="/js/table-of-contents.js"></script>
+  
+
+
+</body>
+
+</html>

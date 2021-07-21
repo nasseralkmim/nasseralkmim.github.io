@@ -1,0 +1,18 @@
+*-------------------------------
+ANALYSIS_GENERAL
+PREDICTOR                       ConstInc
+START                           0.0
+END                             2.0
+DT_START                        0.01E-0
+DT_MIN                          0.01
+DT_MAX                          1.0
+DELAY_INCREASE                  1
+INCREASE_DT_FAST                1.15
+DECREASE_DT_SLOW                0.75
+DECREASE_DT_FAILED              0.5
+FIRSTSTEP                       0
+MAXSTEP                         1
+INITIAL_FIELD_TYPE              ZeroField
+INITIAL_FIELD_FX                2 
+INITIAL_FIELD_INT_PARAMS        2 , 3
+INITIAL_FIELD_DOUBLE_PARAMS     1.0,0.0

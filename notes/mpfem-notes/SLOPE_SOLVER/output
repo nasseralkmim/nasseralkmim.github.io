@@ -1,0 +1,29 @@
+*
+* WRITE ONLY EVERY N-TH STEP
+*-------------------------------
+1
+*
+* NODE BASED OUTPUT REQUESTS
+*-------------------------------
+*
+*------------DIRECT-------------
+*
+u      
+force
+*
+*---------INTERPOLATED----------
+*
+*
+* ELEMENT BASED OUTPUT REQUESTS
+*-------------------------------
+*
+ele_eps
+ele_epsP
+ele_sigma
+*
+* REQUESTED ELEMENT OUTPUT TYPE
+*-------------------------------
+max
+*
+* REQUEST OUTPUT ON IP
+*-------------------------------

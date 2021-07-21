@@ -1,22 +1,30 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>crypto on Nasser&#39;s personal website</title>
-    <link>https://nasseralkmim.github.io/tags/crypto/</link>
-    <description>Recent content in crypto on Nasser&#39;s personal website</description>
+    <title>crypto on Notes</title>
+    <link>http://localhost:1313/tags/crypto/</link>
+    <description>Recent content in crypto on Notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© {year}</copyright>
-    <lastBuildDate>Wed, 10 Feb 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/tags/crypto/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 08 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/crypto/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Tether and elasticity of money</title>
+      <link>http://localhost:1313/notes/tether-elasticity/</link>
+      <pubDate>Tue, 08 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/notes/tether-elasticity/</guid>
+      <description>Money as we know today assumes multiple valid forms. It can be gold, currency, securities. Ultimately it represents a means of settling transactions.</description>
+    </item>
+    
     <item>
       <title>Crypto</title>
-      <link>https://nasseralkmim.github.io/notes/crypto/</link>
+      <link>http://localhost:1313/notes/crypto/</link>
       <pubDate>Wed, 10 Feb 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://nasseralkmim.github.io/notes/crypto/</guid>
+      <guid>http://localhost:1313/notes/crypto/</guid>
       <description>Crypto as an asset    no income (like stocks or bonds)
-  no utility (currency as means of payment)
-    Crypto as an alternative to credit  What is credit?   One of the key features of crypto is its manufactured scarcity. Whereas current fiat money can be created by the central bank expansion of its balance sheet (increasing both assets and liabilities).</description>
+  no utility (currency as means of payment)</description>
     </item>
     
   </channel>

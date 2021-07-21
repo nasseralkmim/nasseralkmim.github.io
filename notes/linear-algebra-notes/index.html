@@ -1,0 +1,1390 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>Linear algebra notes | Notes</title>
+
+  <meta charset="UTF-8">
+  <meta name="language" content="en">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  
+  
+
+  <link rel="shortcut icon" type="image/png" href="/favicon.ico" />
+
+
+  
+  
+    
+ 
+  
+  
+  
+  
+  
+  
+    
+    <link type="text/css" rel="stylesheet" href="/css/post.min.9184109084ab0858f4d61e201ec74c667f1e039aaddd71fb8204359b0bae18a1.css" integrity="sha256-kYQQkISrCFj01h4gHsdMZn8eA5qt3XH7ggQ1mwuuGKE="/>
+  
+    
+    <link type="text/css" rel="stylesheet" href="/css/custom.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" integrity="sha256-47DEQpj8HBSa&#43;/TImW&#43;5JCeuQeRkm5NMpJWZG3hSuFU="/>
+  
+  
+   
+   
+    
+
+<script type="application/ld+json">
+  
+    { 
+      "@context": "http://schema.org", 
+      "@type": "WebSite", 
+      "url": "http:\/\/localhost:1313\/notes\/linear-algebra-notes\/",
+      "name": "Linear algebra notes",
+      "author": {
+        "@type": "Person",
+        "name": ""
+      },
+      "description": ""
+    }
+  
+  </script>
+</head>
+
+<body>
+  <div class="burger__container">
+  <div class="burger" aria-controls="navigation" aria-label="Menu">
+    <div class="burger__meat burger__meat--1"></div>
+    <div class="burger__meat burger__meat--2"></div>
+    <div class="burger__meat burger__meat--3"></div>
+  </div>
+</div>
+ 
+
+  <nav class="nav" id="navigation">
+  <ul class="nav__list">
+    
+    
+      <li>
+        <a  href="/">about</a>
+      </li>
+    
+      <li>
+        <a  class="active"
+         href="/notes">notes</a>
+      </li>
+    
+  </ul>
+</nav>
+
+
+  <main>
+    
+    
+
+    <div class="flex-wrapper">
+      <div class="post__container">
+        <div class="post">
+          <header class="post__header">
+            <h1 id="post__title">Linear algebra notes</h1>
+            <time datetime="2021-06-21 00:00:00 &#43;0000 UTC" class="post__date">Jun 21 2021</time> 
+	    
+          </header>
+          <article class="post__content">
+              
+
+<p>Linear algebra examples and visualizations to reinforce the theory.</p>
+<div id="outline-container-headline-1" class="outline-2">
+<h2 id="headline-1">
+Matrices and linear mapping
+</h2>
+<div id="outline-text-headline-1" class="outline-text-2">
+<div id="outline-container-headline-2" class="outline-3">
+<h3 id="headline-2">
+Invertible matrix interpretation
+</h3>
+<div id="outline-text-headline-2" class="outline-text-3">
+<p>A matrix is invertible, means that it can maps a vector into another uniquely.</p>
+<p>
+Analogously to a function map which is invertible when it is bijective.</p>
+<p>
+A linear map is injective if it has non zero determinant.</p>
+<p>
+The image of basis vectors of the domain are linearly independent.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-3" class="outline-2">
+<h2 id="headline-3">
+Determinant and scaling
+</h2>
+<div id="outline-text-headline-3" class="outline-text-2">
+<p>In two dimension it measures the area scaling.</p>
+<p>
+In three dimension, the determinant measures the <strong>scaling</strong> factor the matrix stretches a volume.
+Is the ratio between volumes.</p>
+<p>
+In n-dimension is the hyper-volume scaling.</p>
+<div id="outline-container-headline-4" class="outline-3">
+<h3 id="headline-4">
+Linear mapping the basis vectors
+</h3>
+<div id="outline-text-headline-4" class="outline-text-3">
+<div class="src src-python">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">import</span> <span style="color:#b06;font-weight:bold">numpy</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#b06;font-weight:bold">np</span>
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#b06;font-weight:bold">matplotlib.pyplot</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#b06;font-weight:bold">plt</span>
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#b06;font-weight:bold">matplotlib</span>
+matplotlib.style.use(<span style="color:#d20;background-color:#fff0f0">&#39;ggplot&#39;</span>)
+
+A = np.array([[<span style="color:#00d;font-weight:bold">3</span>, <span style="color:#00d;font-weight:bold">0</span>], [<span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">2</span>]])
+fig, ax = plt.subplots()
+ax.quiver([<span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">0</span>], [<span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">0</span>], A[<span style="color:#00d;font-weight:bold">0</span>, :], A[<span style="color:#00d;font-weight:bold">1</span>, :], units=<span style="color:#d20;background-color:#fff0f0">&#39;xy&#39;</span>, scale=<span style="color:#00d;font-weight:bold">1</span>)
+ax.axis(<span style="color:#d20;background-color:#fff0f0">&#39;scaled&#39;</span>)
+ax.set_xlim(- np.max(A[<span style="color:#00d;font-weight:bold">0</span>, :]) - <span style="color:#00d;font-weight:bold">1</span>, np.max(A[<span style="color:#00d;font-weight:bold">0</span>, :]) + <span style="color:#00d;font-weight:bold">1</span>)
+ax.set_ylim(- np.max(A[<span style="color:#00d;font-weight:bold">1</span>, :]) - <span style="color:#00d;font-weight:bold">1</span>, np.max(A[<span style="color:#00d;font-weight:bold">1</span>, :]) + <span style="color:#00d;font-weight:bold">1</span>)
+ax.add_patch(plt.Rectangle((<span style="color:#00d;font-weight:bold">0</span>,<span style="color:#00d;font-weight:bold">0</span>), <span style="color:#00d;font-weight:bold">1</span>, <span style="color:#00d;font-weight:bold">1</span>, fc=<span style="color:#d20;background-color:#fff0f0">&#39;y&#39;</span>, alpha=.<span style="color:#00d;font-weight:bold">3</span>))
+e1, e2 = np.array([<span style="color:#00d;font-weight:bold">1</span>, <span style="color:#00d;font-weight:bold">0</span>]), np.array([<span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">1</span>])
+ax.add_patch(plt.Rectangle((<span style="color:#00d;font-weight:bold">0</span>,<span style="color:#00d;font-weight:bold">0</span>), A[<span style="color:#00d;font-weight:bold">0</span>,<span style="color:#00d;font-weight:bold">0</span>], A[<span style="color:#00d;font-weight:bold">1</span>,<span style="color:#00d;font-weight:bold">1</span>], fc=<span style="color:#d20;background-color:#fff0f0">&#39;g&#39;</span>, alpha=.<span style="color:#00d;font-weight:bold">1</span>))
+<span style="color:#080;font-weight:bold">print</span>(np.linalg.det(A))</code></pre></div>
+</div>
+<pre class="example">
+6.0
+</pre>
+<p><img src="./jupyter/6e096e31491ca38b47ad89f37ad561a60af54845.png" alt="./jupyter/6e096e31491ca38b47ad89f37ad561a60af54845.png" title="./jupyter/6e096e31491ca38b47ad89f37ad561a60af54845.png" /></p>
+<p>
+Remarks:</p>
+<ol>
+<li>
+<p>determinant: is the scale between the two areas, 1 and 6.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-5" class="outline-2">
+<h2 id="headline-5">
+Condition number and eigenpairs 
+</h2>
+<div id="outline-text-headline-5" class="outline-text-2">
+<div id="outline-container-headline-6" class="outline-3">
+<h3 id="headline-6">
+Linear system
+</h3>
+<div id="outline-text-headline-6" class="outline-text-3">
+<p>
+The RHS is set as the first column of $A$.
+Which means that the &#34;mapped&#34; vector is in the column space of $A$.</p>
+<div class="src src-python">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">import</span> <span style="color:#b06;font-weight:bold">numpy</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#b06;font-weight:bold">np</span>
+np.set_printoptions(precision=<span style="color:#00d;font-weight:bold">3</span>, suppress=True)
+
+A = np.array([[<span style="color:#00d;font-weight:bold">4</span>, <span style="color:#00d;font-weight:bold">6</span>], [<span style="color:#00d;font-weight:bold">3</span>, -<span style="color:#00d;font-weight:bold">2</span>]])
+
+b = A[:, <span style="color:#00d;font-weight:bold">0</span>]
+<span style="color:#080;font-weight:bold">print</span>(A, b)
+x = np.linalg.solve(A, b)
+<span style="color:#080;font-weight:bold">print</span>(x)</code></pre></div>
+</div>
+<pre class="example">
+[[ 4  6]
+ [ 3 -2]] [4 3]
+[ 1. -0.]
+</pre>
+<p>
+Remarks:</p>
+<ol>
+<li>
+<p>columns of $A$ are linearly independent hence there is only one solution to the system.</p>
+</li>
+<li>
+<p>$A$ is not symmetric.</p>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-headline-7" class="outline-3">
+<h3 id="headline-7">
+Visualizing the column space
+</h3>
+<div id="outline-text-headline-7" class="outline-text-3">
+<div class="src src-python">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">import</span> <span style="color:#b06;font-weight:bold">matplotlib.pyplot</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#b06;font-weight:bold">plt</span>
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#b06;font-weight:bold">matplotlib</span>
+matplotlib.style.use(<span style="color:#d20;background-color:#fff0f0">&#39;ggplot&#39;</span>)
+
+fig, ax = plt.subplots()
+ax.quiver([<span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">0</span>], [<span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">0</span>], A[<span style="color:#00d;font-weight:bold">0</span>, :], A[<span style="color:#00d;font-weight:bold">1</span>, :], units=<span style="color:#d20;background-color:#fff0f0">&#39;xy&#39;</span>, scale=<span style="color:#00d;font-weight:bold">1</span>)
+ax.axis(<span style="color:#d20;background-color:#fff0f0">&#39;scaled&#39;</span>)
+ax.set_xlim(np.max(np.abs(A[<span style="color:#00d;font-weight:bold">0</span>, :])) * np.array([-<span style="color:#00d;font-weight:bold">1</span>, <span style="color:#00d;font-weight:bold">1</span>]) * <span style="color:#00d;font-weight:bold">1.1</span>)
+ax.set_ylim(np.max(np.abs(A[<span style="color:#00d;font-weight:bold">1</span>, :])) * np.array([-<span style="color:#00d;font-weight:bold">1</span>, <span style="color:#00d;font-weight:bold">1</span>]) * <span style="color:#00d;font-weight:bold">1.1</span>)</code></pre></div>
+</div>
+<p><img src="./jupyter/83b03df304346254e832815beac8919f185f4ad8.png" alt="./jupyter/83b03df304346254e832815beac8919f185f4ad8.png" title="./jupyter/83b03df304346254e832815beac8919f185f4ad8.png" /></p>
+<p>
+Remarks:</p>
+<ol>
+<li>
+<p>the column vectors are almost linearly dependent</p>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-headline-8" class="outline-3">
+<h3 id="headline-8">
+If we add a perturbation to $b$
+</h3>
+<div id="outline-text-headline-8" class="outline-text-3">
+<div class="src src-python">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">b = A[:, <span style="color:#00d;font-weight:bold">0</span>] + <span style="color:#00d;font-weight:bold">0.01</span>
+<span style="color:#080;font-weight:bold">print</span>(b)
+x = np.linalg.solve(A, b)
+<span style="color:#080;font-weight:bold">print</span>(x)</code></pre></div>
+</div>
+<pre class="example">
+[4.01 3.01]
+[ 1.003 -0.   ]
+</pre>
+<p>
+Remarks:</p>
+<ol>
+<li>
+<p>solution almost did not change.</p>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-headline-9" class="outline-3">
+<h3 id="headline-9">
+Condition number
+</h3>
+<div id="outline-text-headline-9" class="outline-text-3">
+<div class="src src-python">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">cn = np.linalg.norm(A) * np.linalg.norm(np.linalg.inv(A))
+cn2 = np.linalg.norm(A, <span style="color:#038">ord</span>=np.inf) * np.linalg.norm(np.linalg.inv(A), <span style="color:#038">ord</span>=np.inf)
+<span style="color:#080;font-weight:bold">print</span>(cn)
+<span style="color:#080;font-weight:bold">print</span>(cn2)
+<span style="color:#080;font-weight:bold">print</span>(np.linalg.cond(A))
+<span style="color:#080;font-weight:bold">print</span>(np.linalg.cond(A, p=np.inf))</code></pre></div>
+</div>
+<pre class="example">
+2.5
+3.076923076923077
+2.0
+3.076923076923077
+</pre>
+<p>
+Remarks:</p>
+<ol>
+<li>
+<p>default numpy norm function is the Frobenius norm (element wise) $\sum_i (x_i^2)^{1/2}$.</p>
+</li>
+<li>
+<p>the default norm of the condition number is the 2-norm (largest singular value).</p>
+</li>
+<li>
+<p>if $A$ is symmetric the condition number with the 2-norm is related to the eigenvalues relation, because the eigenvalues are related to the singular values.</p>
+</li>
+<li>
+<p>the 2-norm is also known as spectral norm of the matrix.</p>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-headline-10" class="outline-3">
+<h3 id="headline-10">
+Eigenvalues of $A$
+</h3>
+<div id="outline-text-headline-10" class="outline-text-3">
+<div class="src src-python">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">eigvals, eigvec = np.linalg.eig(A)
+<span style="color:#080;font-weight:bold">print</span>(eigvals)
+<span style="color:#080;font-weight:bold">print</span>(np.abs(eigvals.max()) / np.abs(eigvals.min()))
+<span style="color:#080;font-weight:bold">print</span>(np.linalg.cond(A))</code></pre></div>
+</div>
+<pre class="example">
+[ 6.196 -4.196]
+1.4766271094389716
+2.0
+</pre>
+<p>
+Remarks:</p>
+<ol>
+<li>
+<p>no clear relation between the eigenvalues and the condition number.</p>
+<ol>
+<li>
+<p>they are related when the absolute value of eigenvalues are the same as the singular values.</p>
+</li>
+</ol>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-headline-11" class="outline-3">
+<h3 id="headline-11">
+Eigenvectors of $A$
+</h3>
+<div id="outline-text-headline-11" class="outline-text-3">
+<div class="src src-python">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">import</span> <span style="color:#b06;font-weight:bold">matplotlib.pyplot</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#b06;font-weight:bold">plt</span>
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#b06;font-weight:bold">matplotlib</span>
+matplotlib.style.use(<span style="color:#d20;background-color:#fff0f0">&#39;ggplot&#39;</span>)
+
+fig, ax = plt.subplots()
+ax.arrow(*[<span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">0</span>], *eigvec[:, <span style="color:#00d;font-weight:bold">0</span>], color=<span style="color:#d20;background-color:#fff0f0">&#39;k&#39;</span>, width=.<span style="color:#00d;font-weight:bold">02</span>, length_includes_head=True)
+ax.arrow(*[<span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">0</span>], *eigvec[:, <span style="color:#00d;font-weight:bold">1</span>], color=<span style="color:#d20;background-color:#fff0f0">&#39;k&#39;</span>, width=.<span style="color:#00d;font-weight:bold">02</span>, length_includes_head=True)
+ax.axis(<span style="color:#d20;background-color:#fff0f0">&#39;scaled&#39;</span>)
+ax.set_xlim(np.max(np.abs(eigvec[<span style="color:#00d;font-weight:bold">0</span>, :])) * np.array([-<span style="color:#00d;font-weight:bold">1</span>, <span style="color:#00d;font-weight:bold">1</span>]) * <span style="color:#00d;font-weight:bold">1.1</span>)
+ax.set_ylim(np.max(np.abs(eigvec[<span style="color:#00d;font-weight:bold">1</span>, :])) * np.array([-<span style="color:#00d;font-weight:bold">1</span>, <span style="color:#00d;font-weight:bold">1</span>]) * <span style="color:#00d;font-weight:bold">1.1</span>)
+<span style="color:#080;font-weight:bold">print</span>(eigvec[:, <span style="color:#00d;font-weight:bold">0</span>] <span style="color:#a61717;background-color:#e3d2d2">@</span> eigvec[:, <span style="color:#00d;font-weight:bold">1</span>])</code></pre></div>
+</div>
+<pre class="example">
+-0.27735009811261463
+</pre>
+<p><img src="./jupyter/fb584c0309cd44debf544cf85b98719bfe2294de.png" alt="./jupyter/fb584c0309cd44debf544cf85b98719bfe2294de.png" title="./jupyter/fb584c0309cd44debf544cf85b98719bfe2294de.png" /></p>
+<p>
+Remarks:</p>
+<ol>
+<li>
+<p>eigenvectors not orthogonal.</p>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-headline-12" class="outline-3">
+<h3 id="headline-12">
+If $A$ is symmetric
+</h3>
+<div id="outline-text-headline-12" class="outline-text-3">
+<div class="src src-python">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">B = np.copy(A)
+B[<span style="color:#00d;font-weight:bold">1</span>, <span style="color:#00d;font-weight:bold">0</span>] = B[<span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">1</span>]
+eigvals_B, eigvec_B = np.linalg.eig(B)
+<span style="color:#080;font-weight:bold">print</span>(eigvals_B)
+<span style="color:#080;font-weight:bold">print</span>(np.abs(eigvals_B.max()) / np.abs(eigvals_B.min()))
+<span style="color:#080;font-weight:bold">print</span>(np.linalg.cond(B))</code></pre></div>
+</div>
+<pre class="example">
+[ 7.708 -5.708]
+1.3503729060226988
+1.350372906022699
+</pre>
+<p>
+Remarks:</p>
+<ol>
+<li>
+<p>if $A$ is symmetric the condition number is the same as the ration between the max and min absolute value of eigenvalues.</p>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-headline-13" class="outline-3">
+<h3 id="headline-13">
+Eigenvectors of $A$ symmetric
+</h3>
+<div id="outline-text-headline-13" class="outline-text-3">
+<div class="src src-python">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">import</span> <span style="color:#b06;font-weight:bold">matplotlib.pyplot</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#b06;font-weight:bold">plt</span>
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#b06;font-weight:bold">matplotlib</span>
+matplotlib.style.use(<span style="color:#d20;background-color:#fff0f0">&#39;ggplot&#39;</span>)
+
+fig, ax = plt.subplots()
+ax.arrow(*[<span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">0</span>], *eigvec_B[:, <span style="color:#00d;font-weight:bold">0</span>], color=<span style="color:#d20;background-color:#fff0f0">&#39;k&#39;</span>, width=.<span style="color:#00d;font-weight:bold">05</span>)
+ax.arrow(*[<span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">0</span>], *eigvec_B[:, <span style="color:#00d;font-weight:bold">1</span>], color=<span style="color:#d20;background-color:#fff0f0">&#39;k&#39;</span>, width=.<span style="color:#00d;font-weight:bold">05</span>)
+ax.axis(<span style="color:#d20;background-color:#fff0f0">&#39;scaled&#39;</span>)
+ax.set_xlim(<span style="color:#038">max</span>(eigvec_B[<span style="color:#00d;font-weight:bold">0</span>, :], key=<span style="color:#038">abs</span>)*np.array([-<span style="color:#00d;font-weight:bold">1</span>, <span style="color:#00d;font-weight:bold">1</span>])*<span style="color:#00d;font-weight:bold">1.5</span>)
+ax.set_ylim(<span style="color:#038">max</span>(eigvec_B[<span style="color:#00d;font-weight:bold">1</span>, :], key=<span style="color:#038">abs</span>)*np.array([-<span style="color:#00d;font-weight:bold">1</span>, <span style="color:#00d;font-weight:bold">1</span>])*<span style="color:#00d;font-weight:bold">1.5</span>)
+<span style="color:#080;font-weight:bold">print</span>(eigvec_B[:, <span style="color:#00d;font-weight:bold">0</span>] <span style="color:#a61717;background-color:#e3d2d2">@</span> eigvec_B[:, <span style="color:#00d;font-weight:bold">1</span>])</code></pre></div>
+</div>
+<pre class="example">
+0.0
+</pre>
+<p><img src="./jupyter/e640d256be8f7e77e4d4a2fb79b1043182f3dd79.png" alt="./jupyter/e640d256be8f7e77e4d4a2fb79b1043182f3dd79.png" title="./jupyter/e640d256be8f7e77e4d4a2fb79b1043182f3dd79.png" /></p>
+<p>
+Remarks:</p>
+<ol>
+<li>
+<p>eigenvectors orthogonal.</p>
+</li>
+<li>
+<p>the original matrix was not too far from been symmetric.</p>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-headline-14" class="outline-3">
+<h3 id="headline-14">
+$A$ almost singular
+</h3>
+<div id="outline-text-headline-14" class="outline-text-3">
+<p>
+A singular matrix has its determinant equal to zero.</p>
+<div class="src src-python">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">As = np.copy(A) * <span style="color:#00d;font-weight:bold">1.0</span>
+<span style="color:#080;font-weight:bold">print</span>(As)
+<span style="color:#080;font-weight:bold">print</span>(As[<span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">0</span>]*As[<span style="color:#00d;font-weight:bold">1</span>, <span style="color:#00d;font-weight:bold">1</span>]/As[<span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">1</span>])
+As[<span style="color:#00d;font-weight:bold">1</span>, <span style="color:#00d;font-weight:bold">0</span>] = As[<span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">0</span>]*As[<span style="color:#00d;font-weight:bold">1</span>, <span style="color:#00d;font-weight:bold">1</span>]/As[<span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">1</span>] - <span style="color:#00d;font-weight:bold">0.01</span>
+<span style="color:#080;font-weight:bold">print</span>(As)
+<span style="color:#080;font-weight:bold">print</span>(As[<span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">0</span>]*As[<span style="color:#00d;font-weight:bold">1</span>, <span style="color:#00d;font-weight:bold">1</span>] - As[<span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">1</span>]*As[<span style="color:#00d;font-weight:bold">1</span>, <span style="color:#00d;font-weight:bold">0</span>])</code></pre></div>
+</div>
+<pre class="example">
+[[ 4.  6.]
+ [ 3. -2.]]
+-1.3333333333333333
+[[ 4.     6.   ]
+ [-1.343 -2.   ]]
+0.05999999999999872
+</pre>
+<p>
+Remarks:</p>
+<ol>
+<li>
+<p>singular means that the matrix is not invertible and the system has no solution.</p>
+</li>
+<li>
+<p>almost singular by changing the term that would make the  </p>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-headline-15" class="outline-3">
+<h3 id="headline-15">
+Visualizing the almost singular matrix
+</h3>
+<div id="outline-text-headline-15" class="outline-text-3">
+<div class="src src-python">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">import</span> <span style="color:#b06;font-weight:bold">matplotlib.pyplot</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#b06;font-weight:bold">plt</span>
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#b06;font-weight:bold">matplotlib</span>
+matplotlib.style.use(<span style="color:#d20;background-color:#fff0f0">&#39;ggplot&#39;</span>)
+
+fig, ax = plt.subplots()
+ax.arrow(*[<span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">0</span>], *As[:, <span style="color:#00d;font-weight:bold">0</span>], color=<span style="color:#d20;background-color:#fff0f0">&#39;k&#39;</span>, width=.<span style="color:#00d;font-weight:bold">05</span>, length_includes_head=True)
+ax.arrow(*[<span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">0</span>], *As[:, <span style="color:#00d;font-weight:bold">1</span>], color=<span style="color:#d20;background-color:#fff0f0">&#39;r&#39;</span>, width=.<span style="color:#00d;font-weight:bold">05</span>, length_includes_head=True)
+ax.set_xlim(np.max(np.abs(As[<span style="color:#00d;font-weight:bold">0</span>, :])) * np.array([-<span style="color:#00d;font-weight:bold">1</span>, <span style="color:#00d;font-weight:bold">1</span>]) * <span style="color:#00d;font-weight:bold">1.1</span>)
+ax.set_ylim(np.max(np.abs(As[<span style="color:#00d;font-weight:bold">1</span>, :])) * np.array([-<span style="color:#00d;font-weight:bold">1</span>, <span style="color:#00d;font-weight:bold">1</span>]) * <span style="color:#00d;font-weight:bold">1.1</span>)
+ax.axis(<span style="color:#d20;background-color:#fff0f0">&#39;scaled&#39;</span>)</code></pre></div>
+</div>
+<p><img src="./jupyter/373d0440f6ebc8955bbdb71536e5c88c833ba2cf.png" alt="./jupyter/373d0440f6ebc8955bbdb71536e5c88c833ba2cf.png" title="./jupyter/373d0440f6ebc8955bbdb71536e5c88c833ba2cf.png" /></p>
+<p>
+Remarks</p>
+<ol>
+<li>
+<p>almost linear dependent vector columns.</p>
+</li>
+<li>
+<p>system close to singularity, with no unique solution, without inverse.</p>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-headline-16" class="outline-3">
+<h3 id="headline-16">
+Eigenvectors of $A$ almost singular
+</h3>
+<div id="outline-text-headline-16" class="outline-text-3">
+<div class="src src-python">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">import</span> <span style="color:#b06;font-weight:bold">matplotlib.pyplot</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#b06;font-weight:bold">plt</span>
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#b06;font-weight:bold">matplotlib</span>
+matplotlib.style.use(<span style="color:#d20;background-color:#fff0f0">&#39;ggplot&#39;</span>)
+
+eigvalue_As, eigvec_As = np.linalg.eig(As)
+
+fig, ax = plt.subplots()
+ax.arrow(*[<span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">0</span>], *eigvec_As[:, <span style="color:#00d;font-weight:bold">0</span>], color=<span style="color:#d20;background-color:#fff0f0">&#39;k&#39;</span>, width=.<span style="color:#00d;font-weight:bold">02</span>, length_includes_head=True)
+ax.arrow(*[<span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">0</span>], *eigvec_As[:, <span style="color:#00d;font-weight:bold">1</span>], color=<span style="color:#d20;background-color:#fff0f0">&#39;r&#39;</span>, width=.<span style="color:#00d;font-weight:bold">02</span>, length_includes_head=True)
+ax.axis(<span style="color:#d20;background-color:#fff0f0">&#39;scaled&#39;</span>)
+ax.set_xlim(np.max(np.abs(eigvec_As[<span style="color:#00d;font-weight:bold">0</span>, :])) * np.array([-<span style="color:#00d;font-weight:bold">1</span>, <span style="color:#00d;font-weight:bold">1</span>]) * <span style="color:#00d;font-weight:bold">1.1</span>)
+ax.set_ylim(np.max(np.abs(eigvec_As[<span style="color:#00d;font-weight:bold">1</span>, :])) * np.array([-<span style="color:#00d;font-weight:bold">1</span>, <span style="color:#00d;font-weight:bold">1</span>]) * <span style="color:#00d;font-weight:bold">1.1</span>)</code></pre></div>
+</div>
+<p><img src="./jupyter/480594e6f18d9be87ac823a7b2b0001293751a8e.png" alt="./jupyter/480594e6f18d9be87ac823a7b2b0001293751a8e.png" title="./jupyter/480594e6f18d9be87ac823a7b2b0001293751a8e.png" /></p>
+<p>
+Remarks:</p>
+<ol>
+<li>
+<p>eigenvectors almost with the same direction, linearly dependent.</p>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-headline-17" class="outline-3">
+<h3 id="headline-17">
+Effects on singularity on condition number
+</h3>
+<div id="outline-text-headline-17" class="outline-text-3">
+<div class="src src-python">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">print</span>(np.linalg.cond(As))</code></pre></div>
+</div>
+<pre class="example">
+963.4080360922819
+</pre>
+<p>
+Remarks:</p>
+<ol>
+<li>
+<p>large condition number when matrix is close to singular.</p>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-headline-18" class="outline-3">
+<h3 id="headline-18">
+Effect of large condition number on eigenvalues
+</h3>
+<div id="outline-text-headline-18" class="outline-text-3">
+<div class="src src-python">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">print</span>(np.linalg.eigvals(As))
+<span style="color:#080;font-weight:bold">print</span>(np.linalg.eigvals(A))</code></pre></div>
+</div>
+<pre class="example">
+[1.97 0.03]
+[ 6.196 -4.196]
+</pre>
+<p>
+Remarks:</p>
+<ol>
+<li>
+<p>eigenvalue close to zero because matrix is close to be singular (zero determinant, no inverse).</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-19" class="outline-2">
+<h2 id="headline-19">
+Singular values and eigenvalues of Gram matrix
+</h2>
+<div id="outline-text-headline-19" class="outline-text-2">
+<div id="outline-container-headline-20" class="outline-3">
+<h3 id="headline-20">
+Krylov subspace matrix
+</h3>
+<div id="outline-text-headline-20" class="outline-text-3">
+<div class="src src-python">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">import</span> <span style="color:#b06;font-weight:bold">numpy</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#b06;font-weight:bold">np</span>
+np.set_printoptions(<span style="color:#00d;font-weight:bold">3</span>, suppress=True)
+n = <span style="color:#00d;font-weight:bold">4</span>
+krylov_dimension = <span style="color:#00d;font-weight:bold">4</span>
+
+A = np.diagflat(np.arange(<span style="color:#00d;font-weight:bold">1</span>, n+<span style="color:#00d;font-weight:bold">1</span>))
+b = np.ones(n)
+K = np.empty((n, krylov_dimension))
+K[:, <span style="color:#00d;font-weight:bold">0</span>] = b
+<span style="color:#080;font-weight:bold">for</span> k <span style="color:#080">in</span> <span style="color:#038">range</span>(<span style="color:#00d;font-weight:bold">1</span>, krylov_dimension):
+    K[:, k] = A**k <span style="color:#a61717;background-color:#e3d2d2">@</span> b
+<span style="color:#080;font-weight:bold">print</span>(A)
+<span style="color:#080;font-weight:bold">print</span>(b)
+<span style="color:#080;font-weight:bold">print</span>(K)
+<span style="color:#080;font-weight:bold">print</span>(<span style="color:#d20;background-color:#fff0f0">&#39;cond(K): &#39;</span>, np.linalg.cond(K))</code></pre></div>
+</div>
+<pre class="example">
+[[1 0 0 0]
+ [0 2 0 0]
+ [0 0 3 0]
+ [0 0 0 4]]
+[1. 1. 1. 1.]
+[[ 1.  1.  1.  1.]
+ [ 1.  2.  4.  8.]
+ [ 1.  3.  9. 27.]
+ [ 1.  4. 16. 64.]]
+cond(K):  1171.012685914989
+</pre>
+<p>
+Remarks:</p>
+<ol>
+<li>
+<p>Krylov matrix is very ill conditioned. Why?</p>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-headline-21" class="outline-3">
+<h3 id="headline-21">
+Eigenvalues of the Krylov matrix
+</h3>
+<div id="outline-text-headline-21" class="outline-text-3">
+<div class="src src-python">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">eigval = np.linalg.eigvals(K)
+<span style="color:#080;font-weight:bold">print</span>(eigval)
+
+_, singval, _ = np.linalg.svd(K)
+<span style="color:#080;font-weight:bold">print</span>(singval)</code></pre></div>
+</div>
+<pre class="example">
+[71.599  3.62   0.717  0.065]
+[72.554  3.655  0.73   0.062]
+</pre>
+<p>
+Remarks:</p>
+<ol>
+<li>
+<p>wide range between maximum and minimum.</p>
+</li>
+<li>
+<p>the Krylov matrix is not symmetric, therefore the eigenvalues are not the condition number.</p>
+<ol>
+<li>
+<p>but they are close.</p>
+</li>
+</ol>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-headline-22" class="outline-3">
+<h3 id="headline-22">
+Gram matrix derived from the Krylov matrix
+</h3>
+<div id="outline-text-headline-22" class="outline-text-3">
+<div class="src src-python">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">Ks = K.T <span style="color:#a61717;background-color:#e3d2d2">@</span> K                    <span style="color:#888">#  Gram matrix</span>
+<span style="color:#080;font-weight:bold">print</span>(Ks)
+
+eigval = np.linalg.eigvals(Ks)
+<span style="color:#080;font-weight:bold">print</span>(eigval)
+<span style="color:#080;font-weight:bold">print</span>(eigval**(.<span style="color:#00d;font-weight:bold">5</span>))
+
+_, singval, _ = np.linalg.svd(K)
+<span style="color:#080;font-weight:bold">print</span>(singval)
+<span style="color:#080;font-weight:bold">print</span>(singval**<span style="color:#00d;font-weight:bold">2</span>)</code></pre></div>
+</div>
+<pre class="example">
+[[   4.   10.   30.  100.]
+ [  10.   30.  100.  354.]
+ [  30.  100.  354. 1300.]
+ [ 100.  354. 1300. 4890.]]
+[5264.103   13.359    0.533    0.004]
+[72.554  3.655  0.73   0.062]
+[72.554  3.655  0.73   0.062]
+[5264.103   13.359    0.533    0.004]
+</pre>
+<p>
+Remarks:</p>
+<ol>
+<li>
+<p>Gram matrix is the inner products between the columns of the Krylov matrix.</p>
+<ol>
+<li>
+<p>larger the inner product means large projection, means that they are almost &#34;pointing&#34; in the same direction, almost a scale of the other, almost linearly dependent.</p>
+</li>
+<li>
+<p>if the columns are almost linearly dependent the system is almost singular.</p>
+</li>
+<li>
+<p>Gram matrix measures how independent are the column vectors.</p>
+</li>
+</ol>
+</li>
+<li>
+<p>the eigenvalues of the Gram matrix are the square of the singular values of the Krylov matrix.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-23" class="outline-2">
+<h2 id="headline-23">
+Ill conditioning almost singular matrix
+</h2>
+<div id="outline-text-headline-23" class="outline-text-2">
+<div id="outline-container-headline-24" class="outline-3">
+<h3 id="headline-24">
+Definition
+</h3>
+<div id="outline-text-headline-24" class="outline-text-3">
+<p>We want to solve the linear system $Ax=b$.
+This means we want to find a linear combination of $col(A)$ that returns $b$.
+Or, alternatively, we want to check if $b$ is in the space defined by the columns of $A$, $b \in col(A)$?</p>
+<p>
+When columns of $A$ are ill-conditioned, the ratio of the singular values range is large.
+The singular values are related to the eigenvalues of the $A^T A$ symmetric matrix by $\sigma^2 = eigvals(A^T A)$.
+The condition number $\kappa = \sigma_1 / \sigma_r$, where $\sigma_1$ is the maximum and $\sigma_r$ the minimum.
+Also, the condition number is defined by $ \lVert A \rVert \lVert A^{-1} \rVert$.</p>
+</div>
+</div>
+<div id="outline-container-headline-25" class="outline-3">
+<h3 id="headline-25">
+Column vectors almost same direction
+</h3>
+<div id="outline-text-headline-25" class="outline-text-3">
+<div class="src src-python">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">import</span> <span style="color:#b06;font-weight:bold">numpy</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#b06;font-weight:bold">np</span>
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#b06;font-weight:bold">matplotlib.pyplot</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#b06;font-weight:bold">plt</span>
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#b06;font-weight:bold">matplotlib</span>
+matplotlib.style.use(<span style="color:#d20;background-color:#fff0f0">&#39;ggplot&#39;</span>)
+np.set_printoptions(precision=<span style="color:#00d;font-weight:bold">3</span>, suppress=True)
+
+e = <span style="color:#00d;font-weight:bold">1e-6</span>
+A = np.array([[<span style="color:#00d;font-weight:bold">1</span>, <span style="color:#00d;font-weight:bold">1</span>], [<span style="color:#00d;font-weight:bold">1</span>, <span style="color:#00d;font-weight:bold">1</span> - e]])
+<span style="color:#080;font-weight:bold">print</span>(A)
+b = np.array([<span style="color:#00d;font-weight:bold">20</span>, <span style="color:#00d;font-weight:bold">20</span> - <span style="color:#00d;font-weight:bold">10</span> * e])
+<span style="color:#080;font-weight:bold">print</span>(b)
+x = np.linalg.solve(A, b)
+<span style="color:#080;font-weight:bold">print</span>(x)
+fig, ax = plt.subplots()
+ax.arrow(*[<span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">0</span>], *A[<span style="color:#00d;font-weight:bold">0</span>, :], color=<span style="color:#d20;background-color:#fff0f0">&#39;k&#39;</span>, width=.<span style="color:#00d;font-weight:bold">01</span>, length_includes_head=True)
+ax.arrow(*[<span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">0</span>], *A[<span style="color:#00d;font-weight:bold">1</span>, :], color=<span style="color:#d20;background-color:#fff0f0">&#39;k&#39;</span>, width=.<span style="color:#00d;font-weight:bold">01</span>, length_includes_head=True)
+ax.axis(<span style="color:#d20;background-color:#fff0f0">&#39;scaled&#39;</span>)
+<span style="color:#080;font-weight:bold">print</span>(np.linalg.det(A))</code></pre></div>
+</div>
+<pre class="example">
+[[1. 1.]
+ [1. 1.]]
+[20. 20.]
+[10. 10.]
+-1.000000000028756e-06
+</pre>
+<p><img src="./jupyter/06a4ea41f3820401f695a018e21da174064461e8.png" alt="./jupyter/06a4ea41f3820401f695a018e21da174064461e8.png" title="./jupyter/06a4ea41f3820401f695a018e21da174064461e8.png" /></p>
+<p>
+Remarks:</p>
+<ol>
+<li>
+<p>the second equation is slightly different from the first, just has an minor error.</p>
+</li>
+<li>
+<p>imperceptible difference in the direction.</p>
+</li>
+<li>
+<p>matrix almost singular, no inverse, determinant close to 0, columns close to be linearly dependent.</p>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-headline-26" class="outline-3">
+<h3 id="headline-26">
+Slight change in the second matrix
+</h3>
+<div id="outline-text-headline-26" class="outline-text-3">
+<div class="src src-python">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">e = <span style="color:#00d;font-weight:bold">1e-6</span>
+A = np.array([[<span style="color:#00d;font-weight:bold">1</span>, <span style="color:#00d;font-weight:bold">1</span>], [<span style="color:#00d;font-weight:bold">1</span>, <span style="color:#00d;font-weight:bold">1</span> + e]])
+<span style="color:#080;font-weight:bold">print</span>(A)
+b = np.array([<span style="color:#00d;font-weight:bold">20</span>, <span style="color:#00d;font-weight:bold">20</span> - <span style="color:#00d;font-weight:bold">10</span> * e])
+<span style="color:#080;font-weight:bold">print</span>(b)
+x = np.linalg.solve(A, b)
+<span style="color:#080;font-weight:bold">print</span>(x)</code></pre></div>
+</div>
+<pre class="example">
+[[1. 1.]
+ [1. 1.]]
+[20. 20.]
+[ 30. -10.]
+</pre>
+<p>
+Remarks:</p>
+<ol>
+<li>
+<p>just changed the sign on second diagonal, the solution completely changed from [10, 10] to [30, -10].</p>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-headline-27" class="outline-3">
+<h3 id="headline-27">
+Eigenvectors and eigenvalues
+</h3>
+<div id="outline-text-headline-27" class="outline-text-3">
+<div class="src src-python">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">eigval, eigvec = np.linalg.eig(A)
+<span style="color:#080;font-weight:bold">print</span>(<span style="color:#d20;background-color:#fff0f0">&#39;eigenvalues: &#39;</span>, eigval)
+<span style="color:#080;font-weight:bold">print</span>(<span style="color:#d20;background-color:#fff0f0">&#39;eigenvectors: &#39;</span>, eigvec)
+<span style="color:#080;font-weight:bold">print</span>(<span style="color:#d20;background-color:#fff0f0">&#39;eigenvectors orthogonal? &#39;</span>, eigvec[:, <span style="color:#00d;font-weight:bold">0</span>].T <span style="color:#a61717;background-color:#e3d2d2">@</span> eigvec[:, <span style="color:#00d;font-weight:bold">1</span>] == <span style="color:#00d;font-weight:bold">0</span>)
+<span style="color:#080;font-weight:bold">print</span>(<span style="color:#d20;background-color:#fff0f0">&#39;determinant A: &#39;</span>, np.linalg.det(A))
+_, singval, _ = np.linalg.svd(A)
+<span style="color:#080;font-weight:bold">print</span>(<span style="color:#d20;background-color:#fff0f0">&#39;singular values: &#39;</span>, singval, singval == eigval)
+
+fig, ax = plt.subplots()
+ax.arrow(*[<span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">0</span>], *eigvec[:, <span style="color:#00d;font-weight:bold">0</span>], color=<span style="color:#d20;background-color:#fff0f0">&#39;k&#39;</span>, width=.<span style="color:#00d;font-weight:bold">02</span>, length_includes_head=True)
+ax.arrow(*[<span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">0</span>], *eigvec[:, <span style="color:#00d;font-weight:bold">1</span>], color=<span style="color:#d20;background-color:#fff0f0">&#39;k&#39;</span>, width=.<span style="color:#00d;font-weight:bold">02</span>, length_includes_head=True)
+ax.axis(<span style="color:#d20;background-color:#fff0f0">&#39;scaled&#39;</span>)</code></pre></div>
+</div>
+<pre class="example">
+eigenvalues:  [ 1.99999950e+00 -5.00000125e-07]
+eigenvectors:  [[ 0.70710696 -0.7071066 ]
+ [ 0.7071066   0.70710696]]
+eigenvectors orthogonal?  True
+determinant A:  -1.000000000028756e-06
+singular values:  [1.99999950e+00 5.00000125e-07] [False False]
+</pre>
+<p><img src="./jupyter/5e21e1f808e073b7f8abdc28b8f730f54231509a.png" alt="./jupyter/5e21e1f808e073b7f8abdc28b8f730f54231509a.png" title="./jupyter/5e21e1f808e073b7f8abdc28b8f730f54231509a.png" /></p>
+<p>
+Remarks:</p>
+<ol>
+<li>
+<p>eigenvectors are orthogonal (we can see from figure, and dot product equal to 0)</p>
+</li>
+<li>
+<p>one eigenvalue is <span style="text-decoration: underline;">negative</span> and almost zero</p>
+</li>
+<li>
+<p>determinant almost zero, sign of almost singular matrix, no inverse</p>
+</li>
+<li>
+<p>singular values resemble the eigenvalues</p>
+<ol>
+<li>
+<p><span style="text-decoration: underline;">singular values are always positive</span></p>
+</li>
+<li>
+<p>singular values and eigenvalues are the same when the matrix is normal</p>
+</li>
+</ol>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-headline-28" class="outline-3">
+<h3 id="headline-28">
+Gram matrix
+</h3>
+<div id="outline-text-headline-28" class="outline-text-3">
+<div class="src src-python">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">eigval, eigvec = np.linalg.eig(A.T <span style="color:#a61717;background-color:#e3d2d2">@</span> A)
+<span style="color:#080;font-weight:bold">print</span>(<span style="color:#d20;background-color:#fff0f0">&#39;Gram matrix: &#39;</span>, A.T <span style="color:#a61717;background-color:#e3d2d2">@</span> A)
+<span style="color:#080;font-weight:bold">print</span>(<span style="color:#d20;background-color:#fff0f0">&#39;eigenvalues: &#39;</span>, eigval)
+<span style="color:#080;font-weight:bold">print</span>(<span style="color:#d20;background-color:#fff0f0">&#39;square route of eigenvalues: &#39;</span>, np.sqrt(eigval))
+<span style="color:#080;font-weight:bold">print</span>(<span style="color:#d20;background-color:#fff0f0">&#39;eigenvectors: &#39;</span>, eigvec)
+<span style="color:#080;font-weight:bold">print</span>(<span style="color:#d20;background-color:#fff0f0">&#39;eigenvectors orthogonal? &#39;</span>, eigvec[:, <span style="color:#00d;font-weight:bold">0</span>].T <span style="color:#a61717;background-color:#e3d2d2">@</span> eigvec[:, <span style="color:#00d;font-weight:bold">1</span>] == <span style="color:#00d;font-weight:bold">0</span>)
+<span style="color:#080;font-weight:bold">print</span>(<span style="color:#d20;background-color:#fff0f0">&#39;determinant A: &#39;</span>, np.linalg.det(A))
+_, singval, _ = np.linalg.svd(A)
+<span style="color:#080;font-weight:bold">print</span>(<span style="color:#d20;background-color:#fff0f0">&#39;singular values: &#39;</span>, singval, np.isclose(singval, np.sqrt(eigval), atol=<span style="color:#00d;font-weight:bold">1e-8</span>))
+
+fig, ax = plt.subplots()
+ax.arrow(*[<span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">0</span>], *eigvec[:, <span style="color:#00d;font-weight:bold">0</span>], color=<span style="color:#d20;background-color:#fff0f0">&#39;k&#39;</span>, width=.<span style="color:#00d;font-weight:bold">02</span>, length_includes_head=True)
+ax.arrow(*[<span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">0</span>], *eigvec[:, <span style="color:#00d;font-weight:bold">1</span>], color=<span style="color:#d20;background-color:#fff0f0">&#39;k&#39;</span>, width=.<span style="color:#00d;font-weight:bold">02</span>, length_includes_head=True)
+ax.axis(<span style="color:#d20;background-color:#fff0f0">&#39;scaled&#39;</span>)</code></pre></div>
+</div>
+<pre class="example">
+Gram matrix:  [[2.       1.999999]
+ [1.999999 1.999998]]
+eigenvalues:  [3.99999800e+00 2.49800181e-13]
+square route of eigenvalues:  [1.99999950e+00 4.99800141e-07]
+eigenvectors:  [[ 0.70710696 -0.7071066 ]
+ [ 0.7071066   0.70710696]]
+eigenvectors orthogonal?  True
+determinant A:  -1.000000000028756e-06
+singular values:  [1.99999950e+00 5.00000125e-07] [ True  True]
+</pre>
+<p><img src="./jupyter/5e21e1f808e073b7f8abdc28b8f730f54231509a.png" alt="./jupyter/5e21e1f808e073b7f8abdc28b8f730f54231509a.png" title="./jupyter/5e21e1f808e073b7f8abdc28b8f730f54231509a.png" /></p>
+<p>
+Remarks:</p>
+<ol>
+<li>
+<p>Gram matrix is symmetric.</p>
+</li>
+<li>
+<p>columns of gram matrix almost the same, because projection of vectors that point almost to the same direction.</p>
+</li>
+<li>
+<p>one eigenvalue of the Gram matrix is almost zero.</p>
+</li>
+<li>
+<p>singular value is the same as the square route of eigenvalues of the Gram matrix.</p>
+</li>
+<li>
+<p>one singular value is close to zero, which makes the condition number high</p>
+</li>
+<li>
+<p>even with orthogonal eigenvectors, the condition number can be high.</p>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-headline-29" class="outline-3">
+<h3 id="headline-29">
+Condition number
+</h3>
+<div id="outline-text-headline-29" class="outline-text-3">
+<div class="src src-python">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">print</span>(np.linalg.cond(A))
+<span style="color:#080;font-weight:bold">print</span>(np.linalg.norm(A) * np.linalg.norm(np.linalg.inv(A)))
+<span style="color:#080;font-weight:bold">print</span>(np.abs(eigval[<span style="color:#00d;font-weight:bold">0</span>]) / np.abs(eigval[<span style="color:#00d;font-weight:bold">1</span>]))
+<span style="color:#080;font-weight:bold">print</span>(np.abs(singval[<span style="color:#00d;font-weight:bold">0</span>]) / np.abs(singval[<span style="color:#00d;font-weight:bold">1</span>]))</code></pre></div>
+</div>
+<pre class="example">
+3999997.999702917
+3999997.9998859772
+3999998.000240916
+3999997.999702917
+</pre>
+<p>
+Remarks:</p>
+<ol>
+<li>
+<p>condition number is very large (good condition number is 1).</p>
+</li>
+<li>
+<p>eigenvalue approximate the condition number because they are similar to singular values.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-30" class="outline-2">
+<h2 id="headline-30">
+Ill conditioning matrix with large discrepancies but non singular
+</h2>
+<div id="outline-text-headline-30" class="outline-text-2">
+<div id="outline-container-headline-31" class="outline-3">
+<h3 id="headline-31">
+Column vectors almost same direction but nonsingular
+</h3>
+<div id="outline-text-headline-31" class="outline-text-3">
+<div class="src src-python">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">import</span> <span style="color:#b06;font-weight:bold">numpy</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#b06;font-weight:bold">np</span>
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#b06;font-weight:bold">matplotlib.pyplot</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#b06;font-weight:bold">plt</span>
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#b06;font-weight:bold">matplotlib</span>
+matplotlib.style.use(<span style="color:#d20;background-color:#fff0f0">&#39;ggplot&#39;</span>)
+np.set_printoptions(precision=<span style="color:#00d;font-weight:bold">3</span>, suppress=True)
+
+e = <span style="color:#00d;font-weight:bold">100</span>
+A = np.array([[<span style="color:#00d;font-weight:bold">1</span>, e], [<span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">2</span>]])
+<span style="color:#080;font-weight:bold">print</span>(A)
+b = np.array([<span style="color:#00d;font-weight:bold">20</span>, <span style="color:#00d;font-weight:bold">20</span> - <span style="color:#00d;font-weight:bold">10</span> * e])
+<span style="color:#080;font-weight:bold">print</span>(b)
+x = np.linalg.solve(A, b)
+<span style="color:#080;font-weight:bold">print</span>(x)
+fig, ax = plt.subplots()
+ax.arrow(*[<span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">0</span>], *A[<span style="color:#00d;font-weight:bold">0</span>, :], color=<span style="color:#d20;background-color:#fff0f0">&#39;k&#39;</span>, width=.<span style="color:#00d;font-weight:bold">02</span>, length_includes_head=True)
+ax.arrow(*[<span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">0</span>], *A[<span style="color:#00d;font-weight:bold">1</span>, :], color=<span style="color:#d20;background-color:#fff0f0">&#39;k&#39;</span>, width=.<span style="color:#00d;font-weight:bold">02</span>, length_includes_head=True)
+ax.axis(<span style="color:#d20;background-color:#fff0f0">&#39;scaled&#39;</span>)
+<span style="color:#080;font-weight:bold">print</span>(np.linalg.det(A))</code></pre></div>
+</div>
+<pre class="example">
+[[  1 100]
+ [  0   2]]
+[  20 -980]
+[49020.  -490.]
+2.0
+</pre>
+<p><img src="./jupyter/7e1231caab2394283f632673dd43ba0cc8ef1a0f.png" alt="./jupyter/7e1231caab2394283f632673dd43ba0cc8ef1a0f.png" title="./jupyter/7e1231caab2394283f632673dd43ba0cc8ef1a0f.png" /></p>
+<p>
+Remarks:</p>
+<ol>
+<li>
+<p>columns very different but linearly independent.</p>
+</li>
+<li>
+<p>because of large value in on dimension, it appears that they point in the same direction.</p>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-headline-32" class="outline-3">
+<h3 id="headline-32">
+Effects of linear transformation by this matrix
+</h3>
+<div id="outline-text-headline-32" class="outline-text-3">
+<p>
+If we imagine the linear transformation of this matrix into the canonical base, we get as result the columns of $A$.
+The linear transformation for the whole space would create a huge distortion due the difference in magnitude.</p>
+<p>
+Remarks:</p>
+<ol>
+<li>
+<p>the condition number is associated with the distortion of the linear transformation.</p>
+<ol>
+<li>
+<p>from the definition $\kappa = \lVert A \rVert_2 \lVert A^{-1} \rVert_2$ and $\lVert A \rVert_2 = max \lVert A x \rVert_2 / \lVert x \rVert_2$ .</p>
+</li>
+<li>
+<p>the maximum singular value is related to the maximum distortion produced by the linear transformation.</p>
+</li>
+</ol>
+</li>
+<li>
+<p>large values in the columns produce large distortions hence large condition number.</p>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-headline-33" class="outline-3">
+<h3 id="headline-33">
+Eigenvalues and eigenvectors
+</h3>
+<div id="outline-text-headline-33" class="outline-text-3">
+<p>
+Matrix is triangular, the eigenvalues are the diagonal members because $det(A - I a[i, i])=0$, so $a[i, i]$ is an eigenvalue.</p>
+<div class="src src-python">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">eigval, eigvec = np.linalg.eig(A)
+<span style="color:#080;font-weight:bold">print</span>(<span style="color:#d20;background-color:#fff0f0">&#39;eigenvalues: &#39;</span>, eigval)
+<span style="color:#080;font-weight:bold">print</span>(<span style="color:#d20;background-color:#fff0f0">&#39;eigenvectors: &#39;</span>, eigvec)
+<span style="color:#080;font-weight:bold">print</span>(<span style="color:#d20;background-color:#fff0f0">&#39;eigenvectors orthogonal? &#39;</span>, eigvec[:, <span style="color:#00d;font-weight:bold">0</span>].T <span style="color:#a61717;background-color:#e3d2d2">@</span> eigvec[:, <span style="color:#00d;font-weight:bold">1</span>] == <span style="color:#00d;font-weight:bold">0</span>)
+<span style="color:#080;font-weight:bold">print</span>(<span style="color:#d20;background-color:#fff0f0">&#39;determinant A: &#39;</span>, np.linalg.det(A))
+_, singval, _ = np.linalg.svd(A)
+<span style="color:#080;font-weight:bold">print</span>(<span style="color:#d20;background-color:#fff0f0">&#39;singular values: &#39;</span>, singval, singval == eigval)
+
+fig, ax = plt.subplots()
+ax.arrow(*[<span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">0</span>], *eigvec[:, <span style="color:#00d;font-weight:bold">0</span>], color=<span style="color:#d20;background-color:#fff0f0">&#39;k&#39;</span>, width=.<span style="color:#00d;font-weight:bold">02</span>, length_includes_head=True)
+ax.arrow(*[<span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">0</span>], *eigvec[:, <span style="color:#00d;font-weight:bold">1</span>], color=<span style="color:#d20;background-color:#fff0f0">&#39;k&#39;</span>, width=.<span style="color:#00d;font-weight:bold">02</span>, length_includes_head=True)
+ax.axis(<span style="color:#d20;background-color:#fff0f0">&#39;scaled&#39;</span>)</code></pre></div>
+</div>
+<pre class="example">
+eigenvalues:  [1. 2.]
+eigenvectors:  [[1.   1.  ]
+ [0.   0.01]]
+eigenvectors orthogonal?  False
+determinant A:  2.0
+singular values:  [100.025   0.02 ] [False False]
+</pre>
+<p><img src="./jupyter/92a73b6788815a8b7f9fc7a18f5946130010266d.png" alt="./jupyter/92a73b6788815a8b7f9fc7a18f5946130010266d.png" title="./jupyter/92a73b6788815a8b7f9fc7a18f5946130010266d.png" /></p>
+<p>
+Remarks:</p>
+<ol>
+<li>
+<p>eigenvalues are well behaved.</p>
+</li>
+<li>
+<p><span style="text-decoration: underline;">eigenvectors point almost in the same direction.</span></p>
+</li>
+<li>
+<p>determinant is different from zero, matrix is non singular.</p>
+</li>
+<li>
+<p>eigenvalues are very different from singular values.</p>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-headline-34" class="outline-3">
+<h3 id="headline-34">
+Condition number
+</h3>
+<div id="outline-text-headline-34" class="outline-text-3">
+<div class="src src-python">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">print</span>(np.linalg.cond(A))
+<span style="color:#080;font-weight:bold">print</span>(np.linalg.norm(A) * np.linalg.norm(np.linalg.inv(A)))
+<span style="color:#080;font-weight:bold">print</span>(np.abs(eigval[<span style="color:#00d;font-weight:bold">0</span>]) / np.abs(eigval[<span style="color:#00d;font-weight:bold">1</span>]))
+<span style="color:#080;font-weight:bold">print</span>(np.abs(singval[<span style="color:#00d;font-weight:bold">0</span>]) / np.abs(singval[<span style="color:#00d;font-weight:bold">1</span>]))</code></pre></div>
+</div>
+<pre class="example">
+5002.499800099941
+5002.499999999999
+0.5
+5002.499800099941
+</pre>
+<p>
+Remarks:</p>
+<ol>
+<li>
+<p>condition number is high because eigenvectors point almost to the same direction.</p>
+</li>
+<li>
+<p>if the discrepancy in the off diagonal increases the condition number also increases, but the eigenvalues stay the same.</p>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-headline-35" class="outline-3">
+<h3 id="headline-35">
+Gram matrix
+</h3>
+<div id="outline-text-headline-35" class="outline-text-3">
+<div class="src src-python">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">G = A.T <span style="color:#a61717;background-color:#e3d2d2">@</span> A
+eigval, eigvec = np.linalg.eig(G)
+<span style="color:#080;font-weight:bold">print</span>(<span style="color:#d20;background-color:#fff0f0">&#39;Gram matrix: &#39;</span>, G)
+<span style="color:#080;font-weight:bold">print</span>(<span style="color:#d20;background-color:#fff0f0">&#39;eigenvalues: &#39;</span>, eigval)
+<span style="color:#080;font-weight:bold">print</span>(<span style="color:#d20;background-color:#fff0f0">&#39;square route of eigenvalues: &#39;</span>, np.sqrt(eigval))
+<span style="color:#080;font-weight:bold">print</span>(<span style="color:#d20;background-color:#fff0f0">&#39;eigenvectors: &#39;</span>, eigvec)
+<span style="color:#080;font-weight:bold">print</span>(<span style="color:#d20;background-color:#fff0f0">&#39;eigenvectors orthogonal? &#39;</span>, eigvec[:, <span style="color:#00d;font-weight:bold">0</span>].T <span style="color:#a61717;background-color:#e3d2d2">@</span> eigvec[:, <span style="color:#00d;font-weight:bold">1</span>] == <span style="color:#00d;font-weight:bold">0</span>)
+<span style="color:#080;font-weight:bold">print</span>(<span style="color:#d20;background-color:#fff0f0">&#39;determinant A: &#39;</span>, np.linalg.det(A))
+<span style="color:#080;font-weight:bold">print</span>(<span style="color:#d20;background-color:#fff0f0">&#39;determinant G: &#39;</span>, np.linalg.det(G))
+_, singval, _ = np.linalg.svd(A)
+<span style="color:#080;font-weight:bold">print</span>(<span style="color:#d20;background-color:#fff0f0">&#39;singular values: &#39;</span>, singval, np.isclose(singval, np.sqrt(eigval), atol=<span style="color:#00d;font-weight:bold">1e-8</span>))
+
+fig, ax = plt.subplots()
+ax.arrow(*[<span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">0</span>], *eigvec[:, <span style="color:#00d;font-weight:bold">0</span>], color=<span style="color:#d20;background-color:#fff0f0">&#39;k&#39;</span>, width=.<span style="color:#00d;font-weight:bold">02</span>, length_includes_head=True)
+ax.arrow(*[<span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">0</span>], *eigvec[:, <span style="color:#00d;font-weight:bold">1</span>], color=<span style="color:#d20;background-color:#fff0f0">&#39;k&#39;</span>, width=.<span style="color:#00d;font-weight:bold">02</span>, length_includes_head=True)
+ax.axis(<span style="color:#d20;background-color:#fff0f0">&#39;scaled&#39;</span>)
+
+fig, ax = plt.subplots()
+ax.arrow(*[<span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">0</span>], *G[:, <span style="color:#00d;font-weight:bold">0</span>], color=<span style="color:#d20;background-color:#fff0f0">&#39;k&#39;</span>, width=.<span style="color:#00d;font-weight:bold">02</span>, length_includes_head=True)
+ax.arrow(*[<span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">0</span>], *G[:, <span style="color:#00d;font-weight:bold">1</span>], color=<span style="color:#d20;background-color:#fff0f0">&#39;k&#39;</span>, width=.<span style="color:#00d;font-weight:bold">02</span>, length_includes_head=True)
+ax.axis(<span style="color:#d20;background-color:#fff0f0">&#39;scaled&#39;</span>)</code></pre></div>
+</div>
+<pre class="example">
+Gram matrix:  [[    1   100]
+ [  100 10004]]
+eigenvalues:  [    0. 10005.]
+square route of eigenvalues:  [  0.02  100.025]
+eigenvectors:  [[-1.   -0.01]
+ [ 0.01 -1.  ]]
+eigenvectors orthogonal?  True
+determinant A:  2.0
+determinant G:  4.000000000000628
+singular values:  [100.025   0.02 ] [False False]
+</pre>
+<p><img src="./jupyter/b9b76a34195945c9389dc8ee18ec09dd9262683f.png" alt="./jupyter/b9b76a34195945c9389dc8ee18ec09dd9262683f.png" title="./jupyter/b9b76a34195945c9389dc8ee18ec09dd9262683f.png" /></p>
+<p><img src="./jupyter/b6a5f3e7bddaae8987d9c4e4f280b6deaf05f984.png" alt="./jupyter/b6a5f3e7bddaae8987d9c4e4f280b6deaf05f984.png" title="./jupyter/b6a5f3e7bddaae8987d9c4e4f280b6deaf05f984.png" /></p>
+<p>
+Remarks:</p>
+<ol>
+<li>
+<p>Gram matrix will have columns pointing to almost the same direction, just because of the scale.</p>
+<ol>
+<li>
+<p>not singular, determinant different from 0.</p>
+</li>
+<li>
+<p>columns of $A$ almost pointing in the same direction because of scale will make columns of Gram almost linearly dependent.</p>
+</li>
+</ol>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-36" class="outline-2">
+<h2 id="headline-36">
+References
+</h2>
+<div id="outline-text-headline-36" class="outline-text-2">
+<ul>
+<li>
+<p><a href="https://blogs.mathworks.com/cleve/2017/07/17/what-is-the-condition-number-of-a-matrix/">What is the Condition Number of a Matrix? » Cleve’s Corner: Cleve Moler on Ma…</a></p>
+</li>
+</ul>
+</div>
+</div>
+
+
+              
+                  
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+              
+          </article>
+          
+
+<ul class="tags__list">
+    
+    <li class="tag__item">
+        <a class="tag__link" href="http://localhost:1313/tags/draft/">draft</a>
+    </li>
+    <li class="tag__item">
+        <a class="tag__link" href="http://localhost:1313/tags/python/">python</a>
+    </li>
+    <li class="tag__item">
+        <a class="tag__link" href="http://localhost:1313/tags/linear-algebra/">linear algebra</a>
+    </li></ul>
+
+ <div class="pagination">
+  
+    <a class="pagination__item" href="http://localhost:1313/notes/coffee-collection/">
+        <span class="pagination__label">Previous Post</span>
+        <span class="pagination__title">Coffee collection</span>
+    </a>
+  
+
+  
+    <a class="pagination__item" href="http://localhost:1313/notes/javascript-notes/">
+      <span class="pagination__label">Next Post</span>
+      <span class="pagination__title" >Javascript notes</span>
+    </a>
+  
+</div>
+
+          <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "nasseralkmim" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+          <footer class="post__footer">
+            
+
+
+<div class="social-icons">
+  
+     
+    
+      <a class="social-icons__link" rel="me" title="Email"
+         href="mailto:nasser.alkmim@gmail.com"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('http://localhost:1313/svg/email.svg')"></div>
+      </a>
+    
+  
+     
+    
+      <a class="social-icons__link" rel="me" title="LinkedIn"
+         href="https://www.linkedin.com/in/nasser-alkmim-300882a6/"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('http://localhost:1313/svg/linkedin.svg')"></div>
+      </a>
+    
+  
+     
+    
+      <a class="social-icons__link" rel="me" title="GitHub"
+         href="https://github.com/nasseralkmim"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('http://localhost:1313/svg/github.svg')"></div>
+      </a>
+    
+  
+     
+    
+      <a class="social-icons__link" rel="me" title="Instagram"
+         href="https://instagram.com/naszr"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('http://localhost:1313/svg/instagram.svg')"></div>
+      </a>
+    
+     
+</div>
+
+            <p>© 2021</p>
+          </footer>
+          </div>
+      </div>
+      
+      <div class="toc-container">
+           <div class="toc-post-title">Linear algebra notes</div> 
+        <nav id="TableOfContents">
+<ul>
+<li><a href="#headline-1">Matrices and linear mapping</a>
+<ul>
+<li><a href="#headline-2">Invertible matrix interpretation</a>
+</li>
+</ul>
+</li>
+<li><a href="#headline-3">Determinant and scaling</a>
+<ul>
+<li><a href="#headline-4">Linear mapping the basis vectors</a>
+</li>
+</ul>
+</li>
+<li><a href="#headline-5">Condition number and eigenpairs </a>
+<ul>
+<li><a href="#headline-6">Linear system</a>
+</li>
+<li><a href="#headline-7">Visualizing the column space</a>
+</li>
+<li><a href="#headline-8">If we add a perturbation to $b$</a>
+</li>
+<li><a href="#headline-9">Condition number</a>
+</li>
+<li><a href="#headline-10">Eigenvalues of $A$</a>
+</li>
+<li><a href="#headline-11">Eigenvectors of $A$</a>
+</li>
+<li><a href="#headline-12">If $A$ is symmetric</a>
+</li>
+<li><a href="#headline-13">Eigenvectors of $A$ symmetric</a>
+</li>
+<li><a href="#headline-14">$A$ almost singular</a>
+</li>
+<li><a href="#headline-15">Visualizing the almost singular matrix</a>
+</li>
+<li><a href="#headline-16">Eigenvectors of $A$ almost singular</a>
+</li>
+<li><a href="#headline-17">Effects on singularity on condition number</a>
+</li>
+<li><a href="#headline-18">Effect of large condition number on eigenvalues</a>
+</li>
+</ul>
+</li>
+<li><a href="#headline-19">Singular values and eigenvalues of Gram matrix</a>
+<ul>
+<li><a href="#headline-20">Krylov subspace matrix</a>
+</li>
+<li><a href="#headline-21">Eigenvalues of the Krylov matrix</a>
+</li>
+<li><a href="#headline-22">Gram matrix derived from the Krylov matrix</a>
+</li>
+</ul>
+</li>
+<li><a href="#headline-23">Ill conditioning almost singular matrix</a>
+<ul>
+<li><a href="#headline-24">Definition</a>
+</li>
+<li><a href="#headline-25">Column vectors almost same direction</a>
+</li>
+<li><a href="#headline-26">Slight change in the second matrix</a>
+</li>
+<li><a href="#headline-27">Eigenvectors and eigenvalues</a>
+</li>
+<li><a href="#headline-28">Gram matrix</a>
+</li>
+<li><a href="#headline-29">Condition number</a>
+</li>
+</ul>
+</li>
+<li><a href="#headline-30">Ill conditioning matrix with large discrepancies but non singular</a>
+<ul>
+<li><a href="#headline-31">Column vectors almost same direction but nonsingular</a>
+</li>
+<li><a href="#headline-32">Effects of linear transformation by this matrix</a>
+</li>
+<li><a href="#headline-33">Eigenvalues and eigenvectors</a>
+</li>
+<li><a href="#headline-34">Condition number</a>
+</li>
+<li><a href="#headline-35">Gram matrix</a>
+</li>
+</ul>
+</li>
+<li><a href="#headline-36">References</a>
+</li>
+</ul>
+</nav>
+      </div>
+      
+    </div>
+    
+
+  </main>
+
+   
+
+  
+  <script src="/js/index.min.575dda8d49ee02639942c63564273e6da972ab531dda26a08800bdcb477cbd7f.js" integrity="sha256-V13ajUnuAmOZQsY1ZCc&#43;balyq1Md2iagiAC9y0d8vX8=" crossorigin="anonymous"></script>
+  
+  
+  
+
+  
+  
+  
+
+  
+    <script src="/js/table-of-contents.js"></script>
+  
+
+
+</body>
+
+</html>

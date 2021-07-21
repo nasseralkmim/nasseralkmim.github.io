@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>C&#43;&#43; numerics | Notes</title>
+
+  <meta charset="UTF-8">
+  <meta name="language" content="en">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  
+  
+
+  <link rel="shortcut icon" type="image/png" href="/favicon.ico" />
+
+
+  
+  
+    
+ 
+  
+  
+  
+  
+  
+  
+    
+    <link type="text/css" rel="stylesheet" href="/css/post.min.9184109084ab0858f4d61e201ec74c667f1e039aaddd71fb8204359b0bae18a1.css" integrity="sha256-kYQQkISrCFj01h4gHsdMZn8eA5qt3XH7ggQ1mwuuGKE="/>
+  
+    
+    <link type="text/css" rel="stylesheet" href="/css/custom.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" integrity="sha256-47DEQpj8HBSa&#43;/TImW&#43;5JCeuQeRkm5NMpJWZG3hSuFU="/>
+  
+  
+   
+   
+    
+
+<script type="application/ld+json">
+  
+    { 
+      "@context": "http://schema.org", 
+      "@type": "WebSite", 
+      "url": "http:\/\/localhost:1313\/notes\/cpp-numerics\/",
+      "name": "C\u002b\u002b numerics",
+      "author": {
+        "@type": "Person",
+        "name": ""
+      },
+      "description": ""
+    }
+  
+  </script>
+</head>
+
+<body>
+  <div class="burger__container">
+  <div class="burger" aria-controls="navigation" aria-label="Menu">
+    <div class="burger__meat burger__meat--1"></div>
+    <div class="burger__meat burger__meat--2"></div>
+    <div class="burger__meat burger__meat--3"></div>
+  </div>
+</div>
+ 
+
+  <nav class="nav" id="navigation">
+  <ul class="nav__list">
+    
+    
+      <li>
+        <a  href="/">about</a>
+      </li>
+    
+      <li>
+        <a  class="active"
+         href="/notes">notes</a>
+      </li>
+    
+  </ul>
+</nav>
+
+
+  <main>
+    
+    
+
+    <div class="flex-wrapper">
+      <div class="post__container">
+        <div class="post">
+          <header class="post__header">
+            <h1 id="post__title">C&#43;&#43; numerics</h1>
+            <time datetime="2021-05-31 00:00:00 &#43;0000 UTC" class="post__date">May 31 2021</time> 
+	    
+          </header>
+          <article class="post__content">
+              
+
+<div id="outline-container-headline-1" class="outline-2">
+<h2 id="headline-1">
+Prologue
+</h2>
+<div id="outline-text-headline-1" class="outline-text-2">
+<p>Bellow are my notes on using C++ for numerical applications.
+Multiple sources are used, I will cite them at the end or whenever appropriate.</p>
+<p>
+I&#39;m using org-mode with org-babel to document as many details as possible for it to be reproducible.</p>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(<span style="color:#06b;font-weight:bold">print</span>  <span style="color:#369">org-version</span>)</code></pre></div>
+</div>
+<pre class="example">
+9.4.6
+</pre>
+<div class="src src-shell">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">g++ --version</code></pre></div>
+</div>
+<pre class="example">
+g++ (Ubuntu 9.4.0-1ubuntu1~20.04) 9.4.0
+Copyright (C) 2019 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+</pre>
+</div>
+</div>
+<div id="outline-container-headline-2" class="outline-2">
+<h2 id="headline-2">
+Eigen
+</h2>
+<div id="outline-text-headline-2" class="outline-text-2">
+<div id="outline-container-headline-3" class="outline-3">
+<h3 id="headline-3">
+What is it?
+</h3>
+<div id="outline-text-headline-3" class="outline-text-3">
+<p>A template library for linear algebra.
+It has clean and elegant API.</p>
+</div>
+</div>
+<div id="outline-container-headline-4" class="outline-3">
+<h3 id="headline-4">
+How get it?
+</h3>
+<div id="outline-text-headline-4" class="outline-text-3">
+<p>Download and extract Eigen&#39;s source code from the git repository.</p>
+<div class="src src-shell">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#038">cd</span> ~
+git clone https://gitlab.com/libeigen/eigen.git</code></pre></div>
+</div>
+<div class="src src-shell">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#038">cd</span> ~/eigen
+ls -la</code></pre></div>
+</div>
+<pre class="example">
+total 244
+drwxr-xr-x 17 nasser nasser  4096 Jun  2 07:50 .
+drwxr-xr-x 21 nasser nasser  4096 Jun  2 07:49 ..
+drwxr-xr-x  8 nasser nasser  4096 Jun  2 07:50 .git
+-rw-r--r--  1 nasser nasser   292 Jun  2 07:50 .gitignore
+drwxr-xr-x  4 nasser nasser  4096 Jun  2 07:50 .gitlab
+-rw-r--r--  1 nasser nasser   571 Jun  2 07:50 .gitlab-ci.yml
+-rw-r--r--  1 nasser nasser   180 Jun  2 07:50 .hgeol
+-rw-r--r--  1 nasser nasser 24557 Jun  2 07:50 CMakeLists.txt
+-rw-r--r--  1 nasser nasser 11362 Jun  2 07:50 COPYING.APACHE
+-rw-r--r--  1 nasser nasser  1517 Jun  2 07:50 COPYING.BSD
+-rw-r--r--  1 nasser nasser 35147 Jun  2 07:50 COPYING.GPL
+-rw-r--r--  1 nasser nasser 26530 Jun  2 07:50 COPYING.LGPL
+-rw-r--r--  1 nasser nasser  2193 Jun  2 07:50 COPYING.MINPACK
+-rw-r--r--  1 nasser nasser 16726 Jun  2 07:50 COPYING.MPL2
+-rw-r--r--  1 nasser nasser   779 Jun  2 07:50 COPYING.README
+-rw-r--r--  1 nasser nasser   584 Jun  2 07:50 CTestConfig.cmake
+-rw-r--r--  1 nasser nasser   180 Jun  2 07:50 CTestCustom.cmake.in
+drwxr-xr-x  3 nasser nasser  4096 Jun  2 07:50 Eigen
+-rw-r--r--  1 nasser nasser  1145 Jun  2 07:50 INSTALL
+-rw-r--r--  1 nasser nasser   288 Jun  2 07:50 README.md
+drwxr-xr-x  6 nasser nasser  4096 Jun  2 07:50 bench
+drwxr-xr-x  5 nasser nasser  4096 Jun  2 07:50 blas
+drwxr-xr-x  2 nasser nasser  4096 Jun  2 07:50 ci
+drwxr-xr-x  2 nasser nasser  4096 Jun  2 07:50 cmake
+drwxr-xr-x  4 nasser nasser  4096 Jun  2 07:50 debug
+drwxr-xr-x  5 nasser nasser  4096 Jun  2 07:50 demos
+drwxr-xr-x  5 nasser nasser  4096 Jun  2 07:50 doc
+-rw-r--r--  1 nasser nasser   254 Jun  2 07:50 eigen3.pc.in
+drwxr-xr-x  2 nasser nasser  4096 Jun  2 07:50 failtest
+drwxr-xr-x  2 nasser nasser  4096 Jun  2 07:50 lapack
+drwxr-xr-x  2 nasser nasser  4096 Jun  2 07:50 scripts
+-rw-r--r--  1 nasser nasser   216 Jun  2 07:50 signature_of_eigen3_matrix_library
+drwxr-xr-x  2 nasser nasser 12288 Jun  2 07:50 test
+drwxr-xr-x  6 nasser nasser  4096 Jun  2 07:50 unsupported
+</pre>
+</div>
+</div>
+<div id="outline-container-headline-5" class="outline-3">
+<h3 id="headline-5">
+How to use it?
+</h3>
+<div id="outline-text-headline-5" class="outline-text-3">
+<p>
+Because it is a header only, you only need to <span style="text-decoration: underline;">tell the compiler where those header files are</span>.
+There is no library to link to.</p>
+<p>
+We do that by using the compiler flag <code class="verbatim">-I &lt;path&gt;</code> to include a path.
+In a org-mode source block we use the <code class="verbatim">:flags</code> header argument.</p>
+<div class="src src-c++">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#c00;font-weight:bold">#include</span> <span style="color:#c00;font-weight:bold">&lt;iostream&gt;</span><span style="color:#c00;font-weight:bold">
+</span><span style="color:#c00;font-weight:bold">#include</span> <span style="color:#c00;font-weight:bold">&lt;Eigen/Dense&gt;</span><span style="color:#c00;font-weight:bold">
+</span><span style="color:#c00;font-weight:bold"></span>
+<span style="color:#888;font-weight:bold">int</span> <span style="color:#06b;font-weight:bold">main</span> () {
+Eigen::Matrix&lt;<span style="color:#888;font-weight:bold">double</span>, <span style="color:#00d;font-weight:bold">2</span>, <span style="color:#00d;font-weight:bold">2</span>&gt; A;
+A &lt;&lt; <span style="color:#00d;font-weight:bold">2</span>, <span style="color:#00d;font-weight:bold">2</span>, <span style="color:#00d;font-weight:bold">3</span>, <span style="color:#00d;font-weight:bold">4</span>;
+std::cout &lt;&lt; A;
+}</code></pre></div>
+</div>
+<pre class="example">
+2 2
+3 4
+</pre>
+<p>
+Only problem is that <code class="verbatim">lsp-org</code> is not aware of the library file.</p>
+</div>
+</div>
+<div id="outline-container-headline-6" class="outline-3">
+<h3 id="headline-6">
+Using with sub-tree properties header arguments
+</h3>
+<div id="outline-text-headline-6" class="outline-text-3">
+<p>
+Using the following properties for the sub-tree.</p>
+<pre class="example">
+:PROPERTIES:
+:header-args:C++: :flags -I ~/eigen/
+END:
+</pre>
+<p>
+This way, I don&#39;t need to write the compiler flag on the src-blocks under this sub-tree.</p>
+<div class="src src-c++">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#c00;font-weight:bold">#include</span> <span style="color:#c00;font-weight:bold">&lt;iostream&gt;</span><span style="color:#c00;font-weight:bold">
+</span><span style="color:#c00;font-weight:bold">#include</span> <span style="color:#c00;font-weight:bold">&lt;Eigen/Dense&gt;</span><span style="color:#c00;font-weight:bold">
+</span><span style="color:#c00;font-weight:bold"></span>
+<span style="color:#888;font-weight:bold">int</span> <span style="color:#06b;font-weight:bold">main</span> () {
+Eigen::Matrix&lt;<span style="color:#888;font-weight:bold">double</span>, <span style="color:#00d;font-weight:bold">2</span>, <span style="color:#00d;font-weight:bold">2</span>&gt; A;
+A &lt;&lt; <span style="color:#00d;font-weight:bold">2</span>, <span style="color:#00d;font-weight:bold">2</span>, <span style="color:#00d;font-weight:bold">3</span>, <span style="color:#00d;font-weight:bold">4</span>;
+std::cout &lt;&lt; A;
+}</code></pre></div>
+</div>
+<pre class="example">
+2 2
+3 4
+</pre>
+</div>
+</div>
+<div id="outline-container-headline-7" class="outline-3">
+<h3 id="headline-7">
+Adding it to the <code class="verbatim">/usr/local/include</code> folder via symlink
+</h3>
+<div id="outline-text-headline-7" class="outline-text-3">
+<p>
+The <code class="verbatim">/usr/local/include</code> is the directory where local programs are placed to they can be found by the compiler when included.
+The local directory is used to install a library <span style="text-decoration: underline;">outside</span> of the context of the package manager (<code class="verbatim">apt</code>).</p>
+<div class="src src-shell">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo ln -s ~/eigen /usr/local/include</code></pre></div>
+</div>
+<p>
+We can see the symbolic link with with</p>
+<div class="src src-shell">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">ls -l /usr/local/include | grep eigen</code></pre></div>
+</div>
+<pre class="example">
+lrwxrwxrwx 1 root root    18 Jun  2 08:22 eigen -&gt; /home/nasser/eigen
+</pre>
+<p>
+Does not work with out of the box with org-babel.
+From <a href="https://wiki.freebsd.org/WarnerLosh/UsrLocal">WarnerLosh/UsrLocal - FreeBSD Wiki</a>, we can see that <code class="verbatim">clang</code> and <code class="verbatim">gcc</code> have include paths containing <code class="verbatim">/usr/include</code> by default but not <code class="verbatim">/usr/local/include</code>.
+Org-babel is using <code class="verbatim">g++</code> by default <code class="verbatim">(print org-babel-C++-compiler)&#34;g++&#34;.</code>
+<code class="verbatim">gcc</code> is the compiler collections from the GNU project and <code class="verbatim">g++</code> is the command to compile a C++ program.</p>
+<p>
+Where is <code class="verbatim">gcc</code> looking for header files?</p>
+<div class="src src-shell">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">cpp -v</code></pre></div>
+</div>
+<pre class="example">
+# 1 &#34;&lt;stdin&gt;&#34;
+# 1 &#34;&lt;built-in&gt;&#34;
+# 1 &#34;&lt;command-line&gt;&#34;
+# 31 &#34;&lt;command-line&gt;&#34;
+# 1 &#34;/usr/include/stdc-predef.h&#34; 1 3 4
+# 32 &#34;&lt;command-line&gt;&#34; 2
+# 1 &#34;&lt;stdin&gt;&#34;
+</pre>
+<div class="src src-c++">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#c00;font-weight:bold">#include</span> <span style="color:#c00;font-weight:bold">&lt;iostream&gt;</span><span style="color:#c00;font-weight:bold">
+</span><span style="color:#c00;font-weight:bold">#include</span> <span style="color:#c00;font-weight:bold">&lt;Eigen/Dense&gt;</span><span style="color:#c00;font-weight:bold">
+</span><span style="color:#c00;font-weight:bold"></span>
+<span style="color:#888;font-weight:bold">int</span> <span style="color:#06b;font-weight:bold">main</span> () {
+Eigen::Matrix&lt;<span style="color:#888;font-weight:bold">double</span>, <span style="color:#00d;font-weight:bold">2</span>, <span style="color:#00d;font-weight:bold">2</span>&gt; A;
+A &lt;&lt; <span style="color:#00d;font-weight:bold">2</span>, <span style="color:#00d;font-weight:bold">2</span>, <span style="color:#00d;font-weight:bold">3</span>, <span style="color:#00d;font-weight:bold">4</span>;
+std::cout &lt;&lt; A;
+}</code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-8" class="outline-3">
+<h3 id="headline-8">
+What is <code class="verbatim">Eigen/Dense</code>
+</h3>
+<div id="outline-text-headline-8" class="outline-text-3">
+<p>
+It is a header file that includes multiple other header files, Core, Geometry, LU and so on.
+The Core header contains the Matrix and Array classes.</p>
+<p>
+All classes defined in the <code class="verbatim">Eigen/Dense</code> header file are in the <code class="verbatim">Eigen</code> namespace.</p>
+</div>
+</div>
+<div id="outline-container-headline-9" class="outline-3">
+<h3 id="headline-9">
+<code class="verbatim">Matrix</code> template
+</h3>
+<div id="outline-text-headline-9" class="outline-text-3">
+<p>
+Base template: <code class="verbatim">Matrix&lt; TYPE, ROWS, COLUMNS, OPTIONS&gt; name;.</code></p>
+</div>
+</div>
+<div id="outline-container-headline-10" class="outline-3">
+<h3 id="headline-10">
+What is the difference between <code class="verbatim">Matrix</code> and <code class="verbatim">Vector</code>?
+</h3>
+<div id="outline-text-headline-10" class="outline-text-3">
+<p>
+All matrices and vectors are objects of the <code class="verbatim">Matrix</code> template class.
+<code class="verbatim">Vector</code> is a special case of matrices.</p>
+<div class="src src-c++">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#c00;font-weight:bold">#include</span> <span style="color:#c00;font-weight:bold">&lt;iostream&gt;</span><span style="color:#c00;font-weight:bold">
+</span><span style="color:#c00;font-weight:bold">#include</span> <span style="color:#c00;font-weight:bold">&lt;Eigen/Dense&gt;</span><span style="color:#c00;font-weight:bold">
+</span><span style="color:#c00;font-weight:bold"></span>
+<span style="color:#888;font-weight:bold">int</span> <span style="color:#06b;font-weight:bold">main</span> () {
+  Eigen::Matrix&lt;<span style="color:#888;font-weight:bold">float</span>, <span style="color:#00d;font-weight:bold">3</span>, <span style="color:#00d;font-weight:bold">1</span>&gt; vec1{<span style="color:#00d;font-weight:bold">1</span>, <span style="color:#00d;font-weight:bold">2</span>, <span style="color:#00d;font-weight:bold">3</span>};
+  std::cout &lt;&lt; vec1 &lt;&lt; std::endl;
+  Eigen::Vector3f vec {<span style="color:#00d;font-weight:bold">4</span>, <span style="color:#00d;font-weight:bold">6</span>, <span style="color:#00d;font-weight:bold">5</span>};
+  std::cout &lt;&lt; vec;
+}</code></pre></div>
+</div>
+<pre class="example">
+1
+2
+3
+4
+6
+5
+</pre>
+</div>
+</div>
+<div id="outline-container-headline-11" class="outline-3">
+<h3 id="headline-11">
+What is the difference between <code class="verbatim">Matrix</code> and <code class="verbatim">MatrixXd</code>?
+</h3>
+<div id="outline-text-headline-11" class="outline-text-3">
+<p>
+<code class="verbatim">MatrixXd</code> can have arbitrary dimension with every entry a double.
+Is the most used type of matrix.</p>
+<p>
+Eigen has <span style="text-decoration: underline;">convenient typedefs</span> for Matrix and Vector creating that are less verbose.
+<code class="verbatim">Matrix&lt;float,Dynamic,Dynamic&gt;   &lt;=&gt;   MatrixXf</code> for instance.</p>
+<div class="src src-c++">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#c00;font-weight:bold">#include</span> <span style="color:#c00;font-weight:bold">&lt;iostream&gt;</span><span style="color:#c00;font-weight:bold">
+</span><span style="color:#c00;font-weight:bold">#include</span> <span style="color:#c00;font-weight:bold">&lt;Eigen/Dense&gt;</span><span style="color:#c00;font-weight:bold">
+</span><span style="color:#c00;font-weight:bold"></span>
+<span style="color:#888;font-weight:bold">int</span> <span style="color:#06b;font-weight:bold">main</span> () {
+  Eigen::MatrixXd m {Eigen::MatrixXd::Random(<span style="color:#00d;font-weight:bold">2</span>,<span style="color:#00d;font-weight:bold">2</span>) * <span style="color:#00d;font-weight:bold">50</span>};	<span style="color:#888">// 2 by 2 size matrix
+</span><span style="color:#888"></span>  std::cout &lt;&lt; m;
+}</code></pre></div>
+</div>
+<pre class="example">
+ 34.0188  28.3099
+-10.5617   29.844
+</pre>
+<p>
+Remarks:</p>
+<ol>
+<li>
+<p>because the object can have arbitrary size, the size is set at run time;</p>
+</li>
+<li>
+<p>fixed size has advantage of been faster</p>
+</li>
+<li>
+<p>however using many types increases compilation time</p>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-headline-12" class="outline-3">
+<h3 id="headline-12">
+Comma initialization
+</h3>
+<div id="outline-text-headline-12" class="outline-text-3">
+<p>
+It is a way to specify element values.</p>
+<div class="src src-c++">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#c00;font-weight:bold">#include</span> <span style="color:#c00;font-weight:bold">&lt;iostream&gt;</span><span style="color:#c00;font-weight:bold">
+</span><span style="color:#c00;font-weight:bold">#include</span> <span style="color:#c00;font-weight:bold">&#34;Eigen/Dense&#34;</span><span style="color:#c00;font-weight:bold">
+</span><span style="color:#c00;font-weight:bold"></span>
+<span style="color:#888;font-weight:bold">int</span> <span style="color:#06b;font-weight:bold">main</span> () {
+  Eigen::Matrix3f m;
+  m &lt;&lt; <span style="color:#00d;font-weight:bold">1</span>, <span style="color:#00d;font-weight:bold">2</span>, <span style="color:#00d;font-weight:bold">3</span>,
+	<span style="color:#00d;font-weight:bold">4</span>, <span style="color:#00d;font-weight:bold">5</span>, <span style="color:#00d;font-weight:bold">6</span>,
+	<span style="color:#00d;font-weight:bold">7</span>, <span style="color:#00d;font-weight:bold">8</span>, <span style="color:#00d;font-weight:bold">9</span>;
+  std::cout &lt;&lt; m;
+}</code></pre></div>
+</div>
+<pre class="example">
+1 2 3
+4 5 6
+7 8 9
+</pre>
+</div>
+</div>
+<div id="outline-container-headline-13" class="outline-3">
+<h3 id="headline-13">
+Matrix-matrix multiplication
+</h3>
+<div id="outline-text-headline-13" class="outline-text-3">
+<p>
+The factor should have the same TYPE elements.</p>
+<div class="src src-c++">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#c00;font-weight:bold">#include</span> <span style="color:#c00;font-weight:bold">&lt;iostream&gt;</span><span style="color:#c00;font-weight:bold">
+</span><span style="color:#c00;font-weight:bold">#include</span> <span style="color:#c00;font-weight:bold">&lt;Eigen/Dense&gt;</span><span style="color:#c00;font-weight:bold">
+</span><span style="color:#c00;font-weight:bold"></span>
+<span style="color:#888;font-weight:bold">int</span> <span style="color:#06b;font-weight:bold">main</span> () {
+  Eigen::Matrix2d M;
+  M &lt;&lt; <span style="color:#00d;font-weight:bold">1</span>, <span style="color:#00d;font-weight:bold">2</span>, <span style="color:#00d;font-weight:bold">3</span>, <span style="color:#00d;font-weight:bold">4</span> ;
+  Eigen::Vector2d v {<span style="color:#00d;font-weight:bold">1</span>, <span style="color:#00d;font-weight:bold">1</span>};
+  std::cout &lt;&lt; M &lt;&lt; std::endl;
+  std::cout &lt;&lt; v &lt;&lt; std::endl;
+  std::cout &lt;&lt; M*M &lt;&lt; std::endl;
+  std::cout &lt;&lt; M*v;
+}</code></pre></div>
+</div>
+<pre class="example">
+1 2
+3 4
+1
+1
+ 7 10
+15 22
+3
+7
+</pre>
+</div>
+</div>
+<div id="outline-container-headline-14" class="outline-3">
+<h3 id="headline-14">
+Dot product
+</h3>
+<div id="outline-text-headline-14" class="outline-text-3">
+<p>
+Remarks:</p>
+<ol>
+<li>
+<p>adjoint is the conjugate transpose.</p>
+</li>
+</ol>
+<div class="src src-c++">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#c00;font-weight:bold">#include</span> <span style="color:#c00;font-weight:bold">&lt;iostream&gt;</span><span style="color:#c00;font-weight:bold">
+</span><span style="color:#c00;font-weight:bold">#include</span> <span style="color:#c00;font-weight:bold">&lt;Eigen/Dense&gt;</span><span style="color:#c00;font-weight:bold">
+</span><span style="color:#c00;font-weight:bold"></span>
+<span style="color:#888;font-weight:bold">int</span> <span style="color:#06b;font-weight:bold">main</span> () {
+  Eigen::Vector2d v {<span style="color:#00d;font-weight:bold">1</span>, <span style="color:#00d;font-weight:bold">2</span>};
+  std::cout &lt;&lt; v.transpose()*v &lt;&lt; std::endl;
+  std::cout &lt;&lt; v.dot(v) &lt;&lt; std::endl;
+  std::cout &lt;&lt; v.adjoint()*v &lt;&lt; std::endl;
+}</code></pre></div>
+</div>
+<pre class="example">
+5
+5
+5
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-15" class="outline-2">
+<h2 id="headline-15">
+Technicalities
+</h2>
+<div id="outline-text-headline-15" class="outline-text-2">
+<div id="outline-container-headline-16" class="outline-3">
+<h3 id="headline-16">
+What is rounding error?
+</h3>
+<div id="outline-text-headline-16" class="outline-text-3">
+<p>When approximate the real numbers with a computer the mathematical exactness is lost.</p>
+<div class="src src-c++">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#c00;font-weight:bold">#include</span> <span style="color:#c00;font-weight:bold">&lt;iostream&gt;</span><span style="color:#c00;font-weight:bold">
+</span><span style="color:#c00;font-weight:bold"></span>
+<span style="color:#888;font-weight:bold">int</span> <span style="color:#06b;font-weight:bold">main</span> () {
+<span style="color:#888;font-weight:bold">int</span> v {<span style="color:#00d;font-weight:bold">33333</span>};
+<span style="color:#888;font-weight:bold">double</span> a {<span style="color:#00d;font-weight:bold">1.</span>/v};
+std::cout &lt;&lt; a &lt;&lt; std::endl;
+<span style="color:#888;font-weight:bold">double</span> sum {<span style="color:#00d;font-weight:bold">0</span>};
+<span style="color:#080;font-weight:bold">for</span> (<span style="color:#888;font-weight:bold">int</span> i=<span style="color:#00d;font-weight:bold">0</span>; i&lt;v; ++i) sum += a;
+std::cout &lt;&lt; sum;
+}</code></pre></div>
+</div>
+<pre class="example">
+3.00003e-05
+1
+</pre>
+</div>
+</div>
+<div id="outline-container-headline-17" class="outline-3">
+<h3 id="headline-17">
+What is the difference between double and float?
+</h3>
+<div id="outline-text-headline-17" class="outline-text-3">
+<p>Float uses 4 byte storage and double 8.
+Double has precision of 15 decimal plates whereas float only 6.</p>
+<div class="src src-c++">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#c00;font-weight:bold">#include</span> <span style="color:#c00;font-weight:bold">&lt;iostream&gt;</span><span style="color:#c00;font-weight:bold">
+</span><span style="color:#c00;font-weight:bold">#include</span> <span style="color:#c00;font-weight:bold">&lt;ostream&gt;</span><span style="color:#c00;font-weight:bold">
+</span><span style="color:#c00;font-weight:bold"></span>
+<span style="color:#888;font-weight:bold">int</span> <span style="color:#06b;font-weight:bold">main</span> () {
+<span style="color:#888;font-weight:bold">float</span> f_var;
+<span style="color:#888;font-weight:bold">double</span> d_var;
+std::cout &lt;&lt; <span style="color:#080;font-weight:bold">sizeof</span>(f_var) &lt;&lt; std::endl;
+std::cout &lt;&lt; <span style="color:#080;font-weight:bold">sizeof</span>(d_var) &lt;&lt; std::endl;
+}</code></pre></div>
+</div>
+<pre class="example">
+4
+8
+</pre>
+</div>
+</div>
+<div id="outline-container-headline-18" class="outline-3">
+<h3 id="headline-18">
+What it means that an integer overflows?
+</h3>
+<div id="outline-text-headline-18" class="outline-text-3">
+<p>When it loses the most significant bit</p>
+</div>
+</div>
+<div id="outline-container-headline-19" class="outline-3">
+<h3 id="headline-19">
+Arrays
+</h3>
+<div id="outline-text-headline-19" class="outline-text-3">
+<div id="outline-container-headline-20" class="outline-4">
+<h4 id="headline-20">
+What is it?
+</h4>
+<div id="outline-text-headline-20" class="outline-text-4">
+<p>Sequence of elements.</p>
+</div>
+</div>
+<div id="outline-container-headline-21" class="outline-4">
+<h4 id="headline-21">
+Built-in array
+</h4>
+<div id="outline-text-headline-21" class="outline-text-4">
+<p>Advantages:</p>
+<ol>
+<li>
+<p>direct mapping to hardware</p>
+</li>
+<li>
+<p>efficient for low level operations</p>
+</li>
+</ol>
+<p>Disadvantages</p>
+<ol>
+<li>
+<p>fixed sizes (fixed at compiled time)</p>
+</li>
+<li>
+<p>can not be passes in a clean way</p>
+<ol>
+<li>
+<p>arrays turns into a pointer to the first element</p>
+</li>
+<li>
+<p>can not pass a general size <code class="verbatim">void foo(int [][]);</code></p>
+</li>
+</ol>
+</li>
+<li>
+<p>no range checking</p>
+</li>
+<li>
+<p>no array operations</p>
+</li>
+</ol>
+<div class="src src-c++">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#c00;font-weight:bold">#include</span> <span style="color:#c00;font-weight:bold">&lt;iostream&gt;</span><span style="color:#c00;font-weight:bold">
+</span><span style="color:#c00;font-weight:bold"></span>
+<span style="color:#888;font-weight:bold">int</span> <span style="color:#06b;font-weight:bold">main</span> () {
+<span style="color:#888;font-weight:bold">int</span> ai[<span style="color:#00d;font-weight:bold">4</span>];
+std::cout &lt;&lt; ai[<span style="color:#00d;font-weight:bold">0</span>] &lt;&lt; ai[<span style="color:#00d;font-weight:bold">1</span>] &lt;&lt; ai[<span style="color:#00d;font-weight:bold">2</span>];
+<span style="color:#888;font-weight:bold">double</span> ad[<span style="color:#00d;font-weight:bold">3</span>][<span style="color:#00d;font-weight:bold">4</span>];
+}</code></pre></div>
+</div>
+<pre class="example">
+-39477363232767496910938
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+              
+                  
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+              
+          </article>
+          
+
+<ul class="tags__list">
+    
+    <li class="tag__item">
+        <a class="tag__link" href="http://localhost:1313/tags/draft/">draft</a>
+    </li>
+    <li class="tag__item">
+        <a class="tag__link" href="http://localhost:1313/tags/c&#43;&#43;/">c&#43;&#43;</a>
+    </li></ul>
+
+ <div class="pagination">
+  
+    <a class="pagination__item" href="http://localhost:1313/notes/cpp-literate-environment/">
+        <span class="pagination__label">Previous Post</span>
+        <span class="pagination__title">C&#43;&#43; literate environment</span>
+    </a>
+  
+
+  
+    <a class="pagination__item" href="http://localhost:1313/notes/paraview-notes/">
+      <span class="pagination__label">Next Post</span>
+      <span class="pagination__title" >Paraview notes</span>
+    </a>
+  
+</div>
+
+          <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "nasseralkmim" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+          <footer class="post__footer">
+            
+
+
+<div class="social-icons">
+  
+     
+    
+      <a class="social-icons__link" rel="me" title="Email"
+         href="mailto:nasser.alkmim@gmail.com"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('http://localhost:1313/svg/email.svg')"></div>
+      </a>
+    
+  
+     
+    
+      <a class="social-icons__link" rel="me" title="LinkedIn"
+         href="https://www.linkedin.com/in/nasser-alkmim-300882a6/"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('http://localhost:1313/svg/linkedin.svg')"></div>
+      </a>
+    
+  
+     
+    
+      <a class="social-icons__link" rel="me" title="GitHub"
+         href="https://github.com/nasseralkmim"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('http://localhost:1313/svg/github.svg')"></div>
+      </a>
+    
+  
+     
+    
+      <a class="social-icons__link" rel="me" title="Instagram"
+         href="https://instagram.com/naszr"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('http://localhost:1313/svg/instagram.svg')"></div>
+      </a>
+    
+     
+</div>
+
+            <p>© 2021</p>
+          </footer>
+          </div>
+      </div>
+      
+      <div class="toc-container">
+           <div class="toc-post-title">C&#43;&#43; numerics</div> 
+        <nav id="TableOfContents">
+<ul>
+<li><a href="#headline-1">Prologue</a>
+</li>
+<li><a href="#headline-2">Eigen</a>
+<ul>
+<li><a href="#headline-3">What is it?</a>
+</li>
+<li><a href="#headline-4">How get it?</a>
+</li>
+<li><a href="#headline-5">How to use it?</a>
+</li>
+<li><a href="#headline-6">Using with sub-tree properties header arguments</a>
+</li>
+<li><a href="#headline-7">Adding it to the <code class="verbatim">/usr/local/include</code> folder via symlink</a>
+</li>
+<li><a href="#headline-8">What is <code class="verbatim">Eigen/Dense</code></a>
+</li>
+<li><a href="#headline-9"><code class="verbatim">Matrix</code> template</a>
+</li>
+<li><a href="#headline-10">What is the difference between <code class="verbatim">Matrix</code> and <code class="verbatim">Vector</code>?</a>
+</li>
+<li><a href="#headline-11">What is the difference between <code class="verbatim">Matrix</code> and <code class="verbatim">MatrixXd</code>?</a>
+</li>
+<li><a href="#headline-12">Comma initialization</a>
+</li>
+<li><a href="#headline-13">Matrix-matrix multiplication</a>
+</li>
+<li><a href="#headline-14">Dot product</a>
+</li>
+</ul>
+</li>
+<li><a href="#headline-15">Technicalities</a>
+<ul>
+<li><a href="#headline-16">What is rounding error?</a>
+</li>
+<li><a href="#headline-17">What is the difference between double and float?</a>
+</li>
+<li><a href="#headline-18">What it means that an integer overflows?</a>
+</li>
+<li><a href="#headline-19">Arrays</a>
+<ul>
+<li><a href="#headline-20">What is it?</a>
+</li>
+<li><a href="#headline-21">Built-in array</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+      </div>
+      
+    </div>
+    
+
+  </main>
+
+   
+
+  
+  <script src="/js/index.min.575dda8d49ee02639942c63564273e6da972ab531dda26a08800bdcb477cbd7f.js" integrity="sha256-V13ajUnuAmOZQsY1ZCc&#43;balyq1Md2iagiAC9y0d8vX8=" crossorigin="anonymous"></script>
+  
+  
+  
+
+  
+  
+  
+
+  
+    <script src="/js/table-of-contents.js"></script>
+  
+
+
+</body>
+
+</html>

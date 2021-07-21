@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-us">
 
-<head>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <title>C&#43;&#43; notes | Notes</title>
 
   <meta charset="UTF-8">
@@ -44,7 +44,7 @@
     { 
       "@context": "http://schema.org", 
       "@type": "WebSite", 
-      "url": "https:\/\/nasseralkmim.github.io\/notes\/cpp-notes\/",
+      "url": "http:\/\/localhost:1313\/notes\/cpp-notes\/",
       "name": "C\u002b\u002b notes",
       "author": {
         "@type": "Person",
@@ -54,17 +54,6 @@
     }
   
   </script>
-
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-74704246-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
 </head>
 
 <body>
@@ -104,6 +93,10 @@ if (!doNotTrack) {
           <header class="post__header">
             <h1 id="post__title">C&#43;&#43; notes</h1>
             <time datetime="2021-04-02 00:00:00 &#43;0000 UTC" class="post__date">Apr 2 2021</time> 
+	    
+	    <time datetime="2021-07-14 07:48:02 &#43;0000 UTC" class="post__date">
+	      → edited in Jul 14 2021
+	    </time>
 	    
           </header>
           <article class="post__content">
@@ -348,8 +341,12 @@ A declared function can not return double and int.</p>
 Headers
 </h3>
 <div id="outline-text-headline-8" class="outline-text-3">
-<p>
-It is a file, <code class="verbatim">.h</code>, that helps us to manage <span style="text-decoration: underline;">declarations</span> of facilities defined elsewhere.
+<div id="outline-container-headline-9" class="outline-4">
+<h4 id="headline-9">
+Definition
+</h4>
+<div id="outline-text-headline-9" class="outline-text-4">
+<p>It is a file, <code class="verbatim">.h</code>, that helps us to manage <span style="text-decoration: underline;">declarations</span> of facilities defined elsewhere.
 Those files are included with <code class="verbatim">#include</code>.</p>
 <p>
 The <span style="text-decoration: underline;">definition</span>, usually, is written elsewhere.
@@ -358,11 +355,35 @@ The uses also are usually written in another file.</p>
 If we want to use a function that was defined in <code class="verbatim">widget.cpp</code> in <code class="verbatim">main.cpp</code> we need to <code class="verbatim">#include widget.h</code>, which is the header file with the <span style="text-decoration: underline;">declaration</span>.</p>
 </div>
 </div>
-<div id="outline-container-headline-9" class="outline-3">
-<h3 id="headline-9">
+<div id="outline-container-headline-10" class="outline-4">
+<h4 id="headline-10">
+What should be in the header files?
+</h4>
+<div id="outline-text-headline-10" class="outline-text-4">
+<p>
+Public interface.
+If something is in the header (declared) but not implemented (defined), then the linker will raise errors.
+If something is defined but the header declared it differently, the compiler will raise errors.</p>
+</div>
+</div>
+<div id="outline-container-headline-11" class="outline-4">
+<h4 id="headline-11">
+Why not put everything in the header file?
+</h4>
+<div id="outline-text-headline-11" class="outline-text-4">
+<p>
+Because when you include a header file, the compiler will read it and compile it.
+If you use the definition in multiple other files, every time you include it, the compile will work.
+This makes compile time slow.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-12" class="outline-3">
+<h3 id="headline-12">
 Namespace
 </h3>
-<div id="outline-text-headline-9" class="outline-text-3">
+<div id="outline-text-headline-12" class="outline-text-3">
 <p>
 Allow us to identify part of a program without defining a type.
 A name is composed by the namespace name and a member name combined with <code class="verbatim">::</code>, this is a fully qualified name.
@@ -384,16 +405,16 @@ A shorthand can be used to avoid typing the namespace name every time with <code
 This way the name becomes directly available for use.</p>
 </div>
 </div>
-<div id="outline-container-headline-10" class="outline-3">
-<h3 id="headline-10">
+<div id="outline-container-headline-13" class="outline-3">
+<h3 id="headline-13">
 Operators
 </h3>
-<div id="outline-text-headline-10" class="outline-text-3">
-<div id="outline-container-headline-11" class="outline-4">
-<h4 id="headline-11">
+<div id="outline-text-headline-13" class="outline-text-3">
+<div id="outline-container-headline-14" class="outline-4">
+<h4 id="headline-14">
 Logical operators (!, &amp;&amp;, ||)
 </h4>
-<div id="outline-text-headline-11" class="outline-text-4">
+<div id="outline-text-headline-14" class="outline-text-4">
 <p>
 <code class="verbatim">!</code> boolean for NOT.
 If its operand on its right is true, <code class="verbatim">!</code> turns it into false.</p>
@@ -412,11 +433,11 @@ ok
 </pre>
 </div>
 </div>
-<div id="outline-container-headline-12" class="outline-4">
-<h4 id="headline-12">
+<div id="outline-container-headline-15" class="outline-4">
+<h4 id="headline-15">
 Compound assignments (+=, *=)
 </h4>
-<div id="outline-text-headline-12" class="outline-text-4">
+<div id="outline-text-headline-15" class="outline-text-4">
 <p>
 Modify current value of variable.</p>
 <div class="src src-c++">
@@ -435,11 +456,11 @@ Modify current value of variable.</p>
 </pre>
 </div>
 </div>
-<div id="outline-container-headline-13" class="outline-4">
-<h4 id="headline-13">
+<div id="outline-container-headline-16" class="outline-4">
+<h4 id="headline-16">
 Member access operators (., -&gt;)
 </h4>
-<div id="outline-text-headline-13" class="outline-text-4">
+<div id="outline-text-headline-16" class="outline-text-4">
 <p>
 Use <code class="verbatim">.</code> to access a member of a class.
 Use <code class="verbatim">-&gt;</code> to access a member through a pointer.</p>
@@ -447,11 +468,11 @@ Use <code class="verbatim">-&gt;</code> to access a member through a pointer.</p
 See <a href="*Accessing elements">Accessing elements</a> for example.</p>
 </div>
 </div>
-<div id="outline-container-headline-14" class="outline-4">
-<h4 id="headline-14">
+<div id="outline-container-headline-17" class="outline-4">
+<h4 id="headline-17">
 Conditional ternary (?)
 </h4>
-<div id="outline-text-headline-14" class="outline-text-4">
+<div id="outline-text-headline-17" class="outline-text-4">
 <p>
 Conditional operator <code class="verbatim">?</code> evaluates an expression, returning first value if true and second if false.</p>
 <div class="src src-c++">
@@ -473,19 +494,19 @@ Conditional operator <code class="verbatim">?</code> evaluates an expression, re
 </pre>
 </div>
 </div>
-<div id="outline-container-headline-15" class="outline-4">
-<h4 id="headline-15">
+<div id="outline-container-headline-18" class="outline-4">
+<h4 id="headline-18">
 Scope resolution (::)
 </h4>
-<div id="outline-text-headline-15" class="outline-text-4">
+<div id="outline-text-headline-18" class="outline-text-4">
 <p>To access a certain scope</p>
 </div>
 </div>
-<div id="outline-container-headline-16" class="outline-4">
-<h4 id="headline-16">
+<div id="outline-container-headline-19" class="outline-4">
+<h4 id="headline-19">
 Math operators
 </h4>
-<div id="outline-text-headline-16" class="outline-text-4">
+<div id="outline-text-headline-19" class="outline-text-4">
 <div class="src src-c++">
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#c00;font-weight:bold">#include</span> <span style="color:#c00;font-weight:bold">&lt;iostream&gt;</span><span style="color:#c00;font-weight:bold">
 </span><span style="color:#c00;font-weight:bold"></span>
@@ -502,11 +523,11 @@ Math operators
 </div>
 </div>
 </div>
-<div id="outline-container-headline-17" class="outline-3">
-<h3 id="headline-17">
+<div id="outline-container-headline-20" class="outline-3">
+<h3 id="headline-20">
 Bitwise left and right shift (&lt;&lt;, &gt;&gt;)
 </h3>
-<div id="outline-text-headline-17" class="outline-text-3">
+<div id="outline-text-headline-20" class="outline-text-3">
 <p>
 These operators shift bits.</p>
 <p>
@@ -518,11 +539,11 @@ Shifting a bit means shifting the 0 and 1 pattern to left or right.</p>
 The right shift operator <code class="verbatim">&gt;&gt;</code></p>
 </div>
 </div>
-<div id="outline-container-headline-18" class="outline-3">
-<h3 id="headline-18">
+<div id="outline-container-headline-21" class="outline-3">
+<h3 id="headline-21">
 Semicolon
 </h3>
-<div id="outline-text-headline-18" class="outline-text-3">
+<div id="outline-text-headline-21" class="outline-text-3">
 <ol>
 <li>
 <p>after class and structure definitions</p>
@@ -558,16 +579,16 @@ Semicolon
 </span><span style="color:#888"></span><span style="color:#888;font-weight:bold">int</span> <span style="color:#06b;font-weight:bold">main</span>() { func_declaration(<span style="color:#00d;font-weight:bold">10</span>); } <span style="color:#888">// does not require ;
 </span></code></pre></div>
 </div>
-<div id="outline-container-headline-19" class="outline-3">
-<h3 id="headline-19">
+<div id="outline-container-headline-22" class="outline-3">
+<h3 id="headline-22">
 Move semantics
 </h3>
-<div id="outline-text-headline-19" class="outline-text-3">
-<div id="outline-container-headline-20" class="outline-4">
-<h4 id="headline-20">
+<div id="outline-text-headline-22" class="outline-text-3">
+<div id="outline-container-headline-23" class="outline-4">
+<h4 id="headline-23">
 What is the difference <code class="verbatim">rvalues</code> and <code class="verbatim">lvalues</code>?
 </h4>
-<div id="outline-text-headline-20" class="outline-text-4">
+<div id="outline-text-headline-23" class="outline-text-4">
 <p>
 <code class="verbatim">rvalues</code> correspond to <strong>temporary</strong> <span style="text-decoration: underline;">objects returned from functions</span>.</p>
 <p>
@@ -609,11 +630,11 @@ Remarks:</p>
 </ol>
 </div>
 </div>
-<div id="outline-container-headline-21" class="outline-4">
-<h4 id="headline-21">
+<div id="outline-container-headline-24" class="outline-4">
+<h4 id="headline-24">
 What is the difference between <em>move operator</em> and <em>copy operator</em>?
 </h4>
-<div id="outline-text-headline-21" class="outline-text-4">
+<div id="outline-text-headline-24" class="outline-text-4">
 <p>
 When creating an <span style="text-decoration: underline;">new object</span> by calling the constructor, the <span style="text-decoration: underline;">source object</span> passed to the constructor can have its members fields <em>copied</em> or <em>moved</em> into the new object.</p>
 <p>
@@ -726,11 +747,11 @@ Remarks:</p>
 </div>
 </div>
 </div>
-<div id="outline-container-headline-22" class="outline-3">
-<h3 id="headline-22">
+<div id="outline-container-headline-25" class="outline-3">
+<h3 id="headline-25">
 Type safety
 </h3>
-<div id="outline-text-headline-22" class="outline-text-3">
+<div id="outline-text-headline-25" class="outline-text-3">
 <p>When each object has a type and are used according to the rules for their type.
 Avoid uninitialized variables so the type is clear.</p>
 <div class="src src-c++">
@@ -742,17 +763,17 @@ Avoid uninitialized variables so the type is clear.</p>
 </div>
 </div>
 </div>
-<div id="outline-container-headline-23" class="outline-3">
-<h3 id="headline-23">
+<div id="outline-container-headline-26" class="outline-3">
+<h3 id="headline-26">
 <span class="todo">TODO</span>
 Overloading
 </h3>
 </div>
-<div id="outline-container-headline-24" class="outline-3">
-<h3 id="headline-24">
+<div id="outline-container-headline-27" class="outline-3">
+<h3 id="headline-27">
 <code class="verbatim">const</code> correctness
 </h3>
-<div id="outline-text-headline-24" class="outline-text-3">
+<div id="outline-text-headline-27" class="outline-text-3">
 <p>
 Using <code class="verbatim">const</code> makes the code more readable.
 When you see a <code class="verbatim">const</code> before a function you know it will not change the object.</p>
@@ -761,11 +782,11 @@ When you see a <code class="verbatim">const</code> before a function you know it
 We can pass a non constant variable to a function that expects a <code class="verbatim">const</code> argument, but we can not pass a <code class="verbatim">const</code> value to a function with non-constant arguments.</p>
 </div>
 </div>
-<div id="outline-container-headline-25" class="outline-3">
-<h3 id="headline-25">
+<div id="outline-container-headline-28" class="outline-3">
+<h3 id="headline-28">
 Passing parameter by value
 </h3>
-<div id="outline-text-headline-25" class="outline-text-3">
+<div id="outline-text-headline-28" class="outline-text-3">
 <p>
 Passing a parameter by value implies that the function will make a copy of it.
 This allows we make any changes we want to the variable.
@@ -794,16 +815,16 @@ If you want pass an input variable only, make it <code class="verbatim">const.</
 </div>
 </div>
 </div>
-<div id="outline-container-headline-26" class="outline-2">
-<h2 id="headline-26">
+<div id="outline-container-headline-29" class="outline-2">
+<h2 id="headline-29">
 Basics
 </h2>
-<div id="outline-text-headline-26" class="outline-text-2">
-<div id="outline-container-headline-27" class="outline-3">
-<h3 id="headline-27">
+<div id="outline-text-headline-29" class="outline-text-2">
+<div id="outline-container-headline-30" class="outline-3">
+<h3 id="headline-30">
 Minimal program
 </h3>
-<div id="outline-text-headline-27" class="outline-text-3">
+<div id="outline-text-headline-30" class="outline-text-3">
 <p>Defines a function with no arguments, empty (), and does nothing, empty {}.</p>
 <p>
 Every program needs a <code class="verbatim">main</code> function.
@@ -813,11 +834,11 @@ The <code class="verbatim">int</code> is the value returned by the function.</p>
 </div>
 </div>
 </div>
-<div id="outline-container-headline-28" class="outline-3">
-<h3 id="headline-28">
+<div id="outline-container-headline-31" class="outline-3">
+<h3 id="headline-31">
 Hello world
 </h3>
-<div id="outline-text-headline-28" class="outline-text-3">
+<div id="outline-text-headline-31" class="outline-text-3">
 <p>
 Include the declarations of the standard stream I/O facilities.
 Operator <code class="verbatim">&lt;&lt;</code> writes the second argument (string) to the first (standard output stream <code class="verbatim">std:cout</code>).
@@ -835,11 +856,11 @@ Hello
 </pre>
 </div>
 </div>
-<div id="outline-container-headline-29" class="outline-3">
-<h3 id="headline-29">
+<div id="outline-container-headline-32" class="outline-3">
+<h3 id="headline-32">
 Functions
 </h3>
-<div id="outline-text-headline-29" class="outline-text-3">
+<div id="outline-text-headline-32" class="outline-text-3">
 <p>
 A function is declared with its name, type of the returned value, number and types of arguments.</p>
 <div class="src src-c++">
@@ -859,11 +880,11 @@ A function is declared with its name, type of the returned value, number and typ
 </pre>
 </div>
 </div>
-<div id="outline-container-headline-30" class="outline-3">
-<h3 id="headline-30">
+<div id="outline-container-headline-33" class="outline-3">
+<h3 id="headline-33">
 Scope
 </h3>
-<div id="outline-text-headline-30" class="outline-text-3">
+<div id="outline-text-headline-33" class="outline-text-3">
 <p>Scopes can be started with curly braces <code class="verbatim">{}.</code>
 Any objects that are declared within the scope are allocated in memory only during the execution of that scope.</p>
 <p>
@@ -894,11 +915,11 @@ vector&lt;<span style="color:#888;font-weight:bold">int</span>&gt; vec; 		<span 
 </pre>
 </div>
 </div>
-<div id="outline-container-headline-31" class="outline-3">
-<h3 id="headline-31">
+<div id="outline-container-headline-34" class="outline-3">
+<h3 id="headline-34">
 Pointers
 </h3>
-<div id="outline-text-headline-31" class="outline-text-3">
+<div id="outline-text-headline-34" class="outline-text-3">
 <p>
 The operator <code class="verbatim">*</code> means &#34;pointer to&#34;, also understood as &#34;contents of&#34;
 A pointer variable <span style="text-decoration: underline;">holds the address</span> of an object.
@@ -928,11 +949,11 @@ The symbol <code class="verbatim">&amp;</code> means &#34;address of&#34;.</p>
 </pre>
 </div>
 </div>
-<div id="outline-container-headline-32" class="outline-3">
-<h3 id="headline-32">
+<div id="outline-container-headline-35" class="outline-3">
+<h3 id="headline-35">
 <code class="verbatim">new</code> operator
 </h3>
-<div id="outline-text-headline-32" class="outline-text-3">
+<div id="outline-text-headline-35" class="outline-text-3">
 <p>
 <span style="text-decoration: underline;">Returns a pointer</span> to the object it creates.
 If it creates multiple objects it returns a pointer to the first.</p>
@@ -984,16 +1005,16 @@ Address: 0x55be16a1cf10 value: 5.5
 </pre>
 </div>
 </div>
-<div id="outline-container-headline-33" class="outline-3">
-<h3 id="headline-33">
+<div id="outline-container-headline-36" class="outline-3">
+<h3 id="headline-36">
 <code class="verbatim">const</code> operator
 </h3>
-<div id="outline-text-headline-33" class="outline-text-3">
-<div id="outline-container-headline-34" class="outline-4">
-<h4 id="headline-34">
+<div id="outline-text-headline-36" class="outline-text-3">
+<div id="outline-container-headline-37" class="outline-4">
+<h4 id="headline-37">
 <code class="verbatim">const</code> variable
 </h4>
-<div id="outline-text-headline-34" class="outline-text-4">
+<div id="outline-text-headline-37" class="outline-text-4">
 <p>As the name suggests, it makes the variable unchangeable.</p>
 <p>
 On the other hand, <code class="verbatim">constexpr</code> are evaluated at compile time.
@@ -1014,11 +1035,11 @@ Allows placement of data for read only, improving performance.</p>
 </pre>
 </div>
 </div>
-<div id="outline-container-headline-35" class="outline-4">
-<h4 id="headline-35">
+<div id="outline-container-headline-38" class="outline-4">
+<h4 id="headline-38">
 <code class="verbatim">const</code> pointer
 </h4>
-<div id="outline-text-headline-35" class="outline-text-4">
+<div id="outline-text-headline-38" class="outline-text-4">
 <p>
 If <code class="verbatim">const</code> is AFTER <code class="verbatim">*</code> we can not change the <span style="text-decoration: underline;">pointer content</span>, but pointer itself we can.
 We can understand as the operator qualifying the symbol of the pointer.</p>
@@ -1048,20 +1069,20 @@ pointer: 0x5604e06d4f00 points to: 0
 </pre>
 </div>
 </div>
-<div id="outline-container-headline-36" class="outline-4">
-<h4 id="headline-36">
+<div id="outline-container-headline-39" class="outline-4">
+<h4 id="headline-39">
 <code class="verbatim">const</code> function argument
 </h4>
-<div id="outline-text-headline-36" class="outline-text-4">
+<div id="outline-text-headline-39" class="outline-text-4">
 <p>
 Function argument is only readable.</p>
 </div>
 </div>
-<div id="outline-container-headline-37" class="outline-4">
-<h4 id="headline-37">
+<div id="outline-container-headline-40" class="outline-4">
+<h4 id="headline-40">
 <code class="verbatim">const</code> after the arguments of a member function
 </h4>
-<div id="outline-text-headline-37" class="outline-text-4">
+<div id="outline-text-headline-40" class="outline-text-4">
 <p>
 In a class definition.
 The whole member function can be <code class="verbatim">const</code>, meaning that the function can not change object member variable.</p>
@@ -1082,11 +1103,11 @@ The whole member function can be <code class="verbatim">const</code>, meaning th
 </div>
 </div>
 </div>
-<div id="outline-container-headline-38" class="outline-3">
-<h3 id="headline-38">
+<div id="outline-container-headline-41" class="outline-3">
+<h3 id="headline-41">
 Declarator operators
 </h3>
-<div id="outline-text-headline-38" class="outline-text-3">
+<div id="outline-text-headline-41" class="outline-text-3">
 <ol>
 <li>
 <p><code class="verbatim">T a[n];</code> array named &#34;a&#34; of n Ts (type)</p>
@@ -1103,11 +1124,11 @@ Declarator operators
 </ol>
 </div>
 </div>
-<div id="outline-container-headline-39" class="outline-3">
-<h3 id="headline-39">
+<div id="outline-container-headline-42" class="outline-3">
+<h3 id="headline-42">
 Range-for-statement
 </h3>
-<div id="outline-text-headline-39" class="outline-text-3">
+<div id="outline-text-headline-42" class="outline-text-3">
 <p>
 For loops that go over a sequence.
 Does not need a counting variable.</p>
@@ -1131,11 +1152,11 @@ Does not need a counting variable.</p>
 </pre>
 </div>
 </div>
-<div id="outline-container-headline-40" class="outline-3">
-<h3 id="headline-40">
+<div id="outline-container-headline-43" class="outline-3">
+<h3 id="headline-43">
 Tests
 </h3>
-<div id="outline-text-headline-40" class="outline-text-3">
+<div id="outline-text-headline-43" class="outline-text-3">
 <p>
 If statements.</p>
 <div class="src src-c++">
@@ -1153,11 +1174,11 @@ If statements.</p>
 </pre>
 </div>
 </div>
-<div id="outline-container-headline-41" class="outline-3">
-<h3 id="headline-41">
+<div id="outline-container-headline-44" class="outline-3">
+<h3 id="headline-44">
 Variable initialization
 </h3>
-<div id="outline-text-headline-41" class="outline-text-3">
+<div id="outline-text-headline-44" class="outline-text-3">
 <p>
 Use <code class="verbatim">{}</code> to initialize.</p>
 <div class="src src-c++">
@@ -1182,11 +1203,11 @@ Use <code class="verbatim">{}</code> to initialize.</p>
 </pre>
 </div>
 </div>
-<div id="outline-container-headline-42" class="outline-3">
-<h3 id="headline-42">
+<div id="outline-container-headline-45" class="outline-3">
+<h3 id="headline-45">
 <code class="verbatim">cout</code> versus <code class="verbatim">printf</code>
 </h3>
-<div id="outline-text-headline-42" class="outline-text-3">
+<div id="outline-text-headline-45" class="outline-text-3">
 <ol>
 <li>
 <p><code class="verbatim">cout</code> is C++ and <code class="verbatim">printf</code> is C but it can be used in C++.</p>
@@ -1218,11 +1239,11 @@ printf(<span style="color:#d20;background-color:#fff0f0">&#34;%d</span><span sty
 </pre>
 </div>
 </div>
-<div id="outline-container-headline-43" class="outline-3">
-<h3 id="headline-43">
+<div id="outline-container-headline-46" class="outline-3">
+<h3 id="headline-46">
 How many bytes?
 </h3>
-<div id="outline-text-headline-43" class="outline-text-3">
+<div id="outline-text-headline-46" class="outline-text-3">
 <p>
 Number of <span style="text-decoration: underline;">bytes</span> to store an information type.
 This number of bytes is required to storage the specific object in memory.
@@ -1241,16 +1262,16 @@ std::cout &lt;&lt; <span style="color:#080;font-weight:bold">sizeof</span>(<span
 </div>
 </div>
 </div>
-<div id="outline-container-headline-44" class="outline-2">
-<h2 id="headline-44">
+<div id="outline-container-headline-47" class="outline-2">
+<h2 id="headline-47">
 Pointers
 </h2>
-<div id="outline-text-headline-44" class="outline-text-2">
-<div id="outline-container-headline-45" class="outline-3">
-<h3 id="headline-45">
+<div id="outline-text-headline-47" class="outline-text-2">
+<div id="outline-container-headline-48" class="outline-3">
+<h3 id="headline-48">
 Memory
 </h3>
-<div id="outline-text-headline-45" class="outline-text-3">
+<div id="outline-text-headline-48" class="outline-text-3">
 <p>
 Computer memory is a sequence of bytes.
 The location in memory is the specific byte position in the sequence, called <span style="text-decoration: underline;">address</span> of the byte.
@@ -1275,33 +1296,33 @@ The amount of memory can be viewed with <code class="verbatim">sizeof</code> ope
 </pre>
 </div>
 </div>
-<div id="outline-container-headline-46" class="outline-3">
-<h3 id="headline-46">
+<div id="outline-container-headline-49" class="outline-3">
+<h3 id="headline-49">
 Pointer definition
 </h3>
-<div id="outline-text-headline-46" class="outline-text-3">
+<div id="outline-text-headline-49" class="outline-text-3">
 <p>
 <span style="text-decoration: underline;">A pointer is an object that holds a memory address value.</span>
 A pointer can &#34;point&#34; to anything that can be placed in memory.
 We can refer to it as &#34;values in&#34; the pointer.</p>
 </div>
 </div>
-<div id="outline-container-headline-47" class="outline-3">
-<h3 id="headline-47">
+<div id="outline-container-headline-50" class="outline-3">
+<h3 id="headline-50">
 Pointer type
 </h3>
-<div id="outline-text-headline-47" class="outline-text-3">
+<div id="outline-text-headline-50" class="outline-text-3">
 <p>The type needed to hold an address of a type is specified with <code class="verbatim">&lt;type&gt;*</code>.
 For instance, the type that holds a pointer to an <code class="verbatim">int</code> is <code class="verbatim">int*</code>, which can be referred to as &#34;pointer to int type&#34;, or &#34;int pointer type&#34;.</p>
 <p>
 To create a pointer type object we can use <code class="verbatim">&amp;</code> to get an address or <code class="verbatim">new</code> to generate one.</p>
 </div>
 </div>
-<div id="outline-container-headline-48" class="outline-3">
-<h3 id="headline-48">
+<div id="outline-container-headline-51" class="outline-3">
+<h3 id="headline-51">
 &#34;Address of&#34; operator (&amp;)
 </h3>
-<div id="outline-text-headline-48" class="outline-text-3">
+<div id="outline-text-headline-51" class="outline-text-3">
 <p><span style="text-decoration: underline;">A pointer is a variable that stores the address of another variable.</span></p>
 <p>
 Variables are locations in computer memory which are accessed by an identifier (name).</p>
@@ -1329,11 +1350,11 @@ Other alternative to get a pointer is to use the operator <code class="verbatim"
 </pre>
 </div>
 </div>
-<div id="outline-container-headline-49" class="outline-3">
-<h3 id="headline-49">
+<div id="outline-container-headline-52" class="outline-3">
+<h3 id="headline-52">
 &#34;Contents of&#34; operator (*)
 </h3>
-<div id="outline-text-headline-49" class="outline-text-3">
+<div id="outline-text-headline-52" class="outline-text-3">
 <p>
 Pointers have the addresses.
 This address may be populated with a variable value.
@@ -1359,11 +1380,11 @@ We can use it to change the <span style="text-decoration: underline;">content of
 </pre>
 </div>
 </div>
-<div id="outline-container-headline-50" class="outline-3">
-<h3 id="headline-50">
+<div id="outline-container-headline-53" class="outline-3">
+<h3 id="headline-53">
 Access object pointed to by a pointer
 </h3>
-<div id="outline-text-headline-50" class="outline-text-3">
+<div id="outline-text-headline-53" class="outline-text-3">
 <p>
 We can use the operator <code class="verbatim">*</code> or <code class="verbatim">[]</code> to access an object <em>pointed to by a pointer</em>.
 We can then use the pointer to change the <span style="text-decoration: underline;">content</span>.</p>
@@ -1385,11 +1406,11 @@ changed object: 7
 </pre>
 </div>
 </div>
-<div id="outline-container-headline-51" class="outline-3">
-<h3 id="headline-51">
+<div id="outline-container-headline-54" class="outline-3">
+<h3 id="headline-54">
 Null pointer
 </h3>
-<div id="outline-text-headline-51" class="outline-text-3">
+<div id="outline-text-headline-54" class="outline-text-3">
 <p>
 When you don&#39;t have any pointer to use to initialize a pointer you can use <code class="verbatim">double* ptr = nullptr;</code></p>
 <p>
@@ -1397,11 +1418,11 @@ When you don&#39;t have any pointer to use to initialize a pointer you can use <
 Using <code class="verbatim">0</code> and <code class="verbatim">NULL</code> is deprecated in favor of the new <code class="verbatim">nullptr</code> which is mode specific and clear.</p>
 </div>
 </div>
-<div id="outline-container-headline-52" class="outline-3">
-<h3 id="headline-52">
+<div id="outline-container-headline-55" class="outline-3">
+<h3 id="headline-55">
 References
 </h3>
-<div id="outline-text-headline-52" class="outline-text-3">
+<div id="outline-text-headline-55" class="outline-text-3">
 <p>
 A reference is a immutable pointer.</p>
 <p>
@@ -1460,11 +1481,11 @@ var2: 1
 </pre>
 </div>
 </div>
-<div id="outline-container-headline-53" class="outline-3">
-<h3 id="headline-53">
+<div id="outline-container-headline-56" class="outline-3">
+<h3 id="headline-56">
 When to use references
 </h3>
-<div id="outline-text-headline-53" class="outline-text-3">
+<div id="outline-text-headline-56" class="outline-text-3">
 <p>
 References are just like an <strong>alias</strong> for an object.
 The reference has no information about the lifetime of the object, which can be automatic within a scope or manually allocated in the heap (free memory).</p>
@@ -1506,11 +1527,11 @@ passed as value: 2 DOES NOT CHANGE the instance!
 </pre>
 </div>
 </div>
-<div id="outline-container-headline-54" class="outline-3">
-<h3 id="headline-54">
+<div id="outline-container-headline-57" class="outline-3">
+<h3 id="headline-57">
 Pointer and reference parameters
 </h3>
-<div id="outline-text-headline-54" class="outline-text-3">
+<div id="outline-text-headline-57" class="outline-text-3">
 <p>
 With the goal of changing the value of a variable to a value computed by a function we have 3 choices:</p>
 <ol>
@@ -1570,11 +1591,11 @@ value changed by the function using reference: 5
 </pre>
 </div>
 </div>
-<div id="outline-container-headline-55" class="outline-3">
-<h3 id="headline-55">
+<div id="outline-container-headline-58" class="outline-3">
+<h3 id="headline-58">
 Protecting data &#34;pointed to&#34; when passing by reference
 </h3>
-<div id="outline-text-headline-55" class="outline-text-3">
+<div id="outline-text-headline-58" class="outline-text-3">
 <p>
 Problem:
 When passing by reference, even with <code class="verbatim">const</code>, we can change the data &#34;pointed to&#34;.</p>
@@ -1626,21 +1647,21 @@ Remarks:</p>
 </div>
 </div>
 </div>
-<div id="outline-container-headline-56" class="outline-2">
-<h2 id="headline-56">
+<div id="outline-container-headline-59" class="outline-2">
+<h2 id="headline-59">
 Classes
 </h2>
-<div id="outline-text-headline-56" class="outline-text-2">
-<div id="outline-container-headline-57" class="outline-3">
-<h3 id="headline-57">
+<div id="outline-text-headline-59" class="outline-text-2">
+<div id="outline-container-headline-60" class="outline-3">
+<h3 id="headline-60">
 Definitionss
 </h3>
-<div id="outline-text-headline-57" class="outline-text-3">
-<div id="outline-container-headline-58" class="outline-4">
-<h4 id="headline-58">
+<div id="outline-text-headline-60" class="outline-text-3">
+<div id="outline-container-headline-61" class="outline-4">
+<h4 id="headline-61">
 Class and objects
 </h4>
-<div id="outline-text-headline-58" class="outline-text-4">
+<div id="outline-text-headline-61" class="outline-text-4">
 <p>
 A class type specify <span style="text-decoration: underline;">how the object of its type are represented, how are they used and how they can be destroyed.</span></p>
 <p>
@@ -1650,58 +1671,58 @@ An object is an <span style="text-decoration: underline;">instance of the class<
 When the class is called you create an instance of the object.</p>
 </div>
 </div>
-<div id="outline-container-headline-59" class="outline-4">
-<h4 id="headline-59">
+<div id="outline-container-headline-62" class="outline-4">
+<h4 id="headline-62">
 Types
 </h4>
-<div id="outline-text-headline-59" class="outline-text-4">
+<div id="outline-text-headline-62" class="outline-text-4">
 <p>Types are a way to representing ideas in code.
 A type knows how to represent the data in an object and which operations can be applied to it.</p>
 </div>
 </div>
-<div id="outline-container-headline-60" class="outline-4">
-<h4 id="headline-60">
+<div id="outline-container-headline-63" class="outline-4">
+<h4 id="headline-63">
 User defined type (UDT)
 </h4>
-<div id="outline-text-headline-60" class="outline-text-4">
+<div id="outline-text-headline-63" class="outline-text-4">
 <p><strong>User defined types</strong> (UDT) can be used to implement high level facilities.
 These types are built out of the built-in types and C++ abstraction mechanisms.
 User defined types that C++ provides are: classes and enumerations.</p>
 </div>
 </div>
-<div id="outline-container-headline-61" class="outline-4">
-<h4 id="headline-61">
+<div id="outline-container-headline-64" class="outline-4">
+<h4 id="headline-64">
 Built in types (BIT)
 </h4>
-<div id="outline-text-headline-61" class="outline-text-4">
+<div id="outline-text-headline-64" class="outline-text-4">
 <p><strong>Built in</strong> types (BIT) are recognized by the compiler without any declaration supplied by the programmer.</p>
 </div>
 </div>
-<div id="outline-container-headline-62" class="outline-4">
-<h4 id="headline-62">
+<div id="outline-container-headline-65" class="outline-4">
+<h4 id="headline-65">
 Standard librar types (SLT)
 </h4>
-<div id="outline-text-headline-62" class="outline-text-4">
+<div id="outline-text-headline-65" class="outline-text-4">
 <p><strong>Standard library types</strong> (SLT) such as string, vector, ostream are considered user-defined types (UDT).
 These types are part of C++ ISO standard implementation.
 These are considered UDT because they are constructed from the same primitive as the UDT.</p>
 </div>
 </div>
-<div id="outline-container-headline-63" class="outline-4">
-<h4 id="headline-63">
+<div id="outline-container-headline-66" class="outline-4">
+<h4 id="headline-66">
 Defining and instantiating an object
 </h4>
-<div id="outline-text-headline-63" class="outline-text-4">
+<div id="outline-text-headline-66" class="outline-text-4">
 <p>
 When the blueprint of an object is created we are defining it.
 When we call the blueprint we instantiate an object.</p>
 </div>
 </div>
-<div id="outline-container-headline-64" class="outline-4">
-<h4 id="headline-64">
+<div id="outline-container-headline-67" class="outline-4">
+<h4 id="headline-67">
 Uses of classes
 </h4>
-<div id="outline-text-headline-64" class="outline-text-4">
+<div id="outline-text-headline-67" class="outline-text-4">
 <ol>
 <li>
 <p>grouping functions</p>
@@ -1742,11 +1763,11 @@ Uses of classes
 </ol>
 </div>
 </div>
-<div id="outline-container-headline-65" class="outline-4">
-<h4 id="headline-65">
+<div id="outline-container-headline-68" class="outline-4">
+<h4 id="headline-68">
 Containers
 </h4>
-<div id="outline-text-headline-65" class="outline-text-4">
+<div id="outline-text-headline-68" class="outline-text-4">
 <p>A class that holds objects.</p>
 <p>
 The standard library provides the container vector for instance.</p>
@@ -1754,11 +1775,11 @@ The standard library provides the container vector for instance.</p>
 </div>
 </div>
 </div>
-<div id="outline-container-headline-66" class="outline-3">
-<h3 id="headline-66">
+<div id="outline-container-headline-69" class="outline-3">
+<h3 id="headline-69">
 Classes and members
 </h3>
-<div id="outline-text-headline-66" class="outline-text-3">
+<div id="outline-text-headline-69" class="outline-text-3">
 <p>
 Members are parts used to define a class.
 The member-access notation uses the <code class="verbatim">.</code>.</p>
@@ -1784,11 +1805,11 @@ The member-access notation uses the <code class="verbatim">.</code>.</p>
 </pre>
 </div>
 </div>
-<div id="outline-container-headline-67" class="outline-3">
-<h3 id="headline-67">
+<div id="outline-container-headline-70" class="outline-3">
+<h3 id="headline-70">
 Interface and implementation
 </h3>
-<div id="outline-text-headline-67" class="outline-text-3">
+<div id="outline-text-headline-70" class="outline-text-3">
 <p>A class has an interface and an implementation.</p>
 <p>
 The interface is the part of the class declaration that users access directly.</p>
@@ -1799,11 +1820,11 @@ The public interface is defined with the label <code class="verbatim">public</co
 Class members are private by default.</p>
 </div>
 </div>
-<div id="outline-container-headline-68" class="outline-3">
-<h3 id="headline-68">
+<div id="outline-container-headline-71" class="outline-3">
+<h3 id="headline-71">
 Structures
 </h3>
-<div id="outline-text-headline-68" class="outline-text-3">
+<div id="outline-text-headline-71" class="outline-text-3">
 <p>
 Organize elements that a new type needs into a data structure.
 It is a <span style="text-decoration: underline;">class</span> that <strong>only</strong> have <strong>public</strong> members.</p>
@@ -1869,11 +1890,11 @@ It is a <span style="text-decoration: underline;">class</span> that <strong>only
 </table>
 </div>
 </div>
-<div id="outline-container-headline-69" class="outline-3">
-<h3 id="headline-69">
+<div id="outline-container-headline-72" class="outline-3">
+<h3 id="headline-72">
 Constructor
 </h3>
-<div id="outline-text-headline-69" class="outline-text-3">
+<div id="outline-text-headline-72" class="outline-text-3">
 <p>
 Member function with <span style="text-decoration: underline;">same name</span> as its class is known as <span style="text-decoration: underline;">constructor</span>.
 It is used to initialize an object of the class.
@@ -1912,11 +1933,11 @@ The constructor has no return type.</p>
 </pre>
 </div>
 </div>
-<div id="outline-container-headline-70" class="outline-3">
-<h3 id="headline-70">
+<div id="outline-container-headline-73" class="outline-3">
+<h3 id="headline-73">
 Functors
 </h3>
-<div id="outline-text-headline-70" class="outline-text-3">
+<div id="outline-text-headline-73" class="outline-text-3">
 <p>
 Functors are function objects.
 Use case: when you need to pass a function and its arguments as an argument to another routine.</p>
@@ -1945,11 +1966,11 @@ In a functor, the object operator <code class="verbatim">()</code> has been over
 </pre>
 </div>
 </div>
-<div id="outline-container-headline-71" class="outline-3">
-<h3 id="headline-71">
+<div id="outline-container-headline-74" class="outline-3">
+<h3 id="headline-74">
 Constant arguments in methods
 </h3>
-<div id="outline-text-headline-71" class="outline-text-3">
+<div id="outline-text-headline-74" class="outline-text-3">
 <p>
 C++ class methods have implicit <code class="verbatim">this</code> parameter which comes before all explicit ones.
 The <code class="verbatim">const</code> operator after the function arguments make the <code class="verbatim">this</code> parameter constant.
@@ -1986,21 +2007,21 @@ The <code class="verbatim">const</code> in the argument list just means that the
 </pre>
 </div>
 </div>
-<div id="outline-container-headline-72" class="outline-3">
-<h3 id="headline-72">
+<div id="outline-container-headline-75" class="outline-3">
+<h3 id="headline-75">
 Defining member function outside the class
 </h3>
-<div id="outline-text-headline-72" class="outline-text-3">
+<div id="outline-text-headline-75" class="outline-text-3">
 <p>
 We can do that by using <code class="verbatim">class_name::member_name</code>.
 Good to avoid long class declarations.</p>
 </div>
 </div>
-<div id="outline-container-headline-73" class="outline-3">
-<h3 id="headline-73">
+<div id="outline-container-headline-76" class="outline-3">
+<h3 id="headline-76">
 Member initializer list
 </h3>
-<div id="outline-text-headline-73" class="outline-text-3">
+<div id="outline-text-headline-76" class="outline-text-3">
 <p>
 To initialize member variables in a list format.
 The notation <code class="verbatim">:year{y}, month{m}, day{d}</code> more directly express <span style="text-decoration: underline;">intent</span>  of just initialize class members.</p>
@@ -2052,11 +2073,11 @@ Date::Date(<span style="color:#888;font-weight:bold">int</span> y, <span style="
 </pre>
 </div>
 </div>
-<div id="outline-container-headline-74" class="outline-3">
-<h3 id="headline-74">
+<div id="outline-container-headline-77" class="outline-3">
+<h3 id="headline-77">
 Initialize members modern
 </h3>
-<div id="outline-text-headline-74" class="outline-text-3">
+<div id="outline-text-headline-77" class="outline-text-3">
 <p>
 Initialize with the arguments <code class="verbatim">y,m and d</code> and directly assign them to the class member data <code class="verbatim">year, month, day</code>.</p>
 <div class="src src-c++">
@@ -2078,31 +2099,31 @@ Initialize with the arguments <code class="verbatim">y,m and d</code> and direct
 </pre>
 </div>
 </div>
-<div id="outline-container-headline-75" class="outline-3">
-<h3 id="headline-75">
+<div id="outline-container-headline-78" class="outline-3">
+<h3 id="headline-78">
 Operator overloading
 </h3>
-<div id="outline-text-headline-75" class="outline-text-3">
+<div id="outline-text-headline-78" class="outline-text-3">
 <p>
 Use it when we want to provide conventional notation for a type.
 Notation for &#34;increment&#34; <code class="verbatim">++</code> or &#34;output&#34; <code class="verbatim">&lt;&lt;</code>
 Usually not recommended, except when it makes a clear positive impact.</p>
 </div>
 </div>
-<div id="outline-container-headline-76" class="outline-3">
-<h3 id="headline-76">
+<div id="outline-container-headline-79" class="outline-3">
+<h3 id="headline-79">
 Symbolic constants within classes
 </h3>
-<div id="outline-text-headline-76" class="outline-text-3">
+<div id="outline-text-headline-79" class="outline-text-3">
 <p>
 Use the <code class="verbatim">static</code> to make sure there is only one copy of the value in the program, rather than one per object of the class.</p>
 </div>
 </div>
-<div id="outline-container-headline-77" class="outline-3">
-<h3 id="headline-77">
+<div id="outline-container-headline-80" class="outline-3">
+<h3 id="headline-80">
 Class interface principles
 </h3>
-<div id="outline-text-headline-77" class="outline-text-3">
+<div id="outline-text-headline-80" class="outline-text-3">
 <ol>
 <li>
 <p>complete and minimal</p>
@@ -2122,11 +2143,11 @@ Class interface principles
 </ol>
 </div>
 </div>
-<div id="outline-container-headline-78" class="outline-3">
-<h3 id="headline-78">
+<div id="outline-container-headline-81" class="outline-3">
+<h3 id="headline-81">
 Enumerators
 </h3>
-<div id="outline-text-headline-78" class="outline-text-3">
+<div id="outline-text-headline-81" class="outline-text-3">
 <p>
 Other kind of user defined type (UDT), analogous to classes.
 Useful when we need a <span style="text-decoration: underline;">set of related named integer constants</span>.
@@ -2158,16 +2179,16 @@ Can be used to restrict the argument of a function or class, requiring it to be 
 </table>
 </div>
 </div>
-<div id="outline-container-headline-79" class="outline-3">
-<h3 id="headline-79">
+<div id="outline-container-headline-82" class="outline-3">
+<h3 id="headline-82">
 Inheritance
 </h3>
-<div id="outline-text-headline-79" class="outline-text-3">
-<div id="outline-container-headline-80" class="outline-4">
-<h4 id="headline-80">
+<div id="outline-text-headline-82" class="outline-text-3">
+<div id="outline-container-headline-83" class="outline-4">
+<h4 id="headline-83">
 Definitionss
 </h4>
-<div id="outline-text-headline-80" class="outline-text-4">
+<div id="outline-text-headline-83" class="outline-text-4">
 <ol>
 <li>
 <p>derived class has <span style="text-decoration: underline;">all method and stored states</span> of its base class.</p>
@@ -2188,16 +2209,16 @@ Definitionss
 </div>
 </div>
 </div>
-<div id="outline-container-headline-81" class="outline-2">
-<h2 id="headline-81">
+<div id="outline-container-headline-84" class="outline-2">
+<h2 id="headline-84">
 Vectors
 </h2>
-<div id="outline-text-headline-81" class="outline-text-2">
-<div id="outline-container-headline-82" class="outline-3">
-<h3 id="headline-82">
+<div id="outline-text-headline-84" class="outline-text-2">
+<div id="outline-container-headline-85" class="outline-3">
+<h3 id="headline-85">
 Prologue
 </h3>
-<div id="outline-text-headline-82" class="outline-text-3">
+<div id="outline-text-headline-85" class="outline-text-3">
 <p>Vectors are the most useful in the standard library (STL) <span style="text-decoration: underline;">container</span>.
 It provides a sequence of elements of a <span style="text-decoration: underline;">given type</span>.</p>
 <p>
@@ -2206,11 +2227,11 @@ Create a vector container from scratch is useful to understand concepts and C++ 
 Memory management low level knowledge is the base for more complex high level ones, like data structures, algorithms and operating systems.</p>
 </div>
 </div>
-<div id="outline-container-headline-83" class="outline-3">
-<h3 id="headline-83">
+<div id="outline-container-headline-86" class="outline-3">
+<h3 id="headline-86">
 Fixed size vector
 </h3>
-<div id="outline-text-headline-83" class="outline-text-3">
+<div id="outline-text-headline-86" class="outline-text-3">
 <p>
 Vector object with only 2 elements.</p>
 <p>
@@ -2231,11 +2252,11 @@ Problem:</p>
 </div>
 </div>
 </div>
-<div id="outline-container-headline-84" class="outline-3">
-<h3 id="headline-84">
+<div id="outline-container-headline-87" class="outline-3">
+<h3 id="headline-87">
 Variable number of elements
 </h3>
-<div id="outline-text-headline-84" class="outline-text-3">
+<div id="outline-text-headline-87" class="outline-text-3">
 <ol>
 <li>
 <p>initialize vector class with vector size <code class="verbatim">s.</code></p>
@@ -2307,11 +2328,11 @@ Variable number of elements
 </pre>
 </div>
 </div>
-<div id="outline-container-headline-85" class="outline-3">
-<h3 id="headline-85">
+<div id="outline-container-headline-88" class="outline-3">
+<h3 id="headline-88">
 Avoiding memory leak
 </h3>
-<div id="outline-text-headline-85" class="outline-text-3">
+<div id="outline-text-headline-88" class="outline-text-3">
 <p>
 The <code class="verbatim">new</code> operator gets memory from the <em>free store</em>.
 It is good practice to return this memory after using it.</p>
@@ -2328,11 +2349,11 @@ We can free the memory up by <code class="verbatim">delete[] myvector;</code> af
 Just deleting is not a good practice because it is not robust or reliable enough.</p>
 </div>
 </div>
-<div id="outline-container-headline-86" class="outline-3">
-<h3 id="headline-86">
+<div id="outline-container-headline-89" class="outline-3">
+<h3 id="headline-89">
 Destructor
 </h3>
-<div id="outline-text-headline-86" class="outline-text-3">
+<div id="outline-text-headline-89" class="outline-text-3">
 <p>
 The <em>destructor</em> is represented by calling the same constructor function with <code class="verbatim">~</code> in the front.
 The constructor is called implicitly when an object class is created, instantiated, the <strong>destructor is called also implicitly when the object goes out of scope</strong>.</p>
@@ -2381,11 +2402,11 @@ The standard library <code class="verbatim">vector</code> does that already.</p>
 </pre>
 </div>
 </div>
-<div id="outline-container-headline-87" class="outline-3">
-<h3 id="headline-87">
+<div id="outline-container-headline-90" class="outline-3">
+<h3 id="headline-90">
 <code class="verbatim">get()</code> and <code class="verbatim">set()</code> methods
 </h3>
-<div id="outline-text-headline-87" class="outline-text-3">
+<div id="outline-text-headline-90" class="outline-text-3">
 <div class="src src-c++">
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#c00;font-weight:bold">#include</span> <span style="color:#c00;font-weight:bold">&lt;iostream&gt;</span><span style="color:#c00;font-weight:bold">
 </span><span style="color:#c00;font-weight:bold">#include</span> <span style="color:#c00;font-weight:bold">&lt;ostream&gt;</span><span style="color:#c00;font-weight:bold">
@@ -2424,11 +2445,11 @@ The standard library <code class="verbatim">vector</code> does that already.</p>
 </pre>
 </div>
 </div>
-<div id="outline-container-headline-88" class="outline-3">
-<h3 id="headline-88">
+<div id="outline-container-headline-91" class="outline-3">
+<h3 id="headline-91">
 Getting element&#39;s values
 </h3>
-<div id="outline-text-headline-88" class="outline-text-3">
+<div id="outline-text-headline-91" class="outline-text-3">
 <p>
 We can use the <code class="verbatim">get()</code> method or the arrow <code class="verbatim">-&gt;</code> operator.</p>
 <p>
@@ -2470,11 +2491,11 @@ The <code class="verbatim">-&gt;</code> arrow is <span style="text-decoration: u
 </pre>
 </div>
 </div>
-<div id="outline-container-headline-89" class="outline-3">
-<h3 id="headline-89">
+<div id="outline-container-headline-92" class="outline-3">
+<h3 id="headline-92">
 Constructor with initializer list <code class="verbatim">{}</code>
 </h3>
-<div id="outline-text-headline-89" class="outline-text-3">
+<div id="outline-text-headline-92" class="outline-text-3">
 <p>
 Instead of assigning value to each element individually we can pass an <span style="text-decoration: underline;">initilizer list</span> to the constructor with the element values.
 The <code class="verbatim">{}</code> delimited list of a specific type is an object of the standard library <code class="verbatim">initialize_list&lt;T&gt;</code>.</p>
@@ -2544,26 +2565,26 @@ Remarks:</p>
 </ol>
 </div>
 </div>
-<div id="outline-container-headline-90" class="outline-3">
-<h3 id="headline-90">
+<div id="outline-container-headline-93" class="outline-3">
+<h3 id="headline-93">
 Copying
 </h3>
-<div id="outline-text-headline-90" class="outline-text-3">
-<div id="outline-container-headline-91" class="outline-4">
-<h4 id="headline-91">
+<div id="outline-text-headline-93" class="outline-text-3">
+<div id="outline-container-headline-94" class="outline-4">
+<h4 id="headline-94">
 Definitionss
 </h4>
-<div id="outline-text-headline-91" class="outline-text-4">
+<div id="outline-text-headline-94" class="outline-text-4">
 <p>
 When do we need a copy constructor?
 A class that needs a destructor will most probably need a copy constructor and copy assignment.</p>
 </div>
 </div>
-<div id="outline-container-headline-92" class="outline-4">
-<h4 id="headline-92">
+<div id="outline-container-headline-95" class="outline-4">
+<h4 id="headline-95">
 Standard copying behavior
 </h4>
-<div id="outline-text-headline-92" class="outline-text-4">
+<div id="outline-text-headline-95" class="outline-text-4">
 <p>
 We are passing the elements of the vector through a pointer <code class="verbatim">elem</code>.
 When we make a copy, we are copying the pointer.
@@ -2614,11 +2635,11 @@ If the destructor is commented out, it can run.
 We observe that by changing <code class="verbatim">vec1</code> e also changed the elements of <code class="verbatim">vec2</code>, because they point to the same address.</p>
 </div>
 </div>
-<div id="outline-container-headline-93" class="outline-4">
-<h4 id="headline-93">
+<div id="outline-container-headline-96" class="outline-4">
+<h4 id="headline-96">
 Copy constructor
 </h4>
-<div id="outline-text-headline-93" class="outline-text-4">
+<div id="outline-text-headline-96" class="outline-text-4">
 <p>
 Initialization of class objects is always done by a constructor.
 We call <span style="text-decoration: underline;">copy constructor</span> the one that take as argument <span style="text-decoration: underline;">a reference to the object from which to copy</span>, <code class="verbatim">vector(const vector&amp;)</code>.</p>
@@ -2689,11 +2710,11 @@ Remarks:</p>
 </ol>
 </div>
 </div>
-<div id="outline-container-headline-94" class="outline-4">
-<h4 id="headline-94">
+<div id="outline-container-headline-97" class="outline-4">
+<h4 id="headline-97">
 Copy assignments constructor
 </h4>
-<div id="outline-text-headline-94" class="outline-text-4">
+<div id="outline-text-headline-97" class="outline-text-4">
 <p>
 In the copy assignment we want to control the behavior of a simple assignment <code class="verbatim">vec1=vec2</code>.
 This is done with another constructor <code class="verbatim">vector&amp; operator=(const vector&amp; rhs)</code>.
@@ -2778,11 +2799,11 @@ Remarks:</p>
 </ol>
 </div>
 </div>
-<div id="outline-container-headline-95" class="outline-4">
-<h4 id="headline-95">
+<div id="outline-container-headline-98" class="outline-4">
+<h4 id="headline-98">
 Shallow and memberwise copy
 </h4>
-<div id="outline-text-headline-95" class="outline-text-4">
+<div id="outline-text-headline-98" class="outline-text-4">
 <p>
 A shallow copy means copying <span style="text-decoration: underline;">just the pointer (or reference)</span>.
 Now two pointers point to the same object.</p>
@@ -2825,26 +2846,26 @@ new pointer content: 22
 </div>
 </div>
 </div>
-<div id="outline-container-headline-96" class="outline-3">
-<h3 id="headline-96">
+<div id="outline-container-headline-99" class="outline-3">
+<h3 id="headline-99">
 Move constructor
 </h3>
-<div id="outline-text-headline-96" class="outline-text-3">
-<div id="outline-container-headline-97" class="outline-4">
-<h4 id="headline-97">
+<div id="outline-text-headline-99" class="outline-text-3">
+<div id="outline-container-headline-100" class="outline-4">
+<h4 id="headline-100">
 Definitions
 </h4>
-<div id="outline-text-headline-97" class="outline-text-4">
+<div id="outline-text-headline-100" class="outline-text-4">
 <p>When to use a move constructor?
 A class that needs a destructor will probably need a move constructor and move assignment.
 If a vector has a lot of elements copying it is expensive.</p>
 </div>
 </div>
-<div id="outline-container-headline-98" class="outline-4">
-<h4 id="headline-98">
+<div id="outline-container-headline-101" class="outline-4">
+<h4 id="headline-101">
 Move constructor and assignment
 </h4>
-<div id="outline-text-headline-98" class="outline-text-4">
+<div id="outline-text-headline-101" class="outline-text-4">
 <p>
 The move constructor uses the &#34;rvalue reference&#34; <code class="verbatim">&amp;&amp;</code>, <code class="verbatim">vector(vector&amp;&amp; a);</code>.
 This operator is used to <span style="text-decoration: underline;">define move operations.</span></p>
@@ -2954,11 +2975,11 @@ Remarks:</p>
 </ol>
 </div>
 </div>
-<div id="outline-container-headline-99" class="outline-4">
-<h4 id="headline-99">
+<div id="outline-container-headline-102" class="outline-4">
+<h4 id="headline-102">
 Move constructor importance
 </h4>
-<div id="outline-text-headline-99" class="outline-text-4">
+<div id="outline-text-headline-102" class="outline-text-4">
 <p>We use it so we don&#39;t have to deal with pointers or references to get large amount of information from a function.</p>
 <p>
 Without them, we would have to:</p>
@@ -2974,12 +2995,12 @@ Without them, we would have to:</p>
 </div>
 </div>
 </div>
-<div id="outline-container-headline-100" class="outline-3">
-<h3 id="headline-100">
+<div id="outline-container-headline-103" class="outline-3">
+<h3 id="headline-103">
 <span class="todo">TODO</span>
 Default constructor
 </h3>
-<div id="outline-text-headline-100" class="outline-text-3">
+<div id="outline-text-headline-103" class="outline-text-3">
 <p>Used when we want to make an object instance without specifying an initializer, <code class="verbatim">vector{}</code>.</p>
 <p>
 Useful when we want to pass an object of a class into a standard library vector, for instance <code class="verbatim">vector &lt;vector&lt;int&gt;&gt; vec(10);</code> means vector of vector.</p>
@@ -3000,12 +3021,12 @@ vector&lt;<span style="color:#888;font-weight:bold">int</span>&gt; vec_default;	
 </div>
 </div>
 </div>
-<div id="outline-container-headline-101" class="outline-3">
-<h3 id="headline-101">
+<div id="outline-container-headline-104" class="outline-3">
+<h3 id="headline-104">
 <span class="todo">TODO</span>
 Explicit constructor
 </h3>
-<div id="outline-text-headline-101" class="outline-text-3">
+<div id="outline-text-headline-104" class="outline-text-3">
 <p>The speficier <code class="verbatim">explicit</code> for constructor specify that the constructor can only be invoked with <code class="verbatim">{}</code> or <code class="verbatim">()</code>.
 It does not accept <code class="verbatim">=</code> which is better to use only for assignments.</p>
 <div class="src src-c++">
@@ -3028,26 +3049,26 @@ vector&lt;<span style="color:#888;font-weight:bold">double</span>&gt; vec_withsi
 </div>
 </div>
 </div>
-<div id="outline-container-headline-102" class="outline-3">
-<h3 id="headline-102">
+<div id="outline-container-headline-105" class="outline-3">
+<h3 id="headline-105">
 Access to vector elements
 </h3>
-<div id="outline-text-headline-102" class="outline-text-3">
-<div id="outline-container-headline-103" class="outline-4">
-<h4 id="headline-103">
+<div id="outline-text-headline-105" class="outline-text-3">
+<div id="outline-container-headline-106" class="outline-4">
+<h4 id="headline-106">
 Motivation
 </h4>
-<div id="outline-text-headline-103" class="outline-text-4">
+<div id="outline-text-headline-106" class="outline-text-4">
 <p>
 Alternative to &#34;verbose&#34; syntax of <code class="verbatim">get()</code> and <code class="verbatim">set()</code>.
 Use the math subscript notation: <code class="verbatim">v[i].</code></p>
 </div>
 </div>
-<div id="outline-container-headline-104" class="outline-4">
-<h4 id="headline-104">
+<div id="outline-container-headline-107" class="outline-4">
+<h4 id="headline-107">
 Member function <code class="verbatim">operator[]</code>
 </h4>
-<div id="outline-text-headline-104" class="outline-text-4">
+<div id="outline-text-headline-107" class="outline-text-4">
 <p>
 Just defining a member function and return the element value referent to the index allows an equivalent to <code class="verbatim">get()</code>.
 But it does not allows changing the element by using an assignment.</p>
@@ -3078,11 +3099,11 @@ But it does not allows changing the element by using an assignment.</p>
   <span style="color:#888">// v[0] = 9;// ERROR! lvalue required as left operand of assignment
 </span><span style="color:#888"></span>}</code></pre></div>
 </div>
-<div id="outline-container-headline-105" class="outline-4">
-<h4 id="headline-105">
+<div id="outline-container-headline-108" class="outline-4">
+<h4 id="headline-108">
 Return pointer to elements
 </h4>
-<div id="outline-text-headline-105" class="outline-text-4">
+<div id="outline-text-headline-108" class="outline-text-4">
 <p>
 To return pointer we use the dereference operator <code class="verbatim">*</code> in the function return type so it returns a pointer.
 In the return statement we use the &#34;address of&#34; operator to get the address of the member.</p>
@@ -3136,11 +3157,11 @@ Remarks:</p>
 </div>
 </div>
 </div>
-<div id="outline-container-headline-106" class="outline-4">
-<h4 id="headline-106">
+<div id="outline-container-headline-109" class="outline-4">
+<h4 id="headline-109">
 Return a reference to elements
 </h4>
-<div id="outline-text-headline-106" class="outline-text-4">
+<div id="outline-text-headline-109" class="outline-text-4">
 <p>Now, instead of returning a pointer we return a reference with <code class="verbatim">double&amp;</code>.
 With a reference we can change the element value without the need to use the dereference <code class="verbatim">*</code> operator to get the pointer value.</p>
 <p>
@@ -3192,11 +3213,11 @@ Remarks:</p>
 </ol>
 </div>
 </div>
-<div id="outline-container-headline-107" class="outline-4">
-<h4 id="headline-107">
+<div id="outline-container-headline-110" class="outline-4">
+<h4 id="headline-110">
 <code class="verbatim">const</code> member function
 </h4>
-<div id="outline-text-headline-107" class="outline-text-4">
+<div id="outline-text-headline-110" class="outline-text-4">
 <p>
 Used so when we try to change a constant vector it blocks the operation.
 The syntax is to add <code class="verbatim">const</code> after the function parameters <code class="verbatim">double operator[](int n) const;</code>.</p>
@@ -3289,16 +3310,16 @@ Remarks:</p>
 </div>
 </div>
 </div>
-<div id="outline-container-headline-108" class="outline-3">
-<h3 id="headline-108">
+<div id="outline-container-headline-111" class="outline-3">
+<h3 id="headline-111">
 Arrays
 </h3>
-<div id="outline-text-headline-108" class="outline-text-3">
-<div id="outline-container-headline-109" class="outline-4">
-<h4 id="headline-109">
+<div id="outline-text-headline-111" class="outline-text-3">
+<div id="outline-container-headline-112" class="outline-4">
+<h4 id="headline-112">
 Definition
 </h4>
-<div id="outline-text-headline-109" class="outline-text-4">
+<div id="outline-text-headline-112" class="outline-text-4">
 <p>Sequence of objects allocated on free storage.
 Homogeneous and allocated in a contiguous form.</p>
 <p>
@@ -3321,11 +3342,11 @@ Because:</p>
 </div>
 </div>
 </div>
-<div id="outline-container-headline-110" class="outline-3">
-<h3 id="headline-110">
+<div id="outline-container-headline-113" class="outline-3">
+<h3 id="headline-113">
 Vector conclusion
 </h3>
-<div id="outline-text-headline-110" class="outline-text-3">
+<div id="outline-text-headline-113" class="outline-text-3">
 <p>
 The vector class can:</p>
 <ol>
@@ -3347,11 +3368,11 @@ The vector class can:</p>
 </ol>
 </div>
 </div>
-<div id="outline-container-headline-111" class="outline-3">
-<h3 id="headline-111">
+<div id="outline-container-headline-114" class="outline-3">
+<h3 id="headline-114">
 Problems still to be solved
 </h3>
-<div id="outline-text-headline-111" class="outline-text-3">
+<div id="outline-text-headline-114" class="outline-text-3">
 <ol>
 <li>
 <p>how to change the size of the vector?</p>
@@ -3367,21 +3388,21 @@ Problems still to be solved
 </div>
 </div>
 </div>
-<div id="outline-container-headline-112" class="outline-2">
-<h2 id="headline-112">
+<div id="outline-container-headline-115" class="outline-2">
+<h2 id="headline-115">
 Templates
 </h2>
-<div id="outline-text-headline-112" class="outline-text-2">
-<div id="outline-container-headline-113" class="outline-3">
-<h3 id="headline-113">
+<div id="outline-text-headline-115" class="outline-text-2">
+<div id="outline-container-headline-116" class="outline-3">
+<h3 id="headline-116">
 Definitions
 </h3>
-<div id="outline-text-headline-113" class="outline-text-3">
-<div id="outline-container-headline-114" class="outline-4">
-<h4 id="headline-114">
+<div id="outline-text-headline-116" class="outline-text-3">
+<div id="outline-container-headline-117" class="outline-4">
+<h4 id="headline-117">
 What is a template?
 </h4>
-<div id="outline-text-headline-114" class="outline-text-4">
+<div id="outline-text-headline-117" class="outline-text-4">
 <p>
 <span style="text-decoration: underline;">A template is mechanisms that allows to <em>use types as parameters</em> for a class of function.</span>
 The compiler generates a specific class or function when we provide a specific type as argument.</p>
@@ -3389,11 +3410,11 @@ The compiler generates a specific class or function when we provide a specific t
 Instead of creating a vector with <code class="verbatim">double</code> elements, what if we want <code class="verbatim">Date</code> elements of a specific user-defined type?</p>
 </div>
 </div>
-<div id="outline-container-headline-115" class="outline-4">
-<h4 id="headline-115">
+<div id="outline-container-headline-118" class="outline-4">
+<h4 id="headline-118">
 What is a container?
 </h4>
-<div id="outline-text-headline-115" class="outline-text-4">
+<div id="outline-text-headline-118" class="outline-text-4">
 <p>
 Containers are entities that store data.</p>
 <p>
@@ -3405,49 +3426,49 @@ Containers with types and flexible size are provided by a programming language f
 This allows flexibility and convenience.</p>
 </div>
 </div>
-<div id="outline-container-headline-116" class="outline-4">
-<h4 id="headline-116">
+<div id="outline-container-headline-119" class="outline-4">
+<h4 id="headline-119">
 What is template instantiation?
 </h4>
-<div id="outline-text-headline-116" class="outline-text-4">
+<div id="outline-text-headline-119" class="outline-text-4">
 <p>The process of generating a class from a class template.
 Also known as specialization.
 This process is done by the compiler.</p>
 </div>
 </div>
-<div id="outline-container-headline-117" class="outline-4">
-<h4 id="headline-117">
+<div id="outline-container-headline-120" class="outline-4">
+<h4 id="headline-120">
 What is generic programming?
 </h4>
-<div id="outline-text-headline-117" class="outline-text-4">
+<div id="outline-text-headline-120" class="outline-text-4">
 <p>Code that works with a variety of types.
 The template feature allows generic programming.</p>
 </div>
 </div>
-<div id="outline-container-headline-118" class="outline-4">
-<h4 id="headline-118">
+<div id="outline-container-headline-121" class="outline-4">
+<h4 id="headline-121">
 What is parametric polymorphism?
 </h4>
-<div id="outline-text-headline-118" class="outline-text-4">
+<div id="outline-text-headline-121" class="outline-text-4">
 <p>Form of generic programming that relies on explicit template parameters.</p>
 <p>
 Different from polymorphism from object-oriented programming.</p>
 </div>
 </div>
-<div id="outline-container-headline-119" class="outline-4">
-<h4 id="headline-119">
+<div id="outline-container-headline-122" class="outline-4">
+<h4 id="headline-122">
 Why put template definition in header files?
 </h4>
-<div id="outline-text-headline-119" class="outline-text-4">
+<div id="outline-text-headline-122" class="outline-text-4">
 <p>
 The compiler requires that a template must be fully defined wherever it is used, all member functions and all template functions.</p>
 </div>
 </div>
-<div id="outline-container-headline-120" class="outline-4">
-<h4 id="headline-120">
+<div id="outline-container-headline-123" class="outline-4">
+<h4 id="headline-123">
 What is a concept?
 </h4>
-<div id="outline-text-headline-120" class="outline-text-4">
+<div id="outline-text-headline-123" class="outline-text-4">
 <p>
 A set of requirements on a template argument.</p>
 <p>
@@ -3471,17 +3492,17 @@ which is equivalent todo</p>
 </div>
 </div>
 </div>
-<div id="outline-container-headline-121" class="outline-3">
-<h3 id="headline-121">
+<div id="outline-container-headline-124" class="outline-3">
+<h3 id="headline-124">
 <span class="todo">TODO</span>
 Changing size
 </h3>
 </div>
-<div id="outline-container-headline-122" class="outline-3">
-<h3 id="headline-122">
+<div id="outline-container-headline-125" class="outline-3">
+<h3 id="headline-125">
 Creating Templates
 </h3>
-<div id="outline-text-headline-122" class="outline-text-3">
+<div id="outline-text-headline-125" class="outline-text-3">
 <p>
 We use the directive <code class="verbatim">template&lt;typename T&gt;</code> before our class creation to get a type as parameter when instantiating the class.
 One can also use <code class="verbatim">template&lt;class T&gt;, which seems clearer</code>.
@@ -3505,11 +3526,11 @@ The <code class="verbatim">T</code> is specific type passed in <code class="verb
 </div>
 </div>
 </div>
-<div id="outline-container-headline-123" class="outline-3">
-<h3 id="headline-123">
+<div id="outline-container-headline-126" class="outline-3">
+<h3 id="headline-126">
 Type as template parameters
 </h3>
-<div id="outline-text-headline-123" class="outline-text-3">
+<div id="outline-text-headline-126" class="outline-text-3">
 <p>Goal is to make the element type a parameter to a vector class.</p>
 <div class="src src-c++">
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#c00;font-weight:bold">#include</span> <span style="color:#c00;font-weight:bold">&lt;iostream&gt;</span><span style="color:#c00;font-weight:bold">
@@ -3528,11 +3549,11 @@ Vector myvec;			<span style="color:#888">// instantiate class
 </div>
 </div>
 </div>
-<div id="outline-container-headline-124" class="outline-3">
-<h3 id="headline-124">
+<div id="outline-container-headline-127" class="outline-3">
+<h3 id="headline-127">
 Passing function or functor as arguments
 </h3>
-<div id="outline-text-headline-124" class="outline-text-3">
+<div id="outline-text-headline-127" class="outline-text-3">
 <p>
 A templated function allows the compiler to know if <code class="verbatim">func</code> is a function or a functor.</p>
 <div class="src src-c++">
@@ -3552,16 +3573,16 @@ A templated function allows the compiler to know if <code class="verbatim">func<
 </div>
 </div>
 </div>
-<div id="outline-container-headline-125" class="outline-2">
-<h2 id="headline-125">
+<div id="outline-container-headline-128" class="outline-2">
+<h2 id="headline-128">
 Numerics
 </h2>
-<div id="outline-text-headline-125" class="outline-text-2">
-<div id="outline-container-headline-126" class="outline-3">
-<h3 id="headline-126">
+<div id="outline-text-headline-128" class="outline-text-2">
+<div id="outline-container-headline-129" class="outline-3">
+<h3 id="headline-129">
 Accumulate
 </h3>
-<div id="outline-text-headline-126" class="outline-text-3">
+<div id="outline-text-headline-129" class="outline-text-3">
 <p>As an introduction to the numerical library.</p>
 <p>
 The function takes</p>
@@ -3603,24 +3624,24 @@ Remarks:</p>
 </div>
 </div>
 </div>
-<div id="outline-container-headline-127" class="outline-2">
-<h2 id="headline-127">
+<div id="outline-container-headline-130" class="outline-2">
+<h2 id="headline-130">
 Libraries
 </h2>
-<div id="outline-text-headline-127" class="outline-text-2">
-<div id="outline-container-headline-128" class="outline-3">
-<h3 id="headline-128">
+<div id="outline-text-headline-130" class="outline-text-2">
+<div id="outline-container-headline-131" class="outline-3">
+<h3 id="headline-131">
 Standard library
 </h3>
-<div id="outline-text-headline-128" class="outline-text-3">
+<div id="outline-text-headline-131" class="outline-text-3">
 <p>Libraries that provide some useful tools (data structures and algorithms) for every programmer.</p>
 </div>
 </div>
-<div id="outline-container-headline-129" class="outline-3">
-<h3 id="headline-129">
+<div id="outline-container-headline-132" class="outline-3">
+<h3 id="headline-132">
 Headers and namespace
 </h3>
-<div id="outline-text-headline-129" class="outline-text-3">
+<div id="outline-text-headline-132" class="outline-text-3">
 <p>A header argument provides a standard library facility.
 Standard library is defined in a namespace <code class="verbatim">std</code>, which is a prefix that access the facilities.
 The prefix can be avoided with <code class="verbatim">using namespace std;</code>.</p>
@@ -3629,11 +3650,11 @@ The prefix can be avoided with <code class="verbatim">using namespace std;</code
 </span><span style="color:#c00;font-weight:bold"></span>
 <span style="color:#888;font-weight:bold">int</span> <span style="color:#06b;font-weight:bold">main</span>() { std::string s{<span style="color:#d20;background-color:#fff0f0">&#34;a string&#34;</span>}; }</code></pre></div>
 </div>
-<div id="outline-container-headline-130" class="outline-3">
-<h3 id="headline-130">
+<div id="outline-container-headline-133" class="outline-3">
+<h3 id="headline-133">
 External libraries
 </h3>
-<div id="outline-text-headline-130" class="outline-text-3">
+<div id="outline-text-headline-133" class="outline-text-3">
 <p>
 With an external library source code in a specific folder.</p>
 <p>
@@ -3661,11 +3682,11 @@ We need:</p>
 </ol>
 </li>
 </ol>
-<div id="outline-container-headline-131" class="outline-5">
-<h5 id="headline-131">
+<div id="outline-container-headline-134" class="outline-5">
+<h5 id="headline-134">
 General definitions
 </h5>
-<div id="outline-text-headline-131" class="outline-text-5">
+<div id="outline-text-headline-134" class="outline-text-5">
 <p>A library is just code with <span style="text-decoration: underline;">declarations</span> with statements of how to use the functions and classes.</p>
 <ol>
 <li>
@@ -3677,22 +3698,22 @@ General definitions
 </ol>
 </div>
 </div>
-<div id="outline-container-headline-132" class="outline-5">
-<h5 id="headline-132">
+<div id="outline-container-headline-135" class="outline-5">
+<h5 id="headline-135">
 Including a library in <code class="verbatim">/usr/include/</code>
 </h5>
-<div id="outline-text-headline-132" class="outline-text-5">
+<div id="outline-text-headline-135" class="outline-text-5">
 <p>C++ compiler founds automatically external libraries in the folder <code class="verbatim">/usr/include/</code>.</p>
 <div class="src src-c++">
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#c00;font-weight:bold">#include</span> <span style="color:#c00;font-weight:bold">&lt;library_name/headerfile.h&gt;</span></code></pre></div>
 </div>
 </div>
 </div>
-<div id="outline-container-headline-133" class="outline-5">
-<h5 id="headline-133">
+<div id="outline-container-headline-136" class="outline-5">
+<h5 id="headline-136">
 Including a library elsewhere
 </h5>
-<div id="outline-text-headline-133" class="outline-text-5">
+<div id="outline-text-headline-136" class="outline-text-5">
 <p>
 Need to find the path to the library header file.</p>
 </div>
@@ -3701,11 +3722,11 @@ Need to find the path to the library header file.</p>
 </div>
 </div>
 </div>
-<div id="outline-container-headline-134" class="outline-3">
-<h3 id="headline-134">
+<div id="outline-container-headline-137" class="outline-3">
+<h3 id="headline-137">
 Static and dynamic libraries
 </h3>
-<div id="outline-text-headline-134" class="outline-text-3">
+<div id="outline-text-headline-137" class="outline-text-3">
 <p>
 Static libraries (also known as &#34;archive&#34;) are linked to the programs at <span style="text-decoration: underline;">compile time</span>.
 The executable has a copy of library code, makes it bloated.
@@ -3719,11 +3740,11 @@ One hurdle is a more intricate installation process regarding proper placement o
 Reference: <a href="https://domiyanyue.medium.com/c-development-tutorial-4-static-and-dynamic-libraries-7b537656163e">C++ Development Tutorial 4: Static and Dynamic Libraries | by Domi Yan | Medium</a></p>
 </div>
 </div>
-<div id="outline-container-headline-135" class="outline-3">
-<h3 id="headline-135">
+<div id="outline-container-headline-138" class="outline-3">
+<h3 id="headline-138">
 Using dynamic libraries
 </h3>
-<div id="outline-text-headline-135" class="outline-text-3">
+<div id="outline-text-headline-138" class="outline-text-3">
 <p>
 Dynamic libraries can be used by compiling your program together with the shared library file.</p>
 <p>
@@ -3788,23 +3809,32 @@ The flag <code class="verbatim">-Wl</code> is used to pass a list of arguments t
 It seems that CMake builds the executable with the RPATH for the build tree (<a href="https://gitlab.kitware.com/cmake/community/-/wikis/doc/cmake/RPATH-handling).">https://gitlab.kitware.com/cmake/community/-/wikis/doc/cmake/RPATH-handling).</a></p>
 </div>
 </div>
+<div id="outline-container-headline-139" class="outline-3">
+<h3 id="headline-139">
+Dynamic libraries and linking
+</h3>
+<div id="outline-text-headline-139" class="outline-text-3">
+<p>
+A dynamic library can be replaced without re-linking.</p>
 </div>
 </div>
-<div id="outline-container-headline-136" class="outline-2">
-<h2 id="headline-136">
+</div>
+</div>
+<div id="outline-container-headline-140" class="outline-2">
+<h2 id="headline-140">
 Features overview
 </h2>
-<div id="outline-text-headline-136" class="outline-text-2">
-<div id="outline-container-headline-137" class="outline-3">
-<h3 id="headline-137">
+<div id="outline-text-headline-140" class="outline-text-2">
+<div id="outline-container-headline-141" class="outline-3">
+<h3 id="headline-141">
 C++ 20
 </h3>
-<div id="outline-text-headline-137" class="outline-text-3">
-<div id="outline-container-headline-138" class="outline-4">
-<h4 id="headline-138">
+<div id="outline-text-headline-141" class="outline-text-3">
+<div id="outline-container-headline-142" class="outline-4">
+<h4 id="headline-142">
 Range-based for loops with initializer
 </h4>
-<div id="outline-text-headline-138" class="outline-text-4">
+<div id="outline-text-headline-142" class="outline-text-4">
 <p>
 Loops through an object elements.</p>
 <div class="src src-c++">
@@ -3826,56 +3856,56 @@ Loops through an object elements.</p>
 </div>
 </div>
 </div>
-<div id="outline-container-headline-139" class="outline-2">
-<h2 id="headline-139">
+<div id="outline-container-headline-143" class="outline-2">
+<h2 id="headline-143">
 Effective and modern
 </h2>
-<div id="outline-text-headline-139" class="outline-text-2">
-<div id="outline-container-headline-140" class="outline-3">
-<h3 id="headline-140">
+<div id="outline-text-headline-143" class="outline-text-2">
+<div id="outline-container-headline-144" class="outline-3">
+<h3 id="headline-144">
 Template type deduction
 </h3>
-<div id="outline-text-headline-140" class="outline-text-3">
+<div id="outline-text-headline-144" class="outline-text-3">
 <p>Frees you from typing obvious or redundant types.</p>
 <p>
 Appears in calls to function templates and when auto is used. </p>
 </div>
 </div>
-<div id="outline-container-headline-141" class="outline-3">
-<h3 id="headline-141">
+<div id="outline-container-headline-145" class="outline-3">
+<h3 id="headline-145">
 <span class="todo">TODO</span>
 <code class="verbatim">auto</code> type deduction (2 Meyers)
 </h3>
-<div id="outline-text-headline-141" class="outline-text-3">
-<div id="outline-container-headline-142" class="outline-4">
-<h4 id="headline-142">
+<div id="outline-text-headline-145" class="outline-text-3">
+<div id="outline-container-headline-146" class="outline-4">
+<h4 id="headline-146">
 Why prefer <code class="verbatim">auto</code> to explicit type declarations?
 </h4>
 </div>
 </div>
 </div>
-<div id="outline-container-headline-143" class="outline-3">
-<h3 id="headline-143">
+<div id="outline-container-headline-147" class="outline-3">
+<h3 id="headline-147">
 Smart pointers
 </h3>
-<div id="outline-text-headline-143" class="outline-text-3">
-<div id="outline-container-headline-144" class="outline-4">
-<h4 id="headline-144">
+<div id="outline-text-headline-147" class="outline-text-3">
+<div id="outline-container-headline-148" class="outline-4">
+<h4 id="headline-148">
 What is it smart about it?
 </h4>
 </div>
 </div>
 </div>
-<div id="outline-container-headline-145" class="outline-3">
-<h3 id="headline-145">
+<div id="outline-container-headline-149" class="outline-3">
+<h3 id="headline-149">
 Universal references (&amp;&amp;)
 </h3>
-<div id="outline-text-headline-145" class="outline-text-3">
-<div id="outline-container-headline-146" class="outline-4">
-<h4 id="headline-146">
+<div id="outline-text-headline-149" class="outline-text-3">
+<div id="outline-container-headline-150" class="outline-4">
+<h4 id="headline-150">
 What is an universal reference?
 </h4>
-<div id="outline-text-headline-146" class="outline-text-4">
+<div id="outline-text-headline-150" class="outline-text-4">
 <p>It is a term to describe the concept of: taking an <code class="verbatim">rvalue</code> reference to a cv-unqualified template, which can be deduced as a <code class="verbatim">rvalue</code> or <code class="verbatim">lvalue</code>.</p>
 <div class="src src-c++">
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#c00;font-weight:bold">#include</span> <span style="color:#c00;font-weight:bold">&lt;iostream&gt;</span><span style="color:#c00;font-weight:bold">
@@ -3894,22 +3924,22 @@ Widget(Widget&amp;&amp; rhs);		<span style="color:#888">// an argument to this c
 </div>
 </div>
 </div>
-<div id="outline-container-headline-147" class="outline-3">
-<h3 id="headline-147">
+<div id="outline-container-headline-151" class="outline-3">
+<h3 id="headline-151">
 Modern practices
 </h3>
-<div id="outline-text-headline-147" class="outline-text-3">
-<div id="outline-container-headline-148" class="outline-4">
-<h4 id="headline-148">
+<div id="outline-text-headline-151" class="outline-text-3">
+<div id="outline-container-headline-152" class="outline-4">
+<h4 id="headline-152">
 <span class="todo">TODO</span>
 Why choose <code class="verbatim">()</code> instead <code class="verbatim">{}</code> when creating objects matter? (7 Mayers)
 </h4>
-<div id="outline-text-headline-148" class="outline-text-4">
-<div id="outline-container-headline-149" class="outline-5">
-<h5 id="headline-149">
+<div id="outline-text-headline-152" class="outline-text-4">
+<div id="outline-container-headline-153" class="outline-5">
+<h5 id="headline-153">
 Possible initialization operators
 </h5>
-<div id="outline-text-headline-149" class="outline-text-5">
+<div id="outline-text-headline-153" class="outline-text-5">
 <p>Object initilization:</p>
 <ol>
 <li>
@@ -3927,11 +3957,11 @@ Possible initialization operators
 </ol>
 </div>
 </div>
-<div id="outline-container-headline-150" class="outline-5">
-<h5 id="headline-150">
+<div id="outline-container-headline-154" class="outline-5">
+<h5 id="headline-154">
 Problems with <code class="verbatim">= {};</code> 
 </h5>
-<div id="outline-text-headline-150" class="outline-text-5">
+<div id="outline-text-headline-154" class="outline-text-5">
 <ol>
 <li>
 <p>Usage of equal sign is confused with object <em>assignment</em> (calls to <code class="verbatim">copy operator=</code>).</p>
@@ -3941,11 +3971,11 @@ Problems with <code class="verbatim">= {};</code>
 There are situations where initilization with <code class="verbatim">()</code> and <code class="verbatim">=</code> does not work, for instance default value of private class members and uncopyable objects respectively.</p>
 </div>
 </div>
-<div id="outline-container-headline-151" class="outline-5">
-<h5 id="headline-151">
+<div id="outline-container-headline-155" class="outline-5">
+<h5 id="headline-155">
 Narrowing conversion
 </h5>
-<div id="outline-text-headline-151" class="outline-text-5">
+<div id="outline-text-headline-155" class="outline-text-5">
 <p>Braced <code class="verbatim">{}</code> initialization prohibits <span style="text-decoration: underline;">implicit narrowing conversions</span> among built-in types.
 If the type of the expression in the brace in not guaranteed to be expressible by the <em>type of the object been initialized</em>, it gives an error.</p>
 <p>
@@ -3970,39 +4000,39 @@ The compiler just gives a warning: <code class="verbatim">clang: Type &#39;doubl
 </pre>
 </div>
 </div>
-<div id="outline-container-headline-152" class="outline-5">
-<h5 id="headline-152">
+<div id="outline-container-headline-156" class="outline-5">
+<h5 id="headline-156">
 Problems with <code class="verbatim">{}</code> braced initialization
 </h5>
-<div id="outline-text-headline-152" class="outline-text-5">
+<div id="outline-text-headline-156" class="outline-text-5">
 <p>
 If the class has a constructor, <em>ctor</em>, that has an <code class="verbatim">std::initilize_list</code> as argument it seems that the compiler &#34;strongly prefer&#34; overloads taking this list initialization constructor.</p>
 </div>
 </div>
 </div>
 </div>
-<div id="outline-container-headline-153" class="outline-4">
-<h4 id="headline-153">
+<div id="outline-container-headline-157" class="outline-4">
+<h4 id="headline-157">
 What are scoped <code class="verbatim">enums</code>?
 </h4>
 </div>
-<div id="outline-container-headline-154" class="outline-4">
-<h4 id="headline-154">
+<div id="outline-container-headline-158" class="outline-4">
+<h4 id="headline-158">
 What are special function generation?
 </h4>
 </div>
-<div id="outline-container-headline-155" class="outline-4">
-<h4 id="headline-155">
+<div id="outline-container-headline-159" class="outline-4">
+<h4 id="headline-159">
 Pass by value or pass by reference?
 </h4>
 </div>
 </div>
 </div>
-<div id="outline-container-headline-156" class="outline-3">
-<h3 id="headline-156">
+<div id="outline-container-headline-160" class="outline-3">
+<h3 id="headline-160">
 Abstract base class (ABC) or Template
 </h3>
-<div id="outline-text-headline-156" class="outline-text-3">
+<div id="outline-text-headline-160" class="outline-text-3">
 <p>When a function is intended to process on multiple object types.
 We can have an abstract class and multiple derived ones or a function with a template.</p>
 <p>
@@ -4016,36 +4046,50 @@ This can be hard to debug in some cases.</p>
 </div>
 </div>
 </div>
-<div id="outline-container-headline-157" class="outline-2">
-<h2 id="headline-157">
-Compiler
+<div id="outline-container-headline-161" class="outline-2">
+<h2 id="headline-161">
+Configuring and compiling
 </h2>
-<div id="outline-text-headline-157" class="outline-text-2">
-<div id="outline-container-headline-158" class="outline-4">
-<h4 id="headline-158">
+<div id="outline-text-headline-161" class="outline-text-2">
+<div id="outline-container-headline-162" class="outline-4">
+<h4 id="headline-162">
 Compilation
 </h4>
-<div id="outline-text-headline-158" class="outline-text-4">
+<div id="outline-text-headline-162" class="outline-text-4">
 <p>
-The <span style="text-decoration: underline;">compiler</span> translates the source code from human language to machine language (executable or object code).</p>
+The <span style="text-decoration: underline;">compiler</span> translates the source code from human language to machine language (executable or object code).
+The compilation process occurs for one &#34;translation unit&#34; at a time.</p>
+<p>
+When the compiler is called on a file, it will read the file and if it finds the <code class="verbatim">#include</code> it will read the file that is include and compile it as well.</p>
 </div>
 </div>
-<div id="outline-container-headline-159" class="outline-4">
-<h4 id="headline-159">
+<div id="outline-container-headline-163" class="outline-4">
+<h4 id="headline-163">
+Compilation after changing the code
+</h4>
+<div id="outline-text-headline-163" class="outline-text-4">
+<p>Only when a file changes it needs to be recompiled.
+So, in a large project, when a single source file changes, the compilation process should be quick.</p>
+</div>
+</div>
+<div id="outline-container-headline-164" class="outline-4">
+<h4 id="headline-164">
 Linking
 </h4>
-<div id="outline-text-headline-159" class="outline-text-4">
-<p>All parts of the program must be compile and the resulted <span style="text-decoration: underline;">object code files <code class="verbatim">.obj</code> must be linked</span> to form an executable program.
+<div id="outline-text-headline-164" class="outline-text-4">
+<p>All parts of the program must be compiled and the resulted <span style="text-decoration: underline;">object code files <code class="verbatim">.obj</code> must be linked</span> to form an executable program.
 The linker is responsible for linking.</p>
 <p>
 Object code and executable <strong>are not portable</strong> among different systems.</p>
+<p>
+Whereas the compilation happens for one translation unit at a time, during the linking two translation units are linked together.</p>
 </div>
 </div>
-<div id="outline-container-headline-160" class="outline-4">
-<h4 id="headline-160">
+<div id="outline-container-headline-165" class="outline-4">
+<h4 id="headline-165">
 Makefile
 </h4>
-<div id="outline-text-headline-160" class="outline-text-4">
+<div id="outline-text-headline-165" class="outline-text-4">
 <p>
 It is a file that manages the compiling of a project (multiple c++ files). 
 When you call <code class="verbatim">make</code> it uses the <code class="verbatim">Makefile</code> instructions.</p>
@@ -4082,11 +4126,11 @@ commands
 </pre>
 </div>
 </div>
-<div id="outline-container-headline-161" class="outline-4">
-<h4 id="headline-161">
+<div id="outline-container-headline-166" class="outline-4">
+<h4 id="headline-166">
 Configure
 </h4>
-<div id="outline-text-headline-161" class="outline-text-4">
+<div id="outline-text-headline-166" class="outline-text-4">
 <p>This script is used to set up the building process.
 The set up involves making sure that all tools necessary are available in the <span style="text-decoration: underline;">specific environment</span> where the program is going to be built.
 For instance, which compiler is it going to use to translate the source code?</p>
@@ -4097,32 +4141,43 @@ The <code class="verbatim">./configure</code> script examines the system and get
 Usually the <code class="verbatim">./configure</code> and <code class="verbatim">Makefile.in</code> template are automatically generated with other tools.</p>
 </div>
 </div>
-<div id="outline-container-headline-162" class="outline-4">
-<h4 id="headline-162">
-Make
+<div id="outline-container-headline-167" class="outline-4">
+<h4 id="headline-167">
+<code class="verbatim">make</code>
 </h4>
-<div id="outline-text-headline-162" class="outline-text-4">
+<div id="outline-text-headline-167" class="outline-text-4">
 <p>
 The command <code class="verbatim">make</code> is responsible to &#34;<span style="text-decoration: underline;">build</span>&#34; the software.
 It takes the <code class="verbatim">./Makefile</code> and build the first target.
 The <code class="verbatim">Makefile</code> has <span style="text-decoration: underline;">instructions to compile</span> (and linking) all the files that we need for our program to work.</p>
 </div>
 </div>
-<div id="outline-container-headline-163" class="outline-4">
-<h4 id="headline-163">
-Subsequent <code class="verbatim">Make</code> calls
+<div id="outline-container-headline-168" class="outline-4">
+<h4 id="headline-168">
+Subsequent <code class="verbatim">make</code> calls
 </h4>
-<div id="outline-text-headline-163" class="outline-text-4">
+<div id="outline-text-headline-168" class="outline-text-4">
 <p>
 When we run <code class="verbatim">make</code> it will check if the file with target: &#34;all&#34; is updated.
 If it is not newer than its dependencies, it will call the command to <span style="text-decoration: underline;">rebuild</span> the binary.</p>
 </div>
 </div>
-<div id="outline-container-headline-164" class="outline-4">
-<h4 id="headline-164">
+<div id="outline-container-headline-169" class="outline-4">
+<h4 id="headline-169">
+Make clean
+</h4>
+<div id="outline-text-headline-169" class="outline-text-4">
+<p>
+When <code class="verbatim">make</code> sees old executables it assumed that nothing needs to be done, so if you changed them you need to do <code class="verbatim">make clean.</code></p>
+<p>
+If in the makefile the dependencies changed, then <code class="verbatim">make</code> will rebuild them.</p>
+</div>
+</div>
+<div id="outline-container-headline-170" class="outline-4">
+<h4 id="headline-170">
 Make usage
 </h4>
-<div id="outline-text-headline-164" class="outline-text-4">
+<div id="outline-text-headline-170" class="outline-text-4">
 <p>If we want to compile <code class="verbatim">main.cpp</code> (from the example in <a href="*Using dynamic libraries">Using dynamic libraries</a>) for instance, the <code class="verbatim">Makefile</code> should have</p>
 <pre class="example">
 default:
@@ -4142,11 +4197,11 @@ clang++ main.cpp mymath.cpp -o output_with_make.out
 References: <a href="https://makefiletutorial.com/">Makefile Tutorial By Example</a></p>
 </div>
 </div>
-<div id="outline-container-headline-165" class="outline-4">
-<h4 id="headline-165">
+<div id="outline-container-headline-171" class="outline-4">
+<h4 id="headline-171">
 Make install
 </h4>
-<div id="outline-text-headline-165" class="outline-text-4">
+<div id="outline-text-headline-171" class="outline-text-4">
 <p>
 The command <code class="verbatim">make install</code> copies the binaries from the step (with <code class="verbatim">make</code>) and put them into appropriate locations to be accessed.</p>
 <p>
@@ -4158,16 +4213,16 @@ If the location requires administrative privileges we can use <code class="verba
 </div>
 </div>
 </div>
-<div id="outline-container-headline-166" class="outline-2">
-<h2 id="headline-166">
+<div id="outline-container-headline-172" class="outline-2">
+<h2 id="headline-172">
 CMake
 </h2>
-<div id="outline-text-headline-166" class="outline-text-2">
-<div id="outline-container-headline-167" class="outline-3">
-<h3 id="headline-167">
+<div id="outline-text-headline-172" class="outline-text-2">
+<div id="outline-container-headline-173" class="outline-3">
+<h3 id="headline-173">
 Introduction
 </h3>
-<div id="outline-text-headline-167" class="outline-text-3">
+<div id="outline-text-headline-173" class="outline-text-3">
 <p>CMake is a system that manages the build process (configures the project) of a executable or library.
 The build process consist of configuring and generating project files, the <em>setup stage</em>.
 These project files work together with a native build tools (make for Linux, visual studio, ninja).
@@ -4193,11 +4248,11 @@ add_executable(project_name main.cpp)
 Reference: <a href="https://tuannguyen68.gitbooks.io/learning-cmake-a-beginner-s-guide/content/chap1/chap1.html">Tutorial 1: Let&amp;apos;s start with CMake | Learning CMake: A beginner&amp;apos;s g…</a></p>
 </div>
 </div>
-<div id="outline-container-headline-168" class="outline-3">
-<h3 id="headline-168">
+<div id="outline-container-headline-174" class="outline-3">
+<h3 id="headline-174">
 Difference between compiler, build system and CMake
 </h3>
-<div id="outline-text-headline-168" class="outline-text-3">
+<div id="outline-text-headline-174" class="outline-text-3">
 <p>
 Compiler is the program that transforms the source code in a executable one.
 For example, <code class="verbatim">gcc</code>, <code class="verbatim">clang</code> and so on.</p>
@@ -4216,11 +4271,11 @@ For example <code class="verbatim">CMake</code> and <code class="verbatim">Autot
 </ol>
 </div>
 </div>
-<div id="outline-container-headline-169" class="outline-3">
-<h3 id="headline-169">
+<div id="outline-container-headline-175" class="outline-3">
+<h3 id="headline-175">
 Project setup
 </h3>
-<div id="outline-text-headline-169" class="outline-text-3">
+<div id="outline-text-headline-175" class="outline-text-3">
 <p>
 A build system transforms a collection of files into a coherent project.
 CMake uses <code class="verbatim">CMakeLists.txt</code> to define what should be built, how is built, what tests to run and what packages to create.
@@ -4230,11 +4285,11 @@ A project has a source directory, <code class="verbatim">src</code>, and a binar
 The binary directory is the destination of everything the build system creates, e.g. executables, libraries, test output and packages.</p>
 </div>
 </div>
-<div id="outline-container-headline-170" class="outline-3">
-<h3 id="headline-170">
+<div id="outline-container-headline-176" class="outline-3">
+<h3 id="headline-176">
 File generator
 </h3>
-<div id="outline-text-headline-170" class="outline-text-3">
+<div id="outline-text-headline-176" class="outline-text-3">
 <p>
 Makefiles, visual studio and ninja.
 CMake produce <em>project files</em> that are adequate to a particular file generator depending o the system.</p>
@@ -4242,16 +4297,16 @@ CMake produce <em>project files</em> that are adequate to a particular file gene
 The project files creating involves 1) configuring and 2) generating.</p>
 </div>
 </div>
-<div id="outline-container-headline-171" class="outline-3">
-<h3 id="headline-171">
+<div id="outline-container-headline-177" class="outline-3">
+<h3 id="headline-177">
 Using CMake
 </h3>
-<div id="outline-text-headline-171" class="outline-text-3">
-<div id="outline-container-headline-172" class="outline-4">
-<h4 id="headline-172">
+<div id="outline-text-headline-177" class="outline-text-3">
+<div id="outline-container-headline-178" class="outline-4">
+<h4 id="headline-178">
 Basic setup
 </h4>
-<div id="outline-text-headline-172" class="outline-text-4">
+<div id="outline-text-headline-178" class="outline-text-4">
 <p>If we want to build our <code class="verbatim">main.cpp</code> with the content:</p>
 <div class="src src-c++">
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#c00;font-weight:bold">#include</span> <span style="color:#c00;font-weight:bold">&lt;iostream&gt;</span><span style="color:#c00;font-weight:bold">
@@ -4374,11 +4429,11 @@ cmake_install.cmake
 Reference: <a href="https://cmake.org/cmake/help/git-stage/guide/tutorial/index.html">CMake Tutorial — CMake 3.20.20210421-g8d4c864 Documentation</a></p>
 </div>
 </div>
-<div id="outline-container-headline-173" class="outline-4">
-<h4 id="headline-173">
+<div id="outline-container-headline-179" class="outline-4">
+<h4 id="headline-179">
 Adding information to <code class="verbatim">CMakeLists.txt</code>
 </h4>
-<div id="outline-text-headline-173" class="outline-text-4">
+<div id="outline-text-headline-179" class="outline-text-4">
 <p>
 Now, if we have a <code class="verbatim">CMakeLists.txt</code> with just a reference to our main file</p>
 <pre class="example">
@@ -4424,11 +4479,11 @@ make</code></pre></div>
 we get an error saying that a reference is undefined.</p>
 </div>
 </div>
-<div id="outline-container-headline-174" class="outline-4">
-<h4 id="headline-174">
+<div id="outline-container-headline-180" class="outline-4">
+<h4 id="headline-180">
 Adding multiple sources to <code class="verbatim">CMakeLists.txt</code>
 </h4>
-<div id="outline-text-headline-174" class="outline-text-4">
+<div id="outline-text-headline-180" class="outline-text-4">
 <p>Adding a reference to the file with the function definition.</p>
 <pre class="example">
 cmake_minimum_required(VERSION 3.17)
@@ -4475,11 +4530,11 @@ and we can run the code by calling the executable</p>
 </pre>
 </div>
 </div>
-<div id="outline-container-headline-175" class="outline-4">
-<h4 id="headline-175">
+<div id="outline-container-headline-181" class="outline-4">
+<h4 id="headline-181">
 Adding a dynamic library to <code class="verbatim">CMakeLists.txt</code>
 </h4>
-<div id="outline-text-headline-175" class="outline-text-4">
+<div id="outline-text-headline-181" class="outline-text-4">
 <p>
 Now we want to compile our project using a ready to use dynamic library created by someone else.
 For the example lets compile our dynamic/shared library with the function definition.</p>
@@ -4555,11 +4610,25 @@ Then running the generated executable</p>
 </div>
 </div>
 </div>
-<div id="outline-container-headline-176" class="outline-3">
-<h3 id="headline-176">
-When should I rerun <code class="verbatim">cmake</code>
+<div id="outline-container-headline-182" class="outline-3">
+<h3 id="headline-182">
+Questions
 </h3>
-<div id="outline-text-headline-176" class="outline-text-3">
+<div id="outline-text-headline-182" class="outline-text-3">
+<div id="outline-container-headline-183" class="outline-4">
+<h4 id="headline-183">
+Changed installation path, need to rerun <code class="verbatim">cmake</code> and <code class="verbatim">make</code>?
+</h4>
+<div id="outline-text-headline-183" class="outline-text-4">
+<p>
+No, just <code class="verbatim">make install DESTDIR=&lt;new path</code>.</p>
+</div>
+</div>
+<div id="outline-container-headline-184" class="outline-4">
+<h4 id="headline-184">
+When should I rerun <code class="verbatim">cmake</code>?
+</h4>
+<div id="outline-text-headline-184" class="outline-text-4">
 <p>
 The build targets created by <code class="verbatim">cmake</code> automatically include checks for each file.
 When <code class="verbatim">make</code> is called, it will re run <code class="verbatim">cmake</code> if necessary.</p>
@@ -4568,29 +4637,25 @@ If you change build settings, then you need to re run <code class="verbatim">cma
 <code class="verbatim">--target clean</code> to remove old files.</p>
 </div>
 </div>
-<div id="outline-container-headline-177" class="outline-3">
-<h3 id="headline-177">
-Questions
-</h3>
-<div id="outline-text-headline-177" class="outline-text-3">
-<div id="outline-container-headline-178" class="outline-4">
-<h4 id="headline-178">
-Changed installation path, need to rerun <code class="verbatim">cmake</code> and <code class="verbatim">make</code>?
+<div id="outline-container-headline-185" class="outline-4">
+<h4 id="headline-185">
+What is CMake cache?
 </h4>
-<div id="outline-text-headline-178" class="outline-text-4">
+<div id="outline-text-headline-185" class="outline-text-4">
+<p>It refers to persistent variables in the file <code class="verbatim">CMakeCache.txt</code> in the build directory.</p>
 <p>
-No, just <code class="verbatim">make install DESTDIR=&lt;new path</code>.</p>
+It contains the user configurable options.</p>
 </div>
 </div>
 </div>
 </div>
 </div>
 </div>
-<div id="outline-container-headline-179" class="outline-2">
-<h2 id="headline-179">
+<div id="outline-container-headline-186" class="outline-2">
+<h2 id="headline-186">
 References
 </h2>
-<div id="outline-text-headline-179" class="outline-text-2">
+<div id="outline-text-headline-186" class="outline-text-2">
 <ul>
 <li>
 <p>Stroustrup, B. (2014). Programming: principles and practice using C++. Upper Saddle River, NJ: Addison-Wesley.</p>
@@ -4628,21 +4693,24 @@ References
 <ul class="tags__list">
     
     <li class="tag__item">
-        <a class="tag__link" href="https://nasseralkmim.github.io/tags/c&#43;&#43;/">c&#43;&#43;</a>
+        <a class="tag__link" href="http://localhost:1313/tags/c&#43;&#43;/">c&#43;&#43;</a>
+    </li>
+    <li class="tag__item">
+        <a class="tag__link" href="http://localhost:1313/tags/draft/">draft</a>
     </li></ul>
 
  <div class="pagination">
   
-    <a class="pagination__item" href="https://nasseralkmim.github.io/notes/portfolio-performance/">
+    <a class="pagination__item" href="http://localhost:1313/notes/automatizar-ir/">
         <span class="pagination__label">Previous Post</span>
-        <span class="pagination__title">Performance de um portfolio</span>
+        <span class="pagination__title">Automatizar IR - Rendimentos</span>
     </a>
   
 
   
-    <a class="pagination__item" href="https://nasseralkmim.github.io/notes/jacobi-method/">
+    <a class="pagination__item" href="http://localhost:1313/notes/inn-2-efficiency-and-burocracy/">
       <span class="pagination__label">Next Post</span>
-      <span class="pagination__title" >Jacobi method</span>
+      <span class="pagination__title" >Innsbruck - Efficiency and bureaucracy</span>
     </a>
   
 </div>
@@ -4678,7 +4746,7 @@ References
       <a class="social-icons__link" rel="me" title="Email"
          href="mailto:nasser.alkmim@gmail.com"
          target="_blank" rel="noopener">
-        <div class="social-icons__icon" style="background-image: url('https://nasseralkmim.github.io/svg/email.svg')"></div>
+        <div class="social-icons__icon" style="background-image: url('http://localhost:1313/svg/email.svg')"></div>
       </a>
     
   
@@ -4687,7 +4755,7 @@ References
       <a class="social-icons__link" rel="me" title="LinkedIn"
          href="https://www.linkedin.com/in/nasser-alkmim-300882a6/"
          target="_blank" rel="noopener">
-        <div class="social-icons__icon" style="background-image: url('https://nasseralkmim.github.io/svg/linkedin.svg')"></div>
+        <div class="social-icons__icon" style="background-image: url('http://localhost:1313/svg/linkedin.svg')"></div>
       </a>
     
   
@@ -4696,7 +4764,7 @@ References
       <a class="social-icons__link" rel="me" title="GitHub"
          href="https://github.com/nasseralkmim"
          target="_blank" rel="noopener">
-        <div class="social-icons__icon" style="background-image: url('https://nasseralkmim.github.io/svg/github.svg')"></div>
+        <div class="social-icons__icon" style="background-image: url('http://localhost:1313/svg/github.svg')"></div>
       </a>
     
   
@@ -4705,7 +4773,7 @@ References
       <a class="social-icons__link" rel="me" title="Instagram"
          href="https://instagram.com/naszr"
          target="_blank" rel="noopener">
-        <div class="social-icons__icon" style="background-image: url('https://nasseralkmim.github.io/svg/instagram.svg')"></div>
+        <div class="social-icons__icon" style="background-image: url('http://localhost:1313/svg/instagram.svg')"></div>
       </a>
     
      
@@ -4737,410 +4805,426 @@ References
 <li><a href="#headline-7">Declarations and definitions</a>
 </li>
 <li><a href="#headline-8">Headers</a>
-</li>
-<li><a href="#headline-9">Namespace</a>
-</li>
-<li><a href="#headline-10">Operators</a>
 <ul>
-<li><a href="#headline-11">Logical operators (!, &amp;&amp;, ||)</a>
+<li><a href="#headline-9">Definition</a>
 </li>
-<li><a href="#headline-12">Compound assignments (+=, *=)</a>
+<li><a href="#headline-10">What should be in the header files?</a>
 </li>
-<li><a href="#headline-13">Member access operators (., -&gt;)</a>
-</li>
-<li><a href="#headline-14">Conditional ternary (?)</a>
-</li>
-<li><a href="#headline-15">Scope resolution (::)</a>
-</li>
-<li><a href="#headline-16">Math operators</a>
+<li><a href="#headline-11">Why not put everything in the header file?</a>
 </li>
 </ul>
 </li>
-<li><a href="#headline-17">Bitwise left and right shift (&lt;&lt;, &gt;&gt;)</a>
+<li><a href="#headline-12">Namespace</a>
 </li>
-<li><a href="#headline-18">Semicolon</a>
-</li>
-<li><a href="#headline-19">Move semantics</a>
+<li><a href="#headline-13">Operators</a>
 <ul>
-<li><a href="#headline-20">What is the difference <code class="verbatim">rvalues</code> and <code class="verbatim">lvalues</code>?</a>
+<li><a href="#headline-14">Logical operators (!, &amp;&amp;, ||)</a>
 </li>
-<li><a href="#headline-21">What is the difference between <em>move operator</em> and <em>copy operator</em>?</a>
+<li><a href="#headline-15">Compound assignments (+=, *=)</a>
 </li>
-</ul>
+<li><a href="#headline-16">Member access operators (., -&gt;)</a>
 </li>
-<li><a href="#headline-22">Type safety</a>
+<li><a href="#headline-17">Conditional ternary (?)</a>
 </li>
-<li><a href="#headline-23">Overloading</a>
+<li><a href="#headline-18">Scope resolution (::)</a>
 </li>
-<li><a href="#headline-24"><code class="verbatim">const</code> correctness</a>
-</li>
-<li><a href="#headline-25">Passing parameter by value</a>
+<li><a href="#headline-19">Math operators</a>
 </li>
 </ul>
 </li>
-<li><a href="#headline-26">Basics</a>
+<li><a href="#headline-20">Bitwise left and right shift (&lt;&lt;, &gt;&gt;)</a>
+</li>
+<li><a href="#headline-21">Semicolon</a>
+</li>
+<li><a href="#headline-22">Move semantics</a>
 <ul>
-<li><a href="#headline-27">Minimal program</a>
+<li><a href="#headline-23">What is the difference <code class="verbatim">rvalues</code> and <code class="verbatim">lvalues</code>?</a>
 </li>
-<li><a href="#headline-28">Hello world</a>
+<li><a href="#headline-24">What is the difference between <em>move operator</em> and <em>copy operator</em>?</a>
 </li>
-<li><a href="#headline-29">Functions</a>
+</ul>
 </li>
-<li><a href="#headline-30">Scope</a>
+<li><a href="#headline-25">Type safety</a>
 </li>
-<li><a href="#headline-31">Pointers</a>
+<li><a href="#headline-26">Overloading</a>
 </li>
-<li><a href="#headline-32"><code class="verbatim">new</code> operator</a>
+<li><a href="#headline-27"><code class="verbatim">const</code> correctness</a>
 </li>
-<li><a href="#headline-33"><code class="verbatim">const</code> operator</a>
+<li><a href="#headline-28">Passing parameter by value</a>
+</li>
+</ul>
+</li>
+<li><a href="#headline-29">Basics</a>
 <ul>
-<li><a href="#headline-34"><code class="verbatim">const</code> variable</a>
+<li><a href="#headline-30">Minimal program</a>
 </li>
-<li><a href="#headline-35"><code class="verbatim">const</code> pointer</a>
+<li><a href="#headline-31">Hello world</a>
 </li>
-<li><a href="#headline-36"><code class="verbatim">const</code> function argument</a>
+<li><a href="#headline-32">Functions</a>
 </li>
-<li><a href="#headline-37"><code class="verbatim">const</code> after the arguments of a member function</a>
+<li><a href="#headline-33">Scope</a>
 </li>
-</ul>
+<li><a href="#headline-34">Pointers</a>
 </li>
-<li><a href="#headline-38">Declarator operators</a>
+<li><a href="#headline-35"><code class="verbatim">new</code> operator</a>
 </li>
-<li><a href="#headline-39">Range-for-statement</a>
-</li>
-<li><a href="#headline-40">Tests</a>
-</li>
-<li><a href="#headline-41">Variable initialization</a>
-</li>
-<li><a href="#headline-42"><code class="verbatim">cout</code> versus <code class="verbatim">printf</code></a>
-</li>
-<li><a href="#headline-43">How many bytes?</a>
-</li>
-</ul>
-</li>
-<li><a href="#headline-44">Pointers</a>
+<li><a href="#headline-36"><code class="verbatim">const</code> operator</a>
 <ul>
-<li><a href="#headline-45">Memory</a>
+<li><a href="#headline-37"><code class="verbatim">const</code> variable</a>
 </li>
-<li><a href="#headline-46">Pointer definition</a>
+<li><a href="#headline-38"><code class="verbatim">const</code> pointer</a>
 </li>
-<li><a href="#headline-47">Pointer type</a>
+<li><a href="#headline-39"><code class="verbatim">const</code> function argument</a>
 </li>
-<li><a href="#headline-48">&#34;Address of&#34; operator (&amp;)</a>
-</li>
-<li><a href="#headline-49">&#34;Contents of&#34; operator (*)</a>
-</li>
-<li><a href="#headline-50">Access object pointed to by a pointer</a>
-</li>
-<li><a href="#headline-51">Null pointer</a>
-</li>
-<li><a href="#headline-52">References</a>
-</li>
-<li><a href="#headline-53">When to use references</a>
-</li>
-<li><a href="#headline-54">Pointer and reference parameters</a>
-</li>
-<li><a href="#headline-55">Protecting data &#34;pointed to&#34; when passing by reference</a>
+<li><a href="#headline-40"><code class="verbatim">const</code> after the arguments of a member function</a>
 </li>
 </ul>
 </li>
-<li><a href="#headline-56">Classes</a>
+<li><a href="#headline-41">Declarator operators</a>
+</li>
+<li><a href="#headline-42">Range-for-statement</a>
+</li>
+<li><a href="#headline-43">Tests</a>
+</li>
+<li><a href="#headline-44">Variable initialization</a>
+</li>
+<li><a href="#headline-45"><code class="verbatim">cout</code> versus <code class="verbatim">printf</code></a>
+</li>
+<li><a href="#headline-46">How many bytes?</a>
+</li>
+</ul>
+</li>
+<li><a href="#headline-47">Pointers</a>
 <ul>
-<li><a href="#headline-57">Definitionss</a>
+<li><a href="#headline-48">Memory</a>
+</li>
+<li><a href="#headline-49">Pointer definition</a>
+</li>
+<li><a href="#headline-50">Pointer type</a>
+</li>
+<li><a href="#headline-51">&#34;Address of&#34; operator (&amp;)</a>
+</li>
+<li><a href="#headline-52">&#34;Contents of&#34; operator (*)</a>
+</li>
+<li><a href="#headline-53">Access object pointed to by a pointer</a>
+</li>
+<li><a href="#headline-54">Null pointer</a>
+</li>
+<li><a href="#headline-55">References</a>
+</li>
+<li><a href="#headline-56">When to use references</a>
+</li>
+<li><a href="#headline-57">Pointer and reference parameters</a>
+</li>
+<li><a href="#headline-58">Protecting data &#34;pointed to&#34; when passing by reference</a>
+</li>
+</ul>
+</li>
+<li><a href="#headline-59">Classes</a>
 <ul>
-<li><a href="#headline-58">Class and objects</a>
-</li>
-<li><a href="#headline-59">Types</a>
-</li>
-<li><a href="#headline-60">User defined type (UDT)</a>
-</li>
-<li><a href="#headline-61">Built in types (BIT)</a>
-</li>
-<li><a href="#headline-62">Standard librar types (SLT)</a>
-</li>
-<li><a href="#headline-63">Defining and instantiating an object</a>
-</li>
-<li><a href="#headline-64">Uses of classes</a>
-</li>
-<li><a href="#headline-65">Containers</a>
-</li>
-</ul>
-</li>
-<li><a href="#headline-66">Classes and members</a>
-</li>
-<li><a href="#headline-67">Interface and implementation</a>
-</li>
-<li><a href="#headline-68">Structures</a>
-</li>
-<li><a href="#headline-69">Constructor</a>
-</li>
-<li><a href="#headline-70">Functors</a>
-</li>
-<li><a href="#headline-71">Constant arguments in methods</a>
-</li>
-<li><a href="#headline-72">Defining member function outside the class</a>
-</li>
-<li><a href="#headline-73">Member initializer list</a>
-</li>
-<li><a href="#headline-74">Initialize members modern</a>
-</li>
-<li><a href="#headline-75">Operator overloading</a>
-</li>
-<li><a href="#headline-76">Symbolic constants within classes</a>
-</li>
-<li><a href="#headline-77">Class interface principles</a>
-</li>
-<li><a href="#headline-78">Enumerators</a>
-</li>
-<li><a href="#headline-79">Inheritance</a>
+<li><a href="#headline-60">Definitionss</a>
 <ul>
-<li><a href="#headline-80">Definitionss</a>
+<li><a href="#headline-61">Class and objects</a>
+</li>
+<li><a href="#headline-62">Types</a>
+</li>
+<li><a href="#headline-63">User defined type (UDT)</a>
+</li>
+<li><a href="#headline-64">Built in types (BIT)</a>
+</li>
+<li><a href="#headline-65">Standard librar types (SLT)</a>
+</li>
+<li><a href="#headline-66">Defining and instantiating an object</a>
+</li>
+<li><a href="#headline-67">Uses of classes</a>
+</li>
+<li><a href="#headline-68">Containers</a>
 </li>
 </ul>
 </li>
-</ul>
+<li><a href="#headline-69">Classes and members</a>
 </li>
-<li><a href="#headline-81">Vectors</a>
+<li><a href="#headline-70">Interface and implementation</a>
+</li>
+<li><a href="#headline-71">Structures</a>
+</li>
+<li><a href="#headline-72">Constructor</a>
+</li>
+<li><a href="#headline-73">Functors</a>
+</li>
+<li><a href="#headline-74">Constant arguments in methods</a>
+</li>
+<li><a href="#headline-75">Defining member function outside the class</a>
+</li>
+<li><a href="#headline-76">Member initializer list</a>
+</li>
+<li><a href="#headline-77">Initialize members modern</a>
+</li>
+<li><a href="#headline-78">Operator overloading</a>
+</li>
+<li><a href="#headline-79">Symbolic constants within classes</a>
+</li>
+<li><a href="#headline-80">Class interface principles</a>
+</li>
+<li><a href="#headline-81">Enumerators</a>
+</li>
+<li><a href="#headline-82">Inheritance</a>
 <ul>
-<li><a href="#headline-82">Prologue</a>
+<li><a href="#headline-83">Definitionss</a>
 </li>
-<li><a href="#headline-83">Fixed size vector</a>
+</ul>
 </li>
-<li><a href="#headline-84">Variable number of elements</a>
+</ul>
 </li>
-<li><a href="#headline-85">Avoiding memory leak</a>
-</li>
-<li><a href="#headline-86">Destructor</a>
-</li>
-<li><a href="#headline-87"><code class="verbatim">get()</code> and <code class="verbatim">set()</code> methods</a>
-</li>
-<li><a href="#headline-88">Getting element&#39;s values</a>
-</li>
-<li><a href="#headline-89">Constructor with initializer list <code class="verbatim">{}</code></a>
-</li>
-<li><a href="#headline-90">Copying</a>
+<li><a href="#headline-84">Vectors</a>
 <ul>
-<li><a href="#headline-91">Definitionss</a>
+<li><a href="#headline-85">Prologue</a>
 </li>
-<li><a href="#headline-92">Standard copying behavior</a>
+<li><a href="#headline-86">Fixed size vector</a>
 </li>
-<li><a href="#headline-93">Copy constructor</a>
+<li><a href="#headline-87">Variable number of elements</a>
 </li>
-<li><a href="#headline-94">Copy assignments constructor</a>
+<li><a href="#headline-88">Avoiding memory leak</a>
 </li>
-<li><a href="#headline-95">Shallow and memberwise copy</a>
+<li><a href="#headline-89">Destructor</a>
 </li>
-</ul>
+<li><a href="#headline-90"><code class="verbatim">get()</code> and <code class="verbatim">set()</code> methods</a>
 </li>
-<li><a href="#headline-96">Move constructor</a>
+<li><a href="#headline-91">Getting element&#39;s values</a>
+</li>
+<li><a href="#headline-92">Constructor with initializer list <code class="verbatim">{}</code></a>
+</li>
+<li><a href="#headline-93">Copying</a>
 <ul>
-<li><a href="#headline-97">Definitions</a>
+<li><a href="#headline-94">Definitionss</a>
 </li>
-<li><a href="#headline-98">Move constructor and assignment</a>
+<li><a href="#headline-95">Standard copying behavior</a>
 </li>
-<li><a href="#headline-99">Move constructor importance</a>
+<li><a href="#headline-96">Copy constructor</a>
+</li>
+<li><a href="#headline-97">Copy assignments constructor</a>
+</li>
+<li><a href="#headline-98">Shallow and memberwise copy</a>
 </li>
 </ul>
 </li>
-<li><a href="#headline-100">Default constructor</a>
-</li>
-<li><a href="#headline-101">Explicit constructor</a>
-</li>
-<li><a href="#headline-102">Access to vector elements</a>
+<li><a href="#headline-99">Move constructor</a>
 <ul>
-<li><a href="#headline-103">Motivation</a>
+<li><a href="#headline-100">Definitions</a>
 </li>
-<li><a href="#headline-104">Member function <code class="verbatim">operator[]</code></a>
+<li><a href="#headline-101">Move constructor and assignment</a>
 </li>
-<li><a href="#headline-105">Return pointer to elements</a>
-</li>
-<li><a href="#headline-106">Return a reference to elements</a>
-</li>
-<li><a href="#headline-107"><code class="verbatim">const</code> member function</a>
+<li><a href="#headline-102">Move constructor importance</a>
 </li>
 </ul>
 </li>
-<li><a href="#headline-108">Arrays</a>
+<li><a href="#headline-103">Default constructor</a>
+</li>
+<li><a href="#headline-104">Explicit constructor</a>
+</li>
+<li><a href="#headline-105">Access to vector elements</a>
 <ul>
-<li><a href="#headline-109">Definition</a>
+<li><a href="#headline-106">Motivation</a>
+</li>
+<li><a href="#headline-107">Member function <code class="verbatim">operator[]</code></a>
+</li>
+<li><a href="#headline-108">Return pointer to elements</a>
+</li>
+<li><a href="#headline-109">Return a reference to elements</a>
+</li>
+<li><a href="#headline-110"><code class="verbatim">const</code> member function</a>
 </li>
 </ul>
 </li>
-<li><a href="#headline-110">Vector conclusion</a>
-</li>
-<li><a href="#headline-111">Problems still to be solved</a>
-</li>
-</ul>
-</li>
-<li><a href="#headline-112">Templates</a>
+<li><a href="#headline-111">Arrays</a>
 <ul>
-<li><a href="#headline-113">Definitions</a>
+<li><a href="#headline-112">Definition</a>
+</li>
+</ul>
+</li>
+<li><a href="#headline-113">Vector conclusion</a>
+</li>
+<li><a href="#headline-114">Problems still to be solved</a>
+</li>
+</ul>
+</li>
+<li><a href="#headline-115">Templates</a>
 <ul>
-<li><a href="#headline-114">What is a template?</a>
-</li>
-<li><a href="#headline-115">What is a container?</a>
-</li>
-<li><a href="#headline-116">What is template instantiation?</a>
-</li>
-<li><a href="#headline-117">What is generic programming?</a>
-</li>
-<li><a href="#headline-118">What is parametric polymorphism?</a>
-</li>
-<li><a href="#headline-119">Why put template definition in header files?</a>
-</li>
-<li><a href="#headline-120">What is a concept?</a>
-</li>
-</ul>
-</li>
-<li><a href="#headline-121">Changing size</a>
-</li>
-<li><a href="#headline-122">Creating Templates</a>
-</li>
-<li><a href="#headline-123">Type as template parameters</a>
-</li>
-<li><a href="#headline-124">Passing function or functor as arguments</a>
-</li>
-</ul>
-</li>
-<li><a href="#headline-125">Numerics</a>
+<li><a href="#headline-116">Definitions</a>
 <ul>
-<li><a href="#headline-126">Accumulate</a>
+<li><a href="#headline-117">What is a template?</a>
+</li>
+<li><a href="#headline-118">What is a container?</a>
+</li>
+<li><a href="#headline-119">What is template instantiation?</a>
+</li>
+<li><a href="#headline-120">What is generic programming?</a>
+</li>
+<li><a href="#headline-121">What is parametric polymorphism?</a>
+</li>
+<li><a href="#headline-122">Why put template definition in header files?</a>
+</li>
+<li><a href="#headline-123">What is a concept?</a>
 </li>
 </ul>
 </li>
-<li><a href="#headline-127">Libraries</a>
+<li><a href="#headline-124">Changing size</a>
+</li>
+<li><a href="#headline-125">Creating Templates</a>
+</li>
+<li><a href="#headline-126">Type as template parameters</a>
+</li>
+<li><a href="#headline-127">Passing function or functor as arguments</a>
+</li>
+</ul>
+</li>
+<li><a href="#headline-128">Numerics</a>
 <ul>
-<li><a href="#headline-128">Standard library</a>
+<li><a href="#headline-129">Accumulate</a>
 </li>
-<li><a href="#headline-129">Headers and namespace</a>
+</ul>
 </li>
-<li><a href="#headline-130">External libraries</a>
+<li><a href="#headline-130">Libraries</a>
 <ul>
-<li><a href="#headline-131">General definitions</a>
+<li><a href="#headline-131">Standard library</a>
 </li>
-<li><a href="#headline-132">Including a library in <code class="verbatim">/usr/include/</code></a>
+<li><a href="#headline-132">Headers and namespace</a>
 </li>
-<li><a href="#headline-133">Including a library elsewhere</a>
-</li>
-</ul>
-</li>
-<li><a href="#headline-134">Static and dynamic libraries</a>
-</li>
-<li><a href="#headline-135">Using dynamic libraries</a>
-</li>
-</ul>
-</li>
-<li><a href="#headline-136">Features overview</a>
+<li><a href="#headline-133">External libraries</a>
 <ul>
-<li><a href="#headline-137">C++ 20</a>
+<li><a href="#headline-134">General definitions</a>
+</li>
+<li><a href="#headline-135">Including a library in <code class="verbatim">/usr/include/</code></a>
+</li>
+<li><a href="#headline-136">Including a library elsewhere</a>
+</li>
+</ul>
+</li>
+<li><a href="#headline-137">Static and dynamic libraries</a>
+</li>
+<li><a href="#headline-138">Using dynamic libraries</a>
+</li>
+<li><a href="#headline-139">Dynamic libraries and linking</a>
+</li>
+</ul>
+</li>
+<li><a href="#headline-140">Features overview</a>
 <ul>
-<li><a href="#headline-138">Range-based for loops with initializer</a>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#headline-139">Effective and modern</a>
+<li><a href="#headline-141">C++ 20</a>
 <ul>
-<li><a href="#headline-140">Template type deduction</a>
+<li><a href="#headline-142">Range-based for loops with initializer</a>
 </li>
-<li><a href="#headline-141"><code class="verbatim">auto</code> type deduction (2 Meyers)</a>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#headline-143">Effective and modern</a>
 <ul>
-<li><a href="#headline-142">Why prefer <code class="verbatim">auto</code> to explicit type declarations?</a>
+<li><a href="#headline-144">Template type deduction</a>
 </li>
-</ul>
-</li>
-<li><a href="#headline-143">Smart pointers</a>
+<li><a href="#headline-145"><code class="verbatim">auto</code> type deduction (2 Meyers)</a>
 <ul>
-<li><a href="#headline-144">What is it smart about it?</a>
+<li><a href="#headline-146">Why prefer <code class="verbatim">auto</code> to explicit type declarations?</a>
 </li>
 </ul>
 </li>
-<li><a href="#headline-145">Universal references (&amp;&amp;)</a>
+<li><a href="#headline-147">Smart pointers</a>
 <ul>
-<li><a href="#headline-146">What is an universal reference?</a>
+<li><a href="#headline-148">What is it smart about it?</a>
 </li>
 </ul>
 </li>
-<li><a href="#headline-147">Modern practices</a>
+<li><a href="#headline-149">Universal references (&amp;&amp;)</a>
 <ul>
-<li><a href="#headline-148">Why choose <code class="verbatim">()</code> instead <code class="verbatim">{}</code> when creating objects matter? (7 Mayers)</a>
+<li><a href="#headline-150">What is an universal reference?</a>
+</li>
+</ul>
+</li>
+<li><a href="#headline-151">Modern practices</a>
 <ul>
-<li><a href="#headline-149">Possible initialization operators</a>
-</li>
-<li><a href="#headline-150">Problems with <code class="verbatim">= {};</code> </a>
-</li>
-<li><a href="#headline-151">Narrowing conversion</a>
-</li>
-<li><a href="#headline-152">Problems with <code class="verbatim">{}</code> braced initialization</a>
-</li>
-</ul>
-</li>
-<li><a href="#headline-153">What are scoped <code class="verbatim">enums</code>?</a>
-</li>
-<li><a href="#headline-154">What are special function generation?</a>
-</li>
-<li><a href="#headline-155">Pass by value or pass by reference?</a>
-</li>
-</ul>
-</li>
-<li><a href="#headline-156">Abstract base class (ABC) or Template</a>
-</li>
-</ul>
-</li>
-<li><a href="#headline-157">Compiler</a>
+<li><a href="#headline-152">Why choose <code class="verbatim">()</code> instead <code class="verbatim">{}</code> when creating objects matter? (7 Mayers)</a>
 <ul>
-<li><a href="#headline-158">Compilation</a>
+<li><a href="#headline-153">Possible initialization operators</a>
 </li>
-<li><a href="#headline-159">Linking</a>
+<li><a href="#headline-154">Problems with <code class="verbatim">= {};</code> </a>
 </li>
-<li><a href="#headline-160">Makefile</a>
+<li><a href="#headline-155">Narrowing conversion</a>
 </li>
-<li><a href="#headline-161">Configure</a>
-</li>
-<li><a href="#headline-162">Make</a>
-</li>
-<li><a href="#headline-163">Subsequent <code class="verbatim">Make</code> calls</a>
-</li>
-<li><a href="#headline-164">Make usage</a>
-</li>
-<li><a href="#headline-165">Make install</a>
+<li><a href="#headline-156">Problems with <code class="verbatim">{}</code> braced initialization</a>
 </li>
 </ul>
 </li>
-<li><a href="#headline-166">CMake</a>
+<li><a href="#headline-157">What are scoped <code class="verbatim">enums</code>?</a>
+</li>
+<li><a href="#headline-158">What are special function generation?</a>
+</li>
+<li><a href="#headline-159">Pass by value or pass by reference?</a>
+</li>
+</ul>
+</li>
+<li><a href="#headline-160">Abstract base class (ABC) or Template</a>
+</li>
+</ul>
+</li>
+<li><a href="#headline-161">Configuring and compiling</a>
 <ul>
-<li><a href="#headline-167">Introduction</a>
+<li><a href="#headline-162">Compilation</a>
 </li>
-<li><a href="#headline-168">Difference between compiler, build system and CMake</a>
+<li><a href="#headline-163">Compilation after changing the code</a>
 </li>
-<li><a href="#headline-169">Project setup</a>
+<li><a href="#headline-164">Linking</a>
 </li>
-<li><a href="#headline-170">File generator</a>
+<li><a href="#headline-165">Makefile</a>
 </li>
-<li><a href="#headline-171">Using CMake</a>
+<li><a href="#headline-166">Configure</a>
+</li>
+<li><a href="#headline-167"><code class="verbatim">make</code></a>
+</li>
+<li><a href="#headline-168">Subsequent <code class="verbatim">make</code> calls</a>
+</li>
+<li><a href="#headline-169">Make clean</a>
+</li>
+<li><a href="#headline-170">Make usage</a>
+</li>
+<li><a href="#headline-171">Make install</a>
+</li>
+</ul>
+</li>
+<li><a href="#headline-172">CMake</a>
 <ul>
-<li><a href="#headline-172">Basic setup</a>
+<li><a href="#headline-173">Introduction</a>
 </li>
-<li><a href="#headline-173">Adding information to <code class="verbatim">CMakeLists.txt</code></a>
+<li><a href="#headline-174">Difference between compiler, build system and CMake</a>
 </li>
-<li><a href="#headline-174">Adding multiple sources to <code class="verbatim">CMakeLists.txt</code></a>
+<li><a href="#headline-175">Project setup</a>
 </li>
-<li><a href="#headline-175">Adding a dynamic library to <code class="verbatim">CMakeLists.txt</code></a>
+<li><a href="#headline-176">File generator</a>
 </li>
-</ul>
-</li>
-<li><a href="#headline-176">When should I rerun <code class="verbatim">cmake</code></a>
-</li>
-<li><a href="#headline-177">Questions</a>
+<li><a href="#headline-177">Using CMake</a>
 <ul>
-<li><a href="#headline-178">Changed installation path, need to rerun <code class="verbatim">cmake</code> and <code class="verbatim">make</code>?</a>
+<li><a href="#headline-178">Basic setup</a>
+</li>
+<li><a href="#headline-179">Adding information to <code class="verbatim">CMakeLists.txt</code></a>
+</li>
+<li><a href="#headline-180">Adding multiple sources to <code class="verbatim">CMakeLists.txt</code></a>
+</li>
+<li><a href="#headline-181">Adding a dynamic library to <code class="verbatim">CMakeLists.txt</code></a>
+</li>
+</ul>
+</li>
+<li><a href="#headline-182">Questions</a>
+<ul>
+<li><a href="#headline-183">Changed installation path, need to rerun <code class="verbatim">cmake</code> and <code class="verbatim">make</code>?</a>
+</li>
+<li><a href="#headline-184">When should I rerun <code class="verbatim">cmake</code>?</a>
+</li>
+<li><a href="#headline-185">What is CMake cache?</a>
 </li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#headline-179">References</a>
+<li><a href="#headline-186">References</a>
 </li>
 </ul>
 </nav>

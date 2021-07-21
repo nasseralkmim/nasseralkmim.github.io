@@ -1,0 +1,6 @@
+READER_TYPE HDF5
+WRITE_RESTART_EVERY                             1000
+DO_RESTART                                      NO
+USE_TABLE                                       -1
+CLEAR_BC                                        YES
+USE_BLOCK_PRECOND_AFTER_RESTART                 YES

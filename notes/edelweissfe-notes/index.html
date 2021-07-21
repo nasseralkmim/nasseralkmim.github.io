@@ -1,0 +1,2089 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>eldweissFE notes | Notes</title>
+
+  <meta charset="UTF-8">
+  <meta name="language" content="en">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  
+  
+
+  <link rel="shortcut icon" type="image/png" href="/favicon.ico" />
+
+
+  
+  
+    
+ 
+  
+  
+  
+  
+  
+  
+    
+    <link type="text/css" rel="stylesheet" href="/css/post.min.9184109084ab0858f4d61e201ec74c667f1e039aaddd71fb8204359b0bae18a1.css" integrity="sha256-kYQQkISrCFj01h4gHsdMZn8eA5qt3XH7ggQ1mwuuGKE="/>
+  
+    
+    <link type="text/css" rel="stylesheet" href="/css/custom.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" integrity="sha256-47DEQpj8HBSa&#43;/TImW&#43;5JCeuQeRkm5NMpJWZG3hSuFU="/>
+  
+  
+   
+   
+    
+
+<script type="application/ld+json">
+  
+    { 
+      "@context": "http://schema.org", 
+      "@type": "WebSite", 
+      "url": "http:\/\/localhost:1313\/notes\/edelweissfe-notes\/",
+      "name": "eldweissFE notes",
+      "author": {
+        "@type": "Person",
+        "name": ""
+      },
+      "description": ""
+    }
+  
+  </script>
+</head>
+
+<body>
+  <div class="burger__container">
+  <div class="burger" aria-controls="navigation" aria-label="Menu">
+    <div class="burger__meat burger__meat--1"></div>
+    <div class="burger__meat burger__meat--2"></div>
+    <div class="burger__meat burger__meat--3"></div>
+  </div>
+</div>
+ 
+
+  <nav class="nav" id="navigation">
+  <ul class="nav__list">
+    
+    
+      <li>
+        <a  href="/">about</a>
+      </li>
+    
+      <li>
+        <a  class="active"
+         href="/notes">notes</a>
+      </li>
+    
+  </ul>
+</nav>
+
+
+  <main>
+    
+    
+
+    <div class="flex-wrapper">
+      <div class="post__container">
+        <div class="post">
+          <header class="post__header">
+            <h1 id="post__title">eldweissFE notes</h1>
+            <time datetime="2021-05-23 00:00:00 &#43;0000 UTC" class="post__date">May 23 2021</time> 
+	    
+          </header>
+          <article class="post__content">
+              
+
+<div id="outline-container-headline-1" class="outline-2">
+<h2 id="headline-1">
+Questions
+</h2>
+<div id="outline-text-headline-1" class="outline-text-2">
+<div id="outline-container-headline-2" class="outline-3">
+<h3 id="headline-2">
+General
+</h3>
+<div id="outline-text-headline-2" class="outline-text-3">
+<ol>
+<li class="checked">
+<p>mesh creation workflow?</p>
+<ol>
+<li class="checked">
+<p>copy nodes and elements into the <code class="verbatim">.inp</code> file</p>
+</li>
+</ol>
+</li>
+<li class="checked">
+<p>create everything on abaqus? or just the the node/element data?</p>
+</li>
+<li class="checked">
+<p>the set of nodes and set of elements? abaqus as well?</p>
+<ol>
+<li class="checked">
+<p>yes</p>
+</li>
+</ol>
+</li>
+<li class="checked">
+<p>if a want to inspect only the mesh?</p>
+</li>
+<li class="checked">
+<p>is it multi field? differences from mpFEM?</p>
+<ol>
+<li class="checked">
+<p>any fields</p>
+</li>
+<li class="checked">
+<p>currently mechanical</p>
+</li>
+<li class="checked">
+<p>mpFEM distributed memory for high performance, uses MPI</p>
+</li>
+</ol>
+</li>
+<li class="checked">
+<p>linear solver how to choose?</p>
+<ol>
+<li class="checked">
+<p>can be defined in the inp file</p>
+</li>
+<li class="checked">
+<p>pardiso (direct solver) is the default in edelweiss, from MKL library</p>
+</li>
+</ol>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-headline-3" class="outline-3">
+<h3 id="headline-3">
+Paraview
+</h3>
+<div id="outline-text-headline-3" class="outline-text-3">
+<ol>
+<li class="checked">
+<p>tips on paraview workflow?</p>
+<ol>
+<li class="checked">
+<p>just to check contour</p>
+</li>
+<li class="checked">
+<p>edelweiss generates text output and you can post process in a python script separated</p>
+</li>
+</ol>
+</li>
+<li class="checked">
+<p>how do you usually access the data? for graphs, generate in paraview or access using python?</p>
+</li>
+<li class="checked">
+<p>deformed shape with strees contour map? (vector glyph)</p>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-headline-4" class="outline-3">
+<h3 id="headline-4">
+Installation
+</h3>
+<div id="outline-text-headline-4" class="outline-text-3">
+<ol>
+<li class="checked">
+<p>when installed via <code class="verbatim">python setup.py build_ext -i</code> makes it available in the site-package?</p>
+<ol>
+<li>
+<p>so I can run with <code class="verbatim">python -m edelweissfe &lt;input&gt;</code> from anywhere in the system</p>
+</li>
+<li>
+<p>answer: always have to provide the path to <code class="verbatim">edelweissfe.py</code></p>
+</li>
+</ol>
+</li>
+<li class="checked">
+<p><code class="verbatim">.inp</code> files? input files, similar to Abaqus</p>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-headline-5" class="outline-3">
+<h3 id="headline-5">
+Data flow
+</h3>
+<div id="outline-text-headline-5" class="outline-text-3">
+<ol>
+<li>
+<p>edelweiss call marmot to build element matrices</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-6" class="outline-2">
+<h2 id="headline-6">
+Installation
+</h2>
+<div id="outline-text-headline-6" class="outline-text-2">
+<div id="outline-container-headline-7" class="outline-3">
+<h3 id="headline-7">
+Requirements
+</h3>
+<div id="outline-text-headline-7" class="outline-text-3">
+<p>Python 3.5+ and python packages:</p>
+<ul>
+<li>
+<p>Python 3.5+*</p>
+</li>
+<li>
+<p>Numpy*</p>
+</li>
+<li>
+<p>Scipy*</p>
+</li>
+<li>
+<p>Cython 0.28+*</p>
+</li>
+<li>
+<p>Matplotlib*</p>
+</li>
+<li>
+<p>Sympy</p>
+</li>
+<li>
+<p>Rich</p>
+</li>
+<li>
+<p>OpenMP* (CONDA only)</p>
+</li>
+<li>
+<p>Intel MKL for the PARDISO*  (binaries and header files; if you use Anaconda, install packages `mkl` and `mkl-include`) (CONDA)</p>
+</li>
+</ul>
+<p>Non python external libraries:</p>
+<ul>
+<li>
+<p>Marmot (built and installed into python environment)</p>
+</li>
+<li>
+<p>Eigen Library for Linear Algebra (<a href="http://eigen.tuxfamily.org/index.php?title=Main_Page)">http://eigen.tuxfamily.org/index.php?title=Main_Page)</a> (header only installed in the python environment)</p>
+</li>
+</ul>
+<div id="outline-container-headline-8" class="outline-4">
+<h4 id="headline-8">
+Intel MKL
+</h4>
+<div id="outline-text-headline-8" class="outline-text-4">
+<p>
+Optimized multi thread routines that Eigen uses automatically to improve performance.
+<a href="https://eigen.tuxfamily.org/dox/TopicUsingIntelMKL.html">Eigen: Using Intel® MKL from Eigen</a>.</p>
+<p>
+<code class="verbatim">conda install mkl</code></p>
+</div>
+</div>
+<div id="outline-container-headline-9" class="outline-4">
+<h4 id="headline-9">
+Cython
+</h4>
+<div id="outline-text-headline-9" class="outline-text-4">
+<p>
+<code class="verbatim">conda install cython</code></p>
+</div>
+</div>
+<div id="outline-container-headline-10" class="outline-4">
+<h4 id="headline-10">
+OpenMP
+</h4>
+<div id="outline-text-headline-10" class="outline-text-4">
+<p>
+<code class="verbatim">conda install -c conda-forge openmp</code></p>
+<div id="outline-container-headline-11" class="outline-5">
+<h5 id="headline-11">
+Prolems
+</h5>
+<div id="outline-text-headline-11" class="outline-text-5">
+<p>
+<code class="verbatim">conda install openMP</code> does not work.</p>
+<p>
+<code class="verbatim">conda install -c conda-forge openmp</code> works.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-12" class="outline-4">
+<h4 id="headline-12">
+Rich
+</h4>
+<div id="outline-text-headline-12" class="outline-text-4">
+<p><code class="verbatim">conda install -c conda-forge rich</code></p>
+</div>
+</div>
+<div id="outline-container-headline-13" class="outline-4">
+<h4 id="headline-13">
+Eigen
+</h4>
+<div id="outline-text-headline-13" class="outline-text-4">
+<p>
+<code class="verbatim">conda install eigen</code></p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-14" class="outline-3">
+<h3 id="headline-14">
+Details
+</h3>
+<div id="outline-text-headline-14" class="outline-text-3">
+<div id="outline-container-headline-15" class="outline-4">
+<h4 id="headline-15">
+Marmot Installation
+</h4>
+<div id="outline-text-headline-15" class="outline-text-4">
+<p>In Marmot source code.</p>
+<p>
+Install prefix directed to edelweissFE environment so it can know where the is the c++ program.</p>
+<div class="src src-shell">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">mkdir build
+<span style="color:#038">cd</span> build
+cmake .. -DCMAKE_INSTALL_PREFIX=~/miniconda3/envs/edelweissFE</code></pre></div>
+</div>
+<p>
+Header files will be included in the prefix folders.
+In this case it it as conda virtual environment where all <code class="verbatim">edelweissFE</code> dependencies are installed.</p>
+<p>
+To compile the code <code class="verbatim">sudo make -j12</code> and to install <code class="verbatim">make install</code>.</p>
+</div>
+</div>
+<div id="outline-container-headline-16" class="outline-4">
+<h4 id="headline-16">
+Eigein
+</h4>
+<div id="outline-text-headline-16" class="outline-text-4">
+<p>
+C++ linear algebra with headers only.
+Does not need to compile, just need to link it to your code.</p>
+<p>
+Just make the headers available to Edelweissfe (in the same venv).</p>
+<p>
+In the <code class="verbatim">eigen</code> source code folder:</p>
+<div class="src src-shell">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">mkdir build
+<span style="color:#038">cd</span> build
+cmake .. -DBUILD_TESTING=off -DCMAKE_INSTALL_PREFIX=/home/nasser/miniconda3/envs/edelweissFE</code></pre></div>
+</div>
+<p>
+The default installation path for the headers is <code class="verbatim">/usr/local/include/eigen3</code>.
+Which is the standard location for user installed libraries.
+That is where <code class="verbatim">Marmot</code> will try to look for the library.</p>
+<p>
+You can check the installation path with,</p>
+<div class="src src-shell">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#038">cd</span> ~/eigen/build
+grep -C <span style="color:#00d;font-weight:bold">3</span> prefix CMakeCache.txt</code></pre></div>
+</div>
+<pre class="example">
+//C header files for non-gcc (/usr/include)
+CMAKE_INSTALL_OLDINCLUDEDIR:PATH=/usr/include
+
+//Install path prefix, prepended onto install directories.
+CMAKE_INSTALL_PREFIX:PATH=/usr/local
+
+//Run-time variable data (LOCALSTATEDIR/run)
+</pre>
+<p>
+After <code class="verbatim">cmake</code> creates the building files, the installation can be done with <code class="verbatim">make install</code>.</p>
+</div>
+</div>
+<div id="outline-container-headline-17" class="outline-4">
+<h4 id="headline-17">
+Adding modules
+</h4>
+<div id="outline-text-headline-17" class="outline-text-4">
+<ol>
+<li>
+<p>clone new modules into marmot folder, <code class="verbatim">modules/materials/</code> for materials and <code class="verbatim">modules/elements/</code> for elements.</p>
+</li>
+<li>
+<p>in the <code class="verbatim">build/</code> folder, <code class="verbatim">cmake .. -DCMAKE_INSTALL_PREFIX=~/miniconda3/envs/edelweissFE</code></p>
+</li>
+<li>
+<p><code class="verbatim">make</code> and <code class="verbatim">sudo make install</code> to update the library</p>
+</li>
+<li>
+<p>Edelweissfe will be able to access without any compilation</p>
+</li>
+</ol>
+<p>Element modules end with <code class="verbatim">Element</code> suffix.
+Core modules end with <code class="verbatim">Core</code> suffix.</p>
+<div class="src src-shell">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">tree -L <span style="color:#00d;font-weight:bold">2</span> /mnt/c/Users/c8441205/OneDrive/Academy/PhD/softwares/Marmot/modules</code></pre></div>
+</div>
+<pre class="example">
+/mnt/c/Users/c8441205/OneDrive/Academy/PhD/softwares/Marmot/modules
+├── core
+│   ├── MarmotCosseratCore
+│   ├── MarmotFiniteElementCore
+│   ├── MarmotMathCore
+│   └── MarmotMechanicsCore
+├── elements
+│   ├── DisplacementFiniteElement
+│   ├── GradientEnhancedCosseratFiniteElement
+│   ├── GradientEnhancedDisplacementFiniteElement
+│   └── place_your_elements_here
+└── materials
+    ├── GMCDP
+    ├── LinearElastic
+    ├── MCDP
+    ├── ModLeon
+    ├── ModLeonNonLocal
+    └── place_your_materials_here
+
+15 directories, 2 files
+</pre>
+<div class="src src-shell">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#038">cd</span> /mnt/c/Users/c8441205/OneDrive/Academy/PhD/softwares/Marmot/build
+cmake .. -DCMAKE_INSTALL_PREFIX=~/miniconda3/envs/edelweissFE</code></pre></div>
+</div>
+<pre class="example">
+-- This is CMake 3.20.3
+-- 
+--&gt; found Eigen: /usr/local/include/eigen3
+--&gt; found MarmotMathCore
+--&gt; found MarmotMechanicsCore
+--&gt; found MarmotFiniteElementCore
+--&gt; found GMCDP
+--&gt; found LinearElastic
+--&gt; found ModLeon
+--&gt; found ModLeonNonLocal
+--&gt; found DisplacementFiniteElement
+--&gt; found GradientEnhancedDisplacementFiniteElement
+--&gt; found GradientEnhancedCosseratFiniteElement
+-- CMAKE_INSTALL_PREFIX: /home/nasser/miniconda3/envs/edelweissFE
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /mnt/c/Users/c8441205/OneDrive/Academy/PhD/softwares/Marmot/build
+</pre>
+</div>
+</div>
+<div id="outline-container-headline-18" class="outline-4">
+<h4 id="headline-18">
+Run edelweissfe
+</h4>
+<div id="outline-text-headline-18" class="outline-text-4">
+<p>
+Use it as a standalone application.</p>
+<p>
+<code class="verbatim">python edelweiss.py input.inp</code></p>
+<p>
+If not in the same folder as <code class="verbatim">edelweiss.py</code>, you need to provide the correct path to it.
+Or create an alias for the whole command <code class="verbatim">python edelweiss.py</code> in the <code class="verbatim">~/.bashrc</code>.</p>
+</div>
+</div>
+<div id="outline-container-headline-19" class="outline-4">
+<h4 id="headline-19">
+Installed requirements and version
+</h4>
+<div id="outline-text-headline-19" class="outline-text-4">
+<div class="src src-shell">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">python -version
+conda list -n edelweissFE | grep -E <span style="color:#d20;background-color:#fff0f0">&#34;numpy|scipy|cython|matplotlib|rich|openmp|mkl|eigen|edelweiss&#34;</span></code></pre></div>
+</div>
+<pre class="example">
+# packages in environment at /home/nasser/miniconda3/envs/edelweissFE:
+blas                      1.0                         mkl  
+cython                    0.29.23          py39h2531618_0  
+intel-openmp              2021.2.0           h06a4308_610  
+llvm-openmp               8.0.1                hc9558a2_0    conda-forge
+matplotlib                3.3.4            py39h06a4308_0  
+matplotlib-base           3.3.4            py39h62a2d02_0  
+matplotlib-inline         0.1.2                    pypi_0    pypi
+mkl                       2021.2.0           h06a4308_296  
+mkl-include               2021.2.0           h06a4308_296  
+mkl-service               2.3.0            py39h27cfd23_1  
+mkl_fft                   1.3.0            py39h42c9631_2  
+mkl_random                1.2.1            py39ha9443f7_2  
+numpy                     1.20.2           py39h2d18471_0  
+numpy-base                1.20.2           py39hfae3a4d_0  
+openmp                    8.0.1                         0    conda-forge
+rich                      10.2.2           py39hf3d152e_0    conda-forge
+scipy                     1.6.2            py39had2a1c9_1
+</pre>
+</div>
+</div>
+<div id="outline-container-headline-20" class="outline-4">
+<h4 id="headline-20">
+EdelweissFE validate
+</h4>
+<div id="outline-text-headline-20" class="outline-text-4">
+<p>
+Run the python script to check the available elements and materials.</p>
+<div class="src src-shell">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#038">cd</span> /mnt/c/Users/c8441205/OneDrive/Academy/PhD/softwares/EdelweissFE/
+python validateEdelweiss.py</code></pre></div>
+</div>
+<pre class="example">
+Test BendingTrussGMNeoHooke                            Test BendingTrussGMNeoHooke                             FAILED: Invalid element 
+GMC3D8UL requested!
+Test BodyForce3D                                       Test BodyForce3D                                        PASSED \[0.7]
+Test C3D20                                             Test C3D20                                              PASSED \[0.2]
+Test C3D8                                              Test C3D8                                               PASSED \[0.7]
+Test C3D8TL                                            Test C3D8TL                                             FAILED: Invalid element 
+C3D8TL requested!
+Test CCPE8R                                            Test CCPE8R                                             FAILED: Invalid element 
+CCPE8R requested!
+Test CDP                                               Test CDP                                                FAILED: Invalid material
+CDP requested!
+Test CDPPlane                                          Test CDPPlane                                           FAILED: Invalid material
+CDP requested!
+Test CPE4EAS2                                          Test CPE4EAS2                                           FAILED: Invalid element 
+CPE4EAS2 requested!
+Test CPE4EAS5                                          Test CPE4EAS5                                           FAILED: Invalid element 
+CPE4EAS5 requested!
+Test CPS4                                              Test CPS4                                               PASSED \[11.9]
+Test CPS8R                                             Test CPS8R                                              PASSED \[7.7]
+Test DLoad                                             Test DLoad                                              PASSED \[0.6]
+Test DLoad3DTotalLagrange                              Test DLoad3DTotalLagrange                               FAILED: Invalid element 
+C3D8TL requested!
+Test DLoad3DUpdatedLagrange                            Test DLoad3DUpdatedLagrange                             FAILED: Invalid element 
+C3D8UL requested!
+Test DLoadLargeStrain                                  Test DLoadLargeStrain                                   FAILED: Invalid element 
+CPE4TL requested!
+Test GC3D20RMixed                                      Test GC3D20RMixed                                       FAILED: Invalid element 
+GC3D20RMIXED requested!
+Test GC3D8                                             Test GC3D8                                              PASSED \[6.5]
+Test GCPE4EAS2                                         Test GCPE4EAS2                                          FAILED: Invalid element 
+GCPE4EAS2 requested!
+Test GCPE4ULFBar                                       Test GCPE4ULFBar                                        FAILED: Invalid element 
+GCPE4ULFBAR requested!
+Test GCPS4                                             Test GCPS4                                              PASSED \[0.8]
+Test GeoStatic                                         Test GeoStatic                                          PASSED \[0.9]
+Test GMCDPFiniteStrainHydrostatic                      Test GMCDPFiniteStrainHydrostatic                       FAILED: Invalid element 
+GMC3D20RUL requested!
+Test GMCDPFiniteStrainPlaneStrain                      Test GMCDPFiniteStrainPlaneStrain                       FAILED: Invalid element 
+GMCPE8RUL requested!
+Test GMDruckerPragerPlaneStrain                        Test GMDruckerPragerPlaneStrain                         FAILED: Invalid element 
+GMCPE8RUL requested!
+Test IndirectDisplacementControl                       Test IndirectDisplacementControl                        FAILED: Invalid element 
+GCPE4EAS2 requested!
+Test IndirectDisplacementControl2                      Test IndirectDisplacementControl2                       PASSED \[4.6]
+Test JaumannShearPanel2D                               Test JaumannShearPanel2D                                FAILED: Invalid element 
+CPE4UL requested!
+Test LinearElasticIsotropic                            Test LinearElasticIsotropic                             PASSED \[0.0]
+Test LinearElasticOrthotropic                          Test LinearElasticOrthotropic                           PASSED \[0.0]
+Test LinearElasticShrinkage                            Test LinearElasticShrinkage                             FAILED: Invalid material
+LINEARELASTICSHRINKAGE requested!
+Test LinearElasticSolidificationCreep                  Test LinearElasticSolidificationCreep                   FAILED: Invalid material
+LINEARELASTICSOLIDIFICATIONCREEP requested!
+Test LinearElasticTransverseIsotropic                  Test LinearElasticTransverseIsotropic                   PASSED \[0.0]
+Test LinearizedRigidBodyConstraint                     Test LinearizedRigidBodyConstraint                      PASSED \[0.3]
+Test MCDPPlaneStrain                                   Test MCDPPlaneStrain                                    FAILED: Invalid element 
+CCPE8R requested!
+Test MeshPlot                                          Test MeshPlot                                           PASSED \[2.9]
+Test ModifiedCamClay                                   Test ModifiedCamClay                                    FAILED: Invalid material
+MODIFIEDCAMCLAY requested!
+Test NodeForces                                        Test NodeForces                                         PASSED \[0.8]
+Test OutputManagers                                    Test OutputManagers                                     PASSED \[3.7]
+Test PlaneStrainBiAxHB                                 Test PlaneStrainBiAxHB                                  FAILED: Invalid material
+HOEKBROWN requested!
+Test PlaneStrainBiAxORDP                               Test PlaneStrainBiAxORDP                                FAILED: Invalid material
+ORDP requested!
+Test PlaneStrainBiAxRDP                                Test PlaneStrainBiAxRDP                                 FAILED: Invalid material
+ROCKDAMAGEPLASTICITY requested!
+Test PorousElastic                                     Test PorousElastic                                      FAILED: Invalid material
+POROUSELASTIC requested!
+Test RigidBodyConstraintLargeDeformations3D            Test RigidBodyConstraintLargeDeformations3D             FAILED: Invalid element 
+C3D8TL requested!
+Test SetField                                          Test SetField                                           PASSED \[0.5]
+Test ShotLeon                                          Test ShotLeon                                           FAILED: Invalid material
+SHOTLEON requested!
+Test ShotLeonV2                                        Test ShotLeonV2                                         FAILED: Invalid material
+SHOTLEONV2 requested!
+Test ShotLeonV2NonLocal                                Test ShotLeonV2NonLocal                                 FAILED: Invalid material
+SHOTLEONV2NONLOCAL requested!
+Test ShotLeonV2NonLocalCreepTest                       Test ShotLeonV2NonLocalCreepTest                        FAILED: Invalid material
+SHOTLEONV2NONLOCAL requested!
+Test T2D2                                              Test T2D2                                               PASSED \[0.1]
+Test TwistingTrussGMNeoHooke                           Test TwistingTrussGMNeoHooke                            FAILED: Invalid element 
+GMC3D8UL requested!
+Test TwistingTrussJaumannRate                          Test TwistingTrussJaumannRate                           FAILED: Invalid element 
+C3D8UL requested!
+</pre>
+</div>
+</div>
+<div id="outline-container-headline-21" class="outline-4">
+<h4 id="headline-21">
+Latex
+</h4>
+<div id="outline-text-headline-21" class="outline-text-4">
+<p>
+For the MethPlot test it is required some latex dependencies.</p>
+<p>
+For instance, <code class="verbatim">type1ec.sty</code> is required for unicode support.
+This can be installed in a <code class="verbatim">texlive</code> installation with <code class="verbatim">sudo apt install cm-super</code>.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-22" class="outline-3">
+<h3 id="headline-22">
+Running an example
+</h3>
+<div id="outline-text-headline-22" class="outline-text-3">
+<div id="outline-container-headline-23" class="outline-4">
+<h4 id="headline-23">
+Run command
+</h4>
+<div id="outline-text-headline-23" class="outline-text-4">
+<p>Correct python environment, to edelweissfe.py script and an input file</p>
+<div class="src src-shell">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">~/miniconda3/envs/edelweissFE/bin/python /mnt/c/Users/c8441205/OneDrive/Academy/PhD/projects/EdelweissFE/edelweiss.py input.inp</code></pre></div>
+</div>
+<pre class="example">
+ total size of eq. system: 24                                                                feCore 
++--------------------------------------------------------------------------------------------------+
+   Converting elSet all to a nSet due to requested nodal results                       displacement 
+   Using 12 threads                                                                     NISTPSolver 
++--------------------------------------------------------------------------------------------------+
+   increment 0: 0.000000, 0.000000; time   0.000000 to   0.000000                       NISTPSolver 
+           displacement                                                                 NISTPSolver 
+      ||R||∞      ||ddU||∞                                                              NISTPSolver 
+      0.00e+00✓   0.00e+00✓                                                             NISTPSolver 
+   Converged in 1 iteration(s)                                                          NISTPSolver 
+   sig22, elementResult: [-0.]                                                              Monitor 
++--------------------------------------------------------------------------------------------------+
+   increment 1: 1.000000, 1.000000; time   0.000000 to   1.000000                       NISTPSolver 
+           displacement                                                                 NISTPSolver 
+      ||R||∞      ||ddU||∞                                                              NISTPSolver 
+      0.00e+00✓   0.00e+00✓                                                             NISTPSolver 
+   Converged in 1 iteration(s)                                                          NISTPSolver 
+   sig22, elementResult: [-0.]                                                              Monitor 
+   +-------------------------------------+-------------------------------------+        NISTPSolver 
+   |Time in elements                     |     0.0072s                         |        NISTPSolver 
+   |Time in distributed loads            |     0.0001s                         |        NISTPSolver 
+   |Time in body forces                  |     0.0000s                         |        NISTPSolver 
+   |Time in constraints                  |     0.0000s                         |        NISTPSolver 
+   |Time in dirichlet R                  |     0.0000s                         |        NISTPSolver 
+   |Time in CSR generation               |     0.0003s                         |        NISTPSolver 
+   |Time in dirichlet K                  |     0.0001s                         |        NISTPSolver 
+   |Time in linear solve                 |     0.0102s                         |        NISTPSolver 
+   |Time in convergence check            |     0.0003s                         |        NISTPSolver 
+   +-------------------------------------+-------------------------------------+        NISTPSolver 
+ +--------------------------------------+--------------------------------------+                  feCore 
+ |Step computation time                 |    0.0601s                           |                  feCore 
+ +--------------------------------------+--------------------------------------+                  feCore 
+   Using 12 threads                                                                          NISTPSolver 
++-------------------------------------------------------------------------------------------------------+
+   increment 0: 0.000000, 0.000000; time   1.000000 to   1.000000                            NISTPSolver 
+           displacement                                                                      NISTPSolver 
+      ||R||∞      ||ddU||∞                                                                   NISTPSolver 
+      0.00e+00✓   0.00e+00✓                                                                  NISTPSolver 
+   Converged in 1 iteration(s)                                                               NISTPSolver 
+   skipping output for zero-increment in step 2                                           Ensight Export 
+   sig22, elementResult: [-0.]                                                                   Monitor 
++-------------------------------------------------------------------------------------------------------+
+   increment 1: 1.000000, 1.000000; time   1.000000 to   2.000000                            NISTPSolver 
+           displacement                                                                      NISTPSolver 
+      ||R||∞      ||ddU||∞                                                                   NISTPSolver 
+      7.17e-16✓   1.00e-02                                                                   NISTPSolver 
+      2.64e-16✓   2.48e-18✓                                                                  NISTPSolver 
+   Converged in 2 iteration(s)                                                               NISTPSolver 
+   sig22, elementResult: [1800.]                                                                 Monitor 
+   +---------------------------------------+---------------------------------------+         NISTPSolver 
+   |Time in elements                       |     0.0036s                           |         NISTPSolver 
+   |Time in distributed loads              |     0.0000s                           |         NISTPSolver 
+   |Time in body forces                    |     0.0000s                           |         NISTPSolver 
+   |Time in constraints                    |     0.0000s                           |         NISTPSolver 
+   |Time in dirichlet R                    |     0.0000s                           |         NISTPSolver 
+   |Time in CSR generation                 |     0.0004s                           |         NISTPSolver 
+   |Time in dirichlet K                    |     0.0001s                           |         NISTPSolver 
+   |Time in linear solve                   |     0.0013s                           |         NISTPSolver 
+   |Time in convergence check              |     0.0004s                           |         NISTPSolver 
+   +---------------------------------------+---------------------------------------+         NISTPSolver 
+ +-----------------------------------------+-----------------------------------------+                 feCore 
+ |Step computation time                    |    0.0176s                              |                 feCore 
+ +-----------------------------------------+-----------------------------------------+                 feCore 
+ |Job computation time                       |    0.0777s                                |                  feCore 
+ +-------------------------------------------+-------------------------------------------+                  feCore
+</pre>
+</div>
+</div>
+<div id="outline-container-headline-24" class="outline-4">
+<h4 id="headline-24">
+Output analysis
+</h4>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-25" class="outline-2">
+<h2 id="headline-25">
+Setup
+</h2>
+<div id="outline-text-headline-25" class="outline-text-2">
+<div id="outline-container-headline-26" class="outline-3">
+<h3 id="headline-26">
+Current setup
+</h3>
+<div id="outline-text-headline-26" class="outline-text-3">
+<p><span class="timestamp">&lt;2021-06-02 Wed&gt;</span> just calling from shell the correct python environment and <code class="verbatim">cd</code> or absolute paths to <code class="verbatim">edelweissfe.py</code>.</p>
+</div>
+</div>
+<div id="outline-container-headline-27" class="outline-3">
+<h3 id="headline-27">
+Python version
+</h3>
+<div id="outline-text-headline-27" class="outline-text-3">
+<p>
+It is the default because conda changed the <code class="verbatim">.bashrc</code> to automatically initialize and also because of the package <code class="verbatim">exec-path-from-shell</code>.
+Without this package it would pick <code class="verbatim">/usr/local/bin/python</code> and <code class="verbatim">jupyter</code> command would not be available.
+This because emacs GUI does not picks all environment variables, just a minimal set of them.</p>
+<div class="src src-shell">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">which python</code></pre></div>
+</div>
+<pre class="example">
+/home/nasser/miniconda3/bin/python
+</pre>
+</div>
+</div>
+<div id="outline-container-headline-28" class="outline-3">
+<h3 id="headline-28">
+Jupyter and virtualenv kernel
+</h3>
+<div id="outline-text-headline-28" class="outline-text-3">
+<p>
+What kernels are available.
+After creating an <code class="verbatim">edelweissFE</code> environment with <code class="verbatim">conda</code> and adding it to jupyter kernel with <code class="verbatim">ipykernel.</code></p>
+<div class="src src-shell">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">jupyter kernelspec list</code></pre></div>
+</div>
+<pre class="example">
+Available kernels:
+  python3        /home/nasser/.local/lib/python3.8/site-packages/ipykernel/resources
+  edelweissfe    /home/nasser/.local/share/jupyter/kernels/edelweissfe
+</pre>
+<p>
+It picks the kernel specified with the source block <code class="verbatim">:kernel name</code>.
+The default is python3.</p>
+<div class="src src-python">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">import</span> <span style="color:#b06;font-weight:bold">sys</span>
+<span style="color:#080;font-weight:bold">print</span>(sys.executable)
+<span style="color:#080;font-weight:bold">print</span>(sys.version)
+<span style="color:#080;font-weight:bold">print</span>(sys.version_info)</code></pre></div>
+</div>
+<pre class="example">
+/usr/bin/python3
+3.8.10 (default, May 11 2021, 09:48:23) 
+[GCC 9.3.0]
+sys.version_info(major=3, minor=8, micro=10, releaselevel=&#39;final&#39;, serial=0)
+</pre>
+<p>
+Now using <code class="verbatim">:kernel edelweissfe</code> we get
+(See <a href="*Adding the virtual environment as a kernel to Jupyter">Adding the virtual environment as a kernel to Jupyter</a>)</p>
+<div class="src src-python">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">import</span> <span style="color:#b06;font-weight:bold">sys</span>
+<span style="color:#080;font-weight:bold">print</span>(sys.executable)
+<span style="color:#080;font-weight:bold">print</span>(sys.version)
+<span style="color:#080;font-weight:bold">print</span>(sys.version_info)</code></pre></div>
+</div>
+<pre class="example">
+/home/nasser/miniconda3/envs/edelweissFE/bin/python
+3.9.5 (default, May 18 2021, 19:34:48) 
+[GCC 7.3.0]
+sys.version_info(major=3, minor=9, micro=5, releaselevel=&#39;final&#39;, serial=0)
+</pre>
+</div>
+</div>
+<div id="outline-container-headline-29" class="outline-3">
+<h3 id="headline-29">
+Workarounds
+</h3>
+<div id="outline-text-headline-29" class="outline-text-3">
+<div id="outline-container-headline-30" class="outline-4">
+<h4 id="headline-30">
+Conda
+</h4>
+<div id="outline-text-headline-30" class="outline-text-4">
+<p>Install miniconda.
+Conda will insert an automatic script in <code class="verbatim">.bashrc</code> so it loads automatically.
+We can see the default python in from conda.</p>
+<div class="src src-sh">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">which conda
+which python
+python --version</code></pre></div>
+</div>
+<pre class="example">
+/home/nasser/miniconda3/bin/conda
+/home/nasser/miniconda3/bin/python
+Python 3.9.1
+</pre>
+<p>
+But by default emacs-jupyter is using other python.</p>
+<div class="src src-python">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">import</span> <span style="color:#b06;font-weight:bold">sys</span>
+<span style="color:#080;font-weight:bold">print</span>(sys.version)
+<span style="color:#080;font-weight:bold">print</span>(sys.executable)</code></pre></div>
+</div>
+<pre class="example">
+3.8.6 (default, Oct  9 2020, 11:59:16) 
+[GCC 9.3.0]
+/usr/local/bin/python
+</pre>
+<div class="src src-shell">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">jupyter kernelspec list</code></pre></div>
+</div>
+<pre class="example">
+Available kernels:
+  python3    /home/nasser/.local/share/jupyter/kernels/python3
+</pre>
+</div>
+</div>
+<div id="outline-container-headline-31" class="outline-4">
+<h4 id="headline-31">
+Create virtual environment
+</h4>
+<div id="outline-text-headline-31" class="outline-text-4">
+<p>To create an environment <code class="verbatim">conda create --name myenv</code>.</p>
+<p>
+To remove it <code class="verbatim">conda remove --name myenv --all.</code></p>
+<div class="src src-shell">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">conda info --envs</code></pre></div>
+</div>
+<pre class="example">
+# conda environments:
+#
+base                  *  /home/nasser/miniconda3
+edelweissFE              /home/nasser/miniconda3/envs/edelweissFE
+
+</pre>
+<p>
+To see the packages in the environment:</p>
+<div class="src src-shell">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">conda list -n edelweissFE</code></pre></div>
+</div>
+<pre class="example">
+# packages in environment at /home/nasser/miniconda3/envs/edelweissFE:
+#
+# Name                    Version                   Build  Channel
+_libgcc_mutex             0.1                        main  
+argon2-cffi               20.1.0           py39h27cfd23_1  
+async_generator           1.10               pyhd3eb1b0_0  
+attrs                     21.2.0             pyhd3eb1b0_0  
+backcall                  0.2.0              pyhd3eb1b0_0  
+blas                      1.0                         mkl  
+bleach                    3.3.0              pyhd3eb1b0_0  
+ca-certificates           2021.4.13            h06a4308_1  
+certifi                   2020.12.5        py39h06a4308_0  
+cffi                      1.14.5           py39h261ae71_0  
+colorama                  0.4.4                    pypi_0    pypi
+commonmark                0.9.1                    pypi_0    pypi
+cycler                    0.10.0           py39h06a4308_0  
+cython                    0.29.23                  pypi_0    pypi
+dbus                      1.13.18              hb2f20db_0  
+decorator                 5.0.9              pyhd3eb1b0_0  
+defusedxml                0.7.1              pyhd3eb1b0_0  
+entrypoints               0.3              py39h06a4308_0  
+expat                     2.3.0                h2531618_2  
+fontconfig                2.13.1               h6c09931_0  
+freetype                  2.10.4               h5ab3b9f_0  
+glib                      2.68.2               h36276a3_0  
+gst-plugins-base          1.14.0               h8213a91_2  
+gstreamer                 1.14.0               h28cd5cc_2  
+icu                       58.2                 he6710b0_3  
+importlib-metadata        3.10.0           py39h06a4308_0  
+importlib_metadata        3.10.0               hd3eb1b0_0  
+intel-openmp              2021.2.0           h06a4308_610  
+ipykernel                 5.5.5                    pypi_0    pypi
+ipython                   7.23.1                   pypi_0    pypi
+ipython_genutils          0.2.0              pyhd3eb1b0_1  
+ipywidgets                7.6.3              pyhd3eb1b0_1  
+jedi                      0.18.0                   pypi_0    pypi
+jinja2                    3.0.0              pyhd3eb1b0_0  
+jpeg                      9b                   h024ee3a_2  
+jsonschema                3.2.0                      py_2  
+jupyter                   1.0.0            py39h06a4308_7  
+jupyter_client            6.1.12             pyhd3eb1b0_0  
+jupyter_console           6.4.0              pyhd3eb1b0_0  
+jupyter_core              4.7.1            py39h06a4308_0  
+jupyterlab_pygments       0.1.2                      py_0  
+jupyterlab_widgets        1.0.0              pyhd3eb1b0_1  
+kiwisolver                1.3.1            py39h2531618_0  
+lcms2                     2.12                 h3be6417_0  
+ld_impl_linux-64          2.33.1               h53a641e_7  
+libffi                    3.3                  he6710b0_2  
+libgcc-ng                 9.1.0                hdf63c60_0  
+libgfortran-ng            7.3.0                hdf63c60_0  
+libpng                    1.6.37               hbc83047_0  
+libsodium                 1.0.18               h7b6447c_0  
+libstdcxx-ng              9.1.0                hdf63c60_0  
+libtiff                   4.1.0                h2733197_1  
+libuuid                   1.0.3                h1bed415_2  
+libxcb                    1.14                 h7b6447c_0  
+libxml2                   2.9.10               hb55368b_3  
+lz4-c                     1.9.3                h2531618_0  
+markupsafe                2.0.1            py39h27cfd23_0  
+matplotlib                3.3.4            py39h06a4308_0  
+matplotlib-base           3.3.4            py39h62a2d02_0  
+matplotlib-inline         0.1.2                    pypi_0    pypi
+mistune                   0.8.4           py39h27cfd23_1000  
+mkl                       2021.2.0           h06a4308_296  
+mkl-service               2.3.0            py39h27cfd23_1  
+mkl_fft                   1.3.0            py39h42c9631_2  
+mkl_random                1.2.1            py39ha9443f7_2  
+nbclient                  0.5.3              pyhd3eb1b0_0  
+nbconvert                 6.0.7            py39h06a4308_0  
+nbformat                  5.1.3              pyhd3eb1b0_0  
+ncurses                   6.2                  he6710b0_1  
+nest-asyncio              1.5.1              pyhd3eb1b0_0  
+notebook                  6.4.0            py39h06a4308_0  
+numpy                     1.20.2           py39h2d18471_0  
+numpy-base                1.20.2           py39hfae3a4d_0  
+olefile                   0.46                       py_0  
+openssl                   1.1.1k               h27cfd23_0  
+packaging                 20.9               pyhd3eb1b0_0  
+pandoc                    2.12                 h06a4308_0  
+pandocfilters             1.4.3            py39h06a4308_1  
+parso                     0.8.2                    pypi_0    pypi
+pcre                      8.44                 he6710b0_0  
+pexpect                   4.8.0              pyhd3eb1b0_3  
+pickleshare               0.7.5           pyhd3eb1b0_1003  
+pillow                    8.2.0            py39he98fc37_0  
+pip                       21.1.1           py39h06a4308_0  
+prometheus_client         0.10.1             pyhd3eb1b0_0  
+prompt-toolkit            3.0.18                   pypi_0    pypi
+prompt_toolkit            3.0.17               hd3eb1b0_0  
+ptyprocess                0.7.0              pyhd3eb1b0_2  
+pycparser                 2.20                       py_2  
+pygments                  2.9.0              pyhd3eb1b0_0  
+pyparsing                 2.4.7              pyhd3eb1b0_0  
+pyqt                      5.9.2            py39h2531618_6  
+pyrsistent                0.17.3           py39h27cfd23_0  
+python                    3.9.5                hdb3f193_3  
+python-dateutil           2.8.1              pyhd3eb1b0_0  
+pyzmq                     22.0.3                   pypi_0    pypi
+qt                        5.9.7                h5867ecd_1  
+qtconsole                 5.0.3              pyhd3eb1b0_0  
+qtpy                      1.9.0                      py_0  
+readline                  8.1                  h27cfd23_0  
+rich                      10.2.2                   pypi_0    pypi
+scipy                     1.6.2            py39had2a1c9_1  
+send2trash                1.5.0              pyhd3eb1b0_1  
+setuptools                52.0.0           py39h06a4308_0  
+sip                       4.19.13          py39h2531618_0  
+six                       1.15.0           py39h06a4308_0  
+sqlite                    3.35.4               hdfb4753_0  
+terminado                 0.9.4            py39h06a4308_0  
+testpath                  0.4.4              pyhd3eb1b0_0  
+tk                        8.6.10               hbc83047_0  
+tornado                   6.1              py39h27cfd23_0  
+traitlets                 5.0.5              pyhd3eb1b0_0  
+tzdata                    2020f                h52ac0ba_0  
+wcwidth                   0.2.5                      py_0  
+webencodings              0.5.1            py39h06a4308_1  
+wheel                     0.36.2             pyhd3eb1b0_0  
+widgetsnbextension        3.5.1            py39h06a4308_0  
+xz                        5.2.5                h7b6447c_0  
+zeromq                    4.3.4                h2531618_0  
+zipp                      3.4.1              pyhd3eb1b0_0  
+zlib                      1.2.11               h7b6447c_3  
+zstd                      1.4.9                haebb681_0
+</pre>
+</div>
+</div>
+<div id="outline-container-headline-32" class="outline-4">
+<h4 id="headline-32">
+Adding the virtual environment as a kernel to Jupyter
+</h4>
+<div id="outline-text-headline-32" class="outline-text-4">
+<p>
+Using ipykernel inside the environment.
+<code class="verbatim">python -m ipykernel install --user --name=edelweissFE</code></p>
+<p>
+Now it is in the list of available kernels for Jupyter.</p>
+<div class="src src-shell">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">jupyter kernelspec list</code></pre></div>
+</div>
+<pre class="example">
+Available kernels:
+  python3        /home/nasser/.local/lib/python3.8/site-packages/ipykernel/resources
+  edelweissfe    /home/nasser/.local/share/jupyter/kernels/edelweissfe
+</pre>
+</div>
+</div>
+<div id="outline-container-headline-33" class="outline-4">
+<h4 id="headline-33">
+Emacs-jupyter setting up different environment
+</h4>
+<div id="outline-text-headline-33" class="outline-text-4">
+<p>
+Check which python is the default,</p>
+<div class="src src-shell">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">conda deactivate</code></pre></div>
+</div>
+<div class="src src-shell">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">which python
+python --version</code></pre></div>
+</div>
+<pre class="example">
+/home/nasser/miniconda3/bin/python
+Python 3.9.1
+</pre>
+<p>
+Test the python libraries:
+It seems that emacs-jupyter with the default <code class="verbatim">:kernel python</code> is picking up a different python version.</p>
+<div class="src src-python">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">import</span> <span style="color:#b06;font-weight:bold">sys</span>
+<span style="color:#080;font-weight:bold">print</span>(sys.executable)
+<span style="color:#080;font-weight:bold">print</span>(sys.version)
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#b06;font-weight:bold">numpy</span>
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#b06;font-weight:bold">scipy</span>
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#b06;font-weight:bold">matplotlib</span></code></pre></div>
+</div>
+<pre class="example">
+/usr/local/bin/python
+3.8.6 (default, Oct  9 2020, 11:59:16) 
+[GCC 9.3.0]
+</pre>
+<p>
+Available kernels</p>
+<div class="src src-shell">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">jupyter kernelspec list</code></pre></div>
+</div>
+<pre class="example">
+Available kernels:
+  python3    /home/nasser/.local/share/jupyter/kernels/python3
+</pre>
+<p>
+Now I&#39;m going to activate the <code class="verbatim">edelweissFE</code> environment and install jupyter there.
+Still I can not see the kernel available.</p>
+<div class="src src-shell">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">conda activate edelweissFE
+jupyter kernelspec list</code></pre></div>
+</div>
+<pre class="example">
+Available kernels:
+  python3    /home/nasser/.local/share/jupyter/kernels/python3
+</pre>
+</div>
+</div>
+<div id="outline-container-headline-34" class="outline-4">
+<h4 id="headline-34">
+Can not run <code class="verbatim">jupyter</code> inside <code class="verbatim">org-mode</code> shell source blocks
+</h4>
+<div id="outline-text-headline-34" class="outline-text-4">
+<p>
+This does not return anything for jupyter, even though in the normal shell I can run it with the result <code class="verbatim">~/.local/bin/jupyter</code>.</p>
+<div class="src src-sh">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">which jupyter
+which python</code></pre></div>
+</div>
+<pre class="example">
+/usr/local/bin/python
+</pre>
+<p>
+Let&#39;s see what is the executable path that emacs looks for.</p>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(<span style="color:#369">exec-path</span>)</code></pre></div>
+</div>
+<table>
+<tbody>
+<tr>
+<td>~/.local/bin</td>
+<td>/usr/local/sbin</td>
+<td>/usr/local/bin</td>
+<td>/usr/sbin</td>
+<td>/usr/bin</td>
+<td>/sbin</td>
+<td>/bin</td>
+<td>/usr/games</td>
+<td>/usr/local/games</td>
+<td>/mnt/c/Program Files/ImageMagick-7.0.11-Q16-HDRI</td>
+<td>/mnt/c/WINDOWS/system32</td>
+<td>/mnt/c/WINDOWS</td>
+<td>/mnt/c/WINDOWS/System32/Wbem</td>
+<td><em>mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0</em></td>
+<td><em>mnt/c/Program Files/PuTTY</em></td>
+<td><em>mnt/c/WINDOWS/System32/OpenSSH</em></td>
+<td>/mnt/c/ProgramData/chocolatey/bin</td>
+<td><em>mnt/c/Program Files/PowerShell/7</em></td>
+<td>/mnt/c/Users/c8441205/AppData/Local/SumatraPDF</td>
+<td><em>mnt/c/Program Files/dotnet</em></td>
+<td>/mnt/c/Users/c8441205/AppData/Local/Microsoft/WindowsApps</td>
+<td>/usr/local/libexec/emacs/28.0.50/x86_64-pc-linux-gnu</td>
+</tr>
+</tbody>
+</table>
+<p>
+We can see that <code class="verbatim">~/.local/bin</code> is there, but it still can not find jupyter.</p>
+<p>
+There is this package that seems to address this problem: <a href="https://github.com/purcell/exec-path-from-shell">GitHub - purcell/exec-path-from-shell: Make Emacs use the $PATH set up by the…</a>.
+In the description: &#34;A command that works in shell but not in emacs&#34;, which is exactly what is happening.
+It seems that when we launch a GUI app of Emacs it runs with a <span style="text-decoration: underline;">default set of environment variables</span>.</p>
+<p>
+My shell is bash.</p>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(<span style="color:#369">getenv</span> <span style="color:#d20;background-color:#fff0f0">&#34;SHELL&#34;</span>)</code></pre></div>
+</div>
+<pre class="example">
+/bin/bash
+</pre>
+<p>
+After installing and initializing the package <code class="verbatim">exec-path-from-shell</code>.
+We can find jupyter as expected.</p>
+<div class="src src-shell">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">which jupyter</code></pre></div>
+</div>
+<pre class="example">
+/home/nasser/.local/bin/jupyter
+</pre>
+</div>
+</div>
+<div id="outline-container-headline-35" class="outline-4">
+<h4 id="headline-35">
+No module named ipykernel_launcher
+</h4>
+<div id="outline-text-headline-35" class="outline-text-4">
+<p>In the virtualenv activated.
+<code class="verbatim">conda install ipykernel</code></p>
+<div class="src src-python">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">import</span> <span style="color:#b06;font-weight:bold">sys</span>
+<span style="color:#080;font-weight:bold">print</span>(sys.version)</code></pre></div>
+</div>
+<pre class="example">
+3.9.5 (default, May 18 2021, 19:34:48) 
+[GCC 7.3.0]
+</pre>
+</div>
+</div>
+<div id="outline-container-headline-36" class="outline-4">
+<h4 id="headline-36">
+Conda init
+</h4>
+<div id="outline-text-headline-36" class="outline-text-4">
+<p>
+<code class="verbatim">conda init</code> edit <code class="verbatim">.bashrc</code> file in order to:</p>
+<ol>
+<li>
+<p>add the conda environment into the PATH</p>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-headline-37" class="outline-4">
+<h4 id="headline-37">
+Jupyter kernelspec list
+</h4>
+<div id="outline-text-headline-37" class="outline-text-4">
+<div class="src src-shell">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">which python</code></pre></div>
+</div>
+<pre class="example">
+/usr/local/bin/python
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-38" class="outline-2">
+<h2 id="headline-38">
+Input file
+</h2>
+<div id="outline-text-headline-38" class="outline-text-2">
+<div id="outline-container-headline-39" class="outline-3">
+<h3 id="headline-39">
+Prologue
+</h3>
+<div id="outline-text-headline-39" class="outline-text-3">
+<p>Contains the whole model data and history data.
+Follows Abaqus notation <a href="https://classes.engineering.wustl.edu/2009/spring/mase5513/abaqus/docs/v6.6/books/gss/ch02s03.html">2.3 Creating an input file</a>.</p>
+<p>
+Model data has geometry and material property.
+History data represents the sequence of events happening during the simulation.</p>
+</div>
+</div>
+<div id="outline-container-headline-40" class="outline-3">
+<h3 id="headline-40">
+Notation
+</h3>
+<div id="outline-text-headline-40" class="outline-text-3">
+<ol>
+<li>
+<p><code class="verbatim">*</code> heading</p>
+</li>
+<li>
+<p><code class="verbatim">**</code> comment</p>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-headline-41" class="outline-3">
+<h3 id="headline-41">
+Model data
+</h3>
+<div id="outline-text-headline-41" class="outline-text-3">
+<div id="outline-container-headline-42" class="outline-4">
+<h4 id="headline-42">
+Material
+</h4>
+<div id="outline-text-headline-42" class="outline-text-4">
+<p>
+The name is used to associate a material with a element section.</p>
+<pre class="example">
+*material, name=LinearElastic, id=myMaterial
+**Isotropic
+**E   | nu |
+1.8e4, 0.22
+</pre>
+</div>
+</div>
+<div id="outline-container-headline-43" class="outline-4">
+<h4 id="headline-43">
+Node
+</h4>
+<div id="outline-text-headline-43" class="outline-text-4">
+<pre class="example">
+*node
+&lt;node number&gt;,&lt;-coordinate&gt;,&lt;-coordinate&gt;,&lt;-coordinate&gt;
+</pre>
+</div>
+</div>
+<div id="outline-container-headline-44" class="outline-4">
+<h4 id="headline-44">
+Node set
+</h4>
+</div>
+<div id="outline-container-headline-45" class="outline-4">
+<h4 id="headline-45">
+Element
+</h4>
+<div id="outline-text-headline-45" class="outline-text-4">
+<p>Element type specify the kind of element.</p>
+<pre class="example">
+*element, Type=C3D8
+&lt;element number&gt;, &lt;node 1&gt;, ... &lt;node n&gt;
+</pre>
+</div>
+</div>
+<div id="outline-container-headline-46" class="outline-4">
+<h4 id="headline-46">
+Element set
+</h4>
+</div>
+<div id="outline-container-headline-47" class="outline-4">
+<h4 id="headline-47">
+Surface
+</h4>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-48" class="outline-3">
+<h3 id="headline-48">
+History data
+</h3>
+<div id="outline-text-headline-48" class="outline-text-3">
+<div id="outline-container-headline-49" class="outline-4">
+<h4 id="headline-49">
+Job
+</h4>
+<div id="outline-text-headline-49" class="outline-text-4">
+<pre class="example">
+*job, name=c3d8job, domain=3d, solver=NISTParallel
+</pre>
+</div>
+</div>
+<div id="outline-container-headline-50" class="outline-4">
+<h4 id="headline-50">
+Step
+</h4>
+<div id="outline-text-headline-50" class="outline-text-4">
+<p>Each step defines the events in the simulations.</p>
+<ol>
+<li>
+<p>the step refers to the specific job</p>
+</li>
+</ol>
+<p>Specifications:</p>
+<ol>
+<li>
+<p>type</p>
+</li>
+<li>
+<p>name</p>
+</li>
+<li>
+<p>set of node where the conditions is applied</p>
+</li>
+<li>
+<p>what field, coordinate and value</p>
+</li>
+</ol>
+<pre class="example">
+*step, jobName=c3d8job, maxInc=1e0, minInc=1e0, maxNumInc=100, maxIter=25, stepLength=1
+dirichlet, name=1, nSet=left, field=displacement, 2=0
+dirichlet, name=2, nSet=bottomback, field=displacement, 1=0,3=0
+dirichlet, name=3, nSet=bottomleft, field=displacement, 3=0
+
+*step, jobName=c3d8job, maxInc=1e0, minInc=1e0, maxNumInc=10, maxIter=25, stepLength=1
+dirichlet, name=right, nSet=right, field=displacement, 2=-0.01
+</pre>
+</div>
+</div>
+<div id="outline-container-headline-51" class="outline-4">
+<h4 id="headline-51">
+Field output
+</h4>
+<div id="outline-text-headline-51" class="outline-text-4">
+<div id="outline-container-headline-52" class="outline-5">
+<h5 id="headline-52">
+Types
+</h5>
+<div id="outline-text-headline-52" class="outline-text-5">
+<pre class="example">
+*output, type=ensight, jobName=c3d8job, name=ensightExport
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-53" class="outline-2">
+<h2 id="headline-53">
+Architecture
+</h2>
+<div id="outline-text-headline-53" class="outline-text-2">
+<div id="outline-container-headline-54" class="outline-3">
+<h3 id="headline-54">
+Job
+</h3>
+<div id="outline-text-headline-54" class="outline-text-3">
+<ol>
+<li>
+<p>define the steps</p>
+</li>
+<li>
+<p>job is the total simulation</p>
+</li>
+<li>
+<p>each step block is part of a job</p>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-headline-55" class="outline-3">
+<h3 id="headline-55">
+Step
+</h3>
+<div id="outline-text-headline-55" class="outline-text-3">
+<ol>
+<li>
+<p>maxInc: increment</p>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-headline-56" class="outline-3">
+<h3 id="headline-56">
+Ensight
+</h3>
+<div id="outline-text-headline-56" class="outline-text-3">
+<ol>
+<li>
+<p>output for paraview</p>
+</li>
+</ol>
+<div id="outline-container-headline-57" class="outline-4">
+<h4 id="headline-57">
+field output controle
+</h4>
+<div id="outline-text-headline-57" class="outline-text-4">
+<ol>
+<li>
+<p>controls the output per node</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-58" class="outline-3">
+<h3 id="headline-58">
+Output
+</h3>
+<div id="outline-text-headline-58" class="outline-text-3">
+<ol>
+<li>
+<p>create: per node or element</p>
+</li>
+<li>
+<p>fieldOutput is defined</p>
+</li>
+</ol>
+<div id="outline-container-headline-59" class="outline-4">
+<h4 id="headline-59">
+Field output
+</h4>
+<div id="outline-text-headline-59" class="outline-text-4">
+<ol>
+<li>
+<p>name of the field output</p>
+</li>
+<li>
+<p>elSet is the collection of elements</p>
+</li>
+<li>
+<p>results: values from integration points are defined in marmort</p>
+</li>
+<li>
+<p>field: is the nodal solution, displacements</p>
+<ol>
+<li>
+<p>U: is the variable name for the solution</p>
+</li>
+<li>
+<p>P: is for the force vector.</p>
+</li>
+</ol>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-headline-60" class="outline-4">
+<h4 id="headline-60">
+Output managers
+</h4>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-61" class="outline-3">
+<h3 id="headline-61">
+Journal
+</h3>
+<div id="outline-text-headline-61" class="outline-text-3">
+<p>Prints messages to the terminal.</p>
+</div>
+</div>
+<div id="outline-container-headline-62" class="outline-3">
+<h3 id="headline-62">
+Program run
+</h3>
+<div id="outline-text-headline-62" class="outline-text-3">
+<div id="outline-container-headline-63" class="outline-4">
+<h4 id="headline-63">
+finiteElementSimulation
+</h4>
+<div id="outline-text-headline-63" class="outline-text-4">
+<p>Core of the finite element analysis.</p>
+<div id="outline-container-headline-64" class="outline-5">
+<h5 id="headline-64">
+FieldOutputController
+</h5>
+<div id="outline-text-headline-64" class="outline-text-5">
+<p>Central module for managing &#34;field outputs&#34;.
+Field output are used by &#34;output managers&#34;.</p>
+<p>
+It is a class that reads the entries of the input file after the &#34;*fieldOutput&#34;.
+Those are saved in a dictionary <code class="verbatim">{name: FieldOutput}</code> as an attribute of the class instance.</p>
+<p>
+It also has methods for finalize an increment, a step and a job.
+Also to initialize a job or step.</p>
+<div id="outline-container-headline-65" class="outline-6">
+<h6 id="headline-65">
+FieldOutput
+</h6>
+<div id="outline-text-headline-65" class="outline-text-6">
+<p>Class that contains one field output.</p>
+<p>
+Element data is in 3D array.
+First dimension is time, second in integration points and the third is the internal variable.</p>
+<p>
+Concrete/Rock model:
+alphaP: internal variable for plasticity.
+alphaD: internal variable after softening.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-66" class="outline-3">
+<h3 id="headline-66">
+Control number of threads for <code class="verbatim">pardiso</code> and <code class="verbatim">edelweissFE</code> solver
+</h3>
+<div id="outline-text-headline-66" class="outline-text-3">
+<p>
+<code class="verbatim">OMP_NUM_THREADS=8</code></p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-67" class="outline-2">
+<h2 id="headline-67">
+Examples
+</h2>
+<div id="outline-text-headline-67" class="outline-text-2">
+<div id="outline-container-headline-68" class="outline-3">
+<h3 id="headline-68">
+BodyForce3D
+</h3>
+<div id="outline-text-headline-68" class="outline-text-3">
+<div id="outline-container-headline-69" class="outline-4">
+<h4 id="headline-69">
+Description
+</h4>
+<div id="outline-text-headline-69" class="outline-text-4">
+<p>Linear elastic material with 3 dimensions.
+Top surface fixed.
+With body force applied $b=[0, 10, 20]$.</p>
+</div>
+</div>
+<div id="outline-container-headline-70" class="outline-4">
+<h4 id="headline-70">
+Runnning
+</h4>
+<div id="outline-text-headline-70" class="outline-text-4">
+<p>Created alias in <code class="verbatim">.bashrc</code> for the <code class="verbatim">python</code> interpreter in the correct environment and for <code class="verbatim">edelweissfe.py</code>.</p>
+<div class="src src-shell">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">edelweissfe /mnt/c/Users/c8441205/OneDrive/Academy/PhD/softwares/EdelweissFE/testfiles/BodyForce3d/test.inp</code></pre></div>
+</div>
+<pre class="example">
+ total size of eq. system: 825                                                               feCore 
++--------------------------------------------------------------------------------------------------+
+   Converting elSet all to a nSet due to requested nodal results                       displacement 
++--------------------------------------------------------------------------------------------------+
+   increment 0: 0.000000, 0.000000; time   0.000000 to   0.000000                        NISTSolver 
+           displacement                                                                  NISTSolver 
+      ||R||∞      ||ddU||∞                                                               NISTSolver 
+      0.00e+00✓   0.00e+00✓                                                              NISTSolver 
+   Converged in 1 iteration(s)                                                           NISTSolver 
+   RF, nodalResult: 0.0                                                                     Monitor 
+   RF, nodalResult: 0.0                                                                     Monitor 
+   RF, nodalResult: 0.0                                                                     Monitor 
++--------------------------------------------------------------------------------------------------+
+   increment 1: 0.100000, 0.100000; time   0.000000 to   0.100000                        NISTSolver 
+           displacement                                                                  NISTSolver 
+      ||R||∞      ||ddU||∞                                                               NISTSolver 
+      4.34e-09✓   3.51e+01                                                               NISTSolver 
+      1.42e-09✓   5.22e-10✓                                                              NISTSolver 
+   Converged in 2 iteration(s)                                                           NISTSolver 
+   RF, nodalResult: -2.2737367544323206e-12                                                 Monitor 
+   RF, nodalResult: 9500.0                                                                  Monitor 
+   RF, nodalResult: 18999.999999999993                                                      Monitor 
++--------------------------------------------------------------------------------------------------+
+   increment 2: 0.100000, 0.200000; time   0.100000 to   0.200000                        NISTSolver 
+           displacement                                                                  NISTSolver 
+      ||R||∞      ||ddU||∞                                                               NISTSolver 
+      2.84e-09✓   0.00e+00✓                                                              NISTSolver 
+   Converged in 0 iteration(s)                                                           NISTSolver 
+   RF, nodalResult: -4.547473508864641e-12                                                  Monitor 
+   RF, nodalResult: 19000.0                                                                 Monitor 
+   RF, nodalResult: 37999.999999999985                                                      Monitor 
++--------------------------------------------------------------------------------------------------+
+   increment 3: 0.100000, 0.300000; time   0.200000 to   0.300000                        NISTSolver 
+           displacement                                                                  NISTSolver 
+      ||R||∞      ||ddU||∞                                                               NISTSolver 
+      4.26e-09✓   0.00e+00✓                                                              NISTSolver 
+   Converged in 0 iteration(s)                                                           NISTSolver 
+   RF, nodalResult: -8.640199666842818e-12                                                  Monitor 
+   RF, nodalResult: 28500.000000000004                                                      Monitor 
+   RF, nodalResult: 56999.99999999999                                                       Monitor 
++--------------------------------------------------------------------------------------------------+
+   increment 4: 0.100000, 0.400000; time   0.300000 to   0.400000                        NISTSolver 
+           displacement                                                                  NISTSolver 
+      ||R||∞      ||ddU||∞                                                               NISTSolver 
+      5.68e-09✓   0.00e+00✓                                                              NISTSolver 
+   Converged in 0 iteration(s)                                                           NISTSolver 
+   RF, nodalResult: -9.094947017729282e-12                                                  Monitor 
+   RF, nodalResult: 38000.0                                                                 Monitor 
+   RF, nodalResult: 75999.99999999997                                                       Monitor 
++--------------------------------------------------------------------------------------------------+
+   increment 5: 0.100000, 0.500000; time   0.400000 to   0.500000                        NISTSolver 
+           displacement                                                                  NISTSolver 
+      ||R||∞      ||ddU||∞                                                               NISTSolver 
+      7.10e-09✓   0.00e+00✓                                                              NISTSolver 
+   Converged in 0 iteration(s)                                                           NISTSolver 
+   RF, nodalResult: -8.185452315956354e-12                                                  Monitor 
+   RF, nodalResult: 47500.0                                                                 Monitor 
+   RF, nodalResult: 94999.99999999997                                                       Monitor 
++--------------------------------------------------------------------------------------------------+
+   increment 6: 0.100000, 0.600000; time   0.500000 to   0.600000                        NISTSolver 
+           displacement                                                                  NISTSolver 
+      ||R||∞      ||ddU||∞                                                               NISTSolver 
+      8.52e-09✓   0.00e+00✓                                                              NISTSolver 
+   Converged in 0 iteration(s)                                                           NISTSolver 
+   RF, nodalResult: -1.3642420526593924e-11                                                 Monitor 
+   RF, nodalResult: 57000.00000000001                                                       Monitor 
+   RF, nodalResult: 113999.99999999997                                                      Monitor 
++--------------------------------------------------------------------------------------------------+
+   increment 7: 0.100000, 0.700000; time   0.600000 to   0.700000                        NISTSolver 
+           displacement                                                                  NISTSolver 
+      ||R||∞      ||ddU||∞                                                               NISTSolver 
+      9.94e-09✓   0.00e+00✓                                                              NISTSolver 
+   Converged in 0 iteration(s)                                                           NISTSolver 
+   RF, nodalResult: -2.2737367544323206e-11                                                 Monitor 
+   RF, nodalResult: 66500.0                                                                 Monitor 
+   RF, nodalResult: 132999.99999999997                                                      Monitor 
++--------------------------------------------------------------------------------------------------+
+   increment 8: 0.100000, 0.800000; time   0.700000 to   0.800000                        NISTSolver 
+           displacement                                                                  NISTSolver 
+      ||R||∞      ||ddU||∞                                                               NISTSolver 
+      1.14e-08✓   0.00e+00✓                                                              NISTSolver 
+   Converged in 0 iteration(s)                                                           NISTSolver 
+   RF, nodalResult: -2.7284841053187847e-11                                                 Monitor 
+   RF, nodalResult: 76000.0                                                                 Monitor 
+   RF, nodalResult: 151999.99999999997                                                      Monitor 
++--------------------------------------------------------------------------------------------------+
+   increment 9: 0.100000, 0.900000; time   0.800000 to   0.900000                        NISTSolver 
+           displacement                                                                  NISTSolver 
+      ||R||∞      ||ddU||∞                                                               NISTSolver 
+      1.28e-08✓   0.00e+00✓                                                              NISTSolver 
+   Converged in 0 iteration(s)                                                           NISTSolver 
+   RF, nodalResult: -1.0913936421275139e-11                                                 Monitor 
+   RF, nodalResult: 85500.00000000001                                                       Monitor 
+   RF, nodalResult: 170999.99999999997                                                      Monitor 
++--------------------------------------------------------------------------------------------------+
+   increment 10: 0.100000, 1.000000; time   0.900000 to   1.000000                       NISTSolver 
+           displacement                                                                  NISTSolver 
+      ||R||∞      ||ddU||∞                                                               NISTSolver 
+      1.42e-08✓   0.00e+00✓                                                              NISTSolver 
+   Converged in 0 iteration(s)                                                           NISTSolver 
+   RF, nodalResult: -2.3646862246096134e-11                                                 Monitor 
+   RF, nodalResult: 95000.00000000001                                                       Monitor 
+   RF, nodalResult: 189999.9999999999                                                       Monitor 
+   +-------------------------------------+-------------------------------------+         NISTSolver 
+   |Time in elements                     |     0.0701s                         |         NISTSolver 
+   |Time in distributed loads            |     0.0001s                         |         NISTSolver 
+   |Time in body forces                  |     0.0230s                         |         NISTSolver 
+   |Time in constraints                  |     0.0000s                         |         NISTSolver 
+   |Time in dirichlet R                  |     0.0001s                         |         NISTSolver 
+   |Time in CSR generation               |     0.0011s                         |         NISTSolver 
+   |Time in dirichlet K                  |     0.0017s                         |         NISTSolver 
+   |Time in linear solve                 |     0.0451s                         |         NISTSolver 
+   |Time in convergence check            |     0.0035s                         |         NISTSolver 
+   +-------------------------------------+-------------------------------------+         NISTSolver 
+ +--------------------------------------+--------------------------------------+                  feCore 
+ |Step computation time                 |    0.3024s                           |                  feCore 
+ +--------------------------------------+--------------------------------------+                  feCore 
+ |Job computation time                     |    0.3024s                              |                 feCore 
+ +-----------------------------------------+-----------------------------------------+                 feCore
+</pre>
+<p>
+edelweissFE generates the outputs from where the command is called.
+Not where the input file is.</p>
+</div>
+</div>
+<div id="outline-container-headline-71" class="outline-4">
+<h4 id="headline-71">
+Visualizing the result
+</h4>
+<div id="outline-text-headline-71" class="outline-text-4">
+<div id="outline-container-headline-72" class="outline-5">
+<h5 id="headline-72">
+Command
+</h5>
+<div id="outline-text-headline-72" class="outline-text-5">
+<div class="src src-shell">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#038">cd</span> /mnt/c/Users/c8441205/OneDrive/Academy/PhD/projects/EdelweissFE/testfiles/BodyForce3D
+paraview.exe ensightExport.case</code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-73" class="outline-5">
+<h5 id="headline-73">
+Paraview
+</h5>
+<div id="outline-text-headline-73" class="outline-text-5">
+<div id="outline-container-headline-74" class="outline-6">
+<h6 id="headline-74">
+Scale displacements
+</h6>
+<div id="outline-text-headline-74" class="outline-text-6">
+<ol>
+<li>
+<p>add calculator</p>
+</li>
+<li>
+<p>mark coordinate results</p>
+</li>
+<li>
+<p>select the vector result and multiple by a factor</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-75" class="outline-5">
+<h5 id="headline-75">
+Stress ZZ plane
+</h5>
+<div id="outline-text-headline-75" class="outline-text-5">
+<img src="Examples/2021-06-02_10-15-00_screenshot.png" alt="Examples/2021-06-02_10-15-00_screenshot.png" title="Examples/2021-06-02_10-15-00_screenshot.png" width="550px"/>
+</div>
+</div>
+<div id="outline-container-headline-76" class="outline-5">
+<h5 id="headline-76">
+Stress YY plane
+</h5>
+<div id="outline-text-headline-76" class="outline-text-5">
+<img src="Examples/2021-06-02_10-18-56_screenshot.png" alt="Examples/2021-06-02_10-18-56_screenshot.png" title="Examples/2021-06-02_10-18-56_screenshot.png" width="550px"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+              
+                  
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+              
+          </article>
+          
+
+<ul class="tags__list">
+    
+    <li class="tag__item">
+        <a class="tag__link" href="http://localhost:1313/tags/draft/">draft</a>
+    </li>
+    <li class="tag__item">
+        <a class="tag__link" href="http://localhost:1313/tags/python/">python</a>
+    </li>
+    <li class="tag__item">
+        <a class="tag__link" href="http://localhost:1313/tags/edelweissfe/">edelweissfe</a>
+    </li></ul>
+
+ <div class="pagination">
+  
+    <a class="pagination__item" href="http://localhost:1313/notes/pyamg-notes/">
+        <span class="pagination__label">Previous Post</span>
+        <span class="pagination__title">PyAmg notes</span>
+    </a>
+  
+
+  
+    <a class="pagination__item" href="http://localhost:1313/notes/ti-notes/">
+      <span class="pagination__label">Next Post</span>
+      <span class="pagination__title" >TI notes</span>
+    </a>
+  
+</div>
+
+          <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "nasseralkmim" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+          <footer class="post__footer">
+            
+
+
+<div class="social-icons">
+  
+     
+    
+      <a class="social-icons__link" rel="me" title="Email"
+         href="mailto:nasser.alkmim@gmail.com"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('http://localhost:1313/svg/email.svg')"></div>
+      </a>
+    
+  
+     
+    
+      <a class="social-icons__link" rel="me" title="LinkedIn"
+         href="https://www.linkedin.com/in/nasser-alkmim-300882a6/"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('http://localhost:1313/svg/linkedin.svg')"></div>
+      </a>
+    
+  
+     
+    
+      <a class="social-icons__link" rel="me" title="GitHub"
+         href="https://github.com/nasseralkmim"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('http://localhost:1313/svg/github.svg')"></div>
+      </a>
+    
+  
+     
+    
+      <a class="social-icons__link" rel="me" title="Instagram"
+         href="https://instagram.com/naszr"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('http://localhost:1313/svg/instagram.svg')"></div>
+      </a>
+    
+     
+</div>
+
+            <p>© 2021</p>
+          </footer>
+          </div>
+      </div>
+      
+      <div class="toc-container">
+           <div class="toc-post-title">eldweissFE notes</div> 
+        <nav id="TableOfContents">
+<ul>
+<li><a href="#headline-1">Questions</a>
+<ul>
+<li><a href="#headline-2">General</a>
+</li>
+<li><a href="#headline-3">Paraview</a>
+</li>
+<li><a href="#headline-4">Installation</a>
+</li>
+<li><a href="#headline-5">Data flow</a>
+</li>
+</ul>
+</li>
+<li><a href="#headline-6">Installation</a>
+<ul>
+<li><a href="#headline-7">Requirements</a>
+<ul>
+<li><a href="#headline-8">Intel MKL</a>
+</li>
+<li><a href="#headline-9">Cython</a>
+</li>
+<li><a href="#headline-10">OpenMP</a>
+<ul>
+<li><a href="#headline-11">Prolems</a>
+</li>
+</ul>
+</li>
+<li><a href="#headline-12">Rich</a>
+</li>
+<li><a href="#headline-13">Eigen</a>
+</li>
+</ul>
+</li>
+<li><a href="#headline-14">Details</a>
+<ul>
+<li><a href="#headline-15">Marmot Installation</a>
+</li>
+<li><a href="#headline-16">Eigein</a>
+</li>
+<li><a href="#headline-17">Adding modules</a>
+</li>
+<li><a href="#headline-18">Run edelweissfe</a>
+</li>
+<li><a href="#headline-19">Installed requirements and version</a>
+</li>
+<li><a href="#headline-20">EdelweissFE validate</a>
+</li>
+<li><a href="#headline-21">Latex</a>
+</li>
+</ul>
+</li>
+<li><a href="#headline-22">Running an example</a>
+<ul>
+<li><a href="#headline-23">Run command</a>
+</li>
+<li><a href="#headline-24">Output analysis</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#headline-25">Setup</a>
+<ul>
+<li><a href="#headline-26">Current setup</a>
+</li>
+<li><a href="#headline-27">Python version</a>
+</li>
+<li><a href="#headline-28">Jupyter and virtualenv kernel</a>
+</li>
+<li><a href="#headline-29">Workarounds</a>
+<ul>
+<li><a href="#headline-30">Conda</a>
+</li>
+<li><a href="#headline-31">Create virtual environment</a>
+</li>
+<li><a href="#headline-32">Adding the virtual environment as a kernel to Jupyter</a>
+</li>
+<li><a href="#headline-33">Emacs-jupyter setting up different environment</a>
+</li>
+<li><a href="#headline-34">Can not run <code class="verbatim">jupyter</code> inside <code class="verbatim">org-mode</code> shell source blocks</a>
+</li>
+<li><a href="#headline-35">No module named ipykernel_launcher</a>
+</li>
+<li><a href="#headline-36">Conda init</a>
+</li>
+<li><a href="#headline-37">Jupyter kernelspec list</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#headline-38">Input file</a>
+<ul>
+<li><a href="#headline-39">Prologue</a>
+</li>
+<li><a href="#headline-40">Notation</a>
+</li>
+<li><a href="#headline-41">Model data</a>
+<ul>
+<li><a href="#headline-42">Material</a>
+</li>
+<li><a href="#headline-43">Node</a>
+</li>
+<li><a href="#headline-44">Node set</a>
+</li>
+<li><a href="#headline-45">Element</a>
+</li>
+<li><a href="#headline-46">Element set</a>
+</li>
+<li><a href="#headline-47">Surface</a>
+</li>
+</ul>
+</li>
+<li><a href="#headline-48">History data</a>
+<ul>
+<li><a href="#headline-49">Job</a>
+</li>
+<li><a href="#headline-50">Step</a>
+</li>
+<li><a href="#headline-51">Field output</a>
+<ul>
+<li><a href="#headline-52">Types</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#headline-53">Architecture</a>
+<ul>
+<li><a href="#headline-54">Job</a>
+</li>
+<li><a href="#headline-55">Step</a>
+</li>
+<li><a href="#headline-56">Ensight</a>
+<ul>
+<li><a href="#headline-57">field output controle</a>
+</li>
+</ul>
+</li>
+<li><a href="#headline-58">Output</a>
+<ul>
+<li><a href="#headline-59">Field output</a>
+</li>
+<li><a href="#headline-60">Output managers</a>
+</li>
+</ul>
+</li>
+<li><a href="#headline-61">Journal</a>
+</li>
+<li><a href="#headline-62">Program run</a>
+<ul>
+<li><a href="#headline-63">finiteElementSimulation</a>
+<ul>
+<li><a href="#headline-64">FieldOutputController</a>
+<ul>
+<li><a href="#headline-65">FieldOutput</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#headline-66">Control number of threads for <code class="verbatim">pardiso</code> and <code class="verbatim">edelweissFE</code> solver</a>
+</li>
+</ul>
+</li>
+<li><a href="#headline-67">Examples</a>
+<ul>
+<li><a href="#headline-68">BodyForce3D</a>
+<ul>
+<li><a href="#headline-69">Description</a>
+</li>
+<li><a href="#headline-70">Runnning</a>
+</li>
+<li><a href="#headline-71">Visualizing the result</a>
+<ul>
+<li><a href="#headline-72">Command</a>
+</li>
+<li><a href="#headline-73">Paraview</a>
+<ul>
+<li><a href="#headline-74">Scale displacements</a>
+</li>
+</ul>
+</li>
+<li><a href="#headline-75">Stress ZZ plane</a>
+</li>
+<li><a href="#headline-76">Stress YY plane</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+      </div>
+      
+    </div>
+    
+
+  </main>
+
+   
+
+  
+  <script src="/js/index.min.575dda8d49ee02639942c63564273e6da972ab531dda26a08800bdcb477cbd7f.js" integrity="sha256-V13ajUnuAmOZQsY1ZCc&#43;balyq1Md2iagiAC9y0d8vX8=" crossorigin="anonymous"></script>
+  
+  
+  
+
+  
+  
+  
+
+  
+    <script src="/js/table-of-contents.js"></script>
+  
+
+
+</body>
+
+</html>

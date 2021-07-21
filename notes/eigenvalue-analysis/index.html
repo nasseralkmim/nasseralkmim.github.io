@@ -105,8 +105,8 @@ if (!doNotTrack) {
             <h1 id="post__title">Eigenvalue analysis</h1>
             <time datetime="2021-06-09 00:00:00 &#43;0000 UTC" class="post__date">Jun 9 2021</time> 
 	    
-	    <time datetime="2021-07-19 11:33:53 &#43;0000 UTC" class="post__date">
-	      → edited in Jul 19 2021
+	    <time datetime="2021-07-20 09:36:47 &#43;0000 UTC" class="post__date">
+	      → edited in Jul 20 2021
 	    </time>
 	    
           </header>
@@ -168,16 +168,16 @@ Preconditioning improves convergence by clustering eigenvalues and hence reduces
 If we know how the nonlinear behavior affects the eigenvalues we can use this information in the preconditioning process.</p>
 </div>
 </div>
-<div id="outline-container-headline-23" class="outline-2">
-<h2 id="headline-23">
-Analysis
+<div id="outline-container-headline-4" class="outline-2">
+<h2 id="headline-4">
+Analysis of system matrix
 </h2>
-<div id="outline-text-headline-23" class="outline-text-2">
-<div id="outline-container-headline-24" class="outline-3">
-<h3 id="headline-24">
+<div id="outline-text-headline-4" class="outline-text-2">
+<div id="outline-container-headline-5" class="outline-3">
+<h3 id="headline-5">
 Description
 </h3>
-<div id="outline-text-headline-24" class="outline-text-3">
+<div id="outline-text-headline-5" class="outline-text-3">
 <p>
 A rectangular domain size 200x50.</p>
 <p>
@@ -192,20 +192,20 @@ This model extends on the classic concrete damage-plasticity (CPD) model and att
 The element used is a the GCCPE8R.</p>
 </div>
 </div>
-<div id="outline-container-headline-25" class="outline-3">
-<h3 id="headline-25">
+<div id="outline-container-headline-6" class="outline-3">
+<h3 id="headline-6">
 Damage evolution
 </h3>
-<div id="outline-text-headline-25" class="outline-text-3">
+<div id="outline-text-headline-6" class="outline-text-3">
 <p>
 <img src="analysis/damage.gif" alt="analysis/damage.gif" title="analysis/damage.gif" /></p>
 </div>
 </div>
-<div id="outline-container-headline-26" class="outline-3">
-<h3 id="headline-26">
+<div id="outline-container-headline-7" class="outline-3">
+<h3 id="headline-7">
 Eigenvalue distribution
 </h3>
-<div id="outline-text-headline-26" class="outline-text-3">
+<div id="outline-text-headline-7" class="outline-text-3">
 <p>
 With this analysis we want to know if the eigenvalues at each time step are concentrated or spread apart.
 A clustered eigenvalue range is associated with good convergence (specially).</p>
@@ -250,11 +250,11 @@ Remarks:</p>
 </ol>
 </div>
 </div>
-<div id="outline-container-headline-27" class="outline-3">
-<h3 id="headline-27">
+<div id="outline-container-headline-8" class="outline-3">
+<h3 id="headline-8">
 Eigenvalue histogram
 </h3>
-<div id="outline-text-headline-27" class="outline-text-3">
+<div id="outline-text-headline-8" class="outline-text-3">
 <p>
 A histogram organizes data in specific ranges.
 The goal is to set a small range <code class="verbatim">[-lim, lim]</code>, where we want to see if there is an eigenvalue of on this range. </p>
@@ -294,11 +294,11 @@ Range limited by:  0.1
 </ol>
 </div>
 </div>
-<div id="outline-container-headline-28" class="outline-3">
-<h3 id="headline-28">
+<div id="outline-container-headline-9" class="outline-3">
+<h3 id="headline-9">
 Eigenvalues ratio
 </h3>
-<div id="outline-text-headline-28" class="outline-text-3">
+<div id="outline-text-headline-9" class="outline-text-3">
 <div class="src src-python">
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">fig, ax = plt.subplots()
 eigvals = pd.DataFrame(np.loadtxt(<span style="color:#d20;background-color:#fff0f0">&#34;analysis/eigvals_numpy.txt&#34;</span>).T)
@@ -333,11 +333,11 @@ Remarks:</p>
 </ol>
 </div>
 </div>
-<div id="outline-container-headline-29" class="outline-3">
-<h3 id="headline-29">
+<div id="outline-container-headline-10" class="outline-3">
+<h3 id="headline-10">
 Condition number and eigenvalue ratio
 </h3>
-<div id="outline-text-headline-29" class="outline-text-3">
+<div id="outline-text-headline-10" class="outline-text-3">
 <div class="src src-python">
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">fig, ax = plt.subplots()
 
@@ -378,11 +378,11 @@ Remarks:</p>
 </ol>
 </div>
 </div>
-<div id="outline-container-headline-30" class="outline-3">
-<h3 id="headline-30">
+<div id="outline-container-headline-11" class="outline-3">
+<h3 id="headline-11">
 Condition number and reaction force
 </h3>
-<div id="outline-text-headline-30" class="outline-text-3">
+<div id="outline-text-headline-11" class="outline-text-3">
 <p>
 Computed with the definition $\kappa = \lVert A \rvert \lVert A^{-1} \rVert$.</p>
 <div class="src src-python">
@@ -417,13 +417,62 @@ Remarks:</p>
 </ol>
 </div>
 </div>
+<div id="outline-container-headline-12" class="outline-3">
+<h3 id="headline-12">
+Damage variable and minimum eigenvalue
+</h3>
+<div id="outline-text-headline-12" class="outline-text-3">
+<p>Plotting the damage variable again the minimum eigenvalue and the ratio between maximum and minimum eigenvalue.
+The damage variable is an internal variable, for each integration point.
+In order to get one damage variable per time step, I got the maximum $\omega$ per element and save it to a file.
+Then, from all elements I selected the maximum.</p>
+<div class="src src-python">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">fig, ax = plt.subplots()
+df = pd.DataFrame(np.loadtxt(<span style="color:#d20;background-color:#fff0f0">&#34;analysis/meanOmega.csv&#34;</span>))
+time_steps, num_elem = df.shape 
+<span style="color:#080;font-weight:bold">print</span>(f<span style="color:#d20;background-color:#fff0f0">&#39;num ele {num_elem - 1} and num of steps {time_steps - 1}&#39;</span>)
+df[<span style="color:#d20;background-color:#fff0f0">&#39;Omega&#39;</span>] = df.iloc[:, <span style="color:#00d;font-weight:bold">1</span>:].max(axis=<span style="color:#00d;font-weight:bold">1</span>)
+df[<span style="color:#d20;background-color:#fff0f0">&#39;Omega&#39;</span>].plot(secondary_y=True)
+
+eigen_ratio.plot(ax=ax, label=<span style="color:#d20;background-color:#fff0f0">r</span><span style="color:#d20;background-color:#fff0f0">&#39;max $\lambda$ / min $\lambda$&#39;</span>)
+eigvals.abs().min().plot(ax=ax, secondary_y=True,
+                      label=<span style="color:#d20;background-color:#fff0f0">r</span><span style="color:#d20;background-color:#fff0f0">&#39;min $\lambda$&#39;</span>)
+
+ax.set_xlabel(<span style="color:#d20;background-color:#fff0f0">&#39;Time step&#39;</span>)
+ax.right_ax.legend(loc=<span style="color:#d20;background-color:#fff0f0">&#39;center right&#39;</span>)
+ax.right_ax.set_ylabel(<span style="color:#d20;background-color:#fff0f0">r</span><span style="color:#d20;background-color:#fff0f0">&#39;max $\omega$, min $\lambda$&#39;</span>)
+ax.legend()</code></pre></div>
+</div>
+<pre class="example">
+num ele 400 and num of steps 101
+</pre>
+<p><img src="./jupyter/f419426f71d6738e15d7b02a84b68216830a277b.png" alt="./jupyter/f419426f71d6738e15d7b02a84b68216830a277b.png" title="./jupyter/f419426f71d6738e15d7b02a84b68216830a277b.png" /></p>
+<p>Remarks:</p>
+<ol>
+<li>
+<p>When damage starts, we see the beginning of plastic behavior and the minimum eigenvalue gets close to zero.</p>
+</li>
+<li>
+<p>At around step 55, as the damage variable gets closer to 1, the minim eigenvalue decreases.</p>
+<ol>
+<li>
+<p>this because as the damage variable approaches 1, the system becomes singular (no solution, no inverse, determinant equal zero).</p>
+</li>
+<li>
+<p>the minimum eigenvalue captures this effect.</p>
+</li>
+</ol>
+</li>
+</ol>
 </div>
 </div>
-<div id="outline-container-headline-31" class="outline-2">
-<h2 id="headline-31">
+</div>
+</div>
+<div id="outline-container-headline-13" class="outline-2">
+<h2 id="headline-13">
 References
 </h2>
-<div id="outline-text-headline-31" class="outline-text-2">
+<div id="outline-text-headline-13" class="outline-text-2">
 <ul>
 <li>
 <p>Elman, H. C., Silvester, D. J., &amp; Wathen, A. J. (). Finite elements
@@ -541,69 +590,71 @@ fluid dynamics. : Oxford University Press.</p>
 </li>
 <li><a href="#headline-3">Why?</a>
 </li>
-<li><a href="#headline-4">Methods</a>
+<li><a href="#headline-4">Analysis of system matrix</a>
 <ul>
-<li><a href="#headline-5">Strategy</a>
+<li><a href="#headline-5">Description</a>
 </li>
-<li><a href="#headline-6">Eigenvalues</a>
+<li><a href="#headline-6">Damage evolution</a>
 </li>
-<li><a href="#headline-7"><code class="verbatim">numpy.linalg.eig</code></a>
+<li><a href="#headline-7">Eigenvalue distribution</a>
 </li>
-<li><a href="#headline-8"><code class="verbatim">scipy.linalg.eig</code></a>
+<li><a href="#headline-8">Eigenvalue histogram</a>
 </li>
-<li><a href="#headline-9"><code class="verbatim">scipy.sparse.linalg.eigs</code></a>
+<li><a href="#headline-9">Eigenvalues ratio</a>
 </li>
-<li><a href="#headline-10">Comparing</a>
+<li><a href="#headline-10">Condition number and eigenvalue ratio</a>
 </li>
-<li><a href="#headline-11">Output treatment</a>
+<li><a href="#headline-11">Condition number and reaction force</a>
 </li>
-<li><a href="#headline-12">Eigenvalue distribution</a>
+<li><a href="#headline-12">Damage variable and minimum eigenvalue</a>
 </li>
-<li><a href="#headline-13">Max and min eigen values</a>
+</ul>
 </li>
-<li><a href="#headline-14">Condition number</a>
+<li><a href="#headline-13">References</a>
 </li>
-<li><a href="#headline-15">Function</a>
+<li><a href="#headline-14">Methods</a>
 <ul>
-<li><a href="#headline-16">Eigenvalues distribution </a>
+<li><a href="#headline-15">Strategy</a>
 </li>
-<li><a href="#headline-17">Condition number</a>
+<li><a href="#headline-16">Eigenvalues</a>
+</li>
+<li><a href="#headline-17"><code class="verbatim">numpy.linalg.eig</code></a>
+</li>
+<li><a href="#headline-18"><code class="verbatim">scipy.linalg.eig</code></a>
+</li>
+<li><a href="#headline-19"><code class="verbatim">scipy.sparse.linalg.eigs</code></a>
+</li>
+<li><a href="#headline-20">Comparing</a>
+</li>
+<li><a href="#headline-21">Output treatment</a>
+</li>
+<li><a href="#headline-22">Eigenvalue distribution</a>
+</li>
+<li><a href="#headline-23">Max and min eigen values</a>
+</li>
+<li><a href="#headline-24">Condition number</a>
+</li>
+<li><a href="#headline-25">Function</a>
+<ul>
+<li><a href="#headline-26">Eigenvalues distribution </a>
+</li>
+<li><a href="#headline-27">Condition number</a>
 </li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#headline-18">Prototype</a>
+<li><a href="#headline-28">Prototype</a>
 <ul>
-<li><a href="#headline-19">Description</a>
+<li><a href="#headline-29">Description</a>
 </li>
-<li><a href="#headline-20">Running edelweissFE</a>
+<li><a href="#headline-30">Running edelweissFE</a>
 </li>
-<li><a href="#headline-21">Checking on paraview</a>
+<li><a href="#headline-31">Checking on paraview</a>
 </li>
-<li><a href="#headline-22">Deformed shape</a>
+<li><a href="#headline-32">Deformed shape</a>
 </li>
 </ul>
-</li>
-<li><a href="#headline-23">Analysis</a>
-<ul>
-<li><a href="#headline-24">Description</a>
-</li>
-<li><a href="#headline-25">Damage evolution</a>
-</li>
-<li><a href="#headline-26">Eigenvalue distribution</a>
-</li>
-<li><a href="#headline-27">Eigenvalue histogram</a>
-</li>
-<li><a href="#headline-28">Eigenvalues ratio</a>
-</li>
-<li><a href="#headline-29">Condition number and eigenvalue ratio</a>
-</li>
-<li><a href="#headline-30">Condition number and reaction force</a>
-</li>
-</ul>
-</li>
-<li><a href="#headline-31">References</a>
 </li>
 </ul>
 </nav>
@@ -625,7 +676,6 @@ fluid dynamics. : Oxford University Press.</p>
   
   
   
-
   
     <script src="/js/table-of-contents.js"></script>
   
