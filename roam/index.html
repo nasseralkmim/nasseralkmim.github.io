@@ -1,2166 +1,243 @@
 <!DOCTYPE html>
 <html lang="en-us">
-
 <head>
-  <title>Roams | Notes</title>
-
-  <meta charset="UTF-8">
-  <meta name="language" content="en">
-  <meta name="description" content="">
-  <meta name="keywords" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <link rel="preload" href="/lib/font-awesome/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/lib/font-awesome/webfonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/lib/font-awesome/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/lib/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
+  <title>Notes</title>
+  <link rel = 'canonical' href = 'https://nasseralkmim.github.io/roam/'>
   
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="all,follow">
+  <meta name="googlebot" content="index,follow,snippet,archive">
+  <meta property="og:title" content="Roams" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://nasseralkmim.github.io/roam/" />
 
-  <link rel="shortcut icon" type="image/png" href="/favicon.ico" />
 
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Roams"/>
+<meta name="twitter:description" content=""/>
 
   
   
     
- 
   
   
-  
-  
-  
-  
-    
-    <link type="text/css" rel="stylesheet" href="/css/posts.min.04249b5730bdaaea7b010bce4097289fbef6c119562a123d196e02746286f025.css" integrity="sha256-BCSbVzC9qup7AQvOQJcon772wRlWKhI9GW4CdGKG8CU="/>
-  
-    
-    <link type="text/css" rel="stylesheet" href="/css/custom.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" integrity="sha256-47DEQpj8HBSa&#43;/TImW&#43;5JCeuQeRkm5NMpJWZG3hSuFU="/>
-  
-  
-   
-  <link rel="alternate" type="application/rss+xml+xml" href="https://nasseralkmim.github.io/roam/index.xml" title="Notes" /> 
-   
-   
-    
+  <link rel="stylesheet" href="https://nasseralkmim.github.io/css/styles.4c2b9aa1d874d6766f554b2d404e8fd62ab4761f51ee9b3f358d12e81e7fa43a1b4378db995bc1926bbe5ed98c060be5e7bd4f2470504cf94f22b4b3a74e62b6.css" integrity="sha512-TCuaodh01nZvVUstQE6P1iq0dh9R7ps/NY0S6B5/pDobQ3jbmVvBkmu&#43;XtmMBgvl571PJHBQTPlPIrSzp05itg=="> 
 
-<script type="application/ld+json">
   
-    { 
-      "@context": "http://schema.org", 
-      "@type": "WebSite", 
-      "url": "https:\/\/nasseralkmim.github.io\/roam\/",
-      "name": "Roams",
-      "author": {
-        "@type": "Person",
-        "name": ""
-      },
-      "description": ""
-    }
   
-  </script>
+  
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
 
+  
+<link rel="icon" type="image/png" href="https://nasseralkmim.github.io/images/favicon.ico" />
+
+  
+  
+  
+    
 <script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 	ga('create', 'UA-74704246-1', 'auto');
 	
 	ga('send', 'pageview');
 }
 </script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+  
 </head>
 
-<body>
-  <div class="burger__container">
-  <div class="burger" aria-controls="navigation" aria-label="Menu">
-    <div class="burger__meat burger__meat--1"></div>
-    <div class="burger__meat burger__meat--2"></div>
-    <div class="burger__meat burger__meat--3"></div>
+<body class="max-width mx-auto px3 ltr">
+  <div class="content index py4">
+
+    <header id="header">
+  <a href="https://nasseralkmim.github.io/">
+  
+    <div id="logo" style="background-image: url(https://nasseralkmim.github.io/images/logo.png)"></div>
+  
+  <div id="title">
+    <h1>Notes</h1>
   </div>
-</div>
- 
-
-  <nav class="nav" id="navigation">
-  <ul class="nav__list">
-    
-    
-      <li>
-        <a  href="/">about</a>
+  </a>
+  <div id="nav">
+    <ul>
+      <li class="icon">
+        <a href="#" aria-label="Menu"><i class="fas fa-bars fa-2x" aria-hidden="true"></i></a>
       </li>
-    
-      <li>
-        <a  href="/notes">notes</a>
-      </li>
-    
-  </ul>
-</nav>
+      
+        <li><a href="/">about</a></li>
+      
+        <li><a href="/notes">notes</a></li>
+      
+    </ul>
+  </div>
+</header>
 
 
-  <main>
-    
-    
-    
 
-<div class="post-list__container">
+    
+<div id="archive">
   <ul class="post-list">
-    
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200520141558-a_jornada_e_mais_importante_que_a_destinacao/">a jornada é mais importante que a destinação</a>
-        </h2>
-	
-	<div class="post__summary">
-	  
-	</div>
-	    
-	
-	
 
-
-      </div>
-    </li>
-    
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200522183612-abordagem_top_down/">abordagem top-down</a>
-        </h2>
-	
-	<div class="post__summary">
-	  
-	</div>
-	    
-	
-	
-
-
-      </div>
-    </li>
-    
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200524114238-action_without_action/">action without action</a>
-        </h2>
-	
-	<div class="post__summary">
-	  wei wu wei
-  originou do Confucianismo
-  usado para guiar conduta do imperador ideal
-    wei significa prática deliberada, ação, esforço
-	</div>
-	    
-	    <a class="read-more" href="/roam/20200524114238-action_without_action/">read on →</a>
-	    
-	
-	
-
-
-      </div>
-    </li>
-    
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200613165738-analogy_as_the_core_of_cognition/">analogy as the core of cognition</a>
-        </h2>
-	
-	<div class="post__summary">
-	  Douglas Hofstader definição de analogia
-  não é simplesmente A está para B assim como C está para D
-	</div>
-	    
-	    <a class="read-more" href="/roam/20200613165738-analogy_as_the_core_of_cognition/">read on →</a>
-	    
-	
-	
-
-
-      </div>
-    </li>
-    
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200512140743-antifragil/">antifrágil</a>
-        </h2>
-	
-	<div class="post__summary">
-	  
-	</div>
-	    
-	
-	
-
-
-      </div>
-    </li>
-    
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200525132312-aprendizado_por_meio_de_conexao_entre_fatos/">aprendizado por meio de conexão entre fatos</a>
-        </h2>
-	
-	<div class="post__summary">
-	  imagina que você descobre que o monte everest tem 8.824m de elevação
-  saber esse fato é ok, mas o que acontece com o nosso cérebro quando pensamos em outra distância
-	</div>
-	    
-	    <a class="read-more" href="/roam/20200525132312-aprendizado_por_meio_de_conexao_entre_fatos/">read on →</a>
-	    
-	
-	
-
-
-      </div>
-    </li>
-    
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200612160642-aproveitar_a_plasticidade_do_cerebro_jovem/">aproveitar a plasticidade do cérebro jovem</a>
-        </h2>
-	
-	<div class="post__summary">
-	  Jim Holt respondendo uma pergunta na apresentação em DC sobre seu livro
-  aproveita a plasticidade do cérebro quando jovem para criar modelos mentais que irão te fazer apreciar a beleza em coisas no futuro
-	</div>
-	    
-	    <a class="read-more" href="/roam/20200612160642-aproveitar_a_plasticidade_do_cerebro_jovem/">read on →</a>
-	    
-	
-	
-
-
-      </div>
-    </li>
-    
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200610203431-armas_nao_sao_para_ameaca_e_sim_para_acao/">armas não são para ameaça e sim para ação</a>
-        </h2>
-	
-	<div class="post__summary">
-	  se você aponta a arma para alguém você está arriscando a sua pele
-  frase do Shanks
-	</div>
-	    
-	    <a class="read-more" href="/roam/20200610203431-armas_nao_sao_para_ameaca_e_sim_para_acao/">read on →</a>
-	    
-	
-	
-
-
-      </div>
-    </li>
-    
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200514122429-bottom_up_approach/">bottom up approach</a>
-        </h2>
-	
-	<div class="post__summary">
-	  
-	</div>
-	    
-	
-	
-
-
-      </div>
-    </li>
-    
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200607175311-como_identificar_o_seu_sonho/">como identificar o seu sonho</a>
-        </h2>
-	
-	<div class="post__summary">
-	  
-	</div>
-	    
-	
-	
-
-
-      </div>
-    </li>
-    
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200614074511-conceito_de_calor_e_vida/">conceito de calor e vida</a>
-        </h2>
-	
-	<div class="post__summary">
-	  calor não é algo que o sistema TEM
-  calor é um processo que acontece quando há transferência de energia
-	</div>
-	    
-	    <a class="read-more" href="/roam/20200614074511-conceito_de_calor_e_vida/">read on →</a>
-	    
-	
-	
-
-
-      </div>
-    </li>
-    
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200514123413-conexoes_entre_ideias/">conexões entre ideias</a>
-        </h2>
-	
-	<div class="post__summary">
-	  
-	</div>
-	    
-	
-	
-
-
-      </div>
-    </li>
-    
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200524102449-dar_as_caras/">dar as caras</a>
-        </h2>
-	
-	<div class="post__summary">
-	  
-	</div>
-	    
-	
-	
-
-
-      </div>
-    </li>
-    
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200529213033-educacao_gera_desenvolvimento_economico/">educação gera desenvolvimento econômico</a>
-        </h2>
-	
-	<div class="post__summary">
-	  livro good economics for hard times fala que pode ser o contrário
-  o argumento do autor foi um governo que é capaz de criar um sistema educacional de sucesso também é capaz de gerar outro elementos que contribuem para o crescimento econômico
-	</div>
-	    
-	    <a class="read-more" href="/roam/20200529213033-educacao_gera_desenvolvimento_economico/">read on →</a>
-	    
-	
-	
-
-
-      </div>
-    </li>
-    
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200524113550-esquecer_para_memorizar/">esquecer para memorizar</a>
-        </h2>
-	
-	<div class="post__summary">
-	  conceito de spaced repetition
-  aparentemente (li em algum livro, verificar algum estudo depois)
-  a conexão neural que leva à informação é reforçada quando tentamos buscar algo na memória
-	</div>
-	    
-	    <a class="read-more" href="/roam/20200524113550-esquecer_para_memorizar/">read on →</a>
-	    
-	
-	
-
-
-      </div>
-    </li>
-    
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200611100247-estetica_esta_na_coerencia/">estética está na coerência</a>
-        </h2>
-	
-	<div class="post__summary">
-	    filosofia pessoal
-  a beleza está em seguir um padrão e a estética surgirá desse processo
   
-	</div>
-	    
-	
-	
-
-
-      </div>
-    </li>
-    
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200719195312-fat_tails/">fat tails</a>
-        </h2>
-	
-	<div class="post__summary">
-	  conceito do [[file:20200512140407-taleb.org][Taleb]
-  relação entre mediocristão e extremistrão e fat tails
-  no extremistrão
-  os eventos raros produzem efeitos disproporcionais nas medidas da amostra (bill gates networth)
-	</div>
-	    
-	    <a class="read-more" href="/roam/20200719195312-fat_tails/">read on →</a>
-	    
-	
-	
-
-
-      </div>
-    </li>
-    
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200611143859-fed_esta_inflando_o_preco_dos_ativos/">FED está inflando o preço dos ativos</a>
-        </h2>
-	
-	<div class="post__summary">
-	  não
-  argumento 1: outros ativos como comodities não estão sendo inflados, o FED atua em todos os ativos
-	</div>
-	    
-	    <a class="read-more" href="/roam/20200611143859-fed_esta_inflando_o_preco_dos_ativos/">read on →</a>
-	    
-	
-	
-
-
-      </div>
-    </li>
-    
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200514204202-filosofia/">filosofia</a>
-        </h2>
-	
-	<div class="post__summary">
-	  
-	</div>
-	    
-	
-	
-
-
-      </div>
-    </li>
-    
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200524102318-filosofia_bodybuilding_e_disciplina/">filosofia bodybuilding e disciplina</a>
-        </h2>
-	
-	<div class="post__summary">
-	  vendo o Dorian Yates falar sobre a ética de trabalho dele
-  ele dizia que era tortura no último mês para diminuir calorias
-	</div>
-	    
-	    <a class="read-more" href="/roam/20200524102318-filosofia_bodybuilding_e_disciplina/">read on →</a>
-	    
-	
-	
-
-
-      </div>
-    </li>
-    
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200611100328-filosofia_pessoal/">filosofia pessoal</a>
-        </h2>
-	
-	<div class="post__summary">
-	  
-	</div>
-	    
-	
-	
-
-
-      </div>
-    </li>
-    
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200512135843-grade_a_under_a/">grade a under a</a>
-        </h2>
-	
-	<div class="post__summary">
-	  simboliza um fenomeno onde pessoas que obtiveram sucesso acadêmico mas não conseguem ou se frustram após deixarem o universo acadêmico
-	</div>
-	    
-	    <a class="read-more" href="/roam/20200512135843-grade_a_under_a/">read on →</a>
-	    
-	
-	
-
-
-      </div>
-    </li>
-    
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200520141513-guimaraes_rosa/">Guimarães Rosa</a>
-        </h2>
-	
-	<div class="post__summary">
-	  
-	</div>
-	    
-	
-	
-
-
-      </div>
-    </li>
-    
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200515115534-guitar/">guitar</a>
-        </h2>
-	
-	<div class="post__summary">
-	  
-	</div>
-	    
-	
-	
-
-
-      </div>
-    </li>
-    
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200604135608-habilidade_de_gerenciar_tempo/">habilidade de gerenciar tempo</a>
-        </h2>
-	
-	<div class="post__summary">
-	  
-	</div>
-	    
-	
-	
-
-
-      </div>
-    </li>
-    
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200516091039-heuristicas_de_reflexao_sobre_ideias/">heurísticas de reflexão sobre ideias</a>
-        </h2>
-	
-	<div class="post__summary">
-	  como esse fato se encaixa na minha ideia?
-  como esse fenômeno pode ser explicado por essa teoria?
-	</div>
-	    
-	    <a class="read-more" href="/roam/20200516091039-heuristicas_de_reflexao_sobre_ideias/">read on →</a>
-	    
-	
-	
-
-
-      </div>
-    </li>
-    
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200514121904-how_to_learn/">how to learn</a>
-        </h2>
-	
-	<div class="post__summary">
-	  
-	</div>
-	    
-	
-	
-
-
-      </div>
-    </li>
-    
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200516091847-how_to_take_smart_note/">how to take smart note</a>
-        </h2>
-	
-	<div class="post__summary">
-	  livro explica o processo de aprendizado
-  fala que reler dá a mesma sensação do aprendizado verdadeira mas não dura muito
-	</div>
-	    
-	    <a class="read-more" href="/roam/20200516091847-how_to_take_smart_note/">read on →</a>
-	    
-	
-	
-
-
-      </div>
-    </li>
-    
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200524120109-ikigai/">ikigai</a>
-        </h2>
-	
-	<div class="post__summary">
-	  filosofia japonesa para encontra propósito, se encaixa com minha filosofia pessoal
-  &#34;reason for beeing&#34;, &#34;razões para ser&#34;
-	</div>
-	    
-	    <a class="read-more" href="/roam/20200524120109-ikigai/">read on →</a>
-	    
-	
-	
-
-
-      </div>
-    </li>
-    
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200514122913-iluminismo/">iluminismo</a>
-        </h2>
-	
-	<div class="post__summary">
-	  
-	</div>
-	    
-	
-	
-
-
-      </div>
-    </li>
-    
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200512133127-inercia_consumista/">inércia consumista</a>
-        </h2>
-	
-	<div class="post__summary">
-	  
-	</div>
-	    
-	
-	
-
-
-      </div>
-    </li>
-    
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20210107111012-jordan_peterson/">Jordan Peterson</a>
-        </h2>
-	
-	<div class="post__summary">
-	  
-	</div>
-	    
-	
-	
-
-
-      </div>
-    </li>
-    
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200514122846-kant/">Kant</a>
-        </h2>
-	
-	<div class="post__summary">
-	  
-	</div>
-	    
-	
-	
-
-
-      </div>
-    </li>
-    
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200511171936-knowledge_management/">knowledge management</a>
-        </h2>
-	
-	<div class="post__summary">
-	  
-	</div>
-	    
-	
-	
-
-
-      </div>
-    </li>
-    
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200515112531-lifestyle/">lifestyle</a>
-        </h2>
-	
-	<div class="post__summary">
-	  
-	</div>
-	    
-	
-	
-
-
-      </div>
-    </li>
-    
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200606120215-maximizar_opcionalidade/">maximizar opcionalidade</a>
-        </h2>
-	
-	<div class="post__summary">
-	  
-	</div>
-	    
-	
-	
-
-
-      </div>
-    </li>
-    
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20210107111037-meaning_of_life/">meaning of life</a>
-        </h2>
-	
-	<div class="post__summary">
-	  
-	</div>
-	    
-	
-	
-
-
-      </div>
-    </li>
-    
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20210107110936-meaning_of_life_and_weightlifting/">meaning of life and weightlifting</a>
-        </h2>
-	
-	<div class="post__summary">
-	  Jordan Peterson meaning of life: find the largest burden you can endure and enduring it.
-  in weightlifting ones goal is to be as strongest as possible: find the heaviest weight you can lift and lift it.
-	</div>
-	    
-	    <a class="read-more" href="/roam/20210107110936-meaning_of_life_and_weightlifting/">read on →</a>
-	    
-	
-	
-
-
-      </div>
-    </li>
-    
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200515112421-meditacao/">meditação</a>
-        </h2>
-	
-	<div class="post__summary">
-	  tags   lifestyle
-    meditação imagem de senso comum é ficar parado
-  meditação sentada iniciou na índia
-	</div>
-	    
-	    <a class="read-more" href="/roam/20200515112421-meditacao/">read on →</a>
-	    
-	
-	
-
-
-      </div>
-    </li>
-    
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200512221840-mindset/">mindset</a>
-        </h2>
-	
-	<div class="post__summary">
-	  
-	</div>
-	    
-	
-	
-
-
-      </div>
-    </li>
-    
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200519124234-miyamoto_musashi_philosophy_and_becoming_tough/">Miyamoto Musashi philosophy and becoming tough</a>
-        </h2>
-	
-	<div class="post__summary">
-	  
-	</div>
-	    
-	
-	
-
-
-      </div>
-    </li>
-    
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200517164246-monetizacao_da_divida/">monetização da dívida</a>
-        </h2>
-	
-	<div class="post__summary">
-	  
-	</div>
-	    
-	
-	
-
-
-      </div>
-    </li>
-    
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200512221848-motivacao/">motivação</a>
-        </h2>
-	
-	<div class="post__summary">
-	  
-	</div>
-	    
-	
-	
-
-
-      </div>
-    </li>
-    
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200515161237-motivacao_para_estudar/">motivação para estudar</a>
-        </h2>
-	
-	<div class="post__summary">
-	  motivação para estudar vem de ficar bom em fazer
-  pra ficar bom precisamos de um feedback
-	</div>
-	    
-	    <a class="read-more" href="/roam/20200515161237-motivacao_para_estudar/">read on →</a>
-	    
-	
-	
-
-
-      </div>
-    </li>
-    
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200510230828-note_workflow/">note workflow</a>
-        </h2>
-	
-	<div class="post__summary">
-	  principles for note taking são conceitos gerais
-  meu workflow usa o zettelkasten
-  encontrar algo interessante
-	</div>
-	    
-	    <a class="read-more" href="/roam/20200510230828-note_workflow/">read on →</a>
-	    
-	
-	
-
-
-      </div>
-    </li>
-    
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200530113137-o_que_e_tao/">o que é tao</a>
-        </h2>
-	
-	<div class="post__summary">
-	  termo muito abstrato do taoism
-  tradução literal é caminho, modo como o universo funciona
-  mas já inicia falando que o termo não pode ser explicado em palavras
-	</div>
-	    
-	    <a class="read-more" href="/roam/20200530113137-o_que_e_tao/">read on →</a>
-	    
-	
-	
-
-
-      </div>
-    </li>
-    
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200520141450-o_real_nao_esta_na_saida_nem_na_chegada/">o real não está na saída nem na chegada</a>
-        </h2>
-	
-	<div class="post__summary">
-	  o real está no meio da travessia
-  frase do Guimarães Rosa
-    demonstra o pensamento que A jornada é mais importante que a destinação
-	</div>
-	    
-	    <a class="read-more" href="/roam/20200520141450-o_real_nao_esta_na_saida_nem_na_chegada/">read on →</a>
-	    
-	
-	
-
-
-      </div>
-    </li>
-    
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200529212915-odisseu_e_compromissos_emocionais/">Odisseu e compromissos emocionais</a>
-        </h2>
-	
-	<div class="post__summary">
-	    algo a ver com ele se amarrar no mastro do barco
-  hipocrisia de compromissos falsos
   
-	</div>
-	    
-	
-	
 
-
-      </div>
-    </li>
-    
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200522182738-opcionalidade_e_desenvolvimento_tecnologico/">opcionalidade e desenvolvimento tecnológico</a>
-        </h2>
-	
-	<div class="post__summary">
-	  no livro antifrágil o Taleb fala que opcionalidade que permitiu o desenvolvimento de algumas tecnologias
-  os criadores se aproveitaram de: &#34;pouco a perder, talvez ganhar algo&#34;, ou seja, convexidade.
-	</div>
-	    
-	    <a class="read-more" href="/roam/20200522182738-opcionalidade_e_desenvolvimento_tecnologico/">read on →</a>
-	    
-	
-	
-
-
-      </div>
-    </li>
-    
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200514123207-org_roam/">org roam</a>
-        </h2>
-	
-	<div class="post__summary">
-	  tags   zettelkasten
-    vantagens
-  org-mode e emacs apresentam future proof características de acordo com o efeito Lindy do Taleb
-	</div>
-	    
-	    <a class="read-more" href="/roam/20200514123207-org_roam/">read on →</a>
-	    
-	
-	
-
-
-      </div>
-    </li>
-    
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200606093446-passion_is_for_fools/">passion is for fools</a>
-        </h2>
-	
-	<div class="post__summary">
-	  Mike Rowe
-  show interested, and try
-  é impossível suceder 100% do tempo
-  mostra interesse
-	</div>
-	    
-	    <a class="read-more" href="/roam/20200606093446-passion_is_for_fools/">read on →</a>
-	    
-	
-	
-
-
-      </div>
-    </li>
-    
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200603142142-poema_sobre_se_manifestar_em_polemicas_envolvendo_injusticas/">poema sobre se manifestar em polêmicas envolvendo injustiças</a>
-        </h2>
-	
-	<div class="post__summary">
-	  poema alemão
-  First they came for the socialists, and I did not speak out—because I was not a socialist.
-	</div>
-	    
-	    <a class="read-more" href="/roam/20200603142142-poema_sobre_se_manifestar_em_polemicas_envolvendo_injusticas/">read on →</a>
-	    
-	
-	
-
-
-      </div>
-    </li>
-    
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200517164213-por_que_bacen_nao_compra_titulos_direto_do_tesouro/">por que BACEN não compra títulos direto do tesouro</a>
-        </h2>
-	
-	<div class="post__summary">
-	  conceito de monetização da dívida
-  evitar que se use emissão de base monetária para financiar gasto público
-	</div>
-	    
-	    <a class="read-more" href="/roam/20200517164213-por_que_bacen_nao_compra_titulos_direto_do_tesouro/">read on →</a>
-	    
-	
-	
-
-
-      </div>
-    </li>
-    
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200516135600-por_que_ler_os_classicos/">por que ler os clássicos</a>
-        </h2>
-	
-	<div class="post__summary">
-	  para criar sensibilidade de apreciação de ideais
-  quando não se tem essa sensibilidade muitas vezes as ideias passam batidas
-	</div>
-	    
-	    <a class="read-more" href="/roam/20200516135600-por_que_ler_os_classicos/">read on →</a>
-	    
-	
-	
-
-
-      </div>
-    </li>
-    
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200517165803-por_que_nao_usar_categoria_para_agrupar_anotacoes/">por que não usar categoria para agrupar anotações</a>
-        </h2>
-	
-	<div class="post__summary">
-	  NÃO usar tags para tópicos
-  tag dieta pode ser usada para vários assuntos
-  mas usar ela somente para dietas e não para problemas metabólicos, senssibilidade a insulina e etc
-	</div>
-	    
-	    <a class="read-more" href="/roam/20200517165803-por_que_nao_usar_categoria_para_agrupar_anotacoes/">read on →</a>
-	    
-	
-	
-
-
-      </div>
-    </li>
-    
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200531095537-por_que_schubert_e_underrated/">por que Schubert é underrated</a>
-        </h2>
-	
-	<div class="post__summary">
-	  ele era contemporâneo do Beethoven
-  as músicas dele eram mais complexas, mais difíceis de ser entendidas (lembrar que naquela época não tinha um tocador de disco pronto para você experimentar a música, era precisa alguém com habilidade para tocar)
-	</div>
-	    
-	    <a class="read-more" href="/roam/20200531095537-por_que_schubert_e_underrated/">read on →</a>
-	    
-	
-	
-
-
-      </div>
-    </li>
-    
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200607174912-por_que_seguir_seus_sonhos_e_um_conselho_ruim/">por que seguir seus sonhos é um conselho ruim</a>
-        </h2>
-	
-	<div class="post__summary">
-	  elaborar um tópico específico do texto what you will wish you would known
-  primeiro ponto: como identificar o seu sonho?
-	</div>
-	    
-	    <a class="read-more" href="/roam/20200607174912-por_que_seguir_seus_sonhos_e_um_conselho_ruim/">read on →</a>
-	    
-	
-	
-
-
-      </div>
-    </li>
-    
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200514204129-principles/">principles</a>
-        </h2>
-	
-	<div class="post__summary">
-	  tags   virtues, filosofia
-    Principles are higher than techniques. Principles produce techniques in an instant.
-	</div>
-	    
-	    <a class="read-more" href="/roam/20200514204129-principles/">read on →</a>
-	    
-	
-	
-
-
-      </div>
-    </li>
-    
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200516090853-principles_for_note_taking/">principles for note taking</a>
-        </h2>
-	
-	<div class="post__summary">
-	  pensar em resolver problemas ou criar conexões inusitadas
-  mas precisa ser deliberada, ter associado algum esforço mental
-	</div>
-	    
-	    <a class="read-more" href="/roam/20200516090853-principles_for_note_taking/">read on →</a>
-	    
-	
-	
-
-
-      </div>
-    </li>
-    
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200604135336-principios_de_conduta_em_trabalho_coletivo/">princípios de conduta em trabalho coletivo</a>
-        </h2>
-	
-	<div class="post__summary">
-	  overcommunicating
-  comunicação em excesso, melhor para colocar todos na mesma página e para criar sistema de responsabilidade (onde as pessoas são accountables pelas responsabilidades)
-	</div>
-	    
-	    <a class="read-more" href="/roam/20200604135336-principios_de_conduta_em_trabalho_coletivo/">read on →</a>
-	    
-	
-	
-
-
-      </div>
-    </li>
-    
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200722124915-principios_de_iluminacao/">princípios de iluminação</a>
-        </h2>
-	
-	<div class="post__summary">
-	  solução NÃO pode ser iluminação uniforme porém NÃO pode ser confusa nem causar distração
-  solução estruturada é melhor que aleatória
-	</div>
-	    
-	    <a class="read-more" href="/roam/20200722124915-principios_de_iluminacao/">read on →</a>
-	    
-	
-	
-
-
-      </div>
-    </li>
-    
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200603140635-processo_de_normalizacao_dos_valores/">processo de normalização dos valores</a>
-        </h2>
-	
-	<div class="post__summary">
-	  em estatística o processo de normalização é quando você ajusta variáveis a uma escala comum
-  no caso de valores, cada local no mundo tem um conjunto de valores
-	</div>
-	    
-	    <a class="read-more" href="/roam/20200603140635-processo_de_normalizacao_dos_valores/">read on →</a>
-	    
-	
-	
-
-
-      </div>
-    </li>
-    
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200510223529-receita_pao_de_queijo/">receita pao de queijo</a>
-        </h2>
-	
-	<div class="post__summary">
-	  500g polvilho azedo 500g polvilho doce 1 copo (200ml) de leite 1 copo de água 1/2 de óleo 1 colher de sal 300g de queijo 50g parmesão
-	</div>
-	    
-	
-	
-
-
-      </div>
-    </li>
-    
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200617200115-refuse_to_learn_and_the_need_to_achieve_performance_immediately/">refuse to learn and the need to achieve performance immediately</a>
-        </h2>
-	
-	<div class="post__summary">
-	  quando você pensa que precisa atacar a tarefa para produzir o resultado logo
-  em vez de parar para pensar em como resolver, talvez encontrar uma maneira melhor, desenvolver curiosidade intelectual
-	</div>
-	    
-	    <a class="read-more" href="/roam/20200617200115-refuse_to_learn_and_the_need_to_achieve_performance_immediately/">read on →</a>
-	    
-	
-	
-
-
-      </div>
-    </li>
-    
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200719195504-relacao_entre_mediocristao_e_extremistrao_e_fat_tails/">relação entre mediocristão e extremistrão e fat tails</a>
-        </h2>
-	
-	<div class="post__summary">
-	  
-	</div>
-	    
-	
-	
-
-
-      </div>
-    </li>
-    
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200611142821-risk_and_reward_ratio/">risk and reward ratio</a>
-        </h2>
-	
-	<div class="post__summary">
-	    todo mundo tem um sistema interno de risco/retorno sobre sua conduta
   
-	</div>
-	    
-	
-	
-
-
+    
+    
+    
+    <h2>0001</h2>
+    
+    <li class="post-item">
+      <div class="meta">
+        <time datetime="0001-01-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">Jan 1 0001</time>
       </div>
+      <span>    
+        <a class="" href="https://nasseralkmim.github.io/roam/20200520141558-a_jornada_e_mais_importante_que_a_destinacao/"> a jornada é mais importante que a destinação </a>
+      </span>
     </li>
     
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200531095805-schubert_nos_coloca_em_um_sonho/">Schubert nos coloca em um sonho</a>
-        </h2>
-	
-	<div class="post__summary">
-	  frase do Alfred Brendel
-  compara com beethoven que compõem de forma a nunca nos deixar seu luz, sempre sabemos onde estamos e em que nos apoiamos, um verdadeiro arquiteto
-	</div>
-	    
-	    <a class="read-more" href="/roam/20200531095805-schubert_nos_coloca_em_um_sonho/">read on →</a>
-	    
-	
-	
-
-
+    
+    
+    <li class="post-item">
+      <div class="meta">
+        <time datetime="0001-01-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">Jan 1 0001</time>
       </div>
+      <span>    
+        <a class="" href="https://nasseralkmim.github.io/roam/20200522183612-abordagem_top_down/"> abordagem top-down </a>
+      </span>
     </li>
     
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200511172026-second_brain/">second brain</a>
-        </h2>
-	
-	<div class="post__summary">
-	  tags   org roam
-    em vez de armazenar informações e ideias no seu cérebro, usa um sistema externo que permite organizar as ideias e eventualmente formar conexões entre elas
-	</div>
-	    
-	    <a class="read-more" href="/roam/20200511172026-second_brain/">read on →</a>
-	    
-	
-	
-
-
+    
+    
+    <li class="post-item">
+      <div class="meta">
+        <time datetime="0001-01-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">Jan 1 0001</time>
       </div>
+      <span>    
+        <a class="" href="https://nasseralkmim.github.io/roam/20200524114238-action_without_action/"> action without action </a>
+      </span>
     </li>
     
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200515161212-sentido_do_estado_de_felicidade/">sentido do estado de felicidade</a>
-        </h2>
-	
-	<div class="post__summary">
-	  da mesma forma que sentimos uma variação de velocidade
-  sentimos uma variação de humor
-  variação positiva é o que chamamos de felicidade
-	</div>
-	    
-	    <a class="read-more" href="/roam/20200515161212-sentido_do_estado_de_felicidade/">read on →</a>
-	    
-	
-	
-
-
+    
+    
+    <li class="post-item">
+      <div class="meta">
+        <time datetime="0001-01-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">Jan 1 0001</time>
       </div>
+      <span>    
+        <a class="" href="https://nasseralkmim.github.io/roam/20200613165738-analogy_as_the_core_of_cognition/"> analogy as the core of cognition </a>
+      </span>
     </li>
     
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200524115527-ser_agua/">ser água</a>
-        </h2>
-	
-	<div class="post__summary">
-	  teoricamente é fraca e submissa (se molda a qualquer lugar)
-  mas é imparável (percolação, evaporação)
-  ligado a teoria Chinesa Taoista action without action
-	</div>
-	    
-	    <a class="read-more" href="/roam/20200524115527-ser_agua/">read on →</a>
-	    
-	
-	
-
-
+    
+    
+    <li class="post-item">
+      <div class="meta">
+        <time datetime="0001-01-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">Jan 1 0001</time>
       </div>
+      <span>    
+        <a class="" href="https://nasseralkmim.github.io/roam/20200512140743-antifragil/"> antifrágil </a>
+      </span>
     </li>
     
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200511164609-simbolismo_de_calos/">simbolismo de calos</a>
-        </h2>
-	
-	<div class="post__summary">
-	  calos simbolizam:
-  persistência em algum caminho
-  não aparecem da noite pro dia, requerem tempo
-  se não fizer continuamente eles desaparecem
-	</div>
-	    
-	    <a class="read-more" href="/roam/20200511164609-simbolismo_de_calos/">read on →</a>
-	    
-	
-	
-
-
+    
+    
+    <li class="post-item">
+      <div class="meta">
+        <time datetime="0001-01-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">Jan 1 0001</time>
       </div>
+      <span>    
+        <a class="" href="https://nasseralkmim.github.io/roam/20200525132312-aprendizado_por_meio_de_conexao_entre_fatos/"> aprendizado por meio de conexão entre fatos </a>
+      </span>
     </li>
     
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200512140431-skin_in_the_game/">skin in the game</a>
-        </h2>
-	
-	<div class="post__summary">
-	  
-	</div>
-	    
-	
-	
-
-
+    
+    
+    <li class="post-item">
+      <div class="meta">
+        <time datetime="0001-01-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">Jan 1 0001</time>
       </div>
+      <span>    
+        <a class="" href="https://nasseralkmim.github.io/roam/20200612160642-aproveitar_a_plasticidade_do_cerebro_jovem/"> aproveitar a plasticidade do cérebro jovem </a>
+      </span>
     </li>
     
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200519123053-society_needs_more_tough_guys/">society needs more tough guys</a>
-        </h2>
-	
-	<div class="post__summary">
-	  A society that separates its scholars from its warriors will have its thinking done by cowards and its fighting done by fools.
-	</div>
-	    
-	    <a class="read-more" href="/roam/20200519123053-society_needs_more_tough_guys/">read on →</a>
-	    
-	
-	
-
-
+    
+    
+    <li class="post-item">
+      <div class="meta">
+        <time datetime="0001-01-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">Jan 1 0001</time>
       </div>
+      <span>    
+        <a class="" href="https://nasseralkmim.github.io/roam/20200610203431-armas_nao_sao_para_ameaca_e_sim_para_acao/"> armas não são para ameaça e sim para ação </a>
+      </span>
     </li>
     
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200515161339-sorte_e_opcionalidade/">sorte e opcionalidade</a>
-        </h2>
-	
-	<div class="post__summary">
-	  sorte aumenta a medida que aumentamos nossa opcionalidade
-  fazer coisas que temos mais a ganhar do que a perder
-	</div>
-	    
-	    <a class="read-more" href="/roam/20200515161339-sorte_e_opcionalidade/">read on →</a>
-	    
-	
-	
-
-
+    
+    
+    <li class="post-item">
+      <div class="meta">
+        <time datetime="0001-01-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">Jan 1 0001</time>
       </div>
+      <span>    
+        <a class="" href="https://nasseralkmim.github.io/roam/20200514122429-bottom_up_approach/"> bottom up approach </a>
+      </span>
     </li>
     
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200524113651-spaced_repetition/">spaced repetition</a>
-        </h2>
-	
-	<div class="post__summary">
-	  
-	</div>
-	    
-	
-	
-
-
-      </div>
-    </li>
     
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200512140021-sucesso/">sucesso</a>
-        </h2>
-	
-	<div class="post__summary">
-	  existem várias definições de sucesso
-  o Taleb diz que sucesso é definido como o seu antigo vê o seu eu atual (acho que ele falou isso num discurso no youtube)
-	</div>
-	    
-	    <a class="read-more" href="/roam/20200512140021-sucesso/">read on →</a>
-	    
-	
-	
-
-
-      </div>
-    </li>
     
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200606120744-suspense_como_identificador_de_dificuldade/">suspense como identificador de dificuldade</a>
-        </h2>
-	
-	<div class="post__summary">
-	  
-	</div>
-	    
-	
-	
-
-
+    <li class="post-item">
+      <div class="meta">
+        <time datetime="0001-01-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">Jan 1 0001</time>
       </div>
-    </li>
-    
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200512140407-taleb/">Taleb</a>
-        </h2>
-	
-	<div class="post__summary">
-	    tags   skin in the game, antifrágil   
-	</div>
-	    
-	
-	
-
-
-      </div>
-    </li>
-    
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200515195206-think_inside_the_box/">think inside the box</a>
-        </h2>
-	
-	<div class="post__summary">
-	  tags   zettelkasten
-    senso comum diz que a criativa é pensar fora da caixa
-	</div>
-	    
-	    <a class="read-more" href="/roam/20200515195206-think_inside_the_box/">read on →</a>
-	    
-	
-	
-
-
-      </div>
-    </li>
-    
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200514211228-tres_camadas_da_evidencia/">três camadas da evidência</a>
-        </h2>
-	
-	<div class="post__summary">
-	  tags   knowledge management, conexões entre ideias
-    Three Layers of Evidence • Zettelkasten Method
-	</div>
-	    
-	    <a class="read-more" href="/roam/20200514211228-tres_camadas_da_evidencia/">read on →</a>
-	    
-	
-	
-
-
-      </div>
-    </li>
-    
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200522181658-tecnicas_de_estudar/">técnicas de estudar</a>
-        </h2>
-	
-	<div class="post__summary">
-	  Teorias    active recall
-  spaced repetition
-    Na prática    google sheets
-	</div>
-	    
-	    <a class="read-more" href="/roam/20200522181658-tecnicas_de_estudar/">read on →</a>
-	    
-	
-	
-
-
-      </div>
-    </li>
-    
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200515161308-um_sistema_antifragil_de_anotacoes/">um sistema antifrágil de anotações</a>
-        </h2>
-	
-	<div class="post__summary">
-	  antifrágil pela definição é o oposto de frágil, ou seja, se beneficia quando há aumento na desordem.
-  um sitema de anotações convencional você acumula notas em diferentes categorias e possivelmente com tags.
-	</div>
-	    
-	    <a class="read-more" href="/roam/20200515161308-um_sistema_antifragil_de_anotacoes/">read on →</a>
-	    
-	
-	
-
-
-      </div>
-    </li>
-    
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200606112617-unwealth_measure/">unwealth measure</a>
-        </h2>
-	
-	<div class="post__summary">
-	  diferença entre o que você tem H menos o que você não tem NH. UW = H - HN
-	</div>
-	    
-	    <a class="read-more" href="/roam/20200606112617-unwealth_measure/">read on →</a>
-	    
-	
-	
-
-
-      </div>
-    </li>
-    
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200524102548-upside_of_quitting/">upside of quitting</a>
-        </h2>
-	
-	<div class="post__summary">
-	  
-	</div>
-	    
-	
-	
-
-
-      </div>
-    </li>
-    
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200515115512-variacoes_na_progressao_ii_v_i/">variações na progressão ii-V-I</a>
-        </h2>
-	
-	<div class="post__summary">
-	  tags   guitar
-   Dm7-G7-C    G9sus IG9sus C/G C/G = sus plateaus       Abmaj7 G7sus G7 C C = bVI       Dm7 Fm C C =minor plagal       Dm7 Fm/G C C = disguised -”-       Dm/C Ddim/C C C = C pedal with A-Ab-G       Dm7 G7 Bb13sus Bb13 C C = backdoor       G13sus G13 B/C C = common tone dim.
-	</div>
-	    
-	    <a class="read-more" href="/roam/20200515115512-variacoes_na_progressao_ii_v_i/">read on →</a>
-	    
-	
-	
-
-
-      </div>
-    </li>
-    
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200520153127-via_negativa/">via negativa</a>
-        </h2>
-	
-	<div class="post__summary">
-	  uma ideia do Taleb
-  é um framework para entender as coisas pelo que elas não são
-	</div>
-	    
-	    <a class="read-more" href="/roam/20200520153127-via_negativa/">read on →</a>
-	    
-	
-	
-
-
-      </div>
-    </li>
-    
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200514204142-virtues/">virtues</a>
-        </h2>
-	
-	<div class="post__summary">
-	  
-	</div>
-	    
-	
-	
-
-
-      </div>
-    </li>
-    
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200527182358-virtusidade_origina_em_nao_querer_ser_virtuoso/">virtusidade origina em não querer ser virtuoso</a>
-        </h2>
-	
-	<div class="post__summary">
-	  
-	</div>
-	    
-	
-	
-
-
-      </div>
-    </li>
-    
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200524102625-vies_da_disponibilidade/">viés da disponibilidade</a>
-        </h2>
-	
-	<div class="post__summary">
-	  availability bias
-	</div>
-	    
-	
-	
-
-
-      </div>
-    </li>
-    
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200603140407-vies_da_disponibilidade_e_a_informacao_no_mundo_moderno/">viés da disponibilidade e a informação no mundo moderno</a>
-        </h2>
-	
-	<div class="post__summary">
-	  hoje em dia temos muita informação sobre o mundo todo
-  essa informação que nos chega é distorce a nossa persepção da probabilidade desse evento ocrrer
-	</div>
-	    
-	    <a class="read-more" href="/roam/20200603140407-vies_da_disponibilidade_e_a_informacao_no_mundo_moderno/">read on →</a>
-	    
-	
-	
-
-
-      </div>
-    </li>
-    
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200606113649-what_you_will_wish_you_would_known/">what you will wish you would known</a>
-        </h2>
-	
-	<div class="post__summary">
-	  Paul Graham talk para high school que ele nunca deu
-  o que ele queria que falassem para ele quando era estudante
-	</div>
-	    
-	    <a class="read-more" href="/roam/20200606113649-what_you_will_wish_you_would_known/">read on →</a>
-	    
-	
-	
-
-
-      </div>
-    </li>
-    
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200527182145-wu_wei/">Wu wei</a>
-        </h2>
-	
-	<div class="post__summary">
-	  não é &#34;não faça nada&#34;
-  mas é fazer sem forçar, deixar coisas acontecerem sem intervação
-  &#34;velejar em vez de remar&#34;
-	</div>
-	    
-	    <a class="read-more" href="/roam/20200527182145-wu_wei/">read on →</a>
-	    
-	
-	
-
-
-      </div>
-    </li>
-    
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200512133058-you_must_create/">you must create</a>
-        </h2>
-	
-	<div class="post__summary">
-	  ymc simboliza a quebra da inércia consumista
-  é uma marca de roupa em londres mas se aplica a todas a situações na vida
-	</div>
-	    
-	    <a class="read-more" href="/roam/20200512133058-you_must_create/">read on →</a>
-	    
-	
-	
-
-
-      </div>
-    </li>
-    
-    <li class="post">
-      <div class="post__header">
-        <time class="post__date" datetime="0001-01-01 00:00:00 &#43;0000 UTC"
-          >Jan 1 0001</time>
-        <h2 class="post__title">
-          <a href="/roam/20200510231017-zettelkasten/">zettelkasten</a>
-        </h2>
-	
-	<div class="post__summary">
-	  Zetttelkasten é um método para criar anotações e fazer criar uma rede relacional que conecte as ideias.
-  em vez de só acumular informação você cria conexões entre ideias
-	</div>
-	    
-	    <a class="read-more" href="/roam/20200510231017-zettelkasten/">read on →</a>
-	    
-	
-	
-
-
-      </div>
+      <span>    
+        <a class="" href="https://nasseralkmim.github.io/roam/20200607175311-como_identificar_o_seu_sonho/"> como identificar o seu sonho </a>
+      </span>
     </li>
     
   </ul>
-  <ul class="tags__list">
   
-  <li class="tag__item">
-    <a class="tag__link" href="/tags/books/">books (4)</a>
-  </li>
-  
-  <li class="tag__item">
-    <a class="tag__link" href="/tags/data-analysis/">data-analysis (4)</a>
-  </li>
-  
-  <li class="tag__item">
-    <a class="tag__link" href="/tags/economy/">economy (1)</a>
-  </li>
-  
-  <li class="tag__item">
-    <a class="tag__link" href="/tags/emacs/">emacs (1)</a>
-  </li>
-  
-  <li class="tag__item">
-    <a class="tag__link" href="/tags/favorites/">favorites (1)</a>
-  </li>
-  
-  <li class="tag__item">
-    <a class="tag__link" href="/tags/fem/">fem (1)</a>
-  </li>
-  
-  <li class="tag__item">
-    <a class="tag__link" href="/tags/finance/">finance (3)</a>
-  </li>
-  
-  <li class="tag__item">
-    <a class="tag__link" href="/tags/graphs/">graphs (1)</a>
-  </li>
-  
-  <li class="tag__item">
-    <a class="tag__link" href="/tags/machine-learning/">machine-learning (2)</a>
-  </li>
-  
-  <li class="tag__item">
-    <a class="tag__link" href="/tags/math/">math (3)</a>
-  </li>
-  
-  <li class="tag__item">
-    <a class="tag__link" href="/tags/meta/">meta (1)</a>
-  </li>
-  
-  <li class="tag__item">
-    <a class="tag__link" href="/tags/monetary-policy/">monetary-policy (1)</a>
-  </li>
-  
-  <li class="tag__item">
-    <a class="tag__link" href="/tags/natural-language-processing/">natural-language-processing (5)</a>
-  </li>
-  
-  <li class="tag__item">
-    <a class="tag__link" href="/tags/optimization/">optimization (1)</a>
-  </li>
-  
-  <li class="tag__item">
-    <a class="tag__link" href="/tags/portugues/">portugues (2)</a>
-  </li>
-  
-  <li class="tag__item">
-    <a class="tag__link" href="/tags/python/">python (6)</a>
-  </li>
-  
-  <li class="tag__item">
-    <a class="tag__link" href="/tags/risk/">risk (1)</a>
-  </li>
-  
-</ul>
-
 </div>
 
 
-  </main>
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright  &copy; 2021  © {year} 
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+        <li><a href="/">about</a></li>
+         
+        <li><a href="/notes">notes</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
 
-   
 
-  
-  <script src="/js/index.min.575dda8d49ee02639942c63564273e6da972ab531dda26a08800bdcb477cbd7f.js" integrity="sha256-V13ajUnuAmOZQsY1ZCc&#43;balyq1Md2iagiAC9y0d8vX8=" crossorigin="anonymous"></script>
-   
+  </div>
 </body>
 
+<link rel="stylesheet" href=/lib/font-awesome/css/all.min.css>
+<script src=/lib/jquery/jquery.min.js></script>
+<script src=/js/main.js></script>
 </html>

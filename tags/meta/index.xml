@@ -14,8 +14,7 @@
       <pubDate>Thu, 03 Dec 2020 00:00:00 +0000</pubDate>
       
       <guid>https://nasseralkmim.github.io/notes/first-hugo-post/</guid>
-      <description>Introduction  Meta post about how I do it. I&amp;#39;m using org-mode inside emacs and Hugo.
-  Images from URL  Use the html export block from org mode.</description>
+      <description>Introduction  Meta post about how I am creating these blog. I&amp;#39;m using org-mode files, which is a markup language that has a lot conveniences inside emacs.</description>
     </item>
     
   </channel>
