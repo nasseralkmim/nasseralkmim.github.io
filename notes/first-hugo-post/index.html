@@ -27,6 +27,8 @@
 
   
   
+    
+  
   
   <link rel="stylesheet" href="https://nasseralkmim.github.io/css/styles.94f653e9e151e28067a7c5dbbc4600cbd5a3c721e79faaf971e523c40f3b249b8e4f20bb57810dfffa8d559ca5c140fd56eb4cd9c0853113ad08e66afdb08bdd.css" integrity="sha512-lPZT6eFR4oBnp8XbvEYAy9WjxyHnn6r5ceUjxA87JJuOTyC7V4EN//qNVZylwUD9VutM2cCFMROtCOZq/bCL3Q=="> 
 
@@ -45,19 +47,20 @@
   
   
   
+  
+  
     
 <script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
 	ga('create', 'UA-74704246-1', 'auto');
 	
 	ga('send', 'pageview');
 }
 </script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
   
   
 </head>
@@ -80,9 +83,13 @@ if (!doNotTrack) {
         <a href="#" aria-label="Menu"><i class="fas fa-bars fa-2x" aria-hidden="true"></i></a>
       </li>
       
-        <li><a href="/">about</a></li>
+        <li><a href="/">home</a></li>
       
         <li><a href="/notes">notes</a></li>
+      
+        <li><a href="/tags">tags</a></li>
+      
+        <li><a href="/about">about</a></li>
       
     </ul>
   </div>
@@ -199,12 +206,12 @@ In order to use the generated graph from the code in the blog published with Hug
 </li>
 </ol>
 <div class="src src-jupyter-python">
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">import matplotlib.pyplot as plt
-import numpy as np
-
-x=np.linspace(-15,15, 100)
-fig = plt.figure(dpi=300)
-plt.plot(np.sin(x)**2/x**2)</code></pre></div>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>import matplotlib.pyplot as plt
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>import numpy as np
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>x=np.linspace(-15,15, 100)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span>fig = plt.figure(dpi=300)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span>plt.plot(np.sin(x)**2/x**2)</code></pre></div>
 </div>
 <img src="/images/graph1.png" alt="/images/graph1.png" title="/images/graph1.png" width="400px"/>
 </div>
@@ -219,12 +226,12 @@ I create a new folder for each post that will have pictures.
 Inside this folder the post goes on a <code class="verbatim">index.org</code> file.
 And the figures are generated automatically with <code class="verbatim">emacs-jupyter</code>, I just changed the default directory variable to <code class="verbatim">(setq jupyter-org-resource-directory &#34;./jupter/&#34;).</code></p>
 <div class="src src-jupyter-python">
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">import matplotlib.pyplot as plt
-import numpy as np
-
-x=np.linspace(-15,15, 100)
-fig = plt.figure(dpi=300)
-plt.plot(np.sin(x)**2/x)</code></pre></div>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>import matplotlib.pyplot as plt
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>import numpy as np
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>x=np.linspace(-15,15, 100)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span>fig = plt.figure(dpi=300)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span>plt.plot(np.sin(x)**2/x)</code></pre></div>
 </div>
 <p><img src="./jupyter/4c8d0270a0b0daeca7d499707cc05b4b939bfb55.png" alt="./jupyter/4c8d0270a0b0daeca7d499707cc05b4b939bfb55.png" title="./jupyter/4c8d0270a0b0daeca7d499707cc05b4b939bfb55.png" /></p>
 </div>
@@ -235,10 +242,10 @@ Dataframes from interactive jupyter-python code blocks
 </h2>
 <div id="outline-text-headline-6" class="outline-text-2">
 <div class="src src-jupyter-python">
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">import pandas as pd
-data = [[1, 2], [3, 4]]
-DF = pd.DataFrame(data, columns=[&#34;Foo&#34;, &#34;Bar&#34;])
-print(DF)</code></pre></div>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>import pandas as pd
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>data = [[1, 2], [3, 4]]
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>DF = pd.DataFrame(data, columns=[&#34;Foo&#34;, &#34;Bar&#34;])
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>print(DF)</code></pre></div>
 </div>
 <pre class="example">
    Foo  Bar
@@ -255,10 +262,10 @@ Python code block
 <p>If I want python syntax highlight but using jupyter-python src blocks I need to change the language of the source block when I finish the post.
 <span style="text-decoration: underline;">Update:</span> there is a emacs-jupyter function that overrides the default python source block: <code class="verbatim">(org-babel-jupyter-override-src-block &#34;python&#34;)</code></p>
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">import</span> <span style="color:#b06;font-weight:bold">numpy</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#b06;font-weight:bold">np</span>
-
-a = np.linspace(<span style="color:#00d;font-weight:bold">3</span>, <span style="color:#00d;font-weight:bold">2</span>)
-<span style="color:#080;font-weight:bold">print</span>(a)</code></pre></div>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">numpy</span> <span style="color:#a2f;font-weight:bold">as</span> <span style="color:#00f;font-weight:bold">np</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>a <span style="color:#666">=</span> np<span style="color:#666">.</span>linspace(<span style="color:#666">3</span>, <span style="color:#666">2</span>)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span style="color:#a2f;font-weight:bold">print</span>(a)</code></pre></div>
 </div>
 <pre class="example">
 [3.         2.97959184 2.95918367 2.93877551 2.91836735 2.89795918
@@ -310,16 +317,16 @@ Stylized balance sheets from ditaa
 <p>
 Well, this works. However it is too time consuming.</p>
 <div class="src src-ditaa">
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">/------------------\
-|Federal Reserve   |
-+--------+---------+
-|assets	 |liabilit |
-+--------+---------+	
-|c1AB	 | cPNK    |	
-|JPY     | USD	   |
-|reserves| reserves|
-|at BoJ	 |to BoJ   |
-+--------+---------+</code></pre></div>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span>/------------------\
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>|Federal Reserve   |
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>+--------+---------+
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>|assets	 |liabilit |
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span>+--------+---------+	
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span>|c1AB	 | cPNK    |	
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span>|JPY     | USD	   |
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span>|reserves| reserves|
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span>|at BoJ	 |to BoJ   |
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span>+--------+---------+</code></pre></div>
 </div>
 <p><img src="test.png" alt="test.png" title="test.png" /></p>
 </div>
@@ -377,9 +384,13 @@ Footnotes
     <nav>
       <ul>
          
-        <li><a href="/">about</a></li>
+        <li><a href="/">home</a></li>
          
         <li><a href="/notes">notes</a></li>
+         
+        <li><a href="/tags">tags</a></li>
+         
+        <li><a href="/about">about</a></li>
         
       </ul>
     </nav>

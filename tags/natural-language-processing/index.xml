@@ -43,7 +43,7 @@
       
       <guid>https://nasseralkmim.github.io/notes/question-classifier-python/</guid>
       <description>Introduction   An example from the book by Aman Kedia. About label encoding.
-  Loading data  import pandas as pd data = open(&amp;#34;train_1000-label.</description>
+  Loading data  1import pandas as pd 2data = open(&amp;#34;train_1000-label.</description>
     </item>
     
     <item>

@@ -27,6 +27,8 @@
 
   
   
+    
+  
   
   <link rel="stylesheet" href="https://nasseralkmim.github.io/css/styles.94f653e9e151e28067a7c5dbbc4600cbd5a3c721e79faaf971e523c40f3b249b8e4f20bb57810dfffa8d559ca5c140fd56eb4cd9c0853113ad08e66afdb08bdd.css" integrity="sha512-lPZT6eFR4oBnp8XbvEYAy9WjxyHnn6r5ceUjxA87JJuOTyC7V4EN//qNVZylwUD9VutM2cCFMROtCOZq/bCL3Q=="> 
 
@@ -45,19 +47,20 @@
   
   
   
+  
+  
     
 <script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
 	ga('create', 'UA-74704246-1', 'auto');
 	
 	ga('send', 'pageview');
 }
 </script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
   
   
 </head>
@@ -80,9 +83,13 @@ if (!doNotTrack) {
         <a href="#" aria-label="Menu"><i class="fas fa-bars fa-2x" aria-hidden="true"></i></a>
       </li>
       
-        <li><a href="/">about</a></li>
+        <li><a href="/">home</a></li>
       
         <li><a href="/notes">notes</a></li>
+      
+        <li><a href="/tags">tags</a></li>
+      
+        <li><a href="/about">about</a></li>
       
     </ul>
   </div>
@@ -159,11 +166,11 @@ Load the data
 I will use the data from portuguese blog posts from <a href="https://www.inf.pucrs.br/linatural/wordpress/recursos-e-ferramentas/blogset-br/">BLOGSET-BR</a>.
 I&#39;m limiting the analysis to just 1000 blog posts in order to keep the code running fast in this notebook.</p>
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">import</span> <span style="color:#b06;font-weight:bold">pandas</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#b06;font-weight:bold">pd</span>
-
-posts_data = pd.read_csv(<span style="color:#d20;background-color:#fff0f0">&#39;C:/Users/nasse/Desktop/blogset-br.csv/blogset-br.csv&#39;</span>, header=None, nrows=<span style="color:#00d;font-weight:bold">1000</span>)
-<span style="color:#080;font-weight:bold">print</span>(posts_data.shape)
-<span style="color:#080;font-weight:bold">print</span>(posts_data.head())</code></pre></div>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">pandas</span> <span style="color:#a2f;font-weight:bold">as</span> <span style="color:#00f;font-weight:bold">pd</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>posts_data <span style="color:#666">=</span> pd<span style="color:#666">.</span>read_csv(<span style="color:#b44">&#39;C:/Users/nasse/Desktop/blogset-br.csv/blogset-br.csv&#39;</span>, header<span style="color:#666">=</span>None, nrows<span style="color:#666">=</span><span style="color:#666">1000</span>)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span style="color:#a2f;font-weight:bold">print</span>(posts_data<span style="color:#666">.</span>shape)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span style="color:#a2f;font-weight:bold">print</span>(posts_data<span style="color:#666">.</span>head())</code></pre></div>
 </div>
 <pre class="example">
 (1000, 9)
@@ -198,10 +205,10 @@ posts_data = pd.read_csv(<span style="color:#d20;background-color:#fff0f0">&#39;
 <p>
 We are only interested in the blog content, so we drop all columns except the one with content which is the 4th column.</p>
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">posts = posts_data[<span style="color:#00d;font-weight:bold">4</span>].to_frame()
-posts.columns = [<span style="color:#d20;background-color:#fff0f0">&#39;content&#39;</span>]
-<span style="color:#080;font-weight:bold">print</span>(posts.head())
-<span style="color:#080;font-weight:bold">print</span>(posts.columns)</code></pre></div>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>posts <span style="color:#666">=</span> posts_data[<span style="color:#666">4</span>]<span style="color:#666">.</span>to_frame()
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>posts<span style="color:#666">.</span>columns <span style="color:#666">=</span> [<span style="color:#b44">&#39;content&#39;</span>]
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span style="color:#a2f;font-weight:bold">print</span>(posts<span style="color:#666">.</span>head())
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span style="color:#a2f;font-weight:bold">print</span>(posts<span style="color:#666">.</span>columns)</code></pre></div>
 </div>
 <pre class="example">
                                              content
@@ -226,8 +233,8 @@ Lower case
 <div id="outline-text-headline-8" class="outline-text-6">
 <p>First step is to make every thing lower case using the vectorize string function in pandas.</p>
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">posts[<span style="color:#d20;background-color:#fff0f0">&#39;lower&#39;</span>] = posts[<span style="color:#d20;background-color:#fff0f0">&#39;content&#39;</span>].str.lower() <span style="color:#888"># </span>
-<span style="color:#080;font-weight:bold">print</span>(posts[<span style="color:#d20;background-color:#fff0f0">&#39;lower&#39;</span>].head())</code></pre></div>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>posts[<span style="color:#b44">&#39;lower&#39;</span>] <span style="color:#666">=</span> posts[<span style="color:#b44">&#39;content&#39;</span>]<span style="color:#666">.</span>str<span style="color:#666">.</span>lower() <span style="color:#080;font-style:italic"># </span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#a2f;font-weight:bold">print</span>(posts[<span style="color:#b44">&#39;lower&#39;</span>]<span style="color:#666">.</span>head())</code></pre></div>
 </div>
 <pre class="example">
 0                                                   \n
@@ -247,11 +254,11 @@ Tokenize each post
 <p>
 We then tokenize each post using spaCy by loading the model (português one), which can be downloaded with <code class="verbatim">python -m spacy download pt_core_news_sm</code>.</p>
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">import</span> <span style="color:#b06;font-weight:bold">spacy</span>
-
-nlp = spacy.load(<span style="color:#d20;background-color:#fff0f0">&#39;pt_core_news_sm&#39;</span>)
-posts[<span style="color:#d20;background-color:#fff0f0">&#39;tokens&#39;</span>] = posts[<span style="color:#d20;background-color:#fff0f0">&#39;lower&#39;</span>].apply(nlp)
-<span style="color:#080;font-weight:bold">print</span>(posts[<span style="color:#d20;background-color:#fff0f0">&#39;tokens&#39;</span>].head())</code></pre></div>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">spacy</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>nlp <span style="color:#666">=</span> spacy<span style="color:#666">.</span>load(<span style="color:#b44">&#39;pt_core_news_sm&#39;</span>)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>posts[<span style="color:#b44">&#39;tokens&#39;</span>] <span style="color:#666">=</span> posts[<span style="color:#b44">&#39;lower&#39;</span>]<span style="color:#666">.</span>apply(nlp)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span style="color:#a2f;font-weight:bold">print</span>(posts[<span style="color:#b44">&#39;tokens&#39;</span>]<span style="color:#666">.</span>head())</code></pre></div>
 </div>
 <pre class="example">
 0                                                 (\n)
@@ -266,8 +273,8 @@ Let&#39;s check the number of tokens in each post.
 We can see the average tokens for each post.
 A great part of those tokens are stopwords which does not contain much information, so we are removing them.</p>
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">posts[<span style="color:#d20;background-color:#fff0f0">&#39;num_tokens&#39;</span>] = posts[<span style="color:#d20;background-color:#fff0f0">&#39;tokens&#39;</span>].apply(<span style="color:#038">len</span>)
-<span style="color:#080;font-weight:bold">print</span>(posts[<span style="color:#d20;background-color:#fff0f0">&#39;num_tokens&#39;</span>].mean() )</code></pre></div>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>posts[<span style="color:#b44">&#39;num_tokens&#39;</span>] <span style="color:#666">=</span> posts[<span style="color:#b44">&#39;tokens&#39;</span>]<span style="color:#666">.</span>apply(<span style="color:#a2f">len</span>)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#a2f;font-weight:bold">print</span>(posts[<span style="color:#b44">&#39;num_tokens&#39;</span>]<span style="color:#666">.</span>mean() )</code></pre></div>
 </div>
 <pre class="example">
 287.099
@@ -281,11 +288,11 @@ Removing punctuation
 <div id="outline-text-headline-10" class="outline-text-6">
 <p>Reduces the average tokens.</p>
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">posts[<span style="color:#d20;background-color:#fff0f0">&#39;tokens_nopunc&#39;</span>] = posts[<span style="color:#d20;background-color:#fff0f0">&#39;tokens&#39;</span>].apply(<span style="color:#080;font-weight:bold">lambda</span> x: [tkn <span style="color:#080;font-weight:bold">for</span> tkn <span style="color:#080">in</span> x <span style="color:#080;font-weight:bold">if</span> <span style="color:#080">not</span> tkn.is_punct])
-<span style="color:#080;font-weight:bold">print</span>(posts[<span style="color:#d20;background-color:#fff0f0">&#39;tokens_nopunc&#39;</span>].head())
-
-posts[<span style="color:#d20;background-color:#fff0f0">&#39;num_tokens_nopunc&#39;</span>] = posts[<span style="color:#d20;background-color:#fff0f0">&#39;tokens_nopunc&#39;</span>].apply(<span style="color:#038">len</span>)
-<span style="color:#080;font-weight:bold">print</span>(posts[<span style="color:#d20;background-color:#fff0f0">&#39;num_tokens_nopunc&#39;</span>].mean() )</code></pre></div>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>posts[<span style="color:#b44">&#39;tokens_nopunc&#39;</span>] <span style="color:#666">=</span> posts[<span style="color:#b44">&#39;tokens&#39;</span>]<span style="color:#666">.</span>apply(<span style="color:#a2f;font-weight:bold">lambda</span> x: [tkn <span style="color:#a2f;font-weight:bold">for</span> tkn <span style="color:#a2f;font-weight:bold">in</span> x <span style="color:#a2f;font-weight:bold">if</span> <span style="color:#a2f;font-weight:bold">not</span> tkn<span style="color:#666">.</span>is_punct])
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#a2f;font-weight:bold">print</span>(posts[<span style="color:#b44">&#39;tokens_nopunc&#39;</span>]<span style="color:#666">.</span>head())
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>posts[<span style="color:#b44">&#39;num_tokens_nopunc&#39;</span>] <span style="color:#666">=</span> posts[<span style="color:#b44">&#39;tokens_nopunc&#39;</span>]<span style="color:#666">.</span>apply(<span style="color:#a2f">len</span>)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span style="color:#a2f;font-weight:bold">print</span>(posts[<span style="color:#b44">&#39;num_tokens_nopunc&#39;</span>]<span style="color:#666">.</span>mean() )</code></pre></div>
 </div>
 <pre class="example">
 0                                                 [\n]
@@ -304,7 +311,7 @@ Removing stopwords
 </h6>
 <div id="outline-text-headline-11" class="outline-text-6">
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">print</span>(<span style="color:#038">list</span>(nlp.Defaults.stop_words)[:<span style="color:#00d;font-weight:bold">20</span>])</code></pre></div>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#a2f;font-weight:bold">print</span>(<span style="color:#a2f">list</span>(nlp<span style="color:#666">.</span>Defaults<span style="color:#666">.</span>stop_words)[:<span style="color:#666">20</span>])</code></pre></div>
 </div>
 <pre class="example">
 [&#39;momento&#39;, &#39;foram&#39;, &#39;geral&#39;, &#39;onde&#39;, &#39;tiveram&#39;, &#39;seus&#39;, &#39;oito&#39;, &#39;além&#39;, &#39;aqui&#39;, &#39;podem&#39;, &#39;aquelas&#39;, &#39;por&#39;, &#39;sétima&#39;, &#39;acerca&#39;, &#39;primeiro&#39;, &#39;nuns&#39;, &#39;estás&#39;, &#39;nossas&#39;, &#39;está&#39;, &#39;temos&#39;]
@@ -312,20 +319,20 @@ Removing stopwords
 <p>
 Then we remove the stop words using the spaCy collection of stopwords, we can see that we reduced the average tokens to 63 per post.</p>
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">remove_stopwords</span>(tokens):
-    tokens_nosw = []
-    <span style="color:#080;font-weight:bold">for</span> tkn <span style="color:#080">in</span> tokens:
-        <span style="color:#080;font-weight:bold">if</span> tkn.text.isspace():
-            <span style="color:#080;font-weight:bold">continue</span>            <span style="color:#888"># remove empty space</span>
-        <span style="color:#080;font-weight:bold">if</span> tkn.text <span style="color:#080">not</span> <span style="color:#080">in</span> nlp.Defaults.stop_words:
-            tokens_nosw.append(tkn)
-    <span style="color:#080;font-weight:bold">return</span> tokens_nosw
-
-posts[<span style="color:#d20;background-color:#fff0f0">&#39;tokens_nosw&#39;</span>] = posts[<span style="color:#d20;background-color:#fff0f0">&#39;tokens_nopunc&#39;</span>].apply(remove_stopwords)
-<span style="color:#080;font-weight:bold">print</span>(posts[<span style="color:#d20;background-color:#fff0f0">&#39;tokens_nosw&#39;</span>].head())
-
-posts[<span style="color:#d20;background-color:#fff0f0">&#39;num_tokens_nosw&#39;</span>] = posts[<span style="color:#d20;background-color:#fff0f0">&#39;tokens_nosw&#39;</span>].apply(<span style="color:#038">len</span>)
-<span style="color:#080;font-weight:bold">print</span>(posts[<span style="color:#d20;background-color:#fff0f0">&#39;num_tokens_nosw&#39;</span>].mean() )</code></pre></div>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#a2f;font-weight:bold">def</span> <span style="color:#00a000">remove_stopwords</span>(tokens):
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>    tokens_nosw <span style="color:#666">=</span> []
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>    <span style="color:#a2f;font-weight:bold">for</span> tkn <span style="color:#a2f;font-weight:bold">in</span> tokens:
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>        <span style="color:#a2f;font-weight:bold">if</span> tkn<span style="color:#666">.</span>text<span style="color:#666">.</span>isspace():
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span>            <span style="color:#a2f;font-weight:bold">continue</span>            <span style="color:#080;font-style:italic"># remove empty space</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span>        <span style="color:#a2f;font-weight:bold">if</span> tkn<span style="color:#666">.</span>text <span style="color:#a2f;font-weight:bold">not</span> <span style="color:#a2f;font-weight:bold">in</span> nlp<span style="color:#666">.</span>Defaults<span style="color:#666">.</span>stop_words:
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span>            tokens_nosw<span style="color:#666">.</span>append(tkn)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span>    <span style="color:#a2f;font-weight:bold">return</span> tokens_nosw
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span>posts[<span style="color:#b44">&#39;tokens_nosw&#39;</span>] <span style="color:#666">=</span> posts[<span style="color:#b44">&#39;tokens_nopunc&#39;</span>]<span style="color:#666">.</span>apply(remove_stopwords)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span style="color:#a2f;font-weight:bold">print</span>(posts[<span style="color:#b44">&#39;tokens_nosw&#39;</span>]<span style="color:#666">.</span>head())
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span>posts[<span style="color:#b44">&#39;num_tokens_nosw&#39;</span>] <span style="color:#666">=</span> posts[<span style="color:#b44">&#39;tokens_nosw&#39;</span>]<span style="color:#666">.</span>apply(<span style="color:#a2f">len</span>)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span style="color:#a2f;font-weight:bold">print</span>(posts[<span style="color:#b44">&#39;num_tokens_nosw&#39;</span>]<span style="color:#666">.</span>mean() )</code></pre></div>
 </div>
 <pre class="example">
 0                                                   []
@@ -346,12 +353,12 @@ Removing tokens with less the 4 letters
 <p>
 Usually smaller words don&#39;t carry much information, so we remove then.</p>
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">posts[<span style="color:#d20;background-color:#fff0f0">&#39;tokens_clean&#39;</span>] = posts.tokens_nosw.apply(<span style="color:#080;font-weight:bold">lambda</span> x: [tkn <span style="color:#080;font-weight:bold">for</span> tkn <span style="color:#080">in</span> x <span style="color:#080;font-weight:bold">if</span> <span style="color:#038">len</span>(tkn) &gt;<span style="color:#00d;font-weight:bold">4</span>])
-<span style="color:#080;font-weight:bold">print</span>(posts.tokens_clean)
-
-
-posts[<span style="color:#d20;background-color:#fff0f0">&#39;num_tokens_clean&#39;</span>] = posts[<span style="color:#d20;background-color:#fff0f0">&#39;tokens_clean&#39;</span>].apply(<span style="color:#038">len</span>)
-<span style="color:#080;font-weight:bold">print</span>(posts[<span style="color:#d20;background-color:#fff0f0">&#39;num_tokens_clean&#39;</span>].mean() )</code></pre></div>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>posts[<span style="color:#b44">&#39;tokens_clean&#39;</span>] <span style="color:#666">=</span> posts<span style="color:#666">.</span>tokens_nosw<span style="color:#666">.</span>apply(<span style="color:#a2f;font-weight:bold">lambda</span> x: [tkn <span style="color:#a2f;font-weight:bold">for</span> tkn <span style="color:#a2f;font-weight:bold">in</span> x <span style="color:#a2f;font-weight:bold">if</span> <span style="color:#a2f">len</span>(tkn) <span style="color:#666">&gt;</span><span style="color:#666">4</span>])
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#a2f;font-weight:bold">print</span>(posts<span style="color:#666">.</span>tokens_clean)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span>posts[<span style="color:#b44">&#39;num_tokens_clean&#39;</span>] <span style="color:#666">=</span> posts[<span style="color:#b44">&#39;tokens_clean&#39;</span>]<span style="color:#666">.</span>apply(<span style="color:#a2f">len</span>)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span style="color:#a2f;font-weight:bold">print</span>(posts[<span style="color:#b44">&#39;num_tokens_clean&#39;</span>]<span style="color:#666">.</span>mean() )</code></pre></div>
 </div>
 <pre class="example">
 0                                                     []
@@ -380,11 +387,11 @@ Now creating a new Series pandas object.
 We filter the Series considering only entities with length greater than 0, then we call the attribute to convert each token into text.
 At the end we have a list of list of strings.</p>
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">posts_clean = posts.tokens_clean[posts.tokens_clean.str.len() &gt; <span style="color:#00d;font-weight:bold">0</span>].apply(<span style="color:#080;font-weight:bold">lambda</span> x: [tkn.text <span style="color:#080;font-weight:bold">for</span> tkn <span style="color:#080">in</span> x])
-<span style="color:#080;font-weight:bold">print</span>(posts_clean)
-
-<span style="color:#080;font-weight:bold">print</span>(<span style="color:#038">type</span>(posts_clean.tolist()[<span style="color:#00d;font-weight:bold">0</span>]))
-<span style="color:#080;font-weight:bold">print</span>(<span style="color:#038">type</span>(posts_clean.tolist()[<span style="color:#00d;font-weight:bold">0</span>][<span style="color:#00d;font-weight:bold">0</span>]))</code></pre></div>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>posts_clean <span style="color:#666">=</span> posts<span style="color:#666">.</span>tokens_clean[posts<span style="color:#666">.</span>tokens_clean<span style="color:#666">.</span>str<span style="color:#666">.</span>len() <span style="color:#666">&gt;</span> <span style="color:#666">0</span>]<span style="color:#666">.</span>apply(<span style="color:#a2f;font-weight:bold">lambda</span> x: [tkn<span style="color:#666">.</span>text <span style="color:#a2f;font-weight:bold">for</span> tkn <span style="color:#a2f;font-weight:bold">in</span> x])
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#a2f;font-weight:bold">print</span>(posts_clean)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span style="color:#a2f;font-weight:bold">print</span>(<span style="color:#a2f">type</span>(posts_clean<span style="color:#666">.</span>tolist()[<span style="color:#666">0</span>]))
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span style="color:#a2f;font-weight:bold">print</span>(<span style="color:#a2f">type</span>(posts_clean<span style="color:#666">.</span>tolist()[<span style="color:#666">0</span>][<span style="color:#666">0</span>]))</code></pre></div>
 </div>
 <pre class="example">
 1               [sãaaao, muitoo, lindos, ameei, miragem]
@@ -412,8 +419,8 @@ Summary preprocessing DataFrame
 <p>
 The full preprocess in the posts DataFrame, so we can visualiza each process.</p>
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">pd.set_option(<span style="color:#d20;background-color:#fff0f0">&#39;max_columns&#39;</span>, None)
-<span style="color:#080;font-weight:bold">print</span>(posts.head())</code></pre></div>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>pd<span style="color:#666">.</span>set_option(<span style="color:#b44">&#39;max_columns&#39;</span>, None)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#a2f;font-weight:bold">print</span>(posts<span style="color:#666">.</span>head())</code></pre></div>
 </div>
 <pre class="example">
                                              content  \
@@ -481,10 +488,10 @@ This corpus is created from a list of documents with a list of tokens.</p>
 The <code class="verbatim">Dictionary</code> class associates each word with a unique integer ID.
 This is dictionary defines a vocabulary.</p>
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">from</span> <span style="color:#b06;font-weight:bold">gensim.corpora</span> <span style="color:#080;font-weight:bold">import</span> Dictionary
-docs = posts_clean.tolist()
-dictionary = Dictionary(docs)
-<span style="color:#080;font-weight:bold">print</span>(dictionary)</code></pre></div>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#a2f;font-weight:bold">from</span> <span style="color:#00f;font-weight:bold">gensim.corpora</span> <span style="color:#a2f;font-weight:bold">import</span> Dictionary
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>docs <span style="color:#666">=</span> posts_clean<span style="color:#666">.</span>tolist()
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>dictionary <span style="color:#666">=</span> Dictionary(docs)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span style="color:#a2f;font-weight:bold">print</span>(dictionary)</code></pre></div>
 </div>
 <pre class="example">
 Dictionary(34661 unique tokens: [&#39;ameei&#39;, &#39;lindos&#39;, &#39;miragem&#39;, &#39;muitoo&#39;, &#39;sãaaao&#39;]...)
@@ -501,10 +508,10 @@ In this step we convert a document into a numeric form so the algorithm can mani
 This step is also known as bag-of-words representation of documents.
 This function <code class="verbatim">doc2bow()</code> creates a tuple for each word with <code class="verbatim">(word_id, word_frquency)</code>.</p>
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">corpus = [dictionary.doc2bow(doc) <span style="color:#080;font-weight:bold">for</span> doc <span style="color:#080">in</span> docs]
-<span style="color:#080;font-weight:bold">print</span>(corpus[<span style="color:#00d;font-weight:bold">0</span>], docs[<span style="color:#00d;font-weight:bold">0</span>])
-<span style="color:#080;font-weight:bold">print</span>(<span style="color:#d20;background-color:#fff0f0">&#39;Number of unique tokens:&#39;</span>, <span style="color:#038">len</span>(dictionary))
-<span style="color:#080;font-weight:bold">print</span>(<span style="color:#d20;background-color:#fff0f0">&#39;Number of posts:&#39;</span>, <span style="color:#038">len</span>(corpus))</code></pre></div>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>corpus <span style="color:#666">=</span> [dictionary<span style="color:#666">.</span>doc2bow(doc) <span style="color:#a2f;font-weight:bold">for</span> doc <span style="color:#a2f;font-weight:bold">in</span> docs]
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#a2f;font-weight:bold">print</span>(corpus[<span style="color:#666">0</span>], docs[<span style="color:#666">0</span>])
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span style="color:#a2f;font-weight:bold">print</span>(<span style="color:#b44">&#39;Number of unique tokens:&#39;</span>, <span style="color:#a2f">len</span>(dictionary))
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span style="color:#a2f;font-weight:bold">print</span>(<span style="color:#b44">&#39;Number of posts:&#39;</span>, <span style="color:#a2f">len</span>(corpus))</code></pre></div>
 </div>
 <pre class="example">
 [(0, 1), (1, 1), (2, 1), (3, 1), (4, 1)] [&#39;sãaaao&#39;, &#39;muitoo&#39;, &#39;lindos&#39;, &#39;ameei&#39;, &#39;miragem&#39;]
@@ -525,30 +532,30 @@ Chunk size controls how many documents are processed at a time.
 Passes defined how often the model is trained on the corpus, same as &#39;epochs&#39;.
 Iterations controls how often we repeat a particular loop over each document.</p>
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">from</span> <span style="color:#b06;font-weight:bold">gensim.models</span> <span style="color:#080;font-weight:bold">import</span> LdaModel
-
-
-num_topics = <span style="color:#00d;font-weight:bold">10</span>
-chunksize = <span style="color:#00d;font-weight:bold">2000</span>
-passes = <span style="color:#00d;font-weight:bold">20</span>
-iterations = <span style="color:#00d;font-weight:bold">400</span>
-eval_every = None
-
-
-id2word = dictionary
-
-model = LdaModel(
-    corpus=corpus,
-    id2word=id2word,
-    chunksize=chunksize,
-    alpha=<span style="color:#d20;background-color:#fff0f0">&#39;auto&#39;</span>,
-    eta=<span style="color:#d20;background-color:#fff0f0">&#39;auto&#39;</span>,
-    iterations=iterations,
-    num_topics=num_topics,
-    passes=passes,
-    eval_every=eval_every
-)
-model.save(f<span style="color:#d20;background-color:#fff0f0">&#39;model_{len(corpus)}.gensim&#39;</span>)</code></pre></div>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#a2f;font-weight:bold">from</span> <span style="color:#00f;font-weight:bold">gensim.models</span> <span style="color:#a2f;font-weight:bold">import</span> LdaModel
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>num_topics <span style="color:#666">=</span> <span style="color:#666">10</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span>chunksize <span style="color:#666">=</span> <span style="color:#666">2000</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span>passes <span style="color:#666">=</span> <span style="color:#666">20</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span>iterations <span style="color:#666">=</span> <span style="color:#666">400</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span>eval_every <span style="color:#666">=</span> None
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span>id2word <span style="color:#666">=</span> dictionary
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span>model <span style="color:#666">=</span> LdaModel(
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span>    corpus<span style="color:#666">=</span>corpus,
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span>    id2word<span style="color:#666">=</span>id2word,
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span>    chunksize<span style="color:#666">=</span>chunksize,
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span>    alpha<span style="color:#666">=</span><span style="color:#b44">&#39;auto&#39;</span>,
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span>    eta<span style="color:#666">=</span><span style="color:#b44">&#39;auto&#39;</span>,
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span>    iterations<span style="color:#666">=</span>iterations,
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span>    num_topics<span style="color:#666">=</span>num_topics,
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span>    passes<span style="color:#666">=</span>passes,
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span>    eval_every<span style="color:#666">=</span>eval_every
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span>)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span>model<span style="color:#666">.</span>save(f<span style="color:#b44">&#39;model_{len(corpus)}.gensim&#39;</span>)</code></pre></div>
 </div>
 </div>
 </div>
@@ -559,10 +566,10 @@ Training output
 <div id="outline-text-headline-19" class="outline-text-6">
 <p>We can print the top topics from a particular document.</p>
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">from</span> <span style="color:#b06;font-weight:bold">pprint</span> <span style="color:#080;font-weight:bold">import</span> pprint
-topics = model.top_topics(corpus)
-pprint(topics[<span style="color:#00d;font-weight:bold">4</span>])
-<span style="color:#080;font-weight:bold">print</span>(docs[<span style="color:#00d;font-weight:bold">4</span>])</code></pre></div>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#a2f;font-weight:bold">from</span> <span style="color:#00f;font-weight:bold">pprint</span> <span style="color:#a2f;font-weight:bold">import</span> pprint
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>topics <span style="color:#666">=</span> model<span style="color:#666">.</span>top_topics(corpus)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>pprint(topics[<span style="color:#666">4</span>])
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span style="color:#a2f;font-weight:bold">print</span>(docs[<span style="color:#666">4</span>])</code></pre></div>
 </div>
 <pre class="example">
 ([(0.0030817974, &#39;pessoas&#39;),
@@ -602,10 +609,10 @@ This tools allows us to visualize the topics discovered, their importance, simil
 The relevance is computed with a weighted average of the <strong>probability of the word given the topic</strong> and this probability normalized by the probability of the term.
 If we adjust the slider on the top to 0, we are considering words that appeared mostly on a specific topic.</p>
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">import</span> <span style="color:#b06;font-weight:bold">pyLDAvis.gensim</span>
-lda = LdaModel.load(<span style="color:#d20;background-color:#fff0f0">&#39;model_927.gensim&#39;</span>)
-lda_display = pyLDAvis.gensim.prepare(lda, corpus, dictionary, sort_topics=False) 
-pyLDAvis.save_html(lda_display, <span style="color:#d20;background-color:#fff0f0">&#39;ldavis.html&#39;</span>)</code></pre></div>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">pyLDAvis.gensim</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>lda <span style="color:#666">=</span> LdaModel<span style="color:#666">.</span>load(<span style="color:#b44">&#39;model_927.gensim&#39;</span>)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>lda_display <span style="color:#666">=</span> pyLDAvis<span style="color:#666">.</span>gensim<span style="color:#666">.</span>prepare(lda, corpus, dictionary, sort_topics<span style="color:#666">=</span>False) 
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>pyLDAvis<span style="color:#666">.</span>save_html(lda_display, <span style="color:#b44">&#39;ldavis.html&#39;</span>)</code></pre></div>
 </div>
 <p>
 From the figure bellow we can see the 10 different topics, most of them clustered in top left corner.</p>
@@ -706,9 +713,13 @@ Points of improvements
     <nav>
       <ul>
          
-        <li><a href="/">about</a></li>
+        <li><a href="/">home</a></li>
          
         <li><a href="/notes">notes</a></li>
+         
+        <li><a href="/tags">tags</a></li>
+         
+        <li><a href="/about">about</a></li>
         
       </ul>
     </nav>

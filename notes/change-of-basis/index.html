@@ -27,6 +27,8 @@
 
   
   
+    
+  
   
   <link rel="stylesheet" href="https://nasseralkmim.github.io/css/styles.94f653e9e151e28067a7c5dbbc4600cbd5a3c721e79faaf971e523c40f3b249b8e4f20bb57810dfffa8d559ca5c140fd56eb4cd9c0853113ad08e66afdb08bdd.css" integrity="sha512-lPZT6eFR4oBnp8XbvEYAy9WjxyHnn6r5ceUjxA87JJuOTyC7V4EN//qNVZylwUD9VutM2cCFMROtCOZq/bCL3Q=="> 
 
@@ -45,19 +47,20 @@
   
   
   
+  
+  
     
 <script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
 	ga('create', 'UA-74704246-1', 'auto');
 	
 	ga('send', 'pageview');
 }
 </script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
   
   
 </head>
@@ -80,9 +83,13 @@ if (!doNotTrack) {
         <a href="#" aria-label="Menu"><i class="fas fa-bars fa-2x" aria-hidden="true"></i></a>
       </li>
       
-        <li><a href="/">about</a></li>
+        <li><a href="/">home</a></li>
       
         <li><a href="/notes">notes</a></li>
+      
+        <li><a href="/tags">tags</a></li>
+      
+        <li><a href="/about">about</a></li>
       
     </ul>
   </div>
@@ -241,33 +248,33 @@ Assuming that $b_{i}$ is the Cartesian system and the new basis is given by, </p
 <p>
 Those vectors in the Cartesian coordinate system are drawn with</p>
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">%matplotlib inline
-<span style="color:#080;font-weight:bold">import</span> <span style="color:#b06;font-weight:bold">matplotlib.pyplot</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#b06;font-weight:bold">plt</span>
-<span style="color:#080;font-weight:bold">import</span> <span style="color:#b06;font-weight:bold">numpy</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#b06;font-weight:bold">np</span>
-
-figsize = [<span style="color:#00d;font-weight:bold">7</span>, <span style="color:#00d;font-weight:bold">7</span>]
-
-fig, ax = plt.subplots()
-
-b1, b2 = np.array([<span style="color:#00d;font-weight:bold">1</span>, <span style="color:#00d;font-weight:bold">0</span>]), np.array([<span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">1</span>])
-<span style="color:#a61717;background-color:#e3d2d2">β</span><span style="color:#00d;font-weight:bold">1</span>, <span style="color:#a61717;background-color:#e3d2d2">β</span><span style="color:#00d;font-weight:bold">2</span> = np.array([<span style="color:#00d;font-weight:bold">2</span>, <span style="color:#00d;font-weight:bold">3</span>]), np.array([-<span style="color:#00d;font-weight:bold">1</span>, <span style="color:#00d;font-weight:bold">1</span>])
-
-ax.arrow(<span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">0</span>, b1[<span style="color:#00d;font-weight:bold">0</span>], b1[<span style="color:#00d;font-weight:bold">1</span>] , fc=<span style="color:#d20;background-color:#fff0f0">&#39;b&#39;</span>, ec=<span style="color:#d20;background-color:#fff0f0">&#39;b&#39;</span>, head_width=<span style="color:#00d;font-weight:bold">0.3</span>, head_length=.<span style="color:#00d;font-weight:bold">3</span>)
-ax.arrow(<span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">0</span>, b2[<span style="color:#00d;font-weight:bold">0</span>], b2[<span style="color:#00d;font-weight:bold">1</span>] , fc=<span style="color:#d20;background-color:#fff0f0">&#39;b&#39;</span>, ec=<span style="color:#d20;background-color:#fff0f0">&#39;b&#39;</span>, head_width=<span style="color:#00d;font-weight:bold">0.3</span>, head_length=.<span style="color:#00d;font-weight:bold">3</span>)
-ax.arrow(<span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">0</span>, <span style="color:#a61717;background-color:#e3d2d2">β</span><span style="color:#00d;font-weight:bold">1</span>[<span style="color:#00d;font-weight:bold">0</span>], <span style="color:#a61717;background-color:#e3d2d2">β</span><span style="color:#00d;font-weight:bold">1</span>[<span style="color:#00d;font-weight:bold">1</span>] , fc=<span style="color:#d20;background-color:#fff0f0">&#39;r&#39;</span>, ec=<span style="color:#d20;background-color:#fff0f0">&#39;r&#39;</span>, head_width=<span style="color:#00d;font-weight:bold">0.3</span>, head_length=.<span style="color:#00d;font-weight:bold">3</span>)
-ax.arrow(<span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">0</span>, <span style="color:#a61717;background-color:#e3d2d2">β</span><span style="color:#00d;font-weight:bold">2</span>[<span style="color:#00d;font-weight:bold">0</span>], <span style="color:#a61717;background-color:#e3d2d2">β</span><span style="color:#00d;font-weight:bold">2</span>[<span style="color:#00d;font-weight:bold">1</span>] , fc=<span style="color:#d20;background-color:#fff0f0">&#39;r&#39;</span>, ec=<span style="color:#d20;background-color:#fff0f0">&#39;r&#39;</span>, head_width=<span style="color:#00d;font-weight:bold">0.3</span>, head_length=.<span style="color:#00d;font-weight:bold">3</span>)
-ax.axis([-<span style="color:#00d;font-weight:bold">3</span>, <span style="color:#00d;font-weight:bold">4</span>, -<span style="color:#00d;font-weight:bold">5</span>, <span style="color:#00d;font-weight:bold">4</span>])
-ax.set_aspect(<span style="color:#d20;background-color:#fff0f0">&#39;equal&#39;</span>)
-ax.axhline(color=<span style="color:#d20;background-color:#fff0f0">&#39;k&#39;</span>, alpha=.<span style="color:#00d;font-weight:bold">3</span>)
-ax.axvline(color=<span style="color:#d20;background-color:#fff0f0">&#39;k&#39;</span>, alpha=.<span style="color:#00d;font-weight:bold">3</span>)
-fig.set_size_inches(figsize)</code></pre></div>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#666">%</span>matplotlib inline
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">matplotlib.pyplot</span> <span style="color:#a2f;font-weight:bold">as</span> <span style="color:#00f;font-weight:bold">plt</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">numpy</span> <span style="color:#a2f;font-weight:bold">as</span> <span style="color:#00f;font-weight:bold">np</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span>figsize <span style="color:#666">=</span> [<span style="color:#666">7</span>, <span style="color:#666">7</span>]
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span>fig, ax <span style="color:#666">=</span> plt<span style="color:#666">.</span>subplots()
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span>b1, b2 <span style="color:#666">=</span> np<span style="color:#666">.</span>array([<span style="color:#666">1</span>, <span style="color:#666">0</span>]), np<span style="color:#666">.</span>array([<span style="color:#666">0</span>, <span style="color:#666">1</span>])
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span style="">β</span><span style="color:#666">1</span>, <span style="">β</span><span style="color:#666">2</span> <span style="color:#666">=</span> np<span style="color:#666">.</span>array([<span style="color:#666">2</span>, <span style="color:#666">3</span>]), np<span style="color:#666">.</span>array([<span style="color:#666">-</span><span style="color:#666">1</span>, <span style="color:#666">1</span>])
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span>ax<span style="color:#666">.</span>arrow(<span style="color:#666">0</span>, <span style="color:#666">0</span>, b1[<span style="color:#666">0</span>], b1[<span style="color:#666">1</span>] , fc<span style="color:#666">=</span><span style="color:#b44">&#39;b&#39;</span>, ec<span style="color:#666">=</span><span style="color:#b44">&#39;b&#39;</span>, head_width<span style="color:#666">=</span><span style="color:#666">0.3</span>, head_length<span style="color:#666">=.</span><span style="color:#666">3</span>)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span>ax<span style="color:#666">.</span>arrow(<span style="color:#666">0</span>, <span style="color:#666">0</span>, b2[<span style="color:#666">0</span>], b2[<span style="color:#666">1</span>] , fc<span style="color:#666">=</span><span style="color:#b44">&#39;b&#39;</span>, ec<span style="color:#666">=</span><span style="color:#b44">&#39;b&#39;</span>, head_width<span style="color:#666">=</span><span style="color:#666">0.3</span>, head_length<span style="color:#666">=.</span><span style="color:#666">3</span>)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span>ax<span style="color:#666">.</span>arrow(<span style="color:#666">0</span>, <span style="color:#666">0</span>, <span style="">β</span><span style="color:#666">1</span>[<span style="color:#666">0</span>], <span style="">β</span><span style="color:#666">1</span>[<span style="color:#666">1</span>] , fc<span style="color:#666">=</span><span style="color:#b44">&#39;r&#39;</span>, ec<span style="color:#666">=</span><span style="color:#b44">&#39;r&#39;</span>, head_width<span style="color:#666">=</span><span style="color:#666">0.3</span>, head_length<span style="color:#666">=.</span><span style="color:#666">3</span>)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span>ax<span style="color:#666">.</span>arrow(<span style="color:#666">0</span>, <span style="color:#666">0</span>, <span style="">β</span><span style="color:#666">2</span>[<span style="color:#666">0</span>], <span style="">β</span><span style="color:#666">2</span>[<span style="color:#666">1</span>] , fc<span style="color:#666">=</span><span style="color:#b44">&#39;r&#39;</span>, ec<span style="color:#666">=</span><span style="color:#b44">&#39;r&#39;</span>, head_width<span style="color:#666">=</span><span style="color:#666">0.3</span>, head_length<span style="color:#666">=.</span><span style="color:#666">3</span>)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span>ax<span style="color:#666">.</span>axis([<span style="color:#666">-</span><span style="color:#666">3</span>, <span style="color:#666">4</span>, <span style="color:#666">-</span><span style="color:#666">5</span>, <span style="color:#666">4</span>])
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span>ax<span style="color:#666">.</span>set_aspect(<span style="color:#b44">&#39;equal&#39;</span>)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span>ax<span style="color:#666">.</span>axhline(color<span style="color:#666">=</span><span style="color:#b44">&#39;k&#39;</span>, alpha<span style="color:#666">=.</span><span style="color:#666">3</span>)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span>ax<span style="color:#666">.</span>axvline(color<span style="color:#666">=</span><span style="color:#b44">&#39;k&#39;</span>, alpha<span style="color:#666">=.</span><span style="color:#666">3</span>)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span>fig<span style="color:#666">.</span>set_size_inches(figsize)</code></pre></div>
 </div>
 <p><img src="img/basis1.png" alt="img/basis1.png" title="img/basis1.png" /></p>
 <p>
 The $\boldsymbol{Q}$ matrix can be found with,</p>
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">Q = np.array([<span style="color:#a61717;background-color:#e3d2d2">β</span><span style="color:#00d;font-weight:bold">1</span>, <span style="color:#a61717;background-color:#e3d2d2">β</span><span style="color:#00d;font-weight:bold">2</span>]).T
-<span style="color:#080;font-weight:bold">print</span>(<span style="color:#d20;background-color:#fff0f0">&#39;Transformed to original system with </span><span style="color:#04d;background-color:#fff0f0">\n</span><span style="color:#d20;background-color:#fff0f0"> Q={}&#39;</span>.format(Q))</code></pre></div>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>Q <span style="color:#666">=</span> np<span style="color:#666">.</span>array([<span style="">β</span><span style="color:#666">1</span>, <span style="">β</span><span style="color:#666">2</span>])<span style="color:#666">.</span>T
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#a2f;font-weight:bold">print</span>(<span style="color:#b44">&#39;Transformed to original system with </span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#b44"> Q={}&#39;</span><span style="color:#666">.</span>format(Q))</code></pre></div>
 </div>
 <pre class="example">
 Transformed to original system with 
@@ -277,52 +284,52 @@ Transformed to original system with
 <p>
 Let&#39;s say we have a vector in the original system $\boldsymbol{v}=[1, -4]$ which in the graph</p>
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">fig, ax = plt.subplots()
-
-v = np.array([<span style="color:#00d;font-weight:bold">2</span>, -<span style="color:#00d;font-weight:bold">4</span>])
-
-ax.arrow(<span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">0</span>, v[<span style="color:#00d;font-weight:bold">0</span>], v[<span style="color:#00d;font-weight:bold">1</span>] , fc=<span style="color:#d20;background-color:#fff0f0">&#39;g&#39;</span>, ec=<span style="color:#d20;background-color:#fff0f0">&#39;g&#39;</span>, head_width=<span style="color:#00d;font-weight:bold">0.3</span>, head_length=.<span style="color:#00d;font-weight:bold">3</span>)
-ax.arrow(<span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">0</span>, v[<span style="color:#00d;font-weight:bold">0</span>]*b1[<span style="color:#00d;font-weight:bold">0</span>], v[<span style="color:#00d;font-weight:bold">0</span>]*b1[<span style="color:#00d;font-weight:bold">1</span>] , fc=<span style="color:#d20;background-color:#fff0f0">&#39;b&#39;</span>, ec=<span style="color:#d20;background-color:#fff0f0">&#39;b&#39;</span>, head_width=<span style="color:#00d;font-weight:bold">0.3</span>, head_length=.<span style="color:#00d;font-weight:bold">3</span>)
-ax.arrow(<span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">0</span>, v[<span style="color:#00d;font-weight:bold">1</span>]*b2[<span style="color:#00d;font-weight:bold">0</span>], v[<span style="color:#00d;font-weight:bold">1</span>]*b2[<span style="color:#00d;font-weight:bold">1</span>] , fc=<span style="color:#d20;background-color:#fff0f0">&#39;b&#39;</span>, ec=<span style="color:#d20;background-color:#fff0f0">&#39;b&#39;</span>, head_width=<span style="color:#00d;font-weight:bold">0.3</span>, head_length=.<span style="color:#00d;font-weight:bold">3</span>)
-
-ax.arrow(<span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">0</span>, b1[<span style="color:#00d;font-weight:bold">0</span>], b1[<span style="color:#00d;font-weight:bold">1</span>] , fc=<span style="color:#d20;background-color:#fff0f0">&#39;b&#39;</span>, ec=<span style="color:#d20;background-color:#fff0f0">&#39;b&#39;</span>, head_width=<span style="color:#00d;font-weight:bold">0.3</span>, head_length=.<span style="color:#00d;font-weight:bold">3</span>, alpha=.<span style="color:#00d;font-weight:bold">2</span>)
-ax.arrow(<span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">0</span>, b2[<span style="color:#00d;font-weight:bold">0</span>], b2[<span style="color:#00d;font-weight:bold">1</span>] , fc=<span style="color:#d20;background-color:#fff0f0">&#39;b&#39;</span>, ec=<span style="color:#d20;background-color:#fff0f0">&#39;b&#39;</span>, head_width=<span style="color:#00d;font-weight:bold">0.3</span>, head_length=.<span style="color:#00d;font-weight:bold">3</span>, alpha=.<span style="color:#00d;font-weight:bold">2</span>)
-ax.arrow(<span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">0</span>, <span style="color:#a61717;background-color:#e3d2d2">β</span><span style="color:#00d;font-weight:bold">1</span>[<span style="color:#00d;font-weight:bold">0</span>], <span style="color:#a61717;background-color:#e3d2d2">β</span><span style="color:#00d;font-weight:bold">1</span>[<span style="color:#00d;font-weight:bold">1</span>] , fc=<span style="color:#d20;background-color:#fff0f0">&#39;r&#39;</span>, ec=<span style="color:#d20;background-color:#fff0f0">&#39;r&#39;</span>, head_width=<span style="color:#00d;font-weight:bold">0.3</span>, head_length=.<span style="color:#00d;font-weight:bold">3</span>, alpha=.<span style="color:#00d;font-weight:bold">2</span>)
-ax.arrow(<span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">0</span>, <span style="color:#a61717;background-color:#e3d2d2">β</span><span style="color:#00d;font-weight:bold">2</span>[<span style="color:#00d;font-weight:bold">0</span>], <span style="color:#a61717;background-color:#e3d2d2">β</span><span style="color:#00d;font-weight:bold">2</span>[<span style="color:#00d;font-weight:bold">1</span>] , fc=<span style="color:#d20;background-color:#fff0f0">&#39;r&#39;</span>, ec=<span style="color:#d20;background-color:#fff0f0">&#39;r&#39;</span>, head_width=<span style="color:#00d;font-weight:bold">0.3</span>, head_length=.<span style="color:#00d;font-weight:bold">3</span>, alpha=.<span style="color:#00d;font-weight:bold">2</span>)
-ax.axis([-<span style="color:#00d;font-weight:bold">3</span>, <span style="color:#00d;font-weight:bold">4</span>, -<span style="color:#00d;font-weight:bold">5</span>, <span style="color:#00d;font-weight:bold">4</span>])
-ax.set_aspect(<span style="color:#d20;background-color:#fff0f0">&#39;equal&#39;</span>)
-ax.axhline(color=<span style="color:#d20;background-color:#fff0f0">&#39;k&#39;</span>, alpha=.<span style="color:#00d;font-weight:bold">3</span>)
-ax.axvline(color=<span style="color:#d20;background-color:#fff0f0">&#39;k&#39;</span>, alpha=.<span style="color:#00d;font-weight:bold">3</span>)
-fig.set_size_inches(figsize)</code></pre></div>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span>fig, ax <span style="color:#666">=</span> plt<span style="color:#666">.</span>subplots()
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>v <span style="color:#666">=</span> np<span style="color:#666">.</span>array([<span style="color:#666">2</span>, <span style="color:#666">-</span><span style="color:#666">4</span>])
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span>ax<span style="color:#666">.</span>arrow(<span style="color:#666">0</span>, <span style="color:#666">0</span>, v[<span style="color:#666">0</span>], v[<span style="color:#666">1</span>] , fc<span style="color:#666">=</span><span style="color:#b44">&#39;g&#39;</span>, ec<span style="color:#666">=</span><span style="color:#b44">&#39;g&#39;</span>, head_width<span style="color:#666">=</span><span style="color:#666">0.3</span>, head_length<span style="color:#666">=.</span><span style="color:#666">3</span>)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span>ax<span style="color:#666">.</span>arrow(<span style="color:#666">0</span>, <span style="color:#666">0</span>, v[<span style="color:#666">0</span>]<span style="color:#666">*</span>b1[<span style="color:#666">0</span>], v[<span style="color:#666">0</span>]<span style="color:#666">*</span>b1[<span style="color:#666">1</span>] , fc<span style="color:#666">=</span><span style="color:#b44">&#39;b&#39;</span>, ec<span style="color:#666">=</span><span style="color:#b44">&#39;b&#39;</span>, head_width<span style="color:#666">=</span><span style="color:#666">0.3</span>, head_length<span style="color:#666">=.</span><span style="color:#666">3</span>)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span>ax<span style="color:#666">.</span>arrow(<span style="color:#666">0</span>, <span style="color:#666">0</span>, v[<span style="color:#666">1</span>]<span style="color:#666">*</span>b2[<span style="color:#666">0</span>], v[<span style="color:#666">1</span>]<span style="color:#666">*</span>b2[<span style="color:#666">1</span>] , fc<span style="color:#666">=</span><span style="color:#b44">&#39;b&#39;</span>, ec<span style="color:#666">=</span><span style="color:#b44">&#39;b&#39;</span>, head_width<span style="color:#666">=</span><span style="color:#666">0.3</span>, head_length<span style="color:#666">=.</span><span style="color:#666">3</span>)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span>ax<span style="color:#666">.</span>arrow(<span style="color:#666">0</span>, <span style="color:#666">0</span>, b1[<span style="color:#666">0</span>], b1[<span style="color:#666">1</span>] , fc<span style="color:#666">=</span><span style="color:#b44">&#39;b&#39;</span>, ec<span style="color:#666">=</span><span style="color:#b44">&#39;b&#39;</span>, head_width<span style="color:#666">=</span><span style="color:#666">0.3</span>, head_length<span style="color:#666">=.</span><span style="color:#666">3</span>, alpha<span style="color:#666">=.</span><span style="color:#666">2</span>)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span>ax<span style="color:#666">.</span>arrow(<span style="color:#666">0</span>, <span style="color:#666">0</span>, b2[<span style="color:#666">0</span>], b2[<span style="color:#666">1</span>] , fc<span style="color:#666">=</span><span style="color:#b44">&#39;b&#39;</span>, ec<span style="color:#666">=</span><span style="color:#b44">&#39;b&#39;</span>, head_width<span style="color:#666">=</span><span style="color:#666">0.3</span>, head_length<span style="color:#666">=.</span><span style="color:#666">3</span>, alpha<span style="color:#666">=.</span><span style="color:#666">2</span>)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span>ax<span style="color:#666">.</span>arrow(<span style="color:#666">0</span>, <span style="color:#666">0</span>, <span style="">β</span><span style="color:#666">1</span>[<span style="color:#666">0</span>], <span style="">β</span><span style="color:#666">1</span>[<span style="color:#666">1</span>] , fc<span style="color:#666">=</span><span style="color:#b44">&#39;r&#39;</span>, ec<span style="color:#666">=</span><span style="color:#b44">&#39;r&#39;</span>, head_width<span style="color:#666">=</span><span style="color:#666">0.3</span>, head_length<span style="color:#666">=.</span><span style="color:#666">3</span>, alpha<span style="color:#666">=.</span><span style="color:#666">2</span>)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span>ax<span style="color:#666">.</span>arrow(<span style="color:#666">0</span>, <span style="color:#666">0</span>, <span style="">β</span><span style="color:#666">2</span>[<span style="color:#666">0</span>], <span style="">β</span><span style="color:#666">2</span>[<span style="color:#666">1</span>] , fc<span style="color:#666">=</span><span style="color:#b44">&#39;r&#39;</span>, ec<span style="color:#666">=</span><span style="color:#b44">&#39;r&#39;</span>, head_width<span style="color:#666">=</span><span style="color:#666">0.3</span>, head_length<span style="color:#666">=.</span><span style="color:#666">3</span>, alpha<span style="color:#666">=.</span><span style="color:#666">2</span>)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span>ax<span style="color:#666">.</span>axis([<span style="color:#666">-</span><span style="color:#666">3</span>, <span style="color:#666">4</span>, <span style="color:#666">-</span><span style="color:#666">5</span>, <span style="color:#666">4</span>])
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span>ax<span style="color:#666">.</span>set_aspect(<span style="color:#b44">&#39;equal&#39;</span>)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span>ax<span style="color:#666">.</span>axhline(color<span style="color:#666">=</span><span style="color:#b44">&#39;k&#39;</span>, alpha<span style="color:#666">=.</span><span style="color:#666">3</span>)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span>ax<span style="color:#666">.</span>axvline(color<span style="color:#666">=</span><span style="color:#b44">&#39;k&#39;</span>, alpha<span style="color:#666">=.</span><span style="color:#666">3</span>)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span>fig<span style="color:#666">.</span>set_size_inches(figsize)</code></pre></div>
 </div>
 <p><img src="img/py6248m4B.png" alt="img/py6248m4B.png" title="img/py6248m4B.png" /></p>
 <p>
 Now we want this vector in the new coordinate system,</p>
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">v_β = np.linalg.solve(Q, v)
-<span style="color:#080;font-weight:bold">print</span>(<span style="color:#d20;background-color:#fff0f0">&#39;The vector in the new coordinates </span><span style="color:#04d;background-color:#fff0f0">\n</span><span style="color:#d20;background-color:#fff0f0"> v_β={}&#39;</span>.format(v_β))</code></pre></div>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>v_β <span style="color:#666">=</span> np<span style="color:#666">.</span>linalg<span style="color:#666">.</span>solve(Q, v)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#a2f;font-weight:bold">print</span>(<span style="color:#b44">&#39;The vector in the new coordinates </span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#b44"> v_β={}&#39;</span><span style="color:#666">.</span>format(v_β))</code></pre></div>
 </div>
 <p>The vector in the new coordinates 
  v_β=[-0.4 -2.8]</p>
 <p>
 plotting this result, which each entry is the scale of the vectors $\boldsymbol{\beta_{1}}$ and $\boldsymbol{\beta_{2}}$.</p>
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">fig, ax = plt.subplots()
-
-ax.arrow(<span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">0</span>, v_β[<span style="color:#00d;font-weight:bold">0</span>]*<span style="color:#a61717;background-color:#e3d2d2">β</span><span style="color:#00d;font-weight:bold">1</span>[<span style="color:#00d;font-weight:bold">0</span>], v_β[<span style="color:#00d;font-weight:bold">0</span>]*<span style="color:#a61717;background-color:#e3d2d2">β</span><span style="color:#00d;font-weight:bold">1</span>[<span style="color:#00d;font-weight:bold">1</span>] , fc=<span style="color:#d20;background-color:#fff0f0">&#39;r&#39;</span>, ec=<span style="color:#d20;background-color:#fff0f0">&#39;r&#39;</span>, head_width=<span style="color:#00d;font-weight:bold">0.3</span>, head_length=.<span style="color:#00d;font-weight:bold">3</span>)
-ax.arrow(<span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">0</span>, v_β[<span style="color:#00d;font-weight:bold">1</span>]*<span style="color:#a61717;background-color:#e3d2d2">β</span><span style="color:#00d;font-weight:bold">2</span>[<span style="color:#00d;font-weight:bold">0</span>], v_β[<span style="color:#00d;font-weight:bold">1</span>]*<span style="color:#a61717;background-color:#e3d2d2">β</span><span style="color:#00d;font-weight:bold">2</span>[<span style="color:#00d;font-weight:bold">1</span>] , fc=<span style="color:#d20;background-color:#fff0f0">&#39;r&#39;</span>, ec=<span style="color:#d20;background-color:#fff0f0">&#39;r&#39;</span>, head_width=<span style="color:#00d;font-weight:bold">0.3</span>, head_length=.<span style="color:#00d;font-weight:bold">3</span>)
-ax.arrow(<span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">0</span>, v[<span style="color:#00d;font-weight:bold">0</span>], v[<span style="color:#00d;font-weight:bold">1</span>] , fc=<span style="color:#d20;background-color:#fff0f0">&#39;g&#39;</span>, ec=<span style="color:#d20;background-color:#fff0f0">&#39;g&#39;</span>, head_width=<span style="color:#00d;font-weight:bold">0.3</span>, head_length=.<span style="color:#00d;font-weight:bold">3</span>)
-
-
-ax.arrow(<span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">0</span>, b1[<span style="color:#00d;font-weight:bold">0</span>], b1[<span style="color:#00d;font-weight:bold">1</span>] , fc=<span style="color:#d20;background-color:#fff0f0">&#39;b&#39;</span>, ec=<span style="color:#d20;background-color:#fff0f0">&#39;b&#39;</span>, head_width=<span style="color:#00d;font-weight:bold">0.3</span>, head_length=.<span style="color:#00d;font-weight:bold">3</span>, alpha=.<span style="color:#00d;font-weight:bold">2</span>)
-ax.arrow(<span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">0</span>, b2[<span style="color:#00d;font-weight:bold">0</span>], b2[<span style="color:#00d;font-weight:bold">1</span>] , fc=<span style="color:#d20;background-color:#fff0f0">&#39;b&#39;</span>, ec=<span style="color:#d20;background-color:#fff0f0">&#39;b&#39;</span>, head_width=<span style="color:#00d;font-weight:bold">0.3</span>, head_length=.<span style="color:#00d;font-weight:bold">3</span>, alpha=.<span style="color:#00d;font-weight:bold">2</span>)
-ax.arrow(<span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">0</span>, <span style="color:#a61717;background-color:#e3d2d2">β</span><span style="color:#00d;font-weight:bold">1</span>[<span style="color:#00d;font-weight:bold">0</span>], <span style="color:#a61717;background-color:#e3d2d2">β</span><span style="color:#00d;font-weight:bold">1</span>[<span style="color:#00d;font-weight:bold">1</span>] , fc=<span style="color:#d20;background-color:#fff0f0">&#39;r&#39;</span>, ec=<span style="color:#d20;background-color:#fff0f0">&#39;r&#39;</span>, head_width=<span style="color:#00d;font-weight:bold">0.3</span>, head_length=.<span style="color:#00d;font-weight:bold">3</span>, alpha=.<span style="color:#00d;font-weight:bold">2</span>)
-ax.arrow(<span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">0</span>, <span style="color:#a61717;background-color:#e3d2d2">β</span><span style="color:#00d;font-weight:bold">2</span>[<span style="color:#00d;font-weight:bold">0</span>], <span style="color:#a61717;background-color:#e3d2d2">β</span><span style="color:#00d;font-weight:bold">2</span>[<span style="color:#00d;font-weight:bold">1</span>] , fc=<span style="color:#d20;background-color:#fff0f0">&#39;r&#39;</span>, ec=<span style="color:#d20;background-color:#fff0f0">&#39;r&#39;</span>, head_width=<span style="color:#00d;font-weight:bold">0.3</span>, head_length=.<span style="color:#00d;font-weight:bold">3</span>, alpha=.<span style="color:#00d;font-weight:bold">2</span>)
-ax.axis([-<span style="color:#00d;font-weight:bold">3</span>, <span style="color:#00d;font-weight:bold">4</span>, -<span style="color:#00d;font-weight:bold">5</span>, <span style="color:#00d;font-weight:bold">4</span>])
-ax.set_aspect(<span style="color:#d20;background-color:#fff0f0">&#39;equal&#39;</span>)
-ax.axhline(color=<span style="color:#d20;background-color:#fff0f0">&#39;k&#39;</span>, alpha=.<span style="color:#00d;font-weight:bold">3</span>)
-ax.axvline(color=<span style="color:#d20;background-color:#fff0f0">&#39;k&#39;</span>, alpha=.<span style="color:#00d;font-weight:bold">3</span>)
-fig.set_size_inches(figsize)</code></pre></div>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span>fig, ax <span style="color:#666">=</span> plt<span style="color:#666">.</span>subplots()
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>ax<span style="color:#666">.</span>arrow(<span style="color:#666">0</span>, <span style="color:#666">0</span>, v_β[<span style="color:#666">0</span>]<span style="color:#666">*</span><span style="">β</span><span style="color:#666">1</span>[<span style="color:#666">0</span>], v_β[<span style="color:#666">0</span>]<span style="color:#666">*</span><span style="">β</span><span style="color:#666">1</span>[<span style="color:#666">1</span>] , fc<span style="color:#666">=</span><span style="color:#b44">&#39;r&#39;</span>, ec<span style="color:#666">=</span><span style="color:#b44">&#39;r&#39;</span>, head_width<span style="color:#666">=</span><span style="color:#666">0.3</span>, head_length<span style="color:#666">=.</span><span style="color:#666">3</span>)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>ax<span style="color:#666">.</span>arrow(<span style="color:#666">0</span>, <span style="color:#666">0</span>, v_β[<span style="color:#666">1</span>]<span style="color:#666">*</span><span style="">β</span><span style="color:#666">2</span>[<span style="color:#666">0</span>], v_β[<span style="color:#666">1</span>]<span style="color:#666">*</span><span style="">β</span><span style="color:#666">2</span>[<span style="color:#666">1</span>] , fc<span style="color:#666">=</span><span style="color:#b44">&#39;r&#39;</span>, ec<span style="color:#666">=</span><span style="color:#b44">&#39;r&#39;</span>, head_width<span style="color:#666">=</span><span style="color:#666">0.3</span>, head_length<span style="color:#666">=.</span><span style="color:#666">3</span>)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span>ax<span style="color:#666">.</span>arrow(<span style="color:#666">0</span>, <span style="color:#666">0</span>, v[<span style="color:#666">0</span>], v[<span style="color:#666">1</span>] , fc<span style="color:#666">=</span><span style="color:#b44">&#39;g&#39;</span>, ec<span style="color:#666">=</span><span style="color:#b44">&#39;g&#39;</span>, head_width<span style="color:#666">=</span><span style="color:#666">0.3</span>, head_length<span style="color:#666">=.</span><span style="color:#666">3</span>)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span>ax<span style="color:#666">.</span>arrow(<span style="color:#666">0</span>, <span style="color:#666">0</span>, b1[<span style="color:#666">0</span>], b1[<span style="color:#666">1</span>] , fc<span style="color:#666">=</span><span style="color:#b44">&#39;b&#39;</span>, ec<span style="color:#666">=</span><span style="color:#b44">&#39;b&#39;</span>, head_width<span style="color:#666">=</span><span style="color:#666">0.3</span>, head_length<span style="color:#666">=.</span><span style="color:#666">3</span>, alpha<span style="color:#666">=.</span><span style="color:#666">2</span>)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span>ax<span style="color:#666">.</span>arrow(<span style="color:#666">0</span>, <span style="color:#666">0</span>, b2[<span style="color:#666">0</span>], b2[<span style="color:#666">1</span>] , fc<span style="color:#666">=</span><span style="color:#b44">&#39;b&#39;</span>, ec<span style="color:#666">=</span><span style="color:#b44">&#39;b&#39;</span>, head_width<span style="color:#666">=</span><span style="color:#666">0.3</span>, head_length<span style="color:#666">=.</span><span style="color:#666">3</span>, alpha<span style="color:#666">=.</span><span style="color:#666">2</span>)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span>ax<span style="color:#666">.</span>arrow(<span style="color:#666">0</span>, <span style="color:#666">0</span>, <span style="">β</span><span style="color:#666">1</span>[<span style="color:#666">0</span>], <span style="">β</span><span style="color:#666">1</span>[<span style="color:#666">1</span>] , fc<span style="color:#666">=</span><span style="color:#b44">&#39;r&#39;</span>, ec<span style="color:#666">=</span><span style="color:#b44">&#39;r&#39;</span>, head_width<span style="color:#666">=</span><span style="color:#666">0.3</span>, head_length<span style="color:#666">=.</span><span style="color:#666">3</span>, alpha<span style="color:#666">=.</span><span style="color:#666">2</span>)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span>ax<span style="color:#666">.</span>arrow(<span style="color:#666">0</span>, <span style="color:#666">0</span>, <span style="">β</span><span style="color:#666">2</span>[<span style="color:#666">0</span>], <span style="">β</span><span style="color:#666">2</span>[<span style="color:#666">1</span>] , fc<span style="color:#666">=</span><span style="color:#b44">&#39;r&#39;</span>, ec<span style="color:#666">=</span><span style="color:#b44">&#39;r&#39;</span>, head_width<span style="color:#666">=</span><span style="color:#666">0.3</span>, head_length<span style="color:#666">=.</span><span style="color:#666">3</span>, alpha<span style="color:#666">=.</span><span style="color:#666">2</span>)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span>ax<span style="color:#666">.</span>axis([<span style="color:#666">-</span><span style="color:#666">3</span>, <span style="color:#666">4</span>, <span style="color:#666">-</span><span style="color:#666">5</span>, <span style="color:#666">4</span>])
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span>ax<span style="color:#666">.</span>set_aspect(<span style="color:#b44">&#39;equal&#39;</span>)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span>ax<span style="color:#666">.</span>axhline(color<span style="color:#666">=</span><span style="color:#b44">&#39;k&#39;</span>, alpha<span style="color:#666">=.</span><span style="color:#666">3</span>)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span>ax<span style="color:#666">.</span>axvline(color<span style="color:#666">=</span><span style="color:#b44">&#39;k&#39;</span>, alpha<span style="color:#666">=.</span><span style="color:#666">3</span>)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span>fig<span style="color:#666">.</span>set_size_inches(figsize)</code></pre></div>
 </div>
 <p><img src="img/py6248ANO.png" alt="img/py6248ANO.png" title="img/py6248ANO.png" /></p>
 </div>
@@ -341,9 +348,13 @@ fig.set_size_inches(figsize)</code></pre></div>
     <nav>
       <ul>
          
-        <li><a href="/">about</a></li>
+        <li><a href="/">home</a></li>
          
         <li><a href="/notes">notes</a></li>
+         
+        <li><a href="/tags">tags</a></li>
+         
+        <li><a href="/about">about</a></li>
         
       </ul>
     </nav>

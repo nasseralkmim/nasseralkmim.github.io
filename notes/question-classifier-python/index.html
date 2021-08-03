@@ -15,7 +15,7 @@
   <meta name="googlebot" content="index,follow,snippet,archive">
   <meta property="og:title" content="Question classifier preprocessing" />
 <meta property="og:description" content="Introduction   An example from the book by Aman Kedia. About label encoding.
-  Loading data  import pandas as pd data = open(&#34;train_1000-label." />
+  Loading data  1import pandas as pd 2data = open(&#34;train_1000-label." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://nasseralkmim.github.io/notes/question-classifier-python/" /><meta property="article:section" content="notes" />
 <meta property="article:published_time" content="2020-12-07T00:00:00&#43;00:00" />
@@ -25,9 +25,11 @@
   <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Question classifier preprocessing"/>
 <meta name="twitter:description" content="Introduction   An example from the book by Aman Kedia. About label encoding.
-  Loading data  import pandas as pd data = open(&#34;train_1000-label."/>
+  Loading data  1import pandas as pd 2data = open(&#34;train_1000-label."/>
 
   
+  
+    
   
   
   <link rel="stylesheet" href="https://nasseralkmim.github.io/css/styles.94f653e9e151e28067a7c5dbbc4600cbd5a3c721e79faaf971e523c40f3b249b8e4f20bb57810dfffa8d559ca5c140fd56eb4cd9c0853113ad08e66afdb08bdd.css" integrity="sha512-lPZT6eFR4oBnp8XbvEYAy9WjxyHnn6r5ceUjxA87JJuOTyC7V4EN//qNVZylwUD9VutM2cCFMROtCOZq/bCL3Q=="> 
@@ -47,19 +49,20 @@
   
   
   
+  
+  
     
 <script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
 	ga('create', 'UA-74704246-1', 'auto');
 	
 	ga('send', 'pageview');
 }
 </script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
   
   
 </head>
@@ -82,9 +85,13 @@ if (!doNotTrack) {
         <a href="#" aria-label="Menu"><i class="fas fa-bars fa-2x" aria-hidden="true"></i></a>
       </li>
       
-        <li><a href="/">about</a></li>
+        <li><a href="/">home</a></li>
       
         <li><a href="/notes">notes</a></li>
+      
+        <li><a href="/tags">tags</a></li>
+      
+        <li><a href="/about">about</a></li>
       
     </ul>
   </div>
@@ -114,10 +121,10 @@ Loading data
 </h2>
 <div id="outline-text-headline-2" class="outline-text-2">
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">import</span> <span style="color:#b06;font-weight:bold">pandas</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#b06;font-weight:bold">pd</span>
-data = <span style="color:#038">open</span>(<span style="color:#d20;background-color:#fff0f0">&#34;train_1000-label.txt&#34;</span>, <span style="color:#d20;background-color:#fff0f0">&#39;r&#39;</span>)
-train_raw = pd.DataFrame(data.readlines(), columns=[<span style="color:#d20;background-color:#fff0f0">&#39;data&#39;</span>])
-<span style="color:#080;font-weight:bold">print</span>(train_raw.head())</code></pre></div>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">pandas</span> <span style="color:#a2f;font-weight:bold">as</span> <span style="color:#00f;font-weight:bold">pd</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>data <span style="color:#666">=</span> <span style="color:#a2f">open</span>(<span style="color:#b44">&#34;train_1000-label.txt&#34;</span>, <span style="color:#b44">&#39;r&#39;</span>)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>train_raw <span style="color:#666">=</span> pd<span style="color:#666">.</span>DataFrame(data<span style="color:#666">.</span>readlines(), columns<span style="color:#666">=</span>[<span style="color:#b44">&#39;data&#39;</span>])
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span style="color:#a2f;font-weight:bold">print</span>(train_raw<span style="color:#666">.</span>head())</code></pre></div>
 </div>
 <pre class="example">
                                                 data
@@ -141,11 +148,11 @@ Split string
 <div id="outline-text-headline-4" class="outline-text-4">
 <p>We need to split the class, finner class and the question itself.</p>
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">train = train_raw.data.str.split(<span style="color:#d20;background-color:#fff0f0">&#39;:&#39;</span>, n=<span style="color:#00d;font-weight:bold">1</span>, expand=True)
-<span style="color:#080;font-weight:bold">print</span>(train.head())
-train[<span style="color:#00d;font-weight:bold">1</span>] = train[<span style="color:#00d;font-weight:bold">1</span>].str.split(n=<span style="color:#00d;font-weight:bold">1</span>).str[<span style="color:#00d;font-weight:bold">1</span>] <span style="color:#888"># remove te finner classification</span>
-train.columns = [<span style="color:#d20;background-color:#fff0f0">&#39;QType&#39;</span>, <span style="color:#d20;background-color:#fff0f0">&#39;Question&#39;</span>]
-<span style="color:#080;font-weight:bold">print</span>(train.head())</code></pre></div>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>train <span style="color:#666">=</span> train_raw<span style="color:#666">.</span>data<span style="color:#666">.</span>str<span style="color:#666">.</span>split(<span style="color:#b44">&#39;:&#39;</span>, n<span style="color:#666">=</span><span style="color:#666">1</span>, expand<span style="color:#666">=</span>True)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#a2f;font-weight:bold">print</span>(train<span style="color:#666">.</span>head())
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>train[<span style="color:#666">1</span>] <span style="color:#666">=</span> train[<span style="color:#666">1</span>]<span style="color:#666">.</span>str<span style="color:#666">.</span>split(n<span style="color:#666">=</span><span style="color:#666">1</span>)<span style="color:#666">.</span>str[<span style="color:#666">1</span>] <span style="color:#080;font-style:italic"># remove te finner classification</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>train<span style="color:#666">.</span>columns <span style="color:#666">=</span> [<span style="color:#b44">&#39;QType&#39;</span>, <span style="color:#b44">&#39;Question&#39;</span>]
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span style="color:#a2f;font-weight:bold">print</span>(train<span style="color:#666">.</span>head())</code></pre></div>
 </div>
 <pre class="example">
       0                                                  1
@@ -171,8 +178,8 @@ Identify the possible classifications
 <p>
 We have 6 different questions types.</p>
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">classes = train.QType.drop_duplicates()
-<span style="color:#080;font-weight:bold">print</span>(classes)</code></pre></div>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>classes <span style="color:#666">=</span> train<span style="color:#666">.</span>QType<span style="color:#666">.</span>drop_duplicates()
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#a2f;font-weight:bold">print</span>(classes)</code></pre></div>
 </div>
 <pre class="example">
 0     DESC
@@ -196,12 +203,12 @@ This process is called <strong>Label Encoding</strong>.</p>
 <p>
 We can use Scikit-Learn preprocessing Label Encoder class.</p>
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">from</span> <span style="color:#b06;font-weight:bold">sklearn.preprocessing</span> <span style="color:#080;font-weight:bold">import</span> LabelEncoder
-le = LabelEncoder()
-le.fit(classes)
-encoded_classes = le.transform(classes) 
-<span style="color:#080;font-weight:bold">print</span>(encoded_classes)
-<span style="color:#080;font-weight:bold">print</span>(le.inverse_transform(encoded_classes))</code></pre></div>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#a2f;font-weight:bold">from</span> <span style="color:#00f;font-weight:bold">sklearn.preprocessing</span> <span style="color:#a2f;font-weight:bold">import</span> LabelEncoder
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>le <span style="color:#666">=</span> LabelEncoder()
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>le<span style="color:#666">.</span>fit(classes)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>encoded_classes <span style="color:#666">=</span> le<span style="color:#666">.</span>transform(classes) 
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span style="color:#a2f;font-weight:bold">print</span>(encoded_classes)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span style="color:#a2f;font-weight:bold">print</span>(le<span style="color:#666">.</span>inverse_transform(encoded_classes))</code></pre></div>
 </div>
 <pre class="example">
 [1 2 0 3 5 4]
@@ -232,15 +239,15 @@ We do that with pandas string functions.
 The we use the one hot method for preprocessing text in keras, which <strong>is not a one-hot encoding</strong> but simply a label encoding.
 The we perform the </p>
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">from</span> <span style="color:#b06;font-weight:bold">tensorflow.keras</span> <span style="color:#080;font-weight:bold">import</span> utils, preprocessing
-<span style="color:#080;font-weight:bold">print</span>(classes.str.cat(sep=<span style="color:#d20;background-color:#fff0f0">&#39; &#39;</span>), classes.size)
-enc_classes = preprocessing.text.one_hot(classes.str.cat(sep=<span style="color:#d20;background-color:#fff0f0">&#39; &#39;</span>),
-                                         n=classes.size,
-split=<span style="color:#d20;background-color:#fff0f0">&#39; &#39;</span>)
-<span style="color:#080;font-weight:bold">print</span>(enc_classes)
-one_hot_classes = utils.to_categorical(enc_classes,
-                                      classes.size) <span style="color:#888"># number of classes</span>
-<span style="color:#080;font-weight:bold">print</span>(one_hot_classes)</code></pre></div>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#a2f;font-weight:bold">from</span> <span style="color:#00f;font-weight:bold">tensorflow.keras</span> <span style="color:#a2f;font-weight:bold">import</span> utils, preprocessing
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#a2f;font-weight:bold">print</span>(classes<span style="color:#666">.</span>str<span style="color:#666">.</span>cat(sep<span style="color:#666">=</span><span style="color:#b44">&#39; &#39;</span>), classes<span style="color:#666">.</span>size)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>enc_classes <span style="color:#666">=</span> preprocessing<span style="color:#666">.</span>text<span style="color:#666">.</span>one_hot(classes<span style="color:#666">.</span>str<span style="color:#666">.</span>cat(sep<span style="color:#666">=</span><span style="color:#b44">&#39; &#39;</span>),
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>                                         n<span style="color:#666">=</span>classes<span style="color:#666">.</span>size,
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span>split<span style="color:#666">=</span><span style="color:#b44">&#39; &#39;</span>)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span style="color:#a2f;font-weight:bold">print</span>(enc_classes)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span>one_hot_classes <span style="color:#666">=</span> utils<span style="color:#666">.</span>to_categorical(enc_classes,
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8</span>                                      classes<span style="color:#666">.</span>size) <span style="color:#080;font-style:italic"># number of classes</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9</span><span style="color:#a2f;font-weight:bold">print</span>(one_hot_classes)</code></pre></div>
 </div>
 <pre class="example">
 DESC ENTY ABBR HUM NUM LOC 6
@@ -281,9 +288,13 @@ Scikit learn
     <nav>
       <ul>
          
-        <li><a href="/">about</a></li>
+        <li><a href="/">home</a></li>
          
         <li><a href="/notes">notes</a></li>
+         
+        <li><a href="/tags">tags</a></li>
+         
+        <li><a href="/about">about</a></li>
         
       </ul>
     </nav>

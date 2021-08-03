@@ -27,6 +27,8 @@
 
   
   
+    
+  
   
   <link rel="stylesheet" href="https://nasseralkmim.github.io/css/styles.94f653e9e151e28067a7c5dbbc4600cbd5a3c721e79faaf971e523c40f3b249b8e4f20bb57810dfffa8d559ca5c140fd56eb4cd9c0853113ad08e66afdb08bdd.css" integrity="sha512-lPZT6eFR4oBnp8XbvEYAy9WjxyHnn6r5ceUjxA87JJuOTyC7V4EN//qNVZylwUD9VutM2cCFMROtCOZq/bCL3Q=="> 
 
@@ -45,19 +47,20 @@
   
   
   
+  
+  
     
 <script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
 	ga('create', 'UA-74704246-1', 'auto');
 	
 	ga('send', 'pageview');
 }
 </script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
   
   
 </head>
@@ -80,9 +83,13 @@ if (!doNotTrack) {
         <a href="#" aria-label="Menu"><i class="fas fa-bars fa-2x" aria-hidden="true"></i></a>
       </li>
       
-        <li><a href="/">about</a></li>
+        <li><a href="/">home</a></li>
       
         <li><a href="/notes">notes</a></li>
+      
+        <li><a href="/tags">tags</a></li>
+      
+        <li><a href="/about">about</a></li>
       
     </ul>
   </div>
@@ -122,14 +129,14 @@ User input as the Mesh file and the Problem parameters.
  Then, we call the solver that return an array with the unknown variable.
  Lastly we process the output by plotting.</p>
 <div class="src src-plantuml">
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">agent Mesh
-agent Problem
-agent Solver
-agent PostProcessor
-
-Mesh -r-&gt; Problem
-Problem -r-&gt; Solver
-Solver -r-&gt; PostProcessor</code></pre></div>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>agent Mesh
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>agent Problem
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>agent Solver
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>agent PostProcessor
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span>Mesh -r-&gt; Problem
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span>Problem -r-&gt; Solver
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8</span>Solver -r-&gt; PostProcessor</code></pre></div>
 </div>
 <p><img src="img/oopfem.png" alt="img/oopfem.png" title="img/oopfem.png" /></p>
 <p>
@@ -148,54 +155,54 @@ This module consists of assembling the global matrices and solve the linear syst
 <p>
 As an example on how the data is attached to the structure:</p>
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">import</span> <span style="color:#b06;font-weight:bold">numpy</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#b06;font-weight:bold">np</span>
-
-
-<span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">Model</span>(<span style="color:#038">object</span>):
-    <span style="color:#d20;background-color:#fff0f0">&#34;&#34;&#34;Builds a Model object&#34;&#34;&#34;</span>
-    <span style="color:#080;font-weight:bold">def</span> __init__(self):
-        self.ne = <span style="color:#00d;font-weight:bold">4</span>             <span style="color:#888"># number of elements</span>
-        self.nn = <span style="color:#00d;font-weight:bold">9</span>             <span style="color:#888"># number of nodes</span>
-        self.ndof = <span style="color:#00d;font-weight:bold">18</span>         <span style="color:#888"># number of degrees of freedom</span>
-
-        self.XYZ = np.array([[<span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">0</span>], [<span style="color:#00d;font-weight:bold">1</span>, <span style="color:#00d;font-weight:bold">0</span>], [<span style="color:#00d;font-weight:bold">1</span>, <span style="color:#00d;font-weight:bold">1</span>], [<span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">1</span>], [.<span style="color:#00d;font-weight:bold">5</span>, <span style="color:#00d;font-weight:bold">0</span>], 
-                             [<span style="color:#00d;font-weight:bold">1</span>, .<span style="color:#00d;font-weight:bold">5</span>], [.<span style="color:#00d;font-weight:bold">5</span>, <span style="color:#00d;font-weight:bold">1</span>], [<span style="color:#00d;font-weight:bold">0</span>, .<span style="color:#00d;font-weight:bold">5</span>], [.<span style="color:#00d;font-weight:bold">5</span>, .<span style="color:#00d;font-weight:bold">5</span>]])
-
-        self.CONN = np.array([[<span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">4</span>, <span style="color:#00d;font-weight:bold">8</span>, <span style="color:#00d;font-weight:bold">7</span>], [<span style="color:#00d;font-weight:bold">4</span>, <span style="color:#00d;font-weight:bold">1</span>, <span style="color:#00d;font-weight:bold">5</span>, <span style="color:#00d;font-weight:bold">8</span>], [<span style="color:#00d;font-weight:bold">8</span>, <span style="color:#00d;font-weight:bold">5</span>, <span style="color:#00d;font-weight:bold">2</span>, <span style="color:#00d;font-weight:bold">6</span>], 
-                              [<span style="color:#00d;font-weight:bold">7</span>, <span style="color:#00d;font-weight:bold">8</span>, <span style="color:#00d;font-weight:bold">6</span>, <span style="color:#00d;font-weight:bold">3</span>]])
-
-        self.DOF = np.array([[<span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">1</span>, <span style="color:#00d;font-weight:bold">8</span>, <span style="color:#00d;font-weight:bold">9</span>, <span style="color:#00d;font-weight:bold">16</span>, <span style="color:#00d;font-weight:bold">17</span>, <span style="color:#00d;font-weight:bold">14</span>, <span style="color:#00d;font-weight:bold">15</span>],
-                             [<span style="color:#00d;font-weight:bold">8</span>, <span style="color:#00d;font-weight:bold">9</span>, <span style="color:#00d;font-weight:bold">2</span>, <span style="color:#00d;font-weight:bold">3</span>, <span style="color:#00d;font-weight:bold">10</span>, <span style="color:#00d;font-weight:bold">11</span>, <span style="color:#00d;font-weight:bold">16</span>, <span style="color:#00d;font-weight:bold">17</span>],
-                             [<span style="color:#00d;font-weight:bold">16</span>, <span style="color:#00d;font-weight:bold">17</span>, <span style="color:#00d;font-weight:bold">10</span>, <span style="color:#00d;font-weight:bold">11</span>, <span style="color:#00d;font-weight:bold">4</span>, <span style="color:#00d;font-weight:bold">5</span>, <span style="color:#00d;font-weight:bold">12</span>, <span style="color:#00d;font-weight:bold">13</span>],
-                             [<span style="color:#00d;font-weight:bold">14</span>, <span style="color:#00d;font-weight:bold">15</span>, <span style="color:#00d;font-weight:bold">16</span>, <span style="color:#00d;font-weight:bold">17</span>, <span style="color:#00d;font-weight:bold">12</span>, <span style="color:#00d;font-weight:bold">13</span>, <span style="color:#00d;font-weight:bold">6</span>, <span style="color:#00d;font-weight:bold">7</span>]])
-        self.surf_of_ele = [<span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">0</span>]  <span style="color:#888"># surface 0 for all elements</span>
-
-<span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">K_matrix</span>(model, material):
-    <span style="color:#d20;background-color:#fff0f0">&#34;&#34;&#34;Build the GLOBAL stiffnees (K) matrix&#34;&#34;&#34;</span>
-    K = np.zeros((model.ndof, model.ndof))
-
-    <span style="color:#080;font-weight:bold">for</span> e, conn <span style="color:#080">in</span> <span style="color:#038">enumerate</span>(model.CONN):
-        xyz = model.XYZ[conn]   <span style="color:#888"># coordinates of nodes in element e</span>
-        surf = model.surf_of_ele[e]
-        dof = model.DOF[e]
-
-        mat = material[surf]          <span style="color:#888"># material from the surf tag</span>
-
-        k = k_matrix(model, xyz, mat)  <span style="color:#888"># This is where the ANALYSIS encounter the MODEL</span>
-
-        <span style="color:#038">id</span> = np.ix_(dof, dof)
-
-        K[<span style="color:#038">id</span>] += k              <span style="color:#888"># Assemble</span>
-    <span style="color:#080;font-weight:bold">return</span> K
-
-<span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">k_matrix</span>(model, xyz, mat):
-    <span style="color:#d20;background-color:#fff0f0">&#34;&#34;&#34;Build the ELEMENT stiffness (k) matrix&#34;&#34;&#34;</span>
-    k = np.zeros((<span style="color:#00d;font-weight:bold">8</span>, <span style="color:#00d;font-weight:bold">8</span>))
-    <span style="color:#080;font-weight:bold">return</span> k
-
-model = Model()                 <span style="color:#888"># instanciate the Model class</span>
-material = {<span style="color:#00d;font-weight:bold">0</span>: <span style="color:#00d;font-weight:bold">10</span>}              <span style="color:#888"># material property for each surface key</span>
-K = K_matrix(model, material)</code></pre></div>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">numpy</span> <span style="color:#a2f;font-weight:bold">as</span> <span style="color:#00f;font-weight:bold">np</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">Model</span>(<span style="color:#a2f">object</span>):
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span>    <span style="color:#b44">&#34;&#34;&#34;Builds a Model object&#34;&#34;&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span>    <span style="color:#a2f;font-weight:bold">def</span> __init__(self):
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span>        self<span style="color:#666">.</span>ne <span style="color:#666">=</span> <span style="color:#666">4</span>             <span style="color:#080;font-style:italic"># number of elements</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span>        self<span style="color:#666">.</span>nn <span style="color:#666">=</span> <span style="color:#666">9</span>             <span style="color:#080;font-style:italic"># number of nodes</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span>        self<span style="color:#666">.</span>ndof <span style="color:#666">=</span> <span style="color:#666">18</span>         <span style="color:#080;font-style:italic"># number of degrees of freedom</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span>        self<span style="color:#666">.</span>XYZ <span style="color:#666">=</span> np<span style="color:#666">.</span>array([[<span style="color:#666">0</span>, <span style="color:#666">0</span>], [<span style="color:#666">1</span>, <span style="color:#666">0</span>], [<span style="color:#666">1</span>, <span style="color:#666">1</span>], [<span style="color:#666">0</span>, <span style="color:#666">1</span>], [<span style="color:#666">.</span><span style="color:#666">5</span>, <span style="color:#666">0</span>], 
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span>                             [<span style="color:#666">1</span>, <span style="color:#666">.</span><span style="color:#666">5</span>], [<span style="color:#666">.</span><span style="color:#666">5</span>, <span style="color:#666">1</span>], [<span style="color:#666">0</span>, <span style="color:#666">.</span><span style="color:#666">5</span>], [<span style="color:#666">.</span><span style="color:#666">5</span>, <span style="color:#666">.</span><span style="color:#666">5</span>]])
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span>        self<span style="color:#666">.</span>CONN <span style="color:#666">=</span> np<span style="color:#666">.</span>array([[<span style="color:#666">0</span>, <span style="color:#666">4</span>, <span style="color:#666">8</span>, <span style="color:#666">7</span>], [<span style="color:#666">4</span>, <span style="color:#666">1</span>, <span style="color:#666">5</span>, <span style="color:#666">8</span>], [<span style="color:#666">8</span>, <span style="color:#666">5</span>, <span style="color:#666">2</span>, <span style="color:#666">6</span>], 
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span>                              [<span style="color:#666">7</span>, <span style="color:#666">8</span>, <span style="color:#666">6</span>, <span style="color:#666">3</span>]])
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span>        self<span style="color:#666">.</span>DOF <span style="color:#666">=</span> np<span style="color:#666">.</span>array([[<span style="color:#666">0</span>, <span style="color:#666">1</span>, <span style="color:#666">8</span>, <span style="color:#666">9</span>, <span style="color:#666">16</span>, <span style="color:#666">17</span>, <span style="color:#666">14</span>, <span style="color:#666">15</span>],
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span>                             [<span style="color:#666">8</span>, <span style="color:#666">9</span>, <span style="color:#666">2</span>, <span style="color:#666">3</span>, <span style="color:#666">10</span>, <span style="color:#666">11</span>, <span style="color:#666">16</span>, <span style="color:#666">17</span>],
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span>                             [<span style="color:#666">16</span>, <span style="color:#666">17</span>, <span style="color:#666">10</span>, <span style="color:#666">11</span>, <span style="color:#666">4</span>, <span style="color:#666">5</span>, <span style="color:#666">12</span>, <span style="color:#666">13</span>],
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span>                             [<span style="color:#666">14</span>, <span style="color:#666">15</span>, <span style="color:#666">16</span>, <span style="color:#666">17</span>, <span style="color:#666">12</span>, <span style="color:#666">13</span>, <span style="color:#666">6</span>, <span style="color:#666">7</span>]])
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span>        self<span style="color:#666">.</span>surf_of_ele <span style="color:#666">=</span> [<span style="color:#666">0</span>, <span style="color:#666">0</span>, <span style="color:#666">0</span>, <span style="color:#666">0</span>]  <span style="color:#080;font-style:italic"># surface 0 for all elements</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span><span style="color:#a2f;font-weight:bold">def</span> <span style="color:#00a000">K_matrix</span>(model, material):
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span>    <span style="color:#b44">&#34;&#34;&#34;Build the GLOBAL stiffnees (K) matrix&#34;&#34;&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span>    K <span style="color:#666">=</span> np<span style="color:#666">.</span>zeros((model<span style="color:#666">.</span>ndof, model<span style="color:#666">.</span>ndof))
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27</span>    <span style="color:#a2f;font-weight:bold">for</span> e, conn <span style="color:#a2f;font-weight:bold">in</span> <span style="color:#a2f">enumerate</span>(model<span style="color:#666">.</span>CONN):
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28</span>        xyz <span style="color:#666">=</span> model<span style="color:#666">.</span>XYZ[conn]   <span style="color:#080;font-style:italic"># coordinates of nodes in element e</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29</span>        surf <span style="color:#666">=</span> model<span style="color:#666">.</span>surf_of_ele[e]
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30</span>        dof <span style="color:#666">=</span> model<span style="color:#666">.</span>DOF[e]
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32</span>        mat <span style="color:#666">=</span> material[surf]          <span style="color:#080;font-style:italic"># material from the surf tag</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34</span>        k <span style="color:#666">=</span> k_matrix(model, xyz, mat)  <span style="color:#080;font-style:italic"># This is where the ANALYSIS encounter the MODEL</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36</span>        <span style="color:#a2f">id</span> <span style="color:#666">=</span> np<span style="color:#666">.</span>ix_(dof, dof)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38</span>        K[<span style="color:#a2f">id</span>] <span style="color:#666">+=</span> k              <span style="color:#080;font-style:italic"># Assemble</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39</span>    <span style="color:#a2f;font-weight:bold">return</span> K
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41</span><span style="color:#a2f;font-weight:bold">def</span> <span style="color:#00a000">k_matrix</span>(model, xyz, mat):
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42</span>    <span style="color:#b44">&#34;&#34;&#34;Build the ELEMENT stiffness (k) matrix&#34;&#34;&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43</span>    k <span style="color:#666">=</span> np<span style="color:#666">.</span>zeros((<span style="color:#666">8</span>, <span style="color:#666">8</span>))
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44</span>    <span style="color:#a2f;font-weight:bold">return</span> k
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46</span>model <span style="color:#666">=</span> Model()                 <span style="color:#080;font-style:italic"># instanciate the Model class</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47</span>material <span style="color:#666">=</span> {<span style="color:#666">0</span>: <span style="color:#666">10</span>}              <span style="color:#080;font-style:italic"># material property for each surface key</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48</span>K <span style="color:#666">=</span> K_matrix(model, material)</code></pre></div>
 </div>
 <p>
 We can see that if we try to implement a new element type, the <code class="verbatim">k_matrix</code> would have to change.
@@ -249,43 +256,43 @@ object <code class="verbatim">Model</code>
 <div id="outline-text-headline-7" class="outline-text-4">
 <p>First a class for the <code class="verbatim">Model</code>. This class will take a file as argument and extract data from it.</p>
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">import</span> <span style="color:#b06;font-weight:bold">numpy</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#b06;font-weight:bold">np</span>
-
-
-<span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">Model</span>(<span style="color:#038">object</span>):
-    <span style="color:#d20;background-color:#fff0f0">&#34;&#34;&#34;Builds a Model object&#34;&#34;&#34;</span>
-    <span style="color:#080;font-weight:bold">def</span> __init__(self):
-        self.ne = <span style="color:#00d;font-weight:bold">4</span>             <span style="color:#888"># number of elements</span>
-        self.nn = <span style="color:#00d;font-weight:bold">9</span>             <span style="color:#888"># number of nodes</span>
-        self.ndof = <span style="color:#00d;font-weight:bold">18</span>         <span style="color:#888"># number of degrees of freedom</span>
-
-        self.XYZ = np.array([[<span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">0</span>],
-                             [<span style="color:#00d;font-weight:bold">1</span>, <span style="color:#00d;font-weight:bold">0</span>],
-                             [<span style="color:#00d;font-weight:bold">1</span>, <span style="color:#00d;font-weight:bold">1</span>],
-                             [<span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">1</span>],
-                             [.<span style="color:#00d;font-weight:bold">5</span>, <span style="color:#00d;font-weight:bold">0</span>], 
-                             [<span style="color:#00d;font-weight:bold">1</span>, .<span style="color:#00d;font-weight:bold">5</span>],
-                             [.<span style="color:#00d;font-weight:bold">5</span>, <span style="color:#00d;font-weight:bold">1</span>],
-                             [<span style="color:#00d;font-weight:bold">0</span>, .<span style="color:#00d;font-weight:bold">5</span>],
-                             [.<span style="color:#00d;font-weight:bold">5</span>, .<span style="color:#00d;font-weight:bold">5</span>]])
-
-        self.CONN = np.array([[<span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">4</span>, <span style="color:#00d;font-weight:bold">8</span>, <span style="color:#00d;font-weight:bold">7</span>], 
-                              [<span style="color:#00d;font-weight:bold">4</span>, <span style="color:#00d;font-weight:bold">1</span>, <span style="color:#00d;font-weight:bold">5</span>, <span style="color:#00d;font-weight:bold">8</span>],
-                              [<span style="color:#00d;font-weight:bold">8</span>, <span style="color:#00d;font-weight:bold">5</span>, <span style="color:#00d;font-weight:bold">2</span>, <span style="color:#00d;font-weight:bold">6</span>], 
-                              [<span style="color:#00d;font-weight:bold">7</span>, <span style="color:#00d;font-weight:bold">8</span>, <span style="color:#00d;font-weight:bold">6</span>, <span style="color:#00d;font-weight:bold">3</span>]])
-
-        self.DOF = np.array([[<span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">1</span>, <span style="color:#00d;font-weight:bold">8</span>, <span style="color:#00d;font-weight:bold">9</span>, <span style="color:#00d;font-weight:bold">16</span>, <span style="color:#00d;font-weight:bold">17</span>, <span style="color:#00d;font-weight:bold">14</span>, <span style="color:#00d;font-weight:bold">15</span>],
-                             [<span style="color:#00d;font-weight:bold">8</span>, <span style="color:#00d;font-weight:bold">9</span>, <span style="color:#00d;font-weight:bold">2</span>, <span style="color:#00d;font-weight:bold">3</span>, <span style="color:#00d;font-weight:bold">10</span>, <span style="color:#00d;font-weight:bold">11</span>, <span style="color:#00d;font-weight:bold">16</span>, <span style="color:#00d;font-weight:bold">17</span>],
-                             [<span style="color:#00d;font-weight:bold">16</span>, <span style="color:#00d;font-weight:bold">17</span>, <span style="color:#00d;font-weight:bold">10</span>, <span style="color:#00d;font-weight:bold">11</span>, <span style="color:#00d;font-weight:bold">4</span>, <span style="color:#00d;font-weight:bold">5</span>, <span style="color:#00d;font-weight:bold">12</span>, <span style="color:#00d;font-weight:bold">13</span>],
-                             [<span style="color:#00d;font-weight:bold">14</span>, <span style="color:#00d;font-weight:bold">15</span>, <span style="color:#00d;font-weight:bold">16</span>, <span style="color:#00d;font-weight:bold">17</span>, <span style="color:#00d;font-weight:bold">12</span>, <span style="color:#00d;font-weight:bold">13</span>, <span style="color:#00d;font-weight:bold">6</span>, <span style="color:#00d;font-weight:bold">7</span>]])
-
-        self.surf_of_ele = [<span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">0</span>]  <span style="color:#888"># surface 0 for all elements</span>
-
-        self.physical_surf = [<span style="color:#00d;font-weight:bold">0</span>]         <span style="color:#888"># physical surfaces tag</span>
-
-        self.TYPE = [<span style="color:#00d;font-weight:bold">3</span>, <span style="color:#00d;font-weight:bold">3</span>, <span style="color:#00d;font-weight:bold">3</span>, <span style="color:#00d;font-weight:bold">3</span>]
-
-model = Model()                 <span style="color:#888"># Instanciate a Model object</span></code></pre></div>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">numpy</span> <span style="color:#a2f;font-weight:bold">as</span> <span style="color:#00f;font-weight:bold">np</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">Model</span>(<span style="color:#a2f">object</span>):
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span>    <span style="color:#b44">&#34;&#34;&#34;Builds a Model object&#34;&#34;&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span>    <span style="color:#a2f;font-weight:bold">def</span> __init__(self):
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span>        self<span style="color:#666">.</span>ne <span style="color:#666">=</span> <span style="color:#666">4</span>             <span style="color:#080;font-style:italic"># number of elements</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span>        self<span style="color:#666">.</span>nn <span style="color:#666">=</span> <span style="color:#666">9</span>             <span style="color:#080;font-style:italic"># number of nodes</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span>        self<span style="color:#666">.</span>ndof <span style="color:#666">=</span> <span style="color:#666">18</span>         <span style="color:#080;font-style:italic"># number of degrees of freedom</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span>        self<span style="color:#666">.</span>XYZ <span style="color:#666">=</span> np<span style="color:#666">.</span>array([[<span style="color:#666">0</span>, <span style="color:#666">0</span>],
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span>                             [<span style="color:#666">1</span>, <span style="color:#666">0</span>],
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span>                             [<span style="color:#666">1</span>, <span style="color:#666">1</span>],
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span>                             [<span style="color:#666">0</span>, <span style="color:#666">1</span>],
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span>                             [<span style="color:#666">.</span><span style="color:#666">5</span>, <span style="color:#666">0</span>], 
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span>                             [<span style="color:#666">1</span>, <span style="color:#666">.</span><span style="color:#666">5</span>],
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span>                             [<span style="color:#666">.</span><span style="color:#666">5</span>, <span style="color:#666">1</span>],
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span>                             [<span style="color:#666">0</span>, <span style="color:#666">.</span><span style="color:#666">5</span>],
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span>                             [<span style="color:#666">.</span><span style="color:#666">5</span>, <span style="color:#666">.</span><span style="color:#666">5</span>]])
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span>        self<span style="color:#666">.</span>CONN <span style="color:#666">=</span> np<span style="color:#666">.</span>array([[<span style="color:#666">0</span>, <span style="color:#666">4</span>, <span style="color:#666">8</span>, <span style="color:#666">7</span>], 
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span>                              [<span style="color:#666">4</span>, <span style="color:#666">1</span>, <span style="color:#666">5</span>, <span style="color:#666">8</span>],
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span>                              [<span style="color:#666">8</span>, <span style="color:#666">5</span>, <span style="color:#666">2</span>, <span style="color:#666">6</span>], 
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span>                              [<span style="color:#666">7</span>, <span style="color:#666">8</span>, <span style="color:#666">6</span>, <span style="color:#666">3</span>]])
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26</span>        self<span style="color:#666">.</span>DOF <span style="color:#666">=</span> np<span style="color:#666">.</span>array([[<span style="color:#666">0</span>, <span style="color:#666">1</span>, <span style="color:#666">8</span>, <span style="color:#666">9</span>, <span style="color:#666">16</span>, <span style="color:#666">17</span>, <span style="color:#666">14</span>, <span style="color:#666">15</span>],
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27</span>                             [<span style="color:#666">8</span>, <span style="color:#666">9</span>, <span style="color:#666">2</span>, <span style="color:#666">3</span>, <span style="color:#666">10</span>, <span style="color:#666">11</span>, <span style="color:#666">16</span>, <span style="color:#666">17</span>],
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28</span>                             [<span style="color:#666">16</span>, <span style="color:#666">17</span>, <span style="color:#666">10</span>, <span style="color:#666">11</span>, <span style="color:#666">4</span>, <span style="color:#666">5</span>, <span style="color:#666">12</span>, <span style="color:#666">13</span>],
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29</span>                             [<span style="color:#666">14</span>, <span style="color:#666">15</span>, <span style="color:#666">16</span>, <span style="color:#666">17</span>, <span style="color:#666">12</span>, <span style="color:#666">13</span>, <span style="color:#666">6</span>, <span style="color:#666">7</span>]])
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31</span>        self<span style="color:#666">.</span>surf_of_ele <span style="color:#666">=</span> [<span style="color:#666">0</span>, <span style="color:#666">0</span>, <span style="color:#666">0</span>, <span style="color:#666">0</span>]  <span style="color:#080;font-style:italic"># surface 0 for all elements</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33</span>        self<span style="color:#666">.</span>physical_surf <span style="color:#666">=</span> [<span style="color:#666">0</span>]         <span style="color:#080;font-style:italic"># physical surfaces tag</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35</span>        self<span style="color:#666">.</span>TYPE <span style="color:#666">=</span> [<span style="color:#666">3</span>, <span style="color:#666">3</span>, <span style="color:#666">3</span>, <span style="color:#666">3</span>]
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37</span>model <span style="color:#666">=</span> Model()                 <span style="color:#080;font-style:italic"># Instanciate a Model object</span></code></pre></div>
 </div>
 <p>
 This object contains all parameters that describe the physical entity analyzed. </p>
@@ -302,18 +309,18 @@ This object contains material parameters.
  The materials are set in the most general way, the key is the material property and the value is a dictionary whose key is the surface and the value is the physical value of the property.
  The <code class="verbatim">__dict__</code> attribute contains the instance attributes as dictionary and the <code class="verbatim">update()</code> method, an dictionary method, adds a new entry to the dictionary.</p>
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">Material</span>(<span style="color:#038">object</span>):
-    <span style="color:#d20;background-color:#fff0f0">&#34;&#34;&#34;Builds a Material object&#34;&#34;&#34;</span>
-    <span style="color:#080;font-weight:bold">def</span> __init__(self, **kw):
-        self.__dict__.update(kw)
-
-material = Material(E={}, nu={<span style="color:#00d;font-weight:bold">0</span>: <span style="color:#00d;font-weight:bold">0.2</span>})
-
-<span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">E_time_dependent</span>(t=<span style="color:#00d;font-weight:bold">1</span>):
-    <span style="color:#080;font-weight:bold">return</span> <span style="color:#00d;font-weight:bold">1e5</span>*t
-
-material.E[model.physical_surf[<span style="color:#00d;font-weight:bold">0</span>]] = E_time_dependent
-<span style="color:#080;font-weight:bold">print</span>(material.E, material.nu, material.__dict__)</code></pre></div>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">Material</span>(<span style="color:#a2f">object</span>):
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>    <span style="color:#b44">&#34;&#34;&#34;Builds a Material object&#34;&#34;&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>    <span style="color:#a2f;font-weight:bold">def</span> __init__(self, <span style="color:#666">**</span>kw):
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>        self<span style="color:#666">.</span>__dict__<span style="color:#666">.</span>update(kw)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span>material <span style="color:#666">=</span> Material(E<span style="color:#666">=</span>{}, nu<span style="color:#666">=</span>{<span style="color:#666">0</span>: <span style="color:#666">0.2</span>})
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span style="color:#a2f;font-weight:bold">def</span> <span style="color:#00a000">E_time_dependent</span>(t<span style="color:#666">=</span><span style="color:#666">1</span>):
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span>    <span style="color:#a2f;font-weight:bold">return</span> <span style="color:#666">1e5</span><span style="color:#666">*</span>t
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span>material<span style="color:#666">.</span>E[model<span style="color:#666">.</span>physical_surf[<span style="color:#666">0</span>]] <span style="color:#666">=</span> E_time_dependent
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span style="color:#a2f;font-weight:bold">print</span>(material<span style="color:#666">.</span>E, material<span style="color:#666">.</span>nu, material<span style="color:#666">.</span>__dict__)</code></pre></div>
 </div>
 <pre class="example">
 {0: &lt;function E_time_dependent at 0x0000021DD38717B8&gt;} {0: 0.2} {&#39;nu&#39;: {0: 0.2}, &#39;E&#39;: {0: &lt;function E_time_dependent at 0x0000021DD38717B8&gt;}}
@@ -348,48 +355,48 @@ object <code class="verbatim">Element</code>
 The element object contains the constructor of element matrices and vectors.
 It is created only when the solver is assembling the global matrices.</p>
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">Element</span>(<span style="color:#038">object</span>):
-    <span style="color:#d20;background-color:#fff0f0">&#34;&#34;&#34;Build an Element object with a constructor for a specific element type&#34;&#34;&#34;</span>
-
-    <span style="color:#080;font-weight:bold">def</span> __init__(self, eid, model):
-        Element.type = model.TYPE[eid]
-        Element.conn = model.CONN[eid]
-        Element.xyz = model.XYZ[self.conn]
-        Element.dof = model.DOF[eid]  <span style="color:#888"># dof must be know a priori</span>
-        Element.surf = model.surf_of_ele[eid]
-
-        <span style="color:#080;font-weight:bold">if</span> Element.type == <span style="color:#00d;font-weight:bold">3</span>:
-            self.constructor = Quad4()
-        <span style="color:#080;font-weight:bold">elif</span> Element.type == <span style="color:#00d;font-weight:bold">4</span>:
-            self.constructor = Quad9()
-        <span style="color:#080;font-weight:bold">else</span>:
-            <span style="color:#080;font-weight:bold">raise</span> <span style="color:#b06;font-weight:bold">Exception</span>(<span style="color:#d20;background-color:#fff0f0">&#39;Element not implemented yet!&#39;</span>)
-
-
-<span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">Quad4</span>(<span style="color:#038">object</span>):
-    <span style="color:#d20;background-color:#fff0f0">&#34;&#34;&#34;Constructor of a 4-node quadrangle (TYPE 3) element&#34;&#34;&#34;</span>
-
-    <span style="color:#555">@staticmethod</span>
-    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">stiffness</span>(material):
-        <span style="color:#080;font-weight:bold">try</span>:
-            E = material.E[Element.surf]
-        <span style="color:#080;font-weight:bold">except</span>:
-            <span style="color:#080;font-weight:bold">raise</span> <span style="color:#b06;font-weight:bold">Exception</span>(<span style="color:#d20;background-color:#fff0f0">&#39;Material not assigned for surface!&#39;</span>)
-        
-        k = np.zeros((<span style="color:#00d;font-weight:bold">8</span>, <span style="color:#00d;font-weight:bold">8</span>))
-        <span style="color:#080;font-weight:bold">return</span> k
-        
-
-<span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">Quad9</span>(<span style="color:#038">object</span>):
-    <span style="color:#d20;background-color:#fff0f0">&#34;&#34;&#34;Constructur of a 9-node quadrangle (TYPE 10) element&#34;&#34;&#34;</span>
-    <span style="color:#555">@staticmethod</span>
-    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">stiffness</span>(material):
-        <span style="color:#080;font-weight:bold">pass</span>
-
-
-element_test_obj = Element(<span style="color:#00d;font-weight:bold">1</span>, model)
-<span style="color:#080;font-weight:bold">print</span>(element_test_obj.type)
-<span style="color:#080;font-weight:bold">print</span>(element_test_obj.constructor.stiffness(material))</code></pre></div>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">Element</span>(<span style="color:#a2f">object</span>):
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>    <span style="color:#b44">&#34;&#34;&#34;Build an Element object with a constructor for a specific element type&#34;&#34;&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>    <span style="color:#a2f;font-weight:bold">def</span> __init__(self, eid, model):
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span>        Element<span style="color:#666">.</span>type <span style="color:#666">=</span> model<span style="color:#666">.</span>TYPE[eid]
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span>        Element<span style="color:#666">.</span>conn <span style="color:#666">=</span> model<span style="color:#666">.</span>CONN[eid]
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span>        Element<span style="color:#666">.</span>xyz <span style="color:#666">=</span> model<span style="color:#666">.</span>XYZ[self<span style="color:#666">.</span>conn]
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span>        Element<span style="color:#666">.</span>dof <span style="color:#666">=</span> model<span style="color:#666">.</span>DOF[eid]  <span style="color:#080;font-style:italic"># dof must be know a priori</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span>        Element<span style="color:#666">.</span>surf <span style="color:#666">=</span> model<span style="color:#666">.</span>surf_of_ele[eid]
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span>        <span style="color:#a2f;font-weight:bold">if</span> Element<span style="color:#666">.</span>type <span style="color:#666">==</span> <span style="color:#666">3</span>:
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span>            self<span style="color:#666">.</span>constructor <span style="color:#666">=</span> Quad4()
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span>        <span style="color:#a2f;font-weight:bold">elif</span> Element<span style="color:#666">.</span>type <span style="color:#666">==</span> <span style="color:#666">4</span>:
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span>            self<span style="color:#666">.</span>constructor <span style="color:#666">=</span> Quad9()
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span>        <span style="color:#a2f;font-weight:bold">else</span>:
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span>            <span style="color:#a2f;font-weight:bold">raise</span> <span style="color:#d2413a;font-weight:bold">Exception</span>(<span style="color:#b44">&#39;Element not implemented yet!&#39;</span>)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span><span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">Quad4</span>(<span style="color:#a2f">object</span>):
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span>    <span style="color:#b44">&#34;&#34;&#34;Constructor of a 4-node quadrangle (TYPE 3) element&#34;&#34;&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span>    <span style="color:#a2f">@staticmethod</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span>    <span style="color:#a2f;font-weight:bold">def</span> <span style="color:#00a000">stiffness</span>(material):
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span>        <span style="color:#a2f;font-weight:bold">try</span>:
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span>            E <span style="color:#666">=</span> material<span style="color:#666">.</span>E[Element<span style="color:#666">.</span>surf]
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26</span>        <span style="color:#a2f;font-weight:bold">except</span>:
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27</span>            <span style="color:#a2f;font-weight:bold">raise</span> <span style="color:#d2413a;font-weight:bold">Exception</span>(<span style="color:#b44">&#39;Material not assigned for surface!&#39;</span>)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28</span>        
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29</span>        k <span style="color:#666">=</span> np<span style="color:#666">.</span>zeros((<span style="color:#666">8</span>, <span style="color:#666">8</span>))
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30</span>        <span style="color:#a2f;font-weight:bold">return</span> k
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31</span>        
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33</span><span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">Quad9</span>(<span style="color:#a2f">object</span>):
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34</span>    <span style="color:#b44">&#34;&#34;&#34;Constructur of a 9-node quadrangle (TYPE 10) element&#34;&#34;&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35</span>    <span style="color:#a2f">@staticmethod</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36</span>    <span style="color:#a2f;font-weight:bold">def</span> <span style="color:#00a000">stiffness</span>(material):
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37</span>        <span style="color:#a2f;font-weight:bold">pass</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40</span>element_test_obj <span style="color:#666">=</span> Element(<span style="color:#666">1</span>, model)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41</span><span style="color:#a2f;font-weight:bold">print</span>(element_test_obj<span style="color:#666">.</span>type)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42</span><span style="color:#a2f;font-weight:bold">print</span>(element_test_obj<span style="color:#666">.</span>constructor<span style="color:#666">.</span>stiffness(material))</code></pre></div>
 </div>
 <pre class="example">
 3
@@ -448,23 +455,23 @@ The solver module contain the procedure to solve the problem.
 <p>
 Inside the solver module there are the assembler functions (in different modules), for instance, the stiffness matrix assembler.</p>
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">K_matrix</span>(model, material):
-    <span style="color:#d20;background-color:#fff0f0">&#34;&#34;&#34;Build the GLOBAL stiffness matrix&#34;&#34;&#34;</span>
-    K = np.zeros((model.ndof, model.ndof))
-    
-    <span style="color:#080;font-weight:bold">for</span> eid <span style="color:#080">in</span> <span style="color:#038">range</span>(model.ne):
-        element = Element(eid, model)  <span style="color:#888"># Build the element based on type</span>
-        k = element.constructor.stiffness(material)  <span style="color:#888"># constructor for each element type</span>
-        <span style="color:#038">id</span> = np.ix_(element.dof, element.dof)
-        K[<span style="color:#038">id</span>] += k
-    <span style="color:#080;font-weight:bold">return</span> K</code></pre></div>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#a2f;font-weight:bold">def</span> <span style="color:#00a000">K_matrix</span>(model, material):
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>    <span style="color:#b44">&#34;&#34;&#34;Build the GLOBAL stiffness matrix&#34;&#34;&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>    K <span style="color:#666">=</span> np<span style="color:#666">.</span>zeros((model<span style="color:#666">.</span>ndof, model<span style="color:#666">.</span>ndof))
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>    
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span>    <span style="color:#a2f;font-weight:bold">for</span> eid <span style="color:#a2f;font-weight:bold">in</span> <span style="color:#a2f">range</span>(model<span style="color:#666">.</span>ne):
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span>        element <span style="color:#666">=</span> Element(eid, model)  <span style="color:#080;font-style:italic"># Build the element based on type</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span>        k <span style="color:#666">=</span> element<span style="color:#666">.</span>constructor<span style="color:#666">.</span>stiffness(material)  <span style="color:#080;font-style:italic"># constructor for each element type</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span>        <span style="color:#a2f">id</span> <span style="color:#666">=</span> np<span style="color:#666">.</span>ix_(element<span style="color:#666">.</span>dof, element<span style="color:#666">.</span>dof)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span>        K[<span style="color:#a2f">id</span>] <span style="color:#666">+=</span> k
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span>    <span style="color:#a2f;font-weight:bold">return</span> K</code></pre></div>
 </div>
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">solver</span>(model, material):
-    <span style="color:#d20;background-color:#fff0f0">&#34;&#34;&#34;Solves the problem&#34;&#34;&#34;</span>
-    K = K_matrix(model, material)
-
-solver(model, material)</code></pre></div>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#a2f;font-weight:bold">def</span> <span style="color:#00a000">solver</span>(model, material):
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>    <span style="color:#b44">&#34;&#34;&#34;Solves the problem&#34;&#34;&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>    K <span style="color:#666">=</span> K_matrix(model, material)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span>solver(model, material)</code></pre></div>
 </div>
 </div>
 </div>
@@ -484,9 +491,13 @@ solver(model, material)</code></pre></div>
     <nav>
       <ul>
          
-        <li><a href="/">about</a></li>
+        <li><a href="/">home</a></li>
          
         <li><a href="/notes">notes</a></li>
+         
+        <li><a href="/tags">tags</a></li>
+         
+        <li><a href="/about">about</a></li>
         
       </ul>
     </nav>
