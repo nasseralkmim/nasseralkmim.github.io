@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
-  <link rel="preload" href="/lib/font-awesome/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-  <link rel="preload" href="/lib/font-awesome/webfonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-  <link rel="preload" href="/lib/font-awesome/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-  <link rel="preload" href="/lib/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="../../lib/font-awesome/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="../../lib/font-awesome/webfonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="../../lib/font-awesome/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="../../lib/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title> Performance de um portfolio | Nasser&#39;s notes repository</title>
   <link rel = 'canonical' href = 'https://nasseralkmim.github.io/notes/portfolio-performance/'>
-  
+  <meta name="description" content="This is a page where I collect some of my post-worthy notes and some projects that I have worked on.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="all,follow">
   <meta name="googlebot" content="index,follow,snippet,archive">
   <meta property="og:title" content="Performance de um portfolio" />
-<meta property="og:description" content="Introdução  E ai? quanto rendeu seu portfólio? Fácil, $$R_p = V_{final}/V_{inicial} - 1$$ certo? sim, se você investiu em um único aporte." />
+<meta property="og:description" content="Introdução  E ai?" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://nasseralkmim.github.io/notes/portfolio-performance/" /><meta property="article:section" content="notes" />
 <meta property="article:published_time" content="2020-12-26T00:00:00&#43;00:00" />
@@ -23,14 +23,14 @@
 
   <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Performance de um portfolio"/>
-<meta name="twitter:description" content="Introdução  E ai? quanto rendeu seu portfólio? Fácil, $$R_p = V_{final}/V_{inicial} - 1$$ certo? sim, se você investiu em um único aporte."/>
+<meta name="twitter:description" content="Introdução  E ai?"/>
 
   
   
     
   
   
-  <link rel="stylesheet" href="https://nasseralkmim.github.io/css/styles.94f653e9e151e28067a7c5dbbc4600cbd5a3c721e79faaf971e523c40f3b249b8e4f20bb57810dfffa8d559ca5c140fd56eb4cd9c0853113ad08e66afdb08bdd.css" integrity="sha512-lPZT6eFR4oBnp8XbvEYAy9WjxyHnn6r5ceUjxA87JJuOTyC7V4EN//qNVZylwUD9VutM2cCFMROtCOZq/bCL3Q=="> 
+  <link rel="stylesheet" href="https://nasseralkmim.github.io/css/styles.f2289a5a0f5e652a95f543227114a7af2973ea5ea6a71233e32f9cb6ab7789134f6a88c6cdffb7cb02acc9470ac67f3f321e5368cc4e6bcdaeec6e61a0b73051.css" integrity="sha512-8iiaWg9eZSqV9UMicRSnrylz6l6mpxIz4y&#43;ctqt3iRNPaojGzf&#43;3ywKsyUcKxn8/Mh5TaMxOa82u7G5hoLcwUQ=="> 
 
   
   
@@ -68,41 +68,214 @@ if (!doNotTrack) {
 <body class="max-width mx-auto px3 ltr">
   <div class="content index py4">
 
-    <header id="header">
-  <a href="https://nasseralkmim.github.io/">
+  <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;" aria-label="Top of Page"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+        <li><a href="../../">home</a></li>
+         
+        <li><a href="../../notes">notes</a></li>
+         
+        <li><a href="../../tags">tags</a></li>
+         
+        <li><a href="../../about">about</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li>
+          <a class="icon" href=" https://nasseralkmim.github.io/notes/finace-python/" aria-label="Previous">
+            <i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i>
+          </a>
+        </li>
+        
+        
+        <li>
+          <a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" aria-label="Top of Page">
+            <i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i>
+          </a>
+        </li>
+        <li>
+          <a class="icon" href="#" aria-label="Share">
+            <i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i>
+          </a>
+        </li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      
+      <ul>
   
-    <div id="logo" style="background-image: url(https://nasseralkmim.github.io/images/logo.png)"></div>
   
-  <div id="title">
-    <h1>Nasser&#39;s notes repository</h1>
-  </div>
-  </a>
-  <div id="nav">
-    <ul>
-      <li class="icon">
-        <a href="#" aria-label="Menu"><i class="fas fa-bars fa-2x" aria-hidden="true"></i></a>
-      </li>
-      
-        <li><a href="/">home</a></li>
-      
-        <li><a href="/notes">notes</a></li>
-      
-        <li><a href="/tags">tags</a></li>
-      
-        <li><a href="/about">about</a></li>
-      
-    </ul>
-  </div>
-</header>
-
-
-
     
-<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-
-  <div class="content" itemprop="articleBody">
   
-    
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fnasseralkmim.github.io%2fnotes%2fportfolio-performance%2f" aria-label="Facebook">
+      <i class="fab fa-facebook " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2fnasseralkmim.github.io%2fnotes%2fportfolio-performance%2f&text=Performance%20de%20um%20portfolio" aria-label="Twitter">
+      <i class="fab fa-twitter " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fnasseralkmim.github.io%2fnotes%2fportfolio-performance%2f&title=Performance%20de%20um%20portfolio" aria-label="Linkedin">
+      <i class="fab fa-linkedin " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fnasseralkmim.github.io%2fnotes%2fportfolio-performance%2f&is_video=false&description=Performance%20de%20um%20portfolio" aria-label="Pinterest">
+      <i class="fab fa-pinterest " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=Performance%20de%20um%20portfolio&body=Check out this article: https%3a%2f%2fnasseralkmim.github.io%2fnotes%2fportfolio-performance%2f" aria-label="Email">
+      <i class="fas fa-envelope " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2fnasseralkmim.github.io%2fnotes%2fportfolio-performance%2f&title=Performance%20de%20um%20portfolio" aria-label="Pocket">
+      <i class="fab fa-get-pocket " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2fnasseralkmim.github.io%2fnotes%2fportfolio-performance%2f&title=Performance%20de%20um%20portfolio" aria-label="reddit">
+      <i class="fab fa-reddit " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fnasseralkmim.github.io%2fnotes%2fportfolio-performance%2f&name=Performance%20de%20um%20portfolio&description=Introdu%c3%a7%c3%a3o%20%20E%20ai%3f" aria-label="Tumblr">
+      <i class="fab fa-tumblr " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fnasseralkmim.github.io%2fnotes%2fportfolio-performance%2f&t=Performance%20de%20um%20portfolio" aria-label="Hacker News">
+      <i class="fab fa-hacker-news " aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <nav id="TableOfContents">
+<ul>
+<li><a href="#headline-1">Introdução</a>
+</li>
+<li><a href="#headline-2">Métodos para avaliar retorno de um portfolio</a>
+</li>
+<li><a href="#headline-3">Exemplo</a>
+</li>
+<li><a href="#headline-4">Implementação</a>
+<ul>
+<li><a href="#headline-5">Preliminares</a>
+</li>
+<li><a href="#headline-6">Input</a>
+</li>
+<li><a href="#headline-7">Processar trades</a>
+</li>
+<li><a href="#headline-8">Consolidar portfolio</a>
+</li>
+<li><a href="#headline-9">Retorno do portfolio</a>
+</li>
+<li><a href="#headline-10">Resultados</a>
+</li>
+</ul>
+</li>
+<li><a href="#headline-11">Referências</a>
+</li>
+<li><a href="#headline-12">Footnotes</a>
+</li>
+</ul>
+</nav>
+    </div>
+  </span>
+</div>
+
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+    <header>
+      <h1 class="posttitle" itemprop="name headline">
+        Performance de um portfolio
+      </h1>
+      <div class="meta">
+        
+        <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <span itemprop="name">
+            
+              Nasser&#39;s notes repository
+            
+          </span>
+        </span>
+        
+        <div class="postdate">
+          
+          <time datetime="2020-12-26 00:00:00 &#43;0000 UTC" itemprop="datePublished">Dec 26 2020</time>
+          
+        </div>
+        
+        
+        <div class="article-read-time">
+          <i class="far fa-clock"></i>
+          
+          5 minute read
+        </div>
+        
+        
+        
+        <div class="article-tag">
+            <i class="fas fa-tag"></i>
+            
+            
+            <a class="tag-link" href="../../tags/finance" rel="tag">finance</a>
+            
+             ,  
+            <a class="tag-link" href="../../tags/python" rel="tag">python</a>
+            
+             ,  
+            <a class="tag-link" href="../../tags/data-analysis" rel="tag">data-analysis</a>
+            
+             ,  
+            <a class="tag-link" href="../../tags/portugues" rel="tag">portugues</a>
+            
+        </div>
+        
+      </div>
+    </header>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+    <div class="content" itemprop="articleBody">
+      
 <div id="outline-container-headline-1" class="outline-2">
 <h2 id="headline-1">
 Introdução
@@ -400,26 +573,170 @@ Footnotes
 </div>
 </div>
 
+    </div>
+  </article>
+
+   
+
+<hr />
+<h2>See Also</h2>
+<ul>
   
+  <li><a href="../../notes/finace-python/">Finance data in python</a></li>
+  
+  <li><a href="../../notes/extrator-dividendos/">Extrator de dividendos</a></li>
+  
+  <li><a href="../../notes/topic_modelig/">Topic modeling</a></li>
+  
+</ul>
+
+
+
+  
+  
+
+
+
+
+
+  <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="../../">home</a></li>
+         
+          <li><a href="../../notes">notes</a></li>
+         
+          <li><a href="../../tags">tags</a></li>
+         
+          <li><a href="../../about">about</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <nav id="TableOfContents">
+<ul>
+<li><a href="#headline-1">Introdução</a>
+</li>
+<li><a href="#headline-2">Métodos para avaliar retorno de um portfolio</a>
+</li>
+<li><a href="#headline-3">Exemplo</a>
+</li>
+<li><a href="#headline-4">Implementação</a>
+<ul>
+<li><a href="#headline-5">Preliminares</a>
+</li>
+<li><a href="#headline-6">Input</a>
+</li>
+<li><a href="#headline-7">Processar trades</a>
+</li>
+<li><a href="#headline-8">Consolidar portfolio</a>
+</li>
+<li><a href="#headline-9">Retorno do portfolio</a>
+</li>
+<li><a href="#headline-10">Resultados</a>
+</li>
+</ul>
+</li>
+<li><a href="#headline-11">Referências</a>
+</li>
+<li><a href="#headline-12">Footnotes</a>
+</li>
+</ul>
+</nav>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fnasseralkmim.github.io%2fnotes%2fportfolio-performance%2f" aria-label="Facebook">
+      <i class="fab fa-facebook fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2fnasseralkmim.github.io%2fnotes%2fportfolio-performance%2f&text=Performance%20de%20um%20portfolio" aria-label="Twitter">
+      <i class="fab fa-twitter fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fnasseralkmim.github.io%2fnotes%2fportfolio-performance%2f&title=Performance%20de%20um%20portfolio" aria-label="Linkedin">
+      <i class="fab fa-linkedin fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fnasseralkmim.github.io%2fnotes%2fportfolio-performance%2f&is_video=false&description=Performance%20de%20um%20portfolio" aria-label="Pinterest">
+      <i class="fab fa-pinterest fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=Performance%20de%20um%20portfolio&body=Check out this article: https%3a%2f%2fnasseralkmim.github.io%2fnotes%2fportfolio-performance%2f" aria-label="Email">
+      <i class="fas fa-envelope fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2fnasseralkmim.github.io%2fnotes%2fportfolio-performance%2f&title=Performance%20de%20um%20portfolio" aria-label="Pocket">
+      <i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2fnasseralkmim.github.io%2fnotes%2fportfolio-performance%2f&title=Performance%20de%20um%20portfolio" aria-label="reddit">
+      <i class="fab fa-reddit fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fnasseralkmim.github.io%2fnotes%2fportfolio-performance%2f&name=Performance%20de%20um%20portfolio&description=Introdu%c3%a7%c3%a3o%20%20E%20ai%3f" aria-label="Tumblr">
+      <i class="fab fa-tumblr fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fnasseralkmim.github.io%2fnotes%2fportfolio-performance%2f&t=Performance%20de%20um%20portfolio" aria-label="Hacker News">
+      <i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      
+        <a id="menu-toggle" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;" aria-label="Menu">
+          <i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc-toggle" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;" aria-label="TOC">
+          <i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share-toggle" class="icon" href="#" onclick="$('#share-footer').toggle();return false;" aria-label="Share">
+          <i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" aria-label="Top of Page">
+          <i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
   </div>
-</article>
+</div>
 
 
-    <footer id="footer">
+  <footer id="footer">
   <div class="footer-left">
-    Copyright  &copy; 2021  © {year} 
+    Copyright  &copy; 2021  Nasser 
   </div>
   <div class="footer-right">
     <nav>
       <ul>
          
-        <li><a href="/">home</a></li>
+        <li><a href="../../">home</a></li>
          
-        <li><a href="/notes">notes</a></li>
+        <li><a href="../../notes">notes</a></li>
          
-        <li><a href="/tags">tags</a></li>
+        <li><a href="../../tags">tags</a></li>
          
-        <li><a href="/about">about</a></li>
+        <li><a href="../../about">about</a></li>
         
       </ul>
     </nav>
@@ -430,7 +747,27 @@ Footnotes
   </div>
 </body>
 
-<link rel="stylesheet" href=/lib/font-awesome/css/all.min.css>
-<script src=/lib/jquery/jquery.min.js></script>
-<script src=/js/main.js></script>
+<link rel="stylesheet" href=../../lib/font-awesome/css/all.min.css>
+<script src=../../lib/jquery/jquery.min.js></script>
+<script src=../../js/main.js></script>
+<script src=../../js/code-copy.js></script>
+
+
+  
+
+
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']]
+    },
+    svg: {
+      fontCache: 'global'
+    }
+  };
+</script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
 </html>

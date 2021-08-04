@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
-  <link rel="preload" href="/lib/font-awesome/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-  <link rel="preload" href="/lib/font-awesome/webfonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-  <link rel="preload" href="/lib/font-awesome/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-  <link rel="preload" href="/lib/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="../../lib/font-awesome/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="../../lib/font-awesome/webfonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="../../lib/font-awesome/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="../../lib/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title> First post in HUGO | Nasser&#39;s notes repository</title>
   <link rel = 'canonical' href = 'https://nasseralkmim.github.io/notes/first-hugo-post/'>
-  
+  <meta name="description" content="This is a page where I collect some of my post-worthy notes and some projects that I have worked on.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="all,follow">
   <meta name="googlebot" content="index,follow,snippet,archive">
   <meta property="og:title" content="First post in HUGO" />
-<meta property="og:description" content="Introduction  Meta post about how I am creating these blog. I&#39;m using org-mode files, which is a markup language that has a lot conveniences inside emacs." />
+<meta property="og:description" content="Introduction  Meta post about how I am creating these blog." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://nasseralkmim.github.io/notes/first-hugo-post/" /><meta property="article:section" content="notes" />
 <meta property="article:published_time" content="2020-12-03T00:00:00&#43;00:00" />
@@ -23,14 +23,14 @@
 
   <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="First post in HUGO"/>
-<meta name="twitter:description" content="Introduction  Meta post about how I am creating these blog. I&#39;m using org-mode files, which is a markup language that has a lot conveniences inside emacs."/>
+<meta name="twitter:description" content="Introduction  Meta post about how I am creating these blog."/>
 
   
   
     
   
   
-  <link rel="stylesheet" href="https://nasseralkmim.github.io/css/styles.94f653e9e151e28067a7c5dbbc4600cbd5a3c721e79faaf971e523c40f3b249b8e4f20bb57810dfffa8d559ca5c140fd56eb4cd9c0853113ad08e66afdb08bdd.css" integrity="sha512-lPZT6eFR4oBnp8XbvEYAy9WjxyHnn6r5ceUjxA87JJuOTyC7V4EN//qNVZylwUD9VutM2cCFMROtCOZq/bCL3Q=="> 
+  <link rel="stylesheet" href="https://nasseralkmim.github.io/css/styles.f2289a5a0f5e652a95f543227114a7af2973ea5ea6a71233e32f9cb6ab7789134f6a88c6cdffb7cb02acc9470ac67f3f321e5368cc4e6bcdaeec6e61a0b73051.css" integrity="sha512-8iiaWg9eZSqV9UMicRSnrylz6l6mpxIz4y&#43;ctqt3iRNPaojGzf&#43;3ywKsyUcKxn8/Mh5TaMxOa82u7G5hoLcwUQ=="> 
 
   
   
@@ -68,41 +68,211 @@ if (!doNotTrack) {
 <body class="max-width mx-auto px3 ltr">
   <div class="content index py4">
 
-    <header id="header">
-  <a href="https://nasseralkmim.github.io/">
+  <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;" aria-label="Top of Page"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+        <li><a href="../../">home</a></li>
+         
+        <li><a href="../../notes">notes</a></li>
+         
+        <li><a href="../../tags">tags</a></li>
+         
+        <li><a href="../../about">about</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li>
+          <a class="icon" href=" https://nasseralkmim.github.io/notes/books-2019/" aria-label="Previous">
+            <i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i>
+          </a>
+        </li>
+        
+        
+        <li>
+          <a class="icon" href="https://nasseralkmim.github.io/notes/sentiment-analysis-python/sentiment-analysis/" aria-label="Next">
+            <i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i>
+          </a>
+        </li>
+        
+        <li>
+          <a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" aria-label="Top of Page">
+            <i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i>
+          </a>
+        </li>
+        <li>
+          <a class="icon" href="#" aria-label="Share">
+            <i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i>
+          </a>
+        </li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      
+      <ul>
   
-    <div id="logo" style="background-image: url(https://nasseralkmim.github.io/images/logo.png)"></div>
   
-  <div id="title">
-    <h1>Nasser&#39;s notes repository</h1>
-  </div>
-  </a>
-  <div id="nav">
-    <ul>
-      <li class="icon">
-        <a href="#" aria-label="Menu"><i class="fas fa-bars fa-2x" aria-hidden="true"></i></a>
-      </li>
-      
-        <li><a href="/">home</a></li>
-      
-        <li><a href="/notes">notes</a></li>
-      
-        <li><a href="/tags">tags</a></li>
-      
-        <li><a href="/about">about</a></li>
-      
-    </ul>
-  </div>
-</header>
-
-
-
     
-<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-
-  <div class="content" itemprop="articleBody">
   
-    
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fnasseralkmim.github.io%2fnotes%2ffirst-hugo-post%2f" aria-label="Facebook">
+      <i class="fab fa-facebook " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2fnasseralkmim.github.io%2fnotes%2ffirst-hugo-post%2f&text=First%20post%20in%20HUGO" aria-label="Twitter">
+      <i class="fab fa-twitter " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fnasseralkmim.github.io%2fnotes%2ffirst-hugo-post%2f&title=First%20post%20in%20HUGO" aria-label="Linkedin">
+      <i class="fab fa-linkedin " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fnasseralkmim.github.io%2fnotes%2ffirst-hugo-post%2f&is_video=false&description=First%20post%20in%20HUGO" aria-label="Pinterest">
+      <i class="fab fa-pinterest " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=First%20post%20in%20HUGO&body=Check out this article: https%3a%2f%2fnasseralkmim.github.io%2fnotes%2ffirst-hugo-post%2f" aria-label="Email">
+      <i class="fas fa-envelope " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2fnasseralkmim.github.io%2fnotes%2ffirst-hugo-post%2f&title=First%20post%20in%20HUGO" aria-label="Pocket">
+      <i class="fab fa-get-pocket " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2fnasseralkmim.github.io%2fnotes%2ffirst-hugo-post%2f&title=First%20post%20in%20HUGO" aria-label="reddit">
+      <i class="fab fa-reddit " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fnasseralkmim.github.io%2fnotes%2ffirst-hugo-post%2f&name=First%20post%20in%20HUGO&description=Introduction%20%20Meta%20post%20about%20how%20I%20am%20creating%20these%20blog." aria-label="Tumblr">
+      <i class="fab fa-tumblr " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fnasseralkmim.github.io%2fnotes%2ffirst-hugo-post%2f&t=First%20post%20in%20HUGO" aria-label="Hacker News">
+      <i class="fab fa-hacker-news " aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <nav id="TableOfContents">
+<ul>
+<li><a href="#headline-1">Introduction</a>
+</li>
+<li><a href="#headline-2">Theme</a>
+</li>
+<li><a href="#headline-3">Images from URL</a>
+</li>
+<li><a href="#headline-4">Graphs from interactive code blocks saved on <code class="verbatim">/static/images</code><sup class="footnote-reference">1</sup></a>
+</li>
+<li><a href="#headline-5">Graphs saved in the same folder as the post</a>
+</li>
+<li><a href="#headline-6">Dataframes from interactive jupyter-python code blocks</a>
+</li>
+<li><a href="#headline-7">Python code block</a>
+</li>
+<li><a href="#headline-8">Figures from clipboard</a>
+</li>
+<li><a href="#headline-9">Equations</a>
+</li>
+<li><a href="#headline-10">Stylized balance sheets from ditaa</a>
+</li>
+<li><a href="#headline-11">Youtube</a>
+</li>
+<li><a href="#headline-12">Footnotes</a>
+</li>
+</ul>
+</nav>
+    </div>
+  </span>
+</div>
+
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+    <header>
+      <h1 class="posttitle" itemprop="name headline">
+        First post in HUGO
+      </h1>
+      <div class="meta">
+        
+        <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <span itemprop="name">
+            
+              Nasser&#39;s notes repository
+            
+          </span>
+        </span>
+        
+        <div class="postdate">
+          
+          <time datetime="2020-12-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">Dec 3 2020</time>
+          
+            (Updated: <time datetime="2021-08-02 17:39:59 &#43;0000 UTC" itemprop="dateModified">Aug 2 2021</time>)
+          
+        </div>
+        
+        
+        <div class="article-read-time">
+          <i class="far fa-clock"></i>
+          
+          3 minute read
+        </div>
+        
+        
+        
+        <div class="article-tag">
+            <i class="fas fa-tag"></i>
+            
+            
+            <a class="tag-link" href="../../tags/meta" rel="tag">meta</a>
+            
+        </div>
+        
+      </div>
+    </header>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+    <div class="content" itemprop="articleBody">
+      
 <div id="outline-container-headline-1" class="outline-2">
 <h2 id="headline-1">
 Introduction
@@ -206,14 +376,14 @@ In order to use the generated graph from the code in the blog published with Hug
 </li>
 </ol>
 <div class="src src-jupyter-python">
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>import matplotlib.pyplot as plt
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>import numpy as np
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>x=np.linspace(-15,15, 100)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span>fig = plt.figure(dpi=300)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span>plt.plot(np.sin(x)**2/x**2)</code></pre></div>
+<pre><code class="language-jupyter-python" data-lang="jupyter-python">import matplotlib.pyplot as plt
+import numpy as np
+
+x=np.linspace(-15,15, 100)
+fig = plt.figure(dpi=300)
+plt.plot(np.sin(x)**2/x**2)</code></pre>
 </div>
-<img src="/images/graph1.png" alt="/images/graph1.png" title="/images/graph1.png" width="400px"/>
+<img src="../../images/graph1.png" alt="/images/graph1.png" title="/images/graph1.png" width="400px"/>
 </div>
 </div>
 <div id="outline-container-headline-5" class="outline-2">
@@ -226,12 +396,12 @@ I create a new folder for each post that will have pictures.
 Inside this folder the post goes on a <code class="verbatim">index.org</code> file.
 And the figures are generated automatically with <code class="verbatim">emacs-jupyter</code>, I just changed the default directory variable to <code class="verbatim">(setq jupyter-org-resource-directory &#34;./jupter/&#34;).</code></p>
 <div class="src src-jupyter-python">
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>import matplotlib.pyplot as plt
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>import numpy as np
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>x=np.linspace(-15,15, 100)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span>fig = plt.figure(dpi=300)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span>plt.plot(np.sin(x)**2/x)</code></pre></div>
+<pre><code class="language-jupyter-python" data-lang="jupyter-python">import matplotlib.pyplot as plt
+import numpy as np
+
+x=np.linspace(-15,15, 100)
+fig = plt.figure(dpi=300)
+plt.plot(np.sin(x)**2/x)</code></pre>
 </div>
 <p><img src="./jupyter/4c8d0270a0b0daeca7d499707cc05b4b939bfb55.png" alt="./jupyter/4c8d0270a0b0daeca7d499707cc05b4b939bfb55.png" title="./jupyter/4c8d0270a0b0daeca7d499707cc05b4b939bfb55.png" /></p>
 </div>
@@ -242,10 +412,10 @@ Dataframes from interactive jupyter-python code blocks
 </h2>
 <div id="outline-text-headline-6" class="outline-text-2">
 <div class="src src-jupyter-python">
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>import pandas as pd
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>data = [[1, 2], [3, 4]]
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>DF = pd.DataFrame(data, columns=[&#34;Foo&#34;, &#34;Bar&#34;])
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>print(DF)</code></pre></div>
+<pre><code class="language-jupyter-python" data-lang="jupyter-python">import pandas as pd
+data = [[1, 2], [3, 4]]
+DF = pd.DataFrame(data, columns=[&#34;Foo&#34;, &#34;Bar&#34;])
+print(DF)</code></pre>
 </div>
 <pre class="example">
    Foo  Bar
@@ -317,16 +487,16 @@ Stylized balance sheets from ditaa
 <p>
 Well, this works. However it is too time consuming.</p>
 <div class="src src-ditaa">
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span>/------------------\
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>|Federal Reserve   |
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>+--------+---------+
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>|assets	 |liabilit |
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span>+--------+---------+	
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span>|c1AB	 | cPNK    |	
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span>|JPY     | USD	   |
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span>|reserves| reserves|
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span>|at BoJ	 |to BoJ   |
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span>+--------+---------+</code></pre></div>
+<pre><code class="language-ditaa" data-lang="ditaa">/------------------\
+|Federal Reserve   |
++--------+---------+
+|assets	 |liabilit |
++--------+---------+	
+|c1AB	 | cPNK    |	
+|JPY     | USD	   |
+|reserves| reserves|
+|at BoJ	 |to BoJ   |
++--------+---------+</code></pre>
 </div>
 <p><img src="test.png" alt="test.png" title="test.png" /></p>
 </div>
@@ -371,26 +541,156 @@ Footnotes
 </div>
 </div>
 
+    </div>
+  </article>
+
+   
+
+
+
   
+  
+
+
+
+
+
+  <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="../../">home</a></li>
+         
+          <li><a href="../../notes">notes</a></li>
+         
+          <li><a href="../../tags">tags</a></li>
+         
+          <li><a href="../../about">about</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <nav id="TableOfContents">
+<ul>
+<li><a href="#headline-1">Introduction</a>
+</li>
+<li><a href="#headline-2">Theme</a>
+</li>
+<li><a href="#headline-3">Images from URL</a>
+</li>
+<li><a href="#headline-4">Graphs from interactive code blocks saved on <code class="verbatim">/static/images</code><sup class="footnote-reference">1</sup></a>
+</li>
+<li><a href="#headline-5">Graphs saved in the same folder as the post</a>
+</li>
+<li><a href="#headline-6">Dataframes from interactive jupyter-python code blocks</a>
+</li>
+<li><a href="#headline-7">Python code block</a>
+</li>
+<li><a href="#headline-8">Figures from clipboard</a>
+</li>
+<li><a href="#headline-9">Equations</a>
+</li>
+<li><a href="#headline-10">Stylized balance sheets from ditaa</a>
+</li>
+<li><a href="#headline-11">Youtube</a>
+</li>
+<li><a href="#headline-12">Footnotes</a>
+</li>
+</ul>
+</nav>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fnasseralkmim.github.io%2fnotes%2ffirst-hugo-post%2f" aria-label="Facebook">
+      <i class="fab fa-facebook fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2fnasseralkmim.github.io%2fnotes%2ffirst-hugo-post%2f&text=First%20post%20in%20HUGO" aria-label="Twitter">
+      <i class="fab fa-twitter fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fnasseralkmim.github.io%2fnotes%2ffirst-hugo-post%2f&title=First%20post%20in%20HUGO" aria-label="Linkedin">
+      <i class="fab fa-linkedin fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fnasseralkmim.github.io%2fnotes%2ffirst-hugo-post%2f&is_video=false&description=First%20post%20in%20HUGO" aria-label="Pinterest">
+      <i class="fab fa-pinterest fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=First%20post%20in%20HUGO&body=Check out this article: https%3a%2f%2fnasseralkmim.github.io%2fnotes%2ffirst-hugo-post%2f" aria-label="Email">
+      <i class="fas fa-envelope fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2fnasseralkmim.github.io%2fnotes%2ffirst-hugo-post%2f&title=First%20post%20in%20HUGO" aria-label="Pocket">
+      <i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2fnasseralkmim.github.io%2fnotes%2ffirst-hugo-post%2f&title=First%20post%20in%20HUGO" aria-label="reddit">
+      <i class="fab fa-reddit fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fnasseralkmim.github.io%2fnotes%2ffirst-hugo-post%2f&name=First%20post%20in%20HUGO&description=Introduction%20%20Meta%20post%20about%20how%20I%20am%20creating%20these%20blog." aria-label="Tumblr">
+      <i class="fab fa-tumblr fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fnasseralkmim.github.io%2fnotes%2ffirst-hugo-post%2f&t=First%20post%20in%20HUGO" aria-label="Hacker News">
+      <i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      
+        <a id="menu-toggle" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;" aria-label="Menu">
+          <i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc-toggle" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;" aria-label="TOC">
+          <i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share-toggle" class="icon" href="#" onclick="$('#share-footer').toggle();return false;" aria-label="Share">
+          <i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" aria-label="Top of Page">
+          <i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
   </div>
-</article>
+</div>
 
 
-    <footer id="footer">
+  <footer id="footer">
   <div class="footer-left">
-    Copyright  &copy; 2021  © {year} 
+    Copyright  &copy; 2021  Nasser 
   </div>
   <div class="footer-right">
     <nav>
       <ul>
          
-        <li><a href="/">home</a></li>
+        <li><a href="../../">home</a></li>
          
-        <li><a href="/notes">notes</a></li>
+        <li><a href="../../notes">notes</a></li>
          
-        <li><a href="/tags">tags</a></li>
+        <li><a href="../../tags">tags</a></li>
          
-        <li><a href="/about">about</a></li>
+        <li><a href="../../about">about</a></li>
         
       </ul>
     </nav>
@@ -401,7 +701,27 @@ Footnotes
   </div>
 </body>
 
-<link rel="stylesheet" href=/lib/font-awesome/css/all.min.css>
-<script src=/lib/jquery/jquery.min.js></script>
-<script src=/js/main.js></script>
+<link rel="stylesheet" href=../../lib/font-awesome/css/all.min.css>
+<script src=../../lib/jquery/jquery.min.js></script>
+<script src=../../js/main.js></script>
+<script src=../../js/code-copy.js></script>
+
+
+  
+
+
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']]
+    },
+    svg: {
+      fontCache: 'global'
+    }
+  };
+</script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
 </html>

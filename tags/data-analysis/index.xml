@@ -6,7 +6,7 @@
     <description>Recent content in data-analysis on Nasser&#39;s notes repository</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>© {year}</copyright>
+    <copyright>Nasser</copyright>
     <lastBuildDate>Sat, 26 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/tags/data-analysis/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Performance de um portfolio</title>
@@ -14,7 +14,7 @@
       <pubDate>Sat, 26 Dec 2020 00:00:00 +0000</pubDate>
       
       <guid>https://nasseralkmim.github.io/notes/portfolio-performance/</guid>
-      <description>Introdução  E ai? quanto rendeu seu portfólio? Fácil, $$R_p = V_{final}/V_{inicial} - 1$$ certo? sim, se você investiu em um único aporte.</description>
+      <description>Introdução  E ai?</description>
     </item>
     
     <item>
@@ -23,7 +23,7 @@
       <pubDate>Fri, 25 Dec 2020 00:00:00 +0000</pubDate>
       
       <guid>https://nasseralkmim.github.io/notes/finace-python/</guid>
-      <description>Finance data in python using yahooquery. It extracts pretty much all data from Yahoo Finance - Stock Market Live, Quotes, Business &amp;amp; Finance News.</description>
+      <description>Finance data in python using yahooquery.</description>
     </item>
     
     <item>
@@ -41,7 +41,7 @@
       <pubDate>Fri, 11 Dec 2020 00:00:00 +0000</pubDate>
       
       <guid>https://nasseralkmim.github.io/notes/topic_modelig/</guid>
-      <description>Introduction  Topic modeling is a form of semantic analysis, a step forwarding finding meaning from word counts. This analysis allows discovery of document topic without trainig data.</description>
+      <description>Introduction  Topic modeling is a form of semantic analysis, a step forwarding finding meaning from word counts.</description>
     </item>
     
   </channel>

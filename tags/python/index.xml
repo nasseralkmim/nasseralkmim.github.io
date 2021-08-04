@@ -6,7 +6,7 @@
     <description>Recent content in python on Nasser&#39;s notes repository</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>© {year}</copyright>
+    <copyright>Nasser</copyright>
     <lastBuildDate>Sat, 26 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Performance de um portfolio</title>
@@ -14,7 +14,7 @@
       <pubDate>Sat, 26 Dec 2020 00:00:00 +0000</pubDate>
       
       <guid>https://nasseralkmim.github.io/notes/portfolio-performance/</guid>
-      <description>Introdução  E ai? quanto rendeu seu portfólio? Fácil, $$R_p = V_{final}/V_{inicial} - 1$$ certo? sim, se você investiu em um único aporte.</description>
+      <description>Introdução  E ai?</description>
     </item>
     
     <item>
@@ -23,7 +23,7 @@
       <pubDate>Fri, 25 Dec 2020 00:00:00 +0000</pubDate>
       
       <guid>https://nasseralkmim.github.io/notes/finace-python/</guid>
-      <description>Finance data in python using yahooquery. It extracts pretty much all data from Yahoo Finance - Stock Market Live, Quotes, Business &amp;amp; Finance News.</description>
+      <description>Finance data in python using yahooquery.</description>
     </item>
     
     <item>
@@ -32,7 +32,7 @@
       <pubDate>Mon, 20 Mar 2017 00:00:00 +0000</pubDate>
       
       <guid>https://nasseralkmim.github.io/notes/change-of-basis/</guid>
-      <description>Motivation   I&amp;#39;m always forgetting about the intuition behind the change of basis in linear algebra. There is a very nice video explaining it on Youtube, but I want the explanation in text format so I can easily refer too when in doubt.</description>
+      <description>Motivation   I&amp;#39;m always forgetting about the intuition behind the change of basis in linear algebra.</description>
     </item>
     
     <item>

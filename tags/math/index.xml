@@ -6,7 +6,7 @@
     <description>Recent content in math on Nasser&#39;s notes repository</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>© {year}</copyright>
+    <copyright>Nasser</copyright>
     <lastBuildDate>Mon, 20 Mar 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/tags/math/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Linear algebra change of basis explained using Python</title>
@@ -14,7 +14,7 @@
       <pubDate>Mon, 20 Mar 2017 00:00:00 +0000</pubDate>
       
       <guid>https://nasseralkmim.github.io/notes/change-of-basis/</guid>
-      <description>Motivation   I&amp;#39;m always forgetting about the intuition behind the change of basis in linear algebra. There is a very nice video explaining it on Youtube, but I want the explanation in text format so I can easily refer too when in doubt.</description>
+      <description>Motivation   I&amp;#39;m always forgetting about the intuition behind the change of basis in linear algebra.</description>
     </item>
     
     <item>
