@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on Nasser&#39;s notes repository</title>
+    <title>Tags on Notes repository</title>
     <link>https://nasseralkmim.github.io/tags/</link>
-    <description>Recent content in Tags on Nasser&#39;s notes repository</description>
+    <description>Recent content in Tags on Notes repository</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Nasser</copyright>
@@ -95,15 +95,6 @@
       <pubDate>Sat, 20 Jan 2018 00:00:00 +0000</pubDate>
       
       <guid>https://nasseralkmim.github.io/tags/favorites/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>graphs</title>
-      <link>https://nasseralkmim.github.io/tags/graphs/</link>
-      <pubDate>Sat, 20 Jan 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/tags/graphs/</guid>
       <description></description>
     </item>
     
