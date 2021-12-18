@@ -17,8 +17,8 @@
 <meta property="og:description" content="Introdução  E ai?" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://nasseralkmim.github.io/notes/portfolio-performance/" /><meta property="article:section" content="notes" />
-<meta property="article:published_time" content="2020-12-26T00:00:00&#43;00:00" />
-<meta property="article:modified_time" content="2020-12-26T00:00:00&#43;00:00" />
+<meta property="article:published_time" content="2020-12-26T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-12-26T00:00:00+00:00" />
 
 
   <meta name="twitter:card" content="summary"/>
@@ -96,6 +96,12 @@ if (!doNotTrack) {
           </a>
         </li>
         
+        
+        <li>
+          <a class="icon" href="https://nasseralkmim.github.io/notes/how-to-budget/" aria-label="Next">
+            <i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i>
+          </a>
+        </li>
         
         <li>
           <a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" aria-label="Top of Page">
@@ -231,7 +237,7 @@ if (!doNotTrack) {
         <div class="article-read-time">
           <i class="far fa-clock"></i>
           
-          5 minute read
+          4 minute read
         </div>
         
         
@@ -336,9 +342,9 @@ Preliminares
 </h4>
 <div id="outline-text-headline-5" class="outline-text-4">
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">numpy</span> <span style="color:#a2f;font-weight:bold">as</span> <span style="color:#00f;font-weight:bold">np</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">numpy</span> <span style="color:#a2f;font-weight:bold">as</span> <span style="color:#00f;font-weight:bold">np</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">pandas</span> <span style="color:#a2f;font-weight:bold">as</span> <span style="color:#00f;font-weight:bold">pd</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>pd<span style="color:#666">.</span>options<span style="color:#666">.</span>display<span style="color:#666">.</span>float_format <span style="color:#666">=</span> <span style="color:#b44">&#39;{:,.2f}&#39;</span><span style="color:#666">.</span>format
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>pd<span style="color:#666">.</span>options<span style="color:#666">.</span>display<span style="color:#666">.</span>float_format <span style="color:#666">=</span> <span style="color:#b44">&#39;</span><span style="color:#b68;font-weight:bold">{:,.2f}</span><span style="color:#b44">&#39;</span><span style="color:#666">.</span>format
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">matplotlib</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">matplotlib.pyplot</span> <span style="color:#a2f;font-weight:bold">as</span> <span style="color:#00f;font-weight:bold">plt</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span>matplotlib<span style="color:#666">.</span>style<span style="color:#666">.</span>use(<span style="color:#b44">&#39;ggplot&#39;</span>)
@@ -352,8 +358,8 @@ Input
 </h4>
 <div id="outline-text-headline-6" class="outline-text-4">
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>trade_data <span style="color:#666">=</span> pd<span style="color:#666">.</span>read_csv(<span style="color:#b44">&#39;trade_data.csv&#39;</span>)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#a2f;font-weight:bold">print</span>(trade_data)</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>trade_data <span style="color:#666">=</span> pd<span style="color:#666">.</span>read_csv(<span style="color:#b44">&#39;trade_data.csv&#39;</span>)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#a2f">print</span>(trade_data)</code></pre></div>
 </div>
 <pre class="example">
    17/09/2018    Buy  EGIE3  40  36,50
@@ -374,13 +380,13 @@ Processar trades
 </h4>
 <div id="outline-text-headline-7" class="outline-text-4">
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#a2f;font-weight:bold">def</span> <span style="color:#00a000">process_trades</span>(trade_data_file):
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#a2f;font-weight:bold">def</span> <span style="color:#00a000">process_trades</span>(trade_data_file):
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>    trades <span style="color:#666">=</span> pd<span style="color:#666">.</span>read_csv(trade_data_file, sep<span style="color:#666">=</span><span style="color:#b44">&#39;,&#39;</span>,
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>                         names<span style="color:#666">=</span>[<span style="color:#b44">&#39;date&#39;</span>, <span style="color:#b44">&#39;type&#39;</span>,
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>                                <span style="color:#b44">&#39;ticker&#39;</span>, <span style="color:#b44">&#39;volume&#39;</span>,
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span>                                <span style="color:#b44">&#39;price&#39;</span>],
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span>                         decimal<span style="color:#666">=</span><span style="color:#b44">&#39;,&#39;</span>,
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span>                         parse_dates<span style="color:#666">=</span>[<span style="color:#b44">&#39;date&#39;</span>], infer_datetime_format<span style="color:#666">=</span>True)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span>                         parse_dates<span style="color:#666">=</span>[<span style="color:#b44">&#39;date&#39;</span>], infer_datetime_format<span style="color:#666">=</span><span style="color:#a2f;font-weight:bold">True</span>)
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span>    trades[<span style="color:#b44">&#39;total&#39;</span>] <span style="color:#666">=</span> trades<span style="color:#666">.</span>apply(<span style="color:#a2f;font-weight:bold">lambda</span> x: x<span style="color:#666">.</span>price <span style="color:#666">*</span> x<span style="color:#666">.</span>volume
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span>					    <span style="color:#a2f;font-weight:bold">if</span> x<span style="color:#666">.</span>type <span style="color:#a2f;font-weight:bold">in</span> [<span style="color:#b44">&#39;Buy&#39;</span>, <span style="color:#b44">&#39;Split&#39;</span>]
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span>					    <span style="color:#a2f;font-weight:bold">else</span> <span style="color:#666">-</span> x<span style="color:#666">.</span>price <span style="color:#666">*</span> x<span style="color:#666">.</span>volume, axis<span style="color:#666">=</span><span style="color:#666">1</span>)
@@ -390,7 +396,7 @@ Processar trades
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span>					    (<span style="color:#666">-</span>x<span style="color:#666">.</span>volume <span style="color:#a2f;font-weight:bold">if</span> x<span style="color:#666">.</span>type <span style="color:#a2f;font-weight:bold">in</span> [<span style="color:#b44">&#39;Sell&#39;</span>] <span style="color:#a2f;font-weight:bold">else</span> <span style="color:#666">0</span>), axis<span style="color:#666">=</span><span style="color:#666">1</span>)
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span>    <span style="color:#a2f;font-weight:bold">return</span> trades
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span>trades <span style="color:#666">=</span> process_trades(<span style="color:#b44">&#39;trade_data.csv&#39;</span>)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span style="color:#a2f;font-weight:bold">print</span>(trades)</code></pre></div>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span style="color:#a2f">print</span>(trades)</code></pre></div>
 </div>
 <pre class="example">
         date   type ticker  volume  price    total  vol_adj
@@ -412,7 +418,7 @@ Consolidar portfolio
 </h4>
 <div id="outline-text-headline-8" class="outline-text-4">
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#a2f;font-weight:bold">def</span> <span style="color:#00a000">consolidate_portfolio</span>(trades):
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#a2f;font-weight:bold">def</span> <span style="color:#00a000">consolidate_portfolio</span>(trades):
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>    portfolio <span style="color:#666">=</span> pd<span style="color:#666">.</span>DataFrame()
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>    portfolio[<span style="color:#b44">&#39;vol_liq&#39;</span>] <span style="color:#666">=</span> (trades
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>                            <span style="color:#666">.</span>groupby(<span style="color:#b44">&#39;ticker&#39;</span>)[<span style="color:#b44">&#39;vol_adj&#39;</span>]
@@ -427,7 +433,7 @@ Consolidar portfolio
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span>    portfolio[<span style="color:#b44">&#39;sector&#39;</span>] <span style="color:#666">=</span> portfolio<span style="color:#666">.</span>apply(<span style="color:#a2f;font-weight:bold">lambda</span> x: yf<span style="color:#666">.</span>Ticker(x<span style="color:#666">.</span>name<span style="color:#666">+</span><span style="color:#b44">&#39;.SA&#39;</span>)<span style="color:#666">.</span>asset_profile[x<span style="color:#666">.</span>name<span style="color:#666">+</span><span style="color:#b44">&#39;.SA&#39;</span>][<span style="color:#b44">&#39;sector&#39;</span>], axis<span style="color:#666">=</span><span style="color:#666">1</span>)
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span>    <span style="color:#a2f;font-weight:bold">return</span> portfolio
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span>portfolio <span style="color:#666">=</span> consolidate_portfolio(trades)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span style="color:#a2f;font-weight:bold">print</span>(portfolio)</code></pre></div>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span style="color:#a2f">print</span>(portfolio)</code></pre></div>
 </div>
 <pre class="example">
         vol_liq  avg_price (R$)  quote (R$)  p/l (%)  current_value  \
@@ -457,7 +463,7 @@ Retorno do portfolio
 </li>
 </ol>
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#a2f;font-weight:bold">def</span> <span style="color:#00a000">consolidate_partial_portfolio</span>(trades, date):
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#a2f;font-weight:bold">def</span> <span style="color:#00a000">consolidate_partial_portfolio</span>(trades, date):
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>    portfolio <span style="color:#666">=</span> pd<span style="color:#666">.</span>DataFrame()
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>    portfolio[<span style="color:#b44">&#39;vol_liq&#39;</span>] <span style="color:#666">=</span> (trades[trades<span style="color:#666">.</span>date <span style="color:#666">&lt;</span> date]
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>                            <span style="color:#666">.</span>groupby(<span style="color:#b44">&#39;ticker&#39;</span>)[<span style="color:#b44">&#39;vol_adj&#39;</span>]
@@ -486,11 +492,11 @@ Retorno do portfolio
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27</span>            r<span style="color:#666">.</span>append({<span style="color:#b44">&#39;date&#39;</span>: cf<span style="color:#666">.</span>date,
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28</span>                    <span style="color:#b44">&#39;ending_value&#39;</span>: partial_portfolio<span style="color:#666">.</span>total<span style="color:#666">.</span>sum(),
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29</span>                    <span style="color:#b44">&#39;cf_value&#39;</span>: cf<span style="color:#666">.</span>total})
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30</span>        <span style="color:#a2f;font-weight:bold">print</span>(cf<span style="color:#666">.</span>date, partial_portfolio<span style="color:#666">.</span>total<span style="color:#666">.</span>sum())
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30</span>        <span style="color:#a2f">print</span>(cf<span style="color:#666">.</span>date, partial_portfolio<span style="color:#666">.</span>total<span style="color:#666">.</span>sum())
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32</span>    returns <span style="color:#666">=</span> pd<span style="color:#666">.</span>DataFrame(r)
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33</span>    returns <span style="color:#666">=</span> returns<span style="color:#666">.</span>sort_values(<span style="color:#b44">&#39;date&#39;</span>)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34</span>    returns <span style="color:#666">=</span> returns<span style="color:#666">.</span>groupby([<span style="color:#b44">&#39;date&#39;</span>, <span style="color:#b44">&#39;ending_value&#39;</span>], as_index<span style="color:#666">=</span>False)[<span style="color:#b44">&#39;cf_value&#39;</span>]<span style="color:#666">.</span>sum()
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34</span>    returns <span style="color:#666">=</span> returns<span style="color:#666">.</span>groupby([<span style="color:#b44">&#39;date&#39;</span>, <span style="color:#b44">&#39;ending_value&#39;</span>], as_index<span style="color:#666">=</span><span style="color:#a2f;font-weight:bold">False</span>)[<span style="color:#b44">&#39;cf_value&#39;</span>]<span style="color:#666">.</span>sum()
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35</span>    <span style="color:#a2f;font-weight:bold">def</span> <span style="color:#00a000">hold_period_return</span>(row):
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36</span>        index <span style="color:#666">=</span> returns<span style="color:#666">.</span>index<span style="color:#666">.</span>get_loc(row<span style="color:#666">.</span>name)
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37</span>        <span style="color:#a2f;font-weight:bold">if</span> index <span style="color:#666">==</span> <span style="color:#666">0</span>:
@@ -501,9 +507,9 @@ Retorno do portfolio
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42</span>    <span style="color:#a2f;font-weight:bold">return</span> returns</code></pre></div>
 </div>
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>rr <span style="color:#666">=</span> pd<span style="color:#666">.</span>read_csv(<span style="color:#b44">&#39;returns.csv&#39;</span>, parse_dates<span style="color:#666">=</span>[<span style="color:#b44">&#39;date&#39;</span>])
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#a2f;font-weight:bold">print</span>(rr)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span style="color:#a2f;font-weight:bold">print</span>(rr[<span style="color:#b44">&#39;hpr&#39;</span>]<span style="color:#666">.</span>apply(<span style="color:#a2f;font-weight:bold">lambda</span> x: x <span style="color:#666">+</span> <span style="color:#666">1</span>)<span style="color:#666">.</span>prod())</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>rr <span style="color:#666">=</span> pd<span style="color:#666">.</span>read_csv(<span style="color:#b44">&#39;returns.csv&#39;</span>, parse_dates<span style="color:#666">=</span>[<span style="color:#b44">&#39;date&#39;</span>])
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#a2f">print</span>(rr)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span style="color:#a2f">print</span>(rr[<span style="color:#b44">&#39;hpr&#39;</span>]<span style="color:#666">.</span>apply(<span style="color:#a2f;font-weight:bold">lambda</span> x: x <span style="color:#666">+</span> <span style="color:#666">1</span>)<span style="color:#666">.</span>prod())</code></pre></div>
 </div>
 <pre class="example">
         date  ending_value  cf_value   hpr

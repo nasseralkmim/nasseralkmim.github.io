@@ -17,8 +17,8 @@
 <meta property="og:description" content="Introduction  Meta post about how I am creating these blog." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://nasseralkmim.github.io/notes/first-hugo-post/" /><meta property="article:section" content="notes" />
-<meta property="article:published_time" content="2020-12-03T00:00:00&#43;00:00" />
-<meta property="article:modified_time" content="2021-08-02T17:39:59&#43;00:00" />
+<meta property="article:published_time" content="2020-12-03T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-08-02T17:39:59+00:00" />
 
 
   <meta name="twitter:card" content="summary"/>
@@ -376,7 +376,7 @@ In order to use the generated graph from the code in the blog published with Hug
 </li>
 </ol>
 <div class="src src-jupyter-python">
-<pre><code class="language-jupyter-python" data-lang="jupyter-python">import matplotlib.pyplot as plt
+<pre tabindex="0"><code class="language-jupyter-python" data-lang="jupyter-python">import matplotlib.pyplot as plt
 import numpy as np
 
 x=np.linspace(-15,15, 100)
@@ -396,7 +396,7 @@ I create a new folder for each post that will have pictures.
 Inside this folder the post goes on a <code class="verbatim">index.org</code> file.
 And the figures are generated automatically with <code class="verbatim">emacs-jupyter</code>, I just changed the default directory variable to <code class="verbatim">(setq jupyter-org-resource-directory &#34;./jupter/&#34;).</code></p>
 <div class="src src-jupyter-python">
-<pre><code class="language-jupyter-python" data-lang="jupyter-python">import matplotlib.pyplot as plt
+<pre tabindex="0"><code class="language-jupyter-python" data-lang="jupyter-python">import matplotlib.pyplot as plt
 import numpy as np
 
 x=np.linspace(-15,15, 100)
@@ -412,7 +412,7 @@ Dataframes from interactive jupyter-python code blocks
 </h2>
 <div id="outline-text-headline-6" class="outline-text-2">
 <div class="src src-jupyter-python">
-<pre><code class="language-jupyter-python" data-lang="jupyter-python">import pandas as pd
+<pre tabindex="0"><code class="language-jupyter-python" data-lang="jupyter-python">import pandas as pd
 data = [[1, 2], [3, 4]]
 DF = pd.DataFrame(data, columns=[&#34;Foo&#34;, &#34;Bar&#34;])
 print(DF)</code></pre>
@@ -432,10 +432,10 @@ Python code block
 <p>If I want python syntax highlight but using jupyter-python src blocks I need to change the language of the source block when I finish the post.
 <span style="text-decoration: underline;">Update:</span> there is a emacs-jupyter function that overrides the default python source block: <code class="verbatim">(org-babel-jupyter-override-src-block &#34;python&#34;)</code></p>
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">numpy</span> <span style="color:#a2f;font-weight:bold">as</span> <span style="color:#00f;font-weight:bold">np</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">numpy</span> <span style="color:#a2f;font-weight:bold">as</span> <span style="color:#00f;font-weight:bold">np</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>a <span style="color:#666">=</span> np<span style="color:#666">.</span>linspace(<span style="color:#666">3</span>, <span style="color:#666">2</span>)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span style="color:#a2f;font-weight:bold">print</span>(a)</code></pre></div>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span style="color:#a2f">print</span>(a)</code></pre></div>
 </div>
 <pre class="example">
 [3.         2.97959184 2.95918367 2.93877551 2.91836735 2.89795918
@@ -487,7 +487,7 @@ Stylized balance sheets from ditaa
 <p>
 Well, this works. However it is too time consuming.</p>
 <div class="src src-ditaa">
-<pre><code class="language-ditaa" data-lang="ditaa">/------------------\
+<pre tabindex="0"><code class="language-ditaa" data-lang="ditaa">/------------------\
 |Federal Reserve   |
 +--------+---------+
 |assets	 |liabilit |

@@ -17,8 +17,8 @@
 <meta property="og:description" content="Objetivo   Dado uma série de trades, saber quanto de dividendo foi recebido até então, separado por valores mensais." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://nasseralkmim.github.io/notes/extrator-dividendos/" /><meta property="article:section" content="notes" />
-<meta property="article:published_time" content="2020-12-17T00:00:00&#43;00:00" />
-<meta property="article:modified_time" content="2020-12-17T00:00:00&#43;00:00" />
+<meta property="article:published_time" content="2020-12-17T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-12-17T00:00:00+00:00" />
 
 
   <meta name="twitter:card" content="summary"/>
@@ -317,7 +317,7 @@ if (!doNotTrack) {
         <div class="article-read-time">
           <i class="far fa-clock"></i>
           
-          23 minute read
+          15 minute read
         </div>
         
         
@@ -422,8 +422,8 @@ Input
 </h4>
 <div id="outline-text-headline-3" class="outline-text-4">
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>trade_data <span style="color:#666">=</span> pd<span style="color:#666">.</span>read_csv(<span style="color:#b44">&#39;trade_data.csv&#39;</span>, sep<span style="color:#666">=</span><span style="color:#b44">&#39;;&#39;</span>, header<span style="color:#666">=</span>None)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#a2f;font-weight:bold">print</span>(trade_data)</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>trade_data <span style="color:#666">=</span> pd<span style="color:#666">.</span>read_csv(<span style="color:#b44">&#39;trade_data.csv&#39;</span>, sep<span style="color:#666">=</span><span style="color:#b44">&#39;;&#39;</span>, header<span style="color:#666">=</span><span style="color:#a2f;font-weight:bold">None</span>)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#a2f">print</span>(trade_data)</code></pre></div>
 </div>
 <pre class="example">
             0     1      2   3     4
@@ -442,8 +442,8 @@ Processar as negociações
 </h4>
 <div id="outline-text-headline-4" class="outline-text-4">
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>trades <span style="color:#666">=</span> process_trades(trade_data_file<span style="color:#666">=</span><span style="color:#b44">&#39;trade_data.csv&#39;</span>)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#a2f;font-weight:bold">print</span>(trades)</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>trades <span style="color:#666">=</span> process_trades(trade_data_file<span style="color:#666">=</span><span style="color:#b44">&#39;trade_data.csv&#39;</span>)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#a2f">print</span>(trades)</code></pre></div>
 </div>
 <pre class="example">
         date  type ticker  volume  price   total  vol_adj
@@ -462,8 +462,8 @@ Consolidação do portfólio
 </h4>
 <div id="outline-text-headline-5" class="outline-text-4">
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>portfolio <span style="color:#666">=</span> consolidate_portfolio(trades)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#a2f;font-weight:bold">print</span>(portfolio)</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>portfolio <span style="color:#666">=</span> consolidate_portfolio(trades)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#a2f">print</span>(portfolio)</code></pre></div>
 </div>
 <pre class="example">
         vol_liq  avg_price
@@ -484,8 +484,8 @@ Formato tabela
 </h6>
 <div id="outline-text-headline-7" class="outline-text-6">
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>dividends <span style="color:#666">=</span> consolidade_dividends(portfolio, trades)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#a2f;font-weight:bold">print</span>(dividends)</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>dividends <span style="color:#666">=</span> consolidade_dividends(portfolio, trades)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#a2f">print</span>(dividends)</code></pre></div>
 </div>
 <pre class="example">
              date_com     value             type  vol_liq     total
@@ -508,7 +508,7 @@ Por ação
 </h6>
 <div id="outline-text-headline-8" class="outline-text-6">
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#a2f;font-weight:bold">print</span>(dividends<span style="color:#666">.</span>total<span style="color:#666">.</span>groupby(<span style="color:#b44">&#39;ticker&#39;</span>)<span style="color:#666">.</span>sum())
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#a2f">print</span>(dividends<span style="color:#666">.</span>total<span style="color:#666">.</span>groupby(<span style="color:#b44">&#39;ticker&#39;</span>)<span style="color:#666">.</span>sum())
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>(dividends
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span> <span style="color:#666">.</span>groupby(<span style="color:#b44">&#39;ticker&#39;</span>)[<span style="color:#b44">&#39;total&#39;</span>]
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span> <span style="color:#666">.</span>sum()
@@ -537,7 +537,7 @@ A cada mês
 </h8>
 <div id="outline-text-headline-10" class="outline-text-8">
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>(dividends
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>(dividends
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span> <span style="color:#666">.</span>groupby(dividends<span style="color:#666">.</span>date_com<span style="color:#666">.</span>dt<span style="color:#666">.</span>to_period(<span style="color:#b44">&#39;M&#39;</span>))[<span style="color:#b44">&#39;total&#39;</span>]
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span> <span style="color:#666">.</span>sum()
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span> <span style="color:#666">.</span>plot(kind<span style="color:#666">=</span><span style="color:#b44">&#39;bar&#39;</span>,
@@ -554,7 +554,7 @@ A cada mês incluindo meses sem recebimento
 </h8>
 <div id="outline-text-headline-11" class="outline-text-8">
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>(dividends
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>(dividends
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#666">.</span>groupby(dividends<span style="color:#666">.</span>date_com<span style="color:#666">.</span>dt<span style="color:#666">.</span>to_period(<span style="color:#b44">&#39;M&#39;</span>))[<span style="color:#b44">&#39;total&#39;</span>]
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span style="color:#666">.</span>sum()                          <span style="color:#080;font-style:italic"># group by month period and sum</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span style="color:#666">.</span>resample(<span style="color:#b44">&#39;M&#39;</span>)                  <span style="color:#080;font-style:italic"># adds periods without data</span>
@@ -573,7 +573,7 @@ A cada ano
 </h8>
 <div id="outline-text-headline-12" class="outline-text-8">
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>(dividends
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>(dividends
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span> <span style="color:#666">.</span>groupby(dividends<span style="color:#666">.</span>date_com<span style="color:#666">.</span>dt<span style="color:#666">.</span>to_period(<span style="color:#b44">&#39;Y&#39;</span>))[<span style="color:#b44">&#39;total&#39;</span>]
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span> <span style="color:#666">.</span>sum()
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span> <span style="color:#666">.</span>plot(kind<span style="color:#666">=</span><span style="color:#b44">&#39;bar&#39;</span>,
@@ -642,8 +642,8 @@ Input
 </h4>
 <div id="outline-text-headline-17" class="outline-text-4">
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>trade_data <span style="color:#666">=</span> pd<span style="color:#666">.</span>read_csv(<span style="color:#b44">&#39;trade_data.csv&#39;</span>, sep<span style="color:#666">=</span><span style="color:#b44">&#39;;&#39;</span>, header<span style="color:#666">=</span>None)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#a2f;font-weight:bold">print</span>(trade_data)</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>trade_data <span style="color:#666">=</span> pd<span style="color:#666">.</span>read_csv(<span style="color:#b44">&#39;trade_data.csv&#39;</span>, sep<span style="color:#666">=</span><span style="color:#b44">&#39;;&#39;</span>, header<span style="color:#666">=</span><span style="color:#a2f;font-weight:bold">None</span>)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#a2f">print</span>(trade_data)</code></pre></div>
 </div>
 <pre class="example">
             0     1      2   3     4
@@ -665,14 +665,14 @@ Vamos fazer o seguinte:</p>
 </li>
 </ol>
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">pandas</span> <span style="color:#a2f;font-weight:bold">as</span> <span style="color:#00f;font-weight:bold">pd</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">pandas</span> <span style="color:#a2f;font-weight:bold">as</span> <span style="color:#00f;font-weight:bold">pd</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>trade_data <span style="color:#666">=</span> pd<span style="color:#666">.</span>read_csv(<span style="color:#b44">&#39;trade_data.csv&#39;</span>, sep<span style="color:#666">=</span><span style="color:#b44">&#39;;&#39;</span>,
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>                         names<span style="color:#666">=</span>[<span style="color:#b44">&#39;date&#39;</span>, <span style="color:#b44">&#39;type&#39;</span>, <span style="color:#b44">&#39;ticker&#39;</span>, <span style="color:#b44">&#39;volume&#39;</span>, <span style="color:#b44">&#39;price&#39;</span>],
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span>                         decimal<span style="color:#666">=</span><span style="color:#b44">&#39;,&#39;</span>)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span>trade_data<span style="color:#666">.</span>date <span style="color:#666">=</span> pd<span style="color:#666">.</span>to_datetime(trade_data<span style="color:#666">.</span>date, format<span style="color:#666">=</span><span style="color:#b44">&#34;</span><span style="color:#b68;font-weight:bold">%d</span><span style="color:#b44">-%m-%Y&#34;</span>)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span style="color:#a2f;font-weight:bold">print</span>(trade_data)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8</span><span style="color:#a2f;font-weight:bold">print</span>(trade_data<span style="color:#666">.</span>dtypes)</code></pre></div>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span>trade_data<span style="color:#666">.</span>date <span style="color:#666">=</span> pd<span style="color:#666">.</span>to_datetime(trade_data<span style="color:#666">.</span>date, <span style="color:#a2f">format</span><span style="color:#666">=</span><span style="color:#b44">&#34;</span><span style="color:#b68;font-weight:bold">%d</span><span style="color:#b44">-%m-%Y&#34;</span>)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span style="color:#a2f">print</span>(trade_data)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8</span><span style="color:#a2f">print</span>(trade_data<span style="color:#666">.</span>dtypes)</code></pre></div>
 </div>
 <pre class="example">
         date  type ticker  volume  price
@@ -699,7 +699,7 @@ Detalhes sobre as negociações
 <p>
 Criar um dataframe com detalhes das negociações</p>
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span>trades <span style="color:#666">=</span> trade_data<span style="color:#666">.</span>copy()
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span>trades <span style="color:#666">=</span> trade_data<span style="color:#666">.</span>copy()
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>trades[<span style="color:#b44">&#39;total&#39;</span>] <span style="color:#666">=</span> trade_data<span style="color:#666">.</span>apply(<span style="color:#a2f;font-weight:bold">lambda</span> x: x<span style="color:#666">.</span>price <span style="color:#666">*</span> x<span style="color:#666">.</span>volume
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>                                           <span style="color:#a2f;font-weight:bold">if</span> x<span style="color:#666">.</span>type <span style="color:#a2f;font-weight:bold">in</span> [<span style="color:#b44">&#39;buy&#39;</span>, <span style="color:#b44">&#39;split&#39;</span>]
@@ -708,7 +708,7 @@ Criar um dataframe com detalhes das negociações</p>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span>                                         <span style="color:#a2f;font-weight:bold">if</span> x<span style="color:#666">.</span>type <span style="color:#a2f;font-weight:bold">in</span> [<span style="color:#b44">&#39;buy&#39;</span>, <span style="color:#b44">&#39;split&#39;</span>]
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span>                                         <span style="color:#a2f;font-weight:bold">else</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span>                                         (<span style="color:#666">-</span>x<span style="color:#666">.</span>volume <span style="color:#a2f;font-weight:bold">if</span> x<span style="color:#666">.</span>type <span style="color:#a2f;font-weight:bold">in</span> [<span style="color:#b44">&#39;sell&#39;</span>] <span style="color:#a2f;font-weight:bold">else</span> <span style="color:#666">0</span>), axis<span style="color:#666">=</span><span style="color:#666">1</span>)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span style="color:#a2f;font-weight:bold">print</span>(trades)</code></pre></div>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span style="color:#a2f">print</span>(trades)</code></pre></div>
 </div>
 <pre class="example">
         date  type ticker  volume  price   total  vol_adj
@@ -727,7 +727,7 @@ Implementar função que processa as negociações
 </h4>
 <div id="outline-text-headline-19" class="outline-text-4">
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#a2f;font-weight:bold">def</span> <span style="color:#00a000">process_trades</span>(trade_data_file):
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#a2f;font-weight:bold">def</span> <span style="color:#00a000">process_trades</span>(trade_data_file):
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>    trades <span style="color:#666">=</span> pd<span style="color:#666">.</span>read_csv(trade_data_file, sep<span style="color:#666">=</span><span style="color:#b44">&#39;;&#39;</span>,
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>                         names<span style="color:#666">=</span>[<span style="color:#b44">&#39;date&#39;</span>, <span style="color:#b44">&#39;type&#39;</span>,
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>                                <span style="color:#b44">&#39;ticker&#39;</span>, <span style="color:#b44">&#39;volume&#39;</span>,
@@ -743,7 +743,7 @@ Implementar função que processa as negociações
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span>					    <span style="color:#a2f;font-weight:bold">else</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span>					    (<span style="color:#666">-</span>x<span style="color:#666">.</span>volume <span style="color:#a2f;font-weight:bold">if</span> x<span style="color:#666">.</span>type <span style="color:#a2f;font-weight:bold">in</span> [<span style="color:#b44">&#39;sell&#39;</span>] <span style="color:#a2f;font-weight:bold">else</span> <span style="color:#666">0</span>), axis<span style="color:#666">=</span><span style="color:#666">1</span>)
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span>    <span style="color:#a2f;font-weight:bold">return</span> trades
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span style="color:#a2f;font-weight:bold">print</span>(process_trades(<span style="color:#b44">&#39;trade_data.csv&#39;</span>))</code></pre></div>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span style="color:#a2f">print</span>(process_trades(<span style="color:#b44">&#39;trade_data.csv&#39;</span>))</code></pre></div>
 </div>
 <pre class="example">
         date  type ticker  volume  price   total  vol_adj
@@ -802,10 +802,10 @@ Protótipo
 </li>
 </ol>
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>portfolio <span style="color:#666">=</span> pd<span style="color:#666">.</span>DataFrame()
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>portfolio <span style="color:#666">=</span> pd<span style="color:#666">.</span>DataFrame()
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>portfolio[<span style="color:#b44">&#39;vol_liq&#39;</span>] <span style="color:#666">=</span> trades<span style="color:#666">.</span>groupby(<span style="color:#b44">&#39;ticker&#39;</span>)[<span style="color:#b44">&#39;vol_adj&#39;</span>]<span style="color:#666">.</span>sum() 
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>portfolio[<span style="color:#b44">&#39;avg_price&#39;</span>] <span style="color:#666">=</span> trades<span style="color:#666">.</span>groupby(<span style="color:#b44">&#39;ticker&#39;</span>)[<span style="color:#b44">&#39;total&#39;</span>]<span style="color:#666">.</span>sum() <span style="color:#666">/</span> portfolio<span style="color:#666">.</span>vol_liq
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span style="color:#a2f;font-weight:bold">print</span>(portfolio)</code></pre></div>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span style="color:#a2f">print</span>(portfolio)</code></pre></div>
 </div>
 <pre class="example">
         vol_liq  avg_price
@@ -816,7 +816,7 @@ MGLU3        90  31.166667
 <p>
 E se o volume líquido for zero, precisamos descartar essa linha usando um filtro no data frame.</p>
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#a2f;font-weight:bold">print</span>(portfolio[portfolio<span style="color:#666">.</span>vol_liq <span style="color:#666">!=</span> <span style="color:#666">0</span>])</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#a2f">print</span>(portfolio[portfolio<span style="color:#666">.</span>vol_liq <span style="color:#666">!=</span> <span style="color:#666">0</span>])</code></pre></div>
 </div>
 <pre class="example">
         vol_liq  avg_price
@@ -832,7 +832,7 @@ Implementar uma função de consolidação
 </h4>
 <div id="outline-text-headline-23" class="outline-text-4">
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#a2f;font-weight:bold">def</span> <span style="color:#00a000">consolidate_portfolio</span>(trades):
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#a2f;font-weight:bold">def</span> <span style="color:#00a000">consolidate_portfolio</span>(trades):
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>    portfolio <span style="color:#666">=</span> pd<span style="color:#666">.</span>DataFrame()
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>    portfolio[<span style="color:#b44">&#39;vol_liq&#39;</span>] <span style="color:#666">=</span> (trades
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>                            <span style="color:#666">.</span>groupby(<span style="color:#b44">&#39;ticker&#39;</span>)[<span style="color:#b44">&#39;vol_adj&#39;</span>]
@@ -843,7 +843,7 @@ Implementar uma função de consolidação
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span>    portfolio <span style="color:#666">=</span> portfolio[portfolio<span style="color:#666">.</span>vol_liq <span style="color:#666">!=</span> <span style="color:#666">0</span>]
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span>    portfolio<span style="color:#666">.</span>to_csv(<span style="color:#b44">&#39;portfolio.csv&#39;</span>)
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span>    <span style="color:#a2f;font-weight:bold">return</span> portfolio
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span style="color:#a2f;font-weight:bold">print</span>(consolidate_portfolio(trades))</code></pre></div>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span style="color:#a2f">print</span>(consolidate_portfolio(trades))</code></pre></div>
 </div>
 <pre class="example">
         vol_liq  avg_price
@@ -864,9 +864,9 @@ Código CVM das empresas
 Esses dados são baixados da própria CVM.
 A <code class="verbatim">engine=c</code> não capta alguns formatos, usando <code class="verbatim">engine = &#39;python&#39;</code> capta.</p>
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>cia_data_cvm <span style="color:#666">=</span> pd<span style="color:#666">.</span>read_csv(<span style="color:#b44">&#39;cad_cia_aberta.csv&#39;</span>, sep<span style="color:#666">=</span><span style="color:#b44">&#39;;&#39;</span>, engine<span style="color:#666">=</span><span style="color:#b44">&#39;python&#39;</span>)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#a2f;font-weight:bold">print</span>(cia_data_cvm<span style="color:#666">.</span>tail())
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span style="color:#a2f;font-weight:bold">print</span>(cia_data_cvm<span style="color:#666">.</span>columns)</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>cia_data_cvm <span style="color:#666">=</span> pd<span style="color:#666">.</span>read_csv(<span style="color:#b44">&#39;cad_cia_aberta.csv&#39;</span>, sep<span style="color:#666">=</span><span style="color:#b44">&#39;;&#39;</span>, engine<span style="color:#666">=</span><span style="color:#b44">&#39;python&#39;</span>)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#a2f">print</span>(cia_data_cvm<span style="color:#666">.</span>tail())
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span style="color:#a2f">print</span>(cia_data_cvm<span style="color:#666">.</span>columns)</code></pre></div>
 </div>
 <pre class="example">
                 CNPJ_CIA                              DENOM_SOCIAL  \
@@ -926,9 +926,9 @@ Index([&#39;CNPJ_CIA&#39;, &#39;DENOM_SOCIAL&#39;, &#39;DENOM_COMERC&#39;, &#39;
 <p>
 Limitar o escopo do dataframe só ao que interessa. No final acessamos o código CVM com o CNPJ da empresa.</p>
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>cia_code_cvm <span style="color:#666">=</span> cia_data_cvm[[<span style="color:#b44">&#39;CNPJ_CIA&#39;</span>, <span style="color:#b44">&#39;DENOM_SOCIAL&#39;</span>, <span style="color:#b44">&#39;CD_CVM&#39;</span>]]
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#a2f;font-weight:bold">print</span>(cia_code_cvm)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span style="color:#a2f;font-weight:bold">print</span>(cia_code_cvm<span style="color:#666">.</span>dtypes)</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>cia_code_cvm <span style="color:#666">=</span> cia_data_cvm[[<span style="color:#b44">&#39;CNPJ_CIA&#39;</span>, <span style="color:#b44">&#39;DENOM_SOCIAL&#39;</span>, <span style="color:#b44">&#39;CD_CVM&#39;</span>]]
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#a2f">print</span>(cia_code_cvm)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span style="color:#a2f">print</span>(cia_code_cvm<span style="color:#666">.</span>dtypes)</code></pre></div>
 </div>
 <pre class="example">
                 CNPJ_CIA                                       DENOM_SOCIAL  \
@@ -973,11 +973,11 @@ CNPJ das empresa
 <p>
 Para obter o cnpj associado a cada ticker usarei os dados desse site: <a href="https://www.infomoney.com.br/minhas-financas/confira-o-cnpj-das-acoes-negociadas-em-bolsa-e-saiba-como-declarar-no-imposto-de-renda/">https://www.infomoney.com.br/minhas-financas/confira-o-cnpj-das-acoes-negociadas-em-bolsa-e-saiba-como-declarar-no-imposto-de-renda/</a></p>
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>url <span style="color:#666">=</span> <span style="color:#b44">&#39;https://www.infomoney.com.br/minhas-financas/confira-o-cnpj-das-acoes-negociadas-em-bolsa-e-saiba-como-declarar-no-imposto-de-renda/&#39;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>url <span style="color:#666">=</span> <span style="color:#b44">&#39;https://www.infomoney.com.br/minhas-financas/confira-o-cnpj-das-acoes-negociadas-em-bolsa-e-saiba-como-declarar-no-imposto-de-renda/&#39;</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>cia_cnpj <span style="color:#666">=</span> pd<span style="color:#666">.</span>read_html(url)[<span style="color:#666">0</span>]
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span style="color:#a2f;font-weight:bold">print</span>(cia_cnpj<span style="color:#666">.</span>head())
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span style="color:#a2f;font-weight:bold">print</span>(cia_cnpj<span style="color:#666">.</span>dtypes)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span style="color:#a2f">print</span>(cia_cnpj<span style="color:#666">.</span>head())
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span style="color:#a2f">print</span>(cia_cnpj<span style="color:#666">.</span>dtypes)
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span>cia_cnpj<span style="color:#666">.</span>to_csv(<span style="color:#b44">&#39;cia_cnpj.csv&#39;</span>) <span style="color:#080;font-style:italic"># save to csv to avoid external dependency</span></code></pre></div>
 </div>
 <pre class="example">
@@ -1031,8 +1031,8 @@ Protótipo
 Obter o CNPJ das cias no portfolio, usando método <code class="verbatim">isin()</code>.
 Esse método testa se elementos na série está contido na lista passada como parâmetro.</p>
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#a2f;font-weight:bold">print</span>(portfolio<span style="color:#666">.</span>index<span style="color:#666">.</span>to_list())
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#a2f;font-weight:bold">print</span>(cia_cnpj[cia_cnpj[<span style="color:#b44">&#39;Código&#39;</span>]<span style="color:#666">.</span>isin([<span style="color:#b44">&#39;MGLU3&#39;</span>, <span style="color:#b44">&#39;TIET3&#39;</span>, <span style="color:#b44">&#39;AFLT3&#39;</span>, <span style="color:#b44">&#39;ITSA3&#39;</span>])])</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#a2f">print</span>(portfolio<span style="color:#666">.</span>index<span style="color:#666">.</span>to_list())
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#a2f">print</span>(cia_cnpj[cia_cnpj[<span style="color:#b44">&#39;Código&#39;</span>]<span style="color:#666">.</span>isin([<span style="color:#b44">&#39;MGLU3&#39;</span>, <span style="color:#b44">&#39;TIET3&#39;</span>, <span style="color:#b44">&#39;AFLT3&#39;</span>, <span style="color:#b44">&#39;ITSA3&#39;</span>])])</code></pre></div>
 </div>
 <pre class="example">
 [&#39;ITSA4&#39;, &#39;MGLU3&#39;]
@@ -1047,8 +1047,8 @@ Esse método testa se elementos na série está contido na lista passada como pa
 <p>
 Se a cia tem mais de um ticker, fica mais complicado a pesquisa. Nesse caso é o uma string apenas.</p>
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#a2f;font-weight:bold">print</span>(cia_cnpj[<span style="color:#b44">&#39;Código&#39;</span>][<span style="color:#666">0</span>])
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#a2f;font-weight:bold">print</span>(<span style="color:#a2f">type</span>(cia_cnpj[<span style="color:#b44">&#39;Código&#39;</span>][<span style="color:#666">0</span>]))</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#a2f">print</span>(cia_cnpj[<span style="color:#b44">&#39;Código&#39;</span>][<span style="color:#666">0</span>])
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#a2f">print</span>(<span style="color:#a2f">type</span>(cia_cnpj[<span style="color:#b44">&#39;Código&#39;</span>][<span style="color:#666">0</span>]))</code></pre></div>
 </div>
 <pre class="example">
 ADHM1, ADHM3
@@ -1057,7 +1057,7 @@ ADHM1, ADHM3
 <p>
 Podemos tentar usar o método <code class="verbatim">str.contains()</code>,</p>
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#a2f;font-weight:bold">print</span>(cia_cnpj[cia_cnpj[<span style="color:#b44">&#39;Código&#39;</span>]<span style="color:#666">.</span>str<span style="color:#666">.</span>contains(<span style="color:#b44">&#39;ADHM1&#39;</span>)])</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#a2f">print</span>(cia_cnpj[cia_cnpj[<span style="color:#b44">&#39;Código&#39;</span>]<span style="color:#666">.</span>str<span style="color:#666">.</span>contains(<span style="color:#b44">&#39;ADHM1&#39;</span>)])</code></pre></div>
 </div>
 <pre class="example">
   Nome de Pregão                                      Razão Social  \
@@ -1069,7 +1069,7 @@ Podemos tentar usar o método <code class="verbatim">str.contains()</code>,</p>
 <p>
 Mais de uma busca usando <code class="verbatim">|</code>,</p>
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#a2f;font-weight:bold">print</span>(cia_cnpj[cia_cnpj[<span style="color:#b44">&#39;Código&#39;</span>]<span style="color:#666">.</span>str<span style="color:#666">.</span>contains(<span style="color:#b44">&#39;ADHM1|ITSA4|MGLU3&#39;</span>)])</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#a2f">print</span>(cia_cnpj[cia_cnpj[<span style="color:#b44">&#39;Código&#39;</span>]<span style="color:#666">.</span>str<span style="color:#666">.</span>contains(<span style="color:#b44">&#39;ADHM1|ITSA4|MGLU3&#39;</span>)])</code></pre></div>
 </div>
 <pre class="example">
     Nome de Pregão                                      Razão Social  \
@@ -1086,7 +1086,7 @@ Mais de uma busca usando <code class="verbatim">|</code>,</p>
 mas para passar uma lista de strings para essa função não funciona direto.
 precisamos usar o método <code class="verbatim">join().</code></p>
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#a2f;font-weight:bold">print</span>(cia_cnpj[cia_cnpj[<span style="color:#b44">&#39;Código&#39;</span>]<span style="color:#666">.</span>str<span style="color:#666">.</span>contains(<span style="color:#b44">&#39;|&#39;</span><span style="color:#666">.</span>join([<span style="color:#b44">&#39;ADHM1&#39;</span>, <span style="color:#b44">&#39;ITSA4&#39;</span>, <span style="color:#b44">&#39;MGLU3&#39;</span>]))])</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#a2f">print</span>(cia_cnpj[cia_cnpj[<span style="color:#b44">&#39;Código&#39;</span>]<span style="color:#666">.</span>str<span style="color:#666">.</span>contains(<span style="color:#b44">&#39;|&#39;</span><span style="color:#666">.</span>join([<span style="color:#b44">&#39;ADHM1&#39;</span>, <span style="color:#b44">&#39;ITSA4&#39;</span>, <span style="color:#b44">&#39;MGLU3&#39;</span>]))])</code></pre></div>
 </div>
 <pre class="example">
     Nome de Pregão                                      Razão Social  \
@@ -1102,10 +1102,10 @@ precisamos usar o método <code class="verbatim">join().</code></p>
 <p>
 Isso funciona bem.</p>
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#a2f;font-weight:bold">print</span>(portfolio<span style="color:#666">.</span>index)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#a2f;font-weight:bold">print</span>(cia_cnpj<span style="color:#666">.</span>CNPJ[cia_cnpj[<span style="color:#b44">&#39;Código&#39;</span>]<span style="color:#666">.</span>str<span style="color:#666">.</span>contains(<span style="color:#b44">&#39;|&#39;</span><span style="color:#666">.</span>join(portfolio<span style="color:#666">.</span>index))]<span style="color:#666">.</span>values)
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#a2f">print</span>(portfolio<span style="color:#666">.</span>index)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#a2f">print</span>(cia_cnpj<span style="color:#666">.</span>CNPJ[cia_cnpj[<span style="color:#b44">&#39;Código&#39;</span>]<span style="color:#666">.</span>str<span style="color:#666">.</span>contains(<span style="color:#b44">&#39;|&#39;</span><span style="color:#666">.</span>join(portfolio<span style="color:#666">.</span>index))]<span style="color:#666">.</span>values)
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>portfolio[<span style="color:#b44">&#39;cnpj&#39;</span>] <span style="color:#666">=</span> cia_cnpj<span style="color:#666">.</span>CNPJ[cia_cnpj[<span style="color:#b44">&#39;Código&#39;</span>]<span style="color:#666">.</span>str<span style="color:#666">.</span>contains(<span style="color:#b44">&#39;|&#39;</span><span style="color:#666">.</span>join(portfolio<span style="color:#666">.</span>index))]<span style="color:#666">.</span>values 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span style="color:#a2f;font-weight:bold">print</span>(portfolio)</code></pre></div>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span style="color:#a2f">print</span>(portfolio)</code></pre></div>
 </div>
 <pre class="example">
 Index([&#39;ITSA4&#39;, &#39;MGLU3&#39;], dtype=&#39;object&#39;, name=&#39;ticker&#39;)
@@ -1119,9 +1119,9 @@ MGLU3        90  31.166667  47.960.950/0001-21
 Agora, pegar o código CVM com esse CNPJ.
 Usarei a mesma técnica.</p>
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#a2f;font-weight:bold">print</span>(cia_code_cvm[cia_code_cvm[<span style="color:#b44">&#39;CNPJ_CIA&#39;</span>]<span style="color:#666">.</span>str<span style="color:#666">.</span>contains(<span style="color:#b44">&#34;|&#34;</span><span style="color:#666">.</span>join(portfolio<span style="color:#666">.</span>cnpj))])
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#a2f">print</span>(cia_code_cvm[cia_code_cvm[<span style="color:#b44">&#39;CNPJ_CIA&#39;</span>]<span style="color:#666">.</span>str<span style="color:#666">.</span>contains(<span style="color:#b44">&#34;|&#34;</span><span style="color:#666">.</span>join(portfolio<span style="color:#666">.</span>cnpj))])
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>portfolio[<span style="color:#b44">&#39;cd_cvm&#39;</span>] <span style="color:#666">=</span> cia_code_cvm<span style="color:#666">.</span>CD_CVM[cia_code_cvm[<span style="color:#b44">&#39;CNPJ_CIA&#39;</span>]<span style="color:#666">.</span>str<span style="color:#666">.</span>contains(<span style="color:#b44">&#34;|&#34;</span><span style="color:#666">.</span>join(portfolio<span style="color:#666">.</span>cnpj))]<span style="color:#666">.</span>values 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span style="color:#a2f;font-weight:bold">print</span>(portfolio)</code></pre></div>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span style="color:#a2f">print</span>(portfolio)</code></pre></div>
 </div>
 <pre class="example">
                 CNPJ_CIA       DENOM_SOCIAL  CD_CVM
@@ -1140,7 +1140,7 @@ Implementar função que obtém detalhes das companhias
 </h4>
 <div id="outline-text-headline-29" class="outline-text-4">
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#a2f;font-weight:bold">def</span> <span style="color:#00a000">get_cia_details</span>(portfolio, cad_cia_file, cia_cnpj_file):
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#a2f;font-weight:bold">def</span> <span style="color:#00a000">get_cia_details</span>(portfolio, cad_cia_file, cia_cnpj_file):
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>    cia_data_cvm <span style="color:#666">=</span> pd<span style="color:#666">.</span>read_csv(cad_cia_file,
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>                               sep<span style="color:#666">=</span><span style="color:#b44">&#39;;&#39;</span>, engine<span style="color:#666">=</span><span style="color:#b44">&#39;python&#39;</span>)
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>    cia_cnpj <span style="color:#666">=</span> pd<span style="color:#666">.</span>read_csv(cia_cnpj_file, sep<span style="color:#666">=</span><span style="color:#b44">&#39;,&#39;</span>)
@@ -1160,7 +1160,7 @@ Implementar função que obtém detalhes das companhias
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span>pf_detail <span style="color:#666">=</span> get_cia_details(portfolio,
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span>                     cad_cia_file<span style="color:#666">=</span><span style="color:#b44">&#39;cad_cia_aberta.csv&#39;</span>,
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span>                     cia_cnpj_file<span style="color:#666">=</span><span style="color:#b44">&#39;cia_cnpj.csv&#39;</span>)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span><span style="color:#a2f;font-weight:bold">print</span>(pf_detail)</code></pre></div>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span><span style="color:#a2f">print</span>(pf_detail)</code></pre></div>
 </div>
 <pre class="example">
         vol_liq  avg_price                cnpj  cd_cvm
@@ -1205,12 +1205,12 @@ Colocar os dados do site num dataframe
 Considerar primeiro apenas para MGLU3.
 Quando for fazer para cada companhia do portfólio consolidado será necessário um loop.</p>
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>cd_cvm <span style="color:#666">=</span> pf_detail<span style="color:#666">.</span>cd_cvm[<span style="color:#b44">&#39;MGLU3&#39;</span>] 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>site <span style="color:#666">=</span> f<span style="color:#b44">&#39;http://bvmf.bmfbovespa.com.br/cias-listadas/empresas-listadas/ResumoProventosDinheiro.aspx?codigoCvm={cd_cvm}&amp;tab=3.1&amp;idioma=pt-br&#39;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>cd_cvm <span style="color:#666">=</span> pf_detail<span style="color:#666">.</span>cd_cvm[<span style="color:#b44">&#39;MGLU3&#39;</span>] 
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>site <span style="color:#666">=</span> <span style="color:#b44">f</span><span style="color:#b44">&#39;http://bvmf.bmfbovespa.com.br/cias-listadas/empresas-listadas/ResumoProventosDinheiro.aspx?codigoCvm=</span><span style="color:#b68;font-weight:bold">{</span>cd_cvm<span style="color:#b68;font-weight:bold">}</span><span style="color:#b44">&amp;tab=3.1&amp;idioma=pt-br&#39;</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>proventos_data <span style="color:#666">=</span> pd<span style="color:#666">.</span>read_html(site, decimal<span style="color:#666">=</span><span style="color:#b44">&#39;,&#39;</span>, thousands<span style="color:#666">=</span><span style="color:#b44">&#39;.&#39;</span>)[<span style="color:#666">0</span>]
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span style="color:#a2f;font-weight:bold">print</span>(proventos_data<span style="color:#666">.</span>head())
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span style="color:#a2f;font-weight:bold">print</span>(proventos_data<span style="color:#666">.</span>dtypes)</code></pre></div>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span style="color:#a2f">print</span>(proventos_data<span style="color:#666">.</span>head())
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span style="color:#a2f">print</span>(proventos_data<span style="color:#666">.</span>dtypes)</code></pre></div>
 </div>
 <pre class="example">
   Tipo de Ativo Data da Aprovação (I)  Valor do Provento (R$)  \
@@ -1260,13 +1260,13 @@ Converter a data para o formato reconhecível
 </h4>
 <div id="outline-text-headline-33" class="outline-text-4">
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>proventos <span style="color:#666">=</span> {}
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>proventos <span style="color:#666">=</span> {}
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>proventos[<span style="color:#b44">&#39;MGLU3&#39;</span>] <span style="color:#666">=</span> pd<span style="color:#666">.</span>DataFrame()
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>proventos[<span style="color:#b44">&#39;MGLU3&#39;</span>][<span style="color:#b44">&#39;valor&#39;</span>] <span style="color:#666">=</span> proventos_data[<span style="color:#b44">&#39;Valor do Provento (R$)&#39;</span>]
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>proventos[<span style="color:#b44">&#39;MGLU3&#39;</span>][<span style="color:#b44">&#39;date_com&#39;</span>] <span style="color:#666">=</span> pd<span style="color:#666">.</span>to_datetime(proventos_data[<span style="color:#b44">&#34;Últ. Dia &#39;Com&#39;&#34;</span>],
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span>                                       format<span style="color:#666">=</span><span style="color:#b44">&#34;</span><span style="color:#b68;font-weight:bold">%d</span><span style="color:#b44">/%m/%Y&#34;</span>)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span style="color:#a2f;font-weight:bold">print</span>(proventos[<span style="color:#b44">&#39;MGLU3&#39;</span>])
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span style="color:#a2f;font-weight:bold">print</span>(proventos[<span style="color:#b44">&#39;MGLU3&#39;</span>]<span style="color:#666">.</span>dtypes)</code></pre></div>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span>                                       <span style="color:#a2f">format</span><span style="color:#666">=</span><span style="color:#b44">&#34;</span><span style="color:#b68;font-weight:bold">%d</span><span style="color:#b44">/%m/%Y&#34;</span>)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span style="color:#a2f">print</span>(proventos[<span style="color:#b44">&#39;MGLU3&#39;</span>])
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span style="color:#a2f">print</span>(proventos[<span style="color:#b44">&#39;MGLU3&#39;</span>]<span style="color:#666">.</span>dtypes)</code></pre></div>
 </div>
 <pre class="example">
        valor   date_com
@@ -1298,13 +1298,13 @@ Descartar dados desnecessários
 Os proventos serão provisionados apenas quem possuía os papéis na data da aprovação.
 Portanto, proventos antes da primeira compra não precisam ser armazenados.</p>
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#a2f;font-weight:bold">print</span>(trades<span style="color:#666">.</span>date[trades<span style="color:#666">.</span>ticker <span style="color:#666">==</span> <span style="color:#b44">&#39;MGLU3&#39;</span>]<span style="color:#666">.</span>min())
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#a2f;font-weight:bold">print</span>(proventos[<span style="color:#b44">&#39;MGLU3&#39;</span>])
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span style="color:#a2f;font-weight:bold">print</span>(proventos[<span style="color:#b44">&#39;MGLU3&#39;</span>][proventos[<span style="color:#b44">&#39;MGLU3&#39;</span>]<span style="color:#666">.</span>date_com <span style="color:#666">&gt;</span> trades<span style="color:#666">.</span>date[trades<span style="color:#666">.</span>ticker <span style="color:#666">==</span> <span style="color:#b44">&#39;MGLU3&#39;</span>]<span style="color:#666">.</span>min()])
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#a2f">print</span>(trades<span style="color:#666">.</span>date[trades<span style="color:#666">.</span>ticker <span style="color:#666">==</span> <span style="color:#b44">&#39;MGLU3&#39;</span>]<span style="color:#666">.</span>min())
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#a2f">print</span>(proventos[<span style="color:#b44">&#39;MGLU3&#39;</span>])
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span style="color:#a2f">print</span>(proventos[<span style="color:#b44">&#39;MGLU3&#39;</span>][proventos[<span style="color:#b44">&#39;MGLU3&#39;</span>]<span style="color:#666">.</span>date_com <span style="color:#666">&gt;</span> trades<span style="color:#666">.</span>date[trades<span style="color:#666">.</span>ticker <span style="color:#666">==</span> <span style="color:#b44">&#39;MGLU3&#39;</span>]<span style="color:#666">.</span>min()])
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>proventos[<span style="color:#b44">&#39;MGLU3&#39;</span>] <span style="color:#666">=</span> proventos[<span style="color:#b44">&#39;MGLU3&#39;</span>][
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span>    proventos[<span style="color:#b44">&#39;MGLU3&#39;</span>]<span style="color:#666">.</span>date_com <span style="color:#666">&gt;</span> trades<span style="color:#666">.</span>date[trades<span style="color:#666">.</span>ticker <span style="color:#666">==</span> <span style="color:#b44">&#39;MGLU3&#39;</span>]<span style="color:#666">.</span>min()
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span>]
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span style="color:#a2f;font-weight:bold">print</span>(proventos)</code></pre></div>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span style="color:#a2f">print</span>(proventos)</code></pre></div>
 </div>
 <pre class="example">
 2019-12-11 00:00:00
@@ -1356,8 +1356,8 @@ Função faz</p>
 </li>
 </ol>
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#a2f;font-weight:bold">def</span> <span style="color:#00a000">get_dividends_data</span>(ticker, cd_cvm):
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>    site <span style="color:#666">=</span> f<span style="color:#b44">&#39;http://bvmf.bmfbovespa.com.br/cias-listadas/empresas-listadas/ResumoProventosDinheiro.aspx?codigoCvm={cd_cvm}&amp;tab=3.1&amp;idioma=pt-br&#39;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#a2f;font-weight:bold">def</span> <span style="color:#00a000">get_dividends_data</span>(ticker, cd_cvm):
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>    site <span style="color:#666">=</span> <span style="color:#b44">f</span><span style="color:#b44">&#39;http://bvmf.bmfbovespa.com.br/cias-listadas/empresas-listadas/ResumoProventosDinheiro.aspx?codigoCvm=</span><span style="color:#b68;font-weight:bold">{</span>cd_cvm<span style="color:#b68;font-weight:bold">}</span><span style="color:#b44">&amp;tab=3.1&amp;idioma=pt-br&#39;</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>    dividends_data <span style="color:#666">=</span> pd<span style="color:#666">.</span>read_html(site,
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span>                                  decimal<span style="color:#666">=</span><span style="color:#b44">&#39;,&#39;</span>,
@@ -1366,8 +1366,8 @@ Função faz</p>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span>                                  )[<span style="color:#666">0</span>]
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span>    <span style="color:#a2f;font-weight:bold">return</span> dividends_data
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span style="color:#a2f;font-weight:bold">print</span>(get_dividends_data(<span style="color:#b44">&#39;MGLU3&#39;</span>, <span style="color:#666">22470</span>)<span style="color:#666">.</span>head())
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span style="color:#a2f;font-weight:bold">print</span>(get_dividends_data(<span style="color:#b44">&#39;MGLU3&#39;</span>, <span style="color:#666">22470</span>)<span style="color:#666">.</span>dtypes)</code></pre></div>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span style="color:#a2f">print</span>(get_dividends_data(<span style="color:#b44">&#39;MGLU3&#39;</span>, <span style="color:#666">22470</span>)<span style="color:#666">.</span>head())
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span style="color:#a2f">print</span>(get_dividends_data(<span style="color:#b44">&#39;MGLU3&#39;</span>, <span style="color:#666">22470</span>)<span style="color:#666">.</span>dtypes)</code></pre></div>
 </div>
 <pre class="example">
     date_com Tipo de Ativo Data da Aprovação (I)  Valor do Provento (R$)  \
@@ -1428,9 +1428,9 @@ Protótipo
 <p>
 Obter volume líquido na data do provento.</p>
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#a2f;font-weight:bold">print</span>(proventos[<span style="color:#b44">&#39;MGLU3&#39;</span>]<span style="color:#666">.</span>date_com<span style="color:#666">.</span>tail(<span style="color:#666">1</span>))
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#a2f;font-weight:bold">print</span>(trades)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span style="color:#a2f;font-weight:bold">print</span>(trades<span style="color:#666">.</span>vol_adj[(trades<span style="color:#666">.</span>date <span style="color:#666">&lt;=</span> proventos[<span style="color:#b44">&#39;MGLU3&#39;</span>]<span style="color:#666">.</span>date_com[<span style="color:#666">12</span>])
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#a2f">print</span>(proventos[<span style="color:#b44">&#39;MGLU3&#39;</span>]<span style="color:#666">.</span>date_com<span style="color:#666">.</span>tail(<span style="color:#666">1</span>))
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#a2f">print</span>(trades)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span style="color:#a2f">print</span>(trades<span style="color:#666">.</span>vol_adj[(trades<span style="color:#666">.</span>date <span style="color:#666">&lt;=</span> proventos[<span style="color:#b44">&#39;MGLU3&#39;</span>]<span style="color:#666">.</span>date_com[<span style="color:#666">12</span>])
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>                         <span style="color:#666">&amp;</span> (trades<span style="color:#666">.</span>ticker <span style="color:#666">==</span> <span style="color:#b44">&#39;MGLU3&#39;</span>)]<span style="color:#666">.</span>sum())</code></pre></div>
 </div>
 <pre class="example">
@@ -1455,14 +1455,14 @@ Volume líquido para todas as datas de proventos
 <p>
 O parâmetro <code class="verbatim">axis = 1</code> na função <code class="verbatim">apply()</code> é para indicar que vai ser aplicado linha a linha.</p>
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>proventos[<span style="color:#b44">&#39;MGLU3&#39;</span>][<span style="color:#b44">&#39;vol_liq&#39;</span>] <span style="color:#666">=</span> proventos[<span style="color:#b44">&#39;MGLU3&#39;</span>]<span style="color:#666">.</span>apply(
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>proventos[<span style="color:#b44">&#39;MGLU3&#39;</span>][<span style="color:#b44">&#39;vol_liq&#39;</span>] <span style="color:#666">=</span> proventos[<span style="color:#b44">&#39;MGLU3&#39;</span>]<span style="color:#666">.</span>apply(
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>    <span style="color:#a2f;font-weight:bold">lambda</span> x: trades<span style="color:#666">.</span>vol_adj[
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>	(trades<span style="color:#666">.</span>date <span style="color:#666">&lt;=</span> x<span style="color:#666">.</span>date_com)
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>        <span style="color:#666">&amp;</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span>        (trades<span style="color:#666">.</span>ticker <span style="color:#666">==</span> <span style="color:#b44">&#39;MGLU3&#39;</span>)
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span>    ]<span style="color:#666">.</span>sum(), 
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span>    axis<span style="color:#666">=</span><span style="color:#666">1</span>)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8</span><span style="color:#a2f;font-weight:bold">print</span>(proventos[<span style="color:#b44">&#39;MGLU3&#39;</span>])</code></pre></div>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8</span><span style="color:#a2f">print</span>(proventos[<span style="color:#b44">&#39;MGLU3&#39;</span>])</code></pre></div>
 </div>
 <pre class="example">
        valor   date_com  vol_liq
@@ -1477,8 +1477,8 @@ Provento total
 </h4>
 <div id="outline-text-headline-40" class="outline-text-4">
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>proventos[<span style="color:#b44">&#39;MGLU3&#39;</span>][<span style="color:#b44">&#39;total&#39;</span>] <span style="color:#666">=</span> proventos[<span style="color:#b44">&#39;MGLU3&#39;</span>][<span style="color:#b44">&#39;valor&#39;</span>] <span style="color:#666">*</span> proventos[<span style="color:#b44">&#39;MGLU3&#39;</span>][<span style="color:#b44">&#39;vol_liq&#39;</span>]
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#a2f;font-weight:bold">print</span>(proventos[<span style="color:#b44">&#39;MGLU3&#39;</span>])</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>proventos[<span style="color:#b44">&#39;MGLU3&#39;</span>][<span style="color:#b44">&#39;total&#39;</span>] <span style="color:#666">=</span> proventos[<span style="color:#b44">&#39;MGLU3&#39;</span>][<span style="color:#b44">&#39;valor&#39;</span>] <span style="color:#666">*</span> proventos[<span style="color:#b44">&#39;MGLU3&#39;</span>][<span style="color:#b44">&#39;vol_liq&#39;</span>]
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#a2f">print</span>(proventos[<span style="color:#b44">&#39;MGLU3&#39;</span>])</code></pre></div>
 </div>
 <pre class="example">
        valor   date_com  vol_liq     total
@@ -1493,7 +1493,7 @@ Plotar proventos no tempo
 </h4>
 <div id="outline-text-headline-41" class="outline-text-4">
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">matplotlib</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">matplotlib</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">matplotlib.pyplot</span> <span style="color:#a2f;font-weight:bold">as</span> <span style="color:#00f;font-weight:bold">plt</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>matplotlib<span style="color:#666">.</span>style<span style="color:#666">.</span>use(<span style="color:#b44">&#39;seaborn&#39;</span>)
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>proventos[<span style="color:#b44">&#39;MGLU3&#39;</span>]<span style="color:#666">.</span>plot(x<span style="color:#666">=</span><span style="color:#b44">&#39;date_com&#39;</span>,
@@ -1536,7 +1536,7 @@ Função faz:</p>
 </li>
 </ol>
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#a2f;font-weight:bold">def</span> <span style="color:#00a000">process_dividends</span>(ticker, trades, cd_cvm):
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#a2f;font-weight:bold">def</span> <span style="color:#00a000">process_dividends</span>(ticker, trades, cd_cvm):
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>    dividends <span style="color:#666">=</span> get_dividends_data(ticker, cd_cvm)
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>    <span style="color:#080;font-style:italic"># remove old unecessary data</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>    dividends <span style="color:#666">=</span> dividends[
@@ -1554,7 +1554,7 @@ Função faz:</p>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span>    <span style="color:#080;font-style:italic"># add ticker as index</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span>    dividends <span style="color:#666">=</span> dividends<span style="color:#666">.</span>set_index(
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span>	pd<span style="color:#666">.</span>Index([ticker] <span style="color:#666">*</span> dividends<span style="color:#666">.</span>shape[<span style="color:#666">0</span>])<span style="color:#666">.</span>set_names([<span style="color:#b44">&#39;ticker&#39;</span>]),
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span>	append<span style="color:#666">=</span>True
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span>	append<span style="color:#666">=</span><span style="color:#a2f;font-weight:bold">True</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span>    )
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span>    <span style="color:#080;font-style:italic"># filter by date and ticker, then sum</span>
@@ -1574,7 +1574,7 @@ Função faz:</p>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36</span>    dividends[<span style="color:#b44">&#39;total&#39;</span>] <span style="color:#666">=</span> dividends<span style="color:#666">.</span>value <span style="color:#666">*</span> dividends<span style="color:#666">.</span>vol_liq
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38</span>    <span style="color:#a2f;font-weight:bold">return</span> dividends
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39</span><span style="color:#a2f;font-weight:bold">print</span>(process_dividends(<span style="color:#b44">&#39;MGLU3&#39;</span>, trades, <span style="color:#666">22470</span>))</code></pre></div>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39</span><span style="color:#a2f">print</span>(process_dividends(<span style="color:#b44">&#39;MGLU3&#39;</span>, trades, <span style="color:#666">22470</span>))</code></pre></div>
 </div>
 <pre class="example">
             date_com     value             type  vol_liq     total
@@ -1591,7 +1591,7 @@ Teste para ITSA4
 <div id="outline-text-headline-43" class="outline-text-4">
 <img src="Provento_recebido/2020-12-24_00-12-58_screenshot.png" alt="Provento_recebido/2020-12-24_00-12-58_screenshot.png" title="Provento_recebido/2020-12-24_00-12-58_screenshot.png" width="350px"/>
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#a2f;font-weight:bold">print</span>(process_dividends(<span style="color:#b44">&#39;ITSA4&#39;</span>, trades, <span style="color:#666">7617</span>))</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#a2f">print</span>(process_dividends(<span style="color:#b44">&#39;ITSA4&#39;</span>, trades, <span style="color:#666">7617</span>))</code></pre></div>
 </div>
 <pre class="example">
              date_com   value             type  vol_liq  total
@@ -1619,14 +1619,14 @@ Função faz</p>
 </li>
 </ol>
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#a2f;font-weight:bold">def</span> <span style="color:#00a000">consolidade_dividends</span>(portfolio, trades):
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#a2f;font-weight:bold">def</span> <span style="color:#00a000">consolidade_dividends</span>(portfolio, trades):
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>    portfolio_details <span style="color:#666">=</span> get_cia_details(portfolio, <span style="color:#b44">&#39;cad_cia_aberta.csv&#39;</span>, <span style="color:#b44">&#39;cia_cnpj.csv&#39;</span>)
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>    dividends <span style="color:#666">=</span> pd<span style="color:#666">.</span>DataFrame()
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span>    <span style="color:#a2f;font-weight:bold">for</span> [ticker, cd_cvm] <span style="color:#a2f;font-weight:bold">in</span> <span style="color:#a2f">zip</span>(portfolio_details<span style="color:#666">.</span>index, portfolio_details<span style="color:#666">.</span>cd_cvm):
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span>        dividends <span style="color:#666">=</span> dividends<span style="color:#666">.</span>append(process_dividends(ticker, trades, cd_cvm))
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span>    <span style="color:#a2f;font-weight:bold">return</span> dividends
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8</span><span style="color:#a2f;font-weight:bold">print</span>(consolidade_dividends(portfolio, trades))</code></pre></div>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8</span><span style="color:#a2f">print</span>(consolidade_dividends(portfolio, trades))</code></pre></div>
 </div>
 <pre class="example">
              date_com     value             type  vol_liq     total

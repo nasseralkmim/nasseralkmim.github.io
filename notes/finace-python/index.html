@@ -17,8 +17,8 @@
 <meta property="og:description" content="Finance data in python using yahooquery." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://nasseralkmim.github.io/notes/finace-python/" /><meta property="article:section" content="notes" />
-<meta property="article:published_time" content="2020-12-25T00:00:00&#43;00:00" />
-<meta property="article:modified_time" content="2021-07-18T09:36:19&#43;00:00" />
+<meta property="article:published_time" content="2020-12-25T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-07-18T09:36:19+00:00" />
 
 
   <meta name="twitter:card" content="summary"/>
@@ -319,8 +319,8 @@ Think about the price someone puts in a product label.</p>
 <p>
 The market price is price of the last transaction made.</p>
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#a2f;font-weight:bold">print</span>(yf<span style="color:#666">.</span>Ticker(<span style="color:#b44">&#39;GOOG&#39;</span>)<span style="color:#666">.</span>quotes[<span style="color:#b44">&#39;GOOG&#39;</span>][<span style="color:#b44">&#39;bid&#39;</span>])
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#a2f;font-weight:bold">print</span>(yf<span style="color:#666">.</span>Ticker(<span style="color:#b44">&#39;GOOG&#39;</span>)<span style="color:#666">.</span>quotes[<span style="color:#b44">&#39;GOOG&#39;</span>][<span style="color:#b44">&#39;regularMarketPrice&#39;</span>])</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#a2f">print</span>(yf<span style="color:#666">.</span>Ticker(<span style="color:#b44">&#39;GOOG&#39;</span>)<span style="color:#666">.</span>quotes[<span style="color:#b44">&#39;GOOG&#39;</span>][<span style="color:#b44">&#39;bid&#39;</span>])
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#a2f">print</span>(yf<span style="color:#666">.</span>Ticker(<span style="color:#b44">&#39;GOOG&#39;</span>)<span style="color:#666">.</span>quotes[<span style="color:#b44">&#39;GOOG&#39;</span>][<span style="color:#b44">&#39;regularMarketPrice&#39;</span>])</code></pre></div>
 </div>
 <pre class="example">
 2633.52
@@ -350,7 +350,7 @@ Key information:</p>
 </li>
 </ol>
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#a2f;font-weight:bold">from</span> <span style="color:#00f;font-weight:bold">pprint</span> <span style="color:#a2f;font-weight:bold">import</span> pprint
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#a2f;font-weight:bold">from</span> <span style="color:#00f;font-weight:bold">pprint</span> <span style="color:#a2f;font-weight:bold">import</span> pprint
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>pprint(ticker<span style="color:#666">.</span>quotes)</code></pre></div>
 </div>
 <pre class="example">
@@ -433,7 +433,7 @@ Evolution of market price
 <p>
 Close price is the last market price that the security was traded in a day.</p>
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">matplotlib</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">matplotlib</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">matplotlib.pyplot</span> <span style="color:#a2f;font-weight:bold">as</span> <span style="color:#00f;font-weight:bold">plt</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>matplotlib<span style="color:#666">.</span>style<span style="color:#666">.</span>use(<span style="color:#b44">&#39;ggplot&#39;</span>)
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>
@@ -457,7 +457,7 @@ Key information:</p>
 </li>
 </ol>
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>pprint(ticker<span style="color:#666">.</span>asset_profile)</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>pprint(ticker<span style="color:#666">.</span>asset_profile)</code></pre></div>
 </div>
 <pre class="example">
 {&#39;GOOG&#39;: {&#39;address1&#39;: &#39;1600 Amphitheatre Parkway&#39;,
@@ -594,7 +594,7 @@ Asset profile
 <div id="outline-text-headline-6" class="outline-text-3">
 <p>Asset profile does not give much information.</p>
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>ticker <span style="color:#666">=</span> <span style="color:#b44">&#39;VOO&#39;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>ticker <span style="color:#666">=</span> <span style="color:#b44">&#39;VOO&#39;</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>etf_us <span style="color:#666">=</span> yf<span style="color:#666">.</span>Ticker(ticker)
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>pprint(etf_us<span style="color:#666">.</span>asset_profile)</code></pre></div>
 </div>
@@ -639,8 +639,8 @@ Key information:</p>
 </li>
 </ol>
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>pprint(etf_us<span style="color:#666">.</span>quotes)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#a2f;font-weight:bold">print</span>(etf_us<span style="color:#666">.</span>quotes[ticker][<span style="color:#b44">&#39;regularMarketPrice&#39;</span>])</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>pprint(etf_us<span style="color:#666">.</span>quotes)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#a2f">print</span>(etf_us<span style="color:#666">.</span>quotes[ticker][<span style="color:#b44">&#39;regularMarketPrice&#39;</span>])</code></pre></div>
 </div>
 <pre class="example">
 {&#39;VOO&#39;: {&#39;ask&#39;: 396.9,
@@ -718,7 +718,7 @@ Historical price
 </h3>
 <div id="outline-text-headline-8" class="outline-text-3">
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>etf_us<span style="color:#666">.</span>history()<span style="color:#666">.</span>close<span style="color:#666">.</span>plot()</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>etf_us<span style="color:#666">.</span>history()<span style="color:#666">.</span>close<span style="color:#666">.</span>plot()</code></pre></div>
 </div>
 </div>
 </div>
@@ -730,7 +730,7 @@ Top holdings
 <p>Only for funds and ETF.
 Just the top 10, there is no way to make an overlap analysis with just that.</p>
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#a2f;font-weight:bold">print</span>(etf_us<span style="color:#666">.</span>fund_top_holdings)</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#a2f">print</span>(etf_us<span style="color:#666">.</span>fund_top_holdings)</code></pre></div>
 </div>
 <pre class="example">
            symbol                     holdingName  holdingPercent
@@ -762,7 +762,7 @@ Asset profile
 <div id="outline-text-headline-11" class="outline-text-3">
 <p>No profile.</p>
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>ticker <span style="color:#666">=</span> <span style="color:#b44">&#39;SXR8.DE&#39;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>ticker <span style="color:#666">=</span> <span style="color:#b44">&#39;SXR8.DE&#39;</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>etf_int <span style="color:#666">=</span> yf<span style="color:#666">.</span>Ticker(ticker)
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>pprint(etf_int<span style="color:#666">.</span>asset_profile)</code></pre></div>
 </div>
@@ -799,8 +799,8 @@ Key information:</p>
 </li>
 </ol>
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>pprint(etf_int<span style="color:#666">.</span>quotes)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#a2f;font-weight:bold">print</span>(etf_int<span style="color:#666">.</span>quotes[ticker][<span style="color:#b44">&#39;regularMarketPrice&#39;</span>])</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>pprint(etf_int<span style="color:#666">.</span>quotes)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#a2f">print</span>(etf_int<span style="color:#666">.</span>quotes[ticker][<span style="color:#b44">&#39;regularMarketPrice&#39;</span>])</code></pre></div>
 </div>
 <pre class="example">
 {&#39;SXR8.DE&#39;: {&#39;ask&#39;: 374.01,
@@ -865,7 +865,7 @@ Historical price
 </h3>
 <div id="outline-text-headline-13" class="outline-text-3">
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>etf_int<span style="color:#666">.</span>history()<span style="color:#666">.</span>close<span style="color:#666">.</span>plot()</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>etf_int<span style="color:#666">.</span>history()<span style="color:#666">.</span>close<span style="color:#666">.</span>plot()</code></pre></div>
 </div>
 <p><img src="./jupyter/1c5ff95b2169299042adea71d6dcfeb8cbb38a90.png" alt="./jupyter/1c5ff95b2169299042adea71d6dcfeb8cbb38a90.png" title="./jupyter/1c5ff95b2169299042adea71d6dcfeb8cbb38a90.png" /></p>
 </div>
@@ -877,7 +877,7 @@ Top holdings
 <div id="outline-text-headline-14" class="outline-text-3">
 <p>No top holdings.</p>
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#a2f;font-weight:bold">print</span>(etf_int<span style="color:#666">.</span>fund_top_holdings)</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#a2f">print</span>(etf_int<span style="color:#666">.</span>fund_top_holdings)</code></pre></div>
 </div>
 <pre class="example">
 {&#39;SXR8.DE&#39;: &#39;No fundamentals data found for any of the summaryTypes=topHoldings&#39;}
@@ -904,10 +904,10 @@ Key information:</p>
 </li>
 </ol>
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>fii <span style="color:#666">=</span> yf<span style="color:#666">.</span>Ticker(<span style="color:#b44">&#39;VISC11.SA&#39;</span>)
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>fii <span style="color:#666">=</span> yf<span style="color:#666">.</span>Ticker(<span style="color:#b44">&#39;VISC11.SA&#39;</span>)
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>pprint(fii<span style="color:#666">.</span>asset_profile)
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>pprint(fii<span style="color:#666">.</span>quotes)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span style="color:#a2f;font-weight:bold">print</span>(fii<span style="color:#666">.</span>quotes[<span style="color:#b44">&#39;VISC11.SA&#39;</span>][<span style="color:#b44">&#39;regularMarketPrice&#39;</span>])
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span style="color:#a2f">print</span>(fii<span style="color:#666">.</span>quotes[<span style="color:#b44">&#39;VISC11.SA&#39;</span>][<span style="color:#b44">&#39;regularMarketPrice&#39;</span>])
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span>fii<span style="color:#666">.</span>history()<span style="color:#666">.</span>close<span style="color:#666">.</span>plot()</code></pre></div>
 </div>
 <pre class="example">
@@ -996,10 +996,10 @@ Key information:</p>
 </li>
 </ol>
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>stock_br <span style="color:#666">=</span> yf<span style="color:#666">.</span>Ticker(<span style="color:#b44">&#39;EGIE3.SA&#39;</span>)
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>stock_br <span style="color:#666">=</span> yf<span style="color:#666">.</span>Ticker(<span style="color:#b44">&#39;EGIE3.SA&#39;</span>)
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>pprint(stock_br<span style="color:#666">.</span>asset_profile)
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>pprint(stock_br<span style="color:#666">.</span>quotes)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span style="color:#a2f;font-weight:bold">print</span>(stock_br<span style="color:#666">.</span>quotes[<span style="color:#b44">&#39;EGIE3.SA&#39;</span>][<span style="color:#b44">&#39;regularMarketPrice&#39;</span>])
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span style="color:#a2f">print</span>(stock_br<span style="color:#666">.</span>quotes[<span style="color:#b44">&#39;EGIE3.SA&#39;</span>][<span style="color:#b44">&#39;regularMarketPrice&#39;</span>])
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span>stock_br<span style="color:#666">.</span>history()<span style="color:#666">.</span>close<span style="color:#666">.</span>plot()</code></pre></div>
 </div>
 <pre class="example">

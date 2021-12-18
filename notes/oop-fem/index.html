@@ -17,8 +17,8 @@
 <meta property="og:description" content="OOP for an extensible FEM code" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://nasseralkmim.github.io/notes/oop-fem/" /><meta property="article:section" content="notes" />
-<meta property="article:published_time" content="2016-08-18T00:00:00&#43;00:00" />
-<meta property="article:modified_time" content="2016-08-18T00:00:00&#43;00:00" />
+<meta property="article:published_time" content="2016-08-18T00:00:00+00:00" />
+<meta property="article:modified_time" content="2016-08-18T00:00:00+00:00" />
 
 
   <meta name="twitter:card" content="summary"/>
@@ -296,7 +296,7 @@ User input as the Mesh file and the Problem parameters.
  Then, we call the solver that return an array with the unknown variable.
  Lastly we process the output by plotting.</p>
 <div class="src src-plantuml">
-<pre><code class="language-plantuml" data-lang="plantuml">agent Mesh
+<pre tabindex="0"><code class="language-plantuml" data-lang="plantuml">agent Mesh
 agent Problem
 agent Solver
 agent PostProcessor
@@ -322,7 +322,7 @@ This module consists of assembling the global matrices and solve the linear syst
 <p>
 As an example on how the data is attached to the structure:</p>
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">numpy</span> <span style="color:#a2f;font-weight:bold">as</span> <span style="color:#00f;font-weight:bold">np</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">numpy</span> <span style="color:#a2f;font-weight:bold">as</span> <span style="color:#00f;font-weight:bold">np</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">Model</span>(<span style="color:#a2f">object</span>):
@@ -332,8 +332,8 @@ As an example on how the data is attached to the structure:</p>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span>        self<span style="color:#666">.</span>nn <span style="color:#666">=</span> <span style="color:#666">9</span>             <span style="color:#080;font-style:italic"># number of nodes</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span>        self<span style="color:#666">.</span>ndof <span style="color:#666">=</span> <span style="color:#666">18</span>         <span style="color:#080;font-style:italic"># number of degrees of freedom</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span>        self<span style="color:#666">.</span>XYZ <span style="color:#666">=</span> np<span style="color:#666">.</span>array([[<span style="color:#666">0</span>, <span style="color:#666">0</span>], [<span style="color:#666">1</span>, <span style="color:#666">0</span>], [<span style="color:#666">1</span>, <span style="color:#666">1</span>], [<span style="color:#666">0</span>, <span style="color:#666">1</span>], [<span style="color:#666">.</span><span style="color:#666">5</span>, <span style="color:#666">0</span>], 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span>                             [<span style="color:#666">1</span>, <span style="color:#666">.</span><span style="color:#666">5</span>], [<span style="color:#666">.</span><span style="color:#666">5</span>, <span style="color:#666">1</span>], [<span style="color:#666">0</span>, <span style="color:#666">.</span><span style="color:#666">5</span>], [<span style="color:#666">.</span><span style="color:#666">5</span>, <span style="color:#666">.</span><span style="color:#666">5</span>]])
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span>        self<span style="color:#666">.</span>XYZ <span style="color:#666">=</span> np<span style="color:#666">.</span>array([[<span style="color:#666">0</span>, <span style="color:#666">0</span>], [<span style="color:#666">1</span>, <span style="color:#666">0</span>], [<span style="color:#666">1</span>, <span style="color:#666">1</span>], [<span style="color:#666">0</span>, <span style="color:#666">1</span>], [<span style="color:#666">.5</span>, <span style="color:#666">0</span>], 
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span>                             [<span style="color:#666">1</span>, <span style="color:#666">.5</span>], [<span style="color:#666">.5</span>, <span style="color:#666">1</span>], [<span style="color:#666">0</span>, <span style="color:#666">.5</span>], [<span style="color:#666">.5</span>, <span style="color:#666">.5</span>]])
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span>        self<span style="color:#666">.</span>CONN <span style="color:#666">=</span> np<span style="color:#666">.</span>array([[<span style="color:#666">0</span>, <span style="color:#666">4</span>, <span style="color:#666">8</span>, <span style="color:#666">7</span>], [<span style="color:#666">4</span>, <span style="color:#666">1</span>, <span style="color:#666">5</span>, <span style="color:#666">8</span>], [<span style="color:#666">8</span>, <span style="color:#666">5</span>, <span style="color:#666">2</span>, <span style="color:#666">6</span>], 
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span>                              [<span style="color:#666">7</span>, <span style="color:#666">8</span>, <span style="color:#666">6</span>, <span style="color:#666">3</span>]])
@@ -423,7 +423,7 @@ object <code class="verbatim">Model</code>
 <div id="outline-text-headline-7" class="outline-text-4">
 <p>First a class for the <code class="verbatim">Model</code>. This class will take a file as argument and extract data from it.</p>
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">numpy</span> <span style="color:#a2f;font-weight:bold">as</span> <span style="color:#00f;font-weight:bold">np</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">numpy</span> <span style="color:#a2f;font-weight:bold">as</span> <span style="color:#00f;font-weight:bold">np</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">Model</span>(<span style="color:#a2f">object</span>):
@@ -437,11 +437,11 @@ object <code class="verbatim">Model</code>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span>                             [<span style="color:#666">1</span>, <span style="color:#666">0</span>],
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span>                             [<span style="color:#666">1</span>, <span style="color:#666">1</span>],
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span>                             [<span style="color:#666">0</span>, <span style="color:#666">1</span>],
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span>                             [<span style="color:#666">.</span><span style="color:#666">5</span>, <span style="color:#666">0</span>], 
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span>                             [<span style="color:#666">1</span>, <span style="color:#666">.</span><span style="color:#666">5</span>],
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span>                             [<span style="color:#666">.</span><span style="color:#666">5</span>, <span style="color:#666">1</span>],
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span>                             [<span style="color:#666">0</span>, <span style="color:#666">.</span><span style="color:#666">5</span>],
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span>                             [<span style="color:#666">.</span><span style="color:#666">5</span>, <span style="color:#666">.</span><span style="color:#666">5</span>]])
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span>                             [<span style="color:#666">.5</span>, <span style="color:#666">0</span>], 
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span>                             [<span style="color:#666">1</span>, <span style="color:#666">.5</span>],
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span>                             [<span style="color:#666">.5</span>, <span style="color:#666">1</span>],
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span>                             [<span style="color:#666">0</span>, <span style="color:#666">.5</span>],
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span>                             [<span style="color:#666">.5</span>, <span style="color:#666">.5</span>]])
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span>        self<span style="color:#666">.</span>CONN <span style="color:#666">=</span> np<span style="color:#666">.</span>array([[<span style="color:#666">0</span>, <span style="color:#666">4</span>, <span style="color:#666">8</span>, <span style="color:#666">7</span>], 
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span>                              [<span style="color:#666">4</span>, <span style="color:#666">1</span>, <span style="color:#666">5</span>, <span style="color:#666">8</span>],
@@ -476,7 +476,7 @@ This object contains material parameters.
  The materials are set in the most general way, the key is the material property and the value is a dictionary whose key is the surface and the value is the physical value of the property.
  The <code class="verbatim">__dict__</code> attribute contains the instance attributes as dictionary and the <code class="verbatim">update()</code> method, an dictionary method, adds a new entry to the dictionary.</p>
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">Material</span>(<span style="color:#a2f">object</span>):
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">Material</span>(<span style="color:#a2f">object</span>):
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>    <span style="color:#b44">&#34;&#34;&#34;Builds a Material object&#34;&#34;&#34;</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>    <span style="color:#a2f;font-weight:bold">def</span> __init__(self, <span style="color:#666">**</span>kw):
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>        self<span style="color:#666">.</span>__dict__<span style="color:#666">.</span>update(kw)
@@ -487,7 +487,7 @@ This object contains material parameters.
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span>    <span style="color:#a2f;font-weight:bold">return</span> <span style="color:#666">1e5</span><span style="color:#666">*</span>t
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span>material<span style="color:#666">.</span>E[model<span style="color:#666">.</span>physical_surf[<span style="color:#666">0</span>]] <span style="color:#666">=</span> E_time_dependent
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span style="color:#a2f;font-weight:bold">print</span>(material<span style="color:#666">.</span>E, material<span style="color:#666">.</span>nu, material<span style="color:#666">.</span>__dict__)</code></pre></div>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span style="color:#a2f">print</span>(material<span style="color:#666">.</span>E, material<span style="color:#666">.</span>nu, material<span style="color:#666">.</span>__dict__)</code></pre></div>
 </div>
 <pre class="example">
 {0: &lt;function E_time_dependent at 0x0000021DD38717B8&gt;} {0: 0.2} {&#39;nu&#39;: {0: 0.2}, &#39;E&#39;: {0: &lt;function E_time_dependent at 0x0000021DD38717B8&gt;}}
@@ -522,7 +522,7 @@ object <code class="verbatim">Element</code>
 The element object contains the constructor of element matrices and vectors.
 It is created only when the solver is assembling the global matrices.</p>
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">Element</span>(<span style="color:#a2f">object</span>):
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">Element</span>(<span style="color:#a2f">object</span>):
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>    <span style="color:#b44">&#34;&#34;&#34;Build an Element object with a constructor for a specific element type&#34;&#34;&#34;</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>    <span style="color:#a2f;font-weight:bold">def</span> __init__(self, eid, model):
@@ -562,8 +562,8 @@ It is created only when the solver is assembling the global matrices.</p>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40</span>element_test_obj <span style="color:#666">=</span> Element(<span style="color:#666">1</span>, model)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41</span><span style="color:#a2f;font-weight:bold">print</span>(element_test_obj<span style="color:#666">.</span>type)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42</span><span style="color:#a2f;font-weight:bold">print</span>(element_test_obj<span style="color:#666">.</span>constructor<span style="color:#666">.</span>stiffness(material))</code></pre></div>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41</span><span style="color:#a2f">print</span>(element_test_obj<span style="color:#666">.</span>type)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42</span><span style="color:#a2f">print</span>(element_test_obj<span style="color:#666">.</span>constructor<span style="color:#666">.</span>stiffness(material))</code></pre></div>
 </div>
 <pre class="example">
 3
@@ -622,7 +622,7 @@ The solver module contain the procedure to solve the problem.
 <p>
 Inside the solver module there are the assembler functions (in different modules), for instance, the stiffness matrix assembler.</p>
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#a2f;font-weight:bold">def</span> <span style="color:#00a000">K_matrix</span>(model, material):
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#a2f;font-weight:bold">def</span> <span style="color:#00a000">K_matrix</span>(model, material):
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>    <span style="color:#b44">&#34;&#34;&#34;Build the GLOBAL stiffness matrix&#34;&#34;&#34;</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>    K <span style="color:#666">=</span> np<span style="color:#666">.</span>zeros((model<span style="color:#666">.</span>ndof, model<span style="color:#666">.</span>ndof))
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>    
@@ -634,7 +634,7 @@ Inside the solver module there are the assembler functions (in different modules
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span>    <span style="color:#a2f;font-weight:bold">return</span> K</code></pre></div>
 </div>
 <div class="src src-python">
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#a2f;font-weight:bold">def</span> <span style="color:#00a000">solver</span>(model, material):
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#a2f;font-weight:bold">def</span> <span style="color:#00a000">solver</span>(model, material):
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>    <span style="color:#b44">&#34;&#34;&#34;Solves the problem&#34;&#34;&#34;</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>    K <span style="color:#666">=</span> K_matrix(model, material)
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>
