@@ -18,7 +18,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://nasseralkmim.github.io/notes/how-to-budget/" /><meta property="article:section" content="notes" />
 <meta property="article:published_time" content="2021-12-18T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-12-23T20:00:33+00:00" />
+<meta property="article:modified_time" content="2021-12-31T17:12:33+00:00" />
 
 
   <meta name="twitter:card" content="summary"/>
@@ -211,7 +211,7 @@ if (!doNotTrack) {
           
           <time datetime="2021-12-18 00:00:00 &#43;0000 UTC" itemprop="datePublished">Dec 18 2021</time>
           
-            (Updated: <time datetime="2021-12-23 20:00:33 &#43;0000 UTC" itemprop="dateModified">Dec 23 2021</time>)
+            (Updated: <time datetime="2021-12-31 17:12:33 &#43;0000 UTC" itemprop="dateModified">Dec 31 2021</time>)
           
         </div>
         
@@ -348,6 +348,16 @@ Then in the budget statement I collect the categories for the month with this <c
             log!$A$2:$A$344,&#34;&lt;=&#34;&amp;L$1, # within a month
             log!$A$2:$A$344,&#34;&gt;&#34;&amp;EDATE(L$1, -1)) # within the month
 </pre>
+<p>
+Update:
+Since I learn the query function in google sheets I have been using it whenever I find a chance.</p>
+<p>
+The formula now looks like,</p>
+<pre class="example">
+QUERY(log!$A:$C,&#34;select sum(C) where B contains &#39;&#34;&amp;$A9&amp;&#34;&#39; and month(A)+1=&#34;&amp;MONTH(K$1)&amp;&#34; and year(A)=&#34;&amp;YEAR(K$1)&amp;&#34; label sum(C) &#39;&#39;&#34;)
+</pre>
+<p>Just sum when it matches the category and check the month and year.
+Very clean.</p>
 <p>
 Looks like this:</p>
 <img src="images/Regular_expenses/2021-12-18_19-51-02_screenshot.png" alt="images/Regular_expenses/2021-12-18_19-51-02_screenshot.png" title="images/Regular_expenses/2021-12-18_19-51-02_screenshot.png" width="350px"/>
