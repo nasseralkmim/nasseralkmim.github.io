@@ -602,12 +602,8 @@ Portfolio consolidado
 <div id="outline-text-headline-14" class="outline-text-4">
 <p>Para conseguir o portfolio consolidado:</p>
 <ol>
-<li>
-<p>usar um banco banco de dados simples em CSV com data, tipo da ordem (buy, sell ou split), volume negociado e preço de compra médio da ordem. Nomear como <code class="verbatim">trade_data</code>.</p>
-</li>
-<li>
-<p>carregar esse dado e consolidar o saldo atual da posição (considerando vendas, compras e split)</p>
-</li>
+<li>usar um banco banco de dados simples em CSV com data, tipo da ordem (buy, sell ou split), volume negociado e preço de compra médio da ordem. Nomear como <code class="verbatim">trade_data</code>.</li>
+<li>carregar esse dado e consolidar o saldo atual da posição (considerando vendas, compras e split)</li>
 </ol>
 </div>
 </div>
@@ -618,12 +614,8 @@ Eventos sociais
 <div id="outline-text-headline-15" class="outline-text-4">
 <p>Para obter os dividendos e juros sobre capital próprio:</p>
 <ol>
-<li>
-<p>usar base de dados da bolsa: <a href="http://bvmf.bmfbovespa.com.br/cias-listadas/empresas-listadas/ResumoProventosDinheiro.aspx?codigoCvm=10456&amp;tab=3.1&amp;idioma=pt-br">bmf-bovespa cia listadas</a>, extrair apenas os dividendos aprovados desde a data de início do portfolio até a data atual. Potencial problema: data de aprovação do dividendo é diferente da data de pagamento de fato. </p>
-</li>
-<li>
-<p>usar o código da cvm para cada companhia: <a href="http://dados.cvm.gov.br/dataset/cia_aberta-cad">CVM dados cias abertas</a> </p>
-</li>
+<li>usar base de dados da bolsa: <a href="http://bvmf.bmfbovespa.com.br/cias-listadas/empresas-listadas/ResumoProventosDinheiro.aspx?codigoCvm=10456&amp;tab=3.1&amp;idioma=pt-br">bmf-bovespa cia listadas</a>, extrair apenas os dividendos aprovados desde a data de início do portfolio até a data atual. Potencial problema: data de aprovação do dividendo é diferente da data de pagamento de fato. </li>
+<li>usar o código da cvm para cada companhia: <a href="http://dados.cvm.gov.br/dataset/cia_aberta-cad">CVM dados cias abertas</a> </li>
 </ol>
 </div>
 </div>
@@ -657,12 +649,8 @@ Input
 <p>
 Vamos fazer o seguinte:</p>
 <ol>
-<li>
-<p>ler esse csv num dataframe</p>
-</li>
-<li>
-<p>identificar a data conforme o registrado no banco de dados</p>
-</li>
+<li>ler esse csv num dataframe</li>
+<li>identificar a data conforme o registrado no banco de dados</li>
 </ol>
 <div class="src src-python">
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">pandas</span> <span style="color:#a2f;font-weight:bold">as</span> <span style="color:#00f;font-weight:bold">pd</span>
@@ -772,18 +760,10 @@ Desenvolvimento analítico
 </h4>
 <div id="outline-text-headline-21" class="outline-text-4">
 <ol>
-<li>
-<p>se compra (ou split): volume x preço = total  compra</p>
-</li>
-<li>
-<p>se venda: volume x preço = total  venda</p>
-</li>
-<li>
-<p>volume líquido: volume compra - volume venda</p>
-</li>
-<li>
-<p>preço médio = (total compra - total venda) / volume líquido</p>
-</li>
+<li>se compra (ou split): volume x preço = total  compra</li>
+<li>se venda: volume x preço = total  venda</li>
+<li>volume líquido: volume compra - volume venda</li>
+<li>preço médio = (total compra - total venda) / volume líquido</li>
 </ol>
 <img src="Consolidação_do_portfolio/2020-12-23_17-24-16_screenshot.png" alt="Consolidação_do_portfolio/2020-12-23_17-24-16_screenshot.png" title="Consolidação_do_portfolio/2020-12-23_17-24-16_screenshot.png" width="350px"/>
 </div>
@@ -794,12 +774,8 @@ Protótipo
 </h4>
 <div id="outline-text-headline-22" class="outline-text-4">
 <ol>
-<li>
-<p><code class="verbatim">groupby</code> para agrupar e consolidar o portfolio</p>
-</li>
-<li>
-<p>dividir total pelo volume líquido para cada ticker</p>
-</li>
+<li><code class="verbatim">groupby</code> para agrupar e consolidar o portfolio</li>
+<li>dividir total pelo volume líquido para cada ticker</li>
 </ol>
 <div class="src src-python">
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>portfolio <span style="color:#666">=</span> pd<span style="color:#666">.</span>DataFrame()
@@ -1013,12 +989,8 @@ Estratégia
 </h4>
 <div id="outline-text-headline-27" class="outline-text-4">
 <ol>
-<li>
-<p>usar o ticker das cias no portfolio consolidado para extrair o CNPJ</p>
-</li>
-<li>
-<p>usar o CNPJ para extrair o código cvm</p>
-</li>
+<li>usar o ticker das cias no portfolio consolidado para extrair o CNPJ</li>
+<li>usar o CNPJ para extrair o código cvm</li>
 </ol>
 </div>
 </div>
@@ -1187,12 +1159,8 @@ Estratégia
 <p>Aqui estou com dúvida se uso 1 dataframe para o provento de todas as companhias ou separo eles, 1 dataframe para cada empresa.
 Acredito que separado fica mais organizado.</p>
 <ol>
-<li>
-<p>usar o código CVM das ações no portfólio e obter um dataframe com os dados dos dividendos dessa ação, colocar num dictionary com key o ticker da ação e value o dataframe.</p>
-</li>
-<li>
-<p>usar o dados de trade para saber quantas ações tinha na data da aprovação do dividendo</p>
-</li>
+<li>usar o código CVM das ações no portfólio e obter um dataframe com os dados dos dividendos dessa ação, colocar num dictionary com key o ticker da ação e value o dataframe.</li>
+<li>usar o dados de trade para saber quantas ações tinha na data da aprovação do dividendo</li>
 </ol>
 </div>
 </div>
@@ -1348,12 +1316,8 @@ Implementar função que obtém os dados dos proventos
 <p>
 Função faz</p>
 <ol>
-<li>
-<p>extrai os dados com base no url da BMF/BOVESPA</p>
-</li>
-<li>
-<p>nomeia a coluna de data <code class="verbatim">&#39;date_com&#39;</code> e processa ela adequadamente</p>
-</li>
+<li>extrai os dados com base no url da BMF/BOVESPA</li>
+<li>nomeia a coluna de data <code class="verbatim">&#39;date_com&#39;</code> e processa ela adequadamente</li>
 </ol>
 <div class="src src-python">
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#a2f;font-weight:bold">def</span> <span style="color:#00a000">get_dividends_data</span>(ticker, cd_cvm):
@@ -1513,27 +1477,13 @@ Implementar função que processa os proventos
 <p>
 Função faz:</p>
 <ol>
-<li>
-<p>remove as data antigas, ou seja, quando não tinha nenhuma ação</p>
-</li>
-<li>
-<p>filtra se ação é ON ou PN</p>
-</li>
-<li>
-<p>adiciona ticker da ação como index</p>
-</li>
-<li>
-<p>computa o volume liquido na última data &#39;COM&#39;</p>
-</li>
-<li>
-<p>renomeia colunas</p>
-</li>
-<li>
-<p>remove colunas indesejadas</p>
-</li>
-<li>
-<p>calcula total dividendo por data do evento</p>
-</li>
+<li>remove as data antigas, ou seja, quando não tinha nenhuma ação</li>
+<li>filtra se ação é ON ou PN</li>
+<li>adiciona ticker da ação como index</li>
+<li>computa o volume liquido na última data &#39;COM&#39;</li>
+<li>renomeia colunas</li>
+<li>remove colunas indesejadas</li>
+<li>calcula total dividendo por data do evento</li>
 </ol>
 <div class="src src-python">
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#a2f;font-weight:bold">def</span> <span style="color:#00a000">process_dividends</span>(ticker, trades, cd_cvm):
@@ -1614,9 +1564,7 @@ Implementar função que consolida os dividendos recebidos
 <p>
 Função faz</p>
 <ol>
-<li>
-<p>obtém os dividendos distribuídos por cada empresa no portfolio</p>
-</li>
+<li>obtém os dividendos distribuídos por cada empresa no portfolio</li>
 </ol>
 <div class="src src-python">
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#a2f;font-weight:bold">def</span> <span style="color:#00a000">consolidade_dividends</span>(portfolio, trades):

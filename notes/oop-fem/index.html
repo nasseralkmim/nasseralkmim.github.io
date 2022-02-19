@@ -389,21 +389,11 @@ Objective
 <li>
 <p>I need a architecture that allows extensibility of the code.</p>
 <ol>
-<li>
-<p>For example, I need a way to implement a new type of element, 8 nodes, without affecting the current solver.</p>
-</li>
-<li>
-<p>This can be achieved by building the element matrices independently of the assembling (which is the current procedure).</p>
-</li>
-<li>
-<p>In order to assemble the global matrix the only requirement is the element dof (degrees of freedom) and its element matrix.</p>
-</li>
-<li>
-<p>Therefore, I need an array that stores the element type by its index, loop over it, call the specific constructor for this element type and store it at the global matrix.</p>
-</li>
-<li>
-<p>The object Model seems to be the one responsible for caring the elements type.</p>
-</li>
+<li>For example, I need a way to implement a new type of element, 8 nodes, without affecting the current solver.</li>
+<li>This can be achieved by building the element matrices independently of the assembling (which is the current procedure).</li>
+<li>In order to assemble the global matrix the only requirement is the element dof (degrees of freedom) and its element matrix.</li>
+<li>Therefore, I need an array that stores the element type by its index, loop over it, call the specific constructor for this element type and store it at the global matrix.</li>
+<li>The object Model seems to be the one responsible for caring the elements type.</li>
 </ol>
 </li>
 </ol>
@@ -495,21 +485,13 @@ This object contains material parameters.
 <p>
 This implementation is good because:</p>
 <ol>
-<li>
-<p>I used to hard code the material properties, like <code class="verbatim">material.E</code>, as a attribute.</p>
-</li>
-<li>
-<p>Any materials properties can be set. Therefore, if the problem is static, there is no need for inertial parameters, and if its a thermoelastic problem we need thermal properties.</p>
-</li>
-<li>
-<p>Even material properties that vary through time.</p>
-</li>
+<li>I used to hard code the material properties, like <code class="verbatim">material.E</code>, as a attribute.</li>
+<li>Any materials properties can be set. Therefore, if the problem is static, there is no need for inertial parameters, and if its a thermoelastic problem we need thermal properties.</li>
+<li>Even material properties that vary through time.</li>
 </ol>
 <p>Cautions:</p>
 <ol>
-<li>
-<p>Because the user is setting any material property we need to define a set of variable conventions that need to be checked when the parameter is going to be used. So, for example, when calculating the stiffness matrix we need to check if <code class="verbatim">material.E</code> and <code class="verbatim">material.nu</code> were defined, otherwise raise an error saying that those properties need to be assigned.</p>
-</li>
+<li>Because the user is setting any material property we need to define a set of variable conventions that need to be checked when the parameter is going to be used. So, for example, when calculating the stiffness matrix we need to check if <code class="verbatim">material.E</code> and <code class="verbatim">material.nu</code> were defined, otherwise raise an error saying that those properties need to be assigned.</li>
 </ol>
 </div>
 </div>
@@ -579,21 +561,13 @@ It is created only when the solver is assembling the global matrices.</p>
 <p>
 Attributes:</p>
 <ol>
-<li>
-<p><del>At first I don&#39;t see any use of attributes</del> Attributes derived from the model will be the same for all element types. This is done using class attributes instead of instance attribute (<code class="verbatim">self</code>)</p>
-</li>
-<li>
-<p><code class="verbatim">Element.type</code> seems useful. And it is, it&#39;s going to be used to decide which <code class="verbatim">constructor</code> object to instantiate.</p>
-</li>
-<li>
-<p>The thing is: I don&#39;t want to repeat the model attributes for each element type, so I assigned them as class attributes. I&#39;m feeling that there must be a better way, but I&#39;ve already spent too much time.</p>
-</li>
+<li><del>At first I don&#39;t see any use of attributes</del> Attributes derived from the model will be the same for all element types. This is done using class attributes instead of instance attribute (<code class="verbatim">self</code>)</li>
+<li><code class="verbatim">Element.type</code> seems useful. And it is, it&#39;s going to be used to decide which <code class="verbatim">constructor</code> object to instantiate.</li>
+<li>The thing is: I don&#39;t want to repeat the model attributes for each element type, so I assigned them as class attributes. I&#39;m feeling that there must be a better way, but I&#39;ve already spent too much time.</li>
 </ol>
 <p>Methods:</p>
 <ol>
-<li>
-<p>Static methods seems useful. Indeed, they are. I will use static methods to build the element matrices using the constructor object.</p>
-</li>
+<li>Static methods seems useful. Indeed, they are. I will use static methods to build the element matrices using the constructor object.</li>
 </ol>
 <div id="outline-container-headline-10" class="outline-6">
 <h6 id="headline-10">
@@ -601,9 +575,7 @@ Observations
 </h6>
 <div id="outline-text-headline-10" class="outline-text-6">
 <ol>
-<li>
-<p>According to Archer (1996), there is a Element base class and the each element type inherit from it.</p>
-</li>
+<li>According to Archer (1996), there is a Element base class and the each element type inherit from it.</li>
 </ol>
 </div>
 </div>

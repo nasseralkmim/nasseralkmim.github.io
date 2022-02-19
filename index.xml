@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Nasser</copyright>
-    <lastBuildDate>Sat, 18 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 02 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2021 Books review</title>
+      <link>https://nasseralkmim.github.io/notes/books-2021/</link>
+      <pubDate>Sun, 02 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://nasseralkmim.github.io/notes/books-2021/</guid>
+      <description>List of books    The programmer&amp;#39;s brain  Confusion sources   lack of knowledge, not relevant facts in the long term memory.</description>
+    </item>
+    
     <item>
       <title>How to budget</title>
       <link>https://nasseralkmim.github.io/notes/how-to-budget/</link>
@@ -15,15 +24,6 @@
       
       <guid>https://nasseralkmim.github.io/notes/how-to-budget/</guid>
       <description>Introduction  Now that the new year is approaching, we have a perfect time for getting our personal finances in order.</description>
-    </item>
-    
-    <item>
-      <title>Books 2021</title>
-      <link>https://nasseralkmim.github.io/notes/books-2021/</link>
-      <pubDate>Tue, 06 Jul 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://nasseralkmim.github.io/notes/books-2021/</guid>
-      <description>List of books    The programmer&amp;#39;s brain  Confusion sources    lack of knowledge, not relevant facts in the long term memory.</description>
     </item>
     
     <item>
