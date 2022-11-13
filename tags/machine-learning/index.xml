@@ -14,7 +14,7 @@
       <pubDate>Wed, 09 Dec 2020 00:00:00 +0000</pubDate>
       
       <guid>https://nasseralkmim.github.io/notes/nlp-python/</guid>
-      <description>Introduction  This is an attempt to compile different sources of informations about Natural Language processing with python.</description>
+      <description>Introduction This is an attempt to compile different sources of informations about Natural Language processing with python.</description>
     </item>
     
     <item>
@@ -23,7 +23,7 @@
       <pubDate>Wed, 09 Dec 2020 00:00:00 +0000</pubDate>
       
       <guid>https://nasseralkmim.github.io/notes/text-processing-python/</guid>
-      <description>Introduction   spaCy is a library for Natural Language Processing (NLP) in python.</description>
+      <description>Introduction spaCy is a library for Natural Language Processing (NLP) in python.</description>
     </item>
     
   </channel>

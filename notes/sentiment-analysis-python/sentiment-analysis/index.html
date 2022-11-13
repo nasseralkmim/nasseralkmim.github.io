@@ -14,7 +14,7 @@
   <meta name="robots" content="all,follow">
   <meta name="googlebot" content="index,follow,snippet,archive">
   <meta property="og:title" content="Sentiment analysis on IMDB dataset" />
-<meta property="og:description" content="Introduction   This is as exemple from the excellent book by François Chollet on deep learning." />
+<meta property="og:description" content="Introduction This is as exemple from the excellent book by François Chollet on deep learning." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://nasseralkmim.github.io/notes/sentiment-analysis-python/sentiment-analysis/" /><meta property="article:section" content="notes" />
 <meta property="article:published_time" content="2020-12-04T00:00:00+00:00" />
@@ -23,14 +23,14 @@
 
   <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Sentiment analysis on IMDB dataset"/>
-<meta name="twitter:description" content="Introduction   This is as exemple from the excellent book by François Chollet on deep learning."/>
+<meta name="twitter:description" content="Introduction This is as exemple from the excellent book by François Chollet on deep learning."/>
 
   
   
     
   
   
-  <link rel="stylesheet" href="https://nasseralkmim.github.io/css/styles.65831b452b67d5d2710711427b0897003fc39f6def8a75876f8cc085d6d6f23715d716318ba718e6a68229ec094eb53a4008f4ad1569f6c3b0a95647797620e2.css" integrity="sha512-ZYMbRStn1dJxBxFCewiXAD/Dn23vinWHb4zAhdbW8jcV1xYxi6cY5qaCKewJTrU6QAj0rRVp9sOwqVZHeXYg4g=="> 
+  <link rel="stylesheet" href="https://nasseralkmim.github.io/css/styles.958d34a72e68def896568c8fb0e3bfdfba02367322793bb44aaf6f8fef309d51f5a77b9ea7206bcf8b7e6b76ff8807f5dcec9a2fac0c4b9409170f0ce1ca1904.css" integrity="sha512-lY00py5o3viWVoyPsOO/37oCNnMieTu0Sq9vj&#43;8wnVH1p3uepyBrz4t&#43;a3b/iAf13OyaL6wMS5QJFw8M4coZBA=="> 
 
   
   
@@ -165,7 +165,7 @@ if (!doNotTrack) {
     </a>
   </li>
   <li>
-    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fnasseralkmim.github.io%2fnotes%2fsentiment-analysis-python%2fsentiment-analysis%2f&name=Sentiment%20analysis%20on%20IMDB%20dataset&description=Introduction%20%20%20This%20is%20as%20exemple%20from%20the%20excellent%20book%20by%20Fran%c3%a7ois%20Chollet%20on%20deep%20learning." aria-label="Tumblr">
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fnasseralkmim.github.io%2fnotes%2fsentiment-analysis-python%2fsentiment-analysis%2f&name=Sentiment%20analysis%20on%20IMDB%20dataset&description=Introduction%20This%20is%20as%20exemple%20from%20the%20excellent%20book%20by%20Fran%c3%a7ois%20Chollet%20on%20deep%20learning." aria-label="Tumblr">
       <i class="fab fa-tumblr " aria-hidden="true"></i>
     </a>
   </li>
@@ -275,16 +275,16 @@ The format is a list of of length 25000 and each entry is another list that repr
 Integers represent the frequency of the word, so we are considering the top 1000 most frequent ones.
 We can see the sentiment values is 0 or 1.</p>
 <div class="src src-python">
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#a2f;font-weight:bold">from</span> <span style="color:#00f;font-weight:bold">tensorflow.keras</span> <span style="color:#a2f;font-weight:bold">import</span> datasets, preprocessing
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>max_features <span style="color:#666">=</span> <span style="color:#666">10000</span>           <span style="color:#080;font-style:italic"># number of words</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span>(train_data, train_targ), (test_data, test_targ) <span style="color:#666">=</span> datasets<span style="color:#666">.</span>imdb<span style="color:#666">.</span>load_data(
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span>    num_words<span style="color:#666">=</span>max_features) <span style="color:#080;font-style:italic"># limits to the most common ones </span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span style="color:#a2f">print</span>(<span style="color:#a2f">len</span>(train_data), train_data[<span style="color:#666">0</span>])
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span style="color:#a2f">print</span>(<span style="color:#a2f">set</span>(train_targ))
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span style="color:#a2f">print</span>(train_targ)</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span><span style="color:#a2f;font-weight:bold">from</span> <span style="color:#00f;font-weight:bold">tensorflow.keras</span> <span style="color:#a2f;font-weight:bold">import</span> datasets, preprocessing
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>max_features <span style="color:#666">=</span> <span style="color:#666">10000</span>           <span style="color:#080;font-style:italic"># number of words</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>(train_data, train_targ), (test_data, test_targ) <span style="color:#666">=</span> datasets<span style="color:#666">.</span>imdb<span style="color:#666">.</span>load_data(
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>    num_words<span style="color:#666">=</span>max_features) <span style="color:#080;font-style:italic"># limits to the most common ones </span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span><span style="color:#a2f">print</span>(<span style="color:#a2f">len</span>(train_data), train_data[<span style="color:#666">0</span>])
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span><span style="color:#a2f">print</span>(<span style="color:#a2f">set</span>(train_targ))
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span><span style="color:#a2f">print</span>(train_targ)</span></span></code></pre></div>
 </div>
 <pre class="example">
 25000 [1, 14, 22, 16, 43, 530, 973, 1622, 1385, 65, 458, 4468, 66, 3941, 4, 173, 36, 256, 5, 25, 100, 43, 838, 112, 50, 670, 2, 9, 35, 480, 284, 5, 150, 4, 172, 112, 167, 2, 336, 385, 39, 4, 172, 4536, 1111, 17, 546, 38, 13, 447, 4, 192, 50, 16, 6, 147, 2025, 19, 14, 22, 4, 1920, 4613, 469, 4, 22, 71, 87, 12, 16, 43, 530, 38, 76, 15, 13, 1247, 4, 22, 17, 515, 17, 12, 16, 626, 18, 2, 5, 62, 386, 12, 8, 316, 8, 106, 5, 4, 2223, 5244, 16, 480, 66, 3785, 33, 4, 130, 12, 16, 38, 619, 5, 25, 124, 51, 36, 135, 48, 25, 1415, 33, 6, 22, 12, 215, 28, 77, 52, 5, 14, 407, 16, 82, 2, 8, 4, 107, 117, 5952, 15, 256, 4, 2, 7, 3766, 5, 723, 36, 71, 43, 530, 476, 26, 400, 317, 46, 7, 4, 2, 1029, 13, 104, 88, 4, 381, 15, 297, 98, 32, 2071, 56, 26, 141, 6, 194, 7486, 18, 4, 226, 22, 21, 134, 476, 26, 480, 5, 144, 30, 5535, 18, 51, 36, 28, 224, 92, 25, 104, 4, 226, 65, 16, 38, 1334, 88, 12, 16, 283, 5, 16, 4472, 113, 103, 32, 15, 16, 5345, 19, 178, 32]
@@ -295,8 +295,8 @@ We can see the sentiment values is 0 or 1.</p>
 With this bunch of numbers is hard to grasp the real meaning of this data.
 Fortunately we can convert it back to text using the index of words also provided by the dataset.</p>
 <div class="src src-python">
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>index <span style="color:#666">=</span> datasets<span style="color:#666">.</span>imdb<span style="color:#666">.</span>get_word_index()
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#a2f">print</span>(<span style="color:#a2f">list</span>(index<span style="color:#666">.</span>items())[:<span style="color:#666">5</span>])</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>index <span style="color:#666">=</span> datasets<span style="color:#666">.</span>imdb<span style="color:#666">.</span>get_word_index()
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span><span style="color:#a2f">print</span>(<span style="color:#a2f">list</span>(index<span style="color:#666">.</span>items())[:<span style="color:#666">5</span>])</span></span></code></pre></div>
 </div>
 <pre class="example">
 [(&#39;fawn&#39;, 34701), (&#39;tsukino&#39;, 52006), (&#39;nunnery&#39;, 52007), (&#39;sonja&#39;, 16816), (&#39;vani&#39;, 63951)]
@@ -305,10 +305,10 @@ Fortunately we can convert it back to text using the index of words also provide
 We can see that the word index is a dictionary where the key is the word and the value is the integer representation.
 Because we have the values and want the keys, it is useful to invert this dictionary so we can entry and integer and get out a word.</p>
 <div class="src src-python">
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>index_word <span style="color:#666">=</span> {value: key <span style="color:#a2f;font-weight:bold">for</span> (key, value) <span style="color:#a2f;font-weight:bold">in</span> index<span style="color:#666">.</span>items()}
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#a2f">print</span>(index_word[<span style="color:#666">11</span>], index_word[<span style="color:#666">19</span>])
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>comment <span style="color:#666">=</span> <span style="color:#b44">&#39; &#39;</span><span style="color:#666">.</span>join([index_word<span style="color:#666">.</span>get(i <span style="color:#666">-</span> <span style="color:#666">3</span>, <span style="color:#b44">&#39;#&#39;</span>) <span style="color:#a2f;font-weight:bold">for</span> i <span style="color:#a2f;font-weight:bold">in</span> train_data[<span style="color:#666">0</span>]]) <span style="color:#080;font-style:italic"># -3 because in the 10.000 words it is missing 2 and the first number is the sentiment</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span style="color:#a2f">print</span>(comment)</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>index_word <span style="color:#666">=</span> {value: key <span style="color:#a2f;font-weight:bold">for</span> (key, value) <span style="color:#a2f;font-weight:bold">in</span> index<span style="color:#666">.</span>items()}
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span><span style="color:#a2f">print</span>(index_word[<span style="color:#666">11</span>], index_word[<span style="color:#666">19</span>])
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>comment <span style="color:#666">=</span> <span style="color:#b44">&#39; &#39;</span><span style="color:#666">.</span>join([index_word<span style="color:#666">.</span>get(i <span style="color:#666">-</span> <span style="color:#666">3</span>, <span style="color:#b44">&#39;#&#39;</span>) <span style="color:#a2f;font-weight:bold">for</span> i <span style="color:#a2f;font-weight:bold">in</span> train_data[<span style="color:#666">0</span>]]) <span style="color:#080;font-style:italic"># -3 because in the 10.000 words it is missing 2 and the first number is the sentiment</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span><span style="color:#a2f">print</span>(comment)</span></span></code></pre></div>
 </div>
 <pre class="example">
 this film
@@ -326,10 +326,10 @@ So we are limiting the comments to just the first 20 words.
 This will affect the accuracy of the final trained neural network model.
 We expect a higher accuracy when more words are considered during training.</p>
 <div class="src src-python">
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>maxlen <span style="color:#666">=</span> <span style="color:#666">20</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>train_data <span style="color:#666">=</span> preprocessing<span style="color:#666">.</span>sequence<span style="color:#666">.</span>pad_sequences(train_data, maxlen<span style="color:#666">=</span>maxlen)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>test_data <span style="color:#666">=</span> preprocessing<span style="color:#666">.</span>sequence<span style="color:#666">.</span>pad_sequences(test_data, maxlen<span style="color:#666">=</span>maxlen)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span style="color:#a2f">print</span>(train_data)</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>maxlen <span style="color:#666">=</span> <span style="color:#666">20</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>train_data <span style="color:#666">=</span> preprocessing<span style="color:#666">.</span>sequence<span style="color:#666">.</span>pad_sequences(train_data, maxlen<span style="color:#666">=</span>maxlen)
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>test_data <span style="color:#666">=</span> preprocessing<span style="color:#666">.</span>sequence<span style="color:#666">.</span>pad_sequences(test_data, maxlen<span style="color:#666">=</span>maxlen)
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span><span style="color:#a2f">print</span>(train_data)</span></span></code></pre></div>
 </div>
 <pre class="example">
 [[  65   16   38 ...   19  178   32]
@@ -368,14 +368,14 @@ It implements a math operation where there is a multiplication between the <stro
 The kernel is the weight matrix created by the layer.
 The activation function used here is the <em>sigmoid</em>, which is a nonlinear function that enables clear prediction.<sup class="footnote-reference"><a id="footnote-reference-2" href="#footnote-2">2</a></sup></p>
 <div class="src src-python">
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#a2f;font-weight:bold">from</span> <span style="color:#00f;font-weight:bold">tensorflow</span> <span style="color:#a2f;font-weight:bold">import</span> keras
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#a2f;font-weight:bold">from</span> <span style="color:#00f;font-weight:bold">tensorflow.keras</span> <span style="color:#a2f;font-weight:bold">import</span> layers
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>model <span style="color:#666">=</span> keras<span style="color:#666">.</span>Sequential()            <span style="color:#080;font-style:italic"># model</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span>model<span style="color:#666">.</span>add(layers<span style="color:#666">.</span>Embedding(<span style="color:#666">10000</span>, <span style="color:#666">8</span>, input_length<span style="color:#666">=</span>maxlen))
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span>model<span style="color:#666">.</span>add(layers<span style="color:#666">.</span>Flatten())            <span style="color:#080;font-style:italic"># flattens 3D tensor into 2D</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span>model<span style="color:#666">.</span>add(layers<span style="color:#666">.</span>Dense(<span style="color:#666">1</span>, activation<span style="color:#666">=</span><span style="color:#b44">&#39;sigmoid&#39;</span>)) <span style="color:#080;font-style:italic"># output with 1 dimension only</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8</span>model<span style="color:#666">.</span>summary()</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#a2f;font-weight:bold">from</span> <span style="color:#00f;font-weight:bold">tensorflow</span> <span style="color:#a2f;font-weight:bold">import</span> keras
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span><span style="color:#a2f;font-weight:bold">from</span> <span style="color:#00f;font-weight:bold">tensorflow.keras</span> <span style="color:#a2f;font-weight:bold">import</span> layers
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>model <span style="color:#666">=</span> keras<span style="color:#666">.</span>Sequential()            <span style="color:#080;font-style:italic"># model</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>model<span style="color:#666">.</span>add(layers<span style="color:#666">.</span>Embedding(<span style="color:#666">10000</span>, <span style="color:#666">8</span>, input_length<span style="color:#666">=</span>maxlen))
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span>model<span style="color:#666">.</span>add(layers<span style="color:#666">.</span>Flatten())            <span style="color:#080;font-style:italic"># flattens 3D tensor into 2D</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span>model<span style="color:#666">.</span>add(layers<span style="color:#666">.</span>Dense(<span style="color:#666">1</span>, activation<span style="color:#666">=</span><span style="color:#b44">&#39;sigmoid&#39;</span>)) <span style="color:#080;font-style:italic"># output with 1 dimension only</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8</span><span>model<span style="color:#666">.</span>summary()</span></span></code></pre></div>
 </div>
 <pre class="example">
 Model: &#34;sequential_4&#34;
@@ -414,8 +414,8 @@ The <code class="verbatim">metrics</code> argument is a list of things that are 
 Here we used the accuracy.
 The accuracy metric is used for classification models and is simply the number of corrected predictions divided by the number of predictions (success rate).</p>
 <div class="src src-python">
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>model<span style="color:#666">.</span>compile(optimizer<span style="color:#666">=</span><span style="color:#b44">&#39;rmsprop&#39;</span>, loss<span style="color:#666">=</span><span style="color:#b44">&#39;binary_crossentropy&#39;</span>, metrics<span style="color:#666">=</span>[<span style="color:#b44">&#39;acc&#39;</span>])
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>model<span style="color:#666">.</span>summary()</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>model<span style="color:#666">.</span>compile(optimizer<span style="color:#666">=</span><span style="color:#b44">&#39;rmsprop&#39;</span>, loss<span style="color:#666">=</span><span style="color:#b44">&#39;binary_crossentropy&#39;</span>, metrics<span style="color:#666">=</span>[<span style="color:#b44">&#39;acc&#39;</span>])
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>model<span style="color:#666">.</span>summary()</span></span></code></pre></div>
 </div>
 <pre class="example">
 Model: &#34;sequential_4&#34;
@@ -448,10 +448,10 @@ The next step is training the model.
 The function performs the number iterations given by <code class="verbatim">epoch</code> and the output is a history of training loss values and metrics at the epochs.
 It also shows the validation loss values and validation metrics values.</p>
 <div class="src src-python">
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>history <span style="color:#666">=</span> model<span style="color:#666">.</span>fit(train_data, train_targ, <span style="color:#080;font-style:italic"># input data and target data </span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>                    epochs<span style="color:#666">=</span><span style="color:#666">10</span>,         <span style="color:#080;font-style:italic"># number of iterations per the data</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>                    batch_size<span style="color:#666">=</span><span style="color:#666">32</span>,    <span style="color:#080;font-style:italic"># samples per gradient update</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>                    validation_split<span style="color:#666">=</span><span style="color:#666">0.2</span>) <span style="color:#080;font-style:italic"># fraction of data used for training</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>history <span style="color:#666">=</span> model<span style="color:#666">.</span>fit(train_data, train_targ, <span style="color:#080;font-style:italic"># input data and target data </span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>                    epochs<span style="color:#666">=</span><span style="color:#666">10</span>,         <span style="color:#080;font-style:italic"># number of iterations per the data</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>                    batch_size<span style="color:#666">=</span><span style="color:#666">32</span>,    <span style="color:#080;font-style:italic"># samples per gradient update</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>                    validation_split<span style="color:#666">=</span><span style="color:#666">0.2</span>) <span style="color:#080;font-style:italic"># fraction of data used for training</span></span></span></code></pre></div>
 </div>
 <pre class="example">
 Epoch 1/10
@@ -485,7 +485,7 @@ Analysis
 <p>
 The training output is a dictionary with the results as a list.</p>
 <div class="src src-python">
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#a2f">print</span>(history<span style="color:#666">.</span>history)</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#a2f">print</span>(history<span style="color:#666">.</span>history)</span></span></code></pre></div>
 </div>
 <pre class="example">
 {&#39;loss&#39;: [0.6738093495368958, 0.5541190505027771, 0.4671066403388977, 0.4246475100517273, 0.3965531885623932, 0.37326815724372864, 0.3524011969566345, 0.3323952257633209, 0.3134663701057434, 0.29573047161102295], &#39;acc&#39;: [0.6103500127792358, 0.746150016784668, 0.7843999862670898, 0.8069499731063843, 0.822350025177002, 0.8355500102043152, 0.8496000170707703, 0.8603500127792358, 0.8715999722480774, 0.8808500170707703], &#39;val_loss&#39;: [0.6296502351760864, 0.5315172076225281, 0.5030556917190552, 0.49588504433631897, 0.4951230585575104, 0.49791309237480164, 0.504469096660614, 0.5111817121505737, 0.5175582766532898, 0.526441216468811], &#39;val_acc&#39;: [0.6873999834060669, 0.7287999987602234, 0.7440000176429749, 0.7486000061035156, 0.7490000128746033, 0.753600001335144, 0.7563999891281128, 0.7554000020027161, 0.7545999884605408, 0.7516000270843506]}
@@ -495,12 +495,12 @@ From the training data we can start do some analysis with graphs.
 The evolution on the metrics of the validation data (training data) suggests that the prediction power of the neural network model is increasing very fast at the beginning and maintaining a level of the accuracy metric around 76%.
 We only used </p>
 <div class="src src-python">
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">matplotlib.pyplot</span> <span style="color:#a2f;font-weight:bold">as</span> <span style="color:#00f;font-weight:bold">plt</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">numpy</span> <span style="color:#a2f;font-weight:bold">as</span> <span style="color:#00f;font-weight:bold">np</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>plt<span style="color:#666">.</span>plot(np<span style="color:#666">.</span>arange(<span style="color:#666">1</span>, <span style="color:#a2f">len</span>(history<span style="color:#666">.</span>history[<span style="color:#b44">&#39;val_acc&#39;</span>])<span style="color:#666">+</span><span style="color:#666">1</span>),
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>	 history<span style="color:#666">.</span>history[<span style="color:#b44">&#39;val_acc&#39;</span>])
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span>plt<span style="color:#666">.</span>xlabel(<span style="color:#b44">&#39;Epochs&#39;</span>)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span>plt<span style="color:#666">.</span>ylabel(<span style="color:#b44">&#39;Validation Accuracy&#39;</span>)</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">matplotlib.pyplot</span> <span style="color:#a2f;font-weight:bold">as</span> <span style="color:#00f;font-weight:bold">plt</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span><span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">numpy</span> <span style="color:#a2f;font-weight:bold">as</span> <span style="color:#00f;font-weight:bold">np</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>plt<span style="color:#666">.</span>plot(np<span style="color:#666">.</span>arange(<span style="color:#666">1</span>, <span style="color:#a2f">len</span>(history<span style="color:#666">.</span>history[<span style="color:#b44">&#39;val_acc&#39;</span>])<span style="color:#666">+</span><span style="color:#666">1</span>),
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>	 history<span style="color:#666">.</span>history[<span style="color:#b44">&#39;val_acc&#39;</span>])
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>plt<span style="color:#666">.</span>xlabel(<span style="color:#b44">&#39;Epochs&#39;</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span>plt<span style="color:#666">.</span>ylabel(<span style="color:#b44">&#39;Validation Accuracy&#39;</span>)</span></span></code></pre></div>
 </div>
 <img src="../../../images/acc.png" alt="/images/acc.png" title="/images/acc.png" width="350px"/>
 </div>
@@ -632,7 +632,7 @@ Footnotes
     </a>
   </li>
   <li>
-    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fnasseralkmim.github.io%2fnotes%2fsentiment-analysis-python%2fsentiment-analysis%2f&name=Sentiment%20analysis%20on%20IMDB%20dataset&description=Introduction%20%20%20This%20is%20as%20exemple%20from%20the%20excellent%20book%20by%20Fran%c3%a7ois%20Chollet%20on%20deep%20learning." aria-label="Tumblr">
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fnasseralkmim.github.io%2fnotes%2fsentiment-analysis-python%2fsentiment-analysis%2f&name=Sentiment%20analysis%20on%20IMDB%20dataset&description=Introduction%20This%20is%20as%20exemple%20from%20the%20excellent%20book%20by%20Fran%c3%a7ois%20Chollet%20on%20deep%20learning." aria-label="Tumblr">
       <i class="fab fa-tumblr fa-lg" aria-hidden="true"></i>
     </a>
   </li>
@@ -708,5 +708,6 @@ Footnotes
 <script type="text/javascript" id="MathJax-script" async
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 </script>
+<script defer language="javascript" type="text/javascript"  src="../../../js/dynamic-toc.js"></script>
 
 </html>

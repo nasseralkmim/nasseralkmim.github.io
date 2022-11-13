@@ -14,7 +14,7 @@
   <meta name="robots" content="all,follow">
   <meta name="googlebot" content="index,follow,snippet,archive">
   <meta property="og:title" content="Text processing with spaCy" />
-<meta property="og:description" content="Introduction   spaCy is a library for Natural Language Processing (NLP) in python." />
+<meta property="og:description" content="Introduction spaCy is a library for Natural Language Processing (NLP) in python." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://nasseralkmim.github.io/notes/text-processing-python/" /><meta property="article:section" content="notes" />
 <meta property="article:published_time" content="2020-12-09T00:00:00+00:00" />
@@ -23,14 +23,14 @@
 
   <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Text processing with spaCy"/>
-<meta name="twitter:description" content="Introduction   spaCy is a library for Natural Language Processing (NLP) in python."/>
+<meta name="twitter:description" content="Introduction spaCy is a library for Natural Language Processing (NLP) in python."/>
 
   
   
     
   
   
-  <link rel="stylesheet" href="https://nasseralkmim.github.io/css/styles.65831b452b67d5d2710711427b0897003fc39f6def8a75876f8cc085d6d6f23715d716318ba718e6a68229ec094eb53a4008f4ad1569f6c3b0a95647797620e2.css" integrity="sha512-ZYMbRStn1dJxBxFCewiXAD/Dn23vinWHb4zAhdbW8jcV1xYxi6cY5qaCKewJTrU6QAj0rRVp9sOwqVZHeXYg4g=="> 
+  <link rel="stylesheet" href="https://nasseralkmim.github.io/css/styles.958d34a72e68def896568c8fb0e3bfdfba02367322793bb44aaf6f8fef309d51f5a77b9ea7206bcf8b7e6b76ff8807f5dcec9a2fac0c4b9409170f0ce1ca1904.css" integrity="sha512-lY00py5o3viWVoyPsOO/37oCNnMieTu0Sq9vj&#43;8wnVH1p3uepyBrz4t&#43;a3b/iAf13OyaL6wMS5QJFw8M4coZBA=="> 
 
   
   
@@ -165,7 +165,7 @@ if (!doNotTrack) {
     </a>
   </li>
   <li>
-    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fnasseralkmim.github.io%2fnotes%2ftext-processing-python%2f&name=Text%20processing%20with%20spaCy&description=Introduction%20%20%20spaCy%20is%20a%20library%20for%20Natural%20Language%20Processing%20%28NLP%29%20in%20python." aria-label="Tumblr">
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fnasseralkmim.github.io%2fnotes%2ftext-processing-python%2f&name=Text%20processing%20with%20spaCy&description=Introduction%20spaCy%20is%20a%20library%20for%20Natural%20Language%20Processing%20%28NLP%29%20in%20python." aria-label="Tumblr">
       <i class="fab fa-tumblr " aria-hidden="true"></i>
     </a>
   </li>
@@ -269,14 +269,14 @@ This object has all the data and methods required to process the text.
 By calling this object on a string of text we get a processed object <code class="verbatim">Doc</code>, which is a sequence of <code class="verbatim">Token</code> objects.
 The <code class="verbatim">Doc</code> object has a <code class="verbatim">__getitem__()</code> method which enabled the container to be accessed like a list.</p>
 <div class="src src-python">
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">spacy</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>nlp <span style="color:#666">=</span> spacy<span style="color:#666">.</span>load(<span style="color:#b44">&#39;pt_core_news_sm&#39;</span>)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>text <span style="color:#666">=</span> <span style="color:#b44">&#34;&#34;&#34;Joaquim Maria Machado de Assis (Rio de Janeiro, 21 de junho de
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span style="color:#b44">1839 — Rio de Janeiro, 29 de setembro de 1908) foi um escritor
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span style="color:#b44">brasileiro, considerado por muitos críticos, estudiosos, escritores e
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span style="color:#b44">leitores um dos maiores senão o maior nome da literatura do Brasil.&#34;&#34;&#34;</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span>doc <span style="color:#666">=</span> nlp(text)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8</span><span style="color:#a2f">print</span>(doc, <span style="color:#a2f">type</span>(doc))</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">spacy</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>nlp <span style="color:#666">=</span> spacy<span style="color:#666">.</span>load(<span style="color:#b44">&#39;pt_core_news_sm&#39;</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>text <span style="color:#666">=</span> <span style="color:#b44">&#34;&#34;&#34;Joaquim Maria Machado de Assis (Rio de Janeiro, 21 de junho de
+</span></span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span><span style="color:#b44">1839 — Rio de Janeiro, 29 de setembro de 1908) foi um escritor
+</span></span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span><span style="color:#b44">brasileiro, considerado por muitos críticos, estudiosos, escritores e
+</span></span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span><span style="color:#b44">leitores um dos maiores senão o maior nome da literatura do Brasil.&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span>doc <span style="color:#666">=</span> nlp(text)
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8</span><span><span style="color:#a2f">print</span>(doc, <span style="color:#a2f">type</span>(doc))</span></span></code></pre></div>
 </div>
 <pre class="example">
 Joaquim Maria Machado de Assis (Rio de Janeiro, 21 de junho de
@@ -295,8 +295,8 @@ Tokenization
 When the string is processed into <code class="verbatim">Doc</code> spaCy automatically tokenizes the text.
 Which is the process of dividing the text in individual entities.</p>
 <div class="src src-python">
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#a2f;font-weight:bold">for</span> token <span style="color:#a2f;font-weight:bold">in</span> doc[:<span style="color:#666">10</span>]:
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>    <span style="color:#a2f">print</span>(token<span style="color:#666">.</span>text)</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#a2f;font-weight:bold">for</span> token <span style="color:#a2f;font-weight:bold">in</span> doc[:<span style="color:#666">10</span>]:
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>    <span style="color:#a2f">print</span>(token<span style="color:#666">.</span>text)</span></span></code></pre></div>
 </div>
 <pre class="example">
 Joaquim
@@ -324,8 +324,8 @@ Part of speech tagging is a process in which we want to know what word type our 
 The model loaded was trained to be capable of associate words to its type.
 We need to use <code class="verbatim">token.pos_</code> in order to get a readable string.</p>
 <div class="src src-python">
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#a2f;font-weight:bold">for</span> token <span style="color:#a2f;font-weight:bold">in</span> doc[:<span style="color:#666">10</span>]:
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>    <span style="color:#a2f">print</span>(token<span style="color:#666">.</span>text, token<span style="color:#666">.</span>pos_)</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#a2f;font-weight:bold">for</span> token <span style="color:#a2f;font-weight:bold">in</span> doc[:<span style="color:#666">10</span>]:
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>    <span style="color:#a2f">print</span>(token<span style="color:#666">.</span>text, token<span style="color:#666">.</span>pos_)</span></span></code></pre></div>
 </div>
 <pre class="example">
 Joaquim PROPN
@@ -344,7 +344,7 @@ we can see the types: PROPN (proper noun), ADP (adposition), PUNCT (punctuation)
 <p>
 spaCy offers a really neat form of displaying the text.</p>
 <div class="src src-python">
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>spacy<span style="color:#666">.</span>displacy<span style="color:#666">.</span>render(doc[:<span style="color:#666">5</span>])</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>spacy<span style="color:#666">.</span>displacy<span style="color:#666">.</span>render(doc[:<span style="color:#666">5</span>])</span></span></code></pre></div>
 </div>
 <span class="tex2jax_ignore"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:lang="pt" id="4f5594799d994e6689374bbd276acd3b-0" class="displacy" width="925" height="399.5" direction="ltr" style="max-width: none; height: 399.5px; color: #000000; background: #ffffff; font-family: Arial; direction: ltr">
 <text class="displacy-token" fill="currentColor" text-anchor="middle" y="309.5">
@@ -414,8 +414,8 @@ Named entity recognition (NER)
 <p>The NER process aims to identify entities that represent something in reality (e.g. person, city, date).
 The attribute <code class="verbatim">doc.ents</code> are the named entities as a tuple.</p>
 <div class="src src-python">
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#a2f;font-weight:bold">for</span> ent <span style="color:#a2f;font-weight:bold">in</span> doc<span style="color:#666">.</span>ents:
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>    <span style="color:#a2f">print</span>(ent<span style="color:#666">.</span>text, ent<span style="color:#666">.</span>label_)</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#a2f;font-weight:bold">for</span> ent <span style="color:#a2f;font-weight:bold">in</span> doc<span style="color:#666">.</span>ents:
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>    <span style="color:#a2f">print</span>(ent<span style="color:#666">.</span>text, ent<span style="color:#666">.</span>label_)</span></span></code></pre></div>
 </div>
 <pre class="example">
 Joaquim Maria Machado de Assis PER
@@ -427,7 +427,7 @@ Brasil LOC
 Very nice and easy.
 This result can also be display nicely.</p>
 <div class="src src-python">
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>spacy<span style="color:#666">.</span>displacy<span style="color:#666">.</span>render(doc, style<span style="color:#666">=</span><span style="color:#b44">&#39;ent&#39;</span>)</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>spacy<span style="color:#666">.</span>displacy<span style="color:#666">.</span>render(doc, style<span style="color:#666">=</span><span style="color:#b44">&#39;ent&#39;</span>)</span></span></code></pre></div>
 </div>
 <span class="tex2jax_ignore"><div class="entities" style="line-height: 2.5; direction: ltr">
 <mark class="entity" style="background: #ddd; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
@@ -454,11 +454,11 @@ This result can also be display nicely.</p>
 As we can see, it didn&#39;t recognize the dates.
 We can manually assign those.</p>
 <div class="src src-python">
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#a2f">print</span>(doc[<span style="color:#666">10</span>:<span style="color:#666">16</span>])
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#a2f;font-weight:bold">from</span> <span style="color:#00f;font-weight:bold">spacy.tokens</span> <span style="color:#a2f;font-weight:bold">import</span> Span
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>date_ent <span style="color:#666">=</span> Span(doc, <span style="color:#666">10</span>, <span style="color:#666">16</span>, label<span style="color:#666">=</span><span style="color:#b44">&#39;DATE&#39;</span>)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>doc<span style="color:#666">.</span>ents <span style="color:#666">=</span> <span style="color:#a2f">list</span>(doc<span style="color:#666">.</span>ents) <span style="color:#666">+</span> [date_ent] <span style="color:#080;font-style:italic"># add a new ent to the list</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span>spacy<span style="color:#666">.</span>displacy<span style="color:#666">.</span>render(doc, style<span style="color:#666">=</span><span style="color:#b44">&#39;ent&#39;</span>)</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#a2f">print</span>(doc[<span style="color:#666">10</span>:<span style="color:#666">16</span>])
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span><span style="color:#a2f;font-weight:bold">from</span> <span style="color:#00f;font-weight:bold">spacy.tokens</span> <span style="color:#a2f;font-weight:bold">import</span> Span
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>date_ent <span style="color:#666">=</span> Span(doc, <span style="color:#666">10</span>, <span style="color:#666">16</span>, label<span style="color:#666">=</span><span style="color:#b44">&#39;DATE&#39;</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>doc<span style="color:#666">.</span>ents <span style="color:#666">=</span> <span style="color:#a2f">list</span>(doc<span style="color:#666">.</span>ents) <span style="color:#666">+</span> [date_ent] <span style="color:#080;font-style:italic"># add a new ent to the list</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>spacy<span style="color:#666">.</span>displacy<span style="color:#666">.</span>render(doc, style<span style="color:#666">=</span><span style="color:#b44">&#39;ent&#39;</span>)</span></span></code></pre></div>
 </div>
 <pre class="example">
 21 de junho de
@@ -610,7 +610,7 @@ Very high level and easy to use, I&#39;m looking forward to explore it more.</p>
     </a>
   </li>
   <li>
-    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fnasseralkmim.github.io%2fnotes%2ftext-processing-python%2f&name=Text%20processing%20with%20spaCy&description=Introduction%20%20%20spaCy%20is%20a%20library%20for%20Natural%20Language%20Processing%20%28NLP%29%20in%20python." aria-label="Tumblr">
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fnasseralkmim.github.io%2fnotes%2ftext-processing-python%2f&name=Text%20processing%20with%20spaCy&description=Introduction%20spaCy%20is%20a%20library%20for%20Natural%20Language%20Processing%20%28NLP%29%20in%20python." aria-label="Tumblr">
       <i class="fab fa-tumblr fa-lg" aria-hidden="true"></i>
     </a>
   </li>
@@ -686,5 +686,6 @@ Very high level and easy to use, I&#39;m looking forward to explore it more.</p>
 <script type="text/javascript" id="MathJax-script" async
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 </script>
+<script defer language="javascript" type="text/javascript"  src="../../js/dynamic-toc.js"></script>
 
 </html>

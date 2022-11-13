@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Notes repository</title>
+    <title>Notes on Notes repository</title>
     <link>https://nasseralkmim.github.io/notes/</link>
-    <description>Recent content on Notes repository</description>
+    <description>Recent content in Notes on Notes repository</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Nasser</copyright>
@@ -14,7 +14,7 @@
       <pubDate>Sun, 02 Jan 2022 00:00:00 +0000</pubDate>
       
       <guid>https://nasseralkmim.github.io/notes/books-2021/</guid>
-      <description>List of books    The programmer&amp;#39;s brain  Confusion sources   lack of knowledge, not relevant facts in the long term memory.</description>
+      <description>List of books The programmer&amp;#39;s brain Confusion sources lack of knowledge, not relevant facts in the long term memory.</description>
     </item>
     
     <item>
@@ -23,7 +23,7 @@
       <pubDate>Sat, 18 Dec 2021 00:00:00 +0000</pubDate>
       
       <guid>https://nasseralkmim.github.io/notes/how-to-budget/</guid>
-      <description>Introduction  Now that the new year is approaching, we have a perfect time for getting our personal finances in order.</description>
+      <description>Introduction Now that the new year is approaching, we have a perfect time for getting our personal finances in order.</description>
     </item>
     
     <item>
@@ -32,7 +32,7 @@
       <pubDate>Sat, 26 Dec 2020 00:00:00 +0000</pubDate>
       
       <guid>https://nasseralkmim.github.io/notes/portfolio-performance/</guid>
-      <description>Introdução  E ai?</description>
+      <description>Introdução E ai?</description>
     </item>
     
     <item>
@@ -59,7 +59,7 @@
       <pubDate>Thu, 17 Dec 2020 00:00:00 +0000</pubDate>
       
       <guid>https://nasseralkmim.github.io/notes/books-2020/</guid>
-      <description>Books list    Kafka on the shore  Murakami escreve bem, não sou especialista em romances mas a forma como ele leva a narrativa realmente é cativante e te prende.</description>
+      <description>Books list Kafka on the shore Murakami escreve bem, não sou especialista em romances mas a forma como ele leva a narrativa realmente é cativante e te prende.</description>
     </item>
     
     <item>
@@ -68,7 +68,7 @@
       <pubDate>Thu, 17 Dec 2020 00:00:00 +0000</pubDate>
       
       <guid>https://nasseralkmim.github.io/notes/extrator-dividendos/</guid>
-      <description>Objetivo   Dado uma série de trades, saber quanto de dividendo foi recebido até então, separado por valores mensais.</description>
+      <description>Objetivo Dado uma série de trades, saber quanto de dividendo foi recebido até então, separado por valores mensais.</description>
     </item>
     
     <item>
@@ -77,7 +77,7 @@
       <pubDate>Fri, 11 Dec 2020 00:00:00 +0000</pubDate>
       
       <guid>https://nasseralkmim.github.io/notes/topic_modelig/</guid>
-      <description>Introduction  Topic modeling is a form of semantic analysis, a step forwarding finding meaning from word counts.</description>
+      <description>Introduction Topic modeling is a form of semantic analysis, a step forwarding finding meaning from word counts.</description>
     </item>
     
     <item>
@@ -86,7 +86,7 @@
       <pubDate>Wed, 09 Dec 2020 00:00:00 +0000</pubDate>
       
       <guid>https://nasseralkmim.github.io/notes/nlp-python/</guid>
-      <description>Introduction  This is an attempt to compile different sources of informations about Natural Language processing with python.</description>
+      <description>Introduction This is an attempt to compile different sources of informations about Natural Language processing with python.</description>
     </item>
     
     <item>
@@ -95,7 +95,7 @@
       <pubDate>Wed, 09 Dec 2020 00:00:00 +0000</pubDate>
       
       <guid>https://nasseralkmim.github.io/notes/text-processing-python/</guid>
-      <description>Introduction   spaCy is a library for Natural Language Processing (NLP) in python.</description>
+      <description>Introduction spaCy is a library for Natural Language Processing (NLP) in python.</description>
     </item>
     
     <item>
@@ -104,7 +104,7 @@
       <pubDate>Mon, 07 Dec 2020 00:00:00 +0000</pubDate>
       
       <guid>https://nasseralkmim.github.io/notes/question-classifier-python/</guid>
-      <description>Introduction   An example from the book by Aman Kedia.</description>
+      <description>Introduction An example from the book by Aman Kedia.</description>
     </item>
     
     <item>
@@ -113,7 +113,7 @@
       <pubDate>Fri, 04 Dec 2020 00:00:00 +0000</pubDate>
       
       <guid>https://nasseralkmim.github.io/notes/sentiment-analysis-python/sentiment-analysis/</guid>
-      <description>Introduction   This is as exemple from the excellent book by François Chollet on deep learning.</description>
+      <description>Introduction This is as exemple from the excellent book by François Chollet on deep learning.</description>
     </item>
     
     <item>
@@ -122,7 +122,7 @@
       <pubDate>Thu, 03 Dec 2020 00:00:00 +0000</pubDate>
       
       <guid>https://nasseralkmim.github.io/notes/first-hugo-post/</guid>
-      <description>Introduction  Meta post about how I am creating these blog.</description>
+      <description>Introduction Meta post about how I am creating these blog.</description>
     </item>
     
     <item>
@@ -131,7 +131,7 @@
       <pubDate>Sat, 05 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>https://nasseralkmim.github.io/notes/books-2019/</guid>
-      <description>Books list    Never let me go  Ficção sobre uma realidade distópica onde nós criamos clones para suprir nossas necessidades de órgãos.</description>
+      <description>Books list Never let me go Ficção sobre uma realidade distópica onde nós criamos clones para suprir nossas necessidades de órgãos.</description>
     </item>
     
     <item>
@@ -140,7 +140,7 @@
       <pubDate>Thu, 31 May 2018 00:00:00 +0000</pubDate>
       
       <guid>https://nasseralkmim.github.io/notes/books-2018/</guid>
-      <description>Books list    The Dao of capital  Esse livro mostra a estratégia de investimento do Mark Spitznagel.</description>
+      <description>Books list The Dao of capital Esse livro mostra a estratégia de investimento do Mark Spitznagel.</description>
     </item>
     
     <item>
@@ -149,7 +149,7 @@
       <pubDate>Mon, 02 Apr 2018 00:00:00 +0000</pubDate>
       
       <guid>https://nasseralkmim.github.io/notes/books-2017/</guid>
-      <description>Books list    Antifragile  Livro essencial para todos.</description>
+      <description>Books list Antifragile Livro essencial para todos.</description>
     </item>
     
     <item>
@@ -167,7 +167,7 @@
       <pubDate>Mon, 20 Mar 2017 00:00:00 +0000</pubDate>
       
       <guid>https://nasseralkmim.github.io/notes/change-of-basis/</guid>
-      <description>Motivation   I&amp;#39;m always forgetting about the intuition behind the change of basis in linear algebra.</description>
+      <description>Motivation I&amp;#39;m always forgetting about the intuition behind the change of basis in linear algebra.</description>
     </item>
     
     <item>
@@ -176,7 +176,7 @@
       <pubDate>Thu, 23 Feb 2017 00:00:00 +0000</pubDate>
       
       <guid>https://nasseralkmim.github.io/notes/bibliography-management/</guid>
-      <description>Introduction   In this post I will go over my workflow for managing academic resources and seamless add citation into a $\LaTeX$ file.</description>
+      <description>Introduction In this post I will go over my workflow for managing academic resources and seamless add citation into a $\LaTeX$ file.</description>
     </item>
     
     <item>
@@ -185,7 +185,7 @@
       <pubDate>Thu, 18 Aug 2016 00:00:00 +0000</pubDate>
       
       <guid>https://nasseralkmim.github.io/notes/oop-fem/</guid>
-      <description>Introduction   After a solid 2 days of research, multiple articles and thesis, I figured that the whole OOP paradigm might be the best alternative to an extensible fem code.</description>
+      <description>Introduction After a solid 2 days of research, multiple articles and thesis, I figured that the whole OOP paradigm might be the best alternative to an extensible fem code.</description>
     </item>
     
     <item>
@@ -194,7 +194,7 @@
       <pubDate>Thu, 10 Mar 2016 00:00:00 +0000</pubDate>
       
       <guid>https://nasseralkmim.github.io/notes/lagrange-duality/</guid>
-      <description>Introduction   This is an example extracted from &amp;#34;An Introduction to Structural Optimization&amp;#34;, I also added a few extra images to clarify some points.</description>
+      <description>Introduction This is an example extracted from &amp;#34;An Introduction to Structural Optimization&amp;#34;, I also added a few extra images to clarify some points.</description>
     </item>
     
     <item>
@@ -203,7 +203,7 @@
       <pubDate>Thu, 03 Mar 2016 00:00:00 +0000</pubDate>
       
       <guid>https://nasseralkmim.github.io/notes/lagrange-multiplier/</guid>
-      <description>Introduction   This is an experiment with org-mode and ob-python that simulates a notebok environment which mix code, text and math (latex).</description>
+      <description>Introduction This is an experiment with org-mode and ob-python that simulates a notebok environment which mix code, text and math (latex).</description>
     </item>
     
   </channel>

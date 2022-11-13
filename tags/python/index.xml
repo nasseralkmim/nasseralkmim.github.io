@@ -14,7 +14,7 @@
       <pubDate>Sat, 26 Dec 2020 00:00:00 +0000</pubDate>
       
       <guid>https://nasseralkmim.github.io/notes/portfolio-performance/</guid>
-      <description>Introdução  E ai?</description>
+      <description>Introdução E ai?</description>
     </item>
     
     <item>
@@ -32,7 +32,7 @@
       <pubDate>Mon, 20 Mar 2017 00:00:00 +0000</pubDate>
       
       <guid>https://nasseralkmim.github.io/notes/change-of-basis/</guid>
-      <description>Motivation   I&amp;#39;m always forgetting about the intuition behind the change of basis in linear algebra.</description>
+      <description>Motivation I&amp;#39;m always forgetting about the intuition behind the change of basis in linear algebra.</description>
     </item>
     
     <item>
@@ -41,7 +41,7 @@
       <pubDate>Thu, 18 Aug 2016 00:00:00 +0000</pubDate>
       
       <guid>https://nasseralkmim.github.io/notes/oop-fem/</guid>
-      <description>Introduction   After a solid 2 days of research, multiple articles and thesis, I figured that the whole OOP paradigm might be the best alternative to an extensible fem code.</description>
+      <description>Introduction After a solid 2 days of research, multiple articles and thesis, I figured that the whole OOP paradigm might be the best alternative to an extensible fem code.</description>
     </item>
     
     <item>
@@ -50,7 +50,7 @@
       <pubDate>Thu, 10 Mar 2016 00:00:00 +0000</pubDate>
       
       <guid>https://nasseralkmim.github.io/notes/lagrange-duality/</guid>
-      <description>Introduction   This is an example extracted from &amp;#34;An Introduction to Structural Optimization&amp;#34;, I also added a few extra images to clarify some points.</description>
+      <description>Introduction This is an example extracted from &amp;#34;An Introduction to Structural Optimization&amp;#34;, I also added a few extra images to clarify some points.</description>
     </item>
     
     <item>
@@ -59,7 +59,7 @@
       <pubDate>Thu, 03 Mar 2016 00:00:00 +0000</pubDate>
       
       <guid>https://nasseralkmim.github.io/notes/lagrange-multiplier/</guid>
-      <description>Introduction   This is an experiment with org-mode and ob-python that simulates a notebok environment which mix code, text and math (latex).</description>
+      <description>Introduction This is an experiment with org-mode and ob-python that simulates a notebok environment which mix code, text and math (latex).</description>
     </item>
     
   </channel>
