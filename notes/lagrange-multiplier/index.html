@@ -5,6 +5,8 @@
   <link rel="preload" href="../../lib/font-awesome/webfonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
   <link rel="preload" href="../../lib/font-awesome/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin="anonymous">
   <link rel="preload" href="../../lib/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <script type="text/javascript" src="https://latest.cactus.chat/cactus.js"></script>
+  <link rel="stylesheet" href="https://latest.cactus.chat/style.css" type="text/css">
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title> Lagrange multipliers example | Notes repository</title>
@@ -170,6 +172,7 @@ if (!doNotTrack) {
 </ul>
 
     </div>
+    
     <div id="toc">
       <nav id="TableOfContents">
 <ul>
@@ -200,6 +203,7 @@ if (!doNotTrack) {
 </ul>
 </nav>
     </div>
+    
   </span>
 </div>
 
@@ -249,31 +253,31 @@ if (!doNotTrack) {
     </header>
 
   
+    <div class="article-gallery">
+      
+      <a class="gallery-item" href="../../notes/lagrange-multiplier/img/lagrange1.png" rel="gallery_0">
+          <img src="../../notes/lagrange-multiplier/img/lagrange1.png" itemprop="image" />
+      </a>
+      
+      <a class="gallery-item" href="../../notes/lagrange-multiplier/img/lagrange2.png" rel="gallery_1">
+          <img src="../../notes/lagrange-multiplier/img/lagrange2.png" itemprop="image" />
+      </a>
+      
+      <a class="gallery-item" href="../../notes/lagrange-multiplier/img/lagrange3.png" rel="gallery_2">
+          <img src="../../notes/lagrange-multiplier/img/lagrange3.png" itemprop="image" />
+      </a>
+      
+      <a class="gallery-item" href="../../notes/lagrange-multiplier/img/lagrange4.png" rel="gallery_3">
+          <img src="../../notes/lagrange-multiplier/img/lagrange4.png" itemprop="image" />
+      </a>
+      
+      <a class="gallery-item" href="../../notes/lagrange-multiplier/img/lagrange5.png" rel="gallery_4">
+          <img src="../../notes/lagrange-multiplier/img/lagrange5.png" itemprop="image" />
+      </a>
+      
+    </div>
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-
+    
     <div class="content" itemprop="articleBody">
       
 <div id="outline-container-headline-1" class="outline-2">
@@ -525,29 +529,29 @@ We can see from the last plot that the maximum and minimum point are on the edge
 
 
 
-  
-    <div class="blog-post-comments">
-        <div id="disqus_thread">
-          <script type="text/javascript">
-          
-          (function() {
-              
-              
-              
-              
-          
-              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-              var disqus_shortname = 'nasseralkmim';
-              dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-          })();
-          </script>
-          <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-          <a href="https://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-        </div>
-    </div>
+  <div class="blog-post-comments">
+    
+      <div id="disqus_thread">
+  <script type="text/javascript">
+    (function() {
+      
+      
+      
+      
+    
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'nasseralkmim';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="https://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
 
-  
+    
+  </div>
+
 
 
   <div id="footer-post-container">
@@ -567,6 +571,7 @@ We can see from the last plot that the maximum and minimum point are on the edge
       </ul>
     </div>
 
+    
     <div id="toc-footer" style="display: none">
       <nav id="TableOfContents">
 <ul>
@@ -597,6 +602,7 @@ We can see from the last plot that the maximum and minimum point are on the edge
 </ul>
 </nav>
     </div>
+    
 
     <div id="share-footer" style="display: none">
       
@@ -659,8 +665,10 @@ We can see from the last plot that the maximum and minimum point are on the edge
       
         <a id="menu-toggle" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;" aria-label="Menu">
           <i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
         <a id="toc-toggle" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;" aria-label="TOC">
           <i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
         <a id="share-toggle" class="icon" href="#" onclick="$('#share-footer').toggle();return false;" aria-label="Share">
           <i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> share</a>
         <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" aria-label="Top of Page">
@@ -699,7 +707,9 @@ We can see from the last plot that the maximum and minimum point are on the edge
 <link rel="stylesheet" href=../../lib/font-awesome/css/all.min.css>
 <script src=../../lib/jquery/jquery.min.js></script>
 <script src=../../js/main.js></script>
+
 <script src=../../js/code-copy.js></script>
+
 
 
   
