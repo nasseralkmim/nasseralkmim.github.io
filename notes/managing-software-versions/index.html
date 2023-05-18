@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <link rel="preload" href="../../lib/font-awesome/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="../../lib/font-awesome/webfonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="../../lib/font-awesome/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="../../lib/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title> Managing multiple software versions with Org-mode | Notes repository</title>
+  <link rel = 'canonical' href = 'https://nasseralkmim.github.io/notes/managing-software-versions/'>
+  <meta name="description" content="This is a page where I collect some of my post-worthy notes and some projects that I have worked on.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="all,follow">
+  <meta name="googlebot" content="index,follow,snippet,archive">
+  <meta property="og:title" content="Managing multiple software versions with Org-mode" />
+<meta property="og:description" content="Introduction Have you ever had to deal with multiple versions of the same C&#43;&#43; software?" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://nasseralkmim.github.io/notes/managing-software-versions/" /><meta property="article:section" content="notes" />
+<meta property="article:published_time" content="2023-02-16T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-05-18T11:58:06+00:00" />
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Managing multiple software versions with Org-mode"/>
+<meta name="twitter:description" content="Introduction Have you ever had to deal with multiple versions of the same C&#43;&#43; software?"/>
+
+  
+  
+    
+  
+  
+  <link rel="stylesheet" href="https://nasseralkmim.github.io/css/styles.1443e14ebe36331950cbae7bc52add2aa8581b20a19fd29cf5beed4f163e7d1a3c8fc47b842f22a8559bda282484be39c3d0080eda24c9020d3f0b0d355b7f0d.css" integrity="sha512-FEPhTr42MxlQy657xSrdKqhYGyChn9Kc9b7tTxY&#43;fRo8j8R7hC8iqFWb2igkhL45w9AIDtokyQINPwsNNVt/DQ=="> 
+
+  
+  
+  
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+
+  
+<link rel="icon" type="image/png" href="https://nasseralkmim.github.io/images/favicon.ico" />
+
+  
+  
+  
+  
+  
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-74704246-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+  
+  
+<script src=../../js/toc.js></script>
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+  <div class="content index py4">
+
+  <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;" aria-label="Top of Page"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+        <li><a href="../../">home</a></li>
+         
+        <li><a href="../../notes">notes</a></li>
+         
+        <li><a href="../../tags">tags</a></li>
+         
+        <li><a href="../../about">about</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li>
+          <a class="icon" href=" https://nasseralkmim.github.io/notes/books-2022/" aria-label="Previous">
+            <i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i>
+          </a>
+        </li>
+        
+        
+        <li>
+          <a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" aria-label="Top of Page">
+            <i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i>
+          </a>
+        </li>
+        <li>
+          <a class="icon" href="#" aria-label="Share">
+            <i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i>
+          </a>
+        </li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fnasseralkmim.github.io%2fnotes%2fmanaging-software-versions%2f" aria-label="Facebook">
+      <i class="fab fa-facebook " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2fnasseralkmim.github.io%2fnotes%2fmanaging-software-versions%2f&text=Managing%20multiple%20software%20versions%20with%20Org-mode" aria-label="Twitter">
+      <i class="fab fa-twitter " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fnasseralkmim.github.io%2fnotes%2fmanaging-software-versions%2f&title=Managing%20multiple%20software%20versions%20with%20Org-mode" aria-label="Linkedin">
+      <i class="fab fa-linkedin " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fnasseralkmim.github.io%2fnotes%2fmanaging-software-versions%2f&is_video=false&description=Managing%20multiple%20software%20versions%20with%20Org-mode" aria-label="Pinterest">
+      <i class="fab fa-pinterest " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=Managing%20multiple%20software%20versions%20with%20Org-mode&body=Check out this article: https%3a%2f%2fnasseralkmim.github.io%2fnotes%2fmanaging-software-versions%2f" aria-label="Email">
+      <i class="fas fa-envelope " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2fnasseralkmim.github.io%2fnotes%2fmanaging-software-versions%2f&title=Managing%20multiple%20software%20versions%20with%20Org-mode" aria-label="Pocket">
+      <i class="fab fa-get-pocket " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2fnasseralkmim.github.io%2fnotes%2fmanaging-software-versions%2f&title=Managing%20multiple%20software%20versions%20with%20Org-mode" aria-label="reddit">
+      <i class="fab fa-reddit " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fnasseralkmim.github.io%2fnotes%2fmanaging-software-versions%2f&name=Managing%20multiple%20software%20versions%20with%20Org-mode&description=Introduction%20Have%20you%20ever%20had%20to%20deal%20with%20multiple%20versions%20of%20the%20same%20C%2b%2b%20software%3f" aria-label="Tumblr">
+      <i class="fab fa-tumblr " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fnasseralkmim.github.io%2fnotes%2fmanaging-software-versions%2f&t=Managing%20multiple%20software%20versions%20with%20Org-mode" aria-label="Hacker News">
+      <i class="fab fa-hacker-news " aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <nav id="TableOfContents">
+<ul>
+<li><a href="#headline-1">Introduction</a>
+</li>
+<li><a href="#headline-2">Keeping track of configuration settings and versions with <code class="verbatim">:tangle</code></a>
+</li>
+<li><a href="#headline-3">Configuring and building</a>
+</li>
+<li><a href="#headline-4">Using the specific Trilinos version in a &#34;downstream&#34; application</a>
+<ul>
+<li><a href="#headline-5">CMake <em>prefix path</em></a>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+    </div>
+  </span>
+</div>
+
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+    <header>
+      <h1 class="posttitle" itemprop="name headline">
+        Managing multiple software versions with Org-mode
+      </h1>
+      <div class="meta">
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="postdate">
+          
+          <time datetime="2023-02-16 00:00:00 &#43;0000 UTC" itemprop="datePublished">Feb 16 2023</time>
+          
+            (Updated: <time datetime="2023-05-18 11:58:06 &#43;0000 UTC" itemprop="dateModified">May 18 2023</time>)
+          
+        </div>
+        
+        
+        <div class="article-read-time">
+          <i class="far fa-clock"></i>
+          
+          5 minute read
+        </div>
+        
+        
+        
+        <div class="article-tag">
+            <i class="fas fa-tag"></i>
+            
+            
+            <a class="tag-link" href="../../tags/tools" rel="tag">tools</a>
+            
+             ,  
+            <a class="tag-link" href="../../tags/emacs" rel="tag">emacs</a>
+            
+             ,  
+            <a class="tag-link" href="../../tags/c&#43;&#43;" rel="tag">C&#43;&#43;</a>
+            
+             ,  
+            <a class="tag-link" href="../../tags/org-mode" rel="tag">org-mode</a>
+            
+             ,  
+            <a class="tag-link" href="../../tags/trilinos" rel="tag">trilinos</a>
+            
+        </div>
+        
+      </div>
+    </header>
+
+  
+
+    <div class="content" itemprop="articleBody">
+      
+<div id="outline-container-headline-1" class="outline-2">
+<h2 id="headline-1">
+Introduction
+</h2>
+<div id="outline-text-headline-1" class="outline-text-2">
+<p>
+Have you ever had to deal with multiple versions of the same C++ software?
+Right now I am dealing with those questions: Where should I build the binaries? How can I keep track of which version? How can I keep track of which configuration options? Where should I install it? How to link to the right libraries with a specific version?
+A lot to think about and keep track of.
+Fortunately, <a href="https://orgmode.org/">Org mode</a> makes things a bit easy (maybe even fun).</p>
+<p>
+In this post, I will go to explain my workflow on how to manage this situation with Org-mode.
+The particular software that I am dealing with is <a href="https://trilinos.github.io/">Trilinos</a>.
+Therefore, another title for this post could be &#34;installing Trilinos for absolute beginners&#34;. </p>
+</div>
+</div>
+<div id="outline-container-headline-2" class="outline-2">
+<h2 id="headline-2">
+Keeping track of configuration settings and versions with <code class="verbatim">:tangle</code>
+</h2>
+<div id="outline-text-headline-2" class="outline-text-2">
+<p>
+I like consistency and order (who doesn&#39;t?).
+To make this organized, I keep track of configuration files within a code block.
+This code block is then exported (tangled) to a specific folder.</p>
+<p>
+For example, let&#39;s say we want to install Trilinos<sup class="footnote-reference"><a id="footnote-reference-1" href="#footnote-1">1</a></sup> on this specific release:</p>
+<div class="src src-sh">
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#a2f">cd</span> ~/.local/src/Trilinos
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>git describe --tag</span></span></code></pre></div>
+</div>
+<pre class="example">
+trilinos-release-13-4-1
+</pre>
+<p>
+Then we create a build folder inside the source directory<sup class="footnote-reference"><a id="footnote-reference-2" href="#footnote-2">2</a></sup> <code>build/trilinos-release-13-4-1/</code> where we place our specific configuration<sup class="footnote-reference"><a id="footnote-reference-3" href="#footnote-3">3</a></sup>.
+Notice that, in the CMake configuration we specify the <code class="verbatim">CMAKE_INSTALL_PREFIX</code>, which is where the installation files will be copied to.
+I use <code>/.opt</code> for prefixed installations<sup class="footnote-reference"><a id="footnote-reference-4" href="#footnote-4">4</a></sup>.</p>
+<div class="src src-makefile">
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-makefile" data-lang="makefile"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span><span style="">set(CMAKE_INSTALL_PREFIX</span> <span style="color:#b44">&#34;/home/nasser/.opt/trilinos-release-13-4-1&#34;</span> <span style="">CACHE</span> <span style="">PATH</span> <span style="color:#b44">&#34;Set in my config.cmake&#34;</span> <span style="">FORCE)</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span><span style="">set(Tpetra_INST_INT_INT</span> <span style="">ON</span> <span style="">CACHE</span> <span style="">BOOL</span> <span style="color:#b44">&#34;Set in my config.cmake&#34;</span><span style="">)</span> 
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span><span style="">set(Trilinos_ENABLE_TESTS</span> <span style="">ON</span> <span style="">CACHE</span> <span style="">BOOL</span> <span style="color:#b44">&#34;Set in my config.cmake&#34;</span><span style="">)</span> 
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span><span style="">set(Trilinos_ENABLE_Amesos</span> <span style="">ON</span> <span style="">CACHE</span> <span style="">BOOL</span> <span style="color:#b44">&#34;Set in my config.cmake&#34;</span><span style="">)</span>                      
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span><span style="">set(Trilinos_ENABLE_Amesos2</span>  <span style="">ON</span> <span style="">CACHE</span> <span style="">BOOL</span> <span style="color:#b44">&#34;Set in my config.cmake&#34;</span><span style="">)</span> 
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span><span style="">set(Amesos2_ENABLE_TESTS</span> <span style="">ON</span> <span style="">CACHE</span> <span style="">BOOL</span> <span style="color:#b44">&#34;Set in my config.cmake&#34;</span><span style="">)</span> 
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span><span style="">set(Trilinos_ENABLE_Epetra</span> <span style="">ON</span> <span style="">CACHE</span> <span style="">BOOL</span> <span style="color:#b44">&#34;Set in my config.cmake&#34;</span><span style="">)</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span><span style="">set(Trilinos_ENABLE_EpetraExt</span> <span style="">ON</span> <span style="">CACHE</span> <span style="">BOOL</span> <span style="color:#b44">&#34;Set in my config.cmake&#34;</span><span style="">)</span>                  
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span><span style="">set(Trilinos_ENABLE_Ifpack</span> <span style="">ON</span> <span style="">CACHE</span> <span style="">BOOL</span> <span style="color:#b44">&#34;Set in my config.cmake&#34;</span><span style="">)</span>                      
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span><span style="">set(Trilinos_ENABLE_AztecOO</span> <span style="">ON</span> <span style="">CACHE</span> <span style="">BOOL</span> <span style="color:#b44">&#34;Set in my config.cmake&#34;</span><span style="">)</span>                     
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span><span style="">set(Trilinos_ENABLE_Sacado</span> <span style="">ON</span> <span style="">CACHE</span> <span style="">BOOL</span> <span style="color:#b44">&#34;Set in my config.cmake&#34;</span><span style="">)</span>                      
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span><span style="">set(Trilinos_ENABLE_SEACAS</span> <span style="">OFF</span> <span style="">CACHE</span> <span style="">BOOL</span> <span style="color:#b44">&#34;Set in my config.cmake&#34;</span><span style="">)</span>                      
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span><span style="">set(Trilinos_ENABLE_MueLu</span> <span style="">ON</span> <span style="">CACHE</span> <span style="">BOOL</span> <span style="color:#b44">&#34;Set in my config.cmake&#34;</span><span style="">)</span>                       
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span><span style="">set(Trilinos_ENABLE_ML</span> <span style="">ON</span> <span style="">CACHE</span> <span style="">BOOL</span> <span style="color:#b44">&#34;Set in my config.cmake&#34;</span><span style="">)</span>                          
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span><span style="">set(Trilinos_ENABLE_ROL</span> <span style="">ON</span> <span style="">CACHE</span> <span style="">BOOL</span> <span style="color:#b44">&#34;Set in my config.cmake&#34;</span><span style="">)</span>                         
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span><span style="">set(Trilinos_ENABLE_Belos</span> <span style="">ON</span> <span style="">CACHE</span> <span style="">BOOL</span> <span style="color:#b44">&#34;Set in my config.cmake&#34;</span><span style="">)</span> 
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span><span style="">set(Belos_ENABLE_EXAMPLES</span> <span style="">ON</span> <span style="">CACHE</span> <span style="">BOOL</span> <span style="color:#b44">&#34;Set in my config.cmake&#34;</span><span style="">)</span> 
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span><span style="">set(Belos_ENABLE_TESTS</span> <span style="">ON</span> <span style="">CACHE</span> <span style="">BOOL</span> <span style="color:#b44">&#34;Set in my config.cmake&#34;</span><span style="">)</span>   
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span><span><span style="">set(Trilinos_ENABLE_Ifpack2</span> <span style="">ON</span> <span style="">CACHE</span> <span style="">BOOL</span> <span style="color:#b44">&#34;Set in my config.cmake&#34;</span><span style="">)</span> 
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span><span><span style="">set(Kokkos_ENABLE_SERIAL</span> <span style="">ON</span> <span style="">CACHE</span> <span style="">BOOL</span> <span style="color:#b44">&#34;Set in my config.cmake&#34;</span><span style="">)</span> 
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span><span><span style="">set(Trilinos_ENABLE_Teuchos</span> <span style="">ON</span> <span style="">CACHE</span> <span style="">BOOL</span> <span style="color:#b44">&#34;Set in my config.cmake&#34;</span><span style="">)</span> 
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span><span><span style="">set(rilinos_ENABLE_Tpetra</span> <span style="">ON</span> <span style="">CACHE</span> <span style="">BOOL</span> <span style="color:#b44">&#34;Set in my config.cmake&#34;</span><span style="">)</span>                      
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span><span><span style="">set(Tpetra_ENALE_DEPRECATED_CODE</span> <span style="">ON</span> <span style="">CACHE</span> <span style="">BOOL</span> <span style="color:#b44">&#34;Set in my config.cmake&#34;</span><span style="">)</span> 
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span><span><span style="">set(Tpetra_ENABLE_TESTS</span> <span style="">ON</span> <span style="">CACHE</span> <span style="">BOOL</span> <span style="color:#b44">&#34;Set in my config.cmake&#34;</span><span style="">)</span>  
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span><span><span style="">set(Trilinos_ENABLE_Xpetra</span> <span style="">ON</span> <span style="">CACHE</span> <span style="">BOOL</span> <span style="color:#b44">&#34;Set in my config.cmake&#34;</span><span style="">)</span> 
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26</span><span><span style="">set(Xpetra_ENABLE_Experimental</span> <span style="">ON</span> <span style="">CACHE</span> <span style="">BOOL</span> <span style="color:#b44">&#34;Set in my config.cmake&#34;</span><span style="">)</span> 
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27</span><span><span style="">set(Xpetra_ENABLE_Kokkos_Refactor</span> <span style="">ON</span> <span style="">CACHE</span> <span style="">BOOL</span> <span style="color:#b44">&#34;Set in my config.cmake&#34;</span><span style="">)</span> 
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28</span><span><span style="">set(Xpetra_ENABLE_Epetra</span> <span style="">ON</span> <span style="">CACHE</span> <span style="">BOOL</span> <span style="color:#b44">&#34;Set in my config.cmake&#34;</span><span style="">)</span> 
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29</span><span><span style="">set(Trilinos_ENABLE_Galeri</span> <span style="">ON</span> <span style="">CACHE</span> <span style="">BOOL</span> <span style="color:#b44">&#34;Set in my config.cmake&#34;</span><span style="">)</span> 
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30</span><span><span style="">set(Galeri_ENABLE_Xpetra</span> <span style="">ON</span> <span style="">CACHE</span> <span style="">BOOL</span> <span style="color:#b44">&#34;Set in my config.cmake&#34;</span><span style="">)</span> 
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31</span><span><span style="">set(Trilinos_ENABLE_COMPLEX_DOUBLE</span> <span style="">ON</span> <span style="">CACHE</span> <span style="">BOOL</span> <span style="color:#b44">&#34;Set in my config.cmake&#34;</span><span style="">)</span>              
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32</span><span><span style="">set(Trilinos_ENABLE_COMPLEX_FLOAT</span> <span style="">ON</span> <span style="">CACHE</span> <span style="">BOOL</span> <span style="color:#b44">&#34;Set in my config.cmake&#34;</span><span style="">)</span>               
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33</span><span><span style="">set(Trilinos_ENABLE_Zoltan</span> <span style="">ON</span> <span style="">CACHE</span> <span style="">BOOL</span> <span style="color:#b44">&#34;Set in my config.cmake&#34;</span><span style="">)</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34</span><span><span style="">set(Trilinos_ENABLE_PyTrilinos</span> <span style="">OFF</span> <span style="">CACHE</span> <span style="">BOOL</span> <span style="color:#b44">&#34;Set in my config.cmake&#34;</span><span style="">)</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35</span><span><span style="">set(Trilinos_VERBOSE_CONFIGURE</span> <span style="">OFF</span> <span style="">CACHE</span> <span style="">BOOL</span> <span style="color:#b44">&#34;Set in my config.cmake&#34;</span><span style="">)</span>                 
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36</span><span><span style="">set(TPL_ENABLE_MPI</span> <span style="">ON</span> <span style="">CACHE</span> <span style="">BOOL</span> <span style="color:#b44">&#34;Set in my config.cmake&#34;</span><span style="">)</span>                              
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37</span><span><span style="">set(</span> <span style="">TPL_ENABLE_BLAS</span>  <span style="">ON</span> <span style="">CACHE</span> <span style="">BOOL</span> <span style="color:#b44">&#34;Set in my config.cmake&#34;</span><span style="">)</span>    
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38</span><span><span style="">set(</span> <span style="">TPL_ENABLE_LAPACK</span> <span style="">ON</span> <span style="">CACHE</span> <span style="">BOOL</span> <span style="color:#b44">&#34;Set in my config.cmake&#34;</span><span style="">)</span>   
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39</span><span><span style="">set(</span> <span style="">TPL_ENABLE_UMFPACK</span> <span style="">ON</span> <span style="">CACHE</span> <span style="">BOOL</span> <span style="color:#b44">&#34;Set in my config.cmake&#34;</span><span style="">)</span>  
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40</span><span><span style="">set(BUILD_SHARED_LIBS</span> <span style="">ON</span> <span style="">CACHE</span> <span style="">BOOL</span> <span style="color:#b44">&#34;Set in my config.cmake&#34;</span><span style="">)</span>    
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41</span><span><span style="">set(CMAKE_VERBOSE_MAKEFILE</span> <span style="">OFF</span> <span style="">CACHE</span> <span style="">BOOL</span> <span style="color:#b44">&#34;Set in my config.cmake&#34;</span><span style="">)</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42</span><span><span style="">set(CMAKE_BUILD_TYPE</span> <span style="">RELEASE</span> <span style="">CACHE</span> <span style="">INTERNAL</span> <span style="color:#b44">&#34;Set in my config.cmake&#34;</span><span style="">)</span>           
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43</span><span><span style="">set(Trilinos_ENABLE_EXPLICIT_INSTANTIATION</span> <span style="">ON</span> <span style="">CACHE</span> <span style="">BOOL</span> <span style="color:#b44">&#34;Set in my config.cmake&#34;</span><span style="">)</span>      
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44</span><span><span style="">set(</span> <span style="">Trilinos_ASSERT_MISSING_PACKAGES</span> <span style="">ON</span> <span style="">CACHE</span> <span style="">BOOL</span> <span style="color:#b44">&#34;Set in my config.cmake&#34;</span><span style="">)</span> 
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45</span><span><span style="">set(CMAKE_MESSAGE_LOG_LEVEL</span> <span style="color:#b44">&#34;DEBUG&#34;</span> <span style="">CACHE</span> <span style="">STRING</span> <span style="color:#b44">&#34;Set in my config.cmake&#34;</span><span style="">)</span></span></span></code></pre></div>
+</div>
+<p>
+In this block, I use the source block header option with the tangle file specification.</p>
+<pre class="example">
+#+begin_src makefile :tangle ~/.local/src/Trilinos/build/trilinos-release-13-4-1/config.cmake
+</pre>
+</div>
+</div>
+<div id="outline-container-headline-3" class="outline-2">
+<h2 id="headline-3">
+Configuring and building
+</h2>
+<div id="outline-text-headline-3" class="outline-text-2">
+<p>
+Now that the configuration setting is defined and properly stored, we can continue to configure and build.</p>
+<div class="src src-sh">
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#b8860b">TRILINOS_BUILD_DIR</span><span style="color:#666">=</span>trilinos-release-13-4-1
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span><span style="color:#a2f">cd</span> ~/.local/src/Trilinos/build/<span style="color:#b8860b">$TRILINOS_BUILD_DIR</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>rm -f CMakeCache.txt
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>cmake -D <span style="color:#b8860b">Trilinos_CONFIGURE_OPTIONS_FILE</span><span style="color:#666">=</span>config.cmake ../../ | tee config.out
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>make -j32
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span>make install</span></span></code></pre></div>
+</div>
+<p>
+We can check the installation by &#34;grepping&#34; the Trilinos version in the installation directory.</p>
+<div class="src src-sh">
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>grep -R def.*TRILINOS_VERSION_STRING ~/.opt/trilinos-release-13-4-1/include</span></span></code></pre></div>
+</div>
+<pre class="example">
+/home/nasser/.opt/trilinos-release-13-4-1/include/Trilinos_version.h:#define TRILINOS_VERSION_STRING &#34;13.4.1&#34;
+</pre>
+<p>
+In Org mode, I use the <a href="https://www.google.com/url?q=https://sr.ht/~niklaseklund/detached.el/&amp;sa=U&amp;ved=2ahUKEwjNl_eA7Jn9AhXqxwIHHVsUCi4QFnoECAoQAg&amp;usg=AOvVaw1P7qtc_mkzNpopXCkrjB2n">Detached</a> package, which runs this shell command in a process independent of emacs.
+This works like an &#34;async&#34; feature, and the result is that it does not block emacs.
+It could be even used to run things on another computer.</p>
+</div>
+</div>
+<div id="outline-container-headline-4" class="outline-2">
+<h2 id="headline-4">
+Using the specific Trilinos version in a &#34;downstream&#34; application
+</h2>
+<div id="outline-text-headline-4" class="outline-text-2">
+<p>
+After installing the specific version we can use it (linking/including) in our application (a.k.a downstream application).
+The downstream application combines the Trilinos packages to solve a problem.
+For instance, use Belos Krylov solver with MueLu preconditioner to solve a linear system iteratively.</p>
+<p>
+Here I will use CMake to configure my build files to automatically find the libraries that I want to link to and include.</p>
+<div id="outline-container-headline-5" class="outline-3">
+<h3 id="headline-5">
+CMake <em>prefix path</em>
+</h3>
+<div id="outline-text-headline-5" class="outline-text-3">
+<p>
+CMake <em>config files</em> allow CMake to find the packages with <code class="verbatim">find_package</code> function.
+For Trilinos, there is this option that is turned on by default.</p>
+<div class="src src-sh">
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>grep <span style="color:#b44">&#34;ENABLE.*CMAKE_CONFIG_FILES.*BOOL&#34;</span> build/CMakeCache.txt</span></span></code></pre></div>
+</div>
+<pre class="example">
+Trilinos_ENABLE_INSTALL_CMAKE_CONFIG_FILES:BOOL=ON
+</pre>
+<p>
+On the &#34;downstream&#34; project, if a nonstandard location is used for the installation, we need to tell CMake where to look for the config files with<sup class="footnote-reference"><a id="footnote-reference-5" href="#footnote-5">5</a></sup>,</p>
+<div class="src src-sh">
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>-D <span style="color:#b8860b">CMAKE_PREFIX_PATH</span><span style="color:#666">=</span>&lt;where you installed&gt;</span></span></code></pre></div>
+</div>
+<p>
+Or in the <code>CMakeLists.txt</code> directly<sup class="footnote-reference"><a id="footnote-reference-6" href="#footnote-6">6</a></sup></p>
+<div class="src src-makefile">
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-makefile" data-lang="makefile"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="">list(APPEND</span> <span style="">CMAKE_PREFIX_PATH</span> <span style="color:#b44">&#34;&lt;where you installed&gt;&#34;</span><span style="">)</span></span></span></code></pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="footnotes">
+<hr class="footnotes-separatator">
+<div class="footnote-definitions">
+<div class="footnote-definition">
+<sup id="footnote-1"><a href="#footnote-reference-1">1</a></sup>
+<div class="footnote-body">
+<p>I like to keep packages source codes inside <code>~/.local/src</code>. The <code>~/.local</code> seems to be the <a href="https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html">standard</a> here.  </p>
+</div>
+</div>
+<div class="footnote-definition">
+<sup id="footnote-2"><a href="#footnote-reference-2">2</a></sup>
+<div class="footnote-body">
+<p>Convention: I like to build in a <code>build/</code> folder in the source directory. If multiple builds are expected one can create subdirectories for each version/configuration (a.k.a &#34;prefix&#34;).</p>
+</div>
+</div>
+<div class="footnote-definition">
+<sup id="footnote-3"><a href="#footnote-reference-3">3</a></sup>
+<div class="footnote-body">
+<p>This configuration file makes it &#34;traceable&#34;, so you know which configuration was used. </p>
+</div>
+</div>
+<div class="footnote-definition">
+<sup id="footnote-4"><a href="#footnote-reference-4">4</a></sup>
+<div class="footnote-body">
+<p>One could also &#34;install&#34; in the same build folder.  This would make things a little more contained. But, build files sometimes are often disposable and you want to keep just the libraries/header to be used elsewhere. That is why I put it in <code>/.opt/</code>, which is a local user (no need for root permission) version of ~/opt/<sup class="footnote-reference"><a id="footnote-reference-7" href="#footnote-7">7</a></sup>.</p>
+</div>
+</div>
+<div class="footnote-definition">
+<sup id="footnote-5"><a href="#footnote-reference-5">5</a></sup>
+<div class="footnote-body">
+<p><a href="https://cmake.org/cmake/help/v3.0/variable/CMAKE_PREFIX_PATH.html#:~:text=Path%20used%20for%20searching%20by,subdirectories%20to%20the%20base%20directories.">CMAKE_PREFIX_PATH — CMake 3.0.2 Documentation</a> </p>
+</div>
+</div>
+<div class="footnote-definition">
+<sup id="footnote-6"><a href="#footnote-reference-6">6</a></sup>
+<div class="footnote-body">
+<p><a href="https://stackoverflow.com/a/55122281">c++ - CMakeList set CMAKE_PREFIX_PATH - Stack Overflow</a> </p>
+</div>
+</div>
+</div>
+</div>
+
+    </div>
+  </article>
+
+   
+
+<hr />
+<h2>See Also</h2>
+<ul>
+  
+  <li><a href="../../notes/bibliography-management/">How I manage academic sources in emacs</a></li>
+  
+</ul>
+
+
+
+  
+  
+
+
+
+
+  
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+          <script type="text/javascript">
+          
+          (function() {
+              
+              
+              
+              
+          
+              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+              var disqus_shortname = 'nasseralkmim';
+              dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+          </script>
+          <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+          <a href="https://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+    </div>
+
+  
+
+
+  <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="../../">home</a></li>
+         
+          <li><a href="../../notes">notes</a></li>
+         
+          <li><a href="../../tags">tags</a></li>
+         
+          <li><a href="../../about">about</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <nav id="TableOfContents">
+<ul>
+<li><a href="#headline-1">Introduction</a>
+</li>
+<li><a href="#headline-2">Keeping track of configuration settings and versions with <code class="verbatim">:tangle</code></a>
+</li>
+<li><a href="#headline-3">Configuring and building</a>
+</li>
+<li><a href="#headline-4">Using the specific Trilinos version in a &#34;downstream&#34; application</a>
+<ul>
+<li><a href="#headline-5">CMake <em>prefix path</em></a>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fnasseralkmim.github.io%2fnotes%2fmanaging-software-versions%2f" aria-label="Facebook">
+      <i class="fab fa-facebook fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2fnasseralkmim.github.io%2fnotes%2fmanaging-software-versions%2f&text=Managing%20multiple%20software%20versions%20with%20Org-mode" aria-label="Twitter">
+      <i class="fab fa-twitter fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fnasseralkmim.github.io%2fnotes%2fmanaging-software-versions%2f&title=Managing%20multiple%20software%20versions%20with%20Org-mode" aria-label="Linkedin">
+      <i class="fab fa-linkedin fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fnasseralkmim.github.io%2fnotes%2fmanaging-software-versions%2f&is_video=false&description=Managing%20multiple%20software%20versions%20with%20Org-mode" aria-label="Pinterest">
+      <i class="fab fa-pinterest fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=Managing%20multiple%20software%20versions%20with%20Org-mode&body=Check out this article: https%3a%2f%2fnasseralkmim.github.io%2fnotes%2fmanaging-software-versions%2f" aria-label="Email">
+      <i class="fas fa-envelope fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2fnasseralkmim.github.io%2fnotes%2fmanaging-software-versions%2f&title=Managing%20multiple%20software%20versions%20with%20Org-mode" aria-label="Pocket">
+      <i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2fnasseralkmim.github.io%2fnotes%2fmanaging-software-versions%2f&title=Managing%20multiple%20software%20versions%20with%20Org-mode" aria-label="reddit">
+      <i class="fab fa-reddit fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fnasseralkmim.github.io%2fnotes%2fmanaging-software-versions%2f&name=Managing%20multiple%20software%20versions%20with%20Org-mode&description=Introduction%20Have%20you%20ever%20had%20to%20deal%20with%20multiple%20versions%20of%20the%20same%20C%2b%2b%20software%3f" aria-label="Tumblr">
+      <i class="fab fa-tumblr fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fnasseralkmim.github.io%2fnotes%2fmanaging-software-versions%2f&t=Managing%20multiple%20software%20versions%20with%20Org-mode" aria-label="Hacker News">
+      <i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      
+        <a id="menu-toggle" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;" aria-label="Menu">
+          <i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc-toggle" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;" aria-label="TOC">
+          <i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share-toggle" class="icon" href="#" onclick="$('#share-footer').toggle();return false;" aria-label="Share">
+          <i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" aria-label="Top of Page">
+          <i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+
+  <footer id="footer">
+  <div class="footer-left">
+    Copyright  &copy; 2023  Nasser 
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+        <li><a href="../../">home</a></li>
+         
+        <li><a href="../../notes">notes</a></li>
+         
+        <li><a href="../../tags">tags</a></li>
+         
+        <li><a href="../../about">about</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+
+  </div>
+</body>
+
+<link rel="stylesheet" href=../../lib/font-awesome/css/all.min.css>
+<script src=../../lib/jquery/jquery.min.js></script>
+<script src=../../js/main.js></script>
+<script src=../../js/code-copy.js></script>
+
+
+  
+
+
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']]
+    },
+    svg: {
+      fontCache: 'global'
+    }
+  };
+</script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+<script defer language="javascript" type="text/javascript"  src="../../js/dynamic-toc.js"></script>
+
+</html>
