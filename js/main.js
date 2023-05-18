@@ -111,8 +111,3 @@ $(document).ready(function() {
     }
   }
 });
-
-
-// for floating footnote
-import enableFloatingFootnotes from "./floatingFootnotes.js";
-enableFloatingFootnotes();
