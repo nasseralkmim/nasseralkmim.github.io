@@ -7,177 +7,140 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Nasser</copyright>
-    <lastBuildDate>Thu, 16 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 16 Feb 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://nasseralkmim.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>C&#43;&#43;</title>
       <link>https://nasseralkmim.github.io/tags/c&#43;&#43;/</link>
       <pubDate>Thu, 16 Feb 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://nasseralkmim.github.io/tags/c&#43;&#43;/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>emacs</title>
       <link>https://nasseralkmim.github.io/tags/emacs/</link>
       <pubDate>Thu, 16 Feb 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://nasseralkmim.github.io/tags/emacs/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>org-mode</title>
       <link>https://nasseralkmim.github.io/tags/org-mode/</link>
       <pubDate>Thu, 16 Feb 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://nasseralkmim.github.io/tags/org-mode/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>tools</title>
       <link>https://nasseralkmim.github.io/tags/tools/</link>
       <pubDate>Thu, 16 Feb 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://nasseralkmim.github.io/tags/tools/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>trilinos</title>
       <link>https://nasseralkmim.github.io/tags/trilinos/</link>
       <pubDate>Thu, 16 Feb 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://nasseralkmim.github.io/tags/trilinos/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>books</title>
       <link>https://nasseralkmim.github.io/tags/books/</link>
       <pubDate>Mon, 26 Sep 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://nasseralkmim.github.io/tags/books/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>finance</title>
       <link>https://nasseralkmim.github.io/tags/finance/</link>
       <pubDate>Sat, 18 Dec 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://nasseralkmim.github.io/tags/finance/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>how-to</title>
       <link>https://nasseralkmim.github.io/tags/how-to/</link>
       <pubDate>Sat, 18 Dec 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://nasseralkmim.github.io/tags/how-to/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>data-analysis</title>
       <link>https://nasseralkmim.github.io/tags/data-analysis/</link>
       <pubDate>Sat, 26 Dec 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://nasseralkmim.github.io/tags/data-analysis/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>portugues</title>
       <link>https://nasseralkmim.github.io/tags/portugues/</link>
       <pubDate>Sat, 26 Dec 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://nasseralkmim.github.io/tags/portugues/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>python</title>
       <link>https://nasseralkmim.github.io/tags/python/</link>
       <pubDate>Sat, 26 Dec 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://nasseralkmim.github.io/tags/python/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>risk</title>
       <link>https://nasseralkmim.github.io/tags/risk/</link>
       <pubDate>Sun, 20 Dec 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://nasseralkmim.github.io/tags/risk/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>natural-language-processing</title>
       <link>https://nasseralkmim.github.io/tags/natural-language-processing/</link>
       <pubDate>Fri, 11 Dec 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://nasseralkmim.github.io/tags/natural-language-processing/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>machine-learning</title>
       <link>https://nasseralkmim.github.io/tags/machine-learning/</link>
       <pubDate>Wed, 09 Dec 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://nasseralkmim.github.io/tags/machine-learning/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>meta</title>
       <link>https://nasseralkmim.github.io/tags/meta/</link>
       <pubDate>Thu, 03 Dec 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://nasseralkmim.github.io/tags/meta/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>favorites</title>
       <link>https://nasseralkmim.github.io/tags/favorites/</link>
       <pubDate>Sat, 20 Jan 2018 00:00:00 +0000</pubDate>
-      
       <guid>https://nasseralkmim.github.io/tags/favorites/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>math</title>
       <link>https://nasseralkmim.github.io/tags/math/</link>
       <pubDate>Mon, 20 Mar 2017 00:00:00 +0000</pubDate>
-      
       <guid>https://nasseralkmim.github.io/tags/math/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>fem</title>
       <link>https://nasseralkmim.github.io/tags/fem/</link>
       <pubDate>Thu, 18 Aug 2016 00:00:00 +0000</pubDate>
-      
       <guid>https://nasseralkmim.github.io/tags/fem/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>optimization</title>
       <link>https://nasseralkmim.github.io/tags/optimization/</link>
       <pubDate>Thu, 10 Mar 2016 00:00:00 +0000</pubDate>
-      
       <guid>https://nasseralkmim.github.io/tags/optimization/</guid>
       <description></description>
     </item>
-    
   </channel>
 </rss>

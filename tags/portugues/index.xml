@@ -7,24 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Nasser</copyright>
-    <lastBuildDate>Sat, 26 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/tags/portugues/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 26 Dec 2020 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://nasseralkmim.github.io/tags/portugues/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Performance de um portfolio</title>
       <link>https://nasseralkmim.github.io/notes/portfolio-performance/</link>
       <pubDate>Sat, 26 Dec 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://nasseralkmim.github.io/notes/portfolio-performance/</guid>
       <description>Introdução E ai?</description>
     </item>
-    
     <item>
       <title>Extrator de dividendos</title>
       <link>https://nasseralkmim.github.io/notes/extrator-dividendos/</link>
       <pubDate>Thu, 17 Dec 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://nasseralkmim.github.io/notes/extrator-dividendos/</guid>
       <description>Objetivo Dado uma série de trades, saber quanto de dividendo foi recebido até então, separado por valores mensais.</description>
     </item>
-    
   </channel>
 </rss>

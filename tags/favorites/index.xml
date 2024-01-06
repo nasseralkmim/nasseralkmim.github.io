@@ -7,15 +7,14 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Nasser</copyright>
-    <lastBuildDate>Sat, 20 Jan 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/tags/favorites/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 20 Jan 2018 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://nasseralkmim.github.io/tags/favorites/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Favorite plots and graphs</title>
       <link>https://nasseralkmim.github.io/notes/favorite-plots/</link>
       <pubDate>Sat, 20 Jan 2018 00:00:00 +0000</pubDate>
-      
       <guid>https://nasseralkmim.github.io/notes/favorite-plots/</guid>
       <description>Here I&amp;#39;m going to compile a list of my favorite graphs and plots.</description>
     </item>
-    
   </channel>
 </rss>

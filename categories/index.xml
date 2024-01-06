@@ -6,6 +6,7 @@
     <description>Recent content in Categories on Notes repository</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>Nasser</copyright><atom:link href="https://nasseralkmim.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>Nasser</copyright>
+    <atom:link href="https://nasseralkmim.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

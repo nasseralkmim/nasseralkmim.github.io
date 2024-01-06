@@ -7,33 +7,28 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Nasser</copyright>
-    <lastBuildDate>Mon, 20 Mar 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/tags/math/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 20 Mar 2017 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://nasseralkmim.github.io/tags/math/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Linear algebra change of basis explained using Python</title>
       <link>https://nasseralkmim.github.io/notes/change-of-basis/</link>
       <pubDate>Mon, 20 Mar 2017 00:00:00 +0000</pubDate>
-      
       <guid>https://nasseralkmim.github.io/notes/change-of-basis/</guid>
       <description>Motivation I&amp;#39;m always forgetting about the intuition behind the change of basis in linear algebra.</description>
     </item>
-    
     <item>
       <title>Lagrangian duality example using ob-python</title>
       <link>https://nasseralkmim.github.io/notes/lagrange-duality/</link>
       <pubDate>Thu, 10 Mar 2016 00:00:00 +0000</pubDate>
-      
       <guid>https://nasseralkmim.github.io/notes/lagrange-duality/</guid>
       <description>Introduction This is an example extracted from &amp;#34;An Introduction to Structural Optimization&amp;#34;, I also added a few extra images to clarify some points.</description>
     </item>
-    
     <item>
       <title>Lagrange multipliers example</title>
       <link>https://nasseralkmim.github.io/notes/lagrange-multiplier/</link>
       <pubDate>Thu, 03 Mar 2016 00:00:00 +0000</pubDate>
-      
       <guid>https://nasseralkmim.github.io/notes/lagrange-multiplier/</guid>
       <description>Introduction This is an experiment with org-mode and ob-python that simulates a notebok environment which mix code, text and math (latex).</description>
     </item>
-    
   </channel>
 </rss>

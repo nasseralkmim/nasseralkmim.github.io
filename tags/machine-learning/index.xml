@@ -7,24 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Nasser</copyright>
-    <lastBuildDate>Wed, 09 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 09 Dec 2020 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://nasseralkmim.github.io/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>NLP with Python</title>
       <link>https://nasseralkmim.github.io/notes/nlp-python/</link>
       <pubDate>Wed, 09 Dec 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://nasseralkmim.github.io/notes/nlp-python/</guid>
       <description>Introduction This is an attempt to compile different sources of informations about Natural Language processing with python.</description>
     </item>
-    
     <item>
       <title>Text processing with spaCy</title>
       <link>https://nasseralkmim.github.io/notes/text-processing-python/</link>
       <pubDate>Wed, 09 Dec 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://nasseralkmim.github.io/notes/text-processing-python/</guid>
       <description>Introduction spaCy is a library for Natural Language Processing (NLP) in python.</description>
     </item>
-    
   </channel>
 </rss>

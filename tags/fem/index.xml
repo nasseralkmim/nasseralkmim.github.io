@@ -7,15 +7,14 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Nasser</copyright>
-    <lastBuildDate>Thu, 18 Aug 2016 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/tags/fem/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 18 Aug 2016 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://nasseralkmim.github.io/tags/fem/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>OOP for an Extensible FEM code</title>
       <link>https://nasseralkmim.github.io/notes/oop-fem/</link>
       <pubDate>Thu, 18 Aug 2016 00:00:00 +0000</pubDate>
-      
       <guid>https://nasseralkmim.github.io/notes/oop-fem/</guid>
       <description>Introduction After a solid 2 days of research, multiple articles and thesis, I figured that the whole OOP paradigm might be the best alternative to an extensible fem code.</description>
     </item>
-    
   </channel>
 </rss>

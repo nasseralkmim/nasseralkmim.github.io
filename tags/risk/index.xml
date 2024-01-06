@@ -7,15 +7,14 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Nasser</copyright>
-    <lastBuildDate>Sun, 20 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/tags/risk/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 20 Dec 2020 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://nasseralkmim.github.io/tags/risk/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Difference between risk and uncertainty</title>
       <link>https://nasseralkmim.github.io/notes/risk-and-uncertainty/</link>
       <pubDate>Sun, 20 Dec 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://nasseralkmim.github.io/notes/risk-and-uncertainty/</guid>
       <description>I was watching this lecture from professor Andrew Loo and he presented a compelling analogy to understand the difference between risk and uncertainty.</description>
     </item>
-    
   </channel>
 </rss>

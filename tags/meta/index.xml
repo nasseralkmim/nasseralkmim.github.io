@@ -7,15 +7,14 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Nasser</copyright>
-    <lastBuildDate>Thu, 03 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/tags/meta/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 03 Dec 2020 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://nasseralkmim.github.io/tags/meta/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>First post in HUGO</title>
       <link>https://nasseralkmim.github.io/notes/first-hugo-post/</link>
       <pubDate>Thu, 03 Dec 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://nasseralkmim.github.io/notes/first-hugo-post/</guid>
       <description>Introduction Meta post about how I am creating these blog.</description>
     </item>
-    
   </channel>
 </rss>

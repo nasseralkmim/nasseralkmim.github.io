@@ -7,222 +7,175 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Nasser</copyright>
-    <lastBuildDate>Thu, 16 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://nasseralkmim.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 16 Feb 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://nasseralkmim.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Managing multiple software versions with Org-mode</title>
       <link>https://nasseralkmim.github.io/notes/managing-software-versions/</link>
       <pubDate>Thu, 16 Feb 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://nasseralkmim.github.io/notes/managing-software-versions/</guid>
       <description>Introduction Have you ever had to deal with multiple versions of the same C++ software?</description>
     </item>
-    
     <item>
       <title>2022 Books review</title>
       <link>https://nasseralkmim.github.io/notes/books-2022/</link>
       <pubDate>Mon, 26 Sep 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://nasseralkmim.github.io/notes/books-2022/</guid>
       <description>List of books Zen and the art of motorcycle maintenance About traveling On a cycle the frame is gone.</description>
     </item>
-    
     <item>
       <title>2021 Books review</title>
       <link>https://nasseralkmim.github.io/notes/books-2021/</link>
       <pubDate>Sun, 02 Jan 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://nasseralkmim.github.io/notes/books-2021/</guid>
       <description>List of books The programmer&amp;#39;s brain Confusion sources lack of knowledge, not relevant facts in the long term memory.</description>
     </item>
-    
     <item>
       <title>How to budget</title>
       <link>https://nasseralkmim.github.io/notes/how-to-budget/</link>
       <pubDate>Sat, 18 Dec 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://nasseralkmim.github.io/notes/how-to-budget/</guid>
       <description>Introduction Now that the new year is approaching, we have a perfect time for getting our personal finances in order.</description>
     </item>
-    
     <item>
       <title>Performance de um portfolio</title>
       <link>https://nasseralkmim.github.io/notes/portfolio-performance/</link>
       <pubDate>Sat, 26 Dec 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://nasseralkmim.github.io/notes/portfolio-performance/</guid>
       <description>Introdução E ai?</description>
     </item>
-    
     <item>
       <title>Finance data in python</title>
       <link>https://nasseralkmim.github.io/notes/finace-python/</link>
       <pubDate>Fri, 25 Dec 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://nasseralkmim.github.io/notes/finace-python/</guid>
       <description>Finance data in python using yahooquery.</description>
     </item>
-    
     <item>
       <title>Difference between risk and uncertainty</title>
       <link>https://nasseralkmim.github.io/notes/risk-and-uncertainty/</link>
       <pubDate>Sun, 20 Dec 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://nasseralkmim.github.io/notes/risk-and-uncertainty/</guid>
       <description>I was watching this lecture from professor Andrew Loo and he presented a compelling analogy to understand the difference between risk and uncertainty.</description>
     </item>
-    
     <item>
       <title>2020 Books review</title>
       <link>https://nasseralkmim.github.io/notes/books-2020/</link>
       <pubDate>Thu, 17 Dec 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://nasseralkmim.github.io/notes/books-2020/</guid>
       <description>Books list Kafka on the shore Murakami escreve bem, não sou especialista em romances mas a forma como ele leva a narrativa realmente é cativante e te prende.</description>
     </item>
-    
     <item>
       <title>Extrator de dividendos</title>
       <link>https://nasseralkmim.github.io/notes/extrator-dividendos/</link>
       <pubDate>Thu, 17 Dec 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://nasseralkmim.github.io/notes/extrator-dividendos/</guid>
       <description>Objetivo Dado uma série de trades, saber quanto de dividendo foi recebido até então, separado por valores mensais.</description>
     </item>
-    
     <item>
       <title>Topic modeling</title>
       <link>https://nasseralkmim.github.io/notes/topic_modelig/</link>
       <pubDate>Fri, 11 Dec 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://nasseralkmim.github.io/notes/topic_modelig/</guid>
       <description>Introduction Topic modeling is a form of semantic analysis, a step forwarding finding meaning from word counts.</description>
     </item>
-    
     <item>
       <title>NLP with Python</title>
       <link>https://nasseralkmim.github.io/notes/nlp-python/</link>
       <pubDate>Wed, 09 Dec 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://nasseralkmim.github.io/notes/nlp-python/</guid>
       <description>Introduction This is an attempt to compile different sources of informations about Natural Language processing with python.</description>
     </item>
-    
     <item>
       <title>Text processing with spaCy</title>
       <link>https://nasseralkmim.github.io/notes/text-processing-python/</link>
       <pubDate>Wed, 09 Dec 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://nasseralkmim.github.io/notes/text-processing-python/</guid>
       <description>Introduction spaCy is a library for Natural Language Processing (NLP) in python.</description>
     </item>
-    
     <item>
       <title>Question classifier preprocessing</title>
       <link>https://nasseralkmim.github.io/notes/question-classifier-python/</link>
       <pubDate>Mon, 07 Dec 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://nasseralkmim.github.io/notes/question-classifier-python/</guid>
       <description>Introduction An example from the book by Aman Kedia.</description>
     </item>
-    
     <item>
       <title>Sentiment analysis on IMDB dataset</title>
       <link>https://nasseralkmim.github.io/notes/sentiment-analysis-python/sentiment-analysis/</link>
       <pubDate>Fri, 04 Dec 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://nasseralkmim.github.io/notes/sentiment-analysis-python/sentiment-analysis/</guid>
       <description>Introduction This is as exemple from the excellent book by François Chollet on deep learning.</description>
     </item>
-    
     <item>
       <title>First post in HUGO</title>
       <link>https://nasseralkmim.github.io/notes/first-hugo-post/</link>
       <pubDate>Thu, 03 Dec 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://nasseralkmim.github.io/notes/first-hugo-post/</guid>
       <description>Introduction Meta post about how I am creating these blog.</description>
     </item>
-    
     <item>
       <title>2019 Books review</title>
       <link>https://nasseralkmim.github.io/notes/books-2019/</link>
       <pubDate>Sat, 05 Jan 2019 00:00:00 +0000</pubDate>
-      
       <guid>https://nasseralkmim.github.io/notes/books-2019/</guid>
       <description>Books list Never let me go Ficção sobre uma realidade distópica onde nós criamos clones para suprir nossas necessidades de órgãos.</description>
     </item>
-    
     <item>
       <title>2018 Books review</title>
       <link>https://nasseralkmim.github.io/notes/books-2018/</link>
       <pubDate>Thu, 31 May 2018 00:00:00 +0000</pubDate>
-      
       <guid>https://nasseralkmim.github.io/notes/books-2018/</guid>
       <description>Books list The Dao of capital Esse livro mostra a estratégia de investimento do Mark Spitznagel.</description>
     </item>
-    
     <item>
       <title>2017 Books review</title>
       <link>https://nasseralkmim.github.io/notes/books-2017/</link>
       <pubDate>Mon, 02 Apr 2018 00:00:00 +0000</pubDate>
-      
       <guid>https://nasseralkmim.github.io/notes/books-2017/</guid>
       <description>Books list Antifragile Livro essencial para todos.</description>
     </item>
-    
     <item>
       <title>Favorite plots and graphs</title>
       <link>https://nasseralkmim.github.io/notes/favorite-plots/</link>
       <pubDate>Sat, 20 Jan 2018 00:00:00 +0000</pubDate>
-      
       <guid>https://nasseralkmim.github.io/notes/favorite-plots/</guid>
       <description>Here I&amp;#39;m going to compile a list of my favorite graphs and plots.</description>
     </item>
-    
     <item>
       <title>Linear algebra change of basis explained using Python</title>
       <link>https://nasseralkmim.github.io/notes/change-of-basis/</link>
       <pubDate>Mon, 20 Mar 2017 00:00:00 +0000</pubDate>
-      
       <guid>https://nasseralkmim.github.io/notes/change-of-basis/</guid>
       <description>Motivation I&amp;#39;m always forgetting about the intuition behind the change of basis in linear algebra.</description>
     </item>
-    
     <item>
       <title>How I manage academic sources in emacs</title>
       <link>https://nasseralkmim.github.io/notes/bibliography-management/</link>
       <pubDate>Thu, 23 Feb 2017 00:00:00 +0000</pubDate>
-      
       <guid>https://nasseralkmim.github.io/notes/bibliography-management/</guid>
       <description>Introduction In this post I will go over my workflow for managing academic resources and seamless add citation into a $\LaTeX$ file.</description>
     </item>
-    
     <item>
       <title>OOP for an Extensible FEM code</title>
       <link>https://nasseralkmim.github.io/notes/oop-fem/</link>
       <pubDate>Thu, 18 Aug 2016 00:00:00 +0000</pubDate>
-      
       <guid>https://nasseralkmim.github.io/notes/oop-fem/</guid>
       <description>Introduction After a solid 2 days of research, multiple articles and thesis, I figured that the whole OOP paradigm might be the best alternative to an extensible fem code.</description>
     </item>
-    
     <item>
       <title>Lagrangian duality example using ob-python</title>
       <link>https://nasseralkmim.github.io/notes/lagrange-duality/</link>
       <pubDate>Thu, 10 Mar 2016 00:00:00 +0000</pubDate>
-      
       <guid>https://nasseralkmim.github.io/notes/lagrange-duality/</guid>
       <description>Introduction This is an example extracted from &amp;#34;An Introduction to Structural Optimization&amp;#34;, I also added a few extra images to clarify some points.</description>
     </item>
-    
     <item>
       <title>Lagrange multipliers example</title>
       <link>https://nasseralkmim.github.io/notes/lagrange-multiplier/</link>
       <pubDate>Thu, 03 Mar 2016 00:00:00 +0000</pubDate>
-      
       <guid>https://nasseralkmim.github.io/notes/lagrange-multiplier/</guid>
       <description>Introduction This is an experiment with org-mode and ob-python that simulates a notebok environment which mix code, text and math (latex).</description>
     </item>
-    
   </channel>
 </rss>
