@@ -7,8 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Nasser</copyright>
-    <lastBuildDate>Sat, 18 Dec 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 06 Jan 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://nasseralkmim.github.io/tags/finance/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Computing returns with plain text account tools</title>
+      <link>https://nasseralkmim.github.io/notes/pta-computing-returns/</link>
+      <pubDate>Sat, 06 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>https://nasseralkmim.github.io/notes/pta-computing-returns/</guid>
+      <description>Introduction In this post, I go over an example of how to compute returns using a plain text accounting (PTA) tool hledger.</description>
+    </item>
     <item>
       <title>How to budget</title>
       <link>https://nasseralkmim.github.io/notes/how-to-budget/</link>
