@@ -1,6 +1,3 @@
-import enableFloatingFootnotes from "./floating-footnotes.js";
-enableFloatingFootnotes();
-
 /**
  * Sets up Justified Gallery.
  */
