@@ -7,8 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Nasser</copyright>
-    <lastBuildDate>Sat, 06 Jan 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 07 Jan 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://nasseralkmim.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Comparing portfolio returns with benchmark</title>
+      <link>https://nasseralkmim.github.io/notes/pta-comparing-benchmark/</link>
+      <pubDate>Sun, 07 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>https://nasseralkmim.github.io/notes/pta-comparing-benchmark/</guid>
+      <description>Introduction In this post I go over an example of computing a portfolio return (TWR) and comparing it each month with a benchmark.</description>
+    </item>
     <item>
       <title>Computing returns with plain text account tools</title>
       <link>https://nasseralkmim.github.io/notes/pta-computing-returns/</link>
