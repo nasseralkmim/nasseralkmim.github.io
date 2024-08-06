@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <link rel="preload" href="../../lib/font-awesome/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="../../lib/font-awesome/webfonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="../../lib/font-awesome/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="../../lib/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <script type="text/javascript" src="https://latest.cactus.chat/cactus.js"></script>
+  <link rel="stylesheet" href="https://latest.cactus.chat/style.css" type="text/css">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title> How to use kitty | Notes repository</title>
+  <link rel = 'canonical' href = 'https://nasseralkmim.github.io/notes/emacs-tmux-kitty/'>
+  <meta name="description" content="This is a page where I collect some of my post-worthy notes and some projects that I have worked on.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="all,follow">
+  <meta name="googlebot" content="index,follow,snippet,archive">
+  <meta property="og:title" content="How to use kitty" />
+<meta property="og:description" content="Using some emacs shortcuts in the terminal is rough." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://nasseralkmim.github.io/notes/emacs-tmux-kitty/" /><meta property="article:section" content="notes" />
+<meta property="article:published_time" content="2024-08-06T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-08-06T18:14:50+00:00" />
+
+
+  <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="How to use kitty"/>
+<meta name="twitter:description" content="Using some emacs shortcuts in the terminal is rough."/>
+
+  
+  
+    
+  
+  
+  <link rel="stylesheet" href="https://nasseralkmim.github.io/css/styles.cfcfd5631b3e66ebdd88ed02b4aa0abf7dd0a37899a474cf0c3899ed73e22a4f9a90439c9b3abe475e584ba94a22a965d782682dcfebd485052d0b2358eb891a.css" integrity="sha512-z8/VYxs&#43;ZuvdiO0CtKoKv33Qo3iZpHTPDDiZ7XPiKk&#43;akEOcmzq&#43;R15YS6lKIqll14JoLc/r1IUFLQsjWOuJGg=="> 
+
+  
+  
+  
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+
+  
+<link rel="icon" type="image/png" href="https://nasseralkmim.github.io/images/favicon.ico" />
+
+  
+  
+  
+  
+  
+    
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-74704246-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+  
+  
+<script src=../../js/toc.js></script>
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+  <div class="content index py4">
+
+  <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;" aria-label="Top of Page"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+        <li><a href="../../">home</a></li>
+         
+        <li><a href="../../notes">notes</a></li>
+         
+        <li><a href="../../tags">tags</a></li>
+         
+        <li><a href="../../about">about</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li>
+          <a class="icon" href=" https://nasseralkmim.github.io/notes/pta-comparing-benchmark/" aria-label="Previous">
+            <i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i>
+          </a>
+        </li>
+        
+        
+        <li>
+          <a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" aria-label="Top of Page">
+            <i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i>
+          </a>
+        </li>
+        <li>
+          <a class="icon" href="#" aria-label="Share">
+            <i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i>
+          </a>
+        </li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fnasseralkmim.github.io%2fnotes%2femacs-tmux-kitty%2f" aria-label="Facebook">
+      <i class="fab fa-facebook " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2fnasseralkmim.github.io%2fnotes%2femacs-tmux-kitty%2f&text=How%20to%20use%20kitty" aria-label="Twitter">
+      <i class="fab fa-twitter " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fnasseralkmim.github.io%2fnotes%2femacs-tmux-kitty%2f&title=How%20to%20use%20kitty" aria-label="Linkedin">
+      <i class="fab fa-linkedin " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fnasseralkmim.github.io%2fnotes%2femacs-tmux-kitty%2f&is_video=false&description=How%20to%20use%20kitty" aria-label="Pinterest">
+      <i class="fab fa-pinterest " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=How%20to%20use%20kitty&body=Check out this article: https%3a%2f%2fnasseralkmim.github.io%2fnotes%2femacs-tmux-kitty%2f" aria-label="Email">
+      <i class="fas fa-envelope " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2fnasseralkmim.github.io%2fnotes%2femacs-tmux-kitty%2f&title=How%20to%20use%20kitty" aria-label="Pocket">
+      <i class="fab fa-get-pocket " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2fnasseralkmim.github.io%2fnotes%2femacs-tmux-kitty%2f&title=How%20to%20use%20kitty" aria-label="reddit">
+      <i class="fab fa-reddit " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fnasseralkmim.github.io%2fnotes%2femacs-tmux-kitty%2f&name=How%20to%20use%20kitty&description=Using%20some%20emacs%20shortcuts%20in%20the%20terminal%20is%20rough." aria-label="Tumblr">
+      <i class="fab fa-tumblr " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fnasseralkmim.github.io%2fnotes%2femacs-tmux-kitty%2f&t=How%20to%20use%20kitty" aria-label="Hacker News">
+      <i class="fab fa-hacker-news " aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+    
+    <div id="toc">
+      
+    </div>
+    
+  </span>
+</div>
+
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+    <header>
+      <h1 class="posttitle" itemprop="name headline">
+        How to use kitty
+      </h1>
+      <div class="meta">
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="postdate">
+          
+          <time datetime="2024-08-06 00:00:00 &#43;0000 UTC" itemprop="datePublished">Aug 6 2024</time>
+          
+            (Updated: <time datetime="2024-08-06 18:14:50 &#43;0000 UTC" itemprop="dateModified">Aug 6 2024</time>)
+          
+        </div>
+        
+        
+        <div class="article-read-time">
+          <i class="far fa-clock"></i>
+          
+          1 minute read
+        </div>
+        
+        
+        
+        <div class="article-tag">
+            <i class="fas fa-tag"></i>
+            
+            
+            <a class="tag-link" href="../../tags/emacs" rel="tag">emacs,</a>
+            
+             ,  
+            <a class="tag-link" href="../../tags/tmux" rel="tag">tmux,</a>
+            
+             ,  
+            <a class="tag-link" href="../../tags/kitty" rel="tag">kitty</a>
+            
+        </div>
+        
+      </div>
+    </header>
+
+  
+    
+    <div class="content" itemprop="articleBody">
+      <p>
+Using some emacs shortcuts in the terminal is rough.
+For example, I use <code class="verbatim">C-;</code> for <code class="verbatim">iedit-mode</code>, regular terminal emulators can not recognize that.
+This is specially the case when using tmux or mosh.
+With kitty&#39;s keyboard protocol<sup class="footnote-reference"><a id="footnote-reference-1" href="#footnote-1">1</a></sup> and emacs&#39;s kkp<sup class="footnote-reference"><a id="footnote-reference-2" href="#footnote-2">2</a></sup> package, this can be solved and AFAIK any emacs keybindings can be reproduced in the terminal.</p>
+<p>
+One minor inconvenience, is that, when working remotely, with tmux, this keyboard protocol is not implemented.
+There was some discussion<sup class="footnote-reference"><a id="footnote-reference-3" href="#footnote-3">3</a></sup> about it, but it is not done yet.</p>
+<p>
+One solution I found with emacs, is to run a emacs server inside tmux, detaching, and run a emacsclient outside tmux.
+This gives us emacs with full keybindings capabilities, running in a persistent server inside tmux.
+In case our connection with the remote is lost, we can just connect to the emacs server inside tmux.</p>
+<div class="footnotes">
+<hr class="footnotes-separatator">
+<div class="footnote-definitions">
+<div class="footnote-definition">
+<sup id="footnote-1"><a href="#footnote-reference-1">1</a></sup>
+<div class="footnote-body">
+<p><a href="https://sw.kovidgoyal.net/kitty/keyboard-protocol/">https://sw.kovidgoyal.net/kitty/keyboard-protocol/</a> </p>
+</div>
+</div>
+<div class="footnote-definition">
+<sup id="footnote-2"><a href="#footnote-reference-2">2</a></sup>
+<div class="footnote-body">
+<p><a href="https://github.com/benjaminor/kkp">https://github.com/benjaminor/kkp</a> </p>
+</div>
+</div>
+<div class="footnote-definition">
+<sup id="footnote-3"><a href="#footnote-reference-3">3</a></sup>
+<div class="footnote-body">
+<p><a href="https://github.com/tmux/tmux/issues/3335">https://github.com/tmux/tmux/issues/3335</a> </p>
+</div>
+</div>
+</div>
+</div>
+
+    </div>
+  </article>
+
+   
+
+
+
+  
+  
+
+
+
+
+  <div class="blog-post-comments">
+    
+      <div id="disqus_thread">
+  <script type="text/javascript">
+    (function() {
+      
+      
+      
+      
+    
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'nasseralkmim';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="https://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+    
+  </div>
+
+
+
+  <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="../../">home</a></li>
+         
+          <li><a href="../../notes">notes</a></li>
+         
+          <li><a href="../../tags">tags</a></li>
+         
+          <li><a href="../../about">about</a></li>
+        
+      </ul>
+    </div>
+
+    
+    <div id="toc-footer" style="display: none">
+      
+    </div>
+    
+
+    <div id="share-footer" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fnasseralkmim.github.io%2fnotes%2femacs-tmux-kitty%2f" aria-label="Facebook">
+      <i class="fab fa-facebook fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2fnasseralkmim.github.io%2fnotes%2femacs-tmux-kitty%2f&text=How%20to%20use%20kitty" aria-label="Twitter">
+      <i class="fab fa-twitter fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fnasseralkmim.github.io%2fnotes%2femacs-tmux-kitty%2f&title=How%20to%20use%20kitty" aria-label="Linkedin">
+      <i class="fab fa-linkedin fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fnasseralkmim.github.io%2fnotes%2femacs-tmux-kitty%2f&is_video=false&description=How%20to%20use%20kitty" aria-label="Pinterest">
+      <i class="fab fa-pinterest fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=How%20to%20use%20kitty&body=Check out this article: https%3a%2f%2fnasseralkmim.github.io%2fnotes%2femacs-tmux-kitty%2f" aria-label="Email">
+      <i class="fas fa-envelope fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2fnasseralkmim.github.io%2fnotes%2femacs-tmux-kitty%2f&title=How%20to%20use%20kitty" aria-label="Pocket">
+      <i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2fnasseralkmim.github.io%2fnotes%2femacs-tmux-kitty%2f&title=How%20to%20use%20kitty" aria-label="reddit">
+      <i class="fab fa-reddit fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fnasseralkmim.github.io%2fnotes%2femacs-tmux-kitty%2f&name=How%20to%20use%20kitty&description=Using%20some%20emacs%20shortcuts%20in%20the%20terminal%20is%20rough." aria-label="Tumblr">
+      <i class="fab fa-tumblr fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fnasseralkmim.github.io%2fnotes%2femacs-tmux-kitty%2f&t=How%20to%20use%20kitty" aria-label="Hacker News">
+      <i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      
+        <a id="menu-toggle" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;" aria-label="Menu">
+          <i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+        <a id="toc-toggle" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;" aria-label="TOC">
+          <i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share-toggle" class="icon" href="#" onclick="$('#share-footer').toggle();return false;" aria-label="Share">
+          <i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" aria-label="Top of Page">
+          <i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+
+  <footer id="footer">
+  <div class="footer-left">
+    Copyright  &copy; 2024  Nasser 
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+        <li><a href="../../">home</a></li>
+         
+        <li><a href="../../notes">notes</a></li>
+         
+        <li><a href="../../tags">tags</a></li>
+         
+        <li><a href="../../about">about</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+
+  </div>
+</body>
+
+<link rel="stylesheet" href=../../lib/font-awesome/css/all.min.css>
+<script src=../../lib/jquery/jquery.min.js></script>
+<script src=../../js/main.js></script>
+
+<script src=../../js/code-copy.js></script>
+
+
+
+  
+
+
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']]
+    },
+    svg: {
+      fontCache: 'global'
+    }
+  };
+</script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+<script defer language="javascript" type="text/javascript"  src="../../js/dynamic-toc.js"></script>
+
+</html>
